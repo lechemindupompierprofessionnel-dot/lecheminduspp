@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Demande reçue — Le Chemin du SPP</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --cream:#F5F0E8;--charcoal:#1C1C1C;--gray:#6B6560;--gray-light:#9B9590;
+  --red:#B83232;--red-dark:#8B2020;--border:#D8D0C2;--white:#FFFFFF;
+}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+.card{max-width:540px;width:100%;text-align:center}
+.icon{width:72px;height:72px;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;animation:popIn .5s cubic-bezier(.22,1,.36,1)}
+@keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+.eyebrow{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:10px}
+.title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,4vw,2.5rem);font-weight:900;color:var(--charcoal);line-height:1.15;margin-bottom:12px}
+.title em{color:var(--red);font-style:italic}
+.divider{width:40px;height:2px;background:var(--red);margin:0 auto 24px}
+.lead{font-size:.97rem;color:var(--gray);line-height:1.85;margin-bottom:24px}
+.recap{background:var(--white);border:1px solid var(--border);border-left:3px solid var(--red);padding:16px 20px;text-align:left;margin-bottom:28px;font-size:.9rem;line-height:1.8;color:var(--charcoal);display:none}
+.steps{background:var(--white);border:1px solid var(--border);padding:28px 32px;margin-bottom:28px;text-align:left}
+.steps-label{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:16px}
+.step{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px}
+.step:last-child{margin-bottom:0}
+.step-num{width:26px;height:26px;background:var(--red);color:white;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:.85rem;font-weight:700;flex-shrink:0}
+.step-title{font-size:.88rem;font-weight:600;color:var(--charcoal);margin-bottom:3px}
+.step-text{font-size:.8rem;color:var(--gray);line-height:1.55}
+.btn{display:inline-block;width:100%;padding:15px 20px;background:var(--red);color:white;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;border:none;cursor:pointer;text-decoration:none;text-align:center;transition:background .2s}
+.btn:hover{background:var(--red-dark)}
+.countdown{margin-top:14px;font-size:.8rem;color:var(--gray-light)}
+.countdown strong{color:var(--charcoal)}
+.signature{margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:.85rem;color:var(--gray);line-height:1.7}
+</style>
+</head>
+<body>
+<div class="card">
+
+  <div class="icon">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+  </div>
+
+  <div class="eyebrow">Demande reçue</div>
+  <div class="title">Ta séance est<br><em>en cours de confirmation</em></div>
+  <div class="divider"></div>
+
+  <p class="lead">
+    Ton paiement a bien été reçu.<br>
+    <strong style="color:var(--charcoal)">Un email vient de t'être envoyé</strong> avec le récapitulatif de ta demande.<br><br>
+    Je reviens vers toi <strong style="color:var(--charcoal)">sous 24h</strong> pour accepter ta demande et te confirmer l'horaire exact de ton rendez-vous.
+  </p>
+
+  <div class="recap" id="recap"></div>
+
+  <div class="steps">
+    <div class="steps-label">Ce qui se passe maintenant</div>
+    <div class="step">
+      <div class="step-num">1</div>
+      <div>
+        <div class="step-title">Vérifie ta boîte mail</div>
+        <div class="step-text">Tu as reçu un email de confirmation. Vérifie tes spams si tu ne le vois pas.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div>
+        <div class="step-title">Je reviens vers toi sous 24h</div>
+        <div class="step-text">J'accepte ta demande et te confirme l'horaire exact par email ou WhatsApp.</div>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div>
+        <div class="step-title">Ta séance</div>
+        <div class="step-text">Tu reçois le lien visio avant la séance — durée : 60–90 min.</div>
+      </div>
+    </div>
+  </div>
+
+  <a class="btn" href="https://69dce858d5ca69297806f164--shiny-marshmallow-8bb5a5.netlify.app/">Retour à l'accueil →</a>
+  <div class="countdown">Redirection automatique dans <strong id="countdown">10</strong>s</div>
+
+  <div class="signature">
+    <em>« Tu as fait le bon choix. À très vite. »</em><br>
+    <strong style="color:var(--charcoal)">— Quentin, Le Chemin du SPP</strong>
+  </div>
+
+</div>
+
+<script>
+// Récap depuis localStorage
+var name  = localStorage.getItem('booking_name');
+var email = localStorage.getItem('booking_email');
+var date  = localStorage.getItem('booking_date');
+var time  = localStorage.getItem('booking_time');
+if(name && date) {
+  var r = document.getElementById('recap');
+  r.style.display = 'block';
+  r.innerHTML = '📅 <strong>'+date+'</strong> &nbsp;·&nbsp; 🕐 <strong>'+time+'</strong><br>'
+    +'<span style="font-size:.82rem;color:var(--gray-light)">Demande pour '+name+(email?' — confirmation envoyée à '+email:'')+'</span>';
+  localStorage.removeItem('booking_name');
+  localStorage.removeItem('booking_email');
+  localStorage.removeItem('booking_date');
+  localStorage.removeItem('booking_time');
+}
+
+// Countdown retour accueil
+var n = 10;
+var el = document.getElementById('countdown');
+var t = setInterval(function(){
+  n--;
+  if(el) el.textContent = n;
+  if(n <= 0){ clearInterval(t); window.location.href = 'https://69dce858d5ca69297806f164--shiny-marshmallow-8bb5a5.netlify.app/'; }
+}, 1000);
+</script>
+</body>
+</html>
