@@ -6,6 +6,27 @@
 <title>Le Chemin du Sapeur-Pompier Professionnel</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <script src="https://static.memberstack.com/scripts/v2/memberstack.js" data-memberstack-app="app_cmnwwalte000o0sv26iasaw3s" type="text/javascript"></script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.min.js"></script>
+<script>
+// ===== Configuration Supabase =====
+window.SUPABASE_URL = 'https://epqduhruotkquyrvacqp.supabase.co';
+window.SUPABASE_KEY = 'sb_publishable_YbfB0Xj-2hUCF-pgJWYB4w_qBuyOx7Y';
+window.supabaseClient = null;
+document.addEventListener('DOMContentLoaded', function(){
+  if (window.supabase && typeof window.supabase.createClient === 'function') {
+    try {
+      window.supabaseClient = window.supabase.createClient(window.SUPABASE_URL, window.SUPABASE_KEY, {
+        auth: { persistSession: false, autoRefreshToken: false }
+      });
+      console.log('SUPABASE: client initialisé');
+    } catch(e) {
+      console.warn('SUPABASE: erreur init', e);
+    }
+  } else {
+    console.warn('SUPABASE: librairie non chargée');
+  }
+});
+</script>
 <script>
 document.addEventListener('DOMContentLoaded', function(){
   var interval = setInterval(function(){
@@ -230,6 +251,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .biblio-name{font-size:.9rem;font-weight:600;color:var(--charcoal);line-height:1.4;margin-bottom:6px}
 .biblio-meta{font-size:.78rem;color:var(--gray-light)}
 .biblio-lock{position:absolute;top:10px;right:10px;font-size:.9rem}
+body.is-member .biblio-lock{display:none}
+body.is-member .biblio-overlay p{content:'';display:none}
+body.is-member .biblio-overlay::before{content:'Ouvrir le document';font-size:.85rem;color:var(--charcoal);font-weight:600;margin-bottom:12px;text-align:center}
 .biblio-overlay{position:absolute;inset:0;background:rgba(245,240,232,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
 .biblio-card:hover .biblio-overlay{opacity:1}
 .biblio-overlay p{font-size:.8rem;color:var(--gray);margin-bottom:12px;text-align:center;padding:0 16px}
@@ -496,6 +520,136 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 .member-logout:hover{border-color:var(--charcoal);color:var(--charcoal)}
 .member-name{font-size:.8rem;color:var(--gray);margin-right:4px}
 
+/* ===== ESPACE CANDIDAT ===== */
+.esp-wrap{max-width:1180px;margin:0 auto;padding:40px 5% 80px}
+.esp-header{background:white;border:1px solid var(--border);padding:32px 36px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
+.esp-greet{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal);line-height:1.2;margin-bottom:6px}
+.esp-greet em{color:var(--red);font-style:italic}
+.esp-subgreet{font-size:.9rem;color:var(--gray);line-height:1.6}
+.esp-streak{background:var(--cream2);border:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;gap:12px}
+.esp-streak-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--red);line-height:1}
+.esp-streak-lbl{font-size:.72rem;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+
+/* Stats overview */
+.esp-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:36px}
+.esp-stat{background:white;border:1px solid var(--border);padding:22px 20px;position:relative;overflow:hidden}
+.esp-stat::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--red)}
+.esp-stat-num{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:900;color:var(--charcoal);line-height:1;margin-bottom:6px}
+.esp-stat-lbl{font-size:.72rem;color:var(--gray);letter-spacing:1.2px;text-transform:uppercase;font-weight:600}
+.esp-stat-sub{font-size:.78rem;color:var(--gray-light);margin-top:4px}
+
+/* Priorité de révision */
+.esp-priority{background:var(--charcoal);color:white;padding:28px 32px;margin-bottom:36px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;position:relative;overflow:hidden}
+.esp-priority::before{content:'';position:absolute;top:0;right:0;width:6px;height:100%;background:var(--red)}
+.esp-priority-lbl{font-size:.72rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:rgba(255,255,255,.55);margin-bottom:8px}
+.esp-priority-cat{font-family:'Playfair Display',serif;font-size:1.5rem;line-height:1.3;margin-bottom:6px}
+.esp-priority-cat em{color:var(--red-light);font-style:normal;font-weight:700}
+.esp-priority-desc{font-size:.85rem;color:rgba(255,255,255,.75);line-height:1.6;max-width:520px}
+.esp-priority-btn{background:var(--red);color:white;border:none;padding:14px 28px;font-size:.82rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;font-family:'DM Sans',sans-serif;transition:background .2s;white-space:nowrap}
+.esp-priority-btn:hover{background:var(--red-light)}
+
+/* Section titles */
+.esp-section-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:6px}
+.esp-section-sub{font-size:.86rem;color:var(--gray);margin-bottom:20px;line-height:1.6}
+.esp-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+
+/* Performances par catégorie */
+.esp-cats{background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:36px}
+.esp-cat-row{display:grid;grid-template-columns:1.8fr 1fr 60px;gap:16px;align-items:center;padding:14px 0;border-bottom:1px solid var(--border-light)}
+.esp-cat-row:last-child{border-bottom:none}
+.esp-cat-name{font-size:.92rem;color:var(--charcoal);font-weight:500}
+.esp-cat-name-sub{font-size:.75rem;color:var(--gray-light);margin-top:2px}
+.esp-cat-bar-wrap{position:relative;height:8px;background:var(--border-light)}
+.esp-cat-bar{position:absolute;top:0;left:0;height:100%;transition:width .6s cubic-bezier(.22,1,.36,1)}
+.esp-cat-bar.low{background:var(--red)}
+.esp-cat-bar.mid{background:var(--gold-light)}
+.esp-cat-bar.high{background:#2d7a3a}
+.esp-cat-pct{text-align:right;font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--charcoal)}
+.esp-cat-pct.untouched{color:var(--gray-light);font-size:.85rem;font-family:'DM Sans',sans-serif;font-weight:500;font-style:italic}
+.esp-cats-empty{text-align:center;padding:40px 20px;color:var(--gray)}
+.esp-cats-empty-icon{font-size:2.2rem;margin-bottom:12px}
+
+/* Documents récents */
+.esp-docs{background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:36px}
+.esp-doc-item{display:flex;align-items:center;gap:16px;padding:14px 0;border-bottom:1px solid var(--border-light)}
+.esp-doc-item:last-child{border-bottom:none}
+.esp-doc-icon{width:44px;height:44px;background:var(--cream2);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0}
+.esp-doc-info{flex:1;min-width:0}
+.esp-doc-name{font-size:.9rem;color:var(--charcoal);font-weight:500;margin-bottom:2px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.esp-doc-meta{font-size:.75rem;color:var(--gray-light)}
+.esp-doc-when{font-size:.78rem;color:var(--gray);white-space:nowrap;font-weight:500}
+.esp-docs-empty{text-align:center;padding:40px 20px;color:var(--gray)}
+
+/* Historique sessions */
+.esp-sessions{background:white;border:1px solid var(--border);padding:28px 32px}
+.esp-sess-item{display:grid;grid-template-columns:auto 1fr auto auto;gap:16px;align-items:center;padding:12px 0;border-bottom:1px solid var(--border-light);font-size:.88rem}
+.esp-sess-item:last-child{border-bottom:none}
+.esp-sess-date{font-size:.78rem;color:var(--gray-light);white-space:nowrap}
+.esp-sess-title{color:var(--charcoal);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.esp-sess-score{font-family:'Playfair Display',serif;font-weight:700;color:var(--charcoal)}
+.esp-sess-pct{padding:3px 10px;font-size:.72rem;font-weight:700;letter-spacing:.5px}
+.esp-sess-pct.low{background:var(--red-pale);color:var(--red)}
+.esp-sess-pct.mid{background:#f5ecd8;color:var(--gold)}
+.esp-sess-pct.high{background:#e5f3e7;color:#2d7a3a}
+
+/* Reset stats */
+.esp-reset{text-align:center;margin-top:32px}
+.esp-reset-btn{background:none;border:1px solid var(--border);color:var(--gray-light);padding:8px 16px;font-size:.75rem;cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .2s}
+.esp-reset-btn:hover{border-color:var(--red);color:var(--red)}
+
+/* État "pas encore de data" */
+.esp-empty-hero{background:white;border:1px solid var(--border);padding:60px 40px;text-align:center;margin-bottom:24px}
+.esp-empty-icon{font-size:3rem;margin-bottom:20px}
+.esp-empty-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--charcoal);margin-bottom:10px}
+.esp-empty-text{font-size:.92rem;color:var(--gray);line-height:1.7;max-width:480px;margin:0 auto 24px}
+
+/* Accès refusé (non-membre) */
+.esp-locked{background:white;border:1px solid var(--border);padding:60px 40px;text-align:center;max-width:560px;margin:80px auto}
+.esp-locked-icon{font-size:2.6rem;margin-bottom:18px}
+.esp-locked-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:10px}
+.esp-locked-text{font-size:.92rem;color:var(--gray);line-height:1.7;margin-bottom:28px}
+
+/* Responsive */
+@media(max-width:900px){
+  .esp-stats{grid-template-columns:repeat(2,1fr)}
+  .esp-cat-row{grid-template-columns:1.5fr 1fr 50px;gap:10px}
+  .esp-priority{flex-direction:column;align-items:flex-start}
+  .esp-sess-item{grid-template-columns:1fr auto;gap:6px}
+  .esp-sess-date{grid-column:1/-1;order:-1}
+}
+@media(max-width:560px){
+  .esp-stats{grid-template-columns:1fr 1fr}
+  .esp-stat-num{font-size:1.7rem}
+  .esp-header{padding:24px 20px}
+  .esp-cats,.esp-docs,.esp-sessions{padding:20px}
+  .esp-cat-row{grid-template-columns:1fr}
+  .esp-cat-pct{text-align:left}
+}
+
+/* ===== VIEWER PDF PROTÉGÉ ===== */
+#pdf-viewer-overlay{position:fixed;inset:0;z-index:9997;background:rgba(28,18,12,0.88);backdrop-filter:blur(6px);display:none;align-items:center;justify-content:center;padding:20px}
+#pdf-viewer-overlay.visible{display:flex}
+#pdf-viewer-box{background:var(--cream);max-width:1100px;width:100%;height:92vh;display:flex;flex-direction:column;box-shadow:0 32px 80px rgba(0,0,0,0.4);position:relative}
+.pdf-viewer-header{display:flex;align-items:center;justify-content:space-between;padding:14px 20px;background:var(--charcoal);color:white;border-bottom:1px solid var(--red)}
+.pdf-viewer-title{font-family:'Playfair Display',serif;font-size:1rem;font-weight:700;color:white;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-right:12px}
+.pdf-viewer-meta{font-size:.72rem;color:rgba(255,255,255,.55);letter-spacing:1.2px;text-transform:uppercase;font-weight:600;margin-bottom:2px}
+.pdf-viewer-close{background:none;border:1px solid rgba(255,255,255,0.3);color:white;padding:6px 14px;cursor:pointer;font-size:.78rem;font-weight:600;font-family:'DM Sans',sans-serif;transition:all .2s}
+.pdf-viewer-close:hover{background:var(--red);border-color:var(--red)}
+.pdf-viewer-body{flex:1;position:relative;overflow:hidden;background:#2a2320;-webkit-user-select:none;user-select:none}
+.pdf-viewer-iframe{width:100%;height:100%;border:none;display:block}
+.pdf-viewer-notice{background:var(--red-pale);border-top:1px solid var(--border);padding:10px 20px;font-size:.75rem;color:var(--red-dark);text-align:center;line-height:1.5}
+.pdf-viewer-notice strong{font-weight:700}
+/* Empêche l'impression de tout le contenu quand le viewer est ouvert */
+@media print{
+  #pdf-viewer-overlay.visible ~ *, body.pdf-open > *:not(#pdf-viewer-overlay){display:none !important}
+  body.pdf-open #pdf-viewer-overlay{display:none !important}
+  body.pdf-open::before{content:'Impression non autorisée — Le Chemin du SPP';display:block;font-size:2rem;text-align:center;margin-top:40vh;font-family:serif}
+}
+@media(max-width:700px){
+  #pdf-viewer-box{height:96vh;max-width:100%}
+  .pdf-viewer-title{font-size:.9rem}
+}
+
 /* ===== MODAL VERROU (unique) ===== */
 #lock-modal{position:fixed;inset:0;z-index:9998;background:rgba(28,18,12,0.65);backdrop-filter:blur(4px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
 #lock-modal.visible{opacity:1;pointer-events:all}
@@ -678,6 +832,25 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 <!-- ===== TOAST ===== -->
 <div class="toast" id="toast"></div>
 
+<!-- ===== VIEWER PDF PROTÉGÉ ===== -->
+<div id="pdf-viewer-overlay" role="dialog" aria-modal="true" oncontextmenu="return false">
+  <div id="pdf-viewer-box">
+    <div class="pdf-viewer-header">
+      <div style="flex:1;min-width:0">
+        <div class="pdf-viewer-meta" id="pdf-viewer-type">Document</div>
+        <div class="pdf-viewer-title" id="pdf-viewer-title">—</div>
+      </div>
+      <button class="pdf-viewer-close" onclick="closePdfViewer()">Fermer ✕</button>
+    </div>
+    <div class="pdf-viewer-body" oncontextmenu="return false" id="pdf-viewer-body">
+      <iframe class="pdf-viewer-iframe" id="pdf-viewer-iframe" src="" oncontextmenu="return false"></iframe>
+    </div>
+    <div class="pdf-viewer-notice">
+      🔒 Document <strong>confidentiel</strong> · Consultation en ligne uniquement · Reproduction et diffusion interdites
+    </div>
+  </div>
+</div>
+
 <!-- ===== MOBILE NAV ===== -->
 <div class="mobile-nav" id="mobileNav">
   <div style="font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin-bottom:4px">Qu'est-ce que c'est</div>
@@ -690,6 +863,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   <div class="mobile-nav-link" onclick="goTo('qcm');closeMobileNav()">QCM</div>
   <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()">Bibliothèque</div>
   <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()">Actualités</div>
+  <div class="mobile-nav-link" id="mobile-espace-link" style="display:none" onclick="goTo('espace');closeMobileNav()">📊 Mon espace candidat</div>
   <button class="btn btn-red" onclick="openPopup()">Ebook Gratuit</button>
 </div>
 
@@ -725,6 +899,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <button class="nav-dropdown-item" data-page="qcm" onclick="goTo('qcm')">QCM</button>
         <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')">Bibliothèque</button>
         <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')">Actualités</button>
+        <button class="nav-dropdown-item" data-page="espace" id="nav-espace-item" onclick="goTo('espace')" style="display:none">📊 Mon espace candidat</button>
       </div>
     </div>
   </div>
@@ -733,6 +908,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
     <!-- Bouton affiché si non connecté -->
     <button class="member-btn" id="nav-login-btn" onclick="goTo('connexion')">Mon espace →</button>
     <!-- Affiché si connecté -->
+    <button class="member-btn" id="nav-space-btn" style="display:none" onclick="goTo('espace')">📊 Mon espace</button>
     <span class="member-name" id="nav-member-name" style="display:none"></span>
     <button class="member-logout" id="nav-logout-btn" style="display:none" onclick="logoutMember()">Déconnexion</button>
     <button class="nav-mobile-btn" onclick="toggleMobileNav()" id="mobileBtn" aria-label="Menu">
@@ -1199,14 +1375,14 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <button class="biblio-cat-btn" onclick="filterBiblio(this,'phy')">Physique</button>
       </div>
       <div class="biblio-grid" id="biblio-grid">
-        <div class="biblio-card" data-cat="regl" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">Loi n°96-369 du 3 mai 1996 — SDIS</div><div class="biblio-meta">PDF · Texte intégral</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="fiche" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fiche synthèse</div><div class="biblio-name">Organisation des SDIS en France</div><div class="biblio-meta">PDF · 4 pages · Essentiel</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="statut" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut FP</div><div class="biblio-name">Statut de la Fonction Publique — Synthèse</div><div class="biblio-meta">PDF · 8 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="regl" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">RULP — Règlement de formation SPP</div><div class="biblio-meta">PDF · Version 2023</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="phy" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Physique</div><div class="biblio-name">Barèmes officiels épreuves physiques SPP</div><div class="biblio-meta">PDF · Mis à jour 2024</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="fiche" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fiche synthèse</div><div class="biblio-name">Missions des SDIS — Fiche complète</div><div class="biblio-meta">PDF · 3 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="statut" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut FP</div><div class="biblio-name">Carrière du SPP — grilles indiciaires 2024</div><div class="biblio-meta">Excel + PDF</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-        <div class="biblio-card" data-cat="regl" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">GNR — Guide National de Référence SPP</div><div class="biblio-meta">PDF · Intégral · 200 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="regl" onclick="openDoc('loi-96-369','Loi n°96-369 du 3 mai 1996 — SDIS','Réglementation','docs/loi-96-369.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">Loi n°96-369 du 3 mai 1996 — SDIS</div><div class="biblio-meta">PDF · Texte intégral</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="fiche" onclick="openDoc('fiche-sdis-orga','Organisation des SDIS en France','Fiche synthèse','docs/fiche-sdis-orga.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fiche synthèse</div><div class="biblio-name">Organisation des SDIS en France</div><div class="biblio-meta">PDF · 4 pages · Essentiel</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="statut" onclick="openDoc('statut-fp','Statut de la Fonction Publique — Synthèse','Statut FP','docs/statut-fp.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut FP</div><div class="biblio-name">Statut de la Fonction Publique — Synthèse</div><div class="biblio-meta">PDF · 8 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="regl" onclick="openDoc('rulp-2023','RULP — Règlement de formation SPP','Réglementation','docs/rulp-2023.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">RULP — Règlement de formation SPP</div><div class="biblio-meta">PDF · Version 2023</div><div class="biblio-overlay"><p>Accès membres</p><span class=" btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="phy" onclick="openDoc('baremes-phy-2024','Barèmes officiels épreuves physiques SPP','Physique','docs/baremes-phy-2024.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Physique</div><div class="biblio-name">Barèmes officiels épreuves physiques SPP</div><div class="biblio-meta">PDF · Mis à jour 2024</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="fiche" onclick="openDoc('fiche-missions-sdis','Missions des SDIS — Fiche complète','Fiche synthèse','docs/fiche-missions-sdis.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fiche synthèse</div><div class="biblio-name">Missions des SDIS — Fiche complète</div><div class="biblio-meta">PDF · 3 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="statut" onclick="openDoc('carriere-spp-2024','Carrière du SPP — grilles indiciaires 2024','Statut FP','docs/carriere-spp-2024.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut FP</div><div class="biblio-name">Carrière du SPP — grilles indiciaires 2024</div><div class="biblio-meta">Excel + PDF</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+        <div class="biblio-card" data-cat="regl" onclick="openDoc('gnr-spp','GNR — Guide National de Référence SPP','Réglementation','docs/gnr-spp.pdf')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">GNR — Guide National de Référence SPP</div><div class="biblio-meta">PDF · Intégral · 200 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
       </div>
     </div>
   </div>
@@ -1502,7 +1678,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 <script>
 if(window.location.search.indexOf('success') !== -1) {
   document.addEventListener('DOMContentLoaded', function(){
-    var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci'];
+    var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci'];
     pages.forEach(function(p){
       var el = document.getElementById('page-'+p);
       if(el) el.classList.toggle('active', p === 'merci');
@@ -1543,6 +1719,118 @@ if(window.location.search.indexOf('success') !== -1) {
       <span style="color:var(--gray)">Je reviens vers toi <strong style="color:var(--charcoal)">sous 24h</strong> pour valider ton horaire de rendez-vous.</span>
     </div>
     <div><button class="btn btn-red" onclick="document.getElementById('booking-confirm-overlay').style.display='none'">Compris, merci &rarr;</button></div>
+  </div>
+</div>
+
+<!-- ============================= PAGE: ESPACE CANDIDAT ============================= -->
+<div class="page" id="page-espace">
+  <div style="margin-top:68px"></div>
+  <div class="esp-wrap">
+
+    <!-- Écran verrouillé (non-membre) -->
+    <div id="esp-locked" style="display:none">
+      <div class="esp-locked">
+        <div class="esp-locked-icon">🔒</div>
+        <div class="esp-locked-title">Espace réservé aux membres</div>
+        <div class="esp-locked-text">
+          Ton espace candidat te donne accès à tes statistiques détaillées QCM par catégorie, tes documents lus et tes sessions précédentes. Connecte-toi ou débloque l'accès complet.
+        </div>
+        <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+          <button class="btn btn-outline-red" onclick="goTo('connexion')">Se connecter</button>
+          <button class="btn btn-red" onclick="msPay('prc_acc-s-plateforme-de-pr-paration-candidat-54v0222')">Accès complet — 59€ →</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenu espace candidat (membre connecté) -->
+    <div id="esp-content" style="display:none">
+
+      <!-- EN-TÊTE -->
+      <div class="esp-header">
+        <div>
+          <div class="s-eyebrow">Espace candidat</div>
+          <div class="esp-greet">Salut <em id="esp-name">candidat</em></div>
+          <div class="esp-subgreet" id="esp-subgreet">Bienvenue dans ton tableau de bord. Retrouve ici tes performances détaillées et tes ressources récentes.</div>
+        </div>
+        <div class="esp-streak" id="esp-streak-box">
+          <div style="font-size:1.8rem">🔥</div>
+          <div>
+            <div class="esp-streak-num" id="esp-streak-num">0</div>
+            <div class="esp-streak-lbl">jour<span id="esp-streak-s"></span> actif<span id="esp-streak-s2"></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- VUE D'ENSEMBLE -->
+      <div class="esp-stats">
+        <div class="esp-stat">
+          <div class="esp-stat-num" id="esp-st-sessions">0</div>
+          <div class="esp-stat-lbl">Sessions QCM</div>
+          <div class="esp-stat-sub" id="esp-st-sessions-sub">—</div>
+        </div>
+        <div class="esp-stat">
+          <div class="esp-stat-num" id="esp-st-questions">0</div>
+          <div class="esp-stat-lbl">Questions traitées</div>
+          <div class="esp-stat-sub" id="esp-st-questions-sub">sur 700+ disponibles</div>
+        </div>
+        <div class="esp-stat">
+          <div class="esp-stat-num" id="esp-st-score">—</div>
+          <div class="esp-stat-lbl">Score global</div>
+          <div class="esp-stat-sub" id="esp-st-score-sub">toutes catégories confondues</div>
+        </div>
+        <div class="esp-stat">
+          <div class="esp-stat-num" id="esp-st-docs">0</div>
+          <div class="esp-stat-lbl">Documents lus</div>
+          <div class="esp-stat-sub" id="esp-st-docs-sub">—</div>
+        </div>
+      </div>
+
+      <!-- PRIORITÉ DE RÉVISION -->
+      <div class="esp-priority" id="esp-priority" style="display:none">
+        <div style="flex:1;min-width:240px">
+          <div class="esp-priority-lbl">⚠️ À travailler en priorité</div>
+          <div class="esp-priority-cat" id="esp-priority-cat">—</div>
+          <div class="esp-priority-desc" id="esp-priority-desc">—</div>
+        </div>
+        <button class="esp-priority-btn" onclick="reviseWeakestCategory()">Réviser ce thème →</button>
+      </div>
+
+      <!-- PERFORMANCES PAR CATÉGORIE -->
+      <div style="margin-bottom:8px">
+        <div class="esp-eyebrow">📊 Performances détaillées</div>
+        <div class="esp-section-title">Mon niveau par thème</div>
+        <div class="esp-section-sub">Thèmes triés du plus faible au plus fort. Concentre tes révisions sur les catégories rouges et orange.</div>
+      </div>
+      <div class="esp-cats" id="esp-cats">
+        <!-- Rempli dynamiquement -->
+      </div>
+
+      <!-- DOCUMENTS RÉCENTS -->
+      <div style="margin-bottom:8px">
+        <div class="esp-eyebrow">📚 Reprendre où tu t'étais arrêté</div>
+        <div class="esp-section-title">Documents récemment consultés</div>
+        <div class="esp-section-sub">Les dernières fiches et ressources que tu as ouvertes dans la bibliothèque.</div>
+      </div>
+      <div class="esp-docs" id="esp-docs">
+        <!-- Rempli dynamiquement -->
+      </div>
+
+      <!-- HISTORIQUE SESSIONS -->
+      <div style="margin-bottom:8px">
+        <div class="esp-eyebrow">🕒 Historique</div>
+        <div class="esp-section-title">Mes 10 dernières sessions</div>
+        <div class="esp-section-sub">Suis l'évolution de tes scores au fil du temps.</div>
+      </div>
+      <div class="esp-sessions" id="esp-sessions">
+        <!-- Rempli dynamiquement -->
+      </div>
+
+      <!-- RESET -->
+      <div class="esp-reset">
+        <button class="esp-reset-btn" onclick="resetEspaceStats()">Réinitialiser mes statistiques</button>
+      </div>
+
+    </div>
   </div>
 </div>
 
@@ -1684,7 +1972,56 @@ if(window.location.search.indexOf('success') !== -1) {
 // ============================================================
 // ÉTAT GLOBAL
 // ============================================================
-var currentMember = null;
+var currentMember  = null;   // membre connecté (payé OU non payé)
+var isPaidMember   = false;  // true uniquement si le membre a réglé 59€ ou 217€
+
+// Identifiants des plans payants (à maintenir en miroir de Memberstack)
+// Chaque entrée peut être soit un planId (pln_...), soit un priceId (prc_...)
+// On compare de manière tolérante aux deux, car selon la version de l'API
+// Memberstack on trouve l'un ou l'autre dans planConnections.
+var PAID_PLAN_IDS = [
+  // 59 € — accès plateforme seul
+  'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222',
+  // 217 € — pack complet (plateforme + 3 séances coaching)
+  'prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj'
+];
+
+// Vérifie qu'un membre Memberstack a effectivement réglé l'un des plans payants.
+// Renvoie false pour un compte créé sans paiement (cas principal du bug).
+function hasPaidAccess(member) {
+  if (!member) return false;
+  var conns = member.planConnections || member.plans || [];
+  if (!conns || !conns.length) return false;
+  for (var i = 0; i < conns.length; i++) {
+    var c = conns[i] || {};
+    // Un plan n'est valable que s'il est actif/complété
+    var status = (c.status || '').toUpperCase();
+    var activeStatuses = ['ACTIVE','TRIALING','COMPLETED','PAID'];
+    // Sur certaines réponses, il n'y a pas de champ status pour un plan lifetime
+    // déjà payé : on le considère actif par défaut si status absent.
+    var isActive = status === '' || activeStatuses.indexOf(status) !== -1;
+    if (!isActive) continue;
+    // Rapproche planId et priceId (selon versions d'API Memberstack)
+    var candidates = [c.planId, c.priceId, c.id, c.plan && c.plan.id, c.price && c.price.id];
+    for (var j = 0; j < candidates.length; j++) {
+      if (candidates[j] && PAID_PLAN_IDS.indexOf(candidates[j]) !== -1) return true;
+    }
+  }
+  return false;
+}
+
+// Re-fetch du membre depuis Memberstack pour récupérer les plans à jour
+// (à appeler après un paiement, car le "member" retourné par openModal('signup')
+// ne contient pas encore le planConnection créé par le checkout).
+function refreshMemberAccess() {
+  var ms = getMemberstack();
+  if (!ms || !ms.getCurrentMember) return Promise.resolve(null);
+  return ms.getCurrentMember().then(function(res) {
+    var m = res && res.data && res.data.member;
+    if (m) updateNavMember(m);
+    return m;
+  }).catch(function() { return null; });
+}
 
 // ============================================================
 // NAVIGATION
@@ -1725,6 +2062,13 @@ function closeMobileNav() { document.getElementById('mobileNav').classList.remov
   if(!window.location.search.includes('success')) return;
 
   goTo('merci');
+
+  // Retour d'un paiement Stripe : on re-fetch le membre pour que
+  // planConnections reflète bien le nouvel achat et que isPaidMember
+  // passe à true (après un petit délai pour laisser le webhook arriver).
+  setTimeout(function(){
+    try { if (typeof refreshMemberAccess === 'function') refreshMemberAccess(); } catch(e){}
+  }, 2500);
 
   var name  = localStorage.getItem('booking_name');
   var email = localStorage.getItem('booking_email');
@@ -2018,8 +2362,9 @@ function launchQcm() {
   var selected = cats.filter(function(c){ return selectedCats[c]; });
   if (selected.length === 0) return;
 
-  // Non-membre : on montre uniquement les questions démo correspondant aux thèmes cochés
-  if (!currentMember) {
+  // Non payant (visiteur OU compte gratuit) : on montre uniquement
+  // les questions démo correspondant aux thèmes cochés
+  if (!isPaidMember) {
     var demoPool = DEMO_QUESTIONS.filter(function(q){ return selected.indexOf(q.cat) !== -1; });
     if (demoPool.length === 0) {
       // Aucune démo sur les thèmes sélectionnés → prompt d'achat
@@ -2047,8 +2392,8 @@ function launchQcm() {
 }
 
 function launchRandomQcm() {
-  // Non-membre : pioche dans les démos uniquement
-  if (!currentMember) {
+  // Non payant : pioche dans les démos uniquement
+  if (!isPaidMember) {
     var demoPool = shuffle(DEMO_QUESTIONS.slice()).slice(0, Math.min(randomNb, DEMO_QUESTIONS.length));
     startSession(demoPool, '🔀 Entraînement aléatoire (démo)');
     return;
@@ -2126,7 +2471,11 @@ function renderQ() {
     // Fin de session
     var pct = activeSession.length > 0 ? Math.round(score / activeSession.length * 100) : 0;
     var emoji = pct >= 80 ? '🏅' : pct >= 60 ? '👍' : '📚';
-    if (!currentMember) {
+    if (!isPaidMember) {
+      // Adapte le CTA selon que l'utilisateur a déjà un compte ou non
+      var ctaLogin = currentMember
+        ? '' // déjà connecté → ne pas proposer la connexion
+        : '<div style="font-size:.82rem;color:var(--gray)">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>';
       area.innerHTML = [
         '<div style="background:white;border:1px solid var(--border);padding:48px 36px;text-align:center">',
           '<div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div>',
@@ -2140,11 +2489,18 @@ function renderQ() {
             '<button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button>',
             '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Accès complet — 59€ →</button>',
           '</div>',
-          '<div style="font-size:.82rem;color:var(--gray)">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>',
+          ctaLogin,
         '</div>'
       ].join('');
     } else {
-      area.innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div><div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Score : ' + score + ' / ' + activeSession.length + ' (' + pct + '%)</div><div style="width:100%;background:var(--border-light);height:5px;margin:12px 0 20px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button><button class="btn btn-red" onclick="launchQcm()">Relancer →</button></div></div>';
+      // Enregistre la session dans les statistiques
+      var sessCats = [];
+      activeSession.forEach(function(q){
+        if (q.cat && sessCats.indexOf(q.cat) === -1) sessCats.push(q.cat);
+      });
+      var sessTitle = document.getElementById('qcm-cat-title');
+      espTrackSession(sessTitle ? sessTitle.textContent : 'Session QCM', sessCats, score, activeSession.length);
+      area.innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div><div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Score : ' + score + ' / ' + activeSession.length + ' (' + pct + '%)</div><div style="width:100%;background:var(--border-light);height:5px;margin:12px 0 20px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button><button class="btn btn-outline-red" onclick="goTo(\'espace\')">📊 Voir mes stats</button><button class="btn btn-red" onclick="launchQcm()">Relancer →</button></div></div>';
     }
     document.getElementById('qcm-prog').style.width = '100%';
     return;
@@ -2268,6 +2624,9 @@ function submitMultiAnswer() {
   var submitBtn = document.getElementById('q-submit-btn');
   if (submitBtn) submitBtn.style.display = 'none';
 
+  // Tracking statistiques espace candidat
+  if (q.cat) espTrackAnswer(q.cat, isCorrect, q.level);
+
   showExplAndNext(q, isCorrect);
   currentMultiSelection = [];
 }
@@ -2288,6 +2647,8 @@ function answerSingle(idx) {
       choices[ci].classList.add('reveal-correct');
     });
   }
+  // Tracking statistiques espace candidat
+  if (q.cat) espTrackAnswer(q.cat, isCorrect, q.level);
   showExplAndNext(q, isCorrect);
 }
 
@@ -2321,7 +2682,718 @@ function setQcmCat() {}
 function setQcmSubcat() {}
 function toggleSubcats() {}
 
-// ============================================================
+// ================================================================
+// ESPACE CANDIDAT — Statistiques (Supabase + fallback localStorage)
+// ================================================================
+// Source de vérité : Supabase (3 tables : qcm_answers, qcm_sessions, doc_reads)
+// Fallback : localStorage si Supabase est indisponible
+// Les stats d'affichage (perCat, sessions, docs, activeDays) sont
+// reconstruites à la volée à partir des lignes Supabase dans renderEspace().
+
+function espMemberId() {
+  if (!currentMember) return null;
+  return currentMember.id || currentMember.memberId || null;
+}
+function espMemberEmail() {
+  if (!currentMember) return null;
+  return (currentMember.auth && currentMember.auth.email) || currentMember.email || null;
+}
+
+function espGetStorageKey() {
+  var email = espMemberEmail();
+  if (!email) return null;
+  return 'spp_stats_' + email.toLowerCase();
+}
+
+// --- LocalStorage (fallback) ---
+function espInitStats() {
+  return {
+    perCat: {},
+    sessions: [],
+    docs: [],
+    firstActivity: Date.now(),
+    activeDays: []
+  };
+}
+
+function espLoadLocal() {
+  var key = espGetStorageKey();
+  if (!key) return espInitStats();
+  try {
+    var raw = localStorage.getItem(key);
+    if (!raw) return espInitStats();
+    var data = JSON.parse(raw);
+    if (!data.perCat) data.perCat = {};
+    if (!data.sessions) data.sessions = [];
+    if (!data.docs) data.docs = [];
+    if (!data.activeDays) data.activeDays = [];
+    if (!data.firstActivity) data.firstActivity = Date.now();
+    return data;
+  } catch(e) {
+    return espInitStats();
+  }
+}
+function espSaveLocal(data) {
+  var key = espGetStorageKey();
+  if (!key) return;
+  try { localStorage.setItem(key, JSON.stringify(data)); } catch(e) {}
+}
+
+function espTodayKey() {
+  var d = new Date();
+  var mm = String(d.getMonth()+1).padStart(2,'0');
+  var dd = String(d.getDate()).padStart(2,'0');
+  return d.getFullYear() + '-' + mm + '-' + dd;
+}
+
+// ---------- TRACKING ----------
+// Chaque tracker écrit TOUJOURS en localStorage (instantané, pour l'UX)
+// et en parallèle essaie d'écrire dans Supabase.
+
+function espTrackAnswer(cat, isCorrect, level) {
+  if (!currentMember) return;
+  // Local
+  var data = espLoadLocal();
+  if (!data.perCat[cat]) data.perCat[cat] = { seen: 0, correct: 0, lastSeen: 0 };
+  data.perCat[cat].seen++;
+  if (isCorrect) data.perCat[cat].correct++;
+  data.perCat[cat].lastSeen = Date.now();
+  var today = espTodayKey();
+  if (data.activeDays.indexOf(today) === -1) data.activeDays.push(today);
+  espSaveLocal(data);
+  // Supabase (best-effort, non bloquant)
+  if (window.supabaseClient) {
+    window.supabaseClient.from('qcm_answers').insert({
+      member_id: espMemberId(),
+      member_email: espMemberEmail(),
+      category: cat,
+      level: level || null,
+      is_correct: !!isCorrect
+    }).then(function(res){
+      if (res && res.error) console.warn('Supabase insert answer :', res.error.message);
+    });
+  }
+}
+
+function espTrackSession(title, cats, sessScore, sessTotal) {
+  if (!currentMember) return;
+  var pct = sessTotal > 0 ? Math.round(sessScore / sessTotal * 100) : 0;
+  // Local
+  var data = espLoadLocal();
+  data.sessions.unshift({
+    date: Date.now(), title: title || 'Session QCM',
+    cats: cats || [], score: sessScore, total: sessTotal, pct: pct
+  });
+  if (data.sessions.length > 50) data.sessions = data.sessions.slice(0, 50);
+  espSaveLocal(data);
+  // Supabase
+  if (window.supabaseClient) {
+    window.supabaseClient.from('qcm_sessions').insert({
+      member_id: espMemberId(),
+      member_email: espMemberEmail(),
+      title: title || 'Session QCM',
+      categories: cats || [],
+      score: sessScore,
+      total: sessTotal,
+      pct: pct
+    }).then(function(res){
+      if (res && res.error) console.warn('Supabase insert session :', res.error.message);
+    });
+  }
+}
+
+function espTrackDoc(id, name, type, cat) {
+  if (!currentMember) return;
+  // Local
+  var data = espLoadLocal();
+  data.docs = data.docs.filter(function(d){ return d.id !== id; });
+  data.docs.unshift({ id: id, name: name, type: type || 'Document', cat: cat || '', lastRead: Date.now() });
+  if (data.docs.length > 30) data.docs = data.docs.slice(0, 30);
+  var today = espTodayKey();
+  if (data.activeDays.indexOf(today) === -1) data.activeDays.push(today);
+  espSaveLocal(data);
+  // Supabase
+  if (window.supabaseClient) {
+    window.supabaseClient.from('doc_reads').insert({
+      member_id: espMemberId(),
+      member_email: espMemberEmail(),
+      doc_id: id,
+      doc_name: name,
+      doc_type: type || 'Document'
+    }).then(function(res){
+      if (res && res.error) console.warn('Supabase insert doc :', res.error.message);
+    });
+  }
+}
+
+// ---------- AGRÉGATION POUR L'AFFICHAGE ----------
+// Récupère toutes les données depuis Supabase et reconstruit la structure
+// {perCat, sessions, docs, activeDays}. Fallback local si indisponible.
+function espFetchStats(cb) {
+  if (!currentMember) { cb(espInitStats()); return; }
+  // Fallback immédiat : data locale pour ne pas attendre
+  var localData = espLoadLocal();
+  if (!window.supabaseClient) { cb(localData); return; }
+
+  var mid = espMemberId();
+  if (!mid) { cb(localData); return; }
+
+  // Requêtes en parallèle
+  var p1 = window.supabaseClient.from('qcm_answers')
+    .select('category,is_correct,created_at')
+    .eq('member_id', mid)
+    .order('created_at', { ascending: false })
+    .limit(5000);
+  var p2 = window.supabaseClient.from('qcm_sessions')
+    .select('title,categories,score,total,pct,created_at')
+    .eq('member_id', mid)
+    .order('created_at', { ascending: false })
+    .limit(50);
+  var p3 = window.supabaseClient.from('doc_reads')
+    .select('doc_id,doc_name,doc_type,read_at')
+    .eq('member_id', mid)
+    .order('read_at', { ascending: false })
+    .limit(30);
+
+  Promise.all([p1, p2, p3]).then(function(results) {
+    var answers = (results[0] && results[0].data) || [];
+    var sessions = (results[1] && results[1].data) || [];
+    var docs = (results[2] && results[2].data) || [];
+    if (results[0].error || results[1].error || results[2].error) {
+      console.warn('Supabase fetch partiel, fallback local.');
+      cb(localData);
+      return;
+    }
+    // Reconstruction perCat
+    var perCat = {};
+    var activeDays = [];
+    answers.forEach(function(a) {
+      if (!perCat[a.category]) perCat[a.category] = { seen: 0, correct: 0, lastSeen: 0 };
+      perCat[a.category].seen++;
+      if (a.is_correct) perCat[a.category].correct++;
+      var ts = new Date(a.created_at).getTime();
+      if (ts > perCat[a.category].lastSeen) perCat[a.category].lastSeen = ts;
+      // Jour actif
+      var d = new Date(a.created_at);
+      var dayKey = d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+      if (activeDays.indexOf(dayKey) === -1) activeDays.push(dayKey);
+    });
+    // Dedoublonne les docs : un doc = sa dernière lecture
+    var seenDocIds = {};
+    var docList = [];
+    docs.forEach(function(d) {
+      if (seenDocIds[d.doc_id]) return;
+      seenDocIds[d.doc_id] = 1;
+      docList.push({
+        id: d.doc_id,
+        name: d.doc_name,
+        type: d.doc_type,
+        lastRead: new Date(d.read_at).getTime()
+      });
+      var dt = new Date(d.read_at);
+      var dayKey = dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+      if (activeDays.indexOf(dayKey) === -1) activeDays.push(dayKey);
+    });
+    var sessList = sessions.map(function(s) {
+      return {
+        date: new Date(s.created_at).getTime(),
+        title: s.title,
+        cats: s.categories || [],
+        score: s.score, total: s.total, pct: s.pct
+      };
+    });
+    sessions.forEach(function(s){
+      var dt = new Date(s.created_at);
+      var dayKey = dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
+      if (activeDays.indexOf(dayKey) === -1) activeDays.push(dayKey);
+    });
+    cb({
+      perCat: perCat,
+      sessions: sessList,
+      docs: docList,
+      activeDays: activeDays,
+      firstActivity: localData.firstActivity
+    });
+  }).catch(function(err){
+    console.warn('Supabase fetch échec :', err);
+    cb(localData);
+  });
+}
+
+// ---------- RESET TOTAL ----------
+function resetEspaceStats() {
+  if (!confirm('Es-tu sûr de vouloir réinitialiser toutes tes statistiques ? Cette action est irréversible et supprimera aussi tes données serveur.')) return;
+  var key = espGetStorageKey();
+  if (key) localStorage.removeItem(key);
+  var mid = espMemberId();
+  if (window.supabaseClient && mid) {
+    Promise.all([
+      window.supabaseClient.from('qcm_answers').delete().eq('member_id', mid),
+      window.supabaseClient.from('qcm_sessions').delete().eq('member_id', mid),
+      window.supabaseClient.from('doc_reads').delete().eq('member_id', mid)
+    ]).then(function(){
+      showToast('Statistiques réinitialisées.');
+      renderEspace();
+    }).catch(function(e){
+      console.warn('Reset Supabase erreur :', e);
+      showToast('Statistiques locales effacées.');
+      renderEspace();
+    });
+  } else {
+    showToast('Statistiques réinitialisées.');
+    renderEspace();
+  }
+}
+
+// ---------- MIGRATION localStorage → Supabase (une seule fois par membre) ----------
+function espMigrateLocalToSupabase() {
+  if (!window.supabaseClient || !currentMember) return;
+  var mid = espMemberId();
+  if (!mid) return;
+  var flagKey = 'spp_migrated_' + mid;
+  if (localStorage.getItem(flagKey)) return; // déjà migré
+  var local = espLoadLocal();
+  var nbAnswers = 0;
+  Object.keys(local.perCat || {}).forEach(function(c){ nbAnswers += (local.perCat[c].seen || 0); });
+  if (nbAnswers === 0 && (!local.sessions || local.sessions.length === 0) && (!local.docs || local.docs.length === 0)) {
+    localStorage.setItem(flagKey, '1');
+    return;
+  }
+  // On migre UNIQUEMENT les sessions et les docs (les réponses individuelles ne sont pas stockées
+  // dans le localStorage, on a juste les compteurs agrégés — on ne peut pas les recréer fidèlement).
+  // On crée une "session d'import" par cat pour rétablir les scores par catégorie :
+  console.log('SUPABASE: migration locale -> cloud pour', mid);
+  var tasks = [];
+  // Migre les sessions
+  (local.sessions || []).forEach(function(s) {
+    tasks.push(window.supabaseClient.from('qcm_sessions').insert({
+      member_id: mid,
+      member_email: espMemberEmail(),
+      title: '[import] ' + (s.title || 'Session'),
+      categories: s.cats || [],
+      score: s.score, total: s.total, pct: s.pct,
+      created_at: new Date(s.date).toISOString()
+    }));
+  });
+  // Migre les docs lus
+  (local.docs || []).forEach(function(d) {
+    tasks.push(window.supabaseClient.from('doc_reads').insert({
+      member_id: mid,
+      member_email: espMemberEmail(),
+      doc_id: d.id, doc_name: d.name, doc_type: d.type,
+      read_at: new Date(d.lastRead).toISOString()
+    }));
+  });
+  // Migre les perCat en réponses agrégées (une ligne par question vue)
+  Object.keys(local.perCat || {}).forEach(function(cat) {
+    var s = local.perCat[cat];
+    for (var i = 0; i < s.seen; i++) {
+      tasks.push(window.supabaseClient.from('qcm_answers').insert({
+        member_id: mid,
+        member_email: espMemberEmail(),
+        category: cat,
+        is_correct: i < s.correct,
+        created_at: new Date(s.lastSeen || Date.now()).toISOString()
+      }));
+    }
+  });
+  Promise.all(tasks).then(function(){
+    localStorage.setItem(flagKey, '1');
+    console.log('SUPABASE: migration terminée (' + tasks.length + ' lignes)');
+  }).catch(function(e){
+    console.warn('Migration partielle :', e);
+    localStorage.setItem(flagKey, '1'); // on évite de réessayer en boucle
+  });
+}
+
+// ----- Liste de référence des catégories (pour afficher même celles non vues) -----
+function espAllCats() {
+  return ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+}
+
+// Nombre total de questions par catégorie (hérité de l'UI sidebar)
+var CAT_TOTALS = {
+  'statut': 105, 'sis': 50, 'divers': 18, 'textes': 29,
+  'gto-ventilation': 34, 'gto-sauvetage': 10, 'gto-sauvegarde': 28,
+  'gto-forets': 7, 'gto-extinctions': 24, 'gto-vicie': 20,
+  'gdo-ssuap': 45, 'gdo-fumees': 30, 'gdo-elec': 15, 'gdo-silos': 4,
+  'gdo-gaz': 20, 'gdo-agricole': 11, 'gdo-incendie': 60,
+  'gdo-ulm': 8, 'gdo-routier': 62, 'gdo-foret': 10, 'pse': 0
+};
+
+// ----- Formatage temps relatif -----
+function espTimeAgo(ts) {
+  if (!ts) return '—';
+  var diff = Math.floor((Date.now() - ts) / 1000);
+  if (diff < 60) return "à l'instant";
+  if (diff < 3600) return 'il y a ' + Math.floor(diff/60) + ' min';
+  if (diff < 86400) {
+    var h = Math.floor(diff/3600);
+    return 'il y a ' + h + 'h';
+  }
+  var days = Math.floor(diff/86400);
+  if (days === 1) return 'hier';
+  if (days < 7) return 'il y a ' + days + ' jours';
+  if (days < 30) return 'il y a ' + Math.floor(days/7) + ' sem.';
+  if (days < 365) return 'il y a ' + Math.floor(days/30) + ' mois';
+  return 'il y a ' + Math.floor(days/365) + ' an(s)';
+}
+
+function espFormatDate(ts) {
+  var d = new Date(ts);
+  var dd = String(d.getDate()).padStart(2,'0');
+  var mm = String(d.getMonth()+1).padStart(2,'0');
+  return dd + '/' + mm + '/' + d.getFullYear();
+}
+
+// ----- Calcul du streak consécutif -----
+function espCalcStreak(activeDays) {
+  if (!activeDays || activeDays.length === 0) return 0;
+  var sorted = activeDays.slice().sort().reverse();
+  var today = espTodayKey();
+  var yesterday = (function(){
+    var d = new Date(); d.setDate(d.getDate()-1);
+    var mm = String(d.getMonth()+1).padStart(2,'0');
+    var dd = String(d.getDate()).padStart(2,'0');
+    return d.getFullYear()+'-'+mm+'-'+dd;
+  })();
+  // Le streak doit démarrer aujourd'hui ou hier pour être actif
+  if (sorted[0] !== today && sorted[0] !== yesterday) return 0;
+  var streak = 1;
+  var current = new Date(sorted[0]);
+  for (var i = 1; i < sorted.length; i++) {
+    var prev = new Date(sorted[i]);
+    var diff = Math.round((current - prev) / 86400000);
+    if (diff === 1) {
+      streak++;
+      current = prev;
+    } else {
+      break;
+    }
+  }
+  return streak;
+}
+
+// ================================================================
+// ESPACE CANDIDAT — Rendu
+// ================================================================
+function renderEspace() {
+  var locked = document.getElementById('esp-locked');
+  var content = document.getElementById('esp-content');
+  if (!isPaidMember) {
+    locked.style.display = 'block';
+    content.style.display = 'none';
+    return;
+  }
+  locked.style.display = 'none';
+  content.style.display = 'block';
+
+  // Affiche déjà la version locale immédiatement (rapide)
+  _renderEspaceWith(espLoadLocal());
+
+  // Puis récupère la version serveur (source de vérité) et re-rend
+  espFetchStats(function(data) { _renderEspaceWith(data); });
+}
+
+function _renderEspaceWith(data) {
+  if (!data) return;
+
+  // --- En-tête ---
+  var email = espMemberEmail() || '';
+  var firstName = email ? email.split('@')[0] : 'candidat';
+  var cf = currentMember.customFields || {};
+  if (cf['first-name']) firstName = cf['first-name'];
+  else if (cf.firstname) firstName = cf.firstname;
+  else if (currentMember.firstName) firstName = currentMember.firstName;
+  document.getElementById('esp-name').textContent = firstName;
+
+  // --- Streak ---
+  var streak = espCalcStreak(data.activeDays);
+  document.getElementById('esp-streak-num').textContent = streak;
+  document.getElementById('esp-streak-s').textContent = streak > 1 ? 's' : '';
+  document.getElementById('esp-streak-s2').textContent = streak > 1 ? 's' : '';
+
+  // --- Stats globales ---
+  var totalSessions = data.sessions.length;
+  var totalAnswered = 0, totalCorrect = 0;
+  Object.keys(data.perCat).forEach(function(c){
+    totalAnswered += data.perCat[c].seen;
+    totalCorrect += data.perCat[c].correct;
+  });
+  var globalPct = totalAnswered > 0 ? Math.round(totalCorrect / totalAnswered * 100) : 0;
+
+  document.getElementById('esp-st-sessions').textContent = totalSessions;
+  document.getElementById('esp-st-sessions-sub').textContent = totalSessions === 0
+    ? 'aucune session'
+    : (totalSessions === 1 ? '1 session terminée' : totalSessions + ' sessions terminées');
+
+  document.getElementById('esp-st-questions').textContent = totalAnswered;
+
+  document.getElementById('esp-st-score').textContent = totalAnswered > 0 ? (globalPct + '%') : '—';
+  document.getElementById('esp-st-score-sub').textContent = totalAnswered > 0
+    ? (totalCorrect + ' bonnes sur ' + totalAnswered)
+    : 'commence un QCM pour afficher ton score';
+
+  var nbDocs = data.docs.length;
+  document.getElementById('esp-st-docs').textContent = nbDocs;
+  document.getElementById('esp-st-docs-sub').textContent = nbDocs === 0
+    ? 'aucune lecture enregistrée'
+    : 'dernière : ' + espTimeAgo(data.docs[0].lastRead);
+
+  // --- Priorité de révision (catégorie la plus faible parmi celles vues) ---
+  renderEspPriority(data);
+
+  // --- Performances par catégorie ---
+  renderEspCats(data);
+
+  // --- Documents récents ---
+  renderEspDocs(data);
+
+  // --- Sessions ---
+  renderEspSessions(data);
+}
+
+function renderEspPriority(data) {
+  var priority = document.getElementById('esp-priority');
+  // On cherche la catégorie avec le plus mauvais score (min. 3 questions vues pour être significatif)
+  var worst = null;
+  Object.keys(data.perCat).forEach(function(c) {
+    var s = data.perCat[c];
+    if (s.seen < 3) return;
+    var pct = s.correct / s.seen;
+    if (!worst || pct < worst.pct) {
+      worst = { cat: c, pct: pct, seen: s.seen };
+    }
+  });
+  if (!worst) {
+    priority.style.display = 'none';
+    return;
+  }
+  priority.style.display = 'flex';
+  priority.dataset.cat = worst.cat;
+  var label = CAT_LABELS[worst.cat] || worst.cat;
+  document.getElementById('esp-priority-cat').innerHTML =
+    'Ton point faible : <em>' + label + '</em>';
+  document.getElementById('esp-priority-desc').textContent =
+    'Tu es à ' + Math.round(worst.pct*100) + '% de réussite sur ce thème (' + worst.seen + ' question' + (worst.seen>1?'s':'') + ' vue' + (worst.seen>1?'s':'') + '). C\'est le thème à retravailler en priorité pour gagner des points au concours.';
+}
+
+function reviseWeakestCategory() {
+  var cat = document.getElementById('esp-priority').dataset.cat;
+  if (!cat) return;
+  // Reset toutes les sélections puis sélectionne uniquement la catégorie faible
+  espAllCats().forEach(function(c){ selectedCats[c] = false; updateCheckbox(c); });
+  selectedCats[cat] = true;
+  updateCheckbox(cat);
+  // Si c'est une sous-cat doctrine, ouvre le panneau et synchronise le parent
+  if (DOCTRINES_SUBCATS.indexOf(cat) !== -1) {
+    var sub = document.getElementById('doctrines-sub');
+    if (sub) sub.classList.add('open');
+    var arrow = document.getElementById('arrow-doctrines');
+    if (arrow) arrow.textContent = '▾';
+  }
+  updateSummary();
+  goTo('qcm');
+  setTimeout(function(){ launchQcm(); }, 200);
+}
+
+function renderEspCats(data) {
+  var container = document.getElementById('esp-cats');
+  // Construit une liste triée : d'abord les vues (du plus faible au plus fort), puis les non-vues
+  var seenList = [], unseenList = [];
+  espAllCats().forEach(function(c) {
+    var s = data.perCat[c];
+    if (s && s.seen > 0) {
+      seenList.push({
+        cat: c,
+        seen: s.seen,
+        correct: s.correct,
+        pct: Math.round(s.correct / s.seen * 100)
+      });
+    } else {
+      unseenList.push({ cat: c, seen: 0, correct: 0, pct: null });
+    }
+  });
+  seenList.sort(function(a, b){ return a.pct - b.pct; });
+
+  if (seenList.length === 0) {
+    container.innerHTML =
+      '<div class="esp-cats-empty">' +
+        '<div class="esp-cats-empty-icon">🎯</div>' +
+        '<div style="font-family:\'Playfair Display\',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:6px">Aucune donnée pour l\'instant</div>' +
+        '<div style="font-size:.88rem;color:var(--gray);margin-bottom:18px">Lance ton premier QCM pour voir apparaître tes performances par catégorie.</div>' +
+        '<button class="btn btn-red" onclick="goTo(\'qcm\')">Démarrer un QCM →</button>' +
+      '</div>';
+    return;
+  }
+
+  var html = '';
+  seenList.concat(unseenList).forEach(function(row) {
+    var label = CAT_LABELS[row.cat] || row.cat;
+    var total = CAT_TOTALS[row.cat] || 0;
+    if (row.pct === null) {
+      // Non vue
+      html +=
+        '<div class="esp-cat-row">' +
+          '<div>' +
+            '<div class="esp-cat-name" style="color:var(--gray)">' + label + '</div>' +
+            '<div class="esp-cat-name-sub">non commencé · ' + total + ' questions disponibles</div>' +
+          '</div>' +
+          '<div class="esp-cat-bar-wrap"></div>' +
+          '<div class="esp-cat-pct untouched">—</div>' +
+        '</div>';
+    } else {
+      var cls = row.pct < 50 ? 'low' : (row.pct < 70 ? 'mid' : 'high');
+      var cov = total > 0 ? Math.round(row.seen / total * 100) : 0;
+      html +=
+        '<div class="esp-cat-row">' +
+          '<div>' +
+            '<div class="esp-cat-name">' + label + '</div>' +
+            '<div class="esp-cat-name-sub">' + row.correct + '/' + row.seen + ' bonnes · ' + cov + '% du thème vu</div>' +
+          '</div>' +
+          '<div class="esp-cat-bar-wrap"><div class="esp-cat-bar ' + cls + '" style="width:' + row.pct + '%"></div></div>' +
+          '<div class="esp-cat-pct">' + row.pct + '%</div>' +
+        '</div>';
+    }
+  });
+  container.innerHTML = html;
+}
+
+function renderEspDocs(data) {
+  var container = document.getElementById('esp-docs');
+  if (data.docs.length === 0) {
+    container.innerHTML =
+      '<div class="esp-docs-empty">' +
+        '<div style="font-size:2rem;margin-bottom:12px">📚</div>' +
+        '<div style="font-family:\'Playfair Display\',serif;font-size:1.1rem;color:var(--charcoal);margin-bottom:6px">Aucun document consulté</div>' +
+        '<div style="font-size:.86rem;color:var(--gray);margin-bottom:18px">Ouvre des fiches dans la bibliothèque pour les retrouver ici.</div>' +
+        '<button class="btn btn-outline-red" onclick="goTo(\'biblio\')">Aller à la bibliothèque →</button>' +
+      '</div>';
+    return;
+  }
+  var html = '';
+  data.docs.slice(0, 8).forEach(function(doc) {
+    var icon = '📄';
+    if (doc.type && doc.type.toLowerCase().indexOf('fiche') !== -1) icon = '📝';
+    else if (doc.type && doc.type.toLowerCase().indexOf('régl') !== -1) icon = '⚖️';
+    else if (doc.type && doc.type.toLowerCase().indexOf('statut') !== -1) icon = '🏛️';
+    else if (doc.type && doc.type.toLowerCase().indexOf('phys') !== -1) icon = '💪';
+    html +=
+      '<div class="esp-doc-item">' +
+        '<div class="esp-doc-icon">' + icon + '</div>' +
+        '<div class="esp-doc-info">' +
+          '<div class="esp-doc-name">' + doc.name + '</div>' +
+          '<div class="esp-doc-meta">' + (doc.type || 'Document') + '</div>' +
+        '</div>' +
+        '<div class="esp-doc-when">' + espTimeAgo(doc.lastRead) + '</div>' +
+      '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function renderEspSessions(data) {
+  var container = document.getElementById('esp-sessions');
+  if (data.sessions.length === 0) {
+    container.innerHTML =
+      '<div style="text-align:center;padding:32px 20px;color:var(--gray);font-size:.9rem">' +
+        'Aucune session enregistrée pour le moment.' +
+      '</div>';
+    return;
+  }
+  var html = '';
+  data.sessions.slice(0, 10).forEach(function(s) {
+    var cls = s.pct < 50 ? 'low' : (s.pct < 70 ? 'mid' : 'high');
+    html +=
+      '<div class="esp-sess-item">' +
+        '<div class="esp-sess-date">' + espFormatDate(s.date) + '</div>' +
+        '<div class="esp-sess-title">' + s.title + '</div>' +
+        '<div class="esp-sess-score">' + s.score + '/' + s.total + '</div>' +
+        '<div class="esp-sess-pct ' + cls + '">' + s.pct + '%</div>' +
+      '</div>';
+  });
+  container.innerHTML = html;
+}
+
+function resetEspaceStats() {
+  if (!confirm('Es-tu sûr de vouloir réinitialiser toutes tes statistiques ? Cette action est irréversible.')) return;
+  var key = espGetStorageKey();
+  if (key) localStorage.removeItem(key);
+  showToast('Statistiques réinitialisées.');
+  renderEspace();
+}
+
+// ================================================================
+// VIEWER PDF PROTÉGÉ — ouverture des documents biblio
+// ================================================================
+// Usage sur les cartes biblio :
+// onclick="openDoc('id-unique','Nom du document','Type','docs/chemin.pdf')"
+// Si non-membre → modale verrou. Si membre → viewer protégé + tracking.
+
+function openDoc(id, name, type, url) {
+  // Non payant (visiteur OU compte gratuit) : on verrouille l'accès
+  if (!isPaidMember) {
+    openLockModal();
+    return;
+  }
+  // Membre payant : tracking + ouverture viewer
+  espTrackDoc(id, name, type);
+  var overlay = document.getElementById('pdf-viewer-overlay');
+  var iframe = document.getElementById('pdf-viewer-iframe');
+  document.getElementById('pdf-viewer-title').textContent = name;
+  document.getElementById('pdf-viewer-type').textContent = type || 'Document';
+  // Paramètres qui cachent la barre d'outils du viewer PDF natif du navigateur
+  // (toolbar=0, navpanes=0 : Chrome/Edge ; #toolbar=0 : historique legacy)
+  var sep = url.indexOf('?') !== -1 ? '&' : '?';
+  var src = url + '#toolbar=0&navpanes=0&scrollbar=1&view=FitH';
+  iframe.src = src;
+  overlay.classList.add('visible');
+  document.body.classList.add('pdf-open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closePdfViewer() {
+  var overlay = document.getElementById('pdf-viewer-overlay');
+  var iframe = document.getElementById('pdf-viewer-iframe');
+  iframe.src = 'about:blank';
+  overlay.classList.remove('visible');
+  document.body.classList.remove('pdf-open');
+  document.body.style.overflow = '';
+}
+
+// Protections anti-copie sur le viewer
+(function() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var body = document.getElementById('pdf-viewer-body');
+    if (body) {
+      // Désactive clic droit dans la zone de lecture
+      body.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+        return false;
+      });
+    }
+    // Bloque Ctrl+S, Ctrl+P, Ctrl+Shift+S quand le viewer est ouvert
+    document.addEventListener('keydown', function(e) {
+      if (!document.body.classList.contains('pdf-open')) return;
+      var k = e.key.toLowerCase();
+      if ((e.ctrlKey || e.metaKey) && (k === 's' || k === 'p')) {
+        e.preventDefault();
+        showToast('⚠️ Action non autorisée sur les documents protégés.');
+        return false;
+      }
+      // Esc ferme le viewer
+      if (e.key === 'Escape') closePdfViewer();
+    });
+    // Ferme au clic sur l'overlay (hors box)
+    var overlay = document.getElementById('pdf-viewer-overlay');
+    if (overlay) {
+      overlay.addEventListener('click', function(e) {
+        if (e.target === overlay) closePdfViewer();
+      });
+    }
+  });
+})();
+
+// ================================================================
 // BIBLIOTHÈQUE - FILTRE
 // ============================================================
 function filterBiblio(btn, cat) {
@@ -2343,31 +3415,56 @@ function updateNavMember(member) {
   var loginBtn  = document.getElementById('nav-login-btn');
   var logoutBtn = document.getElementById('nav-logout-btn');
   var nameEl    = document.getElementById('nav-member-name');
+  var spaceBtn  = document.getElementById('nav-space-btn');
+  var espaceItem= document.getElementById('nav-espace-item');
+  var mobileEspace = document.getElementById('mobile-espace-link');
   if (member) {
     currentMember = member;
+    isPaidMember  = hasPaidAccess(member);
+    // 'is-member' = utilisateur payant (débloque les verrous CSS de la biblio, etc.)
+    // 'is-logged' = simplement connecté (avec ou sans paiement)
+    document.body.classList.add('is-logged');
+    document.body.classList.toggle('is-member', isPaidMember);
     loginBtn.style.display  = 'none';
     logoutBtn.style.display = 'inline-flex';
+    // L'espace candidat contient des stats personnelles réservées aux payants
+    if (spaceBtn)    spaceBtn.style.display    = isPaidMember ? 'inline-flex' : 'none';
+    if (espaceItem)  espaceItem.style.display  = isPaidMember ? 'block' : 'none';
+    if (mobileEspace) mobileEspace.style.display = isPaidMember ? 'block' : 'none';
     var email = (member.auth && member.auth.email) || member.email || '';
     if (email) {
       nameEl.textContent = '👤 ' + email.split('@')[0];
       nameEl.style.display = 'inline';
     }
     checkAccessGate('qcm');
+    // Migration localStorage → Supabase en arrière-plan (payants uniquement)
+    if (isPaidMember) {
+      setTimeout(function(){ try { espMigrateLocalToSupabase(); } catch(e){} }, 1200);
+    }
   } else {
     currentMember = null;
+    isPaidMember  = false;
+    document.body.classList.remove('is-member');
+    document.body.classList.remove('is-logged');
     loginBtn.style.display  = 'inline-flex';
     logoutBtn.style.display = 'none';
     nameEl.style.display    = 'none';
+    if (spaceBtn) spaceBtn.style.display = 'none';
+    if (espaceItem) espaceItem.style.display = 'none';
+    if (mobileEspace) mobileEspace.style.display = 'none';
   }
 }
 
 function checkAccessGate(page) {
-  var isLogged = !!currentMember;
+  // "CTA débloquer" = affiché tant que l'utilisateur n'a pas payé
+  // (non connecté OU connecté mais non payant)
+  // "CTA membre"    = affiché uniquement pour les payants
+  var hasPaid = isPaidMember;
   if (page === 'qcm') {
     var unlockCta = document.getElementById('qcm-unlock-cta');
     var memberCta = document.getElementById('qcm-member-cta');
-    if (unlockCta) unlockCta.style.display = isLogged ? 'none' : 'block';
-    if (memberCta) memberCta.style.display = isLogged ? 'block' : 'none';
+    if (unlockCta) unlockCta.style.display = hasPaid ? 'none' : 'block';
+    if (memberCta) memberCta.style.display = hasPaid ? 'block' : 'none';
   }
 }
 
@@ -2379,19 +3476,24 @@ function msPay(priceId) {
     setTimeout(function() { msPay(priceId); }, 1500);
     return;
   }
+  // Helper : après paiement réussi, on re-fetch le membre pour que planConnections
+  // soit à jour et que isPaidMember passe à true avant la redirection merci.
+  function onCheckoutSuccess() {
+    return refreshMemberAccess().then(function() { goTo('merci'); });
+  }
   ms.getCurrentMember().then(function(res) {
     if (res && res.data && res.data.member) {
       // Membre connecté → checkout direct
       ms.purchasePlansWithCheckout({ priceId: priceId })
-        .then(function(result) { if (result && result.data) goTo('merci'); })
+        .then(function(result) { if (result && result.data) onCheckoutSuccess(); })
         .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
     } else {
       // Non connecté → inscription puis checkout
       ms.openModal('signup').then(function(result) {
         if (result && result.data && result.data.member) {
-          updateNavMember(result.data.member);
+          updateNavMember(result.data.member); // encore non payant à ce stade
           ms.purchasePlansWithCheckout({ priceId: priceId })
-            .then(function() { goTo('merci'); })
+            .then(function() { onCheckoutSuccess(); })
             .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
         }
       }).catch(function(e) { console.error('msPay openModal error:', e); });
@@ -2401,7 +3503,7 @@ function msPay(priceId) {
       if (result && result.data && result.data.member) {
         updateNavMember(result.data.member);
         ms.purchasePlansWithCheckout({ priceId: priceId })
-          .then(function() { goTo('merci'); })
+          .then(function() { onCheckoutSuccess(); })
           .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
       }
     }).catch(function(e) { console.error('msPay fallback error:', e); });
@@ -2456,7 +3558,7 @@ async function resetPassword() {
 // MODAL VERROU (unique — openLockModal / closeLockModal)
 // ============================================================
 function openLockModal() {
-  if (currentMember) {
+  if (isPaidMember) {
     showToast('✅ Contenu disponible — fonctionnalité à venir !');
     return;
   }
@@ -2509,6 +3611,14 @@ document.addEventListener('memberstack.formSubmitSuccess', function(e) {
   }
 });
 
+// Si Memberstack pousse un événement de changement de plan (achat, renouvellement,
+// révocation), on rafraîchit l'accès immédiatement.
+['memberstack.planAdded','memberstack.planRemoved','memberstack.purchase.complete'].forEach(function(evt){
+  document.addEventListener(evt, function() {
+    if (typeof refreshMemberAccess === 'function') refreshMemberAccess();
+  });
+});
+
 // ============================================================
 // ANNALES + MODE EXAMEN
 // ============================================================
@@ -2541,15 +3651,15 @@ function loadAnnalesIndex() {
 function renderAnnalesThemes() {
   var grid = document.getElementById('annales-themes-grid');
   if (!grid) return;
-  // Non connecté : CTA d'abonnement
-  if (!currentMember) {
+  // Non payant (visiteur OU compte gratuit) : CTA d'abonnement
+  if (!isPaidMember) {
     grid.innerHTML = [
       '<div style="grid-column:1/-1;background:white;border:1px solid var(--border);padding:40px 32px;text-align:center">',
         '<div style="font-size:2rem;margin-bottom:14px">🔒</div>',
         '<div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px">Annales réservées aux membres</div>',
         '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:420px;margin:0 auto 20px">Le mode examen chronométré avec correction automatique est inclus dans l\'accès plateforme complet.</div>',
         '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès — 59€ →</button>',
-        ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">Se connecter</button>',
+        (currentMember ? '' : ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">Se connecter</button>'),
       '</div>'
     ].join('');
     return;
@@ -2625,7 +3735,7 @@ function showAnnalesThemes() {
 
 // ---------- DEMARRAGE MODE EXAMEN ----------
 function startExam(annaleId) {
-  if (!currentMember) {
+  if (!isPaidMember) {
     openLockModal();
     return;
   }
