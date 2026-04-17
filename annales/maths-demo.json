@@ -1,0 +1,27 @@
+{
+  "id": "maths-demo",
+  "theme": "maths",
+  "year": 2025,
+  "title": "Démo gratuite — Mathématiques",
+  "duration_min": 60,
+  "pdf_sujet": "annales/maths-demo.pdf",
+  "pdf_corrige": null,
+  "instructions": "Démo gratuite : 3 questions extraites d'une annale réelle (concours 2021). Lis le sujet à gauche, coche la ou les bonnes réponses dans la grille à droite. Calculatrice non autorisée.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [2],
+      "expl": "La réponse correcte est C (40 km/h). Le CCF a parcouru 10 km en 15 minutes (de 15h03 à 15h18), soit 1/4 d'heure. Vitesse = distance / temps = 10 km ÷ 0,25 h = 40 km/h. Les autres propositions sont de mauvaises conversions (35 000 m/h = 35 km/h, pas équivalent)."
+    },
+    {
+      "num": 2,
+      "correct": [1, 4],
+      "expl": "Les réponses correctes sont B et E. 3 000 L × 3/5 = 1 800 L. En hectolitres : 1 800 L = 18 hL (1 hL = 100 L). Donc 18 hL et 1 800 L désignent la même quantité. Les autres valeurs (15 hL = 1 500 L, 150 daL = 1 500 L) sont fausses."
+    },
+    {
+      "num": 3,
+      "correct": [1],
+      "expl": "La réponse correcte est B (1 500 000 m²). 1 hectare = 10 000 m² (1 hm² = 10 000 m²). Donc 150 hectares = 150 × 10 000 = 1 500 000 m². À retenir : 1 ha = 1 hm² = 10 000 m²."
+    }
+  ]
+}

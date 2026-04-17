@@ -2,34 +2,26 @@
   "id": "equipier-demo",
   "theme": "equipier",
   "year": 2025,
-  "title": "Session 2025 — Équipier SPV (exemple)",
+  "title": "Démo gratuite — Équipier SPV",
   "duration_min": 60,
   "pdf_sujet": "annales/equipier-demo.pdf",
   "pdf_corrige": null,
-  "instructions": "Lis attentivement chaque question du PDF à gauche. Coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses. Durée : 1 heure.",
+  "instructions": "Démo gratuite : 3 questions extraites d'une annale réelle (concours SDIS 13, 2021). Lis le sujet à gauche, coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses.",
   "questions": [
     {
       "num": 1,
-      "correct": [
-        1
-      ],
-      "expl": "La réponse correcte est B. La loi n°96-369 du 3 mai 1996 est le texte fondateur des SDIS en France. Voir le sujet PDF, question 1."
+      "correct": [1],
+      "expl": "La réponse correcte est B. Le SDACR (Schéma Départemental d'Analyse et de Couverture des Risques) est défini dans le Code général des collectivités territoriales (CGCT). Il constitue le socle d'analyse des risques à l'échelle départementale. Le RIOFE n'existe pas sous cette forme, le PPI est un Plan Particulier d'Intervention (sites à risques spécifiques), le POI est un Plan d'Opération Interne (propre à un établissement industriel)."
     },
     {
       "num": 2,
-      "correct": [
-        0,
-        2,
-        3
-      ],
-      "expl": "Trois bonnes réponses : A, C et D. Les missions des SDIS sont définies par l'article L1424-2 du CGCT (prévention, secours, protection des biens). L'organisation des élections n'en fait pas partie."
+      "correct": [0],
+      "expl": "La réponse correcte est A. L'énergie d'activation est l'élément déclencheur d'un FGI (Fumée Gazeuse Inflammable), car c'est elle qui déclenche l'inflammation de la fumée qui a atteint sa plage d'explosivité. Le comburant et la plage d'explosivité sont des conditions préalables, pas le déclencheur."
     },
     {
       "num": 3,
-      "correct": [
-        2
-      ],
-      "expl": "La réponse est C. Le cadre d'emplois des sapeurs et caporaux SPP appartient à la catégorie C de la fonction publique territoriale (décret n° 2012-520)."
+      "correct": [1],
+      "expl": "La réponse correcte est B. Les sapeurs-pompiers professionnels sont des fonctionnaires territoriaux employés par les SDIS, qui sont des établissements publics relevant de la fonction publique territoriale. Source : décret n° 2012-520 du 20 avril 2012."
     }
   ]
 }

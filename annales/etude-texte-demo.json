@@ -1,0 +1,27 @@
+{
+  "id": "etude-texte-demo",
+  "theme": "etude-texte",
+  "year": 2025,
+  "title": "Démo gratuite — Étude de texte",
+  "duration_min": 60,
+  "pdf_sujet": "annales/etude-texte-demo.pdf",
+  "pdf_corrige": null,
+  "instructions": "Démo gratuite : 3 questions d'étude de texte. Lis attentivement le texte à gauche, puis réponds aux questions à droite. Chaque question peut comporter une ou plusieurs réponses exactes.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [3],
+      "expl": "La réponse correcte est D. Le texte précise que les plantes anémophiles « utilisent le vent pour disperser leur pollen ». Étymologiquement, le mot vient du grec 'anemos' (vent) et 'philos' (ami). Les plantes anémophiles se distinguent des plantes entomophiles qui utilisent les insectes pour la pollinisation."
+    },
+    {
+      "num": 2,
+      "correct": [2],
+      "expl": "La réponse correcte est C (131 %). Le texte indique clairement que « les niveaux actuels de CO₂ ont fait croître la production de pollen d'ambroisie de 131 % par rapport à la période préindustrielle ». Piège classique : le chiffre de 320 % concerne la projection future, pas l'augmentation actuelle."
+    },
+    {
+      "num": 3,
+      "correct": [0, 2, 3],
+      "expl": "Les réponses correctes sont A, C et D. Le texte cite explicitement : les cupressacées (cyprès) dans le Sud-Est, les graminées sur tout le territoire, et les bétulacées (bouleaux) dans le quart nord-est. Les plantaginacées et les papilionacées ne sont pas mentionnées."
+    }
+  ]
+}

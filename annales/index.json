@@ -21,11 +21,86 @@
   },
   "annales": [
     {
+      "id": "etude-texte-demo",
+      "theme": "etude-texte",
+      "year": 2025,
+      "title": "Démo gratuite — Étude de texte",
+      "nb_questions": 3,
+      "duration_min": 60,
+      "is_demo": true
+    },
+    {
+      "id": "maths-demo",
+      "theme": "maths",
+      "year": 2025,
+      "title": "Démo gratuite — Mathématiques",
+      "nb_questions": 3,
+      "duration_min": 60,
+      "is_demo": true
+    },
+    {
       "id": "equipier-demo",
       "theme": "equipier",
       "year": 2025,
-      "title": "Session 2025 — Équipier SPV (exemple)",
+      "title": "Démo gratuite — Équipier SPV",
       "nb_questions": 3,
+      "duration_min": 60,
+      "is_demo": true
+    },
+    {
+      "id": "equipier-cdg69-2025",
+      "theme": "equipier",
+      "year": 2025,
+      "title": "CDG69 / SDMIS — Session 2025",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg35-2023",
+      "theme": "equipier",
+      "year": 2023,
+      "title": "CDG35 — Session 2023 (Ille-et-Vilaine)",
+      "nb_questions": 49,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg69-2023",
+      "theme": "equipier",
+      "year": 2023,
+      "title": "CDG69 / SDMIS — Session 2023",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg13-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG13 — Session 2021 (Bouches-du-Rhône)",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg35-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG35 — Session 2021 (Ille-et-Vilaine)",
+      "nb_questions": 50,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg57-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG57 — Session 2021 (Moselle)",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg69-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG69 / SDMIS — Session 2021",
+      "nb_questions": 60,
       "duration_min": 60
     }
   ]
