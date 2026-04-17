@@ -860,6 +860,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   <div class="mobile-nav-link" onclick="goTo('formation');closeMobileNav()">Plans d'actions</div>
   <div class="mobile-nav-link" onclick="goTo('coaching');closeMobileNav()">Coaching</div>
   <div style="font-size:.6rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gray);margin:12px 0 4px">Plateforme concours</div>
+  <div class="mobile-nav-link" onclick="goTo('concours');closeMobileNav()">Mode concours</div>
   <div class="mobile-nav-link" onclick="goTo('qcm');closeMobileNav()">QCM</div>
   <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()">Bibliothèque</div>
   <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()">Actualités</div>
@@ -896,6 +897,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
       <button class="nav-group-btn">Plateforme concours</button>
       <div class="nav-group-bar"></div>
       <div class="nav-dropdown">
+        <button class="nav-dropdown-item" data-page="concours" onclick="goTo('concours')">Mode concours</button>
         <button class="nav-dropdown-item" data-page="qcm" onclick="goTo('qcm')">QCM</button>
         <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')">Bibliothèque</button>
         <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')">Actualités</button>
@@ -1327,24 +1329,24 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   </div>
 </div>
 
-<!-- ============================= PAGE: BIBLIOTHEQUE ============================= -->
-<div class="page" id="page-biblio">
+<!-- ============================= PAGE: MODE CONCOURS ============================= -->
+<div class="page" id="page-concours">
   <div class="page-header">
     <div class="page-header-inner">
-      <div class="s-eyebrow">Bibliothèque &amp; Annales</div>
-      <div class="s-title">Toute la documentation<br>en <em>un seul endroit</em></div>
-      <div class="s-lead">Textes réglementaires, GNR, annales commentées, fiches synthèse — compilés et organisés pour ta préparation.</div>
+      <div class="s-eyebrow">Mode concours</div>
+      <div class="s-title">Entraîne-toi dans les<br><em>conditions réelles</em> du concours</div>
+      <div class="s-lead">Chaque sujet se lance en mode examen chronométré d'1 heure. Consulte le PDF officiel, coche tes réponses, obtiens ton score et la correction détaillée à la fin.</div>
     </div>
   </div>
   <div class="section">
 
     <!-- ===== VUE 1 : LISTE DES 3 THEMES ===== -->
     <div id="annales-themes-view">
-      <div class="s-eyebrow">Annales — Mode examen</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:12px">Entraîne-toi dans <em style="color:var(--red)">les conditions du concours</em></div>
-      <div style="font-size:.95rem;color:var(--gray);line-height:1.7;max-width:640px;margin-bottom:8px">Chaque sujet se lance en mode examen chronométré d'1 heure. Consulte le PDF, coche tes réponses, obtiens ton score et la correction détaillée à la fin.</div>
+      <div class="s-eyebrow">Choisis ton épreuve</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:12px">Les trois épreuves écrites du <em style="color:var(--red)">concours SPP</em></div>
+      <div style="font-size:.95rem;color:var(--gray);line-height:1.7;max-width:640px;margin-bottom:8px">Sélectionne un thème pour accéder aux sujets d'annales disponibles.</div>
       <div class="annales-theme-grid" id="annales-themes-grid">
-        <!-- Rempli dynamiquement depuis annales_index.json -->
+        <!-- Rempli dynamiquement depuis annales/index.json -->
       </div>
     </div>
 
@@ -1363,8 +1365,22 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
       </div>
     </div>
 
-    <!-- ===== BIBLIOTHEQUE DOCUMENTAIRE (inchangée) ===== -->
-    <div style="border-top:1px solid var(--border);margin-top:60px;padding-top:60px">
+  </div>
+</div>
+
+<!-- ============================= PAGE: BIBLIOTHEQUE ============================= -->
+<div class="page" id="page-biblio">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="s-eyebrow">Bibliothèque documentaire</div>
+      <div class="s-title">Toute la documentation<br>en <em>un seul endroit</em></div>
+      <div class="s-lead">Textes réglementaires, GNR, fiches synthèse — compilés et organisés pour ta préparation.</div>
+    </div>
+  </div>
+  <div class="section">
+
+    <!-- ===== BIBLIOTHEQUE DOCUMENTAIRE ===== -->
+    <div>
       <div class="s-eyebrow">Bibliothèque documentaire</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:24px">Ressources réglementaires &amp; fiches</div>
       <div class="biblio-cats">
@@ -1440,7 +1456,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <div class="correction-progress-bar"><div class="correction-progress-fill" id="correction-fill" style="width:0%"></div></div>
         <div class="correction-actions">
           <a id="correction-corrige-link" href="#" target="_blank" rel="noopener" class="btn btn-red">📄 Voir le corrigé officiel (PDF) →</a>
-          <button class="btn btn-outline-red" onclick="goTo('biblio')">← Retour aux annales</button>
+          <button class="btn btn-outline-red" onclick="goTo('concours')">← Retour aux annales</button>
         </div>
       </div>
       <div class="correction-stats">
@@ -1937,7 +1953,7 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="footer-col-title">Formation</div>
       <ul class="footer-links">
         <li><button onclick="goTo('qcm')">QCM &amp; Entraînement</button></li>
-        <li><button onclick="goTo('biblio')">Annales commentées</button></li>
+        <li><button onclick="goTo('concours')">Mode concours (annales)</button></li>
         <li><button onclick="goTo('biblio')">Bibliothèque</button></li>
         <li><button onclick="goTo('formation')">Tarifs</button></li>
       </ul>
@@ -2026,11 +2042,12 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci'];
+var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace'];
 
 function goTo(id) {
   pages.forEach(function(p) {
-    document.getElementById('page-' + p).classList.toggle('active', p === id);
+    var el = document.getElementById('page-' + p);
+    if (el) el.classList.toggle('active', p === id);
   });
   // Highlight items du dropdown
   document.querySelectorAll('.nav-dropdown-item').forEach(function(l) {
@@ -2040,7 +2057,7 @@ function goTo(id) {
   var groupMap = {
     home:'navg-decouvrir', parcours:'navg-decouvrir',
     formation:'navg-difference', coaching:'navg-difference',
-    qcm:'navg-plateforme', biblio:'navg-plateforme', actu:'navg-plateforme'
+    concours:'navg-plateforme', qcm:'navg-plateforme', biblio:'navg-plateforme', actu:'navg-plateforme'
   };
   document.querySelectorAll('.nav-group').forEach(function(g) { g.classList.remove('active'); });
   if (groupMap[id]) document.getElementById(groupMap[id]).classList.add('active');
@@ -2049,6 +2066,7 @@ function goTo(id) {
 
   if (id === 'qcm') { initQcm(); checkAccessGate('qcm'); }
   if (id === 'biblio' || id === 'actu') checkAccessGate(id);
+  if (id === 'concours') { checkAccessGate('concours'); renderAnnalesThemes(); }
 }
 
 // Mobile nav
@@ -3651,40 +3669,61 @@ function loadAnnalesIndex() {
 function renderAnnalesThemes() {
   var grid = document.getElementById('annales-themes-grid');
   if (!grid) return;
-  // Non payant (visiteur OU compte gratuit) : CTA d'abonnement
-  if (!isPaidMember) {
-    grid.innerHTML = [
-      '<div style="grid-column:1/-1;background:white;border:1px solid var(--border);padding:40px 32px;text-align:center">',
-        '<div style="font-size:2rem;margin-bottom:14px">🔒</div>',
-        '<div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px">Annales réservées aux membres</div>',
-        '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:420px;margin:0 auto 20px">Le mode examen chronométré avec correction automatique est inclus dans l\'accès plateforme complet.</div>',
-        '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès — 59€ →</button>',
-        (currentMember ? '' : ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">Se connecter</button>'),
-      '</div>'
-    ].join('');
-    return;
-  }
 
   grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray);font-size:.9rem">⏳ Chargement des annales...</div>';
   loadAnnalesIndex().then(function(data) {
     var themes = data.themes || {};
     var annales = data.annales || [];
-    // Compte les annales par thème
+    // Compte les annales par thème (exclut la démo du comptage "réel")
     var counts = {};
-    annales.forEach(function(a) { counts[a.theme] = (counts[a.theme] || 0) + 1; });
+    annales.forEach(function(a) {
+      if (a.id === 'equipier-demo') return;
+      counts[a.theme] = (counts[a.theme] || 0) + 1;
+    });
 
+    // Bandeau démo pour les non-payants (en tête de grille)
     var html = '';
+    if (!isPaidMember) {
+      html += '<div style="grid-column:1/-1;background:linear-gradient(135deg,var(--red-pale) 0%,var(--cream2) 100%);border:1px solid var(--red-pale2);padding:28px 32px;margin-bottom:8px;display:flex;flex-wrap:wrap;gap:20px;align-items:center;justify-content:space-between">' +
+        '<div style="flex:1;min-width:260px">' +
+          '<div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px">🎁 Démo gratuite</div>' +
+          '<div style="font-family:\'Playfair Display\',serif;font-size:1.25rem;color:var(--charcoal);margin-bottom:6px">Teste le mode examen — 3 questions, 60 secondes</div>' +
+          '<div style="font-size:.88rem;color:var(--gray);line-height:1.55">Découvre l\'expérience complète : PDF du sujet, chronomètre, correction détaillée. Sans inscription.</div>' +
+        '</div>' +
+        '<button class="btn btn-red" onclick="startExam(\'equipier-demo\')" style="white-space:nowrap">🎯 Lancer la démo →</button>' +
+      '</div>';
+    }
+
+    // Cartes des 3 thèmes
     Object.keys(themes).forEach(function(key) {
       var t = themes[key];
       var nb = counts[key] || 0;
       var countLabel = nb === 0 ? 'Aucun sujet pour l\'instant' : (nb + ' sujet' + (nb > 1 ? 's' : '') + ' disponible' + (nb > 1 ? 's' : ''));
-      html += '<div class="annales-theme-card" onclick="showAnnalesSujets(\'' + key + '\')">' +
+      var locked = !isPaidMember;
+      var cardStyle = locked ? 'position:relative;opacity:.85' : '';
+      var clickHandler = locked ? 'onclick="openLockModal()"' : 'onclick="showAnnalesSujets(\'' + key + '\')"';
+      var lockBadge = locked
+        ? '<div style="position:absolute;top:14px;right:14px;background:var(--charcoal);color:white;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px">🔒 Membres</div>'
+        : '';
+      html += '<div class="annales-theme-card" ' + clickHandler + ' style="' + cardStyle + '">' +
+        lockBadge +
         '<div class="annales-theme-icon">' + (t.icon || '📘') + '</div>' +
         '<div class="annales-theme-label">' + t.label + '</div>' +
         '<div class="annales-theme-desc">' + (t.description || '') + '</div>' +
         '<div class="annales-theme-count"><span>' + countLabel + '</span><span class="annales-theme-arrow">→</span></div>' +
       '</div>';
     });
+
+    // CTA abonnement pour les non-payants (sous la grille)
+    if (!isPaidMember) {
+      html += '<div style="grid-column:1/-1;background:white;border:1px solid var(--border);padding:32px;margin-top:8px;text-align:center">' +
+        '<div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px">Débloque toutes les annales</div>' +
+        '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:520px;margin:0 auto 20px">Accède aux 7 annales officielles (CDG13, CDG35, CDG57, CDG69 de 2021 à 2025), à la bibliothèque documentaire, aux QCM thématiques et à ton espace de suivi personnel. Paiement unique, accès à vie.</div>' +
+        '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès — 59€ →</button>' +
+        (currentMember ? '' : ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">J\'ai déjà un compte</button>') +
+      '</div>';
+    }
+
     grid.innerHTML = html;
   }).catch(function(err) {
     console.error('Erreur chargement index annales :', err);
@@ -3735,7 +3774,8 @@ function showAnnalesThemes() {
 
 // ---------- DEMARRAGE MODE EXAMEN ----------
 function startExam(annaleId) {
-  if (!isPaidMember) {
+  // Seule l'annale démo est accessible aux non-payants
+  if (!isPaidMember && annaleId !== 'equipier-demo') {
     openLockModal();
     return;
   }
