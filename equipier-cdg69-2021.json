@@ -1,0 +1,456 @@
+{
+  "id": "equipier-cdg69-2021",
+  "theme": "equipier",
+  "year": 2021,
+  "title": "CDG69 / SDMIS — Session 2021",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg69-2021.pdf",
+  "pdf_corrige": null,
+  "instructions": "60 questions. Durée : 1 heure. Barème : 1 point si toutes réponses exactes, 0,5 si la moitié au moins, 0 si moins de la moitié, -0,5 dès qu'une réponse inexacte OU si aucune réponse. Calculatrice non autorisée.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Hémorragie externe : arrêter immédiatement (compression), rechercher détresse circulatoire, protection personnelle (gants UU)."
+    },
+    {
+      "num": 2,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Crise convulsive généralisée : perturbation de l'activité électrique cérébrale, perte de connaissance. Les vomissements ne sont pas systématiques."
+    },
+    {
+      "num": 3,
+      "correct": [
+        1
+      ],
+      "expl": "B. Seuil de resucrage : < 60 mg/dL = 0,60 g/L = 3,3 mmol/L. Attention aux unités : 0,60 mg/dL serait 100x trop faible (erreur), 3,3 mmol/ml n'existe pas."
+    },
+    {
+      "num": 4,
+      "correct": [
+        2
+      ],
+      "expl": "C. RCP nouveau-né à la naissance : 3 compressions pour 1 insufflation (rythme spécifique néonatal). Adulte = 30/2. Enfant = 15/2."
+    },
+    {
+      "num": 5,
+      "correct": [
+        1
+      ],
+      "expl": "B. Hypothermie légère : 32-35 °C. Modérée : 28-32 °C. Sévère : < 28 °C (ou < 24 °C selon classifications)."
+    },
+    {
+      "num": 6,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Brûlure caractérisée par son étendue (surface) et son aspect (degré). La bradycardie n'est pas un signe direct de brûlure."
+    },
+    {
+      "num": 7,
+      "correct": [
+        0
+      ],
+      "expl": "A. Mécanismes à haut risque de lésion rachidienne : éjection d'un véhicule. La chute de sa hauteur chez sujet jeune = pas haut risque (chez > 65 ans = facteur aggravant mais pas classé haut risque isolé)."
+    },
+    {
+      "num": 8,
+      "correct": [
+        0
+      ],
+      "expl": "A. Fréquence compressions thoraciques adulte : 100-120/min (standard ERC/ILCOR)."
+    },
+    {
+      "num": 9,
+      "correct": [
+        1
+      ],
+      "expl": "B. Profondeur compressions adulte : 5 cm sans dépasser 6 cm (norme internationale RCP)."
+    },
+    {
+      "num": 10,
+      "correct": [
+        2
+      ],
+      "expl": "C. MHC (masque haute concentration) à 8-15 L/min : FiO₂ = 60-90 %. Pas 100 % (impossible avec MHC classique, il faudrait BVM)."
+    },
+    {
+      "num": 11,
+      "correct": [
+        1
+      ],
+      "expl": "B. Insuffisant respiratoire chronique : objectif SpO₂ 89-94 % (éviter hyperoxie qui déprime le centre respiratoire chez BPCO)."
+    },
+    {
+      "num": 12,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Bouteille O₂ 5 L × 200 bars = 1 000 L = 1 m³. Les deux formulations sont équivalentes. Pas 500 L ni 800 L."
+    },
+    {
+      "num": 13,
+      "correct": [
+        0
+      ],
+      "expl": "A. Nouveau-né non-respirant à la naissance : 30 insufflations en 2 minutes (rythme 15/min), avant de décider d'initier la RCP complète."
+    },
+    {
+      "num": 14,
+      "correct": [
+        2
+      ],
+      "expl": "C. Accident de plongée : O₂ pur au débit MAXIMUM (15 L/min) via MHC. C'est le traitement d'urgence des accidents de décompression."
+    },
+    {
+      "num": 15,
+      "correct": [
+        1
+      ],
+      "expl": "B. Surveillance d'une victime en détresse : paramètres vitaux toutes les 5 minutes (rythme standard de surveillance serrée)."
+    },
+    {
+      "num": 16,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Balisage hors agglo : en amont et en aval, à 150-200 m minimum. Pas à 100 m max (trop près)."
+    },
+    {
+      "num": 17,
+      "correct": [
+        0
+      ],
+      "expl": "A. Suspicion AVC — test FAST / score de Cincinnati : Asymétrie Faciale (chute d'un côté du visage). La régularité du pouls et extension des membres inférieurs ne sont pas des signes AVC spécifiques."
+    },
+    {
+      "num": 18,
+      "correct": [
+        0,
+        3
+      ],
+      "expl": "A, D. Crise d'asthme : faciliter la respiration (position assise), demander avis médical. L'O₂ seulement si SpO₂ < 94 %, pas systématique. La victime ne doit PAS être allongée."
+    },
+    {
+      "num": 19,
+      "correct": [
+        1
+      ],
+      "expl": "B. Compression de membre prolongée si > 4 heures (risque de crush syndrome à la levée : hyperkaliémie, IRA)."
+    },
+    {
+      "num": 20,
+      "correct": [
+        1
+      ],
+      "expl": "B. ACR adulte : compressions 100-120/min, profondeur 5-6 cm. Pas 7 cm ni 3 cm."
+    },
+    {
+      "num": 21,
+      "correct": [
+        0
+      ],
+      "expl": "A. MGO incendie : 8 phases (reconnaissances, sauvetages, établissements, attaque, protection, déblai, surveillance, préservation des traces). 10 ou 12 est faux."
+    },
+    {
+      "num": 22,
+      "correct": [
+        0
+      ],
+      "expl": "A. GDO Incendie de Structure — AIDES : Accéder, Isoler, Désenfumer, Explorer, Sauver. Donc D = Désenfumer."
+    },
+    {
+      "num": 23,
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "expl": "A, B, D. Attaque d'atténuation : limitée dans le temps, effectuée depuis l'extérieur, débit 250-500 L/min. Effectuée en jet diffusé (pas concentré/droit)."
+    },
+    {
+      "num": 24,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. GTO Ventilation Opérationnelle — objectifs : protéger (les intervenants et les personnes) et désenfumer. Pas attaquer ni diffuser."
+    },
+    {
+      "num": 25,
+      "correct": [
+        0
+      ],
+      "expl": "A. GDO Incendie de Structure — dénomination des façades : 1, 2, 3, 4 (dans le sens horaire à partir de la face d'engagement). Les points cardinaux ne sont pas utilisés (risque de confusion selon orientation)."
+    },
+    {
+      "num": 26,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Ligne d'attaque sur prise d'eau — équipement de base : lance + commande (Chef BAT), lampe + portatif (Chef d'Agrès). Tuyaux Ø 45 pour l'équipier : variable selon configuration."
+    },
+    {
+      "num": 27,
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "expl": "A, B, D. Pertes de charge : proportionnelles à la longueur et au carré du débit, inversement proportionnelles au diamètre. C est donc faux (elles dépendent de la longueur)."
+    },
+    {
+      "num": 28,
+      "correct": [
+        1
+      ],
+      "expl": "B. Gaz cooling — impulsions courtes OU longues selon volume. Débit variable, souvent ~200-300 L/min. Jet diffusé d'attaque (pas droit). Pas uniquement 500 L/min."
+    },
+    {
+      "num": 29,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. MGO incendie — phases : ventilation (partie de l'attaque/protection), préservation traces/indices, placement engins (phase initiale). L'alerte n'est pas une phase MGO (elle précède le départ)."
+    },
+    {
+      "num": 30,
+      "correct": [
+        1
+      ],
+      "expl": "B. Calcul : LDV 500 L/min, 3 tuyaux de 20 m = 60 m de Ø 45 mm. Pertes de charge Ø45 pour 500 L/min : environ 0,5 bar/tuyau → 1,5 bar total. Pression engin = pression lance + pertes = 6 + 1,5 = 7,5 bars. Valeur approchée : B."
+    },
+    {
+      "num": 31,
+      "correct": [
+        1
+      ],
+      "expl": "B. Rayonnement = propagation d'énergie sous forme d'ondes électromagnétiques, sans contact matériel. Conduction = proche en proche, convection = fluide en mouvement."
+    },
+    {
+      "num": 32,
+      "correct": [
+        2
+      ],
+      "expl": "C. FGI (Fire Gas Ignition) = inflammation des gaz imbrûlés issus d'un incendie, dans une pièce adjacente. Distinct du backdraft (explosion) et du flashover (EGE)."
+    },
+    {
+      "num": 33,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. PI 150 mm : capot jaune et rouge (visuel normalisé), 1 sortie Ø 70 mm + 2 Ø 100 mm. Pas de capot bleu, et nombre de tours manœuvre variable selon modèle."
+    },
+    {
+      "num": 34,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Flashover imminent — sécurisation : impulsions en jet diffusé d'attaque, débit 100-300 L/min. Pas de jet droit ni 500 L/min (trop agressif pour cette phase)."
+    },
+    {
+      "num": 35,
+      "correct": [
+        1
+      ],
+      "expl": "B. GTO Ventilation Opérationnelle : efficace avec vent défavorable ≤ 28 km/h. Au-delà, la ventilation naturelle prend le pas et rend la VO inefficace/dangereuse."
+    },
+    {
+      "num": 36,
+      "correct": [
+        2
+      ],
+      "expl": "C. Volume = 9 × 5 × 1 = 45 m³. Temps = 45/15 = 3h00."
+    },
+    {
+      "num": 37,
+      "correct": [
+        1
+      ],
+      "expl": "B. Vide-cave : demi-raccords 40 et 65 mm (aspiration et refoulement). Matériel standard pour épuisement."
+    },
+    {
+      "num": 38,
+      "correct": [
+        1
+      ],
+      "expl": "B. Aire d'aspiration MPR : 6 m × 2 m = 12 m². Pour EP (engin-pompe) = 6 m × 4 m selon norme."
+    },
+    {
+      "num": 39,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Ascenseurs : électriques (à traction) et hydrauliques (vérin). Les types thermique et pneumatique n'existent pas pour les ascenseurs d'habitation."
+    },
+    {
+      "num": 40,
+      "correct": [
+        1
+      ],
+      "expl": "B. Hauteur géométrique d'aspiration = distance entre le plan d'eau et l'axe de la pompe (pas entre la crépine et la pompe, qui est une autre mesure)."
+    },
+    {
+      "num": 41,
+      "correct": [
+        1
+      ],
+      "expl": "B. Périmètre de sécurité pour l'abattage d'un arbre : 1 fois la hauteur de l'arbre (règle de base en sylviculture/sécurité). Certains ajoutent une marge selon conditions."
+    },
+    {
+      "num": 42,
+      "correct": [
+        1
+      ],
+      "expl": "B. Cavitation = incident principal d'une pompe centrifuge (formation de bulles de vapeur à l'aspiration → détérioration des roues). Phénomène à éviter absolument."
+    },
+    {
+      "num": 43,
+      "correct": [
+        3
+      ],
+      "expl": "D. Distance CRITIQUE (règle de Hediger) = distance à partir de laquelle un animal n'a plus que l'attaque comme option. Avant : ligne de fuite (il fuit), ligne de défense (il menace)."
+    },
+    {
+      "num": 44,
+      "correct": [
+        2
+      ],
+      "expl": "C. LSPCC en protection individuelle : l'équipier progresse (il est sécurisé par le chef d'équipe). Le chef d'équipe reste en assurance."
+    },
+    {
+      "num": 45,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Zonage opérationnel (GDO Risques technologiques) : zone d'exclusion (danger direct), zone contrôlée (accès restreint), zone de soutien (logistique). Pas de « zone soutenue » ou « zone verte » en terminologie officielle."
+    },
+    {
+      "num": 46,
+      "correct": [
+        1,
+        3
+      ],
+      "expl": "B, D. ARICO 300 bars — pression minimale d'engagement = 270 bars (90 % de la pression nominale). Formulation « pression nominale - 10 % » correspond à 270 bars. Les deux réponses expriment la même valeur."
+    },
+    {
+      "num": 47,
+      "correct": [
+        0
+      ],
+      "expl": "A. Liaison personnelle courte LSPCC = 1,25 m. Liaison personnelle longue = 4,75 m."
+    },
+    {
+      "num": 48,
+      "correct": [
+        0
+      ],
+      "expl": "A. Sauvetage « équipier point fixe » (GTO Sauvetage) : hauteur minimale frein de charge / point d'appui sur passage dans le vide = 20 cm. Évite le coincement de la corde."
+    },
+    {
+      "num": 49,
+      "correct": [
+        0
+      ],
+      "expl": "A. Échelle à coulisse 2 plans : pied d'échelle = 1/5 de la longueur développée + 0,60 m. Formule standard GTO Sauvetage."
+    },
+    {
+      "num": 50,
+      "correct": [
+        0
+      ],
+      "expl": "A. BSD = Balise Sonore et de Détresse (Balise Signal de Détresse). Dispositif qui s'active automatiquement si le porteur est immobile plus de 30 s."
+    },
+    {
+      "num": 51,
+      "correct": [
+        0
+      ],
+      "expl": "A. La navette parlementaire = procédure d'aller-retour d'une proposition de loi entre l'Assemblée nationale et le Sénat jusqu'à accord (ou décision en dernier ressort par l'AN)."
+    },
+    {
+      "num": 52,
+      "correct": [
+        0
+      ],
+      "expl": "A. En cas de vacance de la présidence (décès, démission), l'intérim est assuré par le Président du Sénat (art. 7 de la Constitution)."
+    },
+    {
+      "num": 53,
+      "correct": [
+        3
+      ],
+      "expl": "D. France : 101 départements (96 métropole + 5 DOM : Guadeloupe, Martinique, Guyane, Réunion, Mayotte)."
+    },
+    {
+      "num": 54,
+      "correct": [
+        1
+      ],
+      "expl": "B. 13 régions métropolitaines depuis la réforme territoriale de 2016 (loi NOTRe)."
+    },
+    {
+      "num": 55,
+      "correct": [
+        1
+      ],
+      "expl": "B. Le Président de la République peut exercer 2 mandats consécutifs maximum (art. 6 de la Constitution, révision de 2008)."
+    },
+    {
+      "num": 56,
+      "correct": [
+        2
+      ],
+      "expl": "C. Les élections législatives ont lieu tous les 5 ans (mandat des députés). Depuis 2002, alignées sur le mandat présidentiel (quinquennat)."
+    },
+    {
+      "num": 57,
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expl": "A, B, C, D. Documents obligatoires SDIS : Règlement Intérieur, Règlement Opérationnel, SDACR, OBDSIC, et le Plan de Formation (5 documents). Les 4 premiers cités sont tous exacts."
+    },
+    {
+      "num": 58,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Double autorité du SDIS : Président du CA (gestion administrative et financière) + Préfet (direction opérationnelle). Le DDSIS dirige le service mais n'est pas autorité de tutelle."
+    },
+    {
+      "num": 59,
+      "correct": [
+        0
+      ],
+      "expl": "A. Le Conseil d'État est la plus haute juridiction administrative. La Cour de Cassation = ordre judiciaire."
+    },
+    {
+      "num": 60,
+      "correct": [
+        1
+      ],
+      "expl": "B. Sanctions disciplinaires fonctionnaires titulaires (loi 84-53) : 4 groupes (du 1er : avertissement, au 4e : révocation/mise à la retraite d'office)."
+    }
+  ]
+}

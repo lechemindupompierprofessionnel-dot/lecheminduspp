@@ -3795,9 +3795,16 @@ function startExam(annaleId) {
     // Prépare l'UI
     document.getElementById('exam-pdf-title').textContent = annale.title || 'Sujet';
     var pdfLink = document.getElementById('exam-pdf-link');
-    pdfLink.href = annale.pdf_sujet;
     var pdfFrame = document.getElementById('exam-pdf-frame');
-    pdfFrame.src = annale.pdf_sujet + '#toolbar=1&navpanes=0';
+    if (annale.pdf_sujet) {
+      pdfLink.href = annale.pdf_sujet;
+      pdfLink.style.display = '';
+      pdfFrame.src = annale.pdf_sujet + '#toolbar=1&navpanes=0';
+    } else {
+      pdfLink.style.display = 'none';
+      // Page d'attente si pas de PDF (questions auto-suffisantes)
+      pdfFrame.srcdoc = '<div style="font-family:sans-serif;padding:40px;text-align:center;color:#666"><div style="font-size:2rem;margin-bottom:12px">📝</div><div style="font-size:1.1rem;color:#333;margin-bottom:8px">Sujet consultable à droite</div><div style="font-size:.9rem;line-height:1.6">Cette annale ne comporte pas de PDF sujet séparé.<br>Les questions sont autonomes — réponds directement dans la grille.</div></div>';
+    }
     document.getElementById('exam-instructions').textContent = annale.instructions ||
       'Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.';
     renderExamQuestions();

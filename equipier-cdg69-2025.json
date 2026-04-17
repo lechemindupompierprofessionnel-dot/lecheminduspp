@@ -1,0 +1,365 @@
+{
+  "id": "equipier-cdg69-2025",
+  "theme": "equipier",
+  "year": 2025,
+  "title": "CDG69 / SDMIS — Session 2025",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg69-2025.pdf",
+  "pdf_corrige": null,
+  "instructions": "40 questions. Durée : 1 heure. Chaque question peut comporter une ou plusieurs bonnes réponses. Barème : 1 point si toutes exactes, 0,5 si la moitié au moins sans erreur, 0 point dès qu'une réponse inexacte est cochée. Calculatrice non autorisée.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        1
+      ],
+      "expl": "B. L'identification radio du DDSIS est « Merlin ». Les indicatifs radio courants dans le SDMIS : Merlin (DDSIS), Lancelot (DDASIS), Hippocrate (médecin-chef).",
+      "nb_choices": 5
+    },
+    {
+      "num": 2,
+      "correct": [
+        2
+      ],
+      "expl": "C. DGSCGC = Direction Générale de la Sécurité Civile et de la Gestion des Crises. Créée en 2011, rattachée au ministère de l'Intérieur."
+    },
+    {
+      "num": 3,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Le COS est obligatoirement un sapeur-pompier (gradé, sous-officier ou officier selon l'ampleur de l'intervention — art. L1424-4 CGCT). Le maire est DOS, pas COS."
+    },
+    {
+      "num": 4,
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expl": "A, B, C, D. Les obligations professionnelles du SPP (loi statutaire n°83-634) comprennent la neutralité, le devoir de réserve, la discrétion professionnelle et le secret professionnel — toutes mentionnées dans le statut général des fonctionnaires."
+    },
+    {
+      "num": 5,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. GTO Sauvetage & Mise en sécurité — marquages des portes : trait en diagonale (local en cours de reconnaissance), croix (reconnaissance terminée sans victime), croix encerclée (victime trouvée). Triangle et carré ne sont pas des marquages normalisés.",
+      "nb_choices": 5
+    },
+    {
+      "num": 6,
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "expl": "A, B, D. Couleurs normalisées des PI : rouge (réseau sous pression classique), jaune (réseau surpressé ou additivé), vert (réserve/bâche aérienne). La couleur « rouge et grise » n'existe pas en standard.",
+      "nb_choices": 5
+    },
+    {
+      "num": 7,
+      "correct": [
+        0,
+        2,
+        4
+      ],
+      "expl": "A, C, E. GTO Engagement en milieu vicié : le porte-lance adapte le jet en respectant le débit commandé, attend 10 s en cas de baisse anormale d'eau, et explore par avancées successives. Ne JAMAIS noyer le feu (risque de BLEVE vapeur). Position la plus basse : règle générale de progression, non spécifique au porte-lance à l'entrée.",
+      "nb_choices": 5
+    },
+    {
+      "num": 8,
+      "correct": [
+        0,
+        2,
+        4
+      ],
+      "expl": "A, C, E. GTO Extinctions : en situation proche du flashover, impulsions en jet diffusé d'attaque, débit modéré (100-300 L/min), application en mode balayage parois/plafond pour refroidir les fumées. Le jet droit et 500 L/min correspondent à une attaque massive, pas à une sécurisation.",
+      "nb_choices": 5
+    },
+    {
+      "num": 9,
+      "correct": [
+        0,
+        3
+      ],
+      "expl": "A, D. Classification feux : A = solides, B = liquides ou solides liquéfiables (pas gaz), C = gaz (pas liquides), D = métaux. Les propositions B et C intervertissent B et C."
+    },
+    {
+      "num": 10,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. L'eau pulvérisée + additif est utilisable sur feu électrique basse tension (jusqu'à 1 000 V) à condition de respecter la distance de sécurité d'1 mètre. Le 230 V est bien inclus dans cette plage."
+    },
+    {
+      "num": 11,
+      "correct": [
+        0,
+        1,
+        2,
+        4
+      ],
+      "expl": "A, B, C, E. GTO Engagement en milieu vicié — enregistrement avant engagement : identification des porteurs, pression d'engagement, heure d'entrée, plaquettes d'enregistrement. Les balises de détresse (BSD) sont portées par le binôme, non déposées.",
+      "nb_choices": 5
+    },
+    {
+      "num": 12,
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expl": "A, B, C, D. GDO Toxicité des fumées : dangers = corrosivité, toxicité, opacité, inflammabilité (les fumées sont des combustibles en suspension). L'acidité est une conséquence de la corrosivité, pas un danger distinct listé.",
+      "nb_choices": 5
+    },
+    {
+      "num": 13,
+      "correct": [
+        1,
+        3,
+        5
+      ],
+      "expl": "B, D, F. Dans une pièce de référence, la répartition de transfert : ~5 % conduction, ~25 % rayonnement, ~70 % convection (valeurs indicatives GDO Incendie Structure). Les autres valeurs (5 % projections, 45 % rayonnement, 55 % convection) sont incorrectes.",
+      "nb_choices": 6
+    },
+    {
+      "num": 14,
+      "correct": [
+        1
+      ],
+      "expl": "B. Le ricochet est une application d'eau qui utilise le plafond pour modifier l'angle du jet et atteindre une zone inaccessible en direct. Ce n'est ni une attaque combinée, ni une attaque d'atténuation."
+    },
+    {
+      "num": 15,
+      "correct": [
+        0
+      ],
+      "expl": "A. Le port de l'ARI est obligatoire si la concentration en O₂ est < 20 % (l'air contient 20,9 %). C'est l'un des critères du GTO Engagement en milieu vicié."
+    },
+    {
+      "num": 16,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Les deux techniques d'engagement du GTO sont l'engagement à vue et l'engagement sur ligne de vie (progression). Les « méthodes latérale/circulaire » ne sont pas des techniques nommées ainsi dans le GTO.",
+      "nb_choices": 5
+    },
+    {
+      "num": 17,
+      "correct": [
+        0
+      ],
+      "expl": "A. L'attaque d'atténuation se fait en jet diffusé d'attaque, depuis l'extérieur, avec un débit modéré, pour refroidir les fumées et atténuer le sinistre avant l'attaque intérieure."
+    },
+    {
+      "num": 18,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Le méthane (CH₄) est incolore, inodore (odorisé artificiellement dans le réseau domestique), combustible. Il est plus léger que l'air (densité 0,55), pas plus lourd.",
+      "nb_choices": 5
+    },
+    {
+      "num": 19,
+      "correct": [
+        2,
+        3
+      ],
+      "expl": "C, D. GTO Sauvetage : l'échelle à crochets peut être utilisée en appui sur les patins et pour supporter un seul homme. Elle ne sert pas à prolonger l'échelle à coulisse et ne doit pas être utilisée sur une seule pointe.",
+      "nb_choices": 5
+    },
+    {
+      "num": 20,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. GTO Engagement en milieu vicié — trois itinéraires d'évacuation d'urgence : sauvetage, repli, secours. « Recours » n'existe pas.",
+      "nb_choices": 5
+    },
+    {
+      "num": 21,
+      "correct": [
+        1,
+        3,
+        4
+      ],
+      "expl": "B, D, E. GTO Engagement en milieu vicié — techniques de respiration sous ARI : méthode Reilly, apnée contrôlée, saut d'une respiration. L'hyperventilation et la « 2/4 sec. » ne sont pas préconisées.",
+      "nb_choices": 5
+    },
+    {
+      "num": 22,
+      "correct": [
+        1,
+        4
+      ],
+      "expl": "B, E. GDO Présence Gaz — fuite enflammée sur bouteille : ne PAS déplacer, ne PAS fermer le robinet tant qu'elle brûle (risque de retour de flamme et d'explosion de nuage gazeux), contrôler la température à la caméra thermique. Le linge humide est contre-indiqué.",
+      "nb_choices": 5
+    },
+    {
+      "num": 23,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Les pertes de charge sont proportionnelles à la longueur de l'établissement, au carré du débit, et inversement proportionnelles au diamètre du tuyau. La variation 1 bar/10 m concerne la pression de dénivelé, pas les pertes de charge.",
+      "nb_choices": 5
+    },
+    {
+      "num": 24,
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D, E. GTO Sauvegarde Opérationnelle — véhicule comme point d'ancrage (technique d'excavation) : moteur arrêté, clé retirée, vitesse engagée, frein de parc serré, masse > 3,5 t. Toutes les conditions doivent être réunies.",
+      "nb_choices": 5
+    },
+    {
+      "num": 25,
+      "correct": [
+        3
+      ],
+      "expl": "D. GTO Sauvetage : formule du pied d'échelle à coulisse = 1/5 de la hauteur déployée + 0,60 m. C'est la formule standard pour garantir la stabilité."
+    },
+    {
+      "num": 26,
+      "correct": [
+        0
+      ],
+      "expl": "A. GDO Présence Électricité : distance de sécurité pour un câble HTA tombé au sol = 5 mètres. Pour la HTB, la distance est plus importante (3 à 5 m selon tension)."
+    },
+    {
+      "num": 27,
+      "correct": [
+        0,
+        3
+      ],
+      "expl": "A, D. GDO Présence Gaz — périmètres par défaut sur réseau gaz naturel : zone d'exclusion ≈ 50 m, zone contrôlée ≈ 200 m. Ces valeurs peuvent être adaptées selon l'environnement."
+    },
+    {
+      "num": 28,
+      "correct": [
+        2
+      ],
+      "expl": "C. GTO Sauvetage — lot de sauvetage : hauteur minimale entre le frein de charge et le point d'appui sur passage dans le vide = 20 cm (évite le coincement de la corde).",
+      "nb_choices": 5
+    },
+    {
+      "num": 29,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. GDO SSUAP — prise en charge pédiatrique : adapter la communication, utiliser un doudou/peluche, impliquer l'enfant dans sa prise en charge. Il ne faut JAMAIS minimiser la douleur (principe de véracité)."
+    },
+    {
+      "num": 30,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. Coup de chaleur : glace sur zones stratégiques (cou, aisselles, aines), déshabiller, mettre au frais. On pulvérise de l'eau froide (pas tiède, pas à température ambiante) et on ne met JAMAIS en bain (risque de vasoconstriction et choc thermique).",
+      "nb_choices": 5
+    },
+    {
+      "num": 31,
+      "correct": [
+        1,
+        2,
+        3
+      ],
+      "expl": "B, C, D. Hypothermie : légère 32-35 °C, modérée 28-32 °C, sévère < 28 °C. Donc 30°C = modérée (pas sévère), 27 °C, 25 °C et < 24 °C = sévères. Attention : selon certains référentiels, l'hypothermie sévère commence à 28 °C — la réponse inclut 27, 25 et <24."
+    },
+    {
+      "num": 32,
+      "correct": [
+        0,
+        4
+      ],
+      "expl": "A, E. Recommandations PSE : MHC 6-15 L/min, masque simple 4-8 L/min (pas 6-12), lunettes 1-6 L/min. Donc MHC 6-15 et lunettes 1-6 sont correctes.",
+      "nb_choices": 5
+    },
+    {
+      "num": 33,
+      "correct": [
+        2
+      ],
+      "expl": "C. Méthode SINUS / Triage — victime consciente sans détresse vitale mais ne pouvant se déplacer seule = catégorisation jaune (urgence relative). Rouge = détresse vitale, vert = valide, noir = décédé.",
+      "nb_choices": 5
+    },
+    {
+      "num": 34,
+      "correct": [
+        2
+      ],
+      "expl": "C. Chez l'enfant avec pouls présent mais ventilation absente : 20 à 30 insufflations par minute (1 toutes les 2-3 secondes). PSE 2."
+    },
+    {
+      "num": 35,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Une brûlure est grave en présence d'une cloque > demi-paume de la victime, d'une origine électrique, chimique, par inhalation, sur zones sensibles (visage, mains, organes génitaux, articulations). Rougeurs seules (1er degré) et localisation dorsale simple ne suffisent pas.",
+      "nb_choices": 5
+    },
+    {
+      "num": 36,
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expl": "A, B, C, D. Signes de détresse respiratoire : ventilation agonique, plainte « j'ai du mal à respirer », râles, cyanose extrémités/lèvres. L'hyperactivité motrice n'est pas un signe de détresse respiratoire (plutôt agitation anxiogène).",
+      "nb_choices": 5
+    },
+    {
+      "num": 37,
+      "correct": [
+        0
+      ],
+      "expl": "A. L'AIT (accident ischémique transitoire) est par définition une obstruction cérébrale qui se résorbe spontanément en moins de 24 h, sans séquelle. Une hémorragie cérébrale est un AVC hémorragique, un infarctus du myocarde est cardiaque."
+    },
+    {
+      "num": 38,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Abord relationnel d'une crise : protéger intervenants/victime/entourage, stabiliser l'état. Contenir physiquement et isoler de l'entourage sont des gestes à éviter (augmentent la crise)."
+    },
+    {
+      "num": 39,
+      "correct": [
+        2
+      ],
+      "expl": "C. PSE 2 — approche chronologique du bilan : 1er regard (sécurité), 2e (détresses vitales), 3e (bilan détaillé + début surveillance), 4e (surveillance continue). La surveillance débute dès le 3e regard."
+    },
+    {
+      "num": 40,
+      "correct": [
+        2
+      ],
+      "expl": "C. PSE 1 — en conditions normales, la recoloration cutanée du lit d'ongle est inférieure à 3 secondes. Au-delà, signe de détresse circulatoire."
+    }
+  ]
+}

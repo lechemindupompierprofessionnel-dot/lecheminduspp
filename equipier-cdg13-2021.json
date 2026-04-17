@@ -1,0 +1,309 @@
+{
+  "id": "equipier-cdg13-2021",
+  "theme": "equipier",
+  "year": 2021,
+  "title": "CDG13 — Session 2021 (Bouches-du-Rhône)",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg13-2021.pdf",
+  "pdf_corrige": null,
+  "instructions": "40 questions. Durée : 1 heure. La réponse correcte à une question vaut 0,5 point. Les points sont perdus en cas de mauvaise réponse cochée ou de réponse partielle. Pas de pénalité pour absence de réponse. Note sur 20.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        1
+      ],
+      "expl": "B. SDACR = Schéma Départemental d'Analyse et de Couverture des Risques (art. L1424-7 CGCT). Document obligatoire pour chaque SDIS."
+    },
+    {
+      "num": 2,
+      "correct": [
+        2
+      ],
+      "expl": "C. Attaque d'atténuation : produire de la vapeur d'eau en utilisant l'énergie thermique emmagasinée par les parois du local. C'est le principe de l'extinction par atténuation/refroidissement."
+    },
+    {
+      "num": 3,
+      "correct": [
+        3
+      ],
+      "expl": "D. Repérage secouriste (SINUS) : rouge = urgence absolue = détresse vitale évidente. A = vert/jaune selon, B = jaune, C = selon gravité hémorragie."
+    },
+    {
+      "num": 4,
+      "correct": [
+        3
+      ],
+      "expl": "D. GDO Présence Gaz — bouteille de gaz comprimé soumise à un incendie : risque de rupture aux environs de 500 °C. D'où la nécessité de refroidir."
+    },
+    {
+      "num": 5,
+      "correct": [
+        0
+      ],
+      "expl": "A. LSPCC — protection de corde en priorité sur le brin TIRANT (celui qui supporte la charge et subit les frottements). Le brin dormant est peu sollicité."
+    },
+    {
+      "num": 6,
+      "correct": [
+        1
+      ],
+      "expl": "B. ESOL = Établissements de Soutien Opérationnel et Logistique (structures nationales de la sécurité civile assurant logistique sur opérations importantes). ULIS et ISOL n'existent pas en terminologie sécurité civile."
+    },
+    {
+      "num": 7,
+      "correct": [
+        0
+      ],
+      "expl": "A. FGI (Fire Gas Ignition) = inflammation de gaz issus de l'incendie. Élément déclencheur = énergie d'activation (étincelle, chaleur). Le comburant et la plage d'explosivité sont des conditions, la mise en suspension concerne les poussières."
+    },
+    {
+      "num": 8,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Restriction des mouvements du rachis cervical : maintien tête manuel (position neutre) ou collier cervical + bloc de tête. Pas une technique de relevage."
+    },
+    {
+      "num": 9,
+      "correct": [
+        1,
+        2,
+        3
+      ],
+      "expl": "B, C, D. Installations photovoltaïques : AC/DC (courant alternatif/continu), TGBT (Tableau Général Basse Tension), AGCP (Appareil Général de Commande et de Protection). THT = Très Haute Tension, non présent sur installation agricole standard."
+    },
+    {
+      "num": 10,
+      "correct": [
+        1
+      ],
+      "expl": "B. Amarrage LSPCC = connexion entre un (ou plusieurs) ancrage(s) et un dispositif au moyen d'agrès textiles ET/OU métalliques (anneaux cousus, mousquetons). Pas uniquement textile."
+    },
+    {
+      "num": 11,
+      "correct": [
+        2
+      ],
+      "expl": "C. Constitution : les ministres sont nommés par le Président de la République sur proposition du Premier ministre (art. 8 de la Constitution)."
+    },
+    {
+      "num": 12,
+      "correct": [
+        2
+      ],
+      "expl": "C. Volume = 9 × 6 × 0,5 = 27 m³. Calcul simple surface × hauteur."
+    },
+    {
+      "num": 13,
+      "correct": [
+        1
+      ],
+      "expl": "B. Les SP sont rattachés à la fonction publique TERRITORIALE (SDIS = EPA de la FPT). Il n'existe pas de « fonction publique départementale » en tant que telle."
+    },
+    {
+      "num": 14,
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "expl": "A, B, D. Mesure de la PA : auscultation (stéthoscope), automatique (brassard), palpation (pouls). L'insufflation concerne la ventilation, pas la mesure de la PA."
+    },
+    {
+      "num": 15,
+      "correct": [
+        0
+      ],
+      "expl": "A. Autonomie : (6 × 270 × 1) / (90 × 1) = 1620/90 = 18 min théorique. Après application du retrait de sécurité (55 bars), le temps effectif est ≈ 15-18 min. La valeur A (18 min) est la plus proche du calcul sans marge."
+    },
+    {
+      "num": 16,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Impulsions courtes (gaz cooling) : débits préconisés 100-250 L/min (faibles débits pour courtes applications). 500-1000 L/min sont trop élevés pour ce type d'application."
+    },
+    {
+      "num": 17,
+      "correct": [
+        2
+      ],
+      "expl": "C. Score de Glasgow : 3 (minimum) à 15 (maximum). Y (1-4) + V (1-5) + M (1-6)."
+    },
+    {
+      "num": 18,
+      "correct": [
+        0
+      ],
+      "expl": "A. Hydro-éjecteur = appareil HYDRAULIQUE (fonctionne par effet Venturi avec une source d'eau sous pression). Pas électrique, manuel ou thermique."
+    },
+    {
+      "num": 19,
+      "correct": [
+        1
+      ],
+      "expl": "B. Le président du CA du SDIS est un ÉLU (président du Conseil d'administration, généralement élu départemental). Pas un SP ni un militaire ni le préfet (qui a un rôle tutélaire)."
+    },
+    {
+      "num": 20,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. PI normalisés : 100 mm (DN100) et 150 mm (DN150). Le 50 mm n'existe pas en PI (bouche d'incendie = 100 mm). 300 mm non normalisé."
+    },
+    {
+      "num": 21,
+      "correct": [
+        2
+      ],
+      "expl": "C. Dévidoir mobile : 6 tuyaux de Ø 70 mm (configuration standard pour établissement de grande longueur)."
+    },
+    {
+      "num": 22,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. Les 3 étapes de l'accouchement : le travail (dilatation), l'expulsion (naissance), la délivrance (expulsion du placenta). « Libération » n'est pas un terme médical."
+    },
+    {
+      "num": 23,
+      "correct": [
+        1
+      ],
+      "expl": "B. DECI = Défense Extérieure Contre l'Incendie (règlement national/départemental). Pas « Défense contre l'incendie » ni « d'engagement »."
+    },
+    {
+      "num": 24,
+      "correct": [
+        3
+      ],
+      "expl": "D. SECURITÉ (GTO Engagement en milieu vicié) : Sécurité, Équipement, Communication, Urgence, Repli, Intervention, Transmission, Évaluation — le C = Connexion (binôme, communication). Plusieurs référentiels existent ; ici D = Connexion."
+    },
+    {
+      "num": 25,
+      "correct": [
+        1
+      ],
+      "expl": "B. Le maire peut être DOS (Directeur des Opérations de Secours) sur le territoire de sa commune (art. L.2212-2 CGCT). Il n'est jamais COS (toujours SP)."
+    },
+    {
+      "num": 26,
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expl": "A, B, C, D. Contraintes physiologiques de l'ARI : augmentation des résistances respiratoires, acuité auditive réduite (bruit soupape), augmentation FC (effort + stress), champ de vision réduit (masque)."
+    },
+    {
+      "num": 27,
+      "correct": [
+        0
+      ],
+      "expl": "A. Vanne de barrage gaz : fermeture par plusieurs tours dans le SENS INVERSE des aiguilles d'une montre (norme gaz). Attention : certaines vannes domestiques se ferment au quart de tour dans le sens des aiguilles."
+    },
+    {
+      "num": 28,
+      "correct": [
+        0
+      ],
+      "expl": "A. France : 101 départements (96 métropolitains + 5 DOM : 971, 972, 973, 974, 976)."
+    },
+    {
+      "num": 29,
+      "correct": [
+        2
+      ],
+      "expl": "C. Les 3 modes de propagation de la chaleur (et donc de l'incendie) : conduction, convection, rayonnement. Pas d'induction, contamination ni inhibition."
+    },
+    {
+      "num": 30,
+      "correct": [
+        3
+      ],
+      "expl": "D. Après extraction ACT : collier cervical desserré ou retiré (attelle ACT déjà en place) + matelas immobilisateur à dépression. L'ACT est retirée au fur et à mesure. Le plan dur n'est pas systématique."
+    },
+    {
+      "num": 31,
+      "correct": [
+        0
+      ],
+      "expl": "A. Anneaux de sangle cousus : rouge = 1,50 m, vert = 0,80 m, bleu = 1,20 m, jaune = 0,60 m (codification couleur/longueur GTO LSPCC)."
+    },
+    {
+      "num": 32,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. TIRFOR (treuil manuel à câble) : amarrer provisoirement des éléments en équilibre instable, débloquer une cabine d'ascenseur. Pas pour extinction ni balisage."
+    },
+    {
+      "num": 33,
+      "correct": [
+        0
+      ],
+      "expl": "A. Direction administrative et financière du SDIS = Président du CA (élu). Le DDSIS dirige le service opérationnel. Le préfet = autorité d'emploi."
+    },
+    {
+      "num": 34,
+      "correct": [
+        0
+      ],
+      "expl": "A. Triangle du feu : comburant (O₂), combustible (matière), énergie d'activation (chaleur/étincelle). C'est le triptyque fondamental de la combustion."
+    },
+    {
+      "num": 35,
+      "correct": [
+        1
+      ],
+      "expl": "B. L'oxymètre de pouls (SpO2) mesure la saturation en oxygène du sang. Pas la TA, glycémie ou fréquence respiratoire."
+    },
+    {
+      "num": 36,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. DECI — classification des risques : courants et particuliers. Les « risques nécessaires » et « à la demande » n'existent pas en DECI."
+    },
+    {
+      "num": 37,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Combustion complète : dégage chaleur et gaz carbonique (CO₂). Le monoxyde de carbone (CO) est produit par combustion INCOMPLÈTE. L'oxygène est consommé, pas dégagé."
+    },
+    {
+      "num": 38,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. MGO (8 phases) : reconnaissances, sauvetages, établissements, attaque, protection, déblai, surveillance, préservation des traces. Visite de sécurité et relogement ne sont pas des phases MGO incendie."
+    },
+    {
+      "num": 39,
+      "correct": [
+        3
+      ],
+      "expl": "D. Hypothermie sévère = température centrale < 24 °C (selon certaines classifications) ou < 28 °C. La réponse D (<24°C) correspond à l'hypothermie profonde/sévère."
+    },
+    {
+      "num": 40,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Butane : plus lourd que l'air → partie basse. Méthane : plus léger → partie haute. Donc « butane en partie basse » et « méthane en partie haute » sont corrects."
+    }
+  ]
+}

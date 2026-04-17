@@ -1,0 +1,437 @@
+{
+  "id": "equipier-cdg35-2021",
+  "theme": "equipier",
+  "year": 2021,
+  "title": "CDG35 — Session 2021 (Ille-et-Vilaine)",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg35-2021.pdf",
+  "pdf_corrige": null,
+  "instructions": "50 questions. Durée : 1 heure. Une ou plusieurs réponses possibles. Barème : 1 point si toutes réponses exactes, -1 point en cas de mauvaise réponse ou de réponse incomplète, 0 point si aucune réponse.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        1
+      ],
+      "expl": "B. Norme FPT : citerne d'une capacité utile minimale de 2 000 litres (valeur standard pour Fourgon Pompe Tonne).",
+      "nb_choices": 3
+    },
+    {
+      "num": 2,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. L'échelle à crochets sert à accéder aux étages pour reconnaissances, sauvetages et établissements. Polyvalente mais réservée aux espaces contraints.",
+      "nb_choices": 3
+    },
+    {
+      "num": 3,
+      "correct": [
+        1
+      ],
+      "expl": "B. Sauvetage = soustraire une personne d'un danger IMMINENT. Mise en sécurité ≠ sauvetage (concerne un danger différé).",
+      "nb_choices": 3
+    },
+    {
+      "num": 4,
+      "correct": [
+        0
+      ],
+      "expl": "A. PI jaune = hydrant SURPRESSÉ et/ou branché sur réseau additivé (eau avec additif). Le jaune ne concerne pas l'insertion paysagère (c'est normalisé).",
+      "nb_choices": 3
+    },
+    {
+      "num": 5,
+      "correct": [
+        2
+      ],
+      "expl": "C. DECI = Défense Extérieure Contre l'Incendie. Pas « Externe » ni « Environnementale ».",
+      "nb_choices": 3
+    },
+    {
+      "num": 6,
+      "correct": [
+        2
+      ],
+      "expl": "C. Types de jets : droit, diffusé d'attaque, diffusé de protection, purge. Les « jets coniques » ne sont pas une appellation GTO.",
+      "nb_choices": 3
+    },
+    {
+      "num": 7,
+      "correct": [
+        1
+      ],
+      "expl": "B. Extinction combinée = associe les effets de l'extinction directe et indirecte (refroidissement des parois + action sur le foyer). Pas « massive » et pas limitée à l'extérieur.",
+      "nb_choices": 3
+    },
+    {
+      "num": 8,
+      "correct": [
+        2
+      ],
+      "expl": "C. Ligne de vie = ligne guide + liaison personnelle (GTO Engagement en milieu vicié).",
+      "nb_choices": 3
+    },
+    {
+      "num": 9,
+      "correct": [
+        0
+      ],
+      "expl": "A. Norme ARI circuit ouvert : masse prête à l'emploi ≤ 16 kg (norme EN 137). Les valeurs 18 et 20 kg sont incorrectes.",
+      "nb_choices": 3
+    },
+    {
+      "num": 10,
+      "correct": [
+        0
+      ],
+      "expl": "A. PSE 1 — aspiration des sécrétions : réalisée APRÈS libération des voies aériennes, sur une victime inconsciente ou consciente qui encombre. Pas pendant les compressions thoraciques. Pas systématiquement.",
+      "nb_choices": 3
+    },
+    {
+      "num": 11,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Surveillance : débute dès la fin du bilan secondaire, contrôle des paramètres vitaux toutes les 5 minutes pour une détresse (15 min maximum = trop, 5 min standard). Surveillance obligatoire pour TOUS les malaises.",
+      "nb_choices": 3
+    },
+    {
+      "num": 12,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. VAS (voies aériennes supérieures) : bouche, nez, fosses nasales, pharynx. Les bronches = voies aériennes INFÉRIEURES.",
+      "nb_choices": 3
+    },
+    {
+      "num": 13,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Hémorragie externe : doit être stoppée avant de poursuivre le bilan primaire (pression manuelle immédiate). Selon importance, peut être détresse vitale OU non (hémorragie mineure). Donc pas « systématiquement » urgence vitale.",
+      "nb_choices": 3
+    },
+    {
+      "num": 14,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Relevage à 4 secouristes : pont néerlandais, pont amélioré. Le pont amélioré peut aussi se faire à 3 selon référentiel. L'indication de corpulence = facteur de choix, pas une définition technique.",
+      "nb_choices": 3
+    },
+    {
+      "num": 15,
+      "correct": [
+        2
+      ],
+      "expl": "C. Retournement d'urgence à 1 secouriste : victime sur le ventre inconsciente, seul — retournement immédiat pour évaluer respiration. Ce n'est pas à 2 secouristes.",
+      "nb_choices": 3
+    },
+    {
+      "num": 16,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Piqûre d'insecte : froid (réduit œdème), retirer le dard (abeille — ne pas pincer), bilan urgent si piqûre bouche/gorge (risque œdème VAS).",
+      "nb_choices": 3
+    },
+    {
+      "num": 17,
+      "correct": [
+        0
+      ],
+      "expl": "A. Atteintes os/articulations = entorses, fractures, luxations. Peuvent entraîner détresse circulatoire (hémorragie interne fracture fémur, bassin). Garrot = pour hémorragie, pas pour la fracture seule.",
+      "nb_choices": 3
+    },
+    {
+      "num": 18,
+      "correct": [
+        1
+      ],
+      "expl": "B. Saignement de nez = épistaxis. Otorragie = oreille. Rectorragie = rectum.",
+      "nb_choices": 3
+    },
+    {
+      "num": 19,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Interventions diverses (ID) : bâchage, dégâts des eaux, captures d'animaux, etc. La maintenance des hydrants n'est pas une ID (c'est une mission administrative/prévision).",
+      "nb_choices": 3
+    },
+    {
+      "num": 20,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. GDO Présence Gaz : PGC (classique) et PGR (renforcée), zone d'exclusion. Les catharomètres ne sont pas dans tous les véhicules incendie (équipement spécifique des VRCH/équipes gaz).",
+      "nb_choices": 3
+    },
+    {
+      "num": 21,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Volume d'eau pour épuisement = surface × hauteur d'eau = (L × l) × h. Les deux formulations sont équivalentes (B = formule brute, C = formule développée).",
+      "nb_choices": 3
+    },
+    {
+      "num": 22,
+      "correct": [
+        0
+      ],
+      "expl": "A. Aspirateur à eau : capacité adaptée ~50 litres (petites quantités). Pour 500 L ou 5 000 L, on utilise motopompe ou vide-cave.",
+      "nb_choices": 3
+    },
+    {
+      "num": 23,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Motopompe thermique d'épuisement : vérifier huile et carburant avant utilisation, tuyau avec crépine (filtre débris). NE PAS installer tout le dispositif dans le local (gaz d'échappement CO dangereux).",
+      "nb_choices": 3
+    },
+    {
+      "num": 24,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Ascenseurs : électriques (à traction) ou hydrauliques. Pas de modèle « thermique » (sauf cas industriels très particuliers).",
+      "nb_choices": 3
+    },
+    {
+      "num": 25,
+      "correct": [
+        2
+      ],
+      "expl": "C. NAC = Nouveaux Animaux de Compagnie (reptiles, rongeurs exotiques, furets, etc.). Terminologie vétérinaire et SP.",
+      "nb_choices": 3
+    },
+    {
+      "num": 26,
+      "correct": [
+        0
+      ],
+      "expl": "A. Galon adjudant : blanc + liseré rouge. Adjudant-chef : idem + étoile. Sergent-chef = jaune + liseré rouge.",
+      "nb_choices": 3
+    },
+    {
+      "num": 27,
+      "correct": [
+        1
+      ],
+      "expl": "B. DGSCGC = Direction Générale de la Sécurité Civile et de la Gestion des Crises.",
+      "nb_choices": 3
+    },
+    {
+      "num": 28,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Obligations des fonctionnaires (loi 83-634) : discrétion professionnelle, effectuer les tâches confiées (obéissance hiérarchique). L'information au public = obligation du service, pas obligation professionnelle individuelle.",
+      "nb_choices": 3
+    },
+    {
+      "num": 29,
+      "correct": [
+        2
+      ],
+      "expl": "C. La sécurité civile est rattachée au ministère de l'INTÉRIEUR (DGSCGC).",
+      "nb_choices": 3
+    },
+    {
+      "num": 30,
+      "correct": [
+        0
+      ],
+      "expl": "A. Médaille d'ancienneté SP : 10 ans = bronze, 20 ans = argent, 30 ans = or. Donc 20 ans = ARGENT.",
+      "nb_choices": 3
+    },
+    {
+      "num": 31,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. COS (Commandant des Opérations de Secours) = TOUJOURS un sapeur-pompier (art. L1424-4 CGCT). Le maire est DOS, pas COS. Le préfet est DOS.",
+      "nb_choices": 3
+    },
+    {
+      "num": 32,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. SINUS = système informatique de suivi nominatif des victimes. Outil interservices en cas de nombreuses victimes, activé sur ordre du COS, aide au dénombrement.",
+      "nb_choices": 3
+    },
+    {
+      "num": 33,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Noria d'évacuation : dirigée par officier évacuation, transport vers centre hospitalier. Les brassards verts = impliqués/UMP, pas spécifique à la noria.",
+      "nb_choices": 3
+    },
+    {
+      "num": 34,
+      "correct": [
+        1
+      ],
+      "expl": "B. Collationner (procédure radio) = faire répéter par l'interlocuteur le message qu'on vient de transmettre pour s'assurer de la bonne compréhension.",
+      "nb_choices": 3
+    },
+    {
+      "num": 35,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Topographie sur carte : planimétrie (détails naturels/artificiels), nivellement (relief par courbes de niveaux), échelle (calcul des distances réelles). Tous exacts.",
+      "nb_choices": 3
+    },
+    {
+      "num": 36,
+      "correct": [
+        2
+      ],
+      "expl": "C. Échelle 1/25 000 : 1 cm sur la carte = 25 000 cm = 250 m sur le terrain. Les autres propositions inversent ou altèrent la conversion.",
+      "nb_choices": 3
+    },
+    {
+      "num": 37,
+      "correct": [
+        2
+      ],
+      "expl": "C. 1 hectare = 10 000 m² (100 m × 100 m). Unité de surface usuelle en cartographie et forêt.",
+      "nb_choices": 3
+    },
+    {
+      "num": 38,
+      "correct": [
+        2
+      ],
+      "expl": "C. RAPACE (check-list d'habillage ARI) : Robinets (ouverture), Armement (signal sonore), Position (masque), Ajustement (harnais), Code (communication), Étanchéité (masque).",
+      "nb_choices": 3
+    },
+    {
+      "num": 39,
+      "correct": [
+        1
+      ],
+      "expl": "B. Cadre d'emplois des sapeurs et caporaux SPP (décret 2012-520) : sapeur, caporal. Pas de « sapeur 2e/1re classe » ni « caporal-chef » (caporal-chef existe comme grade supplémentaire dans certains SDIS mais pas systématique).",
+      "nb_choices": 3
+    },
+    {
+      "num": 40,
+      "correct": [
+        2
+      ],
+      "expl": "C. L'instance qui délibère et vote le budget du SDIS est le Conseil d'Administration (CA). Le Conseil Social Territorial / Comité Technique ont des rôles consultatifs.",
+      "nb_choices": 3
+    },
+    {
+      "num": 41,
+      "correct": [
+        1
+      ],
+      "expl": "B. EPA = Échelle Pivotante Automatique (engin aérien). Pas « pleinement automatisée » ni « portante ».",
+      "nb_choices": 3
+    },
+    {
+      "num": 42,
+      "correct": [
+        1
+      ],
+      "expl": "B. Électrocution = électrisation MORTELLE (provoque le décès). Électrisation = simple passage de courant sans issue fatale. Nuance importante.",
+      "nb_choices": 3
+    },
+    {
+      "num": 43,
+      "correct": [
+        0
+      ],
+      "expl": "A. Mousse = eau + air + émulseur (3 composants fondamentaux). Les variantes proposées omettent un des 3 composants essentiels.",
+      "nb_choices": 3
+    },
+    {
+      "num": 44,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Incendie = réaction chimique entre comburant et combustible (avec énergie d'activation), dégage toujours de la chaleur. Ne s'éteint pas toujours à l'eau (feux de métaux, liquides inflammables).",
+      "nb_choices": 3
+    },
+    {
+      "num": 45,
+      "correct": [
+        1
+      ],
+      "expl": "B. LSPCC : port de gants OBLIGATOIRE en opération (protection contre brûlures par frottement de la corde). La corde standard fait 30 m (pas 60). Pas utilisé pour reconnaissance appartement.",
+      "nb_choices": 3
+    },
+    {
+      "num": 46,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Méthane : plage d'explosivité 5-15 % (LIE 5 %, LSE 15 %), température d'auto-inflammation ≈ 540 °C. Densité 0,55 (plus léger que l'air, pas > 1).",
+      "nb_choices": 3
+    },
+    {
+      "num": 47,
+      "correct": [
+        2
+      ],
+      "expl": "C. Explosimètre : mesure concentration d'un gaz inflammable entre 0 % et 100 % de la LIE. Différent du catharomètre (qui mesure des concentrations plus élevées).",
+      "nb_choices": 3
+    },
+    {
+      "num": 48,
+      "correct": [
+        0
+      ],
+      "expl": "A. Pièces de jonction : divisions (2 ou 3 voies), jonctions, raccords. La vanne = pièce de manœuvre. La crépine = pièce d'aspiration (filtre).",
+      "nb_choices": 3
+    },
+    {
+      "num": 49,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Pertes de charge : pertes de pression dans l'établissement hydraulique, dues au frottement contre parois des tuyaux, augmentent avec la longueur. Toutes les propositions sont vraies.",
+      "nb_choices": 3
+    },
+    {
+      "num": 50,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Mise en sécurité : vise à protéger d'une menace différée, par confinement OU évacuation (les deux modalités possibles). Pas uniquement confinement.",
+      "nb_choices": 3
+    }
+  ]
+}

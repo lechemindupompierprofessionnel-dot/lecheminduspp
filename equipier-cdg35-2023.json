@@ -1,0 +1,423 @@
+{
+  "id": "equipier-cdg35-2023",
+  "theme": "equipier",
+  "year": 2023,
+  "title": "CDG35 — Session 2023 (Ille-et-Vilaine)",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg35-2023.pdf",
+  "pdf_corrige": null,
+  "instructions": "49 questions. Durée : 1 heure. Une ou plusieurs réponses possibles. Barème : 1 point si toutes réponses exactes, -0,5 point en cas de mauvaise réponse ou de réponse incomplète, 0 point si aucune réponse.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        2
+      ],
+      "expl": "C. La poulie permet de dévier une corde ou de réduire une charge (avantage mécanique). Le sac de transport ne fait que porter, la corde ne dévie pas seule.",
+      "nb_choices": 3
+    },
+    {
+      "num": 2,
+      "correct": [
+        1
+      ],
+      "expl": "B. LSPCC — hauteur maximale entre 2 points = longueur utile de la corde (c'est la longueur effective disponible après nœuds et amarrages).",
+      "nb_choices": 3
+    },
+    {
+      "num": 3,
+      "correct": [
+        0
+      ],
+      "expl": "A. Échelle 1/25 000 : 1 cm = 250 m. Donc 4 cm = 1 000 m = 1 km. Les deux autres propositions sont des erreurs de conversion.",
+      "nb_choices": 3
+    },
+    {
+      "num": 4,
+      "correct": [
+        2
+      ],
+      "expl": "C. DOS = Directeur des Opérations de Secours (= Préfet ou Maire selon niveau d'engagement). Les autres formulations sont des erreurs.",
+      "nb_choices": 3
+    },
+    {
+      "num": 5,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Causes de réforme des matériels textiles (cordes, sangles) : brûlure/fusion, gaine coupée/âme visible, réduction de diamètre, hernie de l'âme, perte de souplesse. Toutes ces causes entraînent réforme.",
+      "nb_choices": 3
+    },
+    {
+      "num": 6,
+      "correct": [
+        0
+      ],
+      "expl": "A. Sauvetage = soustraire une victime d'un danger IMMINENT. La mise en sécurité concerne un danger plus ou moins différé. « Laisser sur place » n'est ni l'un ni l'autre.",
+      "nb_choices": 3
+    },
+    {
+      "num": 7,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. GTO Sauvetage — échelle à crochets quand communications impraticables, ou dans espaces contraints (cour intérieure, passage étroit, impasse) où une autre échelle ne peut être déployée. Pas une question de « temps disponible ».",
+      "nb_choices": 3
+    },
+    {
+      "num": 8,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Pertes de charge : inversement proportionnelles au diamètre du tuyau, proportionnelles à la longueur et au carré du débit. Trois propositions sont vraies.",
+      "nb_choices": 3
+    },
+    {
+      "num": 9,
+      "correct": [
+        1
+      ],
+      "expl": "B. Les SDIS sont des établissements publics administratifs (EPA) départementaux. Pas des collectivités territoriales ni des autorités administratives indépendantes (art. L1424-1 CGCT).",
+      "nb_choices": 3
+    },
+    {
+      "num": 10,
+      "correct": [
+        1
+      ],
+      "expl": "B. Faux. Une échelle déployée doit être reployée avant d'être déplacée pour des raisons de sécurité (stabilité, encombrement, risque de chute de l'échelle en 2 plans libre).",
+      "nb_choices": 3
+    },
+    {
+      "num": 11,
+      "correct": [
+        1
+      ],
+      "expl": "B. Volume = 12 × 5 × 1 = 60 m³. Temps = 60 / 15 = 4 heures. Les autres valeurs sont fausses.",
+      "nb_choices": 3
+    },
+    {
+      "num": 12,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. MGO incendie — parmi les 8 phases : reconnaissance, sauvetages, attaque, protection, déblai, surveillance, etc. « Restauration » n'en fait pas partie ; déblai oui.",
+      "nb_choices": 3
+    },
+    {
+      "num": 13,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Attaque d'atténuation : depuis l'extérieur, en jet diffusé d'attaque, avec débit modéré. Pas en jet droit.",
+      "nb_choices": 3
+    },
+    {
+      "num": 14,
+      "correct": [
+        2
+      ],
+      "expl": "C. GPL = Gaz de Pétrole Liquéfié. Les autres formulations sont erronées.",
+      "nb_choices": 3
+    },
+    {
+      "num": 15,
+      "correct": [
+        2
+      ],
+      "expl": "C. L'hydrogène sulfuré (H₂S) se reconnaît à son odeur d'œuf pourri (à faible concentration). ATTENTION : à forte concentration, l'odorat est paralysé — indice trompeur.",
+      "nb_choices": 3
+    },
+    {
+      "num": 16,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Au-dessus de la LSE (Limite Supérieure d'Explosivité) : trop de gaz pour que le mélange soit explosif. Une ventilation peut ramener en plage d'explosivité — d'où le danger. Pas « pas assez d'oxygène » (formulation imprécise).",
+      "nb_choices": 3
+    },
+    {
+      "num": 17,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Mousse : action par isolement (couverture) et étouffement (privation d'oxygène). Elle ne nettoie pas, c'est un agent extincteur.",
+      "nb_choices": 3
+    },
+    {
+      "num": 18,
+      "correct": [
+        0
+      ],
+      "expl": "A. GTO Engagement en milieu vicié — consommation d'air sous effort intense : peut atteindre 135 L/min (vs 40-70 au repos). Valeur de référence pour calculs d'autonomie.",
+      "nb_choices": 3
+    },
+    {
+      "num": 19,
+      "correct": [
+        0
+      ],
+      "expl": "A. LDMR = Lance Débit Mixte Réglable. Les autres formulations sont erronées.",
+      "nb_choices": 3
+    },
+    {
+      "num": 20,
+      "correct": [
+        2
+      ],
+      "expl": "C. L'explosion de fumées = backdraft. Flashover = embrasement généralisé éclair (phénomène distinct). Overcraft n'existe pas en terminologie incendie.",
+      "nb_choices": 3
+    },
+    {
+      "num": 21,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Signes annonciateurs du flashover : envahissement > 50 % du volume par les fumées, épaississement du plafond de fumées, apparition de flammes fugaces (rollover). Le phénomène n'est pas invisible (signes visibles présents).",
+      "nb_choices": 3
+    },
+    {
+      "num": 22,
+      "correct": [
+        0
+      ],
+      "expl": "A. Le DDSIS est sous l'autorité du Préfet UNIQUEMENT pour la direction opérationnelle. La gestion administrative et financière relève du PCASDIS (président du CA). Actions de prévention : mixtes selon textes.",
+      "nb_choices": 3
+    },
+    {
+      "num": 23,
+      "correct": [
+        1
+      ],
+      "expl": "B. PGR = Procédure Gaz Renforcée (en opposition à la PGC = Procédure Gaz Classique). GDO Présence Gaz.",
+      "nb_choices": 3
+    },
+    {
+      "num": 24,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Missions des SDIS (art. L1424-2 CGCT) : protection des personnes, des biens et de l'environnement. Laisser brûler les biens est contraire à la mission.",
+      "nb_choices": 3
+    },
+    {
+      "num": 25,
+      "correct": [
+        2
+      ],
+      "expl": "C. Galon adjudant-chef SPP : blanc avec liseré rouge. Adjudant = blanc sans liseré. Sergent-chef = jaune avec liseré rouge.",
+      "nb_choices": 3
+    },
+    {
+      "num": 26,
+      "correct": [
+        0
+      ],
+      "expl": "A. Statistiques SDIS 2022 (portant sur 2021) : les femmes représentent environ 15 % des sapeurs-pompiers civils. Valeur en progression depuis.",
+      "nb_choices": 3
+    },
+    {
+      "num": 27,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Brûlure simple : rougeurs chez l'adulte (1er degré) OU cloque < moitié paume de la victime. L'aspect circulaire évoque une brûlure circonférentielle, donc grave.",
+      "nb_choices": 3
+    },
+    {
+      "num": 28,
+      "correct": [
+        2
+      ],
+      "expl": "C. Rythme cardiaque nouveau-né : 120-160 batt/min. 90-120 = enfant, 60-100 = adulte.",
+      "nb_choices": 3
+    },
+    {
+      "num": 29,
+      "correct": [
+        1
+      ],
+      "expl": "B. DGSCGC = Direction Générale de la Sécurité Civile et de la Gestion des Crises.",
+      "nb_choices": 3
+    },
+    {
+      "num": 30,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. Décret n° 2012-520 — emplois du caporal SPP : équipier, chef d'équipe. Chef d'agrès = emploi à partir du grade de sergent.",
+      "nb_choices": 3
+    },
+    {
+      "num": 31,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Droits des fonctionnaires (loi 83-634) : liberté d'expression/opinion, droit à congé, formation professionnelle tout au long de la vie, protection fonctionnelle, etc.",
+      "nb_choices": 3
+    },
+    {
+      "num": 32,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Obligations des fonctionnaires : secret professionnel, discrétion professionnelle, obéissance hiérarchique, neutralité, réserve, probité. « Obligation de mutation » n'existe pas comme obligation.",
+      "nb_choices": 3
+    },
+    {
+      "num": 33,
+      "correct": [
+        2
+      ],
+      "expl": "C. ARICO — pression minimale d'engagement = 270 bars pour une bouteille de 300 bars (= 90 % de la pression nominale, on enlève 10 %). GTO Engagement en milieu vicié.",
+      "nb_choices": 3
+    },
+    {
+      "num": 34,
+      "correct": [
+        0
+      ],
+      "expl": "A. Ligne de vie = ligne guide + liaison personnelle. GTO Engagement en milieu vicié.",
+      "nb_choices": 3
+    },
+    {
+      "num": 35,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Contrôleur (mission de contrôle en milieu vicié) : enregistrement des binômes avant engagement, s'assure du port correct des EPI. Il n'entre pas (il reste à l'extérieur en zone de sécurité).",
+      "nb_choices": 3
+    },
+    {
+      "num": 36,
+      "correct": [
+        1
+      ],
+      "expl": "B. SDACR = Schéma Départemental d'Analyse et de Couverture des Risques. Document obligatoire pour chaque SDIS.",
+      "nb_choices": 3
+    },
+    {
+      "num": 37,
+      "correct": [
+        1
+      ],
+      "expl": "B. Approche du cheval par la gauche (cheval habitué à être monté et pansé par ce côté). Principe éthologique classique.",
+      "nb_choices": 3
+    },
+    {
+      "num": 38,
+      "correct": [
+        1
+      ],
+      "expl": "B. Extinction indirecte = produire de la vapeur en utilisant l'énergie thermique des parois chauffées. Efficace en local clos, mais dangereuse en présence d'intervenants.",
+      "nb_choices": 3
+    },
+    {
+      "num": 39,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. La pièce faciale complète d'un ARI comprend un masque complet (pas demi-masque), avec soupape d'expiration. Le détendeur est séparé (relié à la bouteille). Donc demi-masque et détendeur ne font PAS partie de la pièce faciale.",
+      "nb_choices": 3
+    },
+    {
+      "num": 40,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Appel de détresse en mode direct : contacter un interlocuteur à proximité immédiate, géré immédiatement ou basculé sur DIR1. Pas de contact CODIS en direct (mode réseau).",
+      "nb_choices": 3
+    },
+    {
+      "num": 41,
+      "correct": [
+        0
+      ],
+      "expl": "A. Hémorragie extériorisée = épanchement de sang intérieur s'écoulant par un orifice naturel (bouche, nez, oreille, anus, urètre). Externe = blessure ouverte, plaie grave = plaie avec critères de gravité.",
+      "nb_choices": 3
+    },
+    {
+      "num": 42,
+      "correct": [
+        1
+      ],
+      "expl": "B. Le pont néerlandais est une technique de relevage (à 4 secouristes).",
+      "nb_choices": 3
+    },
+    {
+      "num": 43,
+      "correct": [
+        1
+      ],
+      "expl": "B. Turbopompe = fonctionnement en circuit fermé (eau recyclée dans un circuit interne). Technologie utilisée sur certaines motopompes.",
+      "nb_choices": 3
+    },
+    {
+      "num": 44,
+      "correct": [
+        1
+      ],
+      "expl": "B. MPE = Moto-Pompe d'Épuisement. Utilisée en interventions diverses (inondations, caves).",
+      "nb_choices": 3
+    },
+    {
+      "num": 45,
+      "correct": [
+        2
+      ],
+      "expl": "C. Financement des SDIS : communes + EPCI + conseil départemental. Pas la région ni l'État (hors subventions ponctuelles). Art. L1424-35 CGCT.",
+      "nb_choices": 3
+    },
+    {
+      "num": 46,
+      "correct": [
+        0
+      ],
+      "expl": "A. Hauteur géométrique d'aspiration = distance entre l'axe de la pompe et l'axe du plan d'eau (surface). Caractéristique fondamentale pour le calcul de la hauteur manométrique totale.",
+      "nb_choices": 3
+    },
+    {
+      "num": 47,
+      "correct": [
+        1
+      ],
+      "expl": "B. Code matière 5 = matières solides inflammables (classe 4.1) — attention : les classes ADR ne correspondent pas exactement aux « codes matières » — à vérifier selon référentiel utilisé.",
+      "nb_choices": 3
+    },
+    {
+      "num": 48,
+      "correct": [
+        2
+      ],
+      "expl": "C. Débit nominal d'un tuyau Ø 70 mm = 1 000 L/min. Ø 45 = 500 L/min, Ø 25 = 250 L/min.",
+      "nb_choices": 3
+    },
+    {
+      "num": 49,
+      "correct": [
+        0
+      ],
+      "expl": "A. PPBE (sapeurs-pompiers) = Protection des Personnes, des Biens et de l'Environnement — mission générale des SDIS. La réponse B (Plan de Prévention du Bruit dans l'Environnement) existe mais relève du code de l'environnement, pas du domaine SP.",
+      "nb_choices": 3
+    }
+  ]
+}

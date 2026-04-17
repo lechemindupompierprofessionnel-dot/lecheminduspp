@@ -1,0 +1,355 @@
+{
+  "id": "equipier-cdg57-2021",
+  "theme": "equipier",
+  "year": 2021,
+  "title": "CDG57 — Session 2021 (Moselle)",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg57-2021.pdf",
+  "pdf_corrige": null,
+  "instructions": "40 questions. Durée : 1 heure. Barème : 1 point si toutes réponses exactes, 0,5 si la moitié au moins, 0 si moins de la moitié, -0,25 dès qu'une réponse fausse cochée, -0,5 si aucune réponse.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        1,
+        4
+      ],
+      "expl": "B, E. MGO incendie (8 phases) : comprend la préservation des traces et indices, et les sauvetages s'appuient sur l'acronyme AIDES. Le placement des engins relève du déploiement, le transit n'est pas une phase MGO, et 7 phases est inexact (7 ou 8 selon version).",
+      "nb_choices": 5
+    },
+    {
+      "num": 2,
+      "correct": [
+        1,
+        4
+      ],
+      "expl": "B, E. PI sur canalisation Ø 100 mm : 60 m³/h = 1 000 L/min. Attention : 17 L/s ≈ 60 m³/h (mais la conversion exacte est 16,66 L/s), les valeurs B et E correspondent bien.",
+      "nb_choices": 5
+    },
+    {
+      "num": 3,
+      "correct": [
+        2
+      ],
+      "expl": "C. SMES (chef d'agrès → équipier) : Situation, Mission (mission de l'équipe), Exécution (modalités), Sécurité. Les 2 S = Situation + Sécurité.",
+      "nb_choices": 5
+    },
+    {
+      "num": 4,
+      "correct": [
+        1,
+        3
+      ],
+      "expl": "B, D. BAT en habitation — sécurité : jet droit autant que possible (distance de projection), évoluer au plus près du sol (fumées en partie haute). Ouvrir les fenêtres = risque de backdraft. 500 L/min = trop pour habitation. Explosimètre = pas spécifique incendie.",
+      "nb_choices": 5
+    },
+    {
+      "num": 5,
+      "correct": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "B, C, D, E. Attaque d'atténuation : LDT (lance débit variable), feux proches du flashover, jet diffusé d'attaque, simultanée à une attaque intérieure. Son objectif n'est PAS d'éteindre mais d'atténuer.",
+      "nb_choices": 5
+    },
+    {
+      "num": 6,
+      "correct": [
+        2
+      ],
+      "expl": "C. Feu de gaz : poudre BC préconisée. L'eau pulvérisée + additif est plutôt pour classes A. Couper la vanne reste la priorité.",
+      "nb_choices": 5
+    },
+    {
+      "num": 7,
+      "correct": [
+        2
+      ],
+      "expl": "C. AIDES = Accéder, Isoler, Désenfumer, Explorer, Sauver (GTO Sauvetage).",
+      "nb_choices": 5
+    },
+    {
+      "num": 8,
+      "correct": [
+        0
+      ],
+      "expl": "A. GDO Présence Électricité — ligne 63 000 V (HTB) : distance minimale de sécurité = 5 m. Pour 400 000 V = 10 m. BT = 3 m.",
+      "nb_choices": 5
+    },
+    {
+      "num": 9,
+      "correct": [
+        2
+      ],
+      "expl": "C. ORSEC NOVI — personnes non blessées : Centre d'Accueil des Impliqués (CAI). PRI et PRV existent mais désignent d'autres structures (rassemblement, pas accueil médico-psy).",
+      "nb_choices": 5
+    },
+    {
+      "num": 10,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Oxygène indiqué pour toute détresse vitale et obstruction aiguë des VA. SpO2 < 94 % (pas 89 %) est le seuil. Malaise simple et crise convulsive isolée ne nécessitent pas systématiquement O₂.",
+      "nb_choices": 5
+    },
+    {
+      "num": 11,
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "expl": "A, B, D. Victime inconsciente : PLS si respire, RCP si pas de respiration, protection thermique. FR < 6/min = ventilation artificielle associée à une RCP (l'énoncé « ventilation si FR<6 » est donc partiellement vrai, à discuter). Recherche intoxication = bilan, pas conduite immédiate.",
+      "nb_choices": 5
+    },
+    {
+      "num": 12,
+      "correct": [
+        1
+      ],
+      "expl": "B. Objectif du triage (SINUS / plan NOVI) : identifier les victimes avec la plus grande chance de survie et optimiser la prise en charge selon priorités. Pas un simple comptage.",
+      "nb_choices": 5
+    },
+    {
+      "num": 13,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Signes de détresse circulatoire : pouls radial imperceptible, TA systolique < 90 mmHg, TRC > 3 s. FC > 60 seule = normal (il faut > 120).",
+      "nb_choices": 5
+    },
+    {
+      "num": 14,
+      "correct": [
+        0,
+        3
+      ],
+      "expl": "A, D. SNC (système nerveux central) = encéphale + moelle épinière. Les nerfs crâniens, sympathique et parasympathique = SN périphérique / végétatif.",
+      "nb_choices": 5
+    },
+    {
+      "num": 15,
+      "correct": [
+        2,
+        4
+      ],
+      "expl": "C, E. Morsure de serpent : allonger la victime, ne pas bouger, retirer les bijoux (œdème). NE PAS aspirer, NE PAS inciser, NE PAS appliquer chaud/froid. Pas de savonnage vigoureux (peut diffuser).",
+      "nb_choices": 5
+    },
+    {
+      "num": 16,
+      "correct": [
+        1
+      ],
+      "expl": "B. Bouteille O₂ 15 L × 200 bars = 3 000 L. RCP adulte : 9 L/min (MHC) → 3 000/9 = 333 min. (Si calcul à 15 L/min → 200 min). Réponse la plus souvent retenue : 333 min.",
+      "nb_choices": 5
+    },
+    {
+      "num": 17,
+      "correct": [
+        1
+      ],
+      "expl": "B. Code 368 : 3 = liquide inflammable, 6 = toxique, 8 = corrosif. La matière est donc principalement toxique (caractère dominant) selon la lecture du code Kemler.",
+      "nb_choices": 5
+    },
+    {
+      "num": 18,
+      "correct": [
+        0
+      ],
+      "expl": "A. Le pictogramme photovoltaïque représente le symbole éclair (risque électrique). Les autres pictogrammes correspondent à d'autres risques (glissant, engins, électricité spécifique, etc.). A = éclair classique indiquant le risque électrique.",
+      "nb_choices": 5
+    },
+    {
+      "num": 19,
+      "correct": [
+        3
+      ],
+      "expl": "D. Volume = 15 × 20 × 0,5 = 150 m³. Temps = 150/30 = 5 heures. Les autres valeurs sont fausses.",
+      "nb_choices": 5
+    },
+    {
+      "num": 20,
+      "correct": [
+        0,
+        1,
+        4
+      ],
+      "expl": "A, B, E. Tronçonneuse à chaîne — composants : griffe (dent d'appui), pignon (entraîne la chaîne), guide (barre où circule la chaîne). « Roulement à chaîne » et « sélecteur » ne sont pas des termes standards.",
+      "nb_choices": 5
+    },
+    {
+      "num": 21,
+      "correct": [
+        2
+      ],
+      "expl": "C. 20,9 % = 209 000 ppm (1 % = 10 000 ppm). Les autres conversions sont fausses.",
+      "nb_choices": 5
+    },
+    {
+      "num": 22,
+      "correct": [
+        1
+      ],
+      "expl": "B. Règle de Hediger (éthologie) — ligne de fuite pour un chien : environ 5 m. Ligne critique : ~1,5 m (zone d'attaque). Au-delà de la ligne de fuite, l'animal fuit ; en deçà de la ligne critique, il attaque.",
+      "nb_choices": 5
+    },
+    {
+      "num": 23,
+      "correct": [
+        0
+      ],
+      "expl": "A. Gaz naturel (méthane) : densité 0,55 → plus léger que l'air → s'accumule en partie HAUTE des bâtiments (contrairement au GPL plus lourd, en partie basse).",
+      "nb_choices": 5
+    },
+    {
+      "num": 24,
+      "correct": [
+        3
+      ],
+      "expl": "D. GDO Présence Gaz — les SP peuvent manœuvrer les vannes de barrage CLIENT uniquement (branchement particulier). Les vannes réseau = uniquement agent GRDF.",
+      "nb_choices": 5
+    },
+    {
+      "num": 25,
+      "correct": [
+        0,
+        1
+      ],
+      "expl": "A, B. LSPCC : amarrage doublé si ancrage peu fiable, ancrage peut être naturel/structurel/artificiel. Facteur de chute doit être le plus FAIBLE possible (< 1 idéalement). Brin libre et anneaux cousus : règles spécifiques différentes.",
+      "nb_choices": 5
+    },
+    {
+      "num": 26,
+      "correct": [
+        1,
+        3
+      ],
+      "expl": "B, D. Contrôle croisé : valide les étapes d'habillage, permet de contrôler la liaison SAD-masque. Ce n'est pas « recommandé » mais OBLIGATOIRE avant engagement. La jugulaire et la pression d'engagement sont vérifiées ailleurs.",
+      "nb_choices": 5
+    },
+    {
+      "num": 27,
+      "correct": [
+        2
+      ],
+      "expl": "C. Échelle 1/25 000 : 1 cm = 250 m, donc 2 cm = 500 m. Les autres valeurs sont fausses.",
+      "nb_choices": 5
+    },
+    {
+      "num": 28,
+      "correct": [
+        1
+      ],
+      "expl": "B. Autonomie ARI : (7 L × 300 bars × 1,1) / (90 × (1 bar + 1)) — calcul simplifié : volume disponible ≈ 2 310 L, consommation 90 L/min à 1 bar atmo, temps ≈ 19 min après prise en compte de la sécurité (retrait 55 bars de sécurité). Valeur retenue ≈ 19 min.",
+      "nb_choices": 5
+    },
+    {
+      "num": 29,
+      "correct": [
+        2,
+        3
+      ],
+      "expl": "C, D. NELAR = Nom, Engin/Équipe, Localisation, Air restant, Raison. Donc L = Localisation, A = Air restant.",
+      "nb_choices": 5
+    },
+    {
+      "num": 30,
+      "correct": [
+        0
+      ],
+      "expl": "A. ANTARES = Adaptation Nationale des Transmissions Aux Risques Et aux Secours. Réseau radio sécurité civile. Attention : certains référentiels indiquent « Secours » au lieu de « Risques » — vérifier source.",
+      "nb_choices": 5
+    },
+    {
+      "num": 31,
+      "correct": [
+        2
+      ],
+      "expl": "C. Planimétrie = représentation sur carte des détails naturels et artificiels. Nivellement = relief. Équidistance = écart entre courbes. Estompage = effet de relief ombré.",
+      "nb_choices": 5
+    },
+    {
+      "num": 32,
+      "correct": [
+        1
+      ],
+      "expl": "B. Monoxyde de carbone (CO) : incolore, inodore, insipide, toxique (fixe l'hémoglobine). Légèrement plus léger que l'air. Inflammable mais non explosif à faible concentration. H₂S sent l'œuf pourri (pas le CO).",
+      "nb_choices": 5
+    },
+    {
+      "num": 33,
+      "correct": [
+        1
+      ],
+      "expl": "B. Les caporaux SPP relèvent de la catégorie C (cadre d'emplois des sapeurs et caporaux SPP, décret 2012-520). Les catégories A et B concernent officiers et sous-officiers supérieurs."
+    },
+    {
+      "num": 34,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. CSP (centre de secours principal) assure simultanément : 1 départ incendie, 2 départs secours à personnes, 1 autre départ. Règle de classement SDIS (art. R1424 CGCT).",
+      "nb_choices": 5
+    },
+    {
+      "num": 35,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. SPP fonctionnaire : droit à la formation, obligation d'obéissance hiérarchique, neutralité/laïcité. Le droit de grève EXISTE pour les SPP (ils peuvent faire grève contrairement aux militaires). La liberté d'opinion est garantie.",
+      "nb_choices": 5
+    },
+    {
+      "num": 36,
+      "correct": [
+        2
+      ],
+      "expl": "C. Les sapeurs-pompiers dépendent du ministère de l'Intérieur (DGSCGC). Pas de la Défense (militaires), ni du travail."
+    },
+    {
+      "num": 37,
+      "correct": [
+        2
+      ],
+      "expl": "C. 577 députés à l'Assemblée nationale (nombre fixé par la Constitution)."
+    },
+    {
+      "num": 38,
+      "correct": [
+        0
+      ],
+      "expl": "A. Conseil d'administration du SDIS : élus départementaux, maires, représentants des EPCI. Le préfet assiste mais ne siège pas comme membre délibérant. Représentants du personnel = consultatifs.",
+      "nb_choices": 5
+    },
+    {
+      "num": 39,
+      "correct": [
+        3
+      ],
+      "expl": "D. Depuis réforme territoriale de 2016 : 13 régions métropolitaines + 5 régions d'outre-mer. 101 départements (96 métropolitains + 5 DOM). Donc 13 régions et 101 départements.",
+      "nb_choices": 5
+    },
+    {
+      "num": 40,
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D, E. Classement des SDIS (art. R1424-1-1 CGCT) basé sur plusieurs critères : population, interventions, effectifs SPP et SPV, budget. Tous ces critères entrent en compte pour déterminer la catégorie (A, B, C).",
+      "nb_choices": 5
+    }
+  ]
+}

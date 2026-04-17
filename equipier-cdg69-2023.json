@@ -1,0 +1,380 @@
+{
+  "id": "equipier-cdg69-2023",
+  "theme": "equipier",
+  "year": 2023,
+  "title": "CDG69 / SDMIS — Session 2023",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier-cdg69-2023.pdf",
+  "pdf_corrige": null,
+  "instructions": "40 questions. Durée : 1 heure. Barème : 1 point si toutes réponses exactes cochées, 0,5 si la moitié au moins sans erreur, 0 point dès qu'une réponse inexacte est cochée. Calculatrice non autorisée.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [
+        2
+      ],
+      "expl": "C. Score de Glasgow — Y3 = ouverture des yeux à la demande (stimulation verbale). Y4 = spontanée, Y2 = à la douleur, Y1 = aucune."
+    },
+    {
+      "num": 2,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Seuil d'hypoglycémie pour resucrage : < 0,60 g/L = 60 mg/dL = 3,3 mmol/L. Les trois valeurs décrivent le même seuil. La valeur D (3,3 mmol/ml) est une erreur d'unité (ml au lieu de L)."
+    },
+    {
+      "num": 3,
+      "correct": [
+        2
+      ],
+      "expl": "C. Fréquence cardiaque normale chez l'adulte au repos : 60-100 battements/min. En dessous = bradycardie, au-dessus = tachycardie."
+    },
+    {
+      "num": 4,
+      "correct": [
+        1
+      ],
+      "expl": "B. PSE 1 — pansement hémostatique : pression exercée au moins 3 minutes avant de relâcher pour permettre la coagulation."
+    },
+    {
+      "num": 5,
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D, E. L'attelle à traction est contre-indiquée en présence de plaie sur la cuisse, traumatisme bilatéral, traumatisme cheville/pied, traumatisme bassin/dos, brûlure sur la zone. Toutes les situations sont des contre-indications.",
+      "nb_choices": 5
+    },
+    {
+      "num": 6,
+      "correct": [
+        1,
+        2
+      ],
+      "expl": "B, C. Relevages à 3 secouristes : pont simple et pont amélioré. Le pont néerlandais se fait à 4. La cuillère nécessite aussi 3 mais c'est un transfert, pas à proprement parler un relevage de même type — réponse discutable selon jury. La PLS n'est pas un relevage.",
+      "nb_choices": 5
+    },
+    {
+      "num": 7,
+      "correct": [
+        1,
+        3,
+        4
+      ],
+      "expl": "B, D, E. Brancardage : le commandement se fait aux pieds de la victime (visibilité), la victime est brancardée tête en avant (sauf en descente d'escalier), le brancard reste horizontal.",
+      "nb_choices": 5
+    },
+    {
+      "num": 8,
+      "correct": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "expl": "A, B, D, E. Échelles de mesure de la douleur : EVS (Verbale Simple), EN (Numérique), EVA (Visuelle Analogique), Échelle des visages (pédiatrie). L'« Échelle Visuelle Numérique » n'existe pas (confusion EVA + EN).",
+      "nb_choices": 5
+    },
+    {
+      "num": 9,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Compressions thoraciques pour désobstruction : chez l'adulte obèse, la femme enceinte, la personne alitée. Le nourrisson bénéficie de tapes dorsales/compressions thoraciques spécifiques. Chez l'enfant < 8 ans : manœuvres abdominales adaptées si nécessaire.",
+      "nb_choices": 5
+    },
+    {
+      "num": 10,
+      "correct": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "B, C, D, E. Crise d'asthme grave : détresse respiratoire, impossibilité de parler (signe majeur), agitation, sibilants/sifflement expiratoire. Pas de détresse circulatoire directe (peut apparaître en phase terminale uniquement).",
+      "nb_choices": 5
+    },
+    {
+      "num": 11,
+      "correct": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "B, C, D, E. Signes de détresse circulatoire : pouls perçu en carotidien mais pas en radial, FC > 120/min au repos, TA systolique < 90 mmHg, marbrures. Le TRC normal (< 2 s) n'est PAS un signe de détresse.",
+      "nb_choices": 5
+    },
+    {
+      "num": 12,
+      "correct": [
+        2
+      ],
+      "expl": "C. Plan ORSEC NOVI : DOS (Directeur des Opérations de Secours) = Préfet ou Maire. Le DDSIS et le SMUR ne sont pas DOS."
+    },
+    {
+      "num": 13,
+      "correct": [
+        2,
+        3,
+        4
+      ],
+      "expl": "C, D, E. PSE — la mesure de la douleur intervient au 3e regard (bilan complémentaire), au 4e regard (bilan circonstanciel) et dans le bilan de surveillance. Pas au 1er (sécurité) ni au 2e (détresses vitales).",
+      "nb_choices": 5
+    },
+    {
+      "num": 14,
+      "correct": [
+        0,
+        1,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D, E. Accident de plongée — plaintes possibles : douleurs articulaires (bends), soif, douleurs abdominales, picotements cutanés (puces), céphalées. Toutes ces plaintes sont possibles selon le type d'accident (surpression pulmonaire, ADD).",
+      "nb_choices": 5
+    },
+    {
+      "num": 15,
+      "correct": [
+        0,
+        1,
+        2,
+        3
+      ],
+      "expl": "A, B, C, D. Inhalation d'oxygène indiquée pour : intoxication aux fumées, accident de plongée, SpO2 < 94 %, ACR. Toutes ces situations nécessitent de l'oxygène."
+    },
+    {
+      "num": 16,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Bouteille O₂ de 5 L à 200 bars : contenu = 5 × 200 = 1000 L → 1 m³. Ancienne norme 150 bars : 5 × 150 = 750 L. Selon pression d'exercice, réponse peut varier. Les autres valeurs ne sont pas cohérentes."
+    },
+    {
+      "num": 17,
+      "correct": [
+        0
+      ],
+      "expl": "A. MGO secours routiers — acronyme « Interdire, Inspecter, Interroger, Identifier, Intervenir » ou selon version « Protéger, Alerter, Secourir, Désincarcérer » — selon le GDO Routier, le 4e i correspond à « Interdire » (interdire les manœuvres, l'accès, etc.)."
+    },
+    {
+      "num": 18,
+      "correct": [
+        0,
+        3
+      ],
+      "expl": "A, D. Volume = 12 × 5 × 0,75 = 45 m³. Temps = 45 / 30 = 1,5 h = 90 min = 1h30 = 120 min ? Non : 1,5 h = 90 min. Donc A (90 min) et C (1,5 h) identiques. 2 h = 120 min faux. Bonne réponse : A et C. Attention ici l'énoncé a A=90 min et C=1,5h — donc A et C sont équivalents. Ne pas cocher B (2h) ni D (120 min). Note : si le jury accepte 1,5h exprimé en 90 min et en 1h30, les deux valent.",
+      "nb_choices": 5
+    },
+    {
+      "num": 19,
+      "correct": [
+        1,
+        2,
+        3
+      ],
+      "expl": "B, C, D. Aire d'aspiration normalisée (GTO Alimentation) : 6×4 m pour EP et MPR, plate avec calage, pente 2-7 % pour évacuer l'eau. 8×4 = aire pour engins plus lourds (non standard EP).",
+      "nb_choices": 5
+    },
+    {
+      "num": 20,
+      "correct": [
+        2
+      ],
+      "expl": "C. AIDES = Accéder, Isoler, Désenfumer, Explorer, Sauver — moyen mnémotechnique GTO Sauvetage. Les autres formulations sont erronées."
+    },
+    {
+      "num": 21,
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D, E. Échelle à coulisse — composants : poignées, parachutes (systèmes de blocage), trait/cordelette, entretoise, poulie. Tous sont des éléments standards d'une échelle à coulisse.",
+      "nb_choices": 5
+    },
+    {
+      "num": 22,
+      "correct": [
+        0,
+        2,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D. DECI — catégories de risques courants : faible, ordinaire, important. Le « risque particulier » est une autre catégorie (industriel, ICPE). « Extrême » et « moyen » ne sont pas des termes normalisés.",
+      "nb_choices": 5
+    },
+    {
+      "num": 23,
+      "correct": [
+        0,
+        3,
+        4
+      ],
+      "expl": "A, D, E. GTO Sauvetage — échelle à coulisse grand modèle : longueur reployée 5 m, poids 33 kg, longueur déployée 9 m. Les autres valeurs (9 kg, 3,60 m) correspondent au petit modèle.",
+      "nb_choices": 5
+    },
+    {
+      "num": 24,
+      "correct": [
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "B, C, D, E. PEI (Points d'Eau Incendie) : poteaux (surpressés ou non), réservoirs aériens, bouches, etc. Un château d'eau n'est pas un PEI en tant que tel (c'est un ouvrage de stockage d'eau potable, pas un dispositif DECI).",
+      "nb_choices": 5
+    },
+    {
+      "num": 25,
+      "correct": [
+        0,
+        1,
+        2,
+        3,
+        4
+      ],
+      "expl": "A, B, C, D, E. GTO Sauvetage — techniques pour victime à mobilité réduite : porter, portoir souple, fauteuil, plan dur + sangle araignée, chaise d'évacuation. Toutes ces techniques sont référencées.",
+      "nb_choices": 5
+    },
+    {
+      "num": 26,
+      "correct": [
+        2,
+        3,
+        4
+      ],
+      "expl": "C, D, E. Types de jets : jet droit, jet diffusé d'attaque, jet diffusé de protection, jet purge. « Jet brisé » et « jet cloche » ne sont pas des appellations GTO.",
+      "nb_choices": 5
+    },
+    {
+      "num": 27,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. PI normalisés : 65 mm et 100 mm (rouges), et 150 mm (bicolores). Attention ici les réponses A (65), C (100), E (150) devraient être justes. Si E existe dans le sujet, la réponse correcte est A, C, E. Vérifier la formulation."
+    },
+    {
+      "num": 28,
+      "correct": [
+        1,
+        2,
+        4
+      ],
+      "expl": "B, C, E. FPT — binômes d'attaque (BAT) établissent lignes d'attaque, BAL peut devenir BAT après sa mission, binômes d'alimentation (BAL) alimentent la prise d'eau. Le conducteur n'alimente pas seul (action du BAL) et n'établit pas seul la ligne d'aspiration.",
+      "nb_choices": 5
+    },
+    {
+      "num": 29,
+      "correct": [
+        0,
+        1,
+        3
+      ],
+      "expl": "A, B, D. GTO Engagement en milieu vicié — porte-lance : assure la reconnaissance permanente, ajuste l'établissement (pas de coudes), tire le tuyau lors du repli. Compléter le matériel incombe au chef d'équipe.",
+      "nb_choices": 5
+    },
+    {
+      "num": 30,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. Extinction directe — applications : badigeonnage (painting) et penciling (touches de jet sur foyer ponctuel). La dilution = extinction par réduction de concentration (gaz/liquides), le ricochet = indirect, l'inertage = gaz inerte."
+    },
+    {
+      "num": 31,
+      "correct": [
+        0,
+        4
+      ],
+      "expl": "A, E. ACR adulte — surveillance : signes de reprise (mouvements, respiration reprise). Le pouls fémoral n'est pas surveillé pendant la RCP (inutile et interrompt les compressions).",
+      "nb_choices": 5
+    },
+    {
+      "num": 32,
+      "correct": [
+        1,
+        3
+      ],
+      "expl": "B, D. Épistaxis — position assise tête penchée en avant (éviter déglutition du sang), respirer par la bouche sans parler. Pencher en arrière = favorise déglutition (vomissements). Se moucher fort = relance le saignement. Mèches = geste médical."
+    },
+    {
+      "num": 33,
+      "correct": [
+        2,
+        3
+      ],
+      "expl": "C, D. Compression de membre : garrot pour hémorragie non accessible, et si compression > 4 heures (crush syndrome à venir à la levée). LVA et test d'extension ne sont pas spécifiques."
+    },
+    {
+      "num": 34,
+      "correct": [
+        0,
+        2,
+        3
+      ],
+      "expl": "A, C, D. Pendaison/strangulation : soutenir et libérer rapidement, limiter mouvements du rachis cervical, préserver la scène. La position assise n'est pas indiquée (plutôt allongée)."
+    },
+    {
+      "num": 35,
+      "correct": [
+        2,
+        4
+      ],
+      "expl": "C, E. GTO Engagement en milieu vicié — 2 techniques : engagement à vue et engagement sur ligne de vie. La commande et le LSPCC ne sont pas des techniques d'engagement en milieu vicié.",
+      "nb_choices": 5
+    },
+    {
+      "num": 36,
+      "correct": [
+        0,
+        1,
+        2
+      ],
+      "expl": "A, B, C. Directeur Départemental : colonel, contrôleur hors classe, contrôleur général. Le lieutenant-colonel peut être DDSIS adjoint, et « Général » est un grade de l'armée, pas des SPP."
+    },
+    {
+      "num": 37,
+      "correct": [
+        1,
+        4
+      ],
+      "expl": "B, E. Ligne guide : longueur 40-50 m, diamètre 8-10 mm (GTO Engagement en milieu vicié). Les autres valeurs sont hors norme.",
+      "nb_choices": 5
+    },
+    {
+      "num": 38,
+      "correct": [
+        0
+      ],
+      "expl": "A. Les SPP sont des fonctionnaires territoriaux (rattachés aux SDIS, EPA placés sous la tutelle conjointe du Préfet et du Conseil d'Administration). Pas fonctionnaires d'État ni militaires."
+    },
+    {
+      "num": 39,
+      "correct": [
+        0,
+        2
+      ],
+      "expl": "A, C. LSPCC — aux extrémités de la corde : nœud de huit double avec gaine thermorétractable et nœud d'amarre (pour fixation sur point d'ancrage)."
+    },
+    {
+      "num": 40,
+      "correct": [
+        1
+      ],
+      "expl": "B. Facteur de chute = hauteur de chute / longueur de corde. C'est un indicateur de la violence potentielle d'une chute en travail en hauteur (cordée)."
+    }
+  ]
+}

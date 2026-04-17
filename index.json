@@ -1,0 +1,88 @@
+{
+  "themes": {
+    "etude-texte": {
+      "label": "Étude de texte",
+      "description": "Compréhension, synthèse et restitution d'un texte réglementaire ou professionnel. Teste ta capacité à extraire les informations clés d'un document officiel.",
+      "icon": "📖",
+      "default_duration_min": 60
+    },
+    "maths": {
+      "label": "Mathématiques",
+      "description": "Arithmétique, géométrie, conversions, vitesse, volumes — niveau fin de 3ème. Concentration et rigueur de calcul sous chronomètre.",
+      "icon": "🧮",
+      "default_duration_min": 60
+    },
+    "equipier": {
+      "label": "Équipier SPV",
+      "description": "Activités et compétences de l'équipier sapeur-pompier volontaire : lutte contre l'incendie, secours d'urgence, techniques opérationnelles, culture administrative.",
+      "icon": "🚒",
+      "default_duration_min": 60
+    }
+  },
+  "annales": [
+    {
+      "id": "equipier-cdg69-2025",
+      "theme": "equipier",
+      "year": 2025,
+      "title": "CDG69 / SDMIS — Session 2025",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg35-2023",
+      "theme": "equipier",
+      "year": 2023,
+      "title": "CDG35 — Session 2023 (Ille-et-Vilaine)",
+      "nb_questions": 49,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg69-2023",
+      "theme": "equipier",
+      "year": 2023,
+      "title": "CDG69 / SDMIS — Session 2023",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg13-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG13 — Session 2021 (Bouches-du-Rhône)",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg35-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG35 — Session 2021 (Ille-et-Vilaine)",
+      "nb_questions": 50,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg57-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG57 — Session 2021 (Moselle)",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg69-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG69 / SDMIS — Session 2021",
+      "nb_questions": 60,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-demo",
+      "theme": "equipier",
+      "year": 2025,
+      "title": "Session 2025 — Équipier SPV (exemple)",
+      "nb_questions": 3,
+      "duration_min": 60
+    }
+  ]
+}
