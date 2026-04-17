@@ -1,0 +1,199 @@
+[
+  {
+    "id": "gto-ventilation-001",
+    "level": "TF",
+    "q": "Que désigne le terme « entrant » ?",
+    "choices": [
+      "Toute ouverture par laquelle sortent les fumées d'un volume en feu",
+      "Toute ouverture d'un volume par laquelle entre de l'air frais",
+      "Un ventilateur positionné en façade pour aspirer les fumées",
+      "Une gaine de ventilation reliée à un raccord ZAG"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le lexique (p. 11) définit l'entrant comme « toute ouverture d'un volume par laquelle entre de l'air frais ». Il peut s'agir d'une porte, d'une fenêtre, d'une grille ou d'une ouverture pratiquée par les SP.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-002",
+    "level": "TF",
+    "q": "Quels sont les trois objectifs principaux de la ventilation opérationnelle ?",
+    "choices": [
+      "Attaquer, sauver, déblayer",
+      "Protéger, désenfumer, attaquer",
+      "Désenfumer, isoler, refroidir",
+      "Protéger, inonder, ventiler"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La fiche VEN-STR (p. 17) énonce explicitement : « La ventilation opérationnelle permet de répondre à trois objectifs principaux : protéger, désenfumer, attaquer. »",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-003",
+    "level": "TF",
+    "q": "À quelle vitesse de vent une ventilation d'attaque ou de désenfumage devient-elle inefficace en cas de vent contraire au sortant ?",
+    "choices": [
+      "Supérieure à 10 km/h",
+      "Supérieure à 18 km/h",
+      "Supérieure à 25 km/h",
+      "Supérieure à 30 km/h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Les fiches VEN-STR-DEF-1 (p. 38) et VEN-STR-ATT-1 (p. 51) indiquent qu'un vent supérieur à 18 km/h (5 m/s) rend l'exercice risqué en annulant ou inversant l'effet de la ventilation.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-004",
+    "level": "TF",
+    "q": "A quelle concentration en CO apparaissent des maux de tête et étourdissements après environ 45 minutes d'exposition, avec un risque mortel avant 2 heures ?",
+    "choices": [
+      "200 ppm",
+      "400 ppm",
+      "800 ppm",
+      "1 600 ppm"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La fiche VEN-STR-PAR-7 (p. 90) précise : « 800 ppm (0,08 %) : Étourdissements, nausées, convulsions apparaissant dans un délai de 45 minutes. Inéluctable avant deux heures. »",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-005",
+    "level": "F",
+    "q": "Lors d'un recloisonnement du feu, quels sont les effets recherchés par la fermeture de la porte du volume en feu ?",
+    "choices": [
+      "Augmenter la puissance du foyer pour accélérer son extinction",
+      "Isoler le feu des zones enfumées adjacentes pour les sécuriser",
+      "Empêcher les flammes de rattraper les fumées qui ont migré dans les volumes voisins",
+      "Remplacer l'action hydraulique par une action de ventilation exclusive"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "La fiche VEN-STR-PRO-1 (p. 23) indique que l'objectif est « d'isoler le feu des zones enfumées pour les sécuriser et éviter que les flammes présentes dans le volume en feu ne rattrapent et n'enflamment les fumées qui ont envahi les volumes adjacents ».",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-006",
+    "level": "F",
+    "q": "Dans la technique de désenfumage d'un volume compartiment, comment procède-t-on lors d'une ventilation séquentielle ?",
+    "choices": [
+      "On ouvre simultanément toutes les portes et fenêtres pour vider le bâtiment d'un seul coup",
+      "On commence par la pièce la plus proche de l'entrant, toutes portes ouvertes",
+      "On désenfume les pièces une par une en commençant par une extrémité de la circulation, chaque autre pièce restant fermée pendant l'opération",
+      "On positionne un ventilateur dans chaque pièce avant de les ouvrir toutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La fiche VEN-STR-DEF-2 (p. 42) précise que lors d'un désenfumage séquentiel, on commence par une pièce à l'extrémité de la circulation en maintenant toutes les autres portes fermées, puis on passe à la pièce contiguë une fois la première traitée.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-007",
+    "level": "F",
+    "q": "Pour une mise en surpression d'un volume sain afin de le protéger de la propagation des fumées, quelles précautions sont indispensables ?",
+    "choices": [
+      "Vérifier l'absence de grandes ouvertures vers le local en feu (porte, trémie, etc.)",
+      "Créer obligatoirement un sortant dans le volume sain",
+      "S'assurer que le ventilateur est positionné en extraction et non en soufflage",
+      "Ne pas utiliser cette technique si les défauts d'étanchéité sont trop faibles"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "La fiche VEN-STR-PRO-3 (p. 34) indique que « la seule précaution importante est la vérification de l'absence de grandes ouvertures vers le local en feu (porte, trémie...). Si de telles ouvertures existaient, on risquerait d'augmenter la puissance du feu, voire de façon violente (risque de backdraft). » La mise en surpression ne nécessite pas la création d'un sortant.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-008",
+    "level": "F",
+    "q": "Lors de l'utilisation d'un stoppeur de fumée, quels bénéfices l'équipier peut-il en attendre lors de la progression en antiventilation ?",
+    "choices": [
+      "Maintenir le feu en régime de sous-ventilation en limitant l'apport d'air",
+      "Permettre une vision directe sur le foyer grâce à la transparence du rideau",
+      "Conserver une zone de repli sécurisée dans la cage d'escalier ou le couloir",
+      "Remplacer la protection respiratoire individuelle de l'équipier"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "La fiche VEN-STR-PAR-5 (p. 83-84) précise que le stoppeur réduit l'apport d'air maintenant le feu en sous-ventilation, et qu'il permet de conserver une zone de repli sécurisée. Il ne dispense en aucun cas du port de l'ARI.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-009",
+    "level": "M",
+    "q": "Un équipier est chargé du désenfumage d'un appartement. Il positionne un ventilateur à l'entrant en façade. Il observe que les fumées ne sortent que très peu par la fenêtre choisie comme sortant malgré un ventilateur fonctionnel. Quelles vérifications doit-il effectuer en priorité ?",
+    "choices": [
+      "Vérifier l'absence de vent contraire au niveau du sortant",
+      "Vérifier l'intégrité de la veine d'air (portes intermédiaires non calées qui se seraient refermées)",
+      "Vérifier que les autres fenêtres de l'immeuble sont toutes fermées",
+      "Vérifier le bon fonctionnement du ventilateur (puissance, orientation)"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Les fiches VEN-STR-DEF-1 (p. 38) et VEN-STR-ATT-1 (p. 49) indiquent qu'en l'absence de vitesse suffisante des fumées au sortant, il faut vérifier : l'absence de vent contraire, l'intégrité de la veine d'air (portes qui se referment), et le bon fonctionnement du ventilateur. La fermeture des fenêtres des autres appartements n'est pas mentionnée.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-010",
+    "level": "M",
+    "q": "Un binôme intervient sur un feu de chambre dans un appartement au 3e étage. La fenêtre de la chambre est déjà brisée par la chaleur et une fumée noire et épaisse sort en abondance. Un coéquipier s'apprête à mettre en route un ventilateur en ventilation d'attaque (VPP). Laquelle des situations suivantes interdit formellement cette mise en œuvre ?",
+    "choices": [
+      "La présence d'un vent de 10 km/h orienté vers la façade du sortant",
+      "La présence d'une victime signalée entre le foyer et la fenêtre (sortant)",
+      "L'absence de raccord ZAG en façade",
+      "Le fait que le ventilateur soit de type thermique"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La fiche VEN-STR-ATT-1 (p. 49) stipule formellement : « En aucun cas cette action ne doit être combinée avec d'autres qui auraient pour conséquence de placer des intervenants entre le foyer et le sortant. » La règle de sécurité de VEN-STR (p. 19) indique la même chose pour les victimes. Un vent de 10 km/h est en dessous du seuil des 18 km/h.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-011",
+    "level": "M",
+    "q": "Pour le désenfumage d'un local de faible dimension, quelle distance minimale recommande-t-on de respecter entre le ventilateur conventionnel à jet évasé et l'ouverture du local ?",
+    "choices": [
+      "Moins de 50 cm",
+      "Exactement à l'aplomb de l'ouvrant",
+      "Environ 1 mètre",
+      "Au moins 3 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La fiche VEN-STR-PAR-3 (p. 69) précise qu'il est possible de désenfumer des locaux borgnes de faible dimension en positionnant un ventilateur à jet évasé « à environ un mètre de l'ouverture ». En dessous d'un mètre, le ventilateur ré-aspire une partie des fumées sortantes, ce qui nuit à l'efficacité.",
+    "source": ""
+  },
+  {
+    "id": "gto-ventilation-012",
+    "level": "M",
+    "q": "Lors de la 1ère phase d'une antiventilation d'attaque, le binôme d'attaque progresse dans un appartement enfumé. Quelles sont les actions correctes décrites par le GTO ?",
+    "choices": [
+      "Refermer la porte d'accès aux locaux en laissant juste le passage du tuyau",
+      "Ouvrir en grand toutes les portes pour accélérer l'évacuation des fumées avant l'attaque",
+      "Chercher à inerter les fumées lors de la progression par des pulvérisations fines si la température le permet",
+      "Déclencher immédiatement la ventilation par pression positive à l'entrant pour sécuriser la progression"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "La fiche VEN-STR-ATT-2 (p. 54) décrit qu'en 1ère phase, « la porte d'accès aux locaux est refermée, laissant juste le passage du tuyau, ainsi la surface d'échange sera réduite (estimée à environ 0,2 m²) » et que le BAT « cherchera à inerter [les fumées] lors de sa progression par des pulvérisations les plus fines possibles ». Ouvrir grand les portes est contraire au principe d'antiventilation, et une VPP en attaque est incompatible avec une antiventilation.",
+    "source": ""
+  }
+]

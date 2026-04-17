@@ -1,0 +1,1632 @@
+[
+  {
+    "id": "gto-vicie-001",
+    "level": "TF",
+    "q": "Que signifie l'abréviation ARICO ?",
+    "choices": [
+      "Appareil respiratoire isolant à circuit ouvert",
+      "Appareil respiratoire individuel à circuit opérationnel",
+      "Appareil respiratoire isolant à commande ouverte",
+      "Appareil respiratoire intégré à circuit oxygène"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Annexe A du guide – ARICO = appareil respiratoire isolant à circuit ouvert.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-002",
+    "level": "TF",
+    "q": "Que signifie l'abréviation ARICF ?",
+    "choices": [
+      "Appareil respiratoire isolant à circuit fermé",
+      "Appareil respiratoire intégré à circuit filtrant",
+      "Appareil respiratoire isolant à commande fermée",
+      "Appareil respiratoire individuel à cartouche filtrante"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Annexe A du guide – ARICF = appareil respiratoire isolant à circuit fermé.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-003",
+    "level": "TF",
+    "q": "Quelle est la consommation d'air considérée comme « haute » pour un porteur d'ARICO lors d'un incendie (effort intense) ?",
+    "choices": [
+      "50 l/min",
+      "75 l/min",
+      "100 l/min",
+      "135 l/min"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.1.1 – le guide indique qu'il convient de considérer la consommation haute d'un porteur d'ARICO lors d'un incendie comme étant d'environ 100 l/min.",
+    "source": "Chapitre 1, section 1.1.1"
+  },
+  {
+    "id": "gto-vicie-004",
+    "level": "TF",
+    "q": "De quoi est constituée la ligne de vie ?",
+    "choices": [
+      "D'une ligne guide et d'une liaison personnelle",
+      "D'une liaison personnelle et d'un dispositif de dérivation",
+      "D'une ligne guide et d'un dispositif de dérivation",
+      "D'une liaison personnelle et d'un tuyau d'incendie"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 1, section 1.3 – Ligne de vie = ligne guide + liaison personnelle.",
+    "source": "Chapitre 1, section 1.3"
+  },
+  {
+    "id": "gto-vicie-005",
+    "level": "TF",
+    "q": "Quelle est la longueur standard d'une ligne guide ?",
+    "choices": [
+      "20 à 30 mètres",
+      "50 à 60 mètres",
+      "80 à 100 mètres",
+      "30 à 40 mètres"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.3.1 – la ligne guide est d'une longueur de 50 à 60 mètres.",
+    "source": "Chapitre 1, section 1.3.1"
+  },
+  {
+    "id": "gto-vicie-006",
+    "level": "TF",
+    "q": "Quel est le diamètre d'une ligne guide ?",
+    "choices": [
+      "2 à 4 mm",
+      "4 à 6 mm",
+      "6 à 8 mm",
+      "8 à 10 mm"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.3.1 – le diamètre de la ligne guide est de 6 à 8 millimètres.",
+    "source": "Chapitre 1, section 1.3.1"
+  },
+  {
+    "id": "gto-vicie-007",
+    "level": "TF",
+    "q": "Sur une ligne guide, que signifie la présence de 3 olives successives ?",
+    "choices": [
+      "Direction vers la sortie",
+      "Direction vers le sinistre",
+      "Zone de dérivation",
+      "Point d'ancrage"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.3.1 – 3 olives successives en 2e = en direction du sinistre (3 olives, 3 syllabes : « in-cen-die »).",
+    "source": "Chapitre 1, section 1.3.1"
+  },
+  {
+    "id": "gto-vicie-008",
+    "level": "TF",
+    "q": "Sur une ligne guide, que signifie la présence d'1 olive isolée ?",
+    "choices": [
+      "Direction vers le sinistre",
+      "Zone de dérivation",
+      "Direction vers la sortie",
+      "Point de pénétration"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.3.1 – 1 olive isolée en 2e = en direction de la sortie (1 olive, 1 syllabe : « vie »).",
+    "source": "Chapitre 1, section 1.3.1"
+  },
+  {
+    "id": "gto-vicie-009",
+    "level": "TF",
+    "q": "Quelle est la longueur totale de la liaison personnelle ?",
+    "choices": [
+      "4 mètres",
+      "5 mètres",
+      "6 mètres",
+      "8 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.3.2 – la liaison personnelle est d'une longueur totale de 6 mètres.",
+    "source": "Chapitre 1, section 1.3.2"
+  },
+  {
+    "id": "gto-vicie-010",
+    "level": "TF",
+    "q": "Quel est le diamètre de la liaison personnelle ?",
+    "choices": [
+      "2 mm",
+      "4 mm",
+      "6 mm",
+      "8 mm"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.3.2 – la liaison personnelle est d'un diamètre de 4 millimètres.",
+    "source": "Chapitre 1, section 1.3.2"
+  },
+  {
+    "id": "gto-vicie-011",
+    "level": "TF",
+    "q": "Quelle est la version courte de la liaison personnelle ?",
+    "choices": [
+      "0,75 mètre",
+      "1,25 mètre",
+      "2 mètres",
+      "3 mètres"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.3.2 – la liaison personnelle peut être utilisée en version courte (1,25 mètre) ou en version longue (6 mètres).",
+    "source": "Chapitre 1, section 1.3.2"
+  },
+  {
+    "id": "gto-vicie-012",
+    "level": "TF",
+    "q": "Quel est le seuil de pression en dessous duquel le sifflet de fin de charge d'un ARI se déclenche ?",
+    "choices": [
+      "30 bars environ",
+      "45 bars environ",
+      "55 bars environ",
+      "70 bars environ"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 2.1.2 – lorsque la pression dans la bouteille d'ARI descend en dessous de 55 bars environ, un sifflet de fin de charge se déclenche.",
+    "source": "Chapitre 2, section 2.1.2"
+  },
+  {
+    "id": "gto-vicie-013",
+    "level": "TF",
+    "q": "Quelle est la catégorie EPI des appareils de protection respiratoire ?",
+    "choices": [
+      "Catégorie I",
+      "Catégorie II",
+      "Catégorie III",
+      "Catégorie IV"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1 – les appareils de protection respiratoire sont des EPI de catégorie III, qui permettent d'assurer la protection contre les risques pouvant entraîner des lésions irréversibles ou mortelles.",
+    "source": "Chapitre 1, section 1"
+  },
+  {
+    "id": "gto-vicie-014",
+    "level": "TF",
+    "q": "Quel est le principe de fonctionnement d'un ARICO ?",
+    "choices": [
+      "Il régénère l'air expiré pour le rendre à nouveau respirable",
+      "Il filtre l'air ambiant pollué",
+      "Il alimente l'utilisateur en air comprimé provenant d'une bouteille portée sur le dos",
+      "Il fournit de l'oxygène pur à l'utilisateur"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.1.1 – l'ARICO fonctionne avec une réserve d'air comprimé sous haute pression et permet à l'utilisateur d'être alimenté à la demande en air respirable provenant de la bouteille portée sur le dos.",
+    "source": "Chapitre 1, section 1.1.1"
+  },
+  {
+    "id": "gto-vicie-015",
+    "level": "TF",
+    "q": "Que signifie l'acronyme AIDES ?",
+    "choices": [
+      "Accéder, Isoler, Désenfumer, Explorer, Sauver (ou Sortir)",
+      "Approcher, Isoler, Désenfumer, Évaluer, Sécuriser",
+      "Accéder, Intervenir, Désenfumer, Explorer, Sauver",
+      "Analyser, Isoler, Dégager, Explorer, Sécuriser"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 2, section 3.5 et Annexe A – AIDES = Accéder, Isoler, Désenfumer, Explorer, Sauver (ou Sortir).",
+    "source": "Chapitre 2, section 3.5"
+  },
+  {
+    "id": "gto-vicie-016",
+    "level": "TF",
+    "q": "Quelle est la concentration minimale en oxygène en dessous de laquelle le port d'un ARI est obligatoire ?",
+    "choices": [
+      "20 %",
+      "19 %",
+      "17 %",
+      "15 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2 – le port d'un ARI est obligatoire si la concentration en oxygène est inférieure à 17 %.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gto-vicie-017",
+    "level": "TF",
+    "q": "Quel est le principal usage de l'appareil respiratoire isolant à circuit fermé ?",
+    "choices": [
+      "Les interventions courtes à l'air libre",
+      "Les interventions nécessitant des autonomies importantes",
+      "Le reconditionnement du matériel en fin d'opération",
+      "Les exercices d'entraînement en centre de secours"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.1.2 – l'ARICF est principalement utilisé dans les interventions nécessitant des autonomies importantes (explorations de longues durées, feux de navires, etc.).",
+    "source": "Chapitre 1, section 1.1.2"
+  },
+  {
+    "id": "gto-vicie-018",
+    "level": "TF",
+    "q": "Quel type de bouteille d'ARI est entièrement métallique sans renforcement ?",
+    "choices": [
+      "Type II",
+      "Type III",
+      "Type IV",
+      "Type I"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Chapitre 1, section 1.1.1 – le type I correspond aux bouteilles métalliques (sans autre précision de renforcement ou de liner composite).",
+    "source": "Chapitre 1, section 1.1.1"
+  },
+  {
+    "id": "gto-vicie-019",
+    "level": "TF",
+    "q": "Quel filtre anti-aérosols arrête 99,95 % des aérosols ?",
+    "choices": [
+      "Classe P1",
+      "Classe P2",
+      "Classe P3",
+      "Classe P4"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.2.1 – les filtres de classe P3 arrêtent 99,95 % des aérosols.",
+    "source": "Chapitre 1, section 1.2.1"
+  },
+  {
+    "id": "gto-vicie-020",
+    "level": "TF",
+    "q": "Quelle couleur est associée au filtre anti-gaz de type A (gaz et vapeurs organiques avec point d'ébullition supérieur à 65°C) ?",
+    "choices": [
+      "Gris",
+      "Jaune",
+      "Vert",
+      "Marron"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Chapitre 1, section 1.2.2 – le filtre de type A est identifié par la couleur marron.",
+    "source": "Chapitre 1, section 1.2.2"
+  },
+  {
+    "id": "gto-vicie-021",
+    "level": "TF",
+    "q": "Jusqu'à combien de dérivations peuvent être effectuées sur une ligne guide ?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 1.3.3 – il est à noter que jusqu'à 3 dérivations peuvent être effectuées sur la ligne guide.",
+    "source": "Chapitre 1, section 1.3.3"
+  },
+  {
+    "id": "gto-vicie-022",
+    "level": "TF",
+    "q": "Quel acronyme désigne le groupe d'exploration de longue durée ?",
+    "choices": [
+      "ELD",
+      "GELD",
+      "GLD",
+      "GELD"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe A – GELD = groupe d'exploration de longue durée.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-023",
+    "level": "TF",
+    "q": "Que signifie l'abréviation SAD ?",
+    "choices": [
+      "Système d'alarme de détresse",
+      "Soupape à la demande",
+      "Sécurité à la demande",
+      "Système d'alimentation de détresse"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe A – SAD = soupape à la demande.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-024",
+    "level": "TF",
+    "q": "Qu'est-ce qu'un EAS ?",
+    "choices": [
+      "Équipement autonome de sauvetage",
+      "Espace d'attente sécurisé",
+      "Engin d'assistance aux sinistrés",
+      "Équipe d'appui spécialisée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 1 et Annexe A – EAS = espace d'attente sécurisé.",
+    "source": "Chapitre 3, section 1"
+  },
+  {
+    "id": "gto-vicie-025",
+    "level": "TF",
+    "q": "Quelle est la valeur de l'espace mort anatomique chez l'adulte ?",
+    "choices": [
+      "50 ml",
+      "100 ml",
+      "150 ml",
+      "200 ml"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Annexe B, section 1.2.1 – l'espace mort est d'environ 150 ml chez l'adulte.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-026",
+    "level": "TF",
+    "q": "Quelle est la masse maximale d'un ARI à circuit ouvert prêt à l'emploi selon la norme NF EN 137 ?",
+    "choices": [
+      "14 kg",
+      "16 kg",
+      "18 kg",
+      "20 kg"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Annexe B, section 1.1 – la norme NF EN 137 précise que la masse de l'appareil prêt à l'emploi ne doit pas excéder 18 kg, indépendamment de la configuration. ## BLOC 2 — RÔLES ET MISSIONS DU BINÔME",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-027",
+    "level": "F",
+    "q": "Quelle est l'unité de travail valide minimale lors d'un engagement en milieu vicié ?",
+    "choices": [
+      "Un sapeur-pompier seul avec radio",
+      "Un binôme composé d'un chef et d'un équipier",
+      "Un trinôme avec un chef d'agrès",
+      "Deux binômes avec un contrôleur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.1 – le binôme constitue la seule et unique unité de travail valide. Un sapeur-pompier ne doit jamais s'engager seul.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-vicie-028",
+    "level": "F",
+    "q": "Avant leur engagement, quelles actions le binôme d'exploration doit-il réaliser ?",
+    "choices": [
+      "Vérifier l'état du matériel (ARI, éclairage, etc.)",
+      "Donner ses clés de balises de sécurité au chef d’agrès",
+      "Se faire enregistrer auprès du contrôleur",
+      "Établir un code de communication avec le contrôleur"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Chapitre 1, section 2.1 – avant l'engagement, le binôme vérifie l'état du matériel, se fait enregistrer auprès du contrôleur et donne les clés des balises, et établit un code de communication avec le contrôleur.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-vicie-029",
+    "level": "F",
+    "q": "Que doit faire le binôme si l'un de ses membres n'est plus en mesure d'accomplir la mission ?",
+    "choices": [
+      "Le membre valide continue seul la mission",
+      "Le binôme entier doit impérativement se replier",
+      "Le membre valide appelle le binôme de sécurité et continue",
+      "Le chef de binôme demande l'autorisation au contrôleur de continuer seul"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.1 – si pour une raison indéterminée l'un des sapeurs-pompiers n'est plus en mesure d'accomplir la mission, le binôme entier doit impérativement se replier.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-vicie-030",
+    "level": "F",
+    "q": "Le binôme d'exploration doit maintenir quel type de contact permanent entre ses deux membres ?",
+    "choices": [
+      "Uniquement un contact radio",
+      "Un contact physique, visuel ou verbal",
+      "Uniquement un contact physique via la liaison personnelle",
+      "Un contact visuel exclusivement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.1 – le travail en binôme est réalisé avec un contact permanent (physique, visuel ou verbal) entre les deux intervenants.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-vicie-031",
+    "level": "F",
+    "q": "Après ouverture de leurs bouteilles, que doivent faire les membres du binôme avant de s’équiper ?",
+    "choices": [
+      "Caper à l'air frais",
+      "Contrôler la pression au manomètre",
+      "Vérifier la ligne de vie",
+      "Contacter le COS par radio"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Chapitre 1, section 2.1 – après ouverture de leurs bouteilles, le binôme d'exploration doit s’équiper à l'air frais et contrôler la pression au manomètre.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-vicie-032",
+    "level": "F",
+    "q": "Quel est le rôle principal du binôme de sécurité ?",
+    "choices": [
+      "Gérer le tableau de gestion des personnels",
+      "Assister et porter secours aux binômes engagés",
+      "Assurer la communication avec le COS",
+      "Reconnaître le sinistre depuis l'extérieur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.3 – le rôle principal du binôme de sécurité est d'assister et de porter secours au(x) binôme(s) engagé(s).",
+    "source": "Chapitre 1, section 2.3"
+  },
+  {
+    "id": "gto-vicie-033",
+    "level": "F",
+    "q": "Où est placé le binôme de sécurité et sous quelle autorité ?",
+    "choices": [
+      "En zone d'exclusion, sous l'autorité du COS",
+      "Au niveau du point de pénétration en zone contrôlée, sous la seule autorité du contrôleur",
+      "En zone de soutien, sous l'autorité du chef d'agrès",
+      "Au niveau du point d'accès, sous l'autorité du binôme engagé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.3 – le binôme de sécurité est placé sous la seule autorité du contrôleur au niveau du point de pénétration en zone contrôlée.",
+    "source": "Chapitre 1, section 2.3"
+  },
+  {
+    "id": "gto-vicie-034",
+    "level": "F",
+    "q": "En phase ATTENTE, quelles missions incombent au binôme de sécurité ?",
+    "choices": [
+      "Se tenir au niveau du point de pénétration à la disposition du contrôleur",
+      "Assurer un contact avec les binômes engagés (visuel, veille radio)",
+      "Gérer le tableau de gestion des personnels",
+      "Veiller les alarmes sonores dans la zone d'exclusion"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 1, section 2.3.1 – en phase ATTENTE, le binôme de sécurité se tient au niveau du point de pénétration, assure un contact avec les binômes engagés, et veille les alarmes sonores en zone d'exclusion. La gestion du TGP est une mission du contrôleur.",
+    "source": "Chapitre 1, section 2.3.1"
+  },
+  {
+    "id": "gto-vicie-035",
+    "level": "F",
+    "q": "Quand le binôme de sécurité est-il engagé en phase ACTION ?",
+    "choices": [
+      "Dès que le premier binôme pénètre en zone d'exclusion",
+      "Sur ordre du chef d'agrès ou du contrôleur",
+      "Automatiquement après 15 minutes d'engagement du premier binôme",
+      "Sur demande directe du binôme en difficulté"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.3.2 – le binôme de sécurité est engagé sur ordre du chef d'agrès ou du contrôleur, dès que des difficultés sont rencontrées par l'un des binômes engagés.",
+    "source": "Chapitre 1, section 2.3.2"
+  },
+  {
+    "id": "gto-vicie-036",
+    "level": "F",
+    "q": "Lors de l'engagement du binôme de sécurité en phase ACTION, que doit-il se passer immédiatement ?",
+    "choices": [
+      "Le contrôleur prend en charge lui-même le tableau de gestion",
+      "Un nouveau binôme de sécurité est désigné en remplacement, au plus tôt",
+      "Le binôme d'exploration en cours sort automatiquement",
+      "Un deuxième contrôleur est nommé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.3.2 – l'engagement d'un binôme de sécurité implique la désignation d'un nouveau binôme de sécurité en remplacement, au plus tôt.",
+    "source": "Chapitre 1, section 2.3.2"
+  },
+  {
+    "id": "gto-vicie-037",
+    "level": "F",
+    "q": "Les missions du binôme de sécurité doivent être limitées à quels types de missions ?",
+    "choices": [
+      "Missions de sécurité et de sauvetage",
+      "Missions de sécurité et d'extinction",
+      "Missions de recherche et de sauvetage",
+      "Missions de reconnaissance et d'assistance"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 1, section 2.3.2 – les missions du binôme sécurité doivent être limitées à des missions de sécurité et de sauvetage. ## BLOC 3 — PHASES D'ÉQUIPEMENT ET CONTRÔLE CROISÉ",
+    "source": "Chapitre 1, section 2.3.2"
+  },
+  {
+    "id": "gto-vicie-038",
+    "level": "F",
+    "q": "Quel est l'ordre correct d'installation des trois protections de la tête lors de l'équipement ?",
+    "choices": [
+      "Cagoule, masque, casque",
+      "Casque, masque, cagoule",
+      "Masque, cagoule, casque",
+      "Cagoule, casque, masque"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 1.1 – il est important de respecter le positionnement successif : 1. le masque (nez, bouche, yeux), 2. la cagoule, 3. le casque.",
+    "source": "Chapitre 2, section 1.1"
+  },
+  {
+    "id": "gto-vicie-039",
+    "level": "F",
+    "q": "Le contrôle croisé est-il obligatoire et qui le valide ?",
+    "choices": [
+      "Il est facultatif et réalisé par chaque porteur individuellement",
+      "Il est obligatoire, réalisé en vis-à-vis et validé par le responsable du point de pénétration",
+      "Il est obligatoire mais peut être réalisé par l'un ou l'autre membre du binôme uniquement",
+      "Il est recommandé et validé par le COS"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.2 – le contrôle croisé est obligatoire, réalisé en vis-à-vis, sous la responsabilité du binôme et validé par le responsable du point de pénétration (chef d'agrès, contrôleur).",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-vicie-040",
+    "level": "F",
+    "q": "Que vérifient les porteurs avant l'engagement lors du contrôle croisé ?",
+    "choices": [
+      "Le masque ARI",
+      "La tenue de feu",
+      "La fiche de situation opérationnelle du secteur",
+      "La bouteille"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 2, section 1.2 – le schéma du contrôle croisé indique la tenue de feu, la cagoule, le masque ARI, la SAD, le casque et la bouteille comme éléments à vérifier.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-vicie-041",
+    "level": "F",
+    "q": "Avant l'engagement, chaque porteur veille à armer la balise de détresse. Quand cette vérification peut-elle se faire ?",
+    "choices": [
+      "Uniquement en zone d'exclusion",
+      "Dès la descente de l'engin",
+      "Après l'enregistrement auprès du contrôleur",
+      "Uniquement lors du contrôle croisé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.2 – l'armement de la balise de détresse (vérification de l'armement si système automatique) peut se faire dès la descente de l'engin. ## BLOC 4 — CONDITIONS D'ENGAGEMENT ET AUTONOMIE",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-vicie-042",
+    "level": "F",
+    "q": "Quelles sont les conditions minimales d'engagement du binôme ?",
+    "choices": [
+      "La pression avant engagement ne doit pas être inférieure à la pression nominale moins 10 %",
+      "Le chef d'agrès doit être présent sur les lieux",
+      "L'enregistrement a été réalisé",
+      "Le binôme dispose d'au moins deux lignes guides"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 2, section 2.1 – parmi les conditions minimales : la pression ne doit pas être inférieure à la pression nominale moins 10 %, et l'enregistrement a été réalisé. D'autres conditions s'appliquent également (contrôle croisé satisfaisant, itinéraire de repli identifiable, moyen de communication).",
+    "source": "Chapitre 2, section 2.1"
+  },
+  {
+    "id": "gto-vicie-043",
+    "level": "F",
+    "q": "Combien de temps comprend un engagement sous ARI ?",
+    "choices": [
+      "Un seul temps : la mission",
+      "Deux temps : aller et retour",
+      "Trois temps : aller, mission et retour",
+      "Quatre temps : préparation, aller, mission et retour"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 2.1.2 – un engagement sous ARI comprend trois temps : temps « aller », temps « mission », temps « retour ».",
+    "source": "Chapitre 2, section 2.1.2"
+  },
+  {
+    "id": "gto-vicie-044",
+    "level": "F",
+    "q": "Que doit déclencher l'actionnement du sifflet de fin de charge ?",
+    "choices": [
+      "Un réengagement immédiat après changement de bouteille",
+      "Un retour systématique et immédiat du binôme au point de pénétration",
+      "L'engagement du binôme de sécurité",
+      "Une notification radio au COS uniquement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 2.1.2 – le sifflet de fin de charge implique un retour systématique et immédiat du binôme au point de pénétration.",
+    "source": "Chapitre 2, section 2.1.2"
+  },
+  {
+    "id": "gto-vicie-045",
+    "level": "F",
+    "q": "Où se fait l'enregistrement du binôme avant chaque engagement ou réengagement ?",
+    "choices": [
+      "En zone d'exclusion, auprès du chef de secteur",
+      "En zone contrôlée, auprès du chef d'agrès ou du contrôleur",
+      "En zone de soutien, auprès du chef d'agrès",
+      "Au point de pénétration, directement sur le tableau de bord de l'engin"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 2.1.1 – l'enregistrement se fait en zone contrôlée, auprès du chef d'agrès ou du contrôleur.",
+    "source": "Chapitre 2, section 2.1.1"
+  },
+  {
+    "id": "gto-vicie-046",
+    "level": "F",
+    "q": "Que comprend l'enregistrement du binôme ?",
+    "choices": [
+      "L'identification des porteurs et la pression d'engagement",
+      "L'inscription de l'heure d'entrée",
+      "La remise des « clés » des balises de détresse avec les plaquettes d'enregistrement",
+      "La désignation du secteur exact à explorer"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Chapitre 2, section 2.1.1 – l'enregistrement comprend : l'identification des porteurs et la pression d'engagement, l'inscription de l'heure d'entrée, et la remise des clés des balises de détresse.",
+    "source": "Chapitre 2, section 2.1.1"
+  },
+  {
+    "id": "gto-vicie-047",
+    "level": "F",
+    "q": "Pour une bouteille à 300 bars, quelle est la pression minimale d'engagement ?",
+    "choices": [
+      "250 bars",
+      "260 bars",
+      "270 bars",
+      "280 bars"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 2.1 – la pression avant engagement ne doit pas être inférieure à la pression nominale moins 10 % (pour une bouteille 300 bars : pression minimale de 270 bars). ## BLOC 5 — TECHNIQUES D'ENGAGEMENT",
+    "source": "Chapitre 2, section 2.1"
+  },
+  {
+    "id": "gto-vicie-048",
+    "level": "M",
+    "q": "Un binôme arrive en zone d’exclusion et constate que l'air est respirable. Comment se déroule l'engagement à vue dans cette configuration ?",
+    "choices": [
+      "Le chef et l'équipier sont amarrés entre eux par la liaison personnelle",
+      "Le chef et l'équipier ne sont pas amarrés entre eux",
+      "Les équipes sont enregistrées et les locaux visités sont signalés",
+      "Le temps d'engagement est limité à 10 minutes"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 2, section 3.1.1 – si l'air est respirable, le binôme réalise l'engagement à vue muni du masque ARI en attente, bouteille ouverte ; le chef et l'équipier ne sont pas amarrés entre eux ; les équipes sont enregistrées et les locaux visités sont signalés.",
+    "source": "Chapitre 2, section 3.1.1"
+  },
+  {
+    "id": "gto-vicie-049",
+    "level": "M",
+    "q": "Dans quelle situation doit-on passer à l'engagement sur ligne de vie ? (",
+    "choices": [
+      "Quand la visibilité est réduite ou nulle",
+      "Quand le cheminement est complexe (élévation, cave, entrepôt…)",
+      "Quand la temperature dépasse 30°C",
+      "Quand la capacité de résistance et d'endurance physique du binôme est susceptible d'être altérée"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 2, section 3.2 – les conditions de mise en œuvre de l'engagement sur ligne de vie sont : visibilité réduite ou nulle, cheminement complexe, difficultés de cheminement, et dès que la capacité de résistance et d'endurance physique du binôme est susceptible d'être altérée.",
+    "source": "Chapitre 2, section 3.2"
+  },
+  {
+    "id": "gto-vicie-050",
+    "level": "M",
+    "q": "La méthode latérale « en mode associé » est mise en œuvre de quelle façon ?",
+    "choices": [
+      "Les deux porteurs sont reliés via la liaison personnelle longue du chef ; celle de l'équipier est liée à la ligne guide et déployée jusqu'à 6 mètres",
+      "Les deux porteurs sont reliés via la liaison personnelle courte du chef ; celle de l'équipier est liée à la ligne guide et déployée jusqu'à 6 mètres",
+      "L'équipier est relié par sa liaison courte à la ligne guide ; la liaison du chef est reliée à l'équipier et atteint jusqu'à 6 mètres",
+      "Les deux porteurs avancent séparément avec chacun leur liaison longue fixée à la ligne guide"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.3 – en mode associé, les deux porteurs d'ARI sont reliés via la liaison personnelle courte du chef ; celle de l'équipier est liée à la ligne guide et déployée jusqu'à atteindre les 6 mètres.",
+    "source": "Chapitre 2, section 3.3"
+  },
+  {
+    "id": "gto-vicie-051",
+    "level": "M",
+    "q": "Quelle est la différence principale entre la méthode latérale « en mode associé » et « en mode dissocié » ?",
+    "choices": [
+      "En mode dissocié, le chef est relié à la ligne guide directement ; en mode associé, c'est l'équipier",
+      "En mode associé, le chef et l'équipier sont proches l'un de l'autre ; en mode dissocié, le chef dispose d'une amplitude importante mais est physiquement éloigné de l'équipier",
+      "En mode dissocié, les deux liaisons longues sont déployées simultanément",
+      "En mode associé, seul l'équipier dispose d'une liaison personnelle"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.3 – en mode dissocié, la méthode permet à l'équipier d'être en contact immédiat avec la ligne guide tandis que le chef dispose d'une amplitude importante mais est physiquement éloigné de l'équipier.",
+    "source": "Chapitre 2, section 3.3"
+  },
+  {
+    "id": "gto-vicie-052",
+    "level": "M",
+    "q": "Dans la méthode latérale, quelle règle s'applique concernant les liaisons personnelles longues ?",
+    "choices": [
+      "Les deux liaisons longues peuvent être déployées simultanément si nécessaire",
+      "Les deux liaisons personnelles ne sont pas déployées en version longue en même temps",
+      "Seule la liaison du chef peut être déployée en version longue",
+      "Seule la liaison de l'équipier peut être déployée en version longue"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.3 – pour cette technique, quel qu'en soit le mode, les deux liaisons personnelles ne sont pas déployées en version longue en même temps.",
+    "source": "Chapitre 2, section 3.3"
+  },
+  {
+    "id": "gto-vicie-053",
+    "level": "M",
+    "q": "Dans quelle situation la méthode circulaire est-elle appropriée ?",
+    "choices": [
+      "Pour explorer de grands volumes avec de nombreuses pièces",
+      "Pour reconnaître des espaces restreints sous forme de petites pièces, avec visibilité réduite ou nulle",
+      "Pour progresser dans des couloirs longs",
+      "Pour les recherches en extérieur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.4 – la méthode circulaire peut être utilisée dès lors que le binôme est confronté à une visibilité réduite ou nulle et à un espace de petites dimensions.",
+    "source": "Chapitre 2, section 3.4"
+  },
+  {
+    "id": "gto-vicie-054",
+    "level": "M",
+    "q": "La méthode AIDES peut-elle être utilisée si le foyer se trouve dans le local à explorer ?",
+    "choices": [
+      "Oui, à condition d'avoir un moyen hydraulique",
+      "Non, cette technique est conditionnée par une lecture du feu depuis l'extérieur et le foyer ne doit pas se trouver dans le local concerné",
+      "Oui, à condition que le binôme de sécurité soit en place",
+      "Oui, si la visibilité est suffisante"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.5 – cette technique est conditionnée par une lecture du feu depuis l'extérieur, au moment où l'ouvrant est ouvert, et le foyer ne doit pas se trouver dans le local concerné.",
+    "source": "Chapitre 2, section 3.5"
+  },
+  {
+    "id": "gto-vicie-055",
+    "level": "M",
+    "q": "Dans la méthode AIDES, que signifie l'étape « Isoler » ?",
+    "choices": [
+      "S'équiper de l'ARI avant de pénétrer",
+      "Avant de fermer la porte donnant sur les communications du volume, explorer immédiatement derrière celle-ci puis la fermer",
+      "Se positionner en sécurité à l'extérieur du bâtiment",
+      "Couper les alimentations électriques et gazières du local"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.5 – Isoler = avant de fermer la porte donnant sur les communications du volume à reconnaître, explorer immédiatement derrière celle-ci puis la fermer. S'isoler est garant de la protection du personnel engagé.",
+    "source": "Chapitre 2, section 3.5"
+  },
+  {
+    "id": "gto-vicie-056",
+    "level": "M",
+    "q": "Lors d'un engagement avec moyen hydraulique, lors de la reconnaissance d'un petit espace, comment les membres du binôme se répartissent-ils ?",
+    "choices": [
+      "Les deux membres entrent ensemble dans le petit espace",
+      "Un membre réalise la mission dans le petit espace et l'autre reste à l'entrée, reliés par la liaison personnelle",
+      "Un membre reste à l'extérieur du bâtiment",
+      "Le chef entre seul sans liaison personnelle pour plus de liberté de mouvement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.2 – dans le cas d'une reconnaissance d'un petit espace, la mission est réalisée par un membre du binôme, l'autre reste à l'entrée ; ils sont reliés entre eux par la liaison personnelle.",
+    "source": "Chapitre 2, section 3.2"
+  },
+  {
+    "id": "gto-vicie-057",
+    "level": "M",
+    "q": "Lors de la progression avec un moyen hydraulique, combien de membres du binôme doivent s'amarrer au tuyau lors de la progression ?",
+    "choices": [
+      "Aucun — la progression se fait sans amarrage",
+      "L'un des porteurs doit s'amarrer en plus au tuyau lors de la progression",
+      "Les deux porteurs doivent obligatoirement être amarrés en même temps",
+      "Uniquement le chef de binôme"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.2 – l'un des porteurs doit s'amarrer en plus au tuyau lors de la progression.",
+    "source": "Chapitre 2, section 3.2"
+  },
+  {
+    "id": "gto-vicie-058",
+    "level": "M",
+    "q": "Même lors d'un engagement à vue, quelle obligation demeure systématique ?",
+    "choices": [
+      "L'utilisation obligatoire d'une ligne guide",
+      "L'armement de la balise de détresse, même en extérieur",
+      "L'amarrage des deux membres du binôme par liaison personnelle",
+      "La présence obligatoire d'un binôme de sécurité équipé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.1.1 – même en extérieur, l'armement de la balise est obligatoire. Le binôme ne se sépare pas et les balises de détresse sont armées.",
+    "source": "Chapitre 2, section 3.1.1"
+  },
+  {
+    "id": "gto-vicie-059",
+    "level": "M",
+    "q": "Dans quelles conditions l'utilisation d'appareils filtrants peut-elle être envisagée ?",
+    "choices": [
+      "La concentration de l'oxygène dans l'air est supérieure à 17 %",
+      "Le polluant présent est identifié et sa concentration est mesurée",
+      "La visibilité est bonne et suffisante",
+      "Le choix du dispositif filtrant est adapté au polluant identifié et à sa concentration"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 2, introduction – parmi les conditions nécessaires : concentration en oxygène supérieure à 17 %, polluant identifié avec mesure de concentration, et dispositif filtrant adapté au polluant. ## BLOC 6 — RETOUR D'ENGAGEMENT ET RÉENGAGEMENT",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gto-vicie-060",
+    "level": "M",
+    "q": "À l'issue d'un engagement (reconnaissance – recherche), le compte rendu verbal ou graphique au contrôleur doit préciser certains points. Lesquels ?",
+    "choices": [
+      "Les accès actuels et possibles",
+      "Le matériel détruit par le binôme",
+      "Les actions réalisées",
+      "La pression résiduelle dans les bouteilles"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 2, section 4 – le compte rendu au contrôleur doit préciser : les accès actuels et possibles, le parcours, les niveaux et pièces impactées, les actions réalisées, les propositions d'actions, et l'évolution du sinistre.",
+    "source": "Chapitre 2, section 4"
+  },
+  {
+    "id": "gto-vicie-061",
+    "level": "M",
+    "q": "La récupération physique des personnels après un engagement comprend quelles actions ?",
+    "choices": [
+      "Poser l'ARI et retirer le casque et le masque",
+      "S'hydrater et/ou s'alimenter",
+      "Dormir rapidement dans l’engin",
+      "Avoir une faible sollicitation physique"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 2, section 4.1 – la récupération consiste à : poser l'ARI, retirer le casque et le masque et ouvrir la veste textile, s'hydrater et/ou s'alimenter, avoir une faible sollicitation physique.",
+    "source": "Chapitre 2, section 4.1"
+  },
+  {
+    "id": "gto-vicie-062",
+    "level": "M",
+    "q": "Un réengagement est-il conditionné par des critères précis ?",
+    "choices": [
+      "Non, il est décidé uniquement par le COS",
+      "Oui : autonomie suffisante pour la mission et état physique satisfaisant du binôme, validé par le chef d'agrès",
+      "Oui : le binôme doit obligatoirement attendre 30 minutes avant tout réengagement",
+      "Non, dès que les bouteilles sont changées le réengagement est automatiquement autorisé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 5 – le réengagement est conditionné par une autonomie suffisante pour la mission et un état physique du binôme satisfaisant validé par le chef d'agrès.",
+    "source": "Chapitre 2, section 5"
+  },
+  {
+    "id": "gto-vicie-063",
+    "level": "M",
+    "q": "En cas de réengagement, quelle formalité le binôme doit-il obligatoirement respecter ?",
+    "choices": [
+      "Changer obligatoirement de secteur",
+      "Se faire réenregistrer et faire un point de la situation",
+      "Changer de chef de binôme",
+      "Effectuer un nouveau contrôle croisé sans réenregistrement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 5 – en cas de réengagement, le binôme doit se faire réenregistrer et faire un point de la situation. ## BLOC 7 — TECHNIQUES DE RECHERCHE",
+    "source": "Chapitre 2, section 5"
+  },
+  {
+    "id": "gto-vicie-064",
+    "level": "M",
+    "q": "Quels sont les deux temps de recherche distincts ?",
+    "choices": [
+      "La recherche rapide et la recherche approfondie",
+      "La recherche primaire et la recherche secondaire",
+      "La recherche de foyer et la recherche de victimes",
+      "La recherche principale et la recherche complémentaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 1 – on distingue deux temps de recherche : la recherche primaire et la recherche secondaire.",
+    "source": "Chapitre 3, section 1"
+  },
+  {
+    "id": "gto-vicie-065",
+    "level": "M",
+    "q": "La recherche secondaire intervient dans quel contexte ?",
+    "choices": [
+      "Au plus tôt au cours de l'intervention, pour localiser les victimes les plus proches du foyer",
+      "Après la maîtrise du sinistre et la suppression des dangers, pour s'assurer que toutes les victimes ont été retrouvées",
+      "Simultanément à la phase d'extinction, en parallèle",
+      "Dès l'arrivée des secours, avant toute action d'extinction"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 1 – la recherche secondaire est effectuée après la maîtrise du sinistre et la suppression des dangers. Il s'agit d'une recherche approfondie pour s'assurer que toutes les victimes ont été retrouvées.",
+    "source": "Chapitre 3, section 1"
+  },
+  {
+    "id": "gto-vicie-066",
+    "level": "M",
+    "q": "Dans un bâtiment à étages, dans quel ordre les recherches s'effectuent-elles généralement ?",
+    "choices": [
+      "D'abord l'étage du foyer",
+      "D'abord les étages inférieurs, puis les étages supérieurs",
+      "Directement au-dessus du foyer, puis le dernier étage",
+      "Toujours du bas vers le haut de manière systématique"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 3, section 2 – les recherches s'effectuent : d'abord à l'étage du foyer, puis l'étage directement au-dessus (qui présente un danger croissant), puis le dernier étage du bâtiment ; les étages intermédiaires et inférieurs sont reconnus par la suite.",
+    "source": "Chapitre 3, section 2"
+  },
+  {
+    "id": "gto-vicie-067",
+    "level": "M",
+    "q": "Quelle position de déplacement est à privilégier lorsque les pièces sont envahies de fumées ?",
+    "choices": [
+      "Position debout avec baisse de la tête",
+      "Position accroupie",
+      "Position à quatre pattes",
+      "Position sur le côté"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3, section 2.1 – le déplacement à quatre pattes réduit le risque de chute de plain-pied. Cette position doit être privilégiée dès lors que les pièces sont envahies de fumées.",
+    "source": "Chapitre 3, section 2.1"
+  },
+  {
+    "id": "gto-vicie-068",
+    "level": "M",
+    "q": "Comment descend-on un escalier pour limiter les risques de chute ?",
+    "choices": [
+      "Face à la descente, en se tenant à la rampe",
+      "En marche arrière",
+      "En position accroupie, face à la descente",
+      "En glissant le long de la rampe"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.1 – la descente d'un escalier se fait en marche arrière pour limiter les risques de chute.",
+    "source": "Chapitre 3, section 2.1"
+  },
+  {
+    "id": "gto-vicie-069",
+    "level": "M",
+    "q": "Lors de la reconnaissance d'une pièce pour une recherche de victimes, comment les deux intervenants progressent-ils ?",
+    "choices": [
+      "L'un reste à l'entrée, l'autre fait le tour de la pièce seul",
+      "Les deux se déplacent le long des murs en réalisant un parcours circulaire pour revenir au point de départ",
+      "Ils se séparent au centre de la pièce, chacun explorant la moitié",
+      "L'un couvre le bas, l'autre le haut de la pièce"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.1 – lors de la reconnaissance d'une pièce, les deux intervenants se déplacent le long des murs en réalisant un parcours circulaire pour revenir au point de départ.",
+    "source": "Chapitre 3, section 2.1"
+  },
+  {
+    "id": "gto-vicie-070",
+    "level": "M",
+    "q": "Pour assurer une recherche complète dans une pièce, quelle règle fondamentale doit être respectée à la sortie ?",
+    "choices": [
+      "Marquer la pièce avant de sortir par n'importe quelle issue",
+      "Quitter la pièce par la porte utilisée pour entrer",
+      "Refermer systématiquement toutes les fenêtres avant de sortir",
+      "Signaler verbalement la pièce reconnue au contrôleur avant de sortir"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.1 – afin d'assurer une recherche complète, il convient de quitter la pièce par la porte utilisée pour entrer.",
+    "source": "Chapitre 3, section 2.1"
+  },
+  {
+    "id": "gto-vicie-071",
+    "level": "M",
+    "q": "Lors du marquage des pièces reconnues, que signifie un trait au moment de l'entrée dans le volume ?",
+    "choices": [
+      "Reconnaissance terminée",
+      "Reconnaissances en cours",
+      "Seconde reconnaissance effectuée",
+      "Pièce non accessible"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.3 – un trait au moment de l'entrée dans le volume signifie « reconnaissances en cours » ; puis on complète par un deuxième trait à la sortie pour former une croix (reconnaissances effectuées).",
+    "source": "Chapitre 3, section 2.3"
+  },
+  {
+    "id": "gto-vicie-072",
+    "level": "M",
+    "q": "Que signifie une croix entourée d'un cercle comme marquage d'une porte ?",
+    "choices": [
+      "Pièce vide, aucune victime",
+      "Une seconde reconnaissance a été effectuée dans ce local",
+      "Pièce non accessible, porte condamnée",
+      "Pièce en feu, ne pas entrer"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.3 – un cercle autour de la croix signifie qu'une seconde reconnaissance a été effectuée dans ce local.",
+    "source": "Chapitre 3, section 2.3"
+  },
+  {
+    "id": "gto-vicie-073",
+    "level": "M",
+    "q": "Où doit être placé le marquage sur les portes pour rester visible en cas d'envahissement par les fumées ?",
+    "choices": [
+      "En partie haute des portes",
+      "En partie basse de la zone d'écriture",
+      "Au centre de la porte, à hauteur d'œil",
+      "Sur le côté de la porte, sur le mur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.3 – il est à noter que ce marquage est à privilégier en partie basse de la zone d'écriture, de façon à rester visible en cas d'envahissement éventuel des circulations par les fumées.",
+    "source": "Chapitre 3, section 2.3"
+  },
+  {
+    "id": "gto-vicie-074",
+    "level": "M",
+    "q": "Lors de la découverte d'une victime, à qui doit être affectée la mission de sauvetage ?",
+    "choices": [
+      "Au chef de binôme systématiquement",
+      "Au membre du binôme disposant de la plus grande autonomie",
+      "Au premier intervenant arrivé au contact de la victime",
+      "Au binôme de sécurité qui prend le relais"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 3 – dans tous les cas, il convient d'affecter cette mission au sauveteur disposant de la plus grande autonomie.",
+    "source": "Chapitre 3, section 3"
+  },
+  {
+    "id": "gto-vicie-075",
+    "level": "M",
+    "q": "Lors de la découverte d'une victime, quelles actions doivent être réalisées ?",
+    "choices": [
+      "Prendre contact avec la victime",
+      "Équiper la victime de la cagoule d'évacuation",
+      "Transporter immédiatement la victime sans explication pour gagner du temps",
+      "Expliquer à la victime la procédure"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 3, section 3 – en cas de découverte de victime : prendre contact avec la victime, expliquer la procédure, équiper la victime de la cagoule, puis évacuer vers un lieu protégé. ## BLOC 8 — CONTRAINTES LIÉES À L'ARI ET CALCUL D'AUTONOMIE",
+    "source": "Chapitre 3, section 3"
+  },
+  {
+    "id": "gto-vicie-076",
+    "level": "M",
+    "q": "Quels facteurs augmentent la fréquence cardiaque lors du travail sous ARI ?",
+    "choices": [
+      "Le travail musculaire",
+      "La chaleur de l'environnement",
+      "Le type d’air contenu dans la bouteille",
+      "Le stress"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Annexe B, section 1.2.3 – la fréquence cardiaque est augmentée par le travail musculaire, la chaleur de l'environnement et le stress.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-077",
+    "level": "M",
+    "q": "Quels sont les effets physiologiques du port d'un ARI sur la consommation d'air ?",
+    "choices": [
+      "L'augmentation de l'espace mort artificiel génère une ré-inspiration de CO₂ pouvant entraîner une hyperventilation",
+      "La surpression dans le masque facilite totalement le travail expiratoire",
+      "L'augmentation des résistances respiratoires entraîne une augmentation du travail respiratoire",
+      "L’air respiré est de qualité parfaite et réduit la fréquence respiratoire"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Annexe B, sections 1.2.1 et 1.2.2 – l'augmentation du CO₂ dans le sang induit un réflexe d'hyperventilation ; et l'augmentation des résistances respiratoires entraîne une augmentation du travail respiratoire.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-078",
+    "level": "M",
+    "q": "Quelle est la formule de calcul de la capacité d'air disponible dans une bouteille d'ARI à circuit ouvert ?",
+    "choices": [
+      "Capacité (l) = P × V",
+      "Capacité (l) = (P × V) / (Z × Patm)",
+      "Capacité (l) = P / (V × Z)",
+      "Capacité (l) = (P + V) / Z"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe C – la capacité se calcule ainsi : Capacité (l) = (P × V) / (Z × Patm), où P = pression, V = volume en eau, Z = facteur de compressibilité, Patm = pression atmosphérique.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-079",
+    "level": "M",
+    "q": "Pour une bouteille de 7 litres à 300 bars (Z=1,1 ; Patm=1 bar), quelle est la capacité d'air disponible ?",
+    "choices": [
+      "1500 litres",
+      "1750 litres",
+      "1909 litres",
+      "2100 litres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Annexe C – Capacité = (300 × 7) / (1,1 × 1) = 2100 / 1,1 = 1909 l environ.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-080",
+    "level": "M",
+    "q": "Pour une bouteille de 7 litres à 300 bars avec une consommation de 100 l/min, quelle est l'autonomie théorique approximative ?",
+    "choices": [
+      "10 minutes",
+      "15 minutes",
+      "19 minutes",
+      "25 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Annexe C – autonomie = 1909 / 100 = soit environ 19 minutes.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-081",
+    "level": "M",
+    "q": "Quelles contraintes physiques entraîne le port d'un ARI sur le porteur ?",
+    "choices": [
+      "Il modifie le centre de gravité du porteur",
+      "Il augmente les capacités de déplacement dans les passages étroits",
+      "Il augmente le travail musculaire de l'utilisateur et sa dépense énergétique",
+      "Il améliore la perception de l'espace environnant"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Annexe B, section 1.1 – le port de l'ARI modifie le centre de gravité des porteurs et augmente le travail musculaire de l'utilisateur et sa dépense énergétique.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-082",
+    "level": "M",
+    "q": "Un sapeur-pompier qui perd son calme sous ARI, qu'est-ce que cela provoque concrètement ?",
+    "choices": [
+      "Une réduction automatique de la pression dans la bouteille",
+      "Une accélération de son rythme respiratoire et donc une consommation d'air plus rapide",
+      "Une diminution de la fréquence cardiaque par effet réflexe",
+      "Un déclenchement automatique de la balise de détresse"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe B, section 1.3 – un sapeur-pompier qui perd son calme accélère son rythme respiratoire et épuise donc rapidement sa réserve d'air.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-083",
+    "level": "M",
+    "q": "Qu'est-ce que la surpression dans le masque garantit-elle selon le guide ?",
+    "choices": [
+      "Une protection totale contre tous les polluants",
+      "Elle ne peut pas être considérée comme un argument de sécurité pour le porteur dans toutes les configurations",
+      "Une alimentation en air doublée en cas d'urgence",
+      "Une étanchéité parfaite du masque dans toutes les situations"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe B, section 1.2.2 – la surpression dans le masque n'est pas garantie pour des débits de pointe supérieurs à 314 l/min. Elle ne peut donc pas être considérée comme un argument de sécurité pour le porteur dans toutes les configurations. ## BLOC 9 — RETOUR D'OPÉRATION ET RECONDITIONNEMENT",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-084",
+    "level": "M",
+    "q": "De retour au centre de secours, quelles actions sont nécessaires concernant les bouteilles d'ARI ?",
+    "choices": [
+      "Vérifier la pression d'air des bouteilles d'ARI",
+      "Remplir les bouteilles en air, par du personnel formé",
+      "Stocker les bouteilles vides sans les remplir pour attendre le passage du technicien",
+      "Utiliser de l'oxygène pur pour remplir les bouteilles"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Chapitre 1, section 4.1.2 et page 29 – de retour au CIS, il faut vérifier la pression d'air des bouteilles et les remplir en air ; l'opération doit être réalisée par du personnel formé, selon les instructions du fabricant du compresseur haute-pression.",
+    "source": "Chapitre 1, section 4.1.2"
+  },
+  {
+    "id": "gto-vicie-085",
+    "level": "M",
+    "q": "Pourquoi la manipulation des bouteilles d'air comprimé exige-t-elle une vigilance particulière tant en intervention qu'au CIS ?",
+    "choices": [
+      "Car elles sont très lourdes et peuvent blesser le porteur",
+      "Car la robinetterie est particulièrement sensible aux chocs",
+      "Car elles peuvent se vider spontanément à haute température",
+      "Car elles sont en matériaux composites fragiles"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 29 – en intervention comme au CIS, la manipulation des bouteilles d'air comprimé doit faire l'objet de la plus grande vigilance, la robinetterie étant particulièrement sensible aux chocs.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-086",
+    "level": "M",
+    "q": "Sur le terrain, en fonction du degré de salissure, le COS peut préconiser quelles opérations de nettoyage du matériel ?",
+    "choices": [
+      "Un brossage à sec",
+      "Un rinçage léger avec eau savonneuse",
+      "Une décontamination chimique complète en zone spécialisée",
+      "Un emballage avant transport dans les engins"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 1, section 4.1.2 – sur place et en fonction du degré de salissure, le COS peut préconiser : un brossage à sec, un rinçage léger + eau savonneuse, un emballage avant transport dans les engins.",
+    "source": "Chapitre 1, section 4.1.2"
+  },
+  {
+    "id": "gto-vicie-087",
+    "level": "M",
+    "q": "Quelles consignes de remise en condition du personnel au retour d'intervention sont préconisées ?",
+    "choices": [
+      "Hydratation : boire avant et après l'effort",
+      "Reprendre immédiatement une activité physique modérée pour récupérer",
+      "Hygiène corporelle, nettoyage ou échange des vêtements",
+      "Dormir au moins 8 heures sans interruption avant toute nouvelle garde"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 1, section 4.1.1 – l'hydratation (penser à boire avant et après l'effort) et l'hygiène (hygiène corporelle, nettoyage ou échange des vêtements) sont mentionnées. La reprise d'activité intense n'est pas recommandée. ## BLOC 10 — QUESTIONS DE MISE EN SITUATION TRANSVERSALES",
+    "source": "Chapitre 1, section 4.1.1"
+  },
+  {
+    "id": "gto-vicie-088",
+    "level": "M",
+    "q": "Un binôme est engagé en zone d'exclusion avec un ARICO. L'équipier ressent une forte résistance à l'inspiration. Quelle est la conduite à tenir ?",
+    "choices": [
+      "Continuer la mission en signalant le problème par radio à la fin",
+      "Quitter immédiatement la zone d’exclusion",
+      "Utiliser le by-pass du masque et continuer",
+      "S'amarrer à la ligne guide et attendre les secours"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.2.1 – si l'intervenant ressent une augmentation de la résistance au passage de l'air inspiré ou détecte la présence d'un contaminant, il doit quitter la zone dangereuse immédiatement.",
+    "source": "Chapitre 1, section 1.2.1"
+  },
+  {
+    "id": "gto-vicie-089",
+    "level": "M",
+    "q": "Un sauvetage d'une victime est identifié dès l'arrivée sur les lieux. Peut-on engager un binôme sans contrôleur ARI ni binôme de sécurité préalablement mis en place ?",
+    "choices": [
+      "Non, ces éléments sont absolument indispensables avant tout engagement",
+      "Oui, un sauvetage peut justifier l'envoi immédiat d'un binôme sans mise en œuvre d'un contrôleur ARI ou d'un binôme de sécurité, mais l'information au chef d'agrès et l'enregistrement restent primordiaux",
+      "Oui, mais uniquement si le COS est présent sur place",
+      "Non, sauf si le chef d'agrès est lui-même engagé dans le binôme"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.3 – un sauvetage peut justifier l'envoi immédiat d'un binôme sans mise en œuvre d'un contrôleur ARI ou d'un binôme de sécurité. Toutefois, l'information au chef d'agrès et l'enregistrement sont primordiaux.",
+    "source": "Chapitre 1, section 2.3"
+  },
+  {
+    "id": "gto-vicie-090",
+    "level": "M",
+    "q": "Un binôme explore un local en utilisant la méthode AIDES. En pénétrant dans la pièce, le chef constate que la caméra thermique révèle la présence du foyer dans le local même. Quelle décision s'impose ?",
+    "choices": [
+      "Continuer l'exploration car le binôme est équipé d'ARI",
+      "La méthode AIDES ne peut pas être poursuivie car le foyer ne doit pas se trouver dans le local concerné",
+      "Continuer uniquement si la porte est maintenue ouverte",
+      "Continuer si le binôme de sécurité est prêt à intervenir"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.5 – la technique AIDES est conditionnée par le fait que le foyer ne doit pas se trouver dans le local concerné.",
+    "source": "Chapitre 2, section 3.5"
+  },
+  {
+    "id": "gto-vicie-091",
+    "level": "M",
+    "q": "Lors d'une progression sur ligne de vie avec un tuyau d'incendie (moyen hydraulique), que doit vérifier un porteur d'ARI lorsqu'il s'attache au tuyau avec sa liaison personnelle ?",
+    "choices": [
+      "Que la liaison personnelle est bien en version longue",
+      "Que cette dernière reste libre et glisse le long du tuyau",
+      "Que la liaison personnelle est fixée au-dessus du raccord",
+      "Qu'il est positionné en tête de binôme"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3.2 – lorsque le porteur d'ARI s'attache au tuyau avec sa liaison personnelle, il s'assure que cette dernière reste libre et glisse le long du tuyau.",
+    "source": "Chapitre 2, section 3.2"
+  },
+  {
+    "id": "gto-vicie-092",
+    "level": "M",
+    "q": "Un binôme reçoit le code général d'évacuation. Que doit-il faire ?",
+    "choices": [
+      "Terminer la pièce en cours et se replier ensuite",
+      "Se désengager immédiatement et se rassembler au point de regroupement prédéfini",
+      "Attendre la confirmation radio avant de se replier",
+      "Sortir uniquement si l'alarme est confirmée par deux sources différentes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.1 – à ce signal, l'ensemble du personnel se désengage et se rassemble au point de regroupement prédéfini.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-vicie-093",
+    "level": "M",
+    "q": "Dans un Établissement Recevant du Public (ERP), un binôme découvre un espace d'attente sécurisé (EAS) avec une personne à l'intérieur. Quelles actions sont à envisager ?",
+    "choices": [
+      "Entrer en contact avec la personne confinée",
+      "Évacuer immédiatement",
+      "Effectuer la reconnaissance de l'EAS",
+      "Laisser la personne en place sans intervenir car l'EAS la protège"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 3, section 1 – les règles concernant les EAS préconisent d'entrer en contact avec les personnes confinées s'il y a présence d'un bouton d'appel ou par les façades, et d'effectuer les reconnaissances des EAS.",
+    "source": "Chapitre 3, section 1"
+  },
+  {
+    "id": "gto-vicie-094",
+    "level": "M",
+    "q": "La condition physique du sapeur-pompier influence-t-elle son autonomie sous ARI ?",
+    "choices": [
+      "Non, l'autonomie dépend uniquement de la capacité de la bouteille",
+      "Oui, la condition physique influence directement l'autonomie en air et le ressenti des contraintes liées au port de l'ARI",
+      "Non, tous les porteurs ont une consommation identique selon les normes",
+      "Oui, mais uniquement lors des interventions de plus d'une heure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe B, section 1.1 – la condition physique du sapeur-pompier est primordiale, influençant directement son autonomie en air et son ressenti des diverses contraintes liées au port d'un ARI.",
+    "source": ""
+  },
+  {
+    "id": "gto-vicie-095",
+    "level": "M",
+    "q": "Quelle est la règle concernant l'utilisation des tuyaux en « O » lors d'une progression sur ligne de vie ?",
+    "choices": [
+      "Ils facilitent l'amarrage et sont recommandés",
+      "Il est déconseillé de pénétrer dans les volumes avec des réserves qui peuvent compliquer les cheminements et le coulissement des colliers d'amarrage",
+      "Ils sont obligatoires pour les cheminements complexes",
+      "Leur utilisation est laissée à l'appréciation du chef de binôme"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.3.4 – il est déconseillé de pénétrer dans les volumes avec des réserves qui peuvent compliquer les cheminements et le coulissement des colliers d'amarrage.",
+    "source": "Chapitre 1, section 1.3.4"
+  },
+  {
+    "id": "gto-vicie-096",
+    "level": "M",
+    "q": "Dans quel sens doit être conditionné la ligne guide dans son sac, et pourquoi ?",
+    "choices": [
+      "Dans n'importe quel sens, car les olives permettent de se repérer dans les deux directions",
+      "L’olive seule vers le haut, afin d'assurer l'orientation correcte des repères lors du déploiement",
+      "En commençant par le côté avec 3 olives, pour avoir d'abord la direction sinistre en déploiement",
+      "Le sens de conditionnement n'a aucune incidence sur l'utilisation"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.3.1 – lors du conditionnement de la ligne guide dans un sac, il est important de s'assurer du bon sens de celle-ci.",
+    "source": "Chapitre 1, section 1.3.1"
+  },
+  {
+    "id": "gto-vicie-097",
+    "level": "M",
+    "q": "Un filtre anti-gaz de type B de couleur grise est utilisé. Contre quoi protège-t-il ?",
+    "choices": [
+      "Gaz et vapeurs organiques avec point d'ébullition supérieur à 65°C",
+      "Gaz et vapeurs inorganiques",
+      "Dioxyde de soufre et gaz acides",
+      "Ammoniac et dérivés aminés"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.2.2 – le filtre de type B, couleur grise, est utilisé contre les gaz et vapeurs inorganiques.",
+    "source": "Chapitre 1, section 1.2.2"
+  },
+  {
+    "id": "gto-vicie-098",
+    "level": "M",
+    "q": "Lors de l'utilisation d'appareils filtrants, le temps de claquage est-il identique en conditions opérationnelles et en conditions de test normalisées ?",
+    "choices": [
+      "Oui, les tests reproduisent exactement les conditions opérationnelles",
+      "Non, le temps de claquage diminue en conditions opérationnelles notamment si la concentration de polluant, la température ou le débit de ventilation augmentent",
+      "Oui, les valeurs normalisées sont majorées pour intégrer les conditions opérationnelles",
+      "Non, le temps de claquage est toujours plus long en opération car les porteurs ventilent moins vite"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 1.2.2 – le temps de claquage diminue si la concentration de produit, la température et le débit de ventilation augmentent ; le débit ventilatoire de la norme (30 l/min) est inférieur à la moyenne constatée pour un sapeur-pompier.",
+    "source": "Chapitre 1, section 1.2.2"
+  },
+  {
+    "id": "gto-vicie-099",
+    "level": "M",
+    "q": "Une balise de sécurité et de détresse peut remplir deux fonctions principales. Lesquelles ?",
+    "choices": [
+      "Détecteur d'immobilité",
+      "Détecteur de gaz toxiques",
+      "Sonde thermique",
+      "Détecteur de chutes"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 1, section 1.4.1 – la balise de sécurité et de détresse est à la fois un détecteur d'immobilité et une sonde thermique.",
+    "source": "Chapitre 1, section 1.4.1"
+  },
+  {
+    "id": "gto-vicie-100",
+    "level": "M",
+    "q": "Lors de la mise en place d'un groupe d'exploration de longue durée (GELD), de combien de membres doit-il être composé au minimum ?",
+    "choices": [
+      "Un chef et un binôme",
+      "Un chef et deux binômes",
+      "Deux chefs et deux binômes",
+      "Un chef et trois binômes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 3 – pour assurer ses missions, le GELD devra être composé au minimum d'un chef et de deux binômes.",
+    "source": "Chapitre 1, section 3"
+  }
+]

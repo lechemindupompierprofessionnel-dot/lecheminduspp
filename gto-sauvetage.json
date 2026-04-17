@@ -1,0 +1,797 @@
+[
+  {
+    "id": "gto-sauvetage-001",
+    "level": "TF",
+    "q": "Que signifie l'acronyme LSPCC ?",
+    "choices": [
+      "Lot de Sauvetage et de Protection Contre les Chutes",
+      "Lot de Sécurité et de Protection pour les Cas Critiques",
+      "Ligne de Sauvetage avec Poulie et Connecteur de Corde",
+      "Lot de Sauvetage, de Progression et de Contrôle des Cordes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Définition donnée page 23 du document — \"Le lot de sauvetage et de protection contre les chutes (LSPCC)\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-002",
+    "level": "TF",
+    "q": "Quelle est la longueur de la corde semi-statique du lot de sauvetage dit \"lot engin\" ?",
+    "choices": [
+      "20 mètres",
+      "30 mètres",
+      "45 mètres",
+      "60 mètres"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 23 — \"d'une corde semi-statique, de 30 m pour le lot « engin »\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-003",
+    "level": "TF",
+    "q": "Quelle est la longueur de la corde semi-statique du lot de sauvetage dit \"lot échelle\" ?",
+    "choices": [
+      "30 mètres",
+      "45 mètres",
+      "60 mètres",
+      "80 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 23 — \"et de 60 m pour le lot « échelle »\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-004",
+    "level": "TF",
+    "q": "Que signifie l'acronyme MEA ?",
+    "choices": [
+      "Moyen d'Engagement Aérien",
+      "Matériel Élévateur Automatique",
+      "Moyens Élévateurs Aériens",
+      "Module d'Évacuation en Altitude"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 73 (Annexe A) — \"MEA : moyens élévateurs aériens\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-005",
+    "level": "TF",
+    "q": "Que signifie l'acronyme COS ?",
+    "choices": [
+      "Chef des Opérations de Secours",
+      "Commandant des Opérations de Secours",
+      "Coordinateur des Opérations de Secours",
+      "Chef d'Opération de Sauvetage"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 73 (Annexe A) — \"COS : commandant des opérations de secours\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-006",
+    "level": "TF",
+    "q": "Quelle formule définit le facteur de chute (Fc) ?",
+    "choices": [
+      "Fc = longueur de corde / hauteur de chute",
+      "Fc = hauteur de chute / longueur de corde qui amortit la chute",
+      "Fc = masse du sauveteur / résistance de la corde",
+      "Fc = vitesse de chute / distance au point d'ancrage"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 25 — \"Le facteur de chute (Fc) est le rapport entre la hauteur de chute (H) et la longueur de corde qui amortit la chute (L)\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-007",
+    "level": "TF",
+    "q": "Qu'est-ce que le syndrome de suspension ?",
+    "choices": [
+      "Un malaise causé par la montée rapide sur une échelle",
+      "Une situation clinique engageant le pronostic vital à très court terme, consécutive à une suspension inerte et prolongée dans un harnais",
+      "Une contracture musculaire provoquée par le port du harnais",
+      "Un risque de chute lors du passage au vide sur l'échelle"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 25 — \"Le syndrome de suspension est une situation clinique engageant le pronostic vital à très court terme, associant perte de connaissance et défaillance multi viscérale, consécutive à une suspension inerte et prolongée dans un harnais.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-008",
+    "level": "TF",
+    "q": "Lors de la mise en œuvre d'une échelle à coulisse deux plans, le pied de l'échelle doit être éloigné du mur d'environ quelle fraction de la longueur développée ?",
+    "choices": [
+      "1/4",
+      "1/3",
+      "1/2",
+      "2/3"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 18 — \"le pied de l'échelle doit être éloigné du mur d'environ 1/3 de la longueur développée.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-009",
+    "level": "TF",
+    "q": "Que signifie l'acronyme PMR ?",
+    "choices": [
+      "Personne en Milieu Restreint",
+      "Porteur de Matériel de Réanimation",
+      "Personne à Mobilité Réduite",
+      "Protocole de Mise en Réserve"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 73 (Annexe A) — \"PMR : personne à mobilité réduite\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-010",
+    "level": "TF",
+    "q": "Parmi les éléments suivants, lesquels font partie de la composition principale du lot de sauvetage et de protection contre les chutes ? (2 bonnes réponses)",
+    "choices": [
+      "Un extincteur",
+      "Une corde semi-statique",
+      "Un harnais",
+      "Une lance à incendie"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Page 23 — le LSPCC comprend notamment une corde semi-statique et un harnais parmi ses composants principaux.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-011",
+    "level": "TF",
+    "q": "Quelle est la règle concernant le nombre de personnes autorisées sur une échelle à crochets ?",
+    "choices": [
+      "Deux personnes maximum",
+      "Elle peut supporter deux hommes",
+      "Elle ne peut supporter qu'un homme",
+      "Trois personnes si elle est amarrée"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 45 — \"L'échelle à crochets s'utilise généralement suspendue par ses crochets, jamais appuyée ou posée sur les pieds des montants et ne peut supporter qu'un homme.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-012",
+    "level": "TF",
+    "q": "Que signifie l'acronyme RETEX ?",
+    "choices": [
+      "Retour d'Exercice",
+      "Retour d'Expérience",
+      "Rapport d'Expertise Technique",
+      "Registre des Techniques Expérimentales"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 73 (Annexe A) — \"RETEX : retour d'expérience\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-013",
+    "level": "TF",
+    "q": "Lors d'un retour d'intervention, quelles actions de remise en condition du personnel sont recommandées ?",
+    "choices": [
+      "L'hydratation",
+      "La rédaction d'un rapport d'intervention",
+      "L'hygiène",
+      "Le repos"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Page 37 — les actions recommandées sont l'hydratation, l'hygiène et le repos (ainsi que le débriefing/défusing).",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-014",
+    "level": "TF",
+    "q": "Quelle est la signification de l'acronyme PLS ?",
+    "choices": [
+      "Position Latérale de Sécurité",
+      "Plan de Liaison et de Secours",
+      "Protocole de Levée de Sauvetage",
+      "Position Longitudinale de Stabilisation"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Page 73 (Annexe A) — \"PLS : position latérale de sécurité\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-015",
+    "level": "TF",
+    "q": "Quelle valeur de facteur de chute est considérée comme dangereuse et interdite ?",
+    "choices": [
+      "Facteur inférieur à 1",
+      "Facteur égal à 0",
+      "Facteur supérieur à 1",
+      "Facteur égal à 1"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 25 — \"Les facteurs 1 sont à éviter. Les facteurs supérieurs à 1 sont interdits.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-016",
+    "level": "TF",
+    "q": "Que contient un nœud en \"huit double\" comme caractéristique dimensionnelle minimale sur le brin libre après le nœud ?",
+    "choices": [
+      "5 cm minimum",
+      "10 cm minimum",
+      "15 cm minimum",
+      "20 cm minimum"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 75 — le schéma du nœud en huit double indique \"10 cm MINIMUM\" pour la queue du nœud.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-017",
+    "level": "TF",
+    "q": "Lors du reconditionnement du matériel au retour d'intervention, quelle action(s) est (sont) obligatoire(s) concernant un matériel ayant subi une agression chimique ou thermique ?",
+    "choices": [
+      "Le nettoyer et le remettre immédiatement en service",
+      "Le retirer du service et le confier à une personne compétente pour remplacement ou réparation",
+      "Le ranger à l'écart pour une inspection ultérieure sans urgence",
+      "Le tester à nouveau sur le terrain avant de décider"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 37 — \"retirer tout matériel ayant subi une agression chimique ou thermique / déformé (le remplacement des éléments défectueux [...] seront effectués par une personne compétente)\". ## NIVEAU F — FACILE (Questions 18 à 34)",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-018",
+    "level": "F",
+    "q": "Quelles sont les conditions pour qu'un véhicule soit considéré comme point d'ancrage artificiel ?",
+    "choices": [
+      "Le moteur est arrêté et la clé de contact enlevée",
+      "Le réservoir de carburant est vide",
+      "Une vitesse est engagée",
+      "Le frein de parc est serré"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Page 59 — \"un véhicule est considéré comme point d'ancrage si : le moteur est arrêté. La clé de contact enlevée ; et une vitesse est engagée ; et le frein de parc est serré.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-019",
+    "level": "F",
+    "q": "L'échelle à coulisse deux plans est généralement utilisée pour atteindre quels niveaux d'un bâtiment ?",
+    "choices": [
+      "Les niveaux 3 et 4",
+      "Le rez-de-chaussée uniquement",
+      "Le 1er et le 2ème étage",
+      "Du 3ème au 5ème étage"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 17 — \"permettent d'atteindre le 1er et 2ème étage d'un bâtiment.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-020",
+    "level": "F",
+    "q": "Quelles sont les trois catégories de types d'ancrage possibles lors de l'emploi du LSPCC ?",
+    "choices": [
+      "Naturel, structurel, artificiel",
+      "Fixe, mobile, provisoire",
+      "Principal, secondaire, de secours",
+      "Vertical, horizontal, incliné"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Page 58 — \"naturel : arbres, rocher... ; structurel : élément de construction... ; artificiel : tout ce qui est mis par l'homme...\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-021",
+    "level": "F",
+    "q": "Lors de la mise en œuvre de l'échelle à coulisse deux plans, quelle(s) précaution(s) essentielle(s) s'applique au pied de l'échelle ?",
+    "choices": [
+      "Le pied doit toujours être posé sur un sol en béton",
+      "Les pieds devront être dans la mesure du possible sur un plan horizontal stable",
+      "Le pied doit être calé à l'aide d'une sangle",
+      "L'échelle doit être posée avec le petit plan en avant"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 18 — \"les pieds devront être dans la mesure du possible sur un plan horizontal stable.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-022",
+    "level": "F",
+    "q": "Dans quel cas un dégagement d'urgence doit-il être réalisé ?",
+    "choices": [
+      "Lorsque la victime est consciente et coopérante",
+      "Lorsque le danger est réel, immédiat, vital et non contrôlable",
+      "Lorsqu'il n'y a pas de matériel disponible",
+      "Lorsque le chef d'agrès l'ordonne systématiquement à l'arrivée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 39 — \"Un dégagement d'urgence ne doit être réalisé que lorsque le danger est réel, immédiat, vital et non contrôlable.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-023",
+    "level": "F",
+    "q": "Quel(s) équipement(s) de protection individuelle sont préconisés pour un sapeur-pompier évoluant sur un MEA sans panier de secours en action postée (lance) ?",
+    "choices": [
+      "Harnais de protection contre les chutes avec absorbeur d'énergie",
+      "Ceinturon de sécurité avec longe de maintien au travail (CSLMT)",
+      "Aucun équipement particulier n'est requis",
+      "Casque uniquement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 36 — tableau des EPI : pour un MEA sans panier de secours, l'EPI préconisé est le \"Ceinturon de sécurité avec longe de maintien au travail (CSLMT)\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-024",
+    "level": "F",
+    "q": "Lors de l'emploi du LSPCC, que doit impérativement constituer un amarrage au minimum ?",
+    "choices": [
+      "Deux connecteurs et une poulie",
+      "Un connecteur et un anneau cousu",
+      "Une sangle et un nœud de cabestan",
+      "Deux anneaux cousus et une cordelette"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 59 — \"Un amarrage sera constitué a minima d'un connecteur et d'un anneau cousu.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-025",
+    "level": "F",
+    "q": "À combien de binômes minimum faut-il pour mettre en œuvre une échelle à coulisse trois plans avec arcs-boutants ?",
+    "choices": [
+      "Un binôme suffit",
+      "Un binôme et un chef d'agrès",
+      "Deux binômes",
+      "Trois binômes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 20 — \"La mise en œuvre de l'échelle nécessite deux binômes.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-026",
+    "level": "F",
+    "q": "Quelle est la règle absolue concernant une victime déplacée lors d'une mise en sécurité ?",
+    "choices": [
+      "Elle peut être laissée seule si elle est valide",
+      "Dans tous les cas, une victime déplacée ne doit jamais être laissée seule",
+      "Elle peut attendre seule si les secours sont proches",
+      "Elle doit être laissée au point de rassemblement sans accompagnement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 42 — \"Dans tous les cas, une victime déplacée ne doit jamais être laissée seule.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-027",
+    "level": "F",
+    "q": "Pour le sauvetage dans les puits, fosses ou excavations avec le LSPCC, quelle(s) précaution(s) est(sont) obligatoire si une atmosphère viciée est redoutée ?",
+    "choices": [
+      "Ventiler l'excavation pendant 10 minutes avant d'entrer",
+      "Le port de l'ARI est obligatoire et un contrôle préalable est effectué avec le détecteur de gaz",
+      "Se munir d'un masque de fuite suffit",
+      "Descendre rapidement pour limiter l'exposition"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 64 — \"Le port de l'ARI est obligatoire lorsqu'on redoute une atmosphère viciée dans l'excavation. Le contrôle préalable est effectué au moyen du détecteur de gaz.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-028",
+    "level": "F",
+    "q": "Lors du blocage d'une échelle à coulisse dans une excavation, quel(s) moyen(s) est (sont) obligatoire(s) pour éviter le désengagement des parachutes ?",
+    "choices": [
+      "Un amarrage en tête avec une corde",
+      "Le blocage des plans au moyen d'une sangle ou du trait",
+      "L'engagement d'un sapeur-pompier pour tenir l'échelle",
+      "La mise en place de cales sous les pieds de l'échelle"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 54 — \"Le blocage des plans au moyen d'une sangle ou du trait est obligatoire afin d'éviter le désengagement des parachutes et le déploiement intempestif de l'échelle lors de sa mise en place.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-029",
+    "level": "F",
+    "q": "Lors de l'emploi du LSPCC, à quelle hauteur minimale entre le frein de charge et le point d'appui doit-on se trouver lors du passage dans le vide ?",
+    "choices": [
+      "10 centimètres",
+      "15 centimètres",
+      "20 centimètres",
+      "30 centimètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 62 — \"La hauteur entre le frein de charge et le point d'appui sur le passage dans le vide doit obligatoirement être supérieur ou égale à 20 centimètres.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-030",
+    "level": "F",
+    "q": "Lors de l'emploi du LSPCC, dans quel sens faut-il orienter les mousquetons (sens de vissage) ?",
+    "choices": [
+      "Le sens de vissage doit être orienté vers le haut",
+      "Les mousquetons doivent impérativement être vissés et si possible le sens de vissage doit être dirigé vers le bas",
+      "Le sens de vissage n'a pas d'importance si le mousqueton est fermé",
+      "Vers l'avant pour faciliter la manœuvre"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 60 — \"veiller impérativement à ce que les mousquetons soient vissés et si possible diriger le sens de vissage vers le bas.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-031",
+    "level": "F",
+    "q": "L'échelle à coulisse trois plans avec arcs-boutants permet d'accéder à quel niveau d'un bâtiment ?",
+    "choices": [
+      "Au 2ème étage",
+      "Au 3ème étage",
+      "Au 4ème étage",
+      "Au 5ème étage"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 20 — \"Elle permet d'accéder au 4ème étage d'un bâtiment.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-032",
+    "level": "F",
+    "q": "Quelles sont les principales utilisations du matelas de sauvetage ?",
+    "choices": [
+      "Assurer le sauvetage d'une personne menaçant de se jeter d'une hauteur",
+      "Transporter une victime inconsciente sur une longue distance",
+      "Assurer le sauvetage d'une victime n'ayant pas d'autre itinéraire de repli",
+      "Servir de protection pour le sauveteur lors d'une descente en rappel"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Page 27 — \"Le matelas de sauvetage, ou coussin de saut, permet d'assurer le sauvetage d'une personne menaçant de se jeter d'une hauteur ou d'assurer un sauvetage d'une victime n'ayant pas d'autre itinéraire de repli.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-033",
+    "level": "F",
+    "q": "Lors de l'emploi du MEA avec panier de secours pour une victime invalide, comment la victime est-elle saisie ?",
+    "choices": [
+      "Par les chevilles et les genoux",
+      "Sous les aisselles, le sapeur-pompier lui fait passer le rebord de l'ouvrant et la dépose sur le panier de secours",
+      "Au moyen du harnais du LSPCC uniquement",
+      "Par une sangle passée sous les épaules, tractée depuis le panier"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 69 — \"La victime est saisie (sous les aisselles, par exemple) par le sapeur-pompier qui lui fait passer le rebord de l'ouvrant et la dépose, en amortissant sa descente, sur le panier de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-034",
+    "level": "F",
+    "q": "Lors des exercices et manœuvres avec une mise au vide, que doit-on obligatoirement utiliser comme victime ?",
+    "choices": [
+      "Un sapeur-pompier volontaire",
+      "Un mannequin",
+      "Un sac leste de 80 kg",
+      "Un équipier équipé d'un harnais de protection"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 25 — \"Lors des exercices et des manœuvres, un mannequin doit obligatoirement être utilisé pour simuler la victime.\" ## NIVEAU M — MOYEN (Questions 35 à 50)",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-035",
+    "level": "M",
+    "q": "Un équipier utilisant le LSPCC évolue en se déplaçant latéralement alors que son point d'ancrage est fixé sur un mur à sa droite. Quel(s) risque(s) spécifique(s) doit-il particulièrement surveiller en cas de chute ?",
+    "choices": [
+      "Le syndrome de suspension uniquement",
+      "L'effet pendulaire, pouvant provoquer des lésions graves par collision",
+      "Un facteur de chute supérieur à 1 systématiquement",
+      "La rupture du mousqueton par traction axiale"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 25 — \"si l'utilisateur ne se trouve pas exactement sous le point d'ancrage mais est décalé par rapport à ce dernier, il risque un effet pendulaire lors de la chute [...] La vitesse pendulaire est parfois équivalente à une vitesse de chute. Les lésions par collision peuvent être graves.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-036",
+    "level": "M",
+    "q": "Lors d'un sauvetage avec une échelle à coulisse deux plans, la victime est invalide et inconsciente. Quelle technique à deux sapeurs-pompiers est préconisée pour le passage au vide ?",
+    "choices": [
+      "Le sapeur sur l'échelle saisit la victime sous les aisselles et la fait descendre face contre les échelons",
+      "Le sapeur au côté de la victime saisit les chevilles, le sapeur sur l'échelle saisit les épaules",
+      "Le sapeur au côté de la victime la saisit sous les aisselles, lui fait passer l'ouvrant ; le sapeur sur l'échelle saisit les chevilles, place les genoux de la victime sur ses épaules et la descend en la faisant glisser dos contre les échelons",
+      "Un seul sapeur-pompier descend la victime en la portant dans les bras"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 53 — description de la technique à deux sapeurs-pompiers pour victime invalide ou inconsciente : le sapeur au côté saisit sous les aisselles, et le sapeur sur l'échelle saisit les chevilles, place les genoux sur ses épaules et descend la victime dos contre les échelons.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-037",
+    "level": "M",
+    "q": "Un sapeur-pompier doit progresser avec une échelle à crochets et constate qu'une des deux pointes passe dans le vide lors du passage entre deux fenêtres. Quelle est la conduite à tenir ?",
+    "choices": [
+      "Sauter immédiatement vers un élément de façade pour éviter la chute",
+      "Il est plus dangereux de quitter l'échelle à crochets que de terminer la progression sur une seule pointe",
+      "Redescendre immédiatement et changer de moyen d'accès",
+      "Demander au binôme de tenir l'échelle depuis le bas"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 47 — \"Il est plus dangereux de quitter l'échelle à crochets que de terminer la progression (ascension ou descente) sur une seule pointe.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-038",
+    "level": "M",
+    "q": "Lors d'un sauvetage par l'extérieur avec le LSPCC, en l'absence de point d'ancrage structurel ou naturel et en situation d'urgence extrême, qui peut servir de point fixe ?",
+    "choices": [
+      "Le fourgon pompe tonne garés à proximité",
+      "L'équipier lui-même, allongé jambes à 90° contre le mur, contrôlant la descente avec le descendeur",
+      "Un second sapeur-pompier tenant la corde à mains nues",
+      "Un arbre situé à plus de 5 mètres du bord"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 62 — \"En absence de point d'ancrage ou dans la mesure où l'urgence de la situation rend impossible l'installation de tout amarrage, l'équipier peut servir de point fixe. L'équipier, muni du harnais équipé du descendeur est allongé, les jambes à 90° contre le mur. Il contrôle la descente.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-039",
+    "level": "M",
+    "q": "Lors de la mise en station d'un MEA, quelles affirmations sont correctes concernant les différentes catégories de sol ?",
+    "choices": [
+      "Un sol stable est un sol sur lequel peuvent circuler des véhicules poids lourds",
+      "Un trottoir est considéré comme un sol stable",
+      "Une plaque d'égout constitue un sol interdit",
+      "Sur un sol instable, des cales de stabilisation peuvent être utilisées"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Pages 32-33 — sol stable = véhicules poids lourd ; sol interdit = plaque d'égout notamment ; sol instable = mise en place possible de cales de stabilisation.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-040",
+    "level": "M",
+    "q": "Lors d'un sauvetage par l'extérieur avec le LSPCC, un équipier équipé du harnais doit descendre une victime inconsciente. Dans quelle position la victime doit-elle être portée dans la mesure du possible ?",
+    "choices": [
+      "Sur le dos de l'équipier, face vers le haut",
+      "Pieds en avant, face vers le sol",
+      "Tête en avant, face vers le ciel",
+      "En position assise maintenue par le harnais"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 60 — \"Si la victime est inconsciente, elle est portée, dans la mesure du possible par deux sauveteurs, pieds en avant, face vers le sol.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-041",
+    "level": "M",
+    "q": "Quelle est la différence essentielle entre un \"sauvetage\" et une \"mise en sécurité\" ?",
+    "choices": [
+      "Le sauvetage concerne uniquement les victimes en hauteur, la mise en sécurité concerne les victimes au sol",
+      "La mise en sécurité s'applique lorsque la victime est valide et capable de se soustraire elle-même du danger ; le sauvetage implique une intervention active pour déplacer la victime",
+      "Le sauvetage est réalisé par l'équipier, la mise en sécurité par le chef d'équipe uniquement",
+      "Il n'y a pas de différence opérationnelle entre les deux termes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 42 — \"Lorsque la victime est valide et capable de se soustraire d'elle-même du danger, l'action du sapeur-pompier est nommée mise en sécurité. Dans ce cas, le sauveteur accompagne, aide et conseille la victime.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-042",
+    "level": "M",
+    "q": "Lors du positionnement du matelas de sauvetage, quand peut-on le placer à l'aplomb de la victime ?",
+    "choices": [
+      "Dès son déploiement au sol",
+      "Uniquement une fois qu'il est complètement gonflé",
+      "Lorsqu'il est partiellement gonflé pour l'amortissement",
+      "À tout moment, l'important est la rapidité de mise en place"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 28 — \"Positionner le matelas de sauvetage à l'aplomb de la victime, seulement une fois celui-ci complètement « gonflé ».\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-043",
+    "level": "M",
+    "q": "Lors de l'emploi du LSPCC, une corde en mouvement frotte contre une arête saillante. Quelles affirmations sont correctes sur les frottements ?",
+    "choices": [
+      "Une corde en mouvement subit moins d'effets de frottement qu'une corde statique",
+      "Le frottement sur une corde en mouvement se répartit sur l'ensemble de la corde",
+      "Les frottements corde sur corde ne présentent aucun danger",
+      "Des protections de cordes contre les frottements doivent être mises en place dans la mesure du possible"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "Page 26 — \"une corde en mouvement subit moins d'effets de frottement\" et \"dans la mesure du possible, des protections des cordes contre les frottements doivent être mises en place.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-044",
+    "level": "M",
+    "q": "Un équipier évolue avec le LSPCC au-dessus de son point d'ancrage. Quel est le facteur de chute dans cette configuration ?",
+    "choices": [
+      "Facteur = 0",
+      "Facteur inférieur à 1",
+      "Facteur = 1",
+      "Facteur supérieur à 1"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Page 24 — le schéma indique clairement que l'évolution au-dessus du point d'ancrage engendre un \"FACTEUR > 1 — DANGER\".",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-045",
+    "level": "M",
+    "q": "Lors de la technique à trois sapeurs-pompiers pour le sauvetage d'une victime invalide par échelle à coulisse deux plans, comment la victime est-elle descendue sur l'échelle ?",
+    "choices": [
+      "Face contre les échelons, tenue par le sapeur depuis le haut",
+      "Dos contre les échelons, descendue par le sapeur-pompier situé sur l'échelle, après passage des jambes au-dessus du rebord de l'ouvrant",
+      "Dans les bras du sapeur-pompier, dos à l'échelle",
+      "Au moyen d'une sangle passée sous les aisselles, guidée depuis le bas"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 52 — \"La victime est placée dos contre les échelons par les 3 personnels puis descendue par le sapeur-pompier situé sur l'échelle.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-046",
+    "level": "M",
+    "q": "Lors de l'emploi de l'LSPCC pour une ouverture de porte depuis l'étage supérieur, que doit impérativement prévoir l'équipier avant de se désolidariser du système ?",
+    "choices": [
+      "Vérifier la présence de la victime dans la pièce principale",
+      "Toujours préconiser un chemin de repli et s'assurer que la longueur de corde utile permette d'y accéder",
+      "Couper l'alimentation électrique de l'appartement",
+      "Informer le chef d'agrès par radio avant toute action"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 65 — \"Toujours préconiser un chemin de repli et s'assurer que la longueur de corde utile permette d'y accéder.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-047",
+    "level": "M",
+    "q": "Un équipier utilise une sangle pour réaliser un amarrage sur deux points d'ancrage distincts. Quel angle maximal entre les deux brins de sangle ne doit pas être dépassé pour préserver la résistance de l'amarrage ?",
+    "choices": [
+      "45°",
+      "60°",
+      "90°",
+      "120°"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Page 59 — \"il est préconisé de ne pas dépasser un angle de 90°.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-048",
+    "level": "M",
+    "q": "Lors d'un sauvetage avec une victime suspendue dans le vide et accrochée par les bras, quelle technique d'approche avec le panier de secours est préconisée si les capacités du MEA le permettent ?",
+    "choices": [
+      "Arriver rapidement au niveau de la victime en position frontale",
+      "Approcher le panier en \"léchant\" la façade de bas en haut pour limiter les effets d'une chute éventuelle de la victime",
+      "Approcher par le dessus pour saisir la victime par les poignets",
+      "Stationner le panier à 2 mètres de la victime et la sécuriser avec une sangle lancée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Page 69 — \"l'approche du panier de secours peut judicieusement se faire en « léchant » la façade de bas en haut, si les capacités techniques du MEA le permettent ; cette façon de procéder peut en effet limiter les effets d'une chute de la victime.\"",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvetage-049",
+    "level": "M",
+    "q": "Lors de la réalisation d'une mise en sécurité d'une personne valide, quelles méthodes peuvent être utilisées simultanément pour faciliter l'évacuation ?",
+    "choices": [
+      "La diffusion de consignes par porte-voix pour rassurer les personnes en panique",
+      "La mise en place d'un point d'attaque du foyer en façade",
+      "La ventilation pour améliorer la praticabilité des communications existantes",
+      "L'assistance respiratoire"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Page 43 — les méthodes citées pour faciliter les mises en sécurité sont : la diffusion de consignes (porte-voix), la ventilation et l'assistance respiratoire.",
+    "source": ""
+  }
+]

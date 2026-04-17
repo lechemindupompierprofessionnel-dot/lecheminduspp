@@ -154,15 +154,45 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .offer-price-label{font-size:.8rem;color:var(--gray);margin-top:4px;margin-bottom:20px}
 .offer-price-note{font-size:.78rem;color:var(--gold);margin-top:8px;font-weight:500;margin-bottom:20px}
 
-/* ===== QCM ===== */
-.qcm-layout{display:grid;grid-template-columns:280px 1fr;gap:0;min-height:calc(100vh - 68px);margin-top:68px}
-.qcm-sidebar{background:white;border-right:1px solid var(--border);padding:28px;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto}
-.qcm-sb-title{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:20px;color:var(--charcoal)}
-.qcm-cat{padding:10px 14px;font-size:.85rem;color:var(--gray);cursor:pointer;border:1px solid transparent;transition:all .2s;margin-bottom:4px;display:flex;justify-content:space-between;align-items:center}
+/* ===== QCM SIDEBAR MODE TABS ===== */
+.qcm-mode-tabs{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:22px}
+.qcm-mode-tab{padding:12px 8px;font-size:.88rem;font-weight:600;border:1.5px solid var(--border);background:white;cursor:pointer;font-family:'DM Sans',sans-serif;color:var(--gray);transition:all .2s;letter-spacing:.2px}
+.qcm-mode-tab.active{background:var(--red);color:white;border-color:var(--red)}
+.qcm-sb-section{font-size:.78rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray);margin-bottom:14px}
+.qcm-select-all{padding:12px 16px;font-size:.92rem;color:var(--red);font-weight:600;cursor:pointer;display:flex;align-items:center;gap:10px;border:1px dashed var(--red-pale2);background:var(--red-pale);margin-bottom:14px;transition:all .15s}
+.qcm-select-all:hover{background:var(--red-pale2)}
+.qcm-check-item{padding:12px 16px;font-size:.95rem;color:var(--gray);cursor:pointer;display:flex;align-items:center;gap:10px;border:1px solid transparent;transition:all .15s;margin-bottom:5px;user-select:none}
+.qcm-check-item:hover{background:var(--cream);border-color:var(--border)}
+.qcm-check-item.checked{background:var(--red-pale);border-color:var(--red-pale2);color:var(--charcoal)}
+.qcm-check-parent{font-weight:600;color:var(--charcoal)}
+.qcm-checkbox{font-size:1.1rem;color:var(--gray-light);flex-shrink:0;line-height:1}
+.qcm-check-item.checked .qcm-checkbox{color:var(--red)}
+.qcm-check-label{flex:1;line-height:1.35}
+.qcm-subcheck-item{padding:10px 14px 10px 28px;font-size:.86rem;color:var(--gray);cursor:pointer;display:flex;align-items:center;gap:10px;border:1px solid transparent;transition:all .15s;margin-bottom:3px;user-select:none}
+.qcm-subcheck-item:hover{background:var(--cream);border-color:var(--border)}
+.qcm-subcheck-item.checked{background:var(--red-pale);border-color:var(--red-pale2);color:var(--charcoal)}
+.qcm-subcheck-item.checked .qcm-checkbox{color:var(--red)}
+.qcm-launch-wrap{margin-top:20px;border-top:1px solid var(--border);padding-top:18px}
+.qcm-selection-summary{font-size:.86rem;color:var(--gray);margin-bottom:14px;line-height:1.55;min-height:40px}
+.qcm-nb-btn{padding:10px 16px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all .2s}
+.qcm-nb-btn.active{background:var(--red);color:white;border-color:var(--red)}
+.qcm-layout{display:grid;grid-template-columns:420px 1fr;gap:0;min-height:calc(100vh - 68px);margin-top:68px}
+.qcm-sidebar{background:white;border-right:1px solid var(--border);padding:40px 32px;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto}
+.qcm-sb-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:28px;color:var(--charcoal);padding-bottom:16px;border-bottom:2px solid var(--red)}
+.qcm-cat{padding:12px 16px;font-size:.95rem;color:var(--gray);cursor:pointer;border:1px solid transparent;transition:all .2s;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
 .qcm-cat:hover{background:var(--cream);border-color:var(--border)}
 .qcm-cat.active{background:var(--red-pale);border-color:var(--red-pale2);color:var(--red);font-weight:600}
-.qcm-cat-count{background:var(--cream2);padding:2px 7px;font-size:.72rem;color:var(--gray-light)}
+.qcm-cat-count{background:var(--cream2);padding:3px 10px;font-size:.78rem;color:var(--gray-light);font-weight:600;flex-shrink:0}
 .qcm-cat.active .qcm-cat-count{background:var(--red-pale2);color:var(--red)}
+.qcm-cat-parent{font-weight:600;color:var(--charcoal)}
+.qcm-cat-parent.open{background:var(--cream);border-color:var(--border);color:var(--charcoal)}
+.qcm-subcat-arrow{font-size:.7rem;color:var(--gray-light);transition:transform .2s;display:inline-block}
+.qcm-cat-parent.open .qcm-subcat-arrow{transform:rotate(90deg)}
+.qcm-subcats{display:none;padding-left:0;margin-bottom:4px;border-left:2px solid var(--red-pale2);margin-left:8px}
+.qcm-subcats.open{display:block}
+.qcm-subcat{padding:8px 14px 8px 16px;font-size:.8rem;color:var(--gray);cursor:pointer;border:1px solid transparent;transition:all .15s;margin-bottom:2px;display:flex;justify-content:space-between;align-items:center;line-height:1.3}
+.qcm-subcat:hover{background:var(--cream);color:var(--charcoal)}
+.qcm-subcat.active{background:var(--red-pale);border-color:var(--red-pale2);color:var(--red);font-weight:600}
 .qcm-main{padding:40px 5%;background:var(--cream)}
 .qcm-header{margin-bottom:36px}
 .qcm-progress{background:var(--border-light);height:4px;margin-bottom:6px}
@@ -203,6 +233,107 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .biblio-overlay{position:absolute;inset:0;background:rgba(245,240,232,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
 .biblio-card:hover .biblio-overlay{opacity:1}
 .biblio-overlay p{font-size:.8rem;color:var(--gray);margin-bottom:12px;text-align:center;padding:0 16px}
+
+/* ===== ANNALES THEMATIQUES ===== */
+.annales-theme-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px}
+.annales-theme-card{background:white;border:1px solid var(--border);padding:32px 28px;transition:all .25s;cursor:pointer;display:flex;flex-direction:column}
+.annales-theme-card:hover{box-shadow:0 8px 32px rgba(0,0,0,0.08);transform:translateY(-2px);border-color:var(--red)}
+.annales-theme-icon{font-size:2.2rem;margin-bottom:16px}
+.annales-theme-label{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px}
+.annales-theme-desc{font-size:.88rem;color:var(--gray);line-height:1.6;margin-bottom:20px;flex:1}
+.annales-theme-count{font-size:.78rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);padding-top:16px;border-top:1px solid var(--border-light);display:flex;justify-content:space-between;align-items:center}
+.annales-theme-arrow{color:var(--red);transition:transform .2s}
+.annales-theme-card:hover .annales-theme-arrow{transform:translateX(4px)}
+.annales-detail-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:32px;gap:24px;flex-wrap:wrap}
+.annales-back-btn{background:none;border:none;cursor:pointer;font-size:.88rem;color:var(--gray);font-family:'DM Sans',sans-serif;padding:0;transition:color .2s;display:flex;align-items:center;gap:8px;margin-bottom:16px}
+.annales-back-btn:hover{color:var(--red)}
+.annale-sujet-card{background:white;border:1px solid var(--border);padding:28px;display:flex;align-items:center;gap:24px;transition:all .2s;margin-bottom:16px}
+.annale-sujet-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.08);border-color:var(--red)}
+.annale-sujet-year{font-family:'Playfair Display',serif;font-size:2.4rem;color:var(--red);line-height:1;min-width:90px;font-weight:700}
+.annale-sujet-body{flex:1}
+.annale-sujet-title{font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:4px}
+.annale-sujet-meta{font-size:.82rem;color:var(--gray-light)}
+.annale-sujet-actions{display:flex;gap:10px;flex-wrap:wrap}
+
+/* ===== MODE EXAMEN ===== */
+.exam-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:0;min-height:100vh;margin-top:0}
+.exam-pdf-pane{background:var(--cream2);border-right:1px solid var(--border);display:flex;flex-direction:column;position:sticky;top:0;height:100vh}
+.exam-pdf-header{padding:14px 20px;background:white;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+.exam-pdf-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal);font-weight:700}
+.exam-pdf-open-btn{padding:6px 14px;font-size:.78rem;font-weight:600;color:var(--red);background:none;border:1.5px solid var(--red);cursor:pointer;font-family:'DM Sans',sans-serif;transition:all .15s}
+.exam-pdf-open-btn:hover{background:var(--red);color:white}
+.exam-pdf-frame{flex:1;width:100%;border:none;background:white}
+.exam-answers-pane{display:flex;flex-direction:column;height:100vh;background:var(--cream)}
+.exam-timer-bar{background:var(--dark);color:white;padding:18px 24px;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:5}
+.exam-timer-label{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--cream4);margin-bottom:4px}
+.exam-timer-value{font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1;font-weight:700;font-variant-numeric:tabular-nums}
+.exam-timer-value.warning{color:#FFB15C}
+.exam-timer-value.danger{color:#FF6B6B;animation:blink 1s step-start infinite}
+@keyframes blink{50%{opacity:.4}}
+.exam-progress-info{text-align:right}
+.exam-progress-count{font-size:.85rem;color:white;font-weight:600;margin-bottom:2px}
+.exam-progress-sub{font-size:.7rem;color:var(--cream4)}
+.exam-answers-scroll{flex:1;overflow-y:auto;padding:24px}
+.exam-instructions{background:var(--red-pale);border-left:3px solid var(--red);padding:14px 18px;margin-bottom:24px;font-size:.85rem;color:var(--charcoal);line-height:1.6}
+.exam-q-row{background:white;border:1px solid var(--border);padding:14px 18px;margin-bottom:10px;display:flex;align-items:center;gap:16px;transition:all .15s;flex-wrap:wrap}
+.exam-q-row.answered{border-color:var(--red-pale2);background:var(--red-pale)}
+.exam-q-num{font-family:'Playfair Display',serif;font-size:1rem;color:var(--red);font-weight:700;min-width:38px;flex-shrink:0}
+.exam-q-options{display:flex;gap:6px;flex:1;flex-wrap:wrap}
+.exam-q-opt{width:38px;height:38px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all .15s;display:flex;align-items:center;justify-content:center}
+.exam-q-opt:hover{border-color:var(--red);color:var(--red)}
+.exam-q-opt.selected{background:var(--red);color:white;border-color:var(--red)}
+.exam-q-skip{font-size:.72rem;color:var(--gray-light);cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;padding:4px 8px;transition:color .15s}
+.exam-q-skip:hover{color:var(--red)}
+.exam-actions-bar{padding:16px 24px;background:white;border-top:1px solid var(--border);display:flex;gap:10px;justify-content:space-between;align-items:center;flex-wrap:wrap}
+.exam-summary-text{font-size:.82rem;color:var(--gray)}
+.exam-summary-text strong{color:var(--charcoal)}
+.exam-submit-btn{padding:12px 24px;background:var(--red);color:white;border:none;font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;cursor:pointer;transition:background .2s;letter-spacing:.3px}
+.exam-submit-btn:hover{background:var(--red-dark)}
+.exam-submit-btn:disabled{background:var(--gray-light);cursor:not-allowed}
+.exam-abandon-btn{padding:10px 18px;background:none;color:var(--gray);border:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:.82rem;cursor:pointer;transition:all .15s}
+.exam-abandon-btn:hover{border-color:var(--red);color:var(--red)}
+
+/* ===== ECRAN CORRECTION ===== */
+.correction-wrap{min-height:100vh;background:var(--cream);padding:60px 5%}
+.correction-inner{max-width:900px;margin:0 auto}
+.correction-header{text-align:center;margin-bottom:48px}
+.correction-score-big{font-family:'Playfair Display',serif;font-size:4.5rem;color:var(--red);font-weight:900;line-height:1;margin:12px 0}
+.correction-score-pct{font-size:1.3rem;color:var(--charcoal);font-weight:600;margin-bottom:8px}
+.correction-score-label{font-size:.9rem;color:var(--gray)}
+.correction-progress-bar{width:100%;max-width:460px;height:10px;background:var(--border-light);margin:20px auto 32px}
+.correction-progress-fill{height:100%;background:var(--red);transition:width .8s ease-out}
+.correction-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px}
+.correction-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:40px}
+.correction-stat{background:white;border:1px solid var(--border);padding:20px;text-align:center}
+.correction-stat-n{font-family:'Playfair Display',serif;font-size:1.8rem;line-height:1;margin-bottom:6px}
+.correction-stat-l{font-size:.72rem;color:var(--gray);letter-spacing:1px;text-transform:uppercase}
+.correction-stat.correct .correction-stat-n{color:#2d7a3a}
+.correction-stat.wrong .correction-stat-n{color:var(--red)}
+.correction-stat.skipped .correction-stat-n{color:var(--gray-light)}
+.correction-stat.total .correction-stat-n{color:var(--charcoal)}
+.correction-detail-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:24px;padding-bottom:12px;border-bottom:2px solid var(--red)}
+.correction-q{background:white;border:1px solid var(--border);padding:20px 24px;margin-bottom:12px;display:flex;gap:20px;align-items:flex-start}
+.correction-q.correct{border-left:4px solid #2d7a3a}
+.correction-q.wrong{border-left:4px solid var(--red)}
+.correction-q.skipped{border-left:4px solid var(--gray-light)}
+.correction-q-badge{width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;flex-shrink:0;border-radius:50%}
+.correction-q.correct .correction-q-badge{background:#edf7ee;color:#2d7a3a}
+.correction-q.wrong .correction-q-badge{background:var(--red-pale);color:var(--red)}
+.correction-q.skipped .correction-q-badge{background:var(--cream2);color:var(--gray-light)}
+.correction-q-body{flex:1}
+.correction-q-num{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--charcoal);font-weight:700;margin-bottom:6px}
+.correction-q-answer{font-size:.86rem;color:var(--gray);line-height:1.65;margin-bottom:6px}
+.correction-q-answer strong{color:var(--charcoal)}
+.correction-q-expl{font-size:.85rem;color:var(--charcoal);line-height:1.65;background:var(--cream2);padding:12px 14px;margin-top:10px;border-left:3px solid var(--charcoal)}
+
+@media(max-width:900px){
+  .exam-layout{grid-template-columns:1fr}
+  .exam-pdf-pane{position:static;height:auto;max-height:50vh}
+  .exam-pdf-frame{min-height:400px}
+  .exam-answers-pane{height:auto}
+  .annales-theme-grid{grid-template-columns:1fr}
+  .correction-stats{grid-template-columns:repeat(2,1fr)}
+}
 
 /* ===== ACTUALITES ===== */
 .actu-featured{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
@@ -642,7 +773,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
       <div class="hero-stats">
         <div class="stat"><div class="stat-n">4 ans</div><div class="stat-l">d'expérience en préparation</div></div>
         <div class="stat"><div class="stat-n">∞</div><div class="stat-l">Accès illimité</div></div>
-        <div class="stat"><div class="stat-n">+500</div><div class="stat-l">QCM corrigés</div></div>
+        <div class="stat"><div class="stat-n">+700</div><div class="stat-l">QCM corrigés</div></div>
         <div class="stat"><div class="stat-n">100%</div><div class="stat-l">Méthode terrain</div></div>
       </div>
     </div>
@@ -662,7 +793,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
       <div class="feature-card" onclick="goTo('qcm')">
         <div class="feature-card-icon">📝</div>
         <div class="feature-card-title">QCM Thématiques</div>
-        <div class="feature-card-desc">+500 questions corrigées avec explications détaillées, classées par matière.</div>
+        <div class="feature-card-desc">+700 questions corrigées avec explications détaillées, classées par matière.</div>
         <div class="feature-card-link">Accéder →</div>
       </div>
       <div class="feature-card" onclick="goTo('biblio')">
@@ -769,7 +900,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <div class="offer-title">Accès Plateforme Complet</div>
         <div class="offer-desc">QCM + Annales + Bibliothèque + Actualités. Paiement unique, accès illimité à vie.</div>
         <ul class="offer-features">
-          <li>+500 QCM thématiques avec corrections</li>
+          <li>+700 QCM thématiques avec corrections</li>
           <li>Annales des 5 dernières années commentées</li>
           <li>Bibliothèque documentaire complète</li>
           <li>Fiches de révision téléchargeables</li>
@@ -863,38 +994,159 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 <div class="page" id="page-qcm">
   <div style="margin-top:68px"></div>
   <div class="qcm-layout" style="margin-top:0">
+
+    <!-- SIDEBAR -->
     <div class="qcm-sidebar">
-      <div class="qcm-sb-title">Thèmes</div>
-      <div class="qcm-cat active" onclick="setQcmCat(this,'Culture Pompier')">Culture Pompier <span class="qcm-cat-count">120</span></div>
-      <div class="qcm-cat" onclick="setQcmCat(this,'Réglementation')">Réglementation <span class="qcm-cat-count">85</span></div>
-      <div class="qcm-cat" onclick="setQcmCat(this,'Fonction Publique')">Fonction Publique <span class="qcm-cat-count">90</span></div>
-      <div class="qcm-cat" onclick="setQcmCat(this,'Culture Générale')">Culture Générale <span class="qcm-cat-count">150</span></div>
-      <div class="qcm-cat" onclick="setQcmCat(this,'Secours &amp; Opérations')">Secours &amp; Opérations <span class="qcm-cat-count">60</span></div>
-      <div style="border-top:1px solid var(--border);margin-top:20px;padding-top:20px">
-        <div style="font-size:.75rem;color:var(--gray-light);margin-bottom:8px;letter-spacing:1px;text-transform:uppercase;font-weight:600">Ton score</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--red)" id="score-display">0 / 0</div>
-        <div style="font-size:.8rem;color:var(--gray)">questions répondues</div>
+
+      <!-- MODE SELECTOR -->
+      <div class="qcm-mode-tabs">
+        <button class="qcm-mode-tab active" id="tab-select" onclick="switchQcmMode('select')">🎯 Par thème</button>
+        <button class="qcm-mode-tab" id="tab-random" onclick="switchQcmMode('random')">🔀 Aléatoire</button>
       </div>
-      <div style="margin-top:20px;background:var(--red-pale);border:1px solid var(--red-pale2);padding:14px" id="qcm-unlock-cta">
-        <div style="font-size:.75rem;font-weight:600;color:var(--red);margin-bottom:6px">🔒 Accès complet</div>
-        <div style="font-size:.8rem;color:var(--gray);line-height:1.5;margin-bottom:10px">Débloquez les 500+ QCM pour 59€</div>
-        <button class="btn btn-red" style="width:100%;font-size:.8rem;padding:10px" onclick="goTo('formation')">Débloquer →</button>
+
+      <!-- MODE: PAR THÈME -->
+      <div id="qcm-panel-select">
+        <div class="qcm-sb-section">Sélectionne un ou plusieurs thèmes</div>
+
+        <!-- Tout sélectionner -->
+        <div class="qcm-select-all" onclick="toggleSelectAll()">
+          <span id="select-all-icon">☐</span> <span id="select-all-label">Tout sélectionner</span>
+        </div>
+
+        <!-- Catégories à cocher -->
+        <div class="qcm-check-item" onclick="toggleCat('statut')">
+          <span class="qcm-checkbox" id="chk-statut">☐</span>
+          <span class="qcm-check-label">Statut SPP &amp; Fonctionnaire</span>
+          <span class="qcm-cat-count" id="count-statut">105</span>
+        </div>
+        <div class="qcm-check-item" onclick="toggleCat('sis')">
+          <span class="qcm-checkbox" id="chk-sis">☐</span>
+          <span class="qcm-check-label">Organisation d'un SIS</span>
+          <span class="qcm-cat-count" id="count-sis">50</span>
+        </div>
+
+        <!-- Doctrines avec sous-cats -->
+        <div class="qcm-check-item qcm-check-parent" onclick="toggleDoctrinesPanel(event)">
+          <span class="qcm-checkbox" id="chk-doctrines">☐</span>
+          <span class="qcm-check-label">Doctrines Opérationnelles</span>
+          <span style="display:flex;align-items:center;gap:4px"><span class="qcm-cat-count" id="count-doctrines">534</span><span class="qcm-subcat-arrow" id="arrow-doctrines">▸</span></span>
+        </div>
+        <div class="qcm-subcats" id="doctrines-sub">
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-ventilation',event)"><span class="qcm-checkbox" id="chk-gto-ventilation">☐</span><span class="qcm-check-label">GTO Ventilation Opérationnelle</span><span class="qcm-cat-count" id="count-gto-ventilation">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvetage',event)"><span class="qcm-checkbox" id="chk-gto-sauvetage">☐</span><span class="qcm-check-label">GTO Sauvetage &amp; Mise en Sécurité</span><span class="qcm-cat-count" id="count-gto-sauvetage">49</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvegarde',event)"><span class="qcm-checkbox" id="chk-gto-sauvegarde">☐</span><span class="qcm-check-label">GTO Sauvegarde Opérationnelle</span><span class="qcm-cat-count" id="count-gto-sauvegarde">73</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-extinctions',event)"><span class="qcm-checkbox" id="chk-gto-extinctions">☐</span><span class="qcm-check-label">GTO Établissements &amp; Extinctions</span><span class="qcm-cat-count" id="count-gto-extinctions">73</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-vicie',event)"><span class="qcm-checkbox" id="chk-gto-vicie">☐</span><span class="qcm-check-label">GTO Engagement Milieu Vicié</span><span class="qcm-cat-count" id="count-gto-vicie">100</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ssuap',event)"><span class="qcm-checkbox" id="chk-gdo-ssuap">☐</span><span class="qcm-check-label">GDO SSUAP</span><span class="qcm-cat-count" id="count-gdo-ssuap">14</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-fumees',event)"><span class="qcm-checkbox" id="chk-gdo-fumees">☐</span><span class="qcm-check-label">GDO Toxicité des Fumées</span><span class="qcm-cat-count" id="count-gdo-fumees">11</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-gaz',event)"><span class="qcm-checkbox" id="chk-gdo-gaz">☐</span><span class="qcm-check-label">GDO Présence Gaz</span><span class="qcm-cat-count" id="count-gdo-gaz">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-incendie',event)"><span class="qcm-checkbox" id="chk-gdo-incendie">☐</span><span class="qcm-check-label">GDO Incendie Structure</span><span class="qcm-cat-count" id="count-gdo-incendie">60</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-routier',event)"><span class="qcm-checkbox" id="chk-gdo-routier">☐</span><span class="qcm-check-label">GDO Milieu Routier</span><span class="qcm-cat-count" id="count-gdo-routier">62</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">0</span></div>
+        </div>
+
+        <div class="qcm-check-item" onclick="toggleCat('divers')">
+          <span class="qcm-checkbox" id="chk-divers">☐</span>
+          <span class="qcm-check-label">Divers</span>
+          <span class="qcm-cat-count" id="count-divers">18</span>
+        </div>
+        <div class="qcm-check-item" onclick="toggleCat('textes')">
+          <span class="qcm-checkbox" id="chk-textes">☐</span>
+          <span class="qcm-check-label">Textes structurants du concours</span>
+          <span class="qcm-cat-count" id="count-textes">29</span>
+        </div>
+
+        <!-- Résumé sélection + bouton lancer -->
+        <div class="qcm-launch-wrap">
+          <div class="qcm-selection-summary" id="qcm-selection-summary">Aucun thème sélectionné</div>
+          <button class="btn btn-red" id="qcm-launch-btn" style="width:100%;justify-content:center;display:flex;font-size:.85rem;padding:12px;opacity:.4;pointer-events:none" onclick="launchQcm()">
+            Lancer les QCM →
+          </button>
+        </div>
       </div>
-      <div style="margin-top:20px;background:#edf7ee;border:1px solid #c3e6c8;padding:14px;display:none" id="qcm-member-cta">
-        <div style="font-size:.75rem;font-weight:600;color:#1a5c25;margin-bottom:6px">✅ Accès complet activé</div>
-        <div style="font-size:.8rem;color:var(--gray);line-height:1.5">Tu as accès à tous les QCM.</div>
+
+      <!-- MODE: ALÉATOIRE -->
+      <div id="qcm-panel-random" style="display:none">
+        <div class="qcm-sb-section">Mode entraînement</div>
+        <div style="font-size:.83rem;color:var(--gray);line-height:1.6;margin-bottom:16px">Les questions piochent aléatoirement dans <strong style="color:var(--charcoal)">tous les thèmes</strong> du concours.</div>
+
+        <div style="margin-bottom:12px">
+          <div style="font-size:.75rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px">Nombre de questions</div>
+          <div style="display:flex;gap:6px;flex-wrap:wrap">
+            <button class="qcm-nb-btn active" onclick="setQcmNb(this,5)">5</button>
+            <button class="qcm-nb-btn" onclick="setQcmNb(this,10)">10</button>
+            <button class="qcm-nb-btn" onclick="setQcmNb(this,20)">20</button>
+            <button class="qcm-nb-btn" onclick="setQcmNb(this,30)">30</button>
+          </div>
+        </div>
+
+        <button class="btn btn-red" style="width:100%;justify-content:center;display:flex;font-size:.85rem;padding:12px;margin-top:8px" onclick="launchRandomQcm()">
+          🔀 Lancer l'entraînement →
+        </button>
+
+        <div style="margin-top:16px;background:var(--cream2);border:1px solid var(--border);padding:12px;font-size:.8rem;color:var(--gray);line-height:1.55">
+          💡 Idéal pour simuler les conditions du concours et ne pas stagner dans un seul thème.
+        </div>
+      </div>
+
+      <!-- SCORE + CTA -->
+      <div style="border-top:1px solid var(--border);margin-top:28px;padding-top:22px">
+        <div style="font-size:.78rem;color:var(--gray-light);margin-bottom:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600">Ton score</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--red);line-height:1.1" id="score-display">0 / 0</div>
+        <div style="font-size:.88rem;color:var(--gray);margin-top:4px">questions répondues</div>
+      </div>
+      <div style="margin-top:22px;background:var(--red-pale);border:1px solid var(--red-pale2);padding:20px" id="qcm-unlock-cta">
+        <div style="font-size:.88rem;font-weight:600;color:var(--red);margin-bottom:8px">🔒 Accès complet</div>
+        <div style="font-size:.9rem;color:var(--gray);line-height:1.55;margin-bottom:14px">Débloquez les 700+ QCM pour 59€</div>
+        <button class="btn btn-red" style="width:100%;font-size:.88rem;padding:13px" onclick="goTo('formation')">Débloquer →</button>
+      </div>
+      <div style="margin-top:22px;background:#edf7ee;border:1px solid #c3e6c8;padding:20px;display:none" id="qcm-member-cta">
+        <div style="font-size:.88rem;font-weight:600;color:#1a5c25;margin-bottom:8px">✅ Accès complet activé</div>
+        <div style="font-size:.9rem;color:var(--gray);line-height:1.55">Tu as accès à tous les QCM.</div>
       </div>
     </div>
+
+    <!-- MAIN QCM -->
     <div class="qcm-main">
-      <div class="qcm-header">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <div class="s-eyebrow" style="margin:0" id="qcm-cat-title">Culture Pompier</div>
-          <div style="font-size:.8rem;color:var(--gray)">Question <span id="q-current">1</span> / 3 (démo)</div>
+      <div id="qcm-launch-screen">
+        <!-- Écran d'accueil avant lancement -->
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
+          <div style="font-size:3rem;margin-bottom:20px">🎯</div>
+          <div class="s-eyebrow" style="text-align:center">Prêt à t'entraîner ?</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:12px;line-height:1.2">Choisis tes thèmes<br>ou lance un entraînement aléatoire</div>
+          <div style="font-size:.9rem;color:var(--gray);max-width:400px;line-height:1.7">Sélectionne les thèmes dans la colonne de gauche, puis clique sur <strong style="color:var(--charcoal)">Lancer les QCM</strong>.</div>
+          <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
+            <div style="background:white;border:1px solid var(--border);padding:20px 24px;text-align:left;min-width:160px">
+              <div style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Par thème</div>
+              <div style="font-size:.85rem;color:var(--gray);line-height:1.55">Coche un ou plusieurs thèmes et cible tes points faibles.</div>
+            </div>
+            <div style="background:white;border:1px solid var(--border);padding:20px 24px;text-align:left;min-width:160px">
+              <div style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Aléatoire</div>
+              <div style="font-size:.85rem;color:var(--gray);line-height:1.55">Mix de tous les thèmes pour simuler le concours.</div>
+            </div>
+          </div>
         </div>
-        <div class="qcm-progress"><div class="qcm-progress-bar" id="qcm-prog" style="width:33%"></div></div>
-        <div class="qcm-prog-text">Progression sur les questions de démonstration</div>
       </div>
-      <div id="qcm-area"></div>
+      <div id="qcm-session" style="display:none">
+        <div class="qcm-header">
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;flex-wrap:wrap;gap:8px">
+            <div class="s-eyebrow" style="margin:0" id="qcm-cat-title">—</div>
+            <div style="display:flex;align-items:center;gap:10px">
+              <div style="font-size:.8rem;color:var(--gray)">Question <span id="q-current">1</span> / <span id="q-total">3</span></div>
+              <button onclick="stopSession()" style="font-size:.75rem;color:var(--gray);background:none;border:1px solid var(--border);padding:4px 10px;cursor:pointer;font-family:'DM Sans',sans-serif">✕ Arrêter</button>
+            </div>
+          </div>
+          <div class="qcm-progress"><div class="qcm-progress-bar" id="qcm-prog" style="width:0%"></div></div>
+          <div class="qcm-prog-text" id="qcm-prog-text">Progression</div>
+        </div>
+        <div id="qcm-area"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -909,28 +1161,33 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
     </div>
   </div>
   <div class="section">
-    <div class="s-eyebrow">Annales</div>
-    <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:32px">Épreuve écrite : 3 années de sujets commentés</div>
-    <div class="annales-grid">
-      <div class="annale-card">
-        <div class="annale-year">2025</div>
-        <div class="annale-title">Session 2025</div>
-        <div class="annale-meta">Épreuve écrite commentée</div>
-        <button class="btn btn-outline-red" onclick="openLockModal()">Consulter →</button>
-      </div>
-      <div class="annale-card">
-        <div class="annale-year">2023</div>
-        <div class="annale-title">Session 2023</div>
-        <div class="annale-meta">Épreuve écrite commentée</div>
-        <button class="btn btn-outline-red" onclick="openLockModal()">Consulter →</button>
-      </div>
-      <div class="annale-card">
-        <div class="annale-year">2021</div>
-        <div class="annale-title">Session 2021</div>
-        <div class="annale-meta">Épreuve écrite commentée</div>
-        <button class="btn btn-outline-red" onclick="openLockModal()">Consulter →</button>
+
+    <!-- ===== VUE 1 : LISTE DES 3 THEMES ===== -->
+    <div id="annales-themes-view">
+      <div class="s-eyebrow">Annales — Mode examen</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:12px">Entraîne-toi dans <em style="color:var(--red)">les conditions du concours</em></div>
+      <div style="font-size:.95rem;color:var(--gray);line-height:1.7;max-width:640px;margin-bottom:8px">Chaque sujet se lance en mode examen chronométré d'1 heure. Consulte le PDF, coche tes réponses, obtiens ton score et la correction détaillée à la fin.</div>
+      <div class="annales-theme-grid" id="annales-themes-grid">
+        <!-- Rempli dynamiquement depuis annales_index.json -->
       </div>
     </div>
+
+    <!-- ===== VUE 2 : LISTE DES SUJETS D'UN THEME ===== -->
+    <div id="annales-sujets-view" style="display:none">
+      <button class="annales-back-btn" onclick="showAnnalesThemes()">← Retour aux thèmes</button>
+      <div class="annales-detail-header">
+        <div>
+          <div class="s-eyebrow" id="annales-sujets-theme-eyebrow">—</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-top:4px" id="annales-sujets-title">—</div>
+          <div style="font-size:.9rem;color:var(--gray);line-height:1.7;margin-top:8px;max-width:560px" id="annales-sujets-desc">—</div>
+        </div>
+      </div>
+      <div id="annales-sujets-list">
+        <!-- Rempli dynamiquement -->
+      </div>
+    </div>
+
+    <!-- ===== BIBLIOTHEQUE DOCUMENTAIRE (inchangée) ===== -->
     <div style="border-top:1px solid var(--border);margin-top:60px;padding-top:60px">
       <div class="s-eyebrow">Bibliothèque documentaire</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);margin-bottom:24px">Ressources réglementaires &amp; fiches</div>
@@ -951,6 +1208,73 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <div class="biblio-card" data-cat="statut" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut FP</div><div class="biblio-name">Carrière du SPP — grilles indiciaires 2024</div><div class="biblio-meta">Excel + PDF</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
         <div class="biblio-card" data-cat="regl" onclick="openLockModal()"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Réglementation</div><div class="biblio-name">GNR — Guide National de Référence SPP</div><div class="biblio-meta">PDF · Intégral · 200 pages</div><div class="biblio-overlay"><p>Accès membres</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
       </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= PAGE: MODE EXAMEN ============================= -->
+<div class="page" id="page-examen">
+  <div class="exam-layout">
+    <!-- PANNEAU GAUCHE : PDF DU SUJET -->
+    <div class="exam-pdf-pane">
+      <div class="exam-pdf-header">
+        <div class="exam-pdf-title" id="exam-pdf-title">Sujet</div>
+        <a id="exam-pdf-link" href="#" target="_blank" rel="noopener" class="exam-pdf-open-btn">Ouvrir dans un nouvel onglet ↗</a>
+      </div>
+      <iframe class="exam-pdf-frame" id="exam-pdf-frame" src="about:blank" title="Sujet d'annale"></iframe>
+    </div>
+
+    <!-- PANNEAU DROIT : GRILLE DE RÉPONSES -->
+    <div class="exam-answers-pane">
+      <div class="exam-timer-bar">
+        <div>
+          <div class="exam-timer-label">⏱ Temps restant</div>
+          <div class="exam-timer-value" id="exam-timer">60:00</div>
+        </div>
+        <div class="exam-progress-info">
+          <div class="exam-progress-count" id="exam-progress-count">0 / 0</div>
+          <div class="exam-progress-sub">répondues</div>
+        </div>
+      </div>
+      <div class="exam-answers-scroll">
+        <div class="exam-instructions" id="exam-instructions">Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.</div>
+        <div id="exam-questions-list">
+          <!-- Rempli dynamiquement -->
+        </div>
+      </div>
+      <div class="exam-actions-bar">
+        <button class="exam-abandon-btn" onclick="abandonExam()">Abandonner</button>
+        <div class="exam-summary-text" id="exam-summary"><strong>0</strong> / 0 répondues</div>
+        <button class="exam-submit-btn" id="exam-submit-btn" onclick="submitExam()">Terminer l'examen →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= PAGE: CORRECTION ============================= -->
+<div class="page" id="page-correction">
+  <div class="correction-wrap">
+    <div class="correction-inner">
+      <div class="correction-header">
+        <div class="s-eyebrow">Résultats</div>
+        <div id="correction-title" style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-top:8px">—</div>
+        <div class="correction-score-big" id="correction-score">— / —</div>
+        <div class="correction-score-pct" id="correction-pct">— %</div>
+        <div class="correction-score-label" id="correction-label">—</div>
+        <div class="correction-progress-bar"><div class="correction-progress-fill" id="correction-fill" style="width:0%"></div></div>
+        <div class="correction-actions">
+          <a id="correction-corrige-link" href="#" target="_blank" rel="noopener" class="btn btn-red">📄 Voir le corrigé officiel (PDF) →</a>
+          <button class="btn btn-outline-red" onclick="goTo('biblio')">← Retour aux annales</button>
+        </div>
+      </div>
+      <div class="correction-stats">
+        <div class="correction-stat correct"><div class="correction-stat-n" id="correction-n-correct">0</div><div class="correction-stat-l">Bonnes réponses</div></div>
+        <div class="correction-stat wrong"><div class="correction-stat-n" id="correction-n-wrong">0</div><div class="correction-stat-l">Erreurs</div></div>
+        <div class="correction-stat skipped"><div class="correction-stat-n" id="correction-n-skipped">0</div><div class="correction-stat-l">Non répondues</div></div>
+        <div class="correction-stat total"><div class="correction-stat-n" id="correction-n-total">0</div><div class="correction-stat-l">Questions</div></div>
+      </div>
+      <div class="correction-detail-title">Détail question par question</div>
+      <div id="correction-detail-list"><!-- Rempli dynamiquement --></div>
     </div>
   </div>
 </div>
@@ -1178,7 +1502,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 <script>
 if(window.location.search.indexOf('success') !== -1) {
   document.addEventListener('DOMContentLoaded', function(){
-    var pages = ['home','parcours','formation','connexion','qcm','biblio','actu','coaching','merci'];
+    var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci'];
     pages.forEach(function(p){
       var el = document.getElementById('page-'+p);
       if(el) el.classList.toggle('active', p === 'merci');
@@ -1365,7 +1689,7 @@ var currentMember = null;
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','formation','connexion','qcm','biblio','actu','coaching','merci'];
+var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -1464,112 +1788,527 @@ function showToast(msg) {
 }
 
 // ============================================================
-// QCM
+// QCM — MULTI-THÈME + MODE ALÉATOIRE
 // ============================================================
-var questions = [
+
+// ---- CONFIGURATION : où sont stockés les fichiers JSON ----
+// Les fichiers doivent être hébergés dans un dossier /qcm/ à côté de index.html
+// Les doctrines sont dans un sous-dossier /qcm/doctrines/
+var QCM_BASE_PATH = 'qcm/';
+var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto-forets','gto-extinctions','gto-vicie','gdo-ssuap','gdo-fumees','gdo-elec','gdo-silos','gdo-gaz','gdo-agricole','gdo-incendie','gdo-ulm','gdo-routier','gdo-foret','pse'];
+
+// Labels humains des thèmes (pour l'affichage)
+var CAT_LABELS = {
+  'statut': 'Statut SPP & Fonctionnaire',
+  'sis': 'Organisation d\'un SIS',
+  'divers': 'Divers',
+  'textes': 'Textes structurants du concours',
+  'gto-ventilation': 'GTO Ventilation Opérationnelle',
+  'gto-sauvetage': 'GTO Sauvetage & Mise en Sécurité',
+  'gto-sauvegarde': 'GTO Sauvegarde Opérationnelle',
+  'gto-forets': 'GTO Luttes Feux de Forêts & EN',
+  'gto-extinctions': 'GTO Établissements & Extinctions',
+  'gto-vicie': 'GTO Engagement Milieu Vicié',
+  'gdo-ssuap': 'GDO SSUAP',
+  'gdo-fumees': 'GDO Toxicité des Fumées',
+  'gdo-elec': 'GDO Présence Électricité',
+  'gdo-silos': 'GDO Intervention Silos',
+  'gdo-gaz': 'GDO Présence Gaz',
+  'gdo-agricole': 'GDO Milieu Agricole',
+  'gdo-incendie': 'GDO Incendie Structure',
+  'gdo-ulm': 'GDO Présence ULM',
+  'gdo-routier': 'GDO Milieu Routier',
+  'gdo-foret': 'GDO Feux Forêt & Espace Naturel',
+  'pse': 'Secourisme PSE1 / PSE2'
+};
+
+// QCM de démonstration (accessibles même aux non-membres, avant achat)
+// 3 questions chargées depuis le JSON ne marcheraient pas pour les non-membres
+// (pas d'accès aux fichiers), donc on garde une mini-banque démo ici.
+var DEMO_QUESTIONS = [
   {
+    id: 'demo-1',
+    cat: 'statut',
+    level: 'TF',
     q: 'Quel texte réglementaire définit les missions des SDIS en France ?',
     choices: ['Décret du 13 octobre 2004', 'Loi n°96-369 du 3 mai 1996', 'Arrêté du 6 mai 2000', 'Circulaire NOR/INT/E/02'],
-    correct: 1,
-    expl: 'La loi n°96-369 du 3 mai 1996 est le texte fondateur régissant les missions, l\'organisation et le financement des SDIS en France.'
+    correct: [1],
+    expl: 'La loi n°96-369 du 3 mai 1996 est le texte fondateur régissant les missions, l\'organisation et le financement des SDIS en France.',
+    source: 'CGCT art. L1424-1'
   },
   {
+    id: 'demo-2',
+    cat: 'sis',
+    level: 'TF',
     q: 'Combien y a-t-il de Services Départementaux d\'Incendie et de Secours (SDIS) en France ?',
     choices: ['86 SDIS', '97 SDIS', '101 SDIS', '78 SDIS'],
-    correct: 1,
-    expl: 'Il y a 97 SDIS en France, un par département (96 en métropole + 1 en Corse regroupant les 2 départements).'
+    correct: [1],
+    expl: 'Il y a 97 SDIS en France, un par département (96 en métropole + 1 en Corse regroupant les 2 départements).',
+    source: 'Ministère de l\'Intérieur'
   },
   {
-    q: 'L\'épreuve de sélection du SPP comporte une épreuve sportive. Quel est l\'objectif du test du « Gaier » ?',
-    choices: ['Mesurer la force musculaire des jambes', 'Évaluer l\'endurance cardio-vasculaire et respiratoire', 'Tester la coordination et l\'équilibre', 'Mesurer la souplesse articulaire'],
-    correct: 1,
-    expl: 'Le Gaier est un test de type navette progressive qui évalue l\'endurance aérobie (VO2max) — qualité essentielle pour les opérations.'
+    id: 'demo-3',
+    cat: 'gdo-ssuap',
+    level: 'F',
+    q: 'Parmi les éléments suivants, lesquels font partie du bilan primaire SSUAP ? (plusieurs réponses)',
+    choices: ['Libération des voies aériennes', 'Évaluation de la circulation', 'Antécédents médicaux complets', 'Évaluation de la ventilation'],
+    correct: [0, 1, 3],
+    expl: 'Le bilan primaire suit la séquence A-B-C : Airway (voies aériennes), Breathing (ventilation), Circulation. Les antécédents médicaux relèvent du bilan secondaire.',
+    source: 'GDO SSUAP'
   }
 ];
 
+// Cache des questions chargées (évite de retélécharger les JSON)
+var loadedQuestions = {};  // { 'statut': [...], 'gto-ssuap': [...] }
+
+var selectedCats = {};   // { 'statut': true, 'gto-ventilation': true, ... }
+var qcmMode = 'select';  // 'select' | 'random'
+var randomNb = 5;
+
+var activeSession = [];  // questions de la session en cours
 var qIdx = 0, score = 0, answered = 0;
 
-function initQcm() {
+// ---------- MODE SWITCH ----------
+function switchQcmMode(mode) {
+  qcmMode = mode;
+  document.getElementById('tab-select').classList.toggle('active', mode === 'select');
+  document.getElementById('tab-random').classList.toggle('active', mode === 'random');
+  document.getElementById('qcm-panel-select').style.display = mode === 'select' ? '' : 'none';
+  document.getElementById('qcm-panel-random').style.display = mode === 'random' ? '' : 'none';
+}
+
+// ---------- SÉLECTION THÈMES ----------
+function toggleCat(cat) {
+  selectedCats[cat] = !selectedCats[cat];
+  updateCheckbox(cat);
+
+  // Si c'est "doctrines" (parent), on toggle toutes les sous-cats
+  if (cat === 'doctrines') {
+    DOCTRINES_SUBCATS.forEach(function(sc) {
+      selectedCats[sc] = selectedCats['doctrines'];
+      updateCheckbox(sc);
+    });
+  }
+  updateSummary();
+}
+
+function toggleSubCat(cat, evt) {
+  if (evt) evt.stopPropagation();
+  selectedCats[cat] = !selectedCats[cat];
+  updateCheckbox(cat);
+  // Met à jour la checkbox parent "doctrines"
+  var anyDoctrineChecked = DOCTRINES_SUBCATS.some(function(sc){ return selectedCats[sc]; });
+  var allDoctrinesChecked = DOCTRINES_SUBCATS.every(function(sc){ return selectedCats[sc]; });
+  selectedCats['doctrines'] = allDoctrinesChecked;
+  var parentEl = document.getElementById('chk-doctrines');
+  if (parentEl) {
+    parentEl.textContent = allDoctrinesChecked ? '☑' : (anyDoctrineChecked ? '▪' : '☐');
+    var parentItem = parentEl.closest('.qcm-check-item');
+    if (parentItem) parentItem.classList.toggle('checked', anyDoctrineChecked);
+  }
+  updateSummary();
+}
+
+function toggleDoctrinesPanel(evt) {
+  var sub = document.getElementById('doctrines-sub');
+  var arrow = document.getElementById('arrow-doctrines');
+  var isOpen = sub.classList.contains('open');
+  sub.classList.toggle('open', !isOpen);
+  if (arrow) arrow.textContent = isOpen ? '▸' : '▾';
+}
+
+function toggleSelectAll() {
+  var allCats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  var anySelected = allCats.some(function(c){ return selectedCats[c]; });
+  var newState = !anySelected;
+  allCats.forEach(function(c){ selectedCats[c] = newState; updateCheckbox(c); });
+  selectedCats['doctrines'] = newState;
+  updateCheckbox('doctrines');
+  document.getElementById('select-all-icon').textContent = newState ? '☑' : '☐';
+  document.getElementById('select-all-label').textContent = newState ? 'Tout désélectionner' : 'Tout sélectionner';
+  // Ouvrir les doctrines si on sélectionne tout
+  if (newState) {
+    document.getElementById('doctrines-sub').classList.add('open');
+    var arrow = document.getElementById('arrow-doctrines');
+    if (arrow) arrow.textContent = '▾';
+  }
+  updateSummary();
+}
+
+function updateCheckbox(cat) {
+  var el = document.getElementById('chk-' + cat);
+  if (!el) return;
+  el.textContent = selectedCats[cat] ? '☑' : '☐';
+  var item = el.closest('.qcm-check-item, .qcm-subcheck-item');
+  if (item) item.classList.toggle('checked', !!selectedCats[cat]);
+}
+
+function updateSummary() {
+  var cats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  var selected = cats.filter(function(c){ return selectedCats[c]; });
+  var btn = document.getElementById('qcm-launch-btn');
+  var summary = document.getElementById('qcm-selection-summary');
+
+  if (selected.length === 0) {
+    summary.innerHTML = '<span style="color:var(--gray-light)">Aucun thème sélectionné</span>';
+    btn.style.opacity = '.4'; btn.style.pointerEvents = 'none';
+  } else {
+    var catNames = [];
+    if (selectedCats['statut']) catNames.push('Statut SPP');
+    if (selectedCats['sis']) catNames.push('Org. SIS');
+    var doctrinesSub = DOCTRINES_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+    if (doctrinesSub.length === DOCTRINES_SUBCATS.length) catNames.push('Doctrines (toutes)');
+    else if (doctrinesSub.length > 0) catNames.push('Doctrines (' + doctrinesSub.length + ')');
+    if (selectedCats['divers']) catNames.push('Divers');
+    if (selectedCats['textes']) catNames.push('Textes structurants');
+    var footer = currentMember
+      ? selected.length + ' thème' + (selected.length > 1 ? 's' : '') + ' sélectionné' + (selected.length > 1 ? 's' : '')
+      : 'Session de démonstration — quelques questions';
+    summary.innerHTML = '<strong style="color:var(--charcoal)">' + catNames.join(', ') + '</strong><br><span style="color:var(--gray-light)">' + footer + '</span>';
+    btn.style.opacity = '1'; btn.style.pointerEvents = 'auto';
+  }
+}
+
+function setQcmNb(btn, n) {
+  randomNb = n;
+  document.querySelectorAll('.qcm-nb-btn').forEach(function(b){ b.classList.remove('active'); });
+  btn.classList.add('active');
+}
+
+// ---------- CHARGEMENT JSON ----------
+// Charge un fichier JSON de thème et le met en cache.
+// Retourne une Promise avec les questions.
+function loadCat(cat) {
+  if (loadedQuestions[cat]) {
+    return Promise.resolve(loadedQuestions[cat]);
+  }
+  var path = QCM_BASE_PATH;
+  if (DOCTRINES_SUBCATS.indexOf(cat) !== -1) {
+    path += 'doctrines/' + cat + '.json';
+  } else {
+    path += cat + '.json';
+  }
+  return fetch(path).then(function(resp) {
+    if (!resp.ok) throw new Error('Fichier introuvable : ' + path);
+    return resp.json();
+  }).then(function(questions) {
+    // Enrichit chaque question avec sa catégorie et son label
+    questions.forEach(function(q) {
+      q.cat = cat;
+      q.catLabel = CAT_LABELS[cat] || cat;
+      // Normalise correct en tableau si c'est un nombre isolé (rétrocompatibilité)
+      if (typeof q.correct === 'number') q.correct = [q.correct];
+    });
+    loadedQuestions[cat] = questions;
+    return questions;
+  });
+}
+
+// Charge plusieurs thèmes et renvoie la banque agrégée
+function loadCats(cats) {
+  return Promise.all(cats.map(loadCat)).then(function(arrays) {
+    // Aplatit tous les tableaux en un seul
+    return arrays.reduce(function(acc, arr) { return acc.concat(arr); }, []);
+  });
+}
+
+// ---------- LANCEMENT SESSION ----------
+function launchQcm() {
+  var cats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  var selected = cats.filter(function(c){ return selectedCats[c]; });
+  if (selected.length === 0) return;
+
+  // Non-membre : on montre uniquement les questions démo correspondant aux thèmes cochés
+  if (!currentMember) {
+    var demoPool = DEMO_QUESTIONS.filter(function(q){ return selected.indexOf(q.cat) !== -1; });
+    if (demoPool.length === 0) {
+      // Aucune démo sur les thèmes sélectionnés → prompt d'achat
+      showToast('⚠️ Les thèmes sélectionnés sont réservés aux membres. Débloque la plateforme pour y accéder.');
+      openLockModal();
+      return;
+    }
+    startSession(shuffle(demoPool), buildSessionTitle(selected) + ' (démo)');
+    return;
+  }
+
+  // Membre : chargement des vraies questions
+  showLoadingScreen();
+  loadCats(selected).then(function(pool) {
+    if (pool.length === 0) {
+      document.getElementById('qcm-area').innerHTML = '<div class="question-card" style="text-align:center;padding:48px 24px"><div style="font-size:2rem;margin-bottom:12px">📭</div><div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:8px">Aucune question disponible</div><div style="font-size:.9rem;color:var(--gray);line-height:1.6">Les thèmes sélectionnés ne contiennent pas encore de QCM.</div><button class="btn btn-outline-red" style="margin-top:20px" onclick="stopSession()">← Retour</button></div>';
+      return;
+    }
+    pool = shuffle(pool);
+    startSession(pool, buildSessionTitle(selected));
+  }).catch(function(err) {
+    console.error('Erreur chargement QCM :', err);
+    document.getElementById('qcm-area').innerHTML = '<div class="question-card" style="text-align:center;padding:48px 24px"><div style="font-size:2rem;margin-bottom:12px">⚠️</div><div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:8px">Erreur de chargement</div><div style="font-size:.9rem;color:var(--gray);line-height:1.6">Impossible de charger les questions. Vérifie ta connexion et réessaie.</div><button class="btn btn-red" style="margin-top:20px" onclick="launchQcm()">Réessayer</button></div>';
+  });
+}
+
+function launchRandomQcm() {
+  // Non-membre : pioche dans les démos uniquement
+  if (!currentMember) {
+    var demoPool = shuffle(DEMO_QUESTIONS.slice()).slice(0, Math.min(randomNb, DEMO_QUESTIONS.length));
+    startSession(demoPool, '🔀 Entraînement aléatoire (démo)');
+    return;
+  }
+
+  // Membre : charge TOUS les thèmes puis pioche
+  var allCats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  showLoadingScreen();
+  loadCats(allCats).then(function(pool) {
+    pool = shuffle(pool).slice(0, Math.min(randomNb, pool.length));
+    startSession(pool, '🔀 Entraînement aléatoire — ' + pool.length + ' questions');
+  }).catch(function(err) {
+    console.error('Erreur chargement aléatoire :', err);
+    document.getElementById('qcm-area').innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2rem;margin-bottom:12px">⚠️</div>Erreur de chargement. Réessaie dans un instant.<br><br><button class="btn btn-red" onclick="launchRandomQcm()">Réessayer</button></div>';
+  });
+}
+
+function showLoadingScreen() {
+  document.getElementById('qcm-launch-screen').style.display = 'none';
+  document.getElementById('qcm-session').style.display = '';
+  document.getElementById('qcm-cat-title').textContent = 'Chargement…';
+  document.getElementById('q-total').textContent = '—';
+  document.getElementById('q-current').textContent = '—';
+  document.getElementById('qcm-prog').style.width = '0%';
+  document.getElementById('qcm-area').innerHTML = '<div class="question-card" style="text-align:center;padding:60px 24px"><div style="font-size:2rem;margin-bottom:16px">⏳</div><div style="font-size:.95rem;color:var(--gray)">Chargement des questions...</div></div>';
+}
+
+function buildSessionTitle(selected) {
+  if (selected.length === 0) return 'Session';
+  var names = [];
+  if (selectedCats['statut']) names.push('Statut SPP');
+  if (selectedCats['sis']) names.push('Organisation SIS');
+  var ds = DOCTRINES_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+  if (ds.length === DOCTRINES_SUBCATS.length) names.push('Doctrines Opérationnelles');
+  else if (ds.length > 0) names.push('Doctrines (' + ds.length + ' sous-thèmes)');
+  if (selectedCats['divers']) names.push('Divers');
+  if (selectedCats['textes']) names.push('Textes structurants');
+  return names.join(' · ');
+}
+
+function shuffle(arr) {
+  for (var i = arr.length - 1; i > 0; i--) {
+    var j = Math.floor(Math.random() * (i + 1));
+    var tmp = arr[i]; arr[i] = arr[j]; arr[j] = tmp;
+  }
+  return arr;
+}
+
+function startSession(pool, title) {
+  activeSession = pool;
   qIdx = 0; score = 0; answered = 0;
+  document.getElementById('qcm-launch-screen').style.display = 'none';
+  document.getElementById('qcm-session').style.display = '';
+  document.getElementById('qcm-cat-title').textContent = title;
+  document.getElementById('q-total').textContent = pool.length;
   renderQ();
   updateScore();
+}
+
+function stopSession() {
+  document.getElementById('qcm-launch-screen').style.display = '';
+  document.getElementById('qcm-session').style.display = 'none';
+  document.getElementById('qcm-area').innerHTML = '';
+}
+
+function initQcm() {
+  // Appelé à chaque goTo('qcm') — ne reset pas une session en cours
 }
 
 function renderQ() {
   var area = document.getElementById('qcm-area');
   if (!area) return;
 
-  if (qIdx >= questions.length) {
-    // Fin des questions démo
+  if (qIdx >= activeSession.length) {
+    // Fin de session
+    var pct = activeSession.length > 0 ? Math.round(score / activeSession.length * 100) : 0;
+    var emoji = pct >= 80 ? '🏅' : pct >= 60 ? '👍' : '📚';
     if (!currentMember) {
       area.innerHTML = [
         '<div style="background:white;border:1px solid var(--border);padding:48px 36px;text-align:center">',
-          '<div style="font-size:2.8rem;margin-bottom:16px">🎯</div>',
-          '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:12px">Démo terminée — Score : ' + score + ' / ' + questions.length + '</div>',
-          '<div style="font-size:.93rem;color:var(--gray);line-height:1.75;margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto">',
-            'Tu viens de tester tes premières connaissances sur <strong style="color:var(--charcoal)">3 questions de démonstration</strong>.<br>',
-            'Pour continuer à progresser, choisis un accès ci-dessous.',
+          '<div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div>',
+          '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Session terminée</div>',
+          '<div style="font-size:1rem;color:var(--gray);margin-bottom:4px">Score : <strong style="color:var(--charcoal)">' + score + ' / ' + activeSession.length + '</strong> — <strong style="color:var(--red)">' + pct + '%</strong></div>',
+          '<div style="width:100%;background:var(--border-light);height:6px;margin:16px 0 28px"><div style="height:6px;background:var(--red);width:' + pct + '%"></div></div>',
+          '<div style="font-size:.9rem;color:var(--gray);line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">',
+            'Tu viens de compléter une session de démonstration.<br>Accède aux <strong style="color:var(--charcoal)">700+ QCM complets</strong> pour progresser jusqu\'au jour J.',
           '</div>',
-          '<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:16px;max-width:740px;margin:0 auto 32px">',
-            '<div style="background:var(--cream);border:1px solid var(--border);padding:24px;text-align:left">',
-              '<div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Ebook gratuit</div>',
-              '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);line-height:1;margin-bottom:4px">0€</div>',
-              '<div style="font-size:.8rem;color:var(--gray);margin-bottom:16px;line-height:1.5">Guide de démarrage + conseils exclusifs</div>',
-              '<button class="btn btn-outline-red" style="width:100%;justify-content:center;display:flex;font-size:.78rem;padding:10px" onclick="openPopup()">Télécharger →</button>',
-            '</div>',
-            '<div style="background:white;border:1px solid var(--border);padding:24px;text-align:left">',
-              '<div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Accès Plateforme</div>',
-              '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);line-height:1;margin-bottom:4px">59€</div>',
-              '<div style="font-size:.8rem;color:var(--gray);margin-bottom:16px;line-height:1.5">500+ QCM · Annales · Bibliothèque</div>',
-              '<button class="btn btn-outline-red" style="width:100%;justify-content:center;display:flex;font-size:.78rem;padding:10px" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Choisir →</button>',
-            '</div>',
-            '<div style="background:white;border:2px solid var(--red);padding:24px;text-align:left;position:relative">',
-              '<div style="position:absolute;top:-11px;left:14px;background:var(--red);color:white;font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:3px 10px">Recommandé</div>',
-              '<div style="font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:8px">Pack Complet</div>',
-              '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);line-height:1;margin-bottom:4px">217€</div>',
-              '<div style="font-size:.8rem;color:var(--gray);margin-bottom:16px;line-height:1.5">Plateforme + 3 séances coaching</div>',
-              '<button class="btn btn-red" style="width:100%;justify-content:center;display:flex;font-size:.78rem;padding:10px" onclick="msPay(\'prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj\')">Choisir →</button>',
-            '</div>',
+          '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">',
+            '<button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button>',
+            '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Accès complet — 59€ →</button>',
           '</div>',
           '<div style="font-size:.82rem;color:var(--gray)">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>',
         '</div>'
       ].join('');
     } else {
-      area.innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2.8rem;margin-bottom:16px">🎯</div><div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:10px">Bravo ! Score : ' + score + '/' + questions.length + '</div><div style="font-size:.9rem;color:var(--gray);margin-bottom:24px">Tu as complété les questions de démonstration.</div><button class="btn btn-red" onclick="initQcm()">Recommencer →</button></div>';
+      area.innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div><div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Score : ' + score + ' / ' + activeSession.length + ' (' + pct + '%)</div><div style="width:100%;background:var(--border-light);height:5px;margin:12px 0 20px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button><button class="btn btn-red" onclick="launchQcm()">Relancer →</button></div></div>';
     }
+    document.getElementById('qcm-prog').style.width = '100%';
     return;
   }
 
-  var q = questions[qIdx];
-  var prog = Math.round((qIdx / questions.length) * 100);
+  var q = activeSession[qIdx];
+  var prog = Math.round((qIdx / activeSession.length) * 100);
   document.getElementById('qcm-prog').style.width = prog + '%';
   document.getElementById('q-current').textContent = qIdx + 1;
+  if (q.catLabel) {
+    document.getElementById('qcm-prog-text').textContent = q.catLabel;
+  }
 
-  var choicesHtml = q.choices.map(function(c, i) {
-    return '<button class="q-choice" onclick="answer(' + i + ')" id="c' + i + '"><span class="q-letter">' + String.fromCharCode(65 + i) + '</span>' + c + '</button>';
-  }).join('');
+  // Détermine si c'est une question à réponses multiples
+  var isMulti = q.correct.length > 1;
 
-  area.innerHTML = '<div class="question-card"><div class="q-num">Question ' + (qIdx + 1) + ' / ' + questions.length + '</div><div class="q-text">' + q.q + '</div><div class="q-choices" id="choices">' + choicesHtml + '</div><div class="q-expl" id="expl"></div></div>';
+  // Badge niveau (TF, F, M)
+  var levelLabels = { 'TF': 'Très facile', 'F': 'Facile', 'M': 'Moyen', 'D': 'Difficile' };
+  var levelColors = { 'TF': '#2d7a3a', 'F': '#8B6914', 'M': '#B83232', 'D': '#8B2020' };
+  var levelBadge = '';
+  if (q.level && levelLabels[q.level]) {
+    levelBadge = '<span style="font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:' + levelColors[q.level] + ';border:1px solid ' + levelColors[q.level] + ';padding:3px 8px;margin-left:10px">' + levelLabels[q.level] + '</span>';
+  }
+
+  // Indicateur "plusieurs réponses"
+  var multiHint = isMulti
+    ? '<div style="background:var(--red-pale);border:1px solid var(--red-pale2);padding:8px 14px;margin-bottom:16px;font-size:.8rem;color:var(--red);font-weight:600;display:inline-block">📌 Plusieurs réponses possibles — coche toutes les bonnes</div>'
+    : '';
+
+  var choicesHtml;
+  if (isMulti) {
+    // Cases à cocher pour multi-réponses
+    choicesHtml = q.choices.map(function(c, i) {
+      return '<button class="q-choice" onclick="toggleMultiChoice(' + i + ')" id="c' + i + '" data-checked="0"><span class="q-letter" id="box' + i + '">☐</span>' + c + '</button>';
+    }).join('');
+  } else {
+    // Boutons classiques pour mono-réponse
+    choicesHtml = q.choices.map(function(c, i) {
+      return '<button class="q-choice" onclick="answerSingle(' + i + ')" id="c' + i + '"><span class="q-letter">' + String.fromCharCode(65 + i) + '</span>' + c + '</button>';
+    }).join('');
+  }
+
+  var submitBtn = isMulti
+    ? '<button class="btn btn-red" id="q-submit-btn" style="margin-top:16px;width:100%;justify-content:center;display:flex;opacity:.4;pointer-events:none" onclick="submitMultiAnswer()">Valider ma réponse →</button>'
+    : '';
+
+  area.innerHTML =
+    '<div class="question-card">' +
+      '<div class="q-num">Question ' + (qIdx + 1) + ' / ' + activeSession.length + levelBadge + '</div>' +
+      '<div class="q-text">' + q.q + '</div>' +
+      multiHint +
+      '<div class="q-choices" id="choices">' + choicesHtml + '</div>' +
+      submitBtn +
+      '<div class="q-expl" id="expl"></div>' +
+    '</div>';
 }
 
-function answer(idx) {
-  var q = questions[qIdx];
+// État des cases cochées pour question multi-réponses
+var currentMultiSelection = [];
+
+function toggleMultiChoice(idx) {
+  var btn = document.getElementById('c' + idx);
+  var box = document.getElementById('box' + idx);
+  var isChecked = btn.getAttribute('data-checked') === '1';
+  if (isChecked) {
+    btn.setAttribute('data-checked', '0');
+    box.textContent = '☐';
+    btn.style.borderColor = '';
+    btn.style.background = '';
+    currentMultiSelection = currentMultiSelection.filter(function(i){ return i !== idx; });
+  } else {
+    btn.setAttribute('data-checked', '1');
+    box.textContent = '☑';
+    btn.style.borderColor = 'var(--red)';
+    btn.style.background = 'var(--red-pale)';
+    currentMultiSelection.push(idx);
+  }
+  // Active le bouton "Valider" dès qu'au moins une case est cochée
+  var submitBtn = document.getElementById('q-submit-btn');
+  if (submitBtn) {
+    if (currentMultiSelection.length > 0) {
+      submitBtn.style.opacity = '1';
+      submitBtn.style.pointerEvents = 'auto';
+    } else {
+      submitBtn.style.opacity = '.4';
+      submitBtn.style.pointerEvents = 'none';
+    }
+  }
+}
+
+function submitMultiAnswer() {
+  var q = activeSession[qIdx];
+  var correct = q.correct.slice().sort();
+  var selected = currentMultiSelection.slice().sort();
+
+  // Comparaison stricte : les deux tableaux doivent être identiques (tout ou rien)
+  var isCorrect = correct.length === selected.length &&
+    correct.every(function(v, i){ return v === selected[i]; });
+
+  answered++;
+  if (isCorrect) score++;
+
+  // Affichage du résultat
+  var choices = document.querySelectorAll('.q-choice');
+  choices.forEach(function(c, i) {
+    c.disabled = true;
+    c.onclick = null;
+    var isCorrectChoice = q.correct.indexOf(i) !== -1;
+    var wasSelected = currentMultiSelection.indexOf(i) !== -1;
+    c.style.borderColor = '';
+    c.style.background = '';
+    if (isCorrectChoice) {
+      c.classList.add('reveal-correct');
+    }
+    if (wasSelected && !isCorrectChoice) {
+      c.classList.add('wrong');
+    }
+  });
+
+  // Masque le bouton valider
+  var submitBtn = document.getElementById('q-submit-btn');
+  if (submitBtn) submitBtn.style.display = 'none';
+
+  showExplAndNext(q, isCorrect);
+  currentMultiSelection = [];
+}
+
+function answerSingle(idx) {
+  var q = activeSession[qIdx];
   answered++;
   var choices = document.querySelectorAll('.q-choice');
-  choices.forEach(function(c) { c.disabled = true; });
-  if (idx === q.correct) {
+  choices.forEach(function(c) { c.disabled = true; c.onclick = null; });
+  var isCorrect = q.correct.indexOf(idx) !== -1;
+  if (isCorrect) {
     choices[idx].classList.add('correct');
     score++;
   } else {
     choices[idx].classList.add('wrong');
-    choices[q.correct].classList.add('reveal-correct');
+    // Met en évidence la/les bonnes réponses
+    q.correct.forEach(function(ci) {
+      choices[ci].classList.add('reveal-correct');
+    });
   }
+  showExplAndNext(q, isCorrect);
+}
+
+function showExplAndNext(q, isCorrect) {
   var expl = document.getElementById('expl');
-  expl.textContent = q.expl;
+  var explHtml = q.expl;
+  if (q.source) {
+    explHtml += '<div style="margin-top:10px;padding-top:10px;border-top:1px solid var(--border-light);font-size:.78rem;color:var(--gray-light)">📖 Source : ' + q.source + '</div>';
+  }
+  expl.innerHTML = explHtml;
   expl.classList.add('show');
-  expl.classList.add(idx === q.correct ? 'correct-expl' : 'wrong-expl');
+  expl.classList.add(isCorrect ? 'correct-expl' : 'wrong-expl');
   updateScore();
-  setTimeout(function() { qIdx++; renderQ(); }, 2200);
+
+  var nextLabel = (qIdx + 1 >= activeSession.length) ? 'Voir les résultats →' : 'Question suivante →';
+  var nextBtn = document.createElement('button');
+  nextBtn.className = 'btn btn-red';
+  nextBtn.textContent = nextLabel;
+  nextBtn.style.cssText = 'margin-top:20px;width:100%;justify-content:center;display:flex';
+  nextBtn.onclick = function() { qIdx++; renderQ(); };
+  document.querySelector('.question-card').appendChild(nextBtn);
 }
 
 function updateScore() {
@@ -1577,13 +2316,10 @@ function updateScore() {
   if (el) el.textContent = score + ' / ' + answered;
 }
 
-function setQcmCat(el, name) {
-  document.querySelectorAll('.qcm-cat').forEach(function(c) { c.classList.remove('active'); });
-  el.classList.add('active');
-  document.getElementById('qcm-cat-title').textContent = name;
-  qIdx = 0; score = 0; answered = 0;
-  renderQ(); updateScore();
-}
+// Stubs conservés pour compatibilité (ne font plus rien)
+function setQcmCat() {}
+function setQcmSubcat() {}
+function toggleSubcats() {}
 
 // ============================================================
 // BIBLIOTHÈQUE - FILTRE
@@ -1772,6 +2508,361 @@ document.addEventListener('memberstack.formSubmitSuccess', function(e) {
     goTo('merci');
   }
 });
+
+// ============================================================
+// ANNALES + MODE EXAMEN
+// ============================================================
+
+var ANNALES_INDEX_URL = 'annales/index.json';
+var annalesData = null;     // { themes: {...}, annales: [...] }
+var currentAnnale = null;   // annale détaillée en cours d'examen
+var examState = {
+  answers: {},              // { 1: [0,2], 3: [1], ... } — indices cochés par l'utilisateur
+  timerInterval: null,
+  remainingSec: 0,
+  totalSec: 0,
+  startedAt: null,
+  submitted: false,
+};
+
+// ---------- CHARGEMENT DE L'INDEX ----------
+function loadAnnalesIndex() {
+  if (annalesData) return Promise.resolve(annalesData);
+  return fetch(ANNALES_INDEX_URL).then(function(r) {
+    if (!r.ok) throw new Error('Impossible de charger ' + ANNALES_INDEX_URL);
+    return r.json();
+  }).then(function(data) {
+    annalesData = data;
+    return data;
+  });
+}
+
+// ---------- AFFICHAGE DES 3 THEMES ----------
+function renderAnnalesThemes() {
+  var grid = document.getElementById('annales-themes-grid');
+  if (!grid) return;
+  // Non connecté : CTA d'abonnement
+  if (!currentMember) {
+    grid.innerHTML = [
+      '<div style="grid-column:1/-1;background:white;border:1px solid var(--border);padding:40px 32px;text-align:center">',
+        '<div style="font-size:2rem;margin-bottom:14px">🔒</div>',
+        '<div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px">Annales réservées aux membres</div>',
+        '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:420px;margin:0 auto 20px">Le mode examen chronométré avec correction automatique est inclus dans l\'accès plateforme complet.</div>',
+        '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès — 59€ →</button>',
+        ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">Se connecter</button>',
+      '</div>'
+    ].join('');
+    return;
+  }
+
+  grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray);font-size:.9rem">⏳ Chargement des annales...</div>';
+  loadAnnalesIndex().then(function(data) {
+    var themes = data.themes || {};
+    var annales = data.annales || [];
+    // Compte les annales par thème
+    var counts = {};
+    annales.forEach(function(a) { counts[a.theme] = (counts[a.theme] || 0) + 1; });
+
+    var html = '';
+    Object.keys(themes).forEach(function(key) {
+      var t = themes[key];
+      var nb = counts[key] || 0;
+      var countLabel = nb === 0 ? 'Aucun sujet pour l\'instant' : (nb + ' sujet' + (nb > 1 ? 's' : '') + ' disponible' + (nb > 1 ? 's' : ''));
+      html += '<div class="annales-theme-card" onclick="showAnnalesSujets(\'' + key + '\')">' +
+        '<div class="annales-theme-icon">' + (t.icon || '📘') + '</div>' +
+        '<div class="annales-theme-label">' + t.label + '</div>' +
+        '<div class="annales-theme-desc">' + (t.description || '') + '</div>' +
+        '<div class="annales-theme-count"><span>' + countLabel + '</span><span class="annales-theme-arrow">→</span></div>' +
+      '</div>';
+    });
+    grid.innerHTML = html;
+  }).catch(function(err) {
+    console.error('Erreur chargement index annales :', err);
+    grid.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:40px;color:var(--gray);font-size:.9rem">⚠️ Impossible de charger les annales. Vérifie que le fichier <code>annales/index.json</code> est bien présent sur le serveur.</div>';
+  });
+}
+
+// ---------- AFFICHAGE DES SUJETS D'UN THEME ----------
+function showAnnalesSujets(themeKey) {
+  loadAnnalesIndex().then(function(data) {
+    var t = (data.themes || {})[themeKey];
+    if (!t) return;
+    document.getElementById('annales-themes-view').style.display = 'none';
+    document.getElementById('annales-sujets-view').style.display = '';
+    document.getElementById('annales-sujets-theme-eyebrow').textContent = t.label;
+    document.getElementById('annales-sujets-title').textContent = 'Sujets d\'annales — ' + t.label;
+    document.getElementById('annales-sujets-desc').textContent = t.description || '';
+
+    var annales = (data.annales || []).filter(function(a) { return a.theme === themeKey; });
+    // Tri par année décroissante
+    annales.sort(function(a, b) { return (b.year || 0) - (a.year || 0); });
+
+    var list = document.getElementById('annales-sujets-list');
+    if (annales.length === 0) {
+      list.innerHTML = '<div style="background:white;border:1px dashed var(--border);padding:32px;text-align:center;color:var(--gray);font-size:.9rem">📭 Aucun sujet disponible pour ce thème. Reviens bientôt.</div>';
+      return;
+    }
+
+    list.innerHTML = annales.map(function(a) {
+      return '<div class="annale-sujet-card">' +
+        '<div class="annale-sujet-year">' + (a.year || '—') + '</div>' +
+        '<div class="annale-sujet-body">' +
+          '<div class="annale-sujet-title">' + (a.title || 'Sujet ' + a.year) + '</div>' +
+          '<div class="annale-sujet-meta">' + (a.nb_questions || '?') + ' questions · ' + (a.duration_min || 60) + ' minutes · Mode examen chronométré</div>' +
+        '</div>' +
+        '<div class="annale-sujet-actions">' +
+          '<button class="btn btn-red" onclick="startExam(\'' + a.id + '\')">🎯 Lancer l\'examen</button>' +
+        '</div>' +
+      '</div>';
+    }).join('');
+  });
+}
+
+function showAnnalesThemes() {
+  document.getElementById('annales-sujets-view').style.display = 'none';
+  document.getElementById('annales-themes-view').style.display = '';
+}
+
+// ---------- DEMARRAGE MODE EXAMEN ----------
+function startExam(annaleId) {
+  if (!currentMember) {
+    openLockModal();
+    return;
+  }
+  // Charge le fichier détaillé de l'annale
+  var path = 'annales/' + annaleId + '.json';
+  fetch(path).then(function(r) {
+    if (!r.ok) throw new Error('Fichier introuvable : ' + path);
+    return r.json();
+  }).then(function(annale) {
+    currentAnnale = annale;
+    // Reset état examen
+    examState.answers = {};
+    examState.submitted = false;
+    examState.totalSec = (annale.duration_min || 60) * 60;
+    examState.remainingSec = examState.totalSec;
+    examState.startedAt = Date.now();
+    // Prépare l'UI
+    document.getElementById('exam-pdf-title').textContent = annale.title || 'Sujet';
+    var pdfLink = document.getElementById('exam-pdf-link');
+    pdfLink.href = annale.pdf_sujet;
+    var pdfFrame = document.getElementById('exam-pdf-frame');
+    pdfFrame.src = annale.pdf_sujet + '#toolbar=1&navpanes=0';
+    document.getElementById('exam-instructions').textContent = annale.instructions ||
+      'Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.';
+    renderExamQuestions();
+    updateExamProgress();
+    startExamTimer();
+    goTo('examen');
+  }).catch(function(err) {
+    console.error('Erreur chargement annale :', err);
+    showToast('⚠️ Impossible de charger ce sujet. Vérifie ta connexion.');
+  });
+}
+
+function renderExamQuestions() {
+  var list = document.getElementById('exam-questions-list');
+  var nb = (currentAnnale.questions || []).length;
+  var html = '';
+  for (var i = 0; i < nb; i++) {
+    var qNum = currentAnnale.questions[i].num || (i + 1);
+    html += '<div class="exam-q-row" id="exam-q-row-' + qNum + '">' +
+      '<div class="exam-q-num">Q' + qNum + '</div>' +
+      '<div class="exam-q-options">' +
+        ['A','B','C','D'].map(function(letter, idx) {
+          return '<button class="exam-q-opt" data-q="' + qNum + '" data-idx="' + idx + '" onclick="toggleExamAnswer(' + qNum + ',' + idx + ')">' + letter + '</button>';
+        }).join('') +
+      '</div>' +
+      '<button class="exam-q-skip" onclick="clearExamAnswer(' + qNum + ')">Effacer</button>' +
+    '</div>';
+  }
+  list.innerHTML = html;
+}
+
+function toggleExamAnswer(qNum, idx) {
+  if (examState.submitted) return;
+  if (!examState.answers[qNum]) examState.answers[qNum] = [];
+  var arr = examState.answers[qNum];
+  var pos = arr.indexOf(idx);
+  if (pos === -1) arr.push(idx); else arr.splice(pos, 1);
+  // Met à jour visuellement
+  var btn = document.querySelector('.exam-q-opt[data-q="' + qNum + '"][data-idx="' + idx + '"]');
+  if (btn) btn.classList.toggle('selected');
+  var row = document.getElementById('exam-q-row-' + qNum);
+  if (row) row.classList.toggle('answered', arr.length > 0);
+  updateExamProgress();
+}
+
+function clearExamAnswer(qNum) {
+  if (examState.submitted) return;
+  examState.answers[qNum] = [];
+  var row = document.getElementById('exam-q-row-' + qNum);
+  if (row) {
+    row.classList.remove('answered');
+    row.querySelectorAll('.exam-q-opt').forEach(function(b) { b.classList.remove('selected'); });
+  }
+  updateExamProgress();
+}
+
+function updateExamProgress() {
+  var answered = 0;
+  var nb = (currentAnnale.questions || []).length;
+  Object.keys(examState.answers).forEach(function(k) {
+    if (examState.answers[k] && examState.answers[k].length > 0) answered++;
+  });
+  document.getElementById('exam-progress-count').textContent = answered + ' / ' + nb;
+  document.getElementById('exam-summary').innerHTML = '<strong>' + answered + '</strong> / ' + nb + ' répondues';
+}
+
+// ---------- CHRONOMETRE ----------
+function startExamTimer() {
+  stopExamTimer();
+  updateExamTimerDisplay();
+  examState.timerInterval = setInterval(function() {
+    examState.remainingSec--;
+    updateExamTimerDisplay();
+    if (examState.remainingSec <= 0) {
+      stopExamTimer();
+      showToast('⏱ Temps écoulé ! Examen terminé automatiquement.');
+      submitExam(true);
+    }
+  }, 1000);
+}
+
+function stopExamTimer() {
+  if (examState.timerInterval) {
+    clearInterval(examState.timerInterval);
+    examState.timerInterval = null;
+  }
+}
+
+function updateExamTimerDisplay() {
+  var mm = Math.floor(examState.remainingSec / 60);
+  var ss = examState.remainingSec % 60;
+  var str = (mm < 10 ? '0' : '') + mm + ':' + (ss < 10 ? '0' : '') + ss;
+  var el = document.getElementById('exam-timer');
+  if (!el) return;
+  el.textContent = str;
+  el.classList.remove('warning', 'danger');
+  if (examState.remainingSec <= 60) el.classList.add('danger');
+  else if (examState.remainingSec <= 600) el.classList.add('warning');
+}
+
+function abandonExam() {
+  if (!confirm('Es-tu sûr de vouloir abandonner cet examen ? Ta progression sera perdue.')) return;
+  stopExamTimer();
+  examState.submitted = true;
+  goTo('biblio');
+}
+
+// ---------- SOUMISSION ET CORRECTION ----------
+function submitExam(forced) {
+  if (examState.submitted) return;
+  var nb = (currentAnnale.questions || []).length;
+  var answeredCount = 0;
+  Object.keys(examState.answers).forEach(function(k) {
+    if (examState.answers[k] && examState.answers[k].length > 0) answeredCount++;
+  });
+
+  if (!forced && answeredCount < nb) {
+    var missing = nb - answeredCount;
+    if (!confirm('Il te reste ' + missing + ' question' + (missing > 1 ? 's' : '') + ' sans réponse. Terminer quand même ?')) return;
+  }
+
+  stopExamTimer();
+  examState.submitted = true;
+
+  // Calcul du score
+  var nCorrect = 0, nWrong = 0, nSkipped = 0;
+  var details = [];
+  currentAnnale.questions.forEach(function(q) {
+    var qNum = q.num;
+    var userAnswer = (examState.answers[qNum] || []).slice().sort();
+    var correctAnswer = (q.correct || []).slice().sort();
+    var status;
+    if (userAnswer.length === 0) {
+      status = 'skipped';
+      nSkipped++;
+    } else if (userAnswer.length === correctAnswer.length &&
+               userAnswer.every(function(v, i) { return v === correctAnswer[i]; })) {
+      status = 'correct';
+      nCorrect++;
+    } else {
+      status = 'wrong';
+      nWrong++;
+    }
+    details.push({ num: qNum, status: status, userAnswer: userAnswer, correctAnswer: correctAnswer, expl: q.expl || '' });
+  });
+
+  // Affichage de la correction
+  showCorrection(nCorrect, nWrong, nSkipped, nb, details);
+}
+
+function showCorrection(nCorrect, nWrong, nSkipped, nTotal, details) {
+  var pct = nTotal > 0 ? Math.round(nCorrect / nTotal * 100) : 0;
+  document.getElementById('correction-title').textContent = currentAnnale.title || 'Examen';
+  document.getElementById('correction-score').textContent = nCorrect + ' / ' + nTotal;
+  document.getElementById('correction-pct').textContent = pct + ' %';
+  var label = pct >= 80 ? '🏅 Excellent — tu es prêt !' :
+              pct >= 60 ? '👍 Bon niveau — continue à t\'entraîner' :
+              pct >= 40 ? '📚 En progression — retravaille les points faibles' :
+                          '💪 À retravailler — persévère, tu vas y arriver';
+  document.getElementById('correction-label').textContent = label;
+  setTimeout(function() {
+    document.getElementById('correction-fill').style.width = pct + '%';
+  }, 100);
+  document.getElementById('correction-n-correct').textContent = nCorrect;
+  document.getElementById('correction-n-wrong').textContent = nWrong;
+  document.getElementById('correction-n-skipped').textContent = nSkipped;
+  document.getElementById('correction-n-total').textContent = nTotal;
+  // Lien vers le corrigé PDF
+  var corrigeLink = document.getElementById('correction-corrige-link');
+  if (currentAnnale.pdf_corrige) {
+    corrigeLink.href = currentAnnale.pdf_corrige;
+    corrigeLink.style.display = '';
+  } else {
+    corrigeLink.style.display = 'none';
+  }
+  // Détail question par question
+  var letters = ['A', 'B', 'C', 'D'];
+  function fmtAnswer(arr) {
+    if (!arr || arr.length === 0) return '—';
+    return arr.map(function(i) { return letters[i]; }).join(', ');
+  }
+  var html = details.map(function(d) {
+    var badge = d.status === 'correct' ? '✓' : d.status === 'wrong' ? '✗' : '—';
+    var statusLabel = d.status === 'correct' ? 'Bonne réponse' : d.status === 'wrong' ? 'Erreur' : 'Non répondue';
+    var answerHtml = '';
+    if (d.status === 'correct') {
+      answerHtml = 'Tu as coché <strong>' + fmtAnswer(d.userAnswer) + '</strong> ✓';
+    } else if (d.status === 'wrong') {
+      answerHtml = 'Ta réponse : <strong style="color:var(--red)">' + fmtAnswer(d.userAnswer) + '</strong> &nbsp;·&nbsp; Bonne réponse : <strong style="color:#2d7a3a">' + fmtAnswer(d.correctAnswer) + '</strong>';
+    } else {
+      answerHtml = 'Bonne réponse : <strong style="color:#2d7a3a">' + fmtAnswer(d.correctAnswer) + '</strong>';
+    }
+    var explHtml = d.expl ? '<div class="correction-q-expl">' + d.expl + '</div>' : '';
+    return '<div class="correction-q ' + d.status + '">' +
+      '<div class="correction-q-badge">' + badge + '</div>' +
+      '<div class="correction-q-body">' +
+        '<div class="correction-q-num">Question ' + d.num + ' · <span style="font-weight:400;color:var(--gray);font-size:.85rem">' + statusLabel + '</span></div>' +
+        '<div class="correction-q-answer">' + answerHtml + '</div>' +
+        explHtml +
+      '</div>' +
+    '</div>';
+  }).join('');
+  document.getElementById('correction-detail-list').innerHTML = html;
+  goTo('correction');
+}
+
+// Hook : recharger les thèmes quand on arrive sur la page biblio
+var _origGoTo = goTo;
+goTo = function(id) {
+  _origGoTo(id);
+  if (id === 'biblio') {
+    showAnnalesThemes();
+    renderAnnalesThemes();
+  }
+};
 
 // ============================================================
 // INIT

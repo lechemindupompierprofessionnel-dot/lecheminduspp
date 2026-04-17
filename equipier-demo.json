@@ -1,0 +1,27 @@
+{
+  "id": "equipier-demo",
+  "theme": "equipier",
+  "year": 2025,
+  "title": "Session 2025 — Équipier SPV (exemple)",
+  "duration_min": 60,
+  "pdf_sujet": "annales/equipier/equipier-demo-sujet.pdf",
+  "pdf_corrige": "annales/equipier/equipier-demo-corrige.pdf",
+  "instructions": "Lis attentivement chaque question du PDF à gauche. Coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses. Durée : 1 heure.",
+  "questions": [
+    {
+      "num": 1,
+      "correct": [1],
+      "expl": "La réponse correcte est B. La loi n°96-369 du 3 mai 1996 est le texte fondateur des SDIS en France. Voir le sujet PDF, question 1."
+    },
+    {
+      "num": 2,
+      "correct": [0, 2, 3],
+      "expl": "Trois bonnes réponses : A, C et D. Les missions des SDIS sont définies par l'article L1424-2 du CGCT (prévention, secours, protection des biens). L'organisation des élections n'en fait pas partie."
+    },
+    {
+      "num": 3,
+      "correct": [2],
+      "expl": "La réponse est C. Le cadre d'emplois des sapeurs et caporaux SPP appartient à la catégorie C de la fonction publique territoriale (décret n° 2012-520)."
+    }
+  ]
+}

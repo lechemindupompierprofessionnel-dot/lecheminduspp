@@ -1,0 +1,234 @@
+[
+  {
+    "id": "gdo-ssuap-001",
+    "level": "TF",
+    "q": "Selon le GDO-SSUAP, qu'est-ce que le « prompt secours » ?",
+    "choices": [
+      "Une action médicale réalisée uniquement par un médecin régulateur à distance.",
+      "Une action de sapeurs-pompiers agissant en équipe visant à prendre en charge sans délai des détresses vitales ou fonctionnelles justifiant l'urgence à agir.",
+      "Un transport sanitaire urgent prescrit par le SAMU vers un établissement hospitalier.",
+      "Une intervention à caractère social réalisée auprès de personnes en situation de précarité."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, §2.1 — Le prompt secours est défini comme une action d'équipe de sapeurs-pompiers visant à prendre en charge sans délai les détresses vitales ou fonctionnelles. Il se distingue des actions nécessitant un diagnostic approfondi préalable.",
+    "source": "Chapitre 1, §2.1"
+  },
+  {
+    "id": "gdo-ssuap-002",
+    "level": "TF",
+    "q": "Comment est qualifiée une victime non décédée dont l'état, caractérisé par une affection, nécessite la prise en charge par les secours et/ou les équipes médicales ?",
+    "choices": [
+      "Un impliqué.",
+      "Un blessé.",
+      "Un malade.",
+      "Un décédé."
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, §5 — Le guide distingue précisément les catégories de victimes : le « malade » est une victime non décédée dont l'état est caractérisé par une affection (par opposition au « blessé » dont l'atteinte est corporelle traumatique).",
+    "source": "Chapitre 1, §5"
+  },
+  {
+    "id": "gdo-ssuap-003",
+    "level": "TF",
+    "q": "Quelle est la première cause d'accidents liés à l'activité du SSUAP ?",
+    "choices": [
+      "Le risque d'agression par la victime ou son entourage.",
+      "Le risque infectieux lié aux agents biologiques pathogènes.",
+      "Le risque de troubles musculo-squelettiques (TMS).",
+      "Le risque routier lors des déplacements opérationnels."
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, §5 — Le document précise explicitement que les TMS constituent « la première cause d'accidents liés à l'activité du SSUAP », notamment à cause du port de charges lourdes et des postures inconfortables.",
+    "source": "Chapitre 2, §5"
+  },
+  {
+    "id": "gdo-ssuap-004",
+    "level": "TF",
+    "q": "Lors de la prise en charge d'une victime, quelles sont, parmi les propositions suivantes, les deux mesures de prévention du risque infectieux obligatoires pour tout sapeur-pompier ?",
+    "choices": [
+      "Porter systématiquement des gants à usage unique.",
+      "Porter une combinaison chimique complète pour tout contact avec une victime.",
+      "Ne pas porter ses mains au visage et à la bouche, ne pas se frotter les yeux.",
+      "Utiliser exclusivement du matériel stérilisable et réutilisable."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 3, §2.1 — Le guide liste les mesures de prévention du risque infectieux : le port systématique de gants à usage unique est mentionné en premier, et l'interdiction de porter les mains au visage figure également dans les consignes d'hygiène de base applicables à tous les intervenants.",
+    "source": "Chapitre 3, §2.1"
+  },
+  {
+    "id": "gdo-ssuap-005",
+    "level": "TF",
+    "q": "quelle est la couleur attribuée à une victime qui présente une hémorragie lors d'un plan NOVI ?",
+    "choices": [
+      "Noire.",
+      "Jaune.",
+      "Verte.",
+      "Rouge."
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Chapitre 5, §5 — Le tableau de repérage des victimes par code couleur indique que la couleur rouge est attribuée notamment à une victime qui présente une hémorragie, à une victime consciente qui présente une détresse vitale évidente (FR > 30/min ou FC > 120/min chez l'adulte), ou à une victime ayant perdu connaissance mais respirant après libération des voies aériennes.",
+    "source": "Chapitre 5, §5"
+  },
+  {
+    "id": "gdo-ssuap-006",
+    "level": "F",
+    "q": "Dans le cadre de la prévention du risque routier, quels sont les deux principes systématiquement applicables aux occupants d'un VSAV lors d'un déplacement ?",
+    "choices": [
+      "Tous les occupants du VSAV doivent être ceinturés à chaque phase de déplacement, sauf justification médicale contraire pour la victime.",
+      "Le conducteur peut retirer sa ceinture dans la zone d'exclusion pour faciliter son évacuation rapide du véhicule.",
+      "L'ensemble du matériel embarqué doit être arrimé afin de ne pas devenir un projectile en cas de mouvement ou de choc.",
+      "L'usage des avertisseurs sonores et lumineux est facultatif si la mission est de faible urgence."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 3, §1.2 — Le document précise que tous les occupants du VSAV doivent être ceinturés à chaque phase de déplacement (sauf justification médicale), et que l'ensemble du matériel doit être arrimé pour éviter qu'il ne devienne un projectile. L'usage des avertisseurs est quant à lui obligatoire sauf ordre contraire du CODIS ou du chef d'agrès.",
+    "source": "Chapitre 3, §1.2"
+  },
+  {
+    "id": "gdo-ssuap-007",
+    "level": "F",
+    "q": "Lors d'une opération SSUAP impliquant une seule victime, à quoi se réduit le zonage opérationnel spécifique ?",
+    "choices": [
+      "À un périmètre de 50 mètres avec zone d'exclusion rouge et zone contrôlée orange obligatoires.",
+      "À quelques mètres seulement, permettant de garantir le secret professionnel, les données médicales personnelles, les droits et la dignité de la personne.",
+      "À l'ensemble de la voie publique avec balisage intégral du tronçon concerné.",
+      "À la superficie du logement ou du lieu d'intervention, sans matérialisation physique requise."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 5, §1.2 — Le GDO précise que lorsqu'il s'agit d'une seule victime, le zonage opérationnel est réduit à quelques mètres, ce qui permet de garantir le secret professionnel, les données médicales à caractère personnel, les droits et la dignité de la personne.",
+    "source": "Chapitre 5, §1.2"
+  },
+  {
+    "id": "gdo-ssuap-008",
+    "level": "F",
+    "q": "Quels sont les trois éléments qui définissent une « carence ambulancière » selon le code général des collectivités territoriales ?",
+    "choices": [
+      "Elle correspond à un transport sanitaire prescrit par le SAMU.",
+      "Elle est demandée suite à un défaut constaté de disponibilité des transporteurs sanitaires privés.",
+      "Elle peut être constatée a posteriori par le SAMU à la demande du SIS.",
+      "Elle est déclenchée uniquement lorsque le délai d'attente d'une ambulance privée dépasse 30 minutes."
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Chapitre 1, §4 — Le guide définit la carence ambulancière selon trois critères cumulatifs : transport prescrit par le SAMU, défaut de disponibilité des transporteurs privés, et possibilité de constat a posteriori par le SAMU à la demande du SIS. La notion de délai de 30 minutes n'est pas mentionnée dans le document.",
+    "source": "Chapitre 1, §4"
+  },
+  {
+    "id": "gdo-ssuap-009",
+    "level": "F",
+    "q": "Lors de la prise en charge d'une victime mineure non émancipée non accompagnée d'un représentant légal, quelles sont les deux affirmations exactes ?",
+    "choices": [
+      "Le mineur est placé sous la protection et la responsabilité des sapeurs-pompiers à défaut d'un représentant légal.",
+      "La présence d'un parent est obligatoire avant toute évacuation vers une structure de soins.",
+      "Un mineur ne peut pas refuser d'être pris en charge par les secours ou d'être hospitalisé ; seul son responsable légal peut le faire.",
+      "Le chef d'agrès peut autoriser un mineur à rentrer seul chez lui si son état ne nécessite pas d'évacuation."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 5, §3.6 — Le document précise que le mineur est placé sous la protection et la responsabilité des sapeurs-pompiers à défaut de représentant légal, et qu'un mineur ne peut pas refuser d'être pris en charge ou hospitalisé (seul son responsable légal le peut). La présence d'un parent n'est pas obligatoire pour l'évacuation et ne doit pas la retarder.",
+    "source": "Chapitre 5, §3.6"
+  },
+  {
+    "id": "gdo-ssuap-010",
+    "level": "M",
+    "q": "Vous intervenez pour une victime consciente et valide qui refuse catégoriquement d'être prise en charge et évacuée. Quelle est la conduite à tenir réglementaire ?",
+    "choices": [
+      "Forcer la prise en charge si l'état clinique vous semble grave, car la sécurité de la victime prime sur son consentement.",
+      "Informer la victime de façon simple, intelligible, explicite et loyale, transmettre un bilan au médecin régulateur précisant le refus, et matérialiser ce refus par une décharge de responsabilité signée dont un double est laissé à la victime.",
+      "Quitter immédiatement les lieux sans transmission au médecin régulateur, le refus de soins mettant fin à la mission du SIS.",
+      "Contacter les forces de l'ordre pour qu'elles contraignent la victime à accepter la prise en charge."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 5, §2.3 — Le guide est explicite : rien n'autorise un sapeur-pompier à forcer une personne à le suivre. Le chef d'agrès doit informer la victime (simple, intelligible, explicite, loyale), transmettre obligatoirement un bilan au médecin régulateur précisant le refus, et matérialiser ce refus par une décharge de responsabilité signée dont un double est remis à la victime.",
+    "source": "Chapitre 5, §2.3"
+  },
+  {
+    "id": "gdo-ssuap-011",
+    "level": "M",
+    "q": "Vous intervenez auprès d'une personne présentant des troubles du comportement potentiellement dangereux. Quelles sont les trois attitudes professionnelles correctes à adopter ?",
+    "choices": [
+      "S'assurer qu'un seul interlocuteur (non isolé) est en contact avec la victime.",
+      "Se tenir à distance suffisante pour ne pas pouvoir être saisi et conserver un chemin de retrait.",
+      "Établir un contact physique immédiat pour rassurer la victime et lui montrer que les secours sont là pour l'aider.",
+      "Créer un dialogue bienveillant avec la victime, adopter une conduite vigilante non oppressante et suivre le rythme de la personne."
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 5, §3.10 — Le guide liste précisément les précautions à prendre : un seul interlocuteur non isolé, distance suffisante pour ne pas être saisi, conservation d'un chemin de retrait, dialogue bienveillant, conduite vigilante non oppressante, suivi du rythme de la personne. Le contact physique immédiat n'est pas recommandé ; il faut au contraire respecter « la bulle » individuelle du sujet (au moins un mètre).",
+    "source": "Chapitre 5, §3.10"
+  },
+  {
+    "id": "gdo-ssuap-012",
+    "level": "M",
+    "q": "Sur les lieux d'une intervention SSUAP susceptible d'être une scène de crime, laquelle des actions suivantes est autorisée pour les primo-intervenants dans le cadre de la préservation des traces et indices ?",
+    "choices": [
+      "Fouiller les vêtements et les poches de la victime afin de l'identifier rapidement.",
+      "Déplacer librement le corps pour faciliter la réanimation cardio-pulmonaire si celle-ci est nécessaire, en informant ensuite les forces de l'ordre des modifications réalisées.",
+      "Toucher à la lettre laissée par la victime en cas de suicide présumé afin d'en informer la famille.",
+      "Décrocher une corde en cas de pendaison pour libérer la victime, en coupant la corde sans défaire le nœud."
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Chapitre 5, §4 — Le guide précise explicitement de « couper la corde s'il s'agit d'une pendaison sans défaire le nœud ». À l'inverse, il est interdit de fouiller le corps, de toucher la lettre en cas de suicide présumé. Le déplacement du corps est autorisé uniquement si des actions de secours comme la RCP l'imposent, en informant alors les forces de l'ordre des modifications réalisées.",
+    "source": "Chapitre 5, §4"
+  },
+  {
+    "id": "gdo-ssuap-013",
+    "level": "M",
+    "q": "Lors d'une intervention auprès d'une personne présentant un handicap physique ou mental, quelles sont les attitudes correctes préconisées ?",
+    "choices": [
+      "S'adresser directement à la victime et non à la personne qui l'accompagne, et lui demander comment l'aider.",
+      "Présumer du type de handicap afin d'anticiper les besoins et d'accélérer la prise en charge.",
+      "Demander la permission avant de toucher la victime, son fauteuil roulant ou tout autre appareil, sauf en cas d'urgence.",
+      "Parler à voix haute et lentement, en articulant de façon exagérée pour être sûr d'être compris."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 5, §3.9 — Le guide précise de s'adresser directement à la victime (et non à l'accompagnant), de lui demander comment l'aider, et de demander la permission avant de toucher la victime ou ses aides techniques sauf urgence. Il est explicitement recommandé de ne pas présumer du type de handicap (certains handicaps sont invisibles) et de parler simplement (pas de façon exagérée).",
+    "source": "Chapitre 5, §3.9"
+  },
+  {
+    "id": "gdo-ssuap-014",
+    "level": "M",
+    "q": "Un sapeur-pompier se blesse lors d'une piqûre accidentelle en intervention SSUAP. En l'absence de protocole « accident d'exposition au sang » dans son SIS, quelle est la première action à réaliser immédiatement ?",
+    "choices": [
+      "Appliquer directement un pansement compressif stérile et signaler l'accident à son chef d'agrès en fin de mission.",
+      "Laver immédiatement la plaie avec de l'eau potable et du savon puis désinfecter pendant 5 minutes minimum avec un produit adapté (Dakin, eau de Javel diluée ou produit iodé).",
+      "Rincer abondamment au sérum physiologique pendant au moins 10 minutes puis consulter un médecin dans les 48 heures.",
+      "Appliquer immédiatement de l'alcool à 70° sur la plaie et la recouvrir d'un pansement occlusif."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, §2.1 — Le GDO précise qu'en cas de piqûre ou coupure, il faut laver immédiatement la plaie avec de l'eau potable et du savon, puis désinfecter pendant 5 minutes minimum (Dakin, eau de Javel diluée ou à défaut produits iodés ou autre biocide). Le rinçage au sérum physiologique concerne les projections sur les muqueuses.",
+    "source": "Chapitre 3, §2.1"
+  }
+]

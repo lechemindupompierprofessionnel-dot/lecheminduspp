@@ -1,0 +1,1189 @@
+[
+  {
+    "id": "gto-sauvegarde-001",
+    "level": "TF",
+    "q": "Quelle est la définition de la sauvegarde opérationnelle ?",
+    "choices": [
+      "Un ensemble de règles imposées uniquement au commandant des opérations de secours",
+      "Un ensemble de méthodes et de techniques permettant d'évaluer le risque, de se préserver et de soustraire un équipier ou de se soustraire soi-même d'un danger réel et immédiat",
+      "Un protocole de secours à victime civile en milieu incendié",
+      "Une procédure de décontamination après intervention en milieu vicié"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Préface du guide — la sauvegarde opérationnelle est définie comme un ensemble de méthodes et techniques permettant d'évaluer le risque, de se préserver et de soustraire un équipier (sauvetage du sauveteur) ou de se soustraire soi-même (auto-sauvetage) d'un danger réel et immédiat.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-002",
+    "level": "TF",
+    "q": "Que signifie l'acronyme NELAR ?",
+    "choices": [
+      "Numéro, Engin, Lieu, Autonomie, Renfort",
+      "Nom, Engin, Localisation, Autonomie, Renfort",
+      "Numéro, Équipe, Localisation, Alarme, Renfort",
+      "Nom, État, Lance, Autonomie, Radio"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.1 — NELAR signifie : Nom de celui qui passe le message / Engin d'affectation / Localisation / Autonomie restante ou pression restante / Renfort nécessaire.",
+    "source": "Chapitre 2, section 1.1"
+  },
+  {
+    "id": "gto-sauvegarde-003",
+    "level": "TF",
+    "q": "Quel est le signal d'évacuation d'urgence à la voix ?",
+    "choices": [
+      "« Danger — Danger — Danger »",
+      "« Evacuation — Evacuation — Evacuation »",
+      "« Alerte — Alerte — Alerte »",
+      "« Repli — Repli — Repli »"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 3 — L'ordre d'évacuation générale peut s'opérer à la voix par « Evacuation – Evacuation – Evacuation ».",
+    "source": "Chapitre 1, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-004",
+    "level": "TF",
+    "q": "Quelle est la consommation d'air d'un sapeur-pompier porteur en effort très intense ?",
+    "choices": [
+      "70 litres par minute",
+      "100 litres par minute",
+      "135 litres par minute",
+      "50 litres par minute"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 5.1 — En effort très intense, la consommation peut s'élever à 135 l/min.",
+    "source": "Chapitre 2, section 5.1"
+  },
+  {
+    "id": "gto-sauvegarde-005",
+    "level": "TF",
+    "q": "En mode « économie d'air », à quelle consommation un porteur peut-il réduire sa consommation ?",
+    "choices": [
+      "30 litres par minute",
+      "20 litres par minute",
+      "10 litres par minute",
+      "5 litres par minute"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 5.1 — En mode « économie d'air », le porteur peut réduire sa consommation jusqu'à 10 l/min.",
+    "source": "Chapitre 2, section 5.1"
+  },
+  {
+    "id": "gto-sauvegarde-006",
+    "level": "TF",
+    "q": "Quelle est la pression d'air de la bouteille qui déclenche le sifflet de fin de charge ?",
+    "choices": [
+      "100 bar",
+      "75 bar",
+      "50 bar",
+      "30 bar"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 5.2.2 — Lorsque la pression d'air de la bouteille atteint les 50 bar, elle entraîne le déclenchement du sifflet de fin de charge.",
+    "source": "Chapitre 2, section 5.2.2"
+  },
+  {
+    "id": "gto-sauvegarde-007",
+    "level": "TF",
+    "q": "Que signifie l'acronyme ARI ?",
+    "choices": [
+      "Appareil de Respiration Isolant",
+      "Appareil Respiratoire Individuel",
+      "Appareil Respiratoire Isolant",
+      "Appareil de Réserve Individuel"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Annexe A — ARI : appareil respiratoire isolant.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-008",
+    "level": "TF",
+    "q": "Que signifie l'acronyme EAS ?",
+    "choices": [
+      "Espace d'Attente Sécurisé",
+      "Espace d'Accès Sécurisé",
+      "Équipement d'Alarme Sonore",
+      "Espace d'Alerte Sécurisé"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Annexe A — EAS : espaces d'attente sécurisé.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-009",
+    "level": "TF",
+    "q": "Quelle couleur de balise lumineuse signale une zone de danger (plancher effondré, pignon menaçant de tomber, etc.) ?",
+    "choices": [
+      "Balise verte",
+      "Balise orange",
+      "Balise rouge",
+      "Balise bleue"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 2.2.1 — Les balises rouges signalent toute zone de danger.",
+    "source": "Chapitre 1, section 2.2.1"
+  },
+  {
+    "id": "gto-sauvegarde-010",
+    "level": "TF",
+    "q": "Quelle couleur de balise lumineuse indique un chemin d'accès, un itinéraire de repli ou une zone protégée ?",
+    "choices": [
+      "Balise rouge",
+      "Balise verte",
+      "Balise jaune",
+      "Balise blanche"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.2.1 — Les balises vertes indiquent un chemin d'accès, un cheminement, un itinéraire de repli, un itinéraire de secours, ou encore une zone protégée.",
+    "source": "Chapitre 1, section 2.2.1"
+  },
+  {
+    "id": "gto-sauvegarde-011",
+    "level": "TF",
+    "q": "Quelle est la consommation d'air du sifflet de fin de charge selon les modèles ?",
+    "choices": [
+      "1 à 3 litres par minute",
+      "4 à 7 litres par minute",
+      "8 à 12 litres par minute",
+      "15 à 20 litres par minute"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 5.2.2 — La consommation d'air du sifflet est de 4 à 7 litres par minute selon les modèles.",
+    "source": "Chapitre 2, section 5.2.2"
+  },
+  {
+    "id": "gto-sauvegarde-012",
+    "level": "TF",
+    "q": "La technique du « Nance Drill » tire son nom d'un accident survenu le :",
+    "choices": [
+      "28 septembre 1992",
+      "25 juillet 1987",
+      "15 mars 1995",
+      "10 novembre 1989"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 3.3 — Cette technique a pour origine un accident datant du 25 juillet 1987, au cours duquel le pompier John W. Nance a perdu la vie.",
+    "source": "Chapitre 3, section 3.3"
+  },
+  {
+    "id": "gto-sauvegarde-013",
+    "level": "TF",
+    "q": "Combien de sauveteurs minimum sont nécessaires pour réaliser la remontée dans de bonnes conditions lors d'un Nance Drill ?",
+    "choices": [
+      "2 pompiers",
+      "3 pompiers",
+      "4 pompiers",
+      "5 pompiers"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3, section 3.3 — Un minimum de 4 pompiers est nécessaire pour réaliser la remontée dans de bonnes conditions.",
+    "source": "Chapitre 3, section 3.3"
+  },
+  {
+    "id": "gto-sauvegarde-014",
+    "level": "TF",
+    "q": "Comment se nomme la façade d'accès principal d'un bâtiment dans le système de dénimination des façade ?",
+    "choices": [
+      "Façade Alpha",
+      "Façade 1",
+      "Façade A",
+      "Façade principale"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 2.1 — La façade A est la façade d'accès principal.",
+    "source": "Chapitre 1, section 2.1"
+  },
+  {
+    "id": "gto-sauvegarde-015",
+    "level": "TF",
+    "q": "À partir de quel étage préconise-t-on le recours aux moyens élévateurs aériens comme itinéraire de secours ?",
+    "choices": [
+      "À partir du 1er étage",
+      "À partir du 2e étage",
+      "À partir du 3e étage et au-delà",
+      "À partir du 4e étage"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 1, section 2.2 — Du 3e étage et au-delà, l'itinéraire de secours est assuré par des moyens élévateurs aériens ou par le déverrouillage des accès.",
+    "source": "Chapitre 1, section 2.2"
+  },
+  {
+    "id": "gto-sauvegarde-016",
+    "level": "TF",
+    "q": "Que signifie l'acronyme SAD ?",
+    "choices": [
+      "Soupape à Déclenchement",
+      "Soupape à la Demande",
+      "Système d'Alarme Déclenché",
+      "Système à la Disposition"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe A — SAD : soupape à la demande.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-017",
+    "level": "TF",
+    "q": "Combien de sauveteurs minimum sont requis pour réaliser le déshabillage d'un sauveteur inconscient en tenue de feu ?",
+    "choices": [
+      "1 sauveteur",
+      "2 sauveteurs",
+      "3 sauveteurs",
+      "4 sauveteurs"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe B — La technique est réalisée à 2 sauveteurs minimum.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-018",
+    "level": "TF",
+    "q": "En combien de secondes environ le déshabillage d'un sauveteur inconscient en tenue de feu peut-il être réalisé ?",
+    "choices": [
+      "10 secondes",
+      "20 secondes",
+      "30 secondes",
+      "60 secondes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Annexe B — La technique permet un déshabillage en une trentaine de secondes.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-019",
+    "level": "TF",
+    "q": "Que signifie l'acronyme COS ?",
+    "choices": [
+      "Commandant des Opérations de Sécurité",
+      "Commandant des Opérations de Secours",
+      "Chef des Opérations sur Sinistre",
+      "Coordinateur des Opérations de Secours"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe A — COS : commandant des opérations de secours.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-020",
+    "level": "TF",
+    "q": "Quel est le premier élément de la procédure AAALEERTER ?",
+    "choices": [
+      "Alerte",
+      "Air",
+      "Alarme",
+      "Économiser l'air"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.2 — Le premier élément de la procédure AAALEERTER est « Air » : je contrôle la pression restante au manomètre.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-021",
+    "level": "TF",
+    "q": "La technique Denver Drill nécessite combien de sauveteurs au total ?",
+    "choices": [
+      "2 sauveteurs",
+      "4 sauveteurs",
+      "3 sauveteurs",
+      "5 sauveteurs"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3, section 2.3 — Cette technique se réalise à trois sauveteurs, dont deux sauveteurs dans le volume concerné où réside la victime.",
+    "source": "Chapitre 3, section 2.3"
+  },
+  {
+    "id": "gto-sauvegarde-022",
+    "level": "TF",
+    "q": "Quelle est la consommation d'air d'un sapeur-pompier en effort modéré ?",
+    "choices": [
+      "10 à 20 litres par minute",
+      "20 à 40 litres par minute",
+      "40 à 70 litres par minute",
+      "90 à 100 litres par minute"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 5.1 — En effort modéré, la consommation se situe entre 40 et 70 l/min.",
+    "source": "Chapitre 2, section 5.1"
+  },
+  {
+    "id": "gto-sauvegarde-023",
+    "level": "TF",
+    "q": "Que signifie l'acronyme RETEX ?",
+    "choices": [
+      "Retour d'Expérience",
+      "Rapport d'Exercice",
+      "Registre des Techniques Expérimentales",
+      "Réseau de Transmission d'Expérience"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Annexe A — RETEX : retour d'expérience.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-024",
+    "level": "TF",
+    "q": "Dans le déshabillage d'un sauveteur inconscient, qui effectue la première action en retirant la sangle ventrale ?",
+    "choices": [
+      "Le sauveteur placé à la tête (T)",
+      "Le sauveteur placé entre les jambes (J)",
+      "Les deux sauveteurs simultanément",
+      "Aucun des deux, c'est une action finale"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Annexe B — La première action est : (J) retire la sangle ventrale. Le sauveteur J est celui placé entre les jambes.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-025",
+    "level": "TF",
+    "q": "Que signifie l'acronyme EPI ?",
+    "choices": [
+      "Équipement de Protection Individuelle",
+      "Équipement de Protection Incendie",
+      "Ensemble de Protection Individuel",
+      "Équipe de Protection Interne"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Annexe A — EPI : équipement de protection individuelle.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-026",
+    "level": "F",
+    "q": "Quels sont les trois axes de préparation de la sauvegarde opérationnelle ?",
+    "choices": [
+      "Préparation physique, opérationnelle et mentale",
+      "Préparation tactique, technique et matérielle",
+      "Préparation physique, médicale et psychologique",
+      "Préparation opérationnelle, administrative et logistique"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Préface — La sauvegarde opérationnelle s'articule autour de trois grands axes : les préparations physique, opérationnelle et mentale.",
+    "source": ""
+  },
+  {
+    "id": "gto-sauvegarde-027",
+    "level": "F",
+    "q": "Quelles sont les trois règles de base de la sécurité individuelle en opération ?",
+    "choices": [
+      "Éviter de se retrouver dans une situation nécessitant quelqu'un pour être récupéré / toujours connaître son itinéraire de repli / toujours connaître son itinéraire de secours",
+      "Porter ses EPI / rester en binôme / communiquer à la radio",
+      "Ne jamais progresser seul / toujours avoir son ARI / maîtriser son autonomie en air",
+      "Identifier les façades / connaître les EAS / signaler sa position"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 1 — Il existe trois règles de base : éviter de se retrouver dans une situation nécessitant quelqu'un pour être récupéré / toujours connaître son itinéraire de repli / toujours connaître son itinéraire de secours.",
+    "source": "Chapitre 1"
+  },
+  {
+    "id": "gto-sauvegarde-028",
+    "level": "F",
+    "q": "Où les balises lumineuses matérialisant les itinéraires doivent-elles être placées ?",
+    "choices": [
+      "À hauteur d'épaule pour être visibles au-dessus des fumées",
+      "Au plus près du sol pour être vues sous le plafond de fumée,",
+      "Uniquement à l'extérieur du bâtiment",
+      "En hauteur pour guider les sapeurs-pompiers en position debout"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.2.1 — Les balises sont placées au plus près du sol pour être vues sous le plafond de fumée, à l'intérieur du volume au plus près de l'ouvrant par lequel le binôme s'engage, et à l'intérieur du volume suspendues par une cordelette fixée sur un échelon d'une échelle à mains.",
+    "source": "Chapitre 1, section 2.2.1"
+  },
+  {
+    "id": "gto-sauvegarde-029",
+    "level": "F",
+    "q": "Quelle est la différence principale entre l'itinéraire de repli et l'itinéraire de secours ?",
+    "choices": [
+      "L'itinéraire de repli est externe au bâtiment, l'itinéraire de secours est interne",
+      "L'itinéraire de repli est le chemin d'accès normal emprunté pour entrer, l'itinéraire de secours est différent et se substitue au premier quand celui-ci n'est plus praticable",
+      "L'itinéraire de repli est réservé aux binômes d'attaque, l'itinéraire de secours aux binômes de sécurité",
+      "L'itinéraire de repli nécessite une échelle, l'itinéraire de secours utilise obligatoirement un MEA"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.2 — L'itinéraire de repli est le chemin d'accès normal emprunté pour pénétrer. L'itinéraire de secours est différent et se substitue au premier dans le cas où celui-ci ne serait plus praticable, trop complexe ou trop éloigné.",
+    "source": "Chapitre 1, section 2.2"
+  },
+  {
+    "id": "gto-sauvegarde-030",
+    "level": "F",
+    "q": "Quelle action correspond à la lettre « Alarme » dans la procédure AAALEERTER ?",
+    "choices": [
+      "J'allume mon projecteur pour me signaler",
+      "Je passe le message d'alerte en utilisant le moyen mnémotechnique NELAR",
+      "Une fois la détresse radio réalisée et répondue, je déclenche la balise sonore de mon ARI",
+      "Je contrôle ma respiration en appliquant une des 4 méthodes de respiration"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 1.2 — « Alarme » : une fois la détresse radio réalisée et répondue, je déclenche la balise sonore de mon ARI.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-031",
+    "level": "F",
+    "q": "Quelle action correspond à la lettre « Éclairer » dans la procédure AAALEERTER ?",
+    "choices": [
+      "Je balise le sol pour retrouver le tuyau",
+      "Je contrôle ma pression restante au manomètre",
+      "J'allume mon projecteur pour me signaler",
+      "Je me mets en position basse au contact d'un mur"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 1.2 — « Éclairer » : j'allume mon projecteur pour me signaler.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-032",
+    "level": "F",
+    "q": "Que doit faire un sapeur-pompier dès le signal d'évacuation d'urgence actionné ?",
+    "choices": [
+      "Attendre les ordres du COS avant de quitter le volume",
+      "Se retirer du bâtiment et/ou de la zone d'intervention pour rejoindre le point de rassemblement des intervenants",
+      "Continuer sa mission et finir ce qu'il a commencé",
+      "Rejoindre directement le véhicule d'intervention"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 3 — Dès le signal actionné, les sapeurs-pompiers doivent sans délai se retirer du bâtiment et/ou de la zone d'intervention pour rejoindre le point de rassemblement des intervenants identifié par le chef d'agrès ou le COS lors du point de situation, où un comptage sera réalisé.",
+    "source": "Chapitre 1, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-033",
+    "level": "F",
+    "q": "À quel moment la procédure AAALEERTER est-elle utilisée ?",
+    "choices": [
+      "Dès l'engagement dans un bâtiment en feu",
+      "À partir du moment où l'on a lancé un message de détresse",
+      "Uniquement lorsque le binôme est dissocié",
+      "Dès que la pression de la bouteille atteint 50 bar"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.2 — Cette procédure est utilisée à partir du moment où l'on a lancé un message de détresse.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-034",
+    "level": "F",
+    "q": "Lors du franchissement d'un passage dans des fils ou câbles, sur quel côté est-il conseillé de s'allonger pour éviter la fermeture du robinet de bouteille ?",
+    "choices": [
+      "Sur le flanc droit",
+      "Sur le dos",
+      "Sur le flanc gauche",
+      "Sur le ventre"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 2 — Il est conseillé de privilégier l'allongement au sol sur le flanc gauche, afin d'éviter la fermeture du robinet de bouteille lors de la progression.",
+    "source": "Chapitre 2, section 2"
+  },
+  {
+    "id": "gto-sauvegarde-035",
+    "level": "F",
+    "q": "Parmi les propositions suivantes, lesquelles font partie des situations susceptibles de mettre en jeu la sécurité des intervenants ?",
+    "choices": [
+      "L'évolution du sinistre",
+      "La découverte d’une victime",
+      "La dégradation des matériels",
+      "L'absence de chef de secteur sur les lieux"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 1 — Les situations pouvant mettre en jeu la sécurité des intervenants sont liées à l'évolution du sinistre, à l'évolution de l'état des intervenants et à la dégradation des matériels.",
+    "source": "Chapitre 1"
+  },
+  {
+    "id": "gto-sauvegarde-036",
+    "level": "F",
+    "q": "Quelle est la technique à utiliser en cas de bris d'équipement (partie faciale, tuyau, détendeur) entraînant une fuite d'air ?",
+    "choices": [
+      "La technique du saut d'une respiration",
+      "La technique d'ouverture-inspiration-fermeture du robinet",
+      "La méthode Reilly",
+      "La méthode 2/4\""
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 5.4 — La gestion d'une fuite d'air repose sur la technique ouverture-inspiration-fermeture du robinet : ouvrir le robinet (1/4 de tour seulement) et inspirer, fermer le robinet et retenir sa respiration jusqu'au seuil de limite, expirer lentement.",
+    "source": "Chapitre 2, section 5.4"
+  },
+  {
+    "id": "gto-sauvegarde-037",
+    "level": "F",
+    "q": "Quelles sont les techniques d'assistance respiratoire possibles pour secourir un sapeur-pompier en difficulté avec son matériel respiratoire ?",
+    "choices": [
+      "L'assistance respiratoire au moyen d'une prise accessoire de l'ARI d'un des équipiers",
+      "L'utilisation d'une cagoule respiratoire",
+      "Le changement de bouteille",
+      "Le changement de dossard et/ou de masque"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 2, section 5.3 — Les techniques d'assistance respiratoire sont : la prise accessoire de l'ARI d'un équipier, l'utilisation d'une cagoule respiratoire, le changement de dossard et/ou de masque, et l'emploi d'un lot d'assistance respiratoire.",
+    "source": "Chapitre 2, section 5.3"
+  },
+  {
+    "id": "gto-sauvegarde-038",
+    "level": "F",
+    "q": "Quelle est la règle d'utilisation des balises lumineuses dans un volume impacté par les fumées ?",
+    "choices": [
+      "Les placer “à hauteur d’Homme”",
+      "Ne jamais les disposer en ligne dans les volumes impactés par les fumées",
+      "Les placer tous les 3 mètres dans le couloir principal",
+      "Les utiliser uniquement à l'extérieur du bâtiment"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.2.1 — Ces balises doivent être utilisées uniquement pour déterminer des issues. Il ne faut en aucun cas les disposer en ligne dans les volumes impactés par les fumées, sans quoi « l'effet Petit Poucet » pourrait être dangereux et ne plus indiquer la bonne sortie.",
+    "source": "Chapitre 1, section 2.2.1"
+  },
+  {
+    "id": "gto-sauvegarde-039",
+    "level": "F",
+    "q": "Quelle est la technique d'évacuation d'urgence « bail-out » ?",
+    "choices": [
+      "Une technique d'évacuation par l'intérieur du bâtiment vers une cage d'escalier protégée",
+      "Une technique permettant d'évacuer un volume embrasé par une fenêtre, en utilisant une échelle à coulisse",
+      "Une technique de sauvetage d'une victime civile par voie aérienne",
+      "Une technique de mise à l'abri dans un espace d'attente sécurisé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 6.1 — La technique bail-out facilite l'évacuation d'un volume embrasé par une fenêtre en tenue de feu complète. L'échelle à coulisse, amarrée ou calée, est positionnée en itinéraire de secours.",
+    "source": "Chapitre 2, section 6.1"
+  },
+  {
+    "id": "gto-sauvegarde-040",
+    "level": "F",
+    "q": "Lors de l'évacuation par l'extérieur au moyen d'un tuyau, comment le sapeur-pompier descend-il ?",
+    "choices": [
+      "En s'agrippant au tuyau avec les mains uniquement, jambes pendantes",
+      "En positionnant ses mains croisées sur le tuyau au niveau de sa tête et en croisant ses pieds pour glisser le long du tuyau",
+      "En s'attachant le tuyau autour de la taille et en se laissant glisser",
+      "En descendant dos au vide, mains dans le dos"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 6.2 — Le sapeur-pompier descend en positionnant ses mains croisées sur le tuyau au niveau de sa tête et en croisant ses pieds de manière à glisser le long du tuyau.",
+    "source": "Chapitre 2, section 6.2"
+  },
+  {
+    "id": "gto-sauvegarde-041",
+    "level": "F",
+    "q": "Lors du packaging, à quoi sert la conversion du dossard d'ARI en harnais ?",
+    "choices": [
+      "À alléger l'équipement de la victime pour passer les passages étroits",
+      "À faciliter l'opération de traction lors du sauvetage",
+      "À permettre l'assistance respiratoire de la victime",
+      "À maintenir la victime en position latérale de sécurité"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 1.1.2 — La conversion du dossard d'ARI en harnais ou packaging permet de faciliter l'évacuation d'un sauveteur en difficulté en convertissant son dossard d'ARI en harnais. La conversion du dossard d'ARI en harnais facilite l'opération de traction.",
+    "source": "Chapitre 3, section 1.1.2"
+  },
+  {
+    "id": "gto-sauvegarde-042",
+    "level": "F",
+    "q": "Lors de la traction au sol sans matériel, de quel côté le sauveteur doit-il se placer pour saisir son équipier ?",
+    "choices": [
+      "Du côté droit, pour avoir le meilleur appui",
+      "Du côté gauche en général, pour éviter de fermer le robinet lors de la traction",
+      "Du côté de la tête",
+      "N'importe quel côté selon la configuration des lieux"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 1.2 — Il faut veiller à choisir le côté par lequel le sauveteur est saisi pour éviter de fermer le robinet lors de la traction au sol (côté gauche en général).",
+    "source": "Chapitre 3, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-043",
+    "level": "F",
+    "q": "Quelles sont les trois méthodes d'évacuation générale d'urgence possibles ?",
+    "choices": [
+      "À la voix, par radio, par signal sonore (deux tons, corne de brume)",
+      "Par SMS, par radio, par signal lumineux",
+      "À la voix, par signal lumineux, par signal sonore",
+      "Par radio, par signal sonore, par signal lumineux"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 1, section 3 — L'ordre d'évacuation générale peut s'opérer : à la voix « Evacuation – Evacuation – Evacuation », par radio « Evacuation – Evacuation – Evacuation », par un signal sonore (deux tons, corne de brume).",
+    "source": "Chapitre 1, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-044",
+    "level": "F",
+    "q": "Quel est le rôle de l'équipier restant du binôme en danger lors d'une technique de traction parallèle ?",
+    "choices": [
+      "Il doit quitter immédiatement le volume et prévenir les secours",
+      "Il peut aider à extraire la victime ou ouvrir la voie au binôme de sauvetage",
+      "Il doit attendre l'arrivée du binôme de sauvetage immobile",
+      "Il se charge uniquement de la communication radio"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.1.2 — Dans les deux cas, l'équipier restant du binôme en danger peut aider à extraire la victime ou ouvrir la voie au binôme de sauvetage.",
+    "source": "Chapitre 3, section 2.1.2"
+  },
+  {
+    "id": "gto-sauvegarde-045",
+    "level": "F",
+    "q": "Quels sont les avantages de la technique de passage en avant lors du franchissement d'un passage étroit ?",
+    "choices": [
+      "Elle nécessite le desserrage des sangles pour franchir l'obstacle",
+      "Elle permet de franchir une trouée en conservant la marche « en avant » et ne nécessite pas le desserrage des sangles",
+      "Elle est adaptée uniquement aux personnes corpulentes",
+      "Elle permet de vérifier la stabilité du nouveau volume avant de s'y engager complètement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3 — La technique de passage en avant permet de franchir une trouée ou un passage étroit en conservant la marche « en avant ». Elle a l'avantage de ne pas nécessiter le desserrage des sangles pour franchir l'obstacle.",
+    "source": "Chapitre 2, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-046",
+    "level": "F",
+    "q": "Dans quelles circonstances le retrait du harnais de l'ARI peut-il être envisageable ?",
+    "choices": [
+      "Plus d'air dans la bouteille et assistance en air impossible",
+      "Obligation de passer dans des passages étroits",
+      "Lorsque la victime est trop lourde pour être tractée avec son équipement",
+      "Extraction par un ouvrant permettant le passage à l'air libre"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 3, section 1.1.3 — Le retrait du harnais peut faciliter l'extraction de la victime. Il est envisageable dans les cas suivants : plus d'air dans la bouteille et assistance en air impossible, obligation de passer dans des passages étroits, extraction par un ouvrant permettant le passage à l'air libre.",
+    "source": "Chapitre 3, section 1.1.3"
+  },
+  {
+    "id": "gto-sauvegarde-047",
+    "level": "F",
+    "q": "Quelle est la technique de traction du binôme sauveteur utilisant le manche de la hache ?",
+    "choices": [
+      "La technique de la traction parallèle",
+      "La technique du tirer-pousser",
+      "La technique avec la hache Halligan tool",
+      "La technique Denver Drill"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3, section 2.1.1 — La technique avec la hache Halligan tool utilise le manche de la hache pour tracter le pompier « victime ». La hache est engagée dans les bretelles du dossard.",
+    "source": "Chapitre 3, section 2.1.1"
+  },
+  {
+    "id": "gto-sauvegarde-048",
+    "level": "F",
+    "q": "La planche de sauvetage est particulièrement adaptée pour quels types de cheminements ?",
+    "choices": [
+      "Les cheminements courts et en ligne droite",
+      "Les cheminements de longue distance",
+      "Les cheminements accidentés (gravats, virages, différences de niveaux)",
+      "Les évacuations à l'air libre"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 3, section 2.4 — L'emploi de ce matériel de sauvetage se justifie pour un cheminement long et complexe, avec des gravats, des virages ou des différences de niveaux.",
+    "source": "Chapitre 3, section 2.4"
+  },
+  {
+    "id": "gto-sauvegarde-049",
+    "level": "F",
+    "q": "Lors de la technique d'évacuation par l'escalier avec sangle, quel est l'avantage principal pour le sauveteur ?",
+    "choices": [
+      "Il peut progresser plus rapidement car il n'a pas besoin de s'arrêter",
+      "Il a les mains libres, ce qui lui permet de suivre la ligne guide, parler à la radio, porter un outil ou s'aider sur la rampe ou le mur",
+      "Il peut transporter deux victimes simultanément",
+      "Il n'a pas besoin de connaître l'itinéraire de sortie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 1.3.2 — Cette technique permet d'avoir les mains libres pendant le sauvetage, ce qui peut faciliter le sauveteur pour suivre la ligne guide, parler à la radio, porter un outil ou s'aider sur la rampe ou le mur.",
+    "source": "Chapitre 3, section 1.3.2"
+  },
+  {
+    "id": "gto-sauvegarde-050",
+    "level": "M",
+    "q": "Un sapeur-pompier se retrouve dissocié de son binôme dans un local enfumé. Il ne peut pas s'extraire seul. Quelles sont ses premières actions à réaliser ?",
+    "choices": [
+      "Lancer immédiatement un appel de détresse par radio selon le moyen mnémotechnique NELAR",
+      "Retirer son ARI pour passer sous le plafond de fumée et tenter de s'évacuer",
+      "Évaluer son état : problème(s), blessure éventuelle, stabilité de l'environnement, autonomie en air",
+      "Se mettre en condition d'attente des secours en gérant son air"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Chapitre 2 — Face à une situation dangereuse dont il ne peut s'extraire seul, le sapeur-pompier doit lancer immédiatement le NELAR, évaluer la situation (problèmes, blessure, environnement, autonomie en air) et se mettre en condition pour attendre les secours en économisant son air. Le retrait de l'ARI est une technique de dernier recours.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gto-sauvegarde-051",
+    "level": "M",
+    "q": "Lors de l'attente des secours, le retrait de la soupape à la demande (SAD) :",
+    "choices": [
+      "Doit être réalisé dès que le sifflet de fin de charge se déclenche",
+      "Ne doit être réalisé qu'en dernier recours",
+      "Est recommandé pour économiser l'air de la bouteille",
+      "Permet d'augmenter l'autonomie de façon significative et sans risque"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.2 — Le retrait de la soupape à la demande ne doit être réalisé qu'en dernier recours pour éviter un étouffement du porteur car il le soumet à un risque d'intoxication par les fumées.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-052",
+    "level": "M",
+    "q": "Un sapeur-pompier en difficulté a épuisé son air et ne peut pas se raccorder sur la prise auxiliaire de son équipier. Que doit-il faire selon la procédure AAALEERTER pour tenter de survivre le plus longtemps possible ?",
+    "choices": [
+      "Remonter le bas de sa cagoule sur le masque pour « filtrer » la fumée et respirer au plus près du sol",
+      "Retirer complètement son masque pour respirer l'air ambiant",
+      "Maintenir son masque en place et attendre l'arrivée des secours sans bouger",
+      "Ouvrir le robinet de la bouteille pour en extraire les dernières molécules d'air"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 2, section 1.2 — L'action « Remonter ma cagoule » de la procédure AAALEERTER indique : lorsque je n'ai plus d'air, je retire la SAD, remonte le bas de ma cagoule sur le masque pour « filtrer » la fumée et je respire au plus près du sol.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-053",
+    "level": "M",
+    "q": "Lors d'un franchissement de passage étroit par la technique « sur le dos », quelle précaution particulière est indispensable avant de s'engager ?",
+    "choices": [
+      "Desserrer toutes les sangles de l'ARI",
+      "S'assurer de la fiabilité du nouveau volume dans lequel on tente de pénétrer",
+      "Retirer son ARI avant de s'engager",
+      "Vérifier que son équipier est déjà de l'autre côté"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 3 — La technique de passage sur le dos nécessite une reconnaissance préalable afin de s'assurer de la fiabilité du nouveau volume dans lequel on tente de pénétrer.",
+    "source": "Chapitre 2, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-054",
+    "level": "M",
+    "q": "Un binôme est engagé à l'intérieur d'un bâtiment en feu. Une explosion se produit, désolidarisant les deux équipiers. Le sapeur-pompier dissocié effectue son bilan de situation. Il constate : environnement stable, pas de blessure, 120 bar restants, radio fonctionnelle. Il doit choisir entre tenter l'évacuation ou attendre les secours. Quels éléments l'orientent vers l'attente ?",
+    "choices": [
+      "Il n'est pas blessé",
+      "Son niveau d'air restant est suffisant pour attendre",
+      "Il a perdu contact visuel avec son binôme",
+      "L'environnement est stable, sans dégradation immédiate"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Chapitre 2 — L'analyse de la situation oriente vers deux options : tenter une évacuation (effort intense) ou se mettre en condition pour attendre les secours (économie d'air). Un air suffisant et un environnement stable sont des facteurs favorisant l'attente sécurisée.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gto-sauvegarde-055",
+    "level": "M",
+    "q": "Pourquoi est-il conseillé à un sapeur-pompier qui attend les secours, avant de perdre conscience, de faire son « auto-packaging » ?",
+    "choices": [
+      "Pour être identifié plus facilement par les secours grâce au marquage de son équipement",
+      "Pour orienter son projecteur vers l'arrivée présumée de l'équipe de sauvetage et passer lui-même sa sangle ventrale sous la cuisse afin de préparer son extraction",
+      "Pour économiser l'air restant en se plaçant en position fœtale",
+      "Pour protéger son masque des projections thermiques"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 1.2 — Il est conseillé, avant de perdre conscience, d'orienter son projecteur vers l'arrivée présumée de l'équipe de sauvetage et de faire son « auto-packaging », en passant soi-même sa sangle ventrale sous la cuisse pour préparer son extraction et faire gagner du temps à l'équipe de sauvetage.",
+    "source": "Chapitre 2, section 1.2"
+  },
+  {
+    "id": "gto-sauvegarde-056",
+    "level": "M",
+    "q": "Un sapeur-pompier constate que le sifflet de fin de charge de son ARI s'est déclenché mais qu'il doit encore attendre les secours. Quelles actions peut-il effectuer pour limiter la perte d'air liée au sifflet ?",
+    "choices": [
+      "Coiffer le sifflet avec son gant",
+      "Appliquer la technique de gestion d'une fuite d'air",
+      "Trouver au plus vite une sortie",
+      "Fermer le robinet de la bouteille"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Chapitre 2, section 5.2.2 — Il est possible de réduire l'impact du sifflet en le coiffant avec son gant ou en appliquant la technique de gestion d'une fuite d'air décrite plus loin.",
+    "source": "Chapitre 2, section 5.2.2"
+  },
+  {
+    "id": "gto-sauvegarde-057",
+    "level": "M",
+    "q": "Lors d'une évacuation par le tuyau, si le tuyau est vide, quelle précaution faut-il prendre ?",
+    "choices": [
+      "Ne pas utiliser le tuyau vide, attendre un autre moyen",
+      "Effectuer un nœud simple en amont de l'amarrage pour éviter que le tuyau ne glisse",
+      "Remplir le tuyau en eau avant de l'utiliser pour lui donner de la rigidité",
+      "Attacher le tuyau au niveau du raccord pour sécuriser la descente"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, section 6.2 — Si le tuyau est vide, effectuer un nœud simple en amont de l'amarrage. Il est important de veiller à la place du raccord et d'éviter d'attacher le tuyau au niveau de celui-ci.",
+    "source": "Chapitre 2, section 6.2"
+  },
+  {
+    "id": "gto-sauvegarde-058",
+    "level": "M",
+    "q": "Qu'est-ce qui distingue le sapeur-pompier victime d'une victime « traditionnelle » lors d'opérations de sauvetage ?",
+    "choices": [
+      "Un sapeur-pompier victime est toujours conscient, ce qui simplifie son extraction",
+      "Son équipement (ARI, tenue de feu, ceinturon...), sa localisation et sa formation nécessitent des techniques et procédures spécifiques pour sa prise en charge et son extraction",
+      "Le sapeur-pompier victime peut être traité comme une victime ordinaire car il est équipé de protections individuelles",
+      "Son extraction est plus simple car il connaît lui-même les techniques de sauvetage"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3 — Le sapeur-pompier qui devient victime ne peut être pris en charge comme une victime « traditionnelle ». De par son équipement (ARI, tenue de feu, ceinturon...), sa localisation et sa formation, sa prise en charge et son extraction en zone sécurisée nécessitent des techniques et des procédures spécifiques.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gto-sauvegarde-059",
+    "level": "M",
+    "q": "La technique du « tirer-pousser » (push and pull) est particulièrement adaptée dans quel type d'environnement ?",
+    "choices": [
+      "Dans un volume ouvert où les sauveteurs ont beaucoup de place",
+      "Dans un escalier lors d'une montée",
+      "Dans un environnement étroit tel qu'un couloir",
+      "À l'extérieur du bâtiment lors d'une évacuation sur l'échelle"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3, section 2.1.3 — La technique du « tirer-pousser » s'utilise dans un environnement étroit tel qu'un couloir, où les sauveteurs n'auraient pas la place de se tenir l'un à côté de l'autre pour tracter la victime.",
+    "source": "Chapitre 3, section 2.1.3"
+  },
+  {
+    "id": "gto-sauvegarde-060",
+    "level": "M",
+    "q": "Lors de la mise en place d'une échelle à coulisse comme itinéraire de secours par un seul sapeur-pompier, quelles actions sont nécessaires ?",
+    "choices": [
+      "Retourner l'échelle, grand plan vers la façade",
+      "Diminuer le pied d’échelle",
+      "Placer l'échelle avec le grand plan vers l'extérieur du bâtiment",
+      "Vérifier le bon engagement des parachutes et caler ou amarrer l'échelle"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 1, section 2.2.2 — La mise en place consiste à : retourner l'échelle grand plan vers la façade, vérifier le bon engagement des parachutes, caler ou amarrer l'échelle, et poser une balise lumineuse verte en partie haute de l'échelle à l'intérieur du local pour signaler l'itinéraire de secours.",
+    "source": "Chapitre 1, section 2.2.2"
+  },
+  {
+    "id": "gto-sauvegarde-061",
+    "level": "M",
+    "q": "Quels sont les avantages de l'utilisation d'une échelle à coulisse comme itinéraire de secours ?",
+    "choices": [
+      "Elle peut permettre la descente d'une victime invalide ou inconsciente",
+      "Elle est utile lorsque plusieurs sauvetages sont à réaliser sur une même partie d'un bâtiment",
+      "Elle ne peut être mise en place que par deux sapeurs-pompiers minimum",
+      "Permet de donner un point de sortie dans les étages"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Chapitre 1, section 2.2.2 — La rapidité de mise en œuvre permet d'assister un sapeur-pompier en difficulté évoluant à l'intérieur du bâtiment et se manifestant à un autre ouvrant. Elle peut faciliter la descente d'une victime invalide ou inconsciente, et est utile lorsque plusieurs sauvetages sont à réaliser sur une même partie d'un bâtiment.",
+    "source": "Chapitre 1, section 2.2.2"
+  },
+  {
+    "id": "gto-sauvegarde-062",
+    "level": "M",
+    "q": "Lors du sauvetage d’un sapeur-pompie sur une échelle à coulisse, quelle précaution est obligatoire concernant l'ARI de l'équipier à descendre ?",
+    "choices": [
+      "L'ARI doit être conservé et vérifié avant la descente",
+      "L'ARI de l'équipier à descendre est préalablement retiré",
+      "L'ARI peut être retiré ou conservé selon l'état de la victime",
+      "L'ARI est confié à un troisième sauveteur resté dans le volume"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 3.1.1 — L'ARI de l'équipier à descendre est préalablement retiré.",
+    "source": "Chapitre 3, section 3.1.1"
+  },
+  {
+    "id": "gto-sauvegarde-063",
+    "level": "M",
+    "q": "En matière de sauvegarde opérationnelle, quelle est la règle concernant l'auto-engagement de personnels lors d'une évacuation d'urgence ?",
+    "choices": [
+      "L'auto-engagement est encouragé pour accélérer les secours",
+      "L'ordre d'évacuation vise notamment à empêcher tout auto-engagement de personnel pouvant nuire aux actions de secours nécessaires",
+      "L'auto-engagement est autorisé pour les personnels de fonction supérieure à la victime",
+      "L'auto-engagement est possible si le binôme de sécurité est en place"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 3 — Le signal d'évacuation d'urgence a notamment pour objectif d'empêcher tout auto-engagement de personnel pouvant nuire aux actions de secours nécessaires.",
+    "source": "Chapitre 1, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-064",
+    "level": "M",
+    "q": "Un sapeur-pompier se blesse à la cheville lors d'une intervention à l'étage. Il est en difficulté physiologique mais conscient. Son équipier souhaite l'évacuer par l'escalier. Pour descendre, comment s'organisent les sauveteurs ?",
+    "choices": [
+      "Un sauveteur saisit le dossard de l'ARI et un deuxième se place sous les genoux du pompier en difficulté",
+      "Le sapeur-pompier « victime » est au sol, les deux sauveteurs saisissent le dossard de l'ARI",
+      "Un sauveteur tire par les pieds, l'autre pousse par les épaules",
+      "La sortie n'est possible que par la technique Denver Drill"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 2.2 — Pour descendre, le sapeur-pompier « victime » a la face contre le sol. Les deux sauveteurs saisissent le dossard de l'ARI.",
+    "source": "Chapitre 3, section 2.2"
+  },
+  {
+    "id": "gto-sauvegarde-065",
+    "level": "M",
+    "q": "Lors de l'évaluation d'un obstacle à franchir, quels éléments doivent être pris en compte ?",
+    "choices": [
+      "Les dimensions",
+      "La matière de l'obstacle",
+      "La nature de l'obstacle",
+      "La solidité"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Chapitre 2 — Avant de franchir un obstacle, il est important d'en évaluer les dimensions, la nature (brèche dans un mur, éboulis, mobilier...), la solidité (risque d'effondrement lors du franchissement) et la stabilité de la structure après l'obstacle.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gto-sauvegarde-066",
+    "level": "M",
+    "q": "Lors d'un engagement en milieu vicié, quelle est la pression d'engagement minimale recommandée pour la capacité en air du binôme de sauvetage ? (Pour une bouteille de pression nominale à 300 bar)",
+    "choices": [
+      "150 bar",
+      "200 bar",
+      "270 bar",
+      "300 bar"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3 — La capacité en air du binôme de sauvetage doit être à son maximum sans descendre en dessous de la pression d'engagement de 270 bar, au regard de l'effort qui risque d'être fourni.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gto-sauvegarde-067",
+    "level": "M",
+    "q": "Concernant la technique du Denver Drill, quelles affirmations sont exactes ?",
+    "choices": [
+      "Elle nécessite un entraînement régulier pour être maîtrisée",
+      "Elle peut être couplée avec une mission de reconnaissance",
+      "Elle nécessite un engagement physique important",
+      "Elle peut être réalisée par deux sauveteurs expérimentés"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 3, section 2.3 — La technique « Denver drill » nécessite un engagement physique important et nécessite un entraînement régulier pour être maîtrisée.",
+    "source": "Chapitre 3, section 2.3"
+  },
+  {
+    "id": "gto-sauvegarde-068",
+    "level": "M",
+    "q": "Lors de la remontée d'un équipier tombé dans une excavation avec sa lance, comment est utilisé le tuyau ?",
+    "choices": [
+      "Il est attaché autour de la taille de la victime pour la remonter",
+      "Le tuyau est descendu de manière à créer une ganse jusqu'au sapeur-pompier en difficulté, puis sa remontée s'effectue à la force des bras",
+      "Le tuyau est mis sous pression pour créer une rigidité permettant à la victime de s'en saisir",
+      "Le tuyau est utilisé uniquement pour maintenir une protection hydraulique, pas pour la remontée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 3, section 3.2 — Le tuyau est descendu de manière à créer une ganse jusqu'au sapeur-pompier en difficulté puis sa remontée s'effectue à la force des bras.",
+    "source": "Chapitre 3, section 3.2"
+  },
+  {
+    "id": "gto-sauvegarde-069",
+    "level": "M",
+    "q": "Lors du franchissement d'un passage étroit par la technique du profil réduit, quelles actions peuvent faciliter le passage selon le gabarit ?",
+    "choices": [
+      "La position des bras et des épaules",
+      "Le retrait complet de l'ARI",
+      "Le desserrage de certaines sangles",
+      "Le retrait du casque"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 2, section 3 — La position des bras et des épaules, ainsi que le desserrage de certaines sangles peuvent, selon le gabarit, faciliter le passage.",
+    "source": "Chapitre 2, section 3"
+  },
+  {
+    "id": "gto-sauvegarde-070",
+    "level": "M",
+    "q": "L'aspect psychologique lors du sauvetage d'un collègue peut entraîner quels types de réactions chez les personnels sur place ?",
+    "choices": [
+      "Une amélioration des capacités physiques liée à l'adrénaline",
+      "Des phénomènes de sidération",
+      "Des phénomènes d'auto-engagements pouvant compromettre la sécurité et la poursuite de l'intervention",
+      "Une meilleure coordination du binôme"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 3 — L'aspect psychologique peut aboutir à des réactions inappropriées des équipes présentes sur place, voire à des phénomènes de sidération ou d'auto-engagements qui peuvent compromettre la sécurité et la poursuite de l'intervention.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gto-sauvegarde-071",
+    "level": "M",
+    "q": "La technique de respiration dite « intervalle respiratoire » se décompose en combien d'étapes et quelle est leur durée ?",
+    "choices": [
+      "3 étapes de 3 secondes chacune",
+      "4 étapes de 5 secondes chacune",
+      "5 étapes de 5 secondes chacune",
+      "4 étapes de 4 secondes chacune"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, section 5.2.1 — L'intervalle respiratoire : 1. Inspirer lentement sur une période de 5 sec. / 2. Retenir son souffle sur une période de 5 sec. / 3. Expirer lentement sur une période de 5 sec. / 4. Retenir son souffle sur une période de 5 sec. / 5. Recommencer le cycle. Soit 5 étapes de 5 secondes.",
+    "source": "Chapitre 2, section 5.2.1"
+  },
+  {
+    "id": "gto-sauvegarde-072",
+    "level": "M",
+    "q": "Lors de la mise en place d'une échelle à coulisse comme itinéraire de secours, pourquoi est-il conseillé d'augmenter le piétage ?",
+    "choices": [
+      "Pour faciliter l'accrochage de l'échelle à la façade",
+      "Afin que la pente présentée par l'échelle soit moins raide",
+      "Pour permettre à l'échelle de résister à un plus grand poids",
+      "Pour éviter que l'échelle ne soit emportée par la chaleur dégagée par l'incendie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, section 2.2.2 — Il est nécessaire d'augmenter le piétage afin que la pente présentée par l'échelle soit moins raide et que le haut de l'échelle vienne juste en dessous du rebord de l'ouvrant.",
+    "source": "Chapitre 1, section 2.2.2"
+  },
+  {
+    "id": "gto-sauvegarde-073",
+    "level": "M",
+    "q": "La mission du binôme de sauvetage est décrite comme exclusive et prioritaire. Laquelle de ces associations est correcte concernant les missions qui lui sont autorisées ou interdites ?",
+    "choices": [
+      "Mission autorisée : sauvetage d'un sapeur-pompier / Mission interdite : reconnaissance ou attaque en parallèle",
+      "Mission autorisée : sauvetage et reconnaissance simultanée / Mission interdite : l'attaque",
+      "Mission autorisée : sauvetage et attaque simultanée / Mission interdite : l'évacuation des victimes civiles",
+      "Mission autorisée : toutes les missions opérationnelles / Mission interdite : aucune restriction particulière"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Chapitre 3 — Le binôme de sauvetage a une mission exclusive et prioritaire : le sauvetage d'un/de sapeurs-pompiers. En aucun cas sa mission ne peut être couplée avec une mission de reconnaissance ou d'attaque.",
+    "source": "Chapitre 3"
+  }
+]

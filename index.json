@@ -1,0 +1,32 @@
+{
+  "themes": {
+    "etude-texte": {
+      "label": "Étude de texte",
+      "description": "Compréhension, synthèse et restitution d'un texte réglementaire ou professionnel. Teste ta capacité à extraire les informations clés d'un document officiel.",
+      "icon": "📖",
+      "default_duration_min": 60
+    },
+    "maths": {
+      "label": "Mathématiques",
+      "description": "Arithmétique, géométrie, conversions, vitesse, volumes — niveau fin de 3ème. Concentration et rigueur de calcul sous chronomètre.",
+      "icon": "🧮",
+      "default_duration_min": 60
+    },
+    "equipier": {
+      "label": "Équipier SPV",
+      "description": "Activités et compétences de l'équipier sapeur-pompier volontaire : lutte contre l'incendie, secours d'urgence, techniques opérationnelles, culture administrative.",
+      "icon": "🚒",
+      "default_duration_min": 60
+    }
+  },
+  "annales": [
+    {
+      "id": "equipier-demo",
+      "theme": "equipier",
+      "year": 2025,
+      "title": "Session 2025 — Équipier SPV (exemple)",
+      "nb_questions": 3,
+      "duration_min": 60
+    }
+  ]
+}

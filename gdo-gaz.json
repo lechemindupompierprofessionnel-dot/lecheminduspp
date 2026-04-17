@@ -1,0 +1,200 @@
+[
+  {
+    "id": "gdo-gaz-001",
+    "level": "TF",
+    "q": "Quelle est la substance utilisée pour odorisé le gaz naturel avant sa distribution aux usagers ?",
+    "choices": [
+      "Le mercaptan (méthanethiol)",
+      "Le tétrahydrothiophène (THT)",
+      "Le disulfure de carbone",
+      "Le propane"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO p.17 précise que le gaz naturel est odorisé par adjonction de tétrahydrothiophène (THT). Le mercaptan (méthanethiol) est mentionné comme l'ancien produit utilisé, parfois encore employé pour les bouteilles, et constitue un distracteur plausible.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-gaz-002",
+    "level": "TF",
+    "q": "Le constituant principal du gaz naturel est le méthane. Quelle proportion représente-t-il dans le gaz naturel ?",
+    "choices": [
+      "50 % à 70 %",
+      "75 % à 85 %",
+      "86 % à 98 %",
+      "99 % à 100 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le GDO p.17 indique que le méthane (CH₄) est le constituant principal du gaz naturel, à raison de 86 % à 98 %.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-gaz-003",
+    "level": "TF",
+    "q": "Quelle est la couleur d'ogive réglementaire d'une bouteille de gaz contenant un gaz inflammable, selon la norme NF EN 1089-3 ?",
+    "choices": [
+      "Jaune (RAL 1018)",
+      "Bleu clair (RAL 2012)",
+      "Vert vif (RAL 6018)",
+      "Rouge (RAL 3000)"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Le GDO p.40 précise que la couleur d'ogive associée au risque « inflammable » est le rouge (RAL 3000 – rouge feu), selon la norme NF EN 1089-3.",
+    "source": "GDO p.40"
+  },
+  {
+    "id": "gdo-gaz-004",
+    "level": "TF",
+    "q": "En cas de fuite, dans quelle partie d'un local les GPL (butane et propane) s'accumulent-ils ?",
+    "choices": [
+      "En partie haute, car ils sont plus légers que l'air",
+      "En partie basse, car ils sont plus lourds que l'air",
+      "De façon homogène dans tout le volume",
+      "En partie médiane, à hauteur de la source de fuite"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO p.18 indique en encadré d'avertissement : « En cas de fuite, les GPL s'accumulent en partie basse. » Le butane et le propane sont plus lourds que l'air.",
+    "source": "GDO p.18"
+  },
+  {
+    "id": "gdo-gaz-005",
+    "level": "F",
+    "q": "Parmi les conditions suivantes, lesquelles doivent être réunies simultanément pour qu'une explosion puisse avoir lieu ?",
+    "choices": [
+      "Présence d'un gaz combustible",
+      "Présence de vapeur d'eau en concentration élevée",
+      "Présence d'un comburant (en général l'oxygène de l'air)",
+      "Obtention d'une plage d'explosivité"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Le GDO p.80 liste cinq conditions devant être réunies simultanément pour qu'une explosion ait lieu, parmi lesquelles : présence d'un gaz combustible, présence d'un comburant (l'oxygène de l'air), obtention d'une plage d'explosivité, présence d'une source d'inflammation, et éventuellement confinement. La vapeur d'eau (B) n'en fait pas partie. *(Question à 3 bonnes réponses : A, C, D)*",
+    "source": "GDO p.80"
+  },
+  {
+    "id": "gdo-gaz-006",
+    "level": "F",
+    "q": "Que désigne la plage d'explosivité d'un gaz ?",
+    "choices": [
+      "La zone géographique autour d'une fuite de gaz où l'explosion est possible",
+      "Le domaine de concentration en gaz combustible compris entre la LIE et la LSE",
+      "La pression maximale atteinte lors d'une explosion de gaz en espace confiné",
+      "La distance maximale d'effet d'une explosion à partir du foyer initial"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO p.27 définit la plage d'explosivité comme le domaine de concentration en gaz combustible borné par la limite inférieure d'explosivité (LIE) et la limite supérieure d'explosivité (LSE).",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-gaz-007",
+    "level": "F",
+    "q": "Concernant le détecteur de gaz (explosimètre) utilisé par les sapeurs-pompiers, quelles affirmations sont exactes ?",
+    "choices": [
+      "Il doit être allumé dans la zone d'exclusion, au plus près de la source de fuite",
+      "Il doit être allumé en zone de soutien avant de pénétrer dans la zone dangereuse",
+      "Pour les gaz plus lourds que l'air, les relevés se font prioritairement en partie basse",
+      "Un seul relevé au centre de la pièce est suffisant pour évaluer le risque"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Le GDO p.100 précise que le détecteur s'allume toujours en zone de soutien. Si allumé en présence de gaz, le point de référence est décalé et les mesures sont erronées. Le même paragraphe indique que pour les gaz plus lourds que l'air, les relevés se font prioritairement en partie basse.",
+    "source": "GDO p.100"
+  },
+  {
+    "id": "gdo-gaz-008",
+    "level": "F",
+    "q": "Que doit faire le sapeur-pompier face à un organe de coupure de gaz naturel lorsqu'il est dans le doute et qu'aucun représentant de l'exploitant n'est présent ?",
+    "choices": [
+      "Manœuvrer prudemment l'organe de coupure en sens horaire",
+      "S'abstenir de manœuvrer l'organe de coupure",
+      "Couper le gaz puis attendre la confirmation de l'exploitant",
+      "Manœuvrer l'organe uniquement si une victime est en danger immédiat"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO p.101 précise en encadré d'avertissement : « Dans le doute et en l'absence d'un représentant de l'exploitant, les sapeurs-pompiers s'abstiendront de manœuvrer un organe de coupure. »",
+    "source": "GDO p.101"
+  },
+  {
+    "id": "gdo-gaz-009",
+    "level": "M",
+    "q": "Lors d'une intervention pour suspicion d'intoxication au monoxyde de carbone (CO) dans un appartement, quels éléments parmi les suivants peuvent caractériser une intoxication aiguë au CO ?",
+    "choices": [
+      "Présence d'une odeur âcre et piquante dans les locaux",
+      "Céphalées, vertiges et vomissements chez les occupants",
+      "Coloration rouge des victimes",
+      "Une odeur de gaz"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Le GDO p.93 indique que les principaux symptômes d'une intoxication aiguë au CO sont céphalées, asthénie musculaire, vomissements, vertiges. Il précise également p.93 qu'une personne décède généralement lorsque son taux HbCO est supérieur à 40 %, avec le corps recouvert de rougeurs suite à une hypoxie tissulaire. Le CO est inodore (A est faux) et touche toutes les personnes (D est faux).",
+    "source": "GDO p.93"
+  },
+  {
+    "id": "gdo-gaz-010",
+    "level": "M",
+    "q": "Un équipier réalise des relevés d'explosimétrie dans un appartement suite à une odeur de gaz. L'appareil indique une valeur de 20 % de la LIE. Quelle interprétation est correcte ?",
+    "choices": [
+      "Le mélange est dans la plage d'explosivité : une explosion est imminente",
+      "Le mélange est trop pauvre en gaz pour exploser : la situation est sans risque",
+      "Le mélange est en dessous de la LIE, mais cela n'exclut pas l'existence de poches à concentration plus élevée dans d'autres parties du local",
+      "La mesure est invalide : un explosimètre ne peut pas lire en dessous de 50 % de la LIE"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le GDO p.100 précise que les valeurs mesurées en plusieurs points peuvent être différentes et qu'il faut « toujours considérer la valeur la plus élevée ». Un relevé à 20 % de la LIE signifie que la concentration locale est sous le seuil d'explosion, mais cela n'exclut pas l'existence de poches plus concentrées ailleurs dans le volume. Le GDO avertit expressément contre l'utilisation d'un seul relevé.",
+    "source": "GDO p.100"
+  },
+  {
+    "id": "gdo-gaz-011",
+    "level": "M",
+    "q": "À l'arrivée sur intervention en présence de gaz, quelles mesures de sécurité immédiate s'imposent à l'équipier ?",
+    "choices": [
+      "Allumer l'explosimètre durant le trajet, avant d'arriver sur les lieux",
+      "Stationner l'engin en amont de l'adresse dans le sens de circulation",
+      "Activer les sonnettes électriques pour prévenir les occupants de l'immeuble",
+      "Laisser les radios portatives hors zone d'exclusion si elles ne sont pas ATEX E. Couper immédiatement le compteur gaz dès l'arrivée sur les lieux"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le GDO p.98 liste parmi les règles générales de sécurité : allumer les appareils (explosimètre, lampes antidéflagrantes) durant le trajet ; stationner en amont de l'adresse dans le sens de circulation ; laisser les radios portatives hors zone d'exclusion si elles ne sont pas ATEX ou dans des sachets étanches. Utiliser les sonnettes électriques (C) est interdit. Couper immédiatement le compteur (E) n'est pas systématique et relève d'une décision encadrée.",
+    "source": "GDO p.98"
+  },
+  {
+    "id": "gdo-gaz-012",
+    "level": "M",
+    "q": "Concernant l'hydrogène sulfuré (H₂S), quelle affirmation est correcte et constitue un piège opérationnel majeur pour les intervenants ?",
+    "choices": [
+      "Le H₂S est facilement détectable par son odeur d'œuf pourri à toutes les concentrations",
+      "À forte concentration, le H₂S sature les récepteurs olfactifs et devient indétectable par le nez",
+      "Le H₂S est plus léger que l'air, il convient donc de faire les relevés en partie haute",
+      "Le H₂S est un gaz inerte qui n'agit que par asphyxie par manque d'oxygène"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO p.95 précise en encadré d'avertissement : « Même si l'H₂S a une odeur caractéristique (d'œuf pourri) à faible concentration, il est indétectable par le nez humain dans des concentrations plus élevées car il sature les récepteurs olfactifs. » C'est un piège opérationnel majeur : l'absence d'odeur ne signifie pas l'absence de danger. Par ailleurs, l'H₂S est plus lourd que l'air (C est faux) et c'est un gaz toxique, pas un simple asphyxiant (D est faux).",
+    "source": "GDO p.95"
+  }
+]

@@ -1,0 +1,975 @@
+[
+  {
+    "id": "gdo-incendie-001",
+    "level": "TF",
+    "q": "Que signifie l'acronyme FLV dans le GDO incendies de structures ?",
+    "choices": [
+      "Feu Limité par la Ventilation",
+      "Feu Libre en Volume",
+      "Flux Lumineux Variable",
+      "Feu de Local Ventilé"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Lexique du GDO p.17 – FLV : feu limité par la ventilation.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-incendie-002",
+    "level": "TF",
+    "q": "Que signifie l'acronyme FLC ?",
+    "choices": [
+      "Feu Limité par le Combustible",
+      "Feu de Local Confiné",
+      "Flux de Lumière Contrôlé",
+      "Feu à Limite de Croissance"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Lexique du GDO p.17 – FLC : feu limité par le combustible.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-incendie-003",
+    "level": "TF",
+    "q": "Que désigne l'acronyme EPI dans le contexte des interventions incendie ?",
+    "choices": [
+      "Équipement de Protection Individuelle",
+      "Engin de Pompage Intérieur",
+      "Échelle de Protection Incendie",
+      "Engagement de Premier Intervenant"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Lexique du GDO p.17 – EPI : équipement de protection individuelle.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-incendie-004",
+    "level": "TF",
+    "q": "Quels sont les trois composants représentés par le triangle du feu ?",
+    "choices": [
+      "Combustible, Comburant, Chaleur",
+      "Combustible, Oxygène, Explosion",
+      "Carbone, Oxygène, Hydrogène",
+      "Flamme, Chaleur, Fumée"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.19 – Le triangle du feu illustre les composants nécessaires à une réaction de combustion : le combustible, le comburant et la chaleur.",
+    "source": "GDO p.19"
+  },
+  {
+    "id": "gdo-incendie-005",
+    "level": "TF",
+    "q": "Selon le GDO, comment est défini l'incendie par rapport au feu ?",
+    "choices": [
+      "L'incendie est un feu dont le développement n'est pas maîtrisé dans l'espace et dans le temps",
+      "L'incendie est un feu dont le développement est maîtrisé dans le temps comme dans l'espace",
+      "L'incendie est uniquement un feu qui se développe en structure",
+      "L'incendie est un feu de grande puissance dépassant 10 MW"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.20 – « L'incendie est un feu dont le développement n'est pas maîtrisé dans l'espace et dans le temps. »",
+    "source": "GDO p.20"
+  },
+  {
+    "id": "gdo-incendie-006",
+    "level": "TF",
+    "q": "En quelle unité s'exprime la puissance d'un feu ?",
+    "choices": [
+      "En Watts (W)",
+      "En Joules (J)",
+      "En Kelvin (K)",
+      "En Pascals (Pa)"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.21 – « La puissance d'un feu est une quantité d'énergie thermique (Joule, J) dégagée sur une unité de temps (seconde, s). Elle se mesure donc en Watts (1 Watt = 1 joule/seconde). »",
+    "source": "GDO p.21"
+  },
+  {
+    "id": "gdo-incendie-007",
+    "level": "TF",
+    "q": "Quelle est la puissance dégagée approximativement par un feu de salon ou de chambre développé ?",
+    "choices": [
+      "3 à 10 MW",
+      "50 à 300 KW",
+      "1 à 2 MW",
+      "150 KW"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.21 – Tableau des puissances : « Feu de salon ou chambre développé : 3 à 10 MW. »",
+    "source": "GDO p.21"
+  },
+  {
+    "id": "gdo-incendie-008",
+    "level": "TF",
+    "q": "Que signifie l'acronyme ZI dans le zonage opérationnel incendie ?",
+    "choices": [
+      "Zone d'Intervention",
+      "Zone d'Isolement",
+      "Zone d'Interdiction",
+      "Zone Incendiée"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Lexique GDO p.17 – ZI : zone d'intervention.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-incendie-009",
+    "level": "TF",
+    "q": "Que désigne le terme « backdraft » en terminologie française selon le GDO ?",
+    "choices": [
+      "L'explosion de fumées",
+      "L'embrasement généralisé éclair",
+      "L'inflammation de gaz issus d'un incendie",
+      "La rupture de confinement"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.24 – « Terminologie française associée : L'explosion de fumées de type backdraft. »",
+    "source": "GDO p.24"
+  },
+  {
+    "id": "gdo-incendie-010",
+    "level": "TF",
+    "q": "Que signifie l'acronyme LSPCC dans le lexique du GDO ?",
+    "choices": [
+      "Lot de sauvetage et de protection contre les chutes",
+      "Lance à Système de Protection Contre les Courts-circuits",
+      "Ligne Sécurisée de Positionnement du Chef de Colonne",
+      "Lot de Sauvetage et de Protection Contre les Chocs"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Lexique GDO p.17 – LSPCC : lot de sauvetage et de protection contre les chutes.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-incendie-011",
+    "level": "TF",
+    "q": "Selon le GDO, quels sont les trois modes de transfert de chaleur ?",
+    "choices": [
+      "Conduction, convection, rayonnement",
+      "Conduction, radiation, évaporation",
+      "Convection, propagation, irradiation",
+      "Diffusion, conduction, absorption"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.21 – « Le transfert de chaleur peut se faire par conduction, convection ou rayonnement. »",
+    "source": "GDO p.21"
+  },
+  {
+    "id": "gdo-incendie-012",
+    "level": "TF",
+    "q": "Dans la répartition moyenne des transferts de chaleur d'un feu en local, quelle est la part de la convection ?",
+    "choices": [
+      "70 %",
+      "25 %",
+      "5 %",
+      "50 %"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.31 – « Le ratio de répartition des transferts de chaleur est en moyenne de : 70 % par convection ; 25 % par rayonnement ; 5 % par conduction. »",
+    "source": "GDO p.31"
+  },
+  {
+    "id": "gdo-incendie-013",
+    "level": "TF",
+    "q": "Que désigne la « résistance au feu » d'un élément de construction ?",
+    "choices": [
+      "Le temps pendant lequel un élément de construction peut jouer le rôle qui lui est dévolu malgré l'action d'un incendie",
+      "La capacité d'un matériau à ne pas s'enflammer au contact d'une flamme",
+      "La quantité de chaleur qu'un élément peut absorber avant de se dégrader",
+      "La réaction chimique d'un matériau face aux fumées toxiques"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.27 – « La résistance au feu est définie par le temps pendant lequel les éléments de construction peuvent jouer le rôle qui leur est dévolu malgré l'action d'un incendie. »",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-incendie-014",
+    "level": "TF",
+    "q": "Que désigne la « réaction au feu » d'un matériau de construction ?",
+    "choices": [
+      "L'aliment que le matériau peut apporter au feu et au développement de l'incendie",
+      "La durée pendant laquelle un élément résiste à la chaleur",
+      "La capacité d'un matériau à émettre de la fumée lors de sa combustion",
+      "La résistance mécanique d'une structure soumise à un incendie"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.27 – « La réaction au feu est définie par l'aliment qui peut être apporté au feu et au développement de l'incendie. »",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-incendie-015",
+    "level": "TF",
+    "q": "À quelle zone correspond la ZS dans le zonage opérationnel ?",
+    "choices": [
+      "Zone de soutien",
+      "Zone de sécurité",
+      "Zone surveillée",
+      "Zone de sauvetage"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Lexique GDO p.17 – ZS : zone de soutien.",
+    "source": "GDO p.17"
+  },
+  {
+    "id": "gdo-incendie-016",
+    "level": "TF",
+    "q": "Que désigne l'acronyme FGI ?",
+    "choices": [
+      "Fire Gas Ignition (inflammations de gaz issus d'un incendie)",
+      "Feu Généralisé Intérieur",
+      "Foyer de Gaz Inflammable",
+      "Flash Gas Ignition (ignition rapide de gaz)"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.24 – « 1.7.3. Famille des Fire Gas Ignition (FGI) – Terminologie française : Les inflammations de gaz issus d'un incendie. »",
+    "source": "GDO p.24"
+  },
+  {
+    "id": "gdo-incendie-017",
+    "level": "TF",
+    "q": "Que désigne la charge calorifique d'un local ?",
+    "choices": [
+      "La somme des énergies calorifiques pouvant être dégagées par la combustion complète de l'ensemble des matériaux incorporés dans la construction ou situés dans un local",
+      "La puissance maximale que peut atteindre un feu dans un local donné",
+      "La quantité de calories absorbée par les parois lors d'un incendie",
+      "L'énergie thermique émise par les fumées dans un volume confiné"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.28 – « La charge calorifique est la somme des énergies calorifiques (exprimée en MJ) pouvant être dégagées par la combustion complète de l'ensemble des matériaux incorporés dans la construction ou situés dans un local. »",
+    "source": "GDO p.28"
+  },
+  {
+    "id": "gdo-incendie-018",
+    "level": "TF",
+    "q": "Selon le GDO, quel est l'agent extincteur le plus répandu dans les opérations de lutte contre l'incendie ?",
+    "choices": [
+      "L'eau",
+      "La poudre",
+      "L'azote",
+      "La mousse"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.33 – « Dans le cadre des opérations de lutte contre l'incendie, l'agent extincteur le plus répandu demeure l'eau. »",
+    "source": "GDO p.33"
+  },
+  {
+    "id": "gdo-incendie-019",
+    "level": "TF",
+    "q": "Selon le GDO, les fumées correspondent à l'ensemble visible des particules solides et/ou liquides en suspension et des gaz résultant de quoi ?",
+    "choices": [
+      "D'une combustion ou d'une pyrolyse",
+      "D'une explosion chimique uniquement",
+      "D'une réaction électrique ou thermique",
+      "D'une carbonisation de matière organique"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.21-22 – « Les fumées correspondent à l'ensemble visible des particules solides et/ou liquides en suspension et des gaz résultant d'une combustion ou d'une pyrolyse. »",
+    "source": "GDO p.21-22"
+  },
+  {
+    "id": "gdo-incendie-020",
+    "level": "TF",
+    "q": "Selon le GDO, quels sont les trois phénomènes thermiques à cinétique rapide reconnus internationalement ?",
+    "choices": [
+      "Flashover, Backdraft, Fire Gas Ignition (FGI)",
+      "Flashover, Explosion, Déflagration",
+      "Backdraft, Feu de gaz, Embrasement diffus",
+      "Flash Fire, Smoke Explosion, BLEVE"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.23 – « Ces évènements peuvent être attribués à trois grandes familles : Les embrasements généralisés éclairs (flashover) ; Les explosions de fumées (backdraft) ; Les inflammations de gaz issus d'un incendie (Fire Gas Ignition). » ## ━━━ PARTIE 2 – COMPRÉHENSION DIRECTE (Questions F) ━━━",
+    "source": "GDO p.23"
+  },
+  {
+    "id": "gdo-incendie-021",
+    "level": "F",
+    "q": "Lors de la phase de feu naissant, lequel des éléments suivants influe exclusivement sur le développement du feu ?",
+    "choices": [
+      "La ventilation du local",
+      "Le combustible disponible",
+      "La surface des ouvertures",
+      "La température extérieure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "GDO p.22 – « À ce stade, seul le combustible influe sur le développement du feu… On dit que le feu est « limité par le combustible ». »",
+    "source": "GDO p.22"
+  },
+  {
+    "id": "gdo-incendie-022",
+    "level": "F",
+    "q": "Quelle est la conséquence directe d'un embrasement généralisé (flashover) sur l'état du feu ?",
+    "choices": [
+      "Le feu passe à la phase pleinement développé (FLV)",
+      "Le feu s'éteint par manque d'air",
+      "Le feu entre en phase de régression",
+      "Le feu devient limité par le combustible"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.23 – « Le plein développement est la conséquence immédiate d'un embrasement généralisé. » / p.24 – « Ils aboutissent systématiquement à un feu pleinement développé. »",
+    "source": "GDO p.23"
+  },
+  {
+    "id": "gdo-incendie-023",
+    "level": "F",
+    "q": "Selon le GDO, quel est le facteur déclencheur principal du backdraft ?",
+    "choices": [
+      "L'apport soudain d'air (comburant) dans un volume sous-ventilé",
+      "L'accumulation de fumées froides dans les étages supérieurs",
+      "L'augmentation de la charge calorifique du local",
+      "L'élévation brutale de la température des parois"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.24 – « Le facteur déclencheur est l'apport de comburant, l'énergie suffisante étant déjà présente dans la pièce. »",
+    "source": "GDO p.24"
+  },
+  {
+    "id": "gdo-incendie-024",
+    "level": "F",
+    "q": "Quelles sont les deux sous-catégories de FGI définies dans le GDO selon le régime de combustion ?",
+    "choices": [
+      "Le Flash Fire (feu éclair) et la Smoke Explosion (explosion de fumées)",
+      "Le Flashover et le Backdraft",
+      "La déflagration et la détonation",
+      "Le FGI ouvert et le FGI confiné"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.24 – « On distingue principalement deux sous-catégories de FGI en fonction de leur régime de combustion : Lorsque le front de flammes dans le pré-mélange ne génère aucune onde de pression, on parle de feu « éclair » (Flash Fire) ; Lorsque le front de flammes génère une onde de pression, on parle d'explosion de fumées (Smoke Explosion). »",
+    "source": "GDO p.24"
+  },
+  {
+    "id": "gdo-incendie-025",
+    "level": "F",
+    "q": "Selon le GDO, la gestion des ouvrants par les équipes lors d'un incendie permet d'agir sur quel principe de maîtrise du feu ?",
+    "choices": [
+      "Contrôler l'arrivée d'air (antiventilation)",
+      "Agir sur le combustible par refroidissement",
+      "Interrompre la réaction chimique en chaîne",
+      "Évacuer les fumées accumulées dans le local"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.32 – « La gestion des ouvrants par les équipes peut limiter le développement du feu » dans la section « Contrôler l'arrivée d'air ».",
+    "source": "GDO p.32"
+  },
+  {
+    "id": "gdo-incendie-026",
+    "level": "F",
+    "q": "Selon le GDO, les bâtiments métalliques (magasins, hangars) se caractérisent par :",
+    "choices": [
+      "Une mauvaise résistance mais une faible réaction au feu",
+      "Une bonne résistance et une faible réaction au feu",
+      "Une mauvaise résistance et une importante réaction au feu",
+      "Une bonne résistance et une importante réaction au feu"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.27 – « Une mauvaise résistance mais une faible réaction au feu. Ce sont les bâtiments métalliques (magasins, hangars…) qui s'affaissent rapidement sous l'effet de la chaleur. »",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-incendie-027",
+    "level": "F",
+    "q": "Selon le GDO, les bâtiments en béton, briques ou pierres présentent généralement :",
+    "choices": [
+      "Une bonne résistance et une faible réaction au feu",
+      "Une bonne résistance et une forte réaction au feu",
+      "Une mauvaise résistance et une faible réaction au feu",
+      "Une mauvaise résistance et une forte réaction au feu"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.27 – « Une bonne résistance et une faible réaction au feu. En règle générale, ils sont construits en matériaux incombustibles présentant une bonne stabilité au feu. C'est le cas des constructions en béton, briques, pierres. »",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-incendie-028",
+    "level": "F",
+    "q": "Selon le GDO, la convection dans un incendie est principalement assurée par quoi ?",
+    "choices": [
+      "Les fumées et gaz chauds qui se propagent dans les différents volumes de la structure",
+      "Le rayonnement des flammes vers les matériaux adjacents",
+      "Le contact direct entre un matériau chaud et les parois froides",
+      "La combustion des gaz de pyrolyse au plafond du local"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.21 – « Dans le cas de l'incendie, ce sont les fumées et gaz chauds qui se propagent dans les différents volumes de la structure. »",
+    "source": "GDO p.21"
+  },
+  {
+    "id": "gdo-incendie-029",
+    "level": "F",
+    "q": "Quels sont les quatre objectifs atteints par l'évacuation des fumées selon le GDO ?",
+    "choices": [
+      "Améliorer les conditions de survie, faciliter la progression des secours, réduire la propagation par convection, réduire le développement du feu",
+      "Éteindre le feu, évacuer les victimes, protéger les matériaux, ventiler le local",
+      "Refroidir les fumées, inertiser les gaz, protéger les intervenants, faciliter le déblai",
+      "Créer un appel d'air, noyer le foyer, délimiter les zones, réduire la toxicité"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.32 – L'évacuation des fumées : « Elle améliore des conditions de survie des personnes ; Elle facilite la progression des équipes de secours ; Elle réduit le risque de propagation par convection ; Elle réduit le potentiel développement du feu en le privant d'une partie du combustible. »",
+    "source": "GDO p.32"
+  },
+  {
+    "id": "gdo-incendie-030",
+    "level": "F",
+    "q": "Selon le GDO, la projection d'eau en se vaporisant dans les fumées produit quel effet principal pour maîtriser le feu ?",
+    "choices": [
+      "Elle absorbe l'énergie des fumées, abaisse leur température et réduit leur rayonnement",
+      "Elle crée un écran opaque entre les flammes et les intervenants",
+      "Elle dilue les gaz combustibles en dessous de leur limite inférieure d'inflammabilité",
+      "Elle enrichit l'atmosphère en vapeur d'eau pour inertiser le milieu"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.33 – « Les équipes de secours projettent de l'eau qui, en se vaporisant, absorbe l'énergie des fumées, abaissant leur température et ainsi leur rayonnement. »",
+    "source": "GDO p.33"
+  },
+  {
+    "id": "gdo-incendie-031",
+    "level": "F",
+    "q": "Selon le GDO, la fumée de couleur claire ou brun/jaune lors d'un incendie peut indiquer :",
+    "choices": [
+      "Que les fumées sont chargées en gaz de pyrolyse, indicateur possible de backdraft",
+      "Que la combustion est complète et le feu en phase de déclin",
+      "Que le feu est en phase naissante avec peu de combustible",
+      "Que le local est bien ventilé et la combustion optimale"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.26 (tableau Backdraft) – « La couleur claire (brun/jaune) peut indiquer que les fumées sont chargées en gaz de pyrolyse. »",
+    "source": "GDO p.26"
+  },
+  {
+    "id": "gdo-incendie-032",
+    "level": "F",
+    "q": "Lors d'un feu en phase de croissance (FLC), l'évolution du feu dépend de trois facteurs principaux. Lesquels ?",
+    "choices": [
+      "Conditions de ventilation, nature et état de division des matières, caractéristiques bâtimentaires",
+      "Température extérieure, surface du local, nombre d'intervenants",
+      "Humidité des murs, âge du bâtiment, présence d'extincteurs",
+      "Pression atmosphérique, degré d'isolation thermique, type de plancher"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.23 – « Au cours de cette phase, l'évolution du feu varie en fonction des éléments suivants : Conditions de ventilation ; Nature et état de division des matières ; Autres facteurs (caractéristiques bâtimentaires, pièce concernée, situation du foyer…). »",
+    "source": "GDO p.23"
+  },
+  {
+    "id": "gdo-incendie-033",
+    "level": "F",
+    "q": "Selon le GDO, les dispositifs de propagation du feu par convection ou conduction entre volumes d'un bâtiment comprennent notamment :",
+    "choices": [
+      "Les gaines, conduits de ventilation, ascenseurs et monte-charges, canalisations",
+      "Uniquement les fenêtres et portes coupe-feu",
+      "Les seuls escaliers et trémies techniques",
+      "Les seuls planchers combustibles et toitures"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.29 – « C'est le cas des gaines et conduits des installations telles que la ventilation mécanique ou naturelle, les ascenseurs et monte-charges, les canalisations distribuant les différents fluides utilisés (gaz, eau, électricité, …). »",
+    "source": "GDO p.29"
+  },
+  {
+    "id": "gdo-incendie-034",
+    "level": "F",
+    "q": "Selon le GDO, dans les constructions relevant des ERP et du code du travail, quelle est la stabilité au feu minimum imposée dans les conditions normales d'exploitation ?",
+    "choices": [
+      "30 minutes",
+      "15 minutes",
+      "60 minutes",
+      "120 minutes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.27 – « De manière générale, les dispositions constructives relatives aux ERP et au code du travail, imposent une stabilité au feu minimum des bâtiments de 30 minutes (structure et plancher) dans les conditions normales d'exploitation. »",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-incendie-035",
+    "level": "F",
+    "q": "Quels sont les dangers associés aux fumées listés dans le GDO ?",
+    "choices": [
+      "Inflammabilité/explosivité, toxicité/corrosivité, émission de particules, opacité, rayonnement, envahissement/mobilité, chaleur",
+      "Toxicité, bruit, pression, irradiation, contamination biologique",
+      "Explosivité, acidité, froid, érosion, corrosion chimique, inertage",
+      "Opacité, asphyxie, détonation, pollution de l'eau, électrisation"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.22 – Encadré « Les dangers associés aux fumées sont : Inflammabilité, explosivité ; Toxicité – corrosivité ; Émission de particules ; Opacité ; Rayonnement ; Envahissement et mobilité ; Chaleur. »",
+    "source": "GDO p.22"
+  },
+  {
+    "id": "gdo-incendie-036",
+    "level": "F",
+    "q": "Dans le modèle de Thomas, un local en feu est divisé en deux zones distinctes. Lesquelles ?",
+    "choices": [
+      "Zone gazeuse haute (fumées) et zone gazeuse basse (air frais)",
+      "Zone de combustion et zone de refroidissement",
+      "Zone chaude et zone froide de part et d'autre du foyer",
+      "Zone active et zone passive en fonction de la présence d'intervenants"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.30 – Schéma n°5 modèle de Thomas : deux zones sont représentées : « Zone gazeuse haute fumées » et « Zone gazeuse basse » (air frais entrant).",
+    "source": "GDO p.30"
+  },
+  {
+    "id": "gdo-incendie-037",
+    "level": "F",
+    "q": "Selon le GDO, l'antiventilation (restreindre l'alimentation en air du feu) est efficace pour :",
+    "choices": [
+      "Stabiliser la situation en attendant la mise en œuvre des moyens d'extinction",
+      "Éteindre immédiatement le feu sans recourir à une lance",
+      "Accélérer le refroidissement naturel du local",
+      "Provoquer l'extinction par manque de combustible"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.32 – « Le fait de restreindre l'alimentation en air du feu (antiventilation) est un moyen très efficace de maîtrise de l'incendie et qui peut permettre de stabiliser une situation en attendant la mise en œuvre des moyens d'extinction (lances…). »",
+    "source": "GDO p.32"
+  },
+  {
+    "id": "gdo-incendie-038",
+    "level": "F",
+    "q": "Selon le GDO, la lecture bâtimentaire par les équipes de secours permet notamment de :",
+    "choices": [
+      "D'apprécier les éléments favorables et défavorables au développement du sinistre, d'évaluer le comportement de la structure et de guider la conduite de l'intervention",
+      "De déterminer uniquement l'âge du bâtiment pour évaluer la résistance au feu",
+      "De localiser les hydrants et points d'eau disponibles",
+      "D'établir le plan d'évacuation des occupants du bâtiment"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.29 – « La lecture bâtimentaire permet : D'apprécier les éléments favorables et défavorables au développement du sinistre ; D'évaluer le comportement probable de la structure dans le temps vis-à-vis du feu ; De guider la conduite de l'intervention. »",
+    "source": "GDO p.29"
+  },
+  {
+    "id": "gdo-incendie-039",
+    "level": "F",
+    "q": "Selon le GDO, quels gaz sont généralement produits par la combustion ?",
+    "choices": [
+      "Dioxyde de carbone, monoxyde de carbone, vapeur d'eau et autres gaz (cyanure d'hydrogène, chlorure d'hydrogène…)",
+      "Uniquement du dioxyde de carbone et de la vapeur d'eau",
+      "De l'ozone, du méthane et du dioxyde de soufre principalement",
+      "Du monoxyde de carbone et de l'hydrogène"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.22 – « Les gaz résultants de la combustion sont généralement le dioxyde de carbone, le monoxyde de carbone, la vapeur d'eau ainsi que d'autres gaz… (cyanure d'hydrogène, chlorure d'hydrogène, oxyde nitreux, hydrocarbures…). »",
+    "source": "GDO p.22"
+  },
+  {
+    "id": "gdo-incendie-040",
+    "level": "F",
+    "q": "Selon le GDO, les FGI peuvent se produire avec des fumées dites « froides ». Quelle implication opérationnelle cela entraîne-t-il ?",
+    "choices": [
+      "Le risque d'inflammation des gaz existe même en présence de fumées refroidies, notamment dans des volumes éloignés du foyer",
+      "L'absence de chaleur dans les fumées exclut tout risque d'explosion de fumées",
+      "Les fumées froides indiquent que le feu est en phase de déclin et que le risque est éliminé",
+      "Un FGI avec fumées froides ne peut se produire que dans le volume directement en feu"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.24 – « Il est important de noter que ces phénomènes peuvent donc se produire avec des fumées qui se sont refroidies (fumées dites « froides »). » ## ━━━ PARTIE 3 – ANALYSE ET MISE EN SITUATION (Questions M) ━━━",
+    "source": "GDO p.24"
+  },
+  {
+    "id": "gdo-incendie-041",
+    "level": "M",
+    "q": "En arrivant sur les lieux d'un incendie en appartement, vous observez une fumée épaisse, concentrée jusqu'au sol, de couleur brun/jaune, des dépôts noirs huileux sur les vitres et des bouffées de fumées sortant puis rentrant par les interstices de la porte. Quelle est votre interprétation prioritaire ?",
+    "choices": [
+      "Risque de backdraft imminent",
+      "Risque de flashover en phase de croissance active",
+      "Feu en phase naissante limité par le combustible",
+      "Feu en régression par manque de combustible"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.26 – Tableau backdraft : fumées épaisses et concentrées jusqu'au sol, couleur brun/jaune (fumées chargées en gaz de pyrolyse), dépôts noirs huileux, alternance de sorties et entrées rapides de fumée (pulsations) = indicateurs courants d'un backdraft imminent.",
+    "source": "GDO p.26"
+  },
+  {
+    "id": "gdo-incendie-042",
+    "level": "M",
+    "q": "Vous progressez en binôme dans un couloir enfumé. Le plafond de fumées descend rapidement, les suies sont noires, la convection est importante et la luminosité diminue brutalement vers le noir. Quels sont les deux phénomènes à risque que ces signes évoquent en priorité ?",
+    "choices": [
+      "Flashover et FGI",
+      "Backdraft et explosion de gaz",
+      "BLEVE et Smoke Explosion",
+      "Déclin du feu et risque d'effondrement"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.26 (tableau Flashover) – Suies noires, envahissement de plus de la moitié de la hauteur du volume, épaississement du plafond de fumées, assombrissement vers le noir = signes de flashover. Le FGI peut également se produire dans les couloirs adjacents au volume source avec accumulation de gaz combustibles.",
+    "source": "GDO p.26"
+  },
+  {
+    "id": "gdo-incendie-043",
+    "level": "M",
+    "q": "Lors d'une intervention sur un entrepôt métallique avec un incendie développé, pourquoi doit-on surveiller particulièrement la stabilité de la structure même avant que le feu soit maîtrisé ?",
+    "choices": [
+      "Car les bâtiments métalliques ont une mauvaise résistance au feu et peuvent s'affaisser rapidement sous l'effet de la chaleur",
+      "Car les bâtiments métalliques ont une forte réaction au feu et produisent des gaz toxiques",
+      "Car les bâtiments métalliques sont systématiquement des ERP avec risques spécifiques",
+      "Car les métaux amplifient le rayonnement thermique et augmentent la puissance du feu"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.27 – « Ce sont les bâtiments métalliques (magasins, hangars…) qui s'affaissent rapidement sous l'effet de la chaleur. »",
+    "source": "GDO p.27"
+  },
+  {
+    "id": "gdo-incendie-044",
+    "level": "M",
+    "q": "Votre équipe attaque un feu en appartement avec une lance. Le chef d'équipe décide de projeter de l'eau en direction du plafond de fumées plutôt que directement sur le foyer. Quel objectif tactique principal est poursuivi ?",
+    "choices": [
+      "Abaisser la température des fumées pour réduire le rayonnement et le risque de phénomène thermique à cinétique rapide",
+      "Éteindre directement les flammes par effet de dilution",
+      "Créer un écran de vapeur protecteur entre les intervenants et le foyer",
+      "Provoquer une inertisation de l'atmosphère par saturation en vapeur d'eau"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.33 – « Le refroidissement des fumées permet de réduire le transfert de chaleur (flux thermique émis). Réduire la part du rayonnement permet notamment de diminuer la quantité de gaz de pyrolyse produit ; De réduire l'exposition du binôme au flux rayonné ; De réduire le risque d'auto-inflammation des gaz combustibles présents. »",
+    "source": "GDO p.33"
+  },
+  {
+    "id": "gdo-incendie-045",
+    "level": "M",
+    "q": "Avant de pénétrer dans un bâtiment en feu, vous observez que le bâtiment a l'apparence d'une maison en pierres mais le chef d'équipe attire votre attention sur un bardage extérieur récent. Quelle conclusion opérationnelle en tirez-vous selon le GDO ?",
+    "choices": [
+      "L'apparence extérieure peut masquer la structure porteuse réelle : le bardage peut recouvrir une structure en bois, ce qui modifie la résistance au feu réelle du bâtiment",
+      "Un bardage extérieur renforce systématiquement la résistance au feu du bâtiment",
+      "La présence d'un bardage récent signifie que le bâtiment a été réhabilité aux dernières normes incendie",
+      "La structure en pierres reste dominante et la résistance au feu est garantie quelle que soit la rénovation"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.29 – « Les revêtements extérieurs peuvent masquer la structure porteuse du bâtiment. Un crépi peut aussi bien recouvrir de la maçonnerie qu'une structure porteuse en bois. Seule la connaissance préalable du bâtiment ou un dégarnissage de la structure permet d'en avoir la certitude. »",
+    "source": "GDO p.29"
+  },
+  {
+    "id": "gdo-incendie-046",
+    "level": "M",
+    "q": "Lors d'une intervention, votre chef d'équipe décide d'appliquer la tactique d'antiventilation en fermant les ouvrants avant l'attaque avec la lance. Quelles sont les deux conséquences attendues selon le GDO ?",
+    "choices": [
+      "Réduction de l'apport d'air et stabilisation du développement du feu dans l'attente de l'extinction",
+      "Extinction immédiate du feu et refroidissement rapide des fumées",
+      "Déclenchement d'un flashover maîtrisé et sécurisation de la progression",
+      "Élimination du risque de backdraft et accélération de la combustion"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.32 – « La réduction de la quantité d'oxygène disponible dans le processus de combustion peut réduire le développement du feu et peut même l'éteindre après un certain temps. » + « …permettre de stabiliser une situation en attendant la mise en œuvre des moyens d'extinction. »",
+    "source": "GDO p.32"
+  },
+  {
+    "id": "gdo-incendie-047",
+    "level": "M",
+    "q": "Parmi les indicateurs ci-dessous, lesquels sont des signes caractéristiques du Flashover imminents selon le tableau de synthèse du GDO ?",
+    "choices": [
+      "Envahissement de plus de la moitié de la hauteur du volume par les fumées",
+      "Fumées épaisses concentrées jusqu'au sol, couleur brun/jaune",
+      "Suies de couleur noire et assombrissement vers le noir",
+      "Sortie rapide de fumée alternant avec rentrée d'air"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "GDO p.26 – Tableau Flashover : « Envahissement de plus de la moitié de la hauteur du volume », « Suies de couleur noires donnent la couleur sombre aux fumées », « Assombrissement vers le noir ». Les items B et D correspondent aux indicateurs du backdraft.",
+    "source": "GDO p.26"
+  },
+  {
+    "id": "gdo-incendie-048",
+    "level": "M",
+    "q": "Selon le GDO, lesquels parmi les éléments suivants font partie des informations à recueillir lors de la lecture bâtimentaire sur intervention ?",
+    "choices": [
+      "L'âge du bâtiment par les signes de vieillissement",
+      "Les matériaux de construction utilisés (ossature bois, béton, métal…)",
+      "Le numéro de cadastre et la situation foncière du bâtiment",
+      "Le type de charpente (bois, acier, fermette, traditionnelle) E. La plaque d'immatriculation des véhicules stationnés devant le bâtiment"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "GDO p.29 – « L'âge du bâtiment par la présence de signes de vieillissement ou de détérioration ; Les matériaux de construction utilisés : ossature en bois, en maçonnerie, en béton ou encore construction métallique ; Le type de charpente : bois, acier, fermette ou traditionnelle. »",
+    "source": "GDO p.29"
+  },
+  {
+    "id": "gdo-incendie-049",
+    "level": "M",
+    "q": "Lors d'un feu en appartement en phase de plein développement (FLV), quels sont les deux leviers d'action sur le combustible disponibles pour les équipes d'intervention selon le GDO ?",
+    "choices": [
+      "Limiter la quantité de combustible disponible par évacuation",
+      "Refroidir le combustible par application directe d'eau",
+      "Augmenter la ventilation pour accélérer la combustion et épuiser le combustible",
+      "Fermer les ouvrants pour priver le feu d'air"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "GDO p.33 – « Pour diminuer le débit de gaz de pyrolyse il est possible de : Limiter la quantité de combustible disponible (évacuation) ; Refroidir le combustible. »",
+    "source": "GDO p.33"
+  },
+  {
+    "id": "gdo-incendie-050",
+    "level": "M",
+    "q": "Selon le GDO, la fumée constitue à la fois un indicateur pour l'analyse du sinistre et un danger pour les intervenants. Parmi les propositions suivantes, lesquelles sont à la fois des dangers des fumées ET des indicateurs de l'état du feu ?",
+    "choices": [
+      "La chaleur",
+      "Le rayonnement",
+      "L'opacité",
+      "L'envahissement et la mobilité"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "GDO p.22 (dangers fumées) + p.34-35 (indicateurs) – La chaleur est à la fois un indicateur de l'intensité du feu (§2.5 indicateurs) et un danger des fumées. Le rayonnement est listé dans les dangers des fumées (p.22) et fait partie des transferts de chaleur analysés. L'opacité et l'envahissement sont des dangers mais principalement des caractéristiques opérationnelles de la fumée.",
+    "source": "GDO p.22"
+  },
+  {
+    "id": "gdo-incendie-051",
+    "level": "M",
+    "q": "Parmi les caractéristiques suivantes, lesquelles sont des signes indicateurs d'un risque de backdraft selon le GDO ?",
+    "choices": [
+      "Fumées épaisses et concentrées accumulées jusqu'au sol",
+      "Sortie de fumée rapide indiquant une forte pression intérieure",
+      "Couleur claire (brun/jaune) des fumées",
+      "Suies noires et convection importante signalant un flashover actif"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "GDO p.26 – Tableau Backdraft : « Fumées épaisses et concentrées dans le volume en feu, accumulées jusqu'au sol ; La sortie de la fumée rapide indique une forte pression à l'intérieur du volume ; La couleur claire (brun/jaune) peut indiquer que les fumées sont chargées en gaz de pyrolyse. » L'item D est un indicateur de flashover.",
+    "source": "GDO p.26"
+  },
+  {
+    "id": "gdo-incendie-052",
+    "level": "M",
+    "q": "Selon le GDO, un feu en appartement meublé en phase de plein développement sera systématiquement dans quel régime ?",
+    "choices": [
+      "Feu limité par la ventilation (FLV)",
+      "Feu limité par le combustible (FLC)",
+      "Feu en régression accélérée",
+      "Feu correctement ventilé avec combustion optimale"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.23 – « D'une manière générale, les feux développés en structure, dès lors qu'ils abritent des pièces meublées, seront systématiquement limités par la ventilation en situation de plein développement. »",
+    "source": "GDO p.23"
+  },
+  {
+    "id": "gdo-incendie-053",
+    "level": "M",
+    "q": "Laquelle des propositions suivantes ne correspond PAS à une condition de réalisation du Flashover selon le GDO ?",
+    "choices": [
+      "Un feu confiné dans un volume hermétiquement fermé sans aucun apport d'air",
+      "La présence d'une veine d'apport d'air suffisante",
+      "L'atteinte d'un niveau d'énergie suffisant",
+      "Un apport suffisant de gaz combustibles dans le volume"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.24 – « Le phénomène est concomitant à un apport suffisant de gaz combustibles, à l'atteinte d'un niveau d'énergie suffisant et au maintien d'une veine d'apport d'air. » Un volume totalement hermétique sans apport d'air ne permettrait pas le flashover mais serait propice au backdraft. « Les enceintes avec un débit d'air naturel limité sont moins susceptibles de produire un embrasement généralisé avant que l'air disponible ne soit consommé. »",
+    "source": "GDO p.24"
+  },
+  {
+    "id": "gdo-incendie-054",
+    "level": "M",
+    "q": "Lors d'une intervention, vous êtes équipier et vous percevez des sons inhabituels dans le bâtiment (craquements, sifflements). Selon le GDO, ces sons constituent quel type d'information opérationnelle ?",
+    "choices": [
+      "Des indicateurs pour comprendre le développement du feu et les risques associés",
+      "Des signaux d'alerte exclusivement liés à l'effondrement de structure imminent",
+      "Des bruits parasites sans valeur opérationnelle directe",
+      "Des indicateurs exclusivement liés à la présence de victimes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.34-35 – Section « Les indicateurs » : « La fumée, les conditions de ventilation, la chaleur, les sons et les flammes sont des indicateurs importants pour comprendre le développement d'un feu. » § 2.4 Les sons : listé comme indicateur.",
+    "source": "GDO p.34-35"
+  },
+  {
+    "id": "gdo-incendie-055",
+    "level": "M",
+    "q": "Vous intervenez dans un immeuble rénové avec isolation thermique haute performance (fenêtres triple vitrage, murs très isolants). Le chef d'équipe vous avertit d'un risque accru de quel phénomène thermique ?",
+    "choices": [
+      "Backdraft, car l'isolation maintient le feu sous-ventilé et l'énergie accumulée est importante",
+      "Flashover, car l'isolation augmente la réaction au feu des matériaux",
+      "FGI, car les fumées se chargent en gaz de pyrolyse plus rapidement dans un bâtiment isolé",
+      "Effondrement structurel, car les matériaux isolants perdent leur résistance au feu rapidement"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.26 – Tableau Backdraft : « Le risque augmente dans les bâtiments « basse consommation » avec une bonne isolation et les fenêtres étanches (double ou triple vitrage). Les indicateurs de chaleur peuvent être moins évidents en raison de l'isolation supérieure associée à ce type de construction. »",
+    "source": "GDO p.26"
+  },
+  {
+    "id": "gdo-incendie-056",
+    "level": "M",
+    "q": "Selon le GDO, quels éléments de la structure peuvent propager le feu d'un volume à un autre par convection ou conduction et doivent donc être surveillés par l'équipe lors de l'intervention ?",
+    "choices": [
+      "Les gaines et conduits de ventilation mécanique ou naturelle",
+      "Les ascenseurs et monte-charges",
+      "Les canalisations distribuant les fluides (gaz, eau, électricité)",
+      "Les joints de dilatation entre dalles de béton"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "GDO p.29 – « C'est le cas des gaines et conduits des installations telles que la ventilation mécanique ou naturelle, les ascenseurs et monte-charges, les canalisations distribuant les différents fluides utilisés (gaz, eau, électricité, …). »",
+    "source": "GDO p.29"
+  },
+  {
+    "id": "gdo-incendie-057",
+    "level": "M",
+    "q": "Selon le GDO, le modèle de Thomas permet de représenter à la fois les transferts de masse et les transferts de chaleur dans un local en feu. Parmi les transferts de masse suivants, lesquels sont représentés dans ce modèle ?",
+    "choices": [
+      "Le débit massique de pyrolyse du combustible",
+      "Le débit massique de fumées sortant du volume",
+      "Le débit massique d'air entrant dans le volume",
+      "Le débit massique de vapeur d'eau issu de l'extinction"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "GDO p.30 – Schéma n°6 : « Un combustible en feu émet des gaz de pyrolyse (débit massique de pyrolyse noté ṁ_pyrolyse) ; Une masse gazeuse sort du volume (débit massique de gaz/fumées noté ṁ_fumées) ; De l'air pénètre dans le local (ce débit est noté ṁ_air). »",
+    "source": "GDO p.30"
+  },
+  {
+    "id": "gdo-incendie-058",
+    "level": "M",
+    "q": "Selon le GDO, la formule de bilan des transferts de masse dans un local en feu s'écrit :",
+    "choices": [
+      "ṁ_fumées = ṁ_pyrolyse + ṁ_air",
+      "ṁ_air = ṁ_fumées + ṁ_pyrolyse",
+      "ṁ_pyrolyse = ṁ_fumées - ṁ_air",
+      "ṁ_fumées = ṁ_air × ṁ_pyrolyse"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO p.31 – Formule encadrée : « ṁ_fumées = ṁ_pyrolyse + ṁ_air ».",
+    "source": "GDO p.31"
+  },
+  {
+    "id": "gdo-incendie-059",
+    "level": "M",
+    "q": "Vous êtes équipier dans un appartement en feu. Votre chef d'équipe vous signale que les flammes sortent par les fenêtres du 2e étage et remontent vers les fenêtres du 3e étage. Quel risque de propagation identifiez-vous selon le GDO ?",
+    "choices": [
+      "Un risque de propagation par le façade (feu de façade) avec extension possible en superstructure",
+      "Un risque de backdraft limité à l'appartement source",
+      "Un risque d'effondrement immédiat des planchers par conduction thermique",
+      "Un risque de FGI dans les volumes adjacents uniquement au même niveau"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "GDO – Section 3.3.4.4 « Les feux de façades » (p.40 du document, identifié dans le sommaire p.12) – Les flammes en façade constituent un vecteur de propagation aux étages supérieurs, constitutif d'une situation opérationnelle de « feux d'éléments de construction ».",
+    "source": ""
+  },
+  {
+    "id": "gdo-incendie-060",
+    "level": "M",
+    "q": "Selon le GDO, parmi les quatre principes de maîtrise et d'extinction du feu, lesquels peuvent être directement mis en œuvre par une équipe équipier/chef d'équipe lors d'une intervention en structure ?",
+    "choices": [
+      "Contrôler l'arrivée d'air (gestion des ouvrants)",
+      "Abaisser la température des fumées (projection d'eau dans les fumées)",
+      "Agir sur le combustible (application d'eau sur les matériaux combustibles)",
+      "Interrompre la réaction chimique en chaîne (systèmes FE13/FM200 fixes)"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "GDO p.32-33 – Actions de lutte pour les équipes : « La gestion des ouvrants par les équipes peut limiter le développement du feu » (contrôle air) ; « Les équipes de secours projettent de l'eau qui, en se vaporisant, absorbe l'énergie des fumées » (abaissement température) ; « L'application directe d'eau (additivée ou non) sur les matériaux combustibles » (agir sur le combustible). L'item D (interrompre la réaction chimique) utilise des systèmes d'extinction fixes (FE13, FM200) non mis en œuvre par les équipiers.",
+    "source": "GDO p.32-33"
+  }
+]

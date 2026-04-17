@@ -1,0 +1,186 @@
+[
+  {
+    "id": "gdo-fumees-001",
+    "level": "TF",
+    "q": "Quelles sont les quatre voies de pénétration des toxiques des fumées d'incendie dans l'organisme d'un sapeur-pompier ?",
+    "choices": [
+      "L'inhalation, l'ingestion, la voie percutanée et la voie oculaire",
+      "L'inhalation, la transpiration, la voie oculaire et la voie digestive",
+      "L'inhalation, la voie sanguine directe, la voie cutanée et la voie pulmonaire",
+      "L'ingestion, la voie oculaire, la voie auriculaire et la voie nasale"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Le chapitre 1, section 2.3 \"Les voies de pénétration\" liste explicitement ces quatre voies : inhalation, ingestion, voies percutanée et voie oculaire.",
+    "source": ""
+  },
+  {
+    "id": "gdo-fumees-002",
+    "level": "TF",
+    "q": "Quelle est la définition de la désorption telle que présentée dans le guide ?",
+    "choices": [
+      "Le phénomène par lequel un composé pénètre dans un milieu gazeux, liquide ou solide",
+      "Le phénomène inverse de l'absorption et de l'adsorption, qui aura lieu immédiatement ou à plus long terme en fonction de la volatilité des toxiques",
+      "La fixation sélective d'un composé sur une surface solide",
+      "La dissolution d'un toxique dans le sang par voie cutanée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Section 2.2 \"La désorption\" : \"La désorption est le phénomène inverse qui aura lieu immédiatement ou à plus long terme en fonction de la volatilité des toxiques et d'autres paramètres, comme la température.\"",
+    "source": ""
+  },
+  {
+    "id": "gdo-fumees-003",
+    "level": "TF",
+    "q": "Parmi les substances suivantes, lesquelles font partie des substances toxiques les plus fréquemment émises lors d'incendies de structures, selon le guide ?",
+    "choices": [
+      "Monoxyde de carbone et cyanure d'hydrogène",
+      "Dioxyde de silicium et oxyde de fer",
+      "Benzène et formaldéhyde",
+      "Chlorure de sodium et dioxyde de manganèse"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Section 1.1 \"Les produits de combustions lors des incendies de structures\" : le monoxyde de carbone, le cyanure d'hydrogène, le benzène et le formaldéhyde figurent explicitement dans la liste des substances toxiques les plus fréquemment émises. Le dioxyde de silicium, l'oxyde de fer, le chlorure de sodium et le dioxyde de manganèse n'y apparaissent pas.",
+    "source": ""
+  },
+  {
+    "id": "gdo-fumees-004",
+    "level": "TF",
+    "q": "Selon le guide, quelle durée de désorption à l'air libre est mentionnée pour une tenue de feu ?",
+    "choices": [
+      "Plus de 12 heures",
+      "Plus de 24 heures",
+      "Plus de 48 heures",
+      "Plus de 72 heures"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 4, section 3 \"La désorption et le séchage au retour d'intervention\" : \"À l'air libre, la désorption d'une tenue peut se poursuivre pendant plus de 48 heures.\"",
+    "source": "Chapitre 4, section 3"
+  },
+  {
+    "id": "gdo-fumees-005",
+    "level": "F",
+    "q": "Avant de réintégrer un véhicule incendie après une intervention, quelles actions doit systématiquement effectuer un sapeur-pompier équipier ?",
+    "choices": [
+      "Se laver les mains et les effets chaussants",
+      "Retirer son casque et le ranger dans la cabine",
+      "Enlever et isoler les EPI souillés hors de la cabine si possible",
+      "Contacter le SSSM pour signaler toute exposition"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 3, section 2.1 et section 4 : \"Un lavage systématique des mains et des effets chaussants doit être effectué avant de réintégrer le véhicule.\" et les EPI qui restent souillés doivent être mis à l'écart des matériels propres, hors cabine si possible. Les propositions B et D ne sont pas présentées comme des actions systématiques de l'équipier à ce stade précis.",
+    "source": "Chapitre 3, section 2.1"
+  },
+  {
+    "id": "gdo-fumees-006",
+    "level": "F",
+    "q": "Selon le guide, pour quelles raisons les zones du visage et du cou sont-elles particulièrement vulnérables à l'intoxication percutanée ?",
+    "choices": [
+      "Parce qu'elles sont les zones les plus exposées thermiquement",
+      "Parce que la peau y est plus fine",
+      "Parce que ces zones sont souvent mal couvertes par les EPI",
+      "Parce que la transpiration y est plus importante"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Section 2.3 \"Les voies de pénétration\" : \"le visage et le cou sont plus sensibles à la pénétration cutanée, au regard de la finesse de la peau.\"",
+    "source": ""
+  },
+  {
+    "id": "gdo-fumees-007",
+    "level": "F",
+    "q": "De retour au CIS après une intervention sur incendie, quelles mesures d'hygiène corporelle sont prescrites pour l'équipier avant de rejoindre les espaces de vie ?",
+    "choices": [
+      "Se laver les mains avec du gel hydroalcoolique",
+      "Retirer les salissures de suies sur la peau avec de l'eau savonneuse froide",
+      "Prendre une douche le plus rapidement possible",
+      "Se rincer uniquement les yeux et le visage à l'eau chaude"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 4, section 1 \"Les mesures concernant les personnels\" : \"Les sapeurs-pompiers doivent veiller à retirer les salissures de suies sur la peau avec de l'eau savonneuse froide avant de se doucher le plus rapidement possible.\" et \"prendre très rapidement une douche.\" L'eau chaude est déconseillée (le guide précise l'eau froide), et le gel hydroalcoolique n'est pas mentionné.",
+    "source": "Chapitre 4, section 1"
+  },
+  {
+    "id": "gdo-fumees-008",
+    "level": "F",
+    "q": "Lors de la douche au retour d'intervention, sur quelles zones corporelles le guide recommande-t-il d'insister particulièrement lors du brossage ?",
+    "choices": [
+      "Les paumes des mains uniquement",
+      "Les zones de liaison entre les EPI et les zones où les couches de protection sont les plus fines, notamment le cou",
+      "Le dos et les épaules",
+      "Les ongles"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Chapitre 4, section 1 : \"il est nécessaire d'insister sur le brossage des zones de liaison entre les EPI et/ou les zones où les couches de protection sont les plus fines, le cou notamment. (Ne pas oublier de brosser les ongles).\"",
+    "source": "Chapitre 4, section 1"
+  },
+  {
+    "id": "gdo-fumees-009",
+    "level": "M",
+    "q": "Un équipier revient d'une reconnaissance de courte durée en milieu légèrement enfumé. Ses bottes et son casque présentent des traces de suies visibles. Selon le logigramme du guide, quelles actions de reconditionnement sur place sont adaptées à cette situation ?",
+    "choices": [
+      "Isoler complètement la tenue de feu dans un sac étanche",
+      "Brosser à sec la veste et le surpantalon, puis les aérer à l'extérieur de la cabine",
+      "Nettoyer les bottes et le casque par brossage à l'eau",
+      "Remplacer immédiatement la tenue selon la procédure du SIS"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 3, section 2.1, logigramme \"Le nettoyage des tenues de feu sur les lieux de l'intervention\" : pour une exposition de type \"reconnaissance de faible durée en milieu enfumé\" avec un degré de souillure \"moyen\", le reconditionnement sur place prévoit un brossage à sec + aération à l'extérieur de la cabine pour la veste et le surpantalon, et un brossage à l'eau pour les bottes et le casque. L'isolation totale et le remplacement correspondent au niveau \"important\".",
+    "source": "Chapitre 3, section 2.1"
+  },
+  {
+    "id": "gdo-fumees-010",
+    "level": "M",
+    "q": "Lors d'une intervention sur feux de forêts, un équipier se retrouve dans une zone de surveillance après extinction. Il n'utilise pas d'ARI. Quels EPI doit-il porter pour limiter son exposition aux fumées résiduelles, selon le guide ?",
+    "choices": [
+      "Uniquement des gants de protection incendie",
+      "La cagoule de protection filtrante",
+      "Des lunettes de protection",
+      "Son équipement de protection respiratoire complet (ARI)"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 2, section 3.1 : la cagoule de protection filtrante est prévue pour les \"activités complémentaires\" dont la \"surveillance\" sur feux d'espaces naturels et feux de forêts. Elle peut être portée en configuration \"filtration avec lunettes de protection\" lorsque l'ARI n'est pas utilisé. Le guide précise par ailleurs (note 11) que la cagoule ne filtre pas les gaz, mais protège des particules fines et suies.",
+    "source": "Chapitre 2, section 3.1"
+  },
+  {
+    "id": "gdo-fumees-011",
+    "level": "M",
+    "q": "Selon le guide, quelles conditions physiologiques ou environnementales, présentes lors des opérations de lutte contre l'incendie, favorisent l'intoxication percutanée d'un équipier ?",
+    "choices": [
+      "Une élévation de la température corporelle",
+      "L'humidité de la peau",
+      "Le port de gants à usage unique",
+      "Le phénomène de \"micro climat\" créé par la transpiration à l'intérieur des EPI"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Section 2.3, paragraphe sur les conditions favorisant l'intoxication percutanée : \"la température : une élévation de la température corporelle augmente le taux d'absorption\", \"l'humidité de la peau : elle augmente considérablement le temps de rétention des contaminants\", et \"le phénomène de micro climat créé par la transpiration à l'intérieur des équipements de protection individuelle.\" Le port de gants à usage unique est au contraire une mesure de protection recommandée.",
+    "source": ""
+  }
+]

@@ -1,0 +1,201 @@
+[
+  {
+    "id": "gdo-silos-001",
+    "level": "TF",
+    "q": "Quels sont les trois formes de manifestations de l'activité vitale des grains ?",
+    "choices": [
+      "La respiration, la fermentation et la germination",
+      "La combustion, la fermentation et la condensation",
+      "L'oxydation, la pyrolyse et la germination",
+      "La respiration, la désorption et la condensation"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Le document liste explicitement ces trois manifestations : respiration (ou oxydation), fermentation et germination (Chapitre 1, Section 1, §3).",
+    "source": "Chapitre 1, Section 1"
+  },
+  {
+    "id": "gdo-silos-002",
+    "level": "TF",
+    "q": "Quel est le périmètre de sécurité réflexe minimal à mettre en place autour d'un silo vertical en feu ?",
+    "choices": [
+      "10 mètres",
+      "25 mètres",
+      "50 mètres",
+      "100 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le document indique clairement que la zone d'exclusion réflexe est de 50 m pour un silo vertical (Chapitre 2, Section 2, §2a).",
+    "source": "Chapitre 2, Section 2"
+  },
+  {
+    "id": "gdo-silos-003",
+    "level": "TF",
+    "q": "Dans un silo, quel équipement de transport vertical de la matière est décrit comme l'un des plus dangereux au regard du risque « explosion de poussières » ?",
+    "choices": [
+      "Le transporteur à chaîne",
+      "Le transporteur à vis",
+      "L'élévateur",
+      "Le transporteur à bande"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le document indique textuellement que « L'élévateur est l'un des plus dangereux au regard du risque \"explosion de poussières\" » (Chapitre 1, Section 1, §4c).",
+    "source": "Chapitre 1, Section 1"
+  },
+  {
+    "id": "gdo-silos-004",
+    "level": "TF",
+    "q": "Quelle proportion des feux dans les installations de silos concerne les séchoirs ?",
+    "choices": [
+      "20 %",
+      "30 %",
+      "40 %",
+      "50 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le document précise que « 40 % des feux dans les installations concernent les séchoirs » (Chapitre 2, Section 2, §6).",
+    "source": "Chapitre 2, Section 2"
+  },
+  {
+    "id": "gdo-silos-005",
+    "level": "F",
+    "q": "Lors d'une intervention sur un feu à cœur dans une cellule de stockage de grain, quelles sont les deux règles fondamentales à ne jamais perdre de vue concernant les actions sur le produit ?",
+    "choices": [
+      "Ne jamais utiliser de mousse à bas foisonnement",
+      "Ne pas mettre de poussières en suspension",
+      "Ne pas introduire d'eau directement dans le stockage de grain",
+      "Ne pas utiliser d'appareil respiratoire isolant"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Le document indique explicitement pour le feu à cœur : « Deux points ne doivent jamais être perdus de vue : pas d'eau (directement dans le stockage de grain) ; pas de poussière en suspension » (Chapitre 2, Section 2, §5a).",
+    "source": "Chapitre 2, Section 2"
+  },
+  {
+    "id": "gdo-silos-006",
+    "level": "F",
+    "q": "Lors d'un ensevelissement visible dans un silo, afin de permettre aux sauveteurs d'évoluer sans s'enfoncer dans le grain, quelle action prioritaire de stabilisation de la zone de travail doivent-ils mettre en place ?",
+    "choices": [
+      "Déverser de l'eau pour consolider la surface du grain",
+      "Mettre en place des structures planes posées sur les grains",
+      "Creuser autour de la victime à mains nues pour aller plus vite",
+      "Utiliser immédiatement une vis de désilage pour extraire le grain"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le document précise que « La zone de travail doit être stabilisée avec la mise en place de structures planes posées sur les grains et permettant aux sauveteurs d'évoluer en sécurité et sans s'enfoncer dans la matière piégeant la victime » (Chapitre 2, Section 4, §1).",
+    "source": "Chapitre 2, Section 4"
+  },
+  {
+    "id": "gdo-silos-007",
+    "level": "F",
+    "q": "Quelles sont les protections individuelles nécessaires pour les sauveteurs engagés dans une opération d'ensevelissement dans un silo ?",
+    "choices": [
+      "Protection contre les chutes",
+      "Tenue chimique de niveau 3",
+      "Protection des voies respiratoires et oculaires",
+      "Combinaison de protection thermique lourde"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le document indique que « L'engagement dans de telles conditions nécessitera des moyens de protection individuelle à la fois contre les chutes et aussi pour les voies respiratoires et oculaires » (Chapitre 2, Section 4, §1).",
+    "source": "Chapitre 2, Section 4"
+  },
+  {
+    "id": "gdo-silos-008",
+    "level": "F",
+    "q": "Lors d'une opération d'inertage dans un silo, quels sont les équipements et comportements obligatoires pour les intervenants ?",
+    "choices": [
+      "S'équiper d'EPI adaptés",
+      "S'introduire à l'intérieur des cellules pour contrôler l'efficacité de l'inertage",
+      "Ne pas ouvrir d'orifices pour éviter l'arrivée d'air",
+      "Assurer un suivi avec un oxymètre à proximité immédiate des intervenants"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Le document liste les précautions lors d'un inertage : « s'équiper d'EPI adaptés ; ne pas s'introduire à l'intérieur des cellules ; ne pas ouvrir d'orifices pour éviter l'arrivée d'air ; assurer un suivi avec un oxymètre à proximité immédiate des intervenants » (Chapitre 2, Section 2, §3c).",
+    "source": "Chapitre 2, Section 2"
+  },
+  {
+    "id": "gdo-silos-009",
+    "level": "M",
+    "q": "Un équipier est engagé dans la vidange d'un silo vertical par le système de manutention. Parmi les propositions suivantes, lesquelles représentent des risques spécifiques à anticiper dans ce mode de vidange ?",
+    "choices": [
+      "Accumulation de gaz de combustion",
+      "Risque d'ensevelissement par effondrement de la structure béton",
+      "Propagation des points chauds dans le circuit de manutention",
+      "Risque de contamination biologique par les poussières de grain"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le tableau des risques pour la vidange via le système de manutention indique : « Propagation des points chauds » et « Accumulation de gaz de combustion » parmi les risques pour les intervenants (Chapitre 2, Section 2, §4, tableau des accès de vidange).",
+    "source": "Chapitre 2, Section 2"
+  },
+  {
+    "id": "gdo-silos-010",
+    "level": "M",
+    "q": "Lors d'une intervention sur un silo, un équipier constate que les parois de la partie haute de la cellule présentent une forte condensation d'eau et que des traces sombres ressemblant à des goudrons sont visibles sur les parois. Que peut-il en déduire ?",
+    "choices": [
+      "Le silo est simplement humide du fait des conditions météorologiques extérieures",
+      "Un feu couvant est probablement en cours à l'intérieur de la masse stockée avec un phénomène d'auto-échauffement avancé",
+      "La ventilation de conservation fonctionne normalement",
+      "Un feu de surface est en cours et directement accessible"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le document indique que le feu couvant fait migrer l'humidité en partie haute et qu'une forte condensation sur les parois peut être un indicateur. Il précise également qu'en cas d'auto-inflammation ou de fort échauffement (dès 200°C) des gaz de pyrolyse peuvent générer des goudrons ou composés lourds visibles sur les parois (Chapitre 1, Section 1, §5b).",
+    "source": "Chapitre 1, Section 1"
+  },
+  {
+    "id": "gdo-silos-011",
+    "level": "M",
+    "q": "Un équipier intervient pour secourir une personne prise de malaise à l'intérieur d'une cellule de silo. Parmi les propositions suivantes, lesquelles correspondent aux bonnes actions à mener ?",
+    "choices": [
+      "Entrer rapidement dans la cellule sans protection respiratoire obligatoire",
+      "Procéder à une extraction rapide de la victime hors de la cellule",
+      "Rechercher les causes possibles du malaise, notamment la présence de gaz toxiques",
+      "Porter une protection respiratoire adaptée avant toute entrée dans la cellule"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Le document précise que « ce type d'opération nécessite une extraction rapide de la victime et une recherche des causes possibles », et que le risque principal est l'anoxie due au CO2 ou à d'autres gaz toxiques — impliquant une protection respiratoire. L'entrée sans protection respiratoire est contraire aux règles de sécurité rappelées dans le document (Chapitre 2, Section 4, §3 et Section 2, §2c).",
+    "source": "Chapitre 2, Section 4"
+  },
+  {
+    "id": "gdo-silos-012",
+    "level": "M",
+    "q": "Lors d'une vidange de cellule de silo par aspiration, un équipier observe que des particules extraites s'enflamment dès leur sortie. Quelle en est la cause principale et quelle action doit-il mettre en œuvre ?",
+    "choices": [
+      "Les particules brûlent car elles sont humides ; il faut accélérer la vitesse de vidange",
+      "Les particules s'enflamment car elles se trouvent brutalement en présence d'une grande quantité d'air ; il faut arroser le produit en sortie en jet diffusé si le risque d'incendie demeure",
+      "Les particules brûlent à cause d'une réaction chimique irréversible ; il faut stopper immédiatement toute la vidange et noyer la cellule",
+      "Ce phénomène est normal et ne nécessite aucune action particulière"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le document explique que « l'inflammation des particules extraites du silo peut être observée, car elles se trouvent, brutalement, en présence d'une grande quantité d'air » et précise qu'il « conviendra d'arroser éventuellement le produit en jet diffusé si le risque d'incendie demeure » (Chapitre 2, Section 2, §4).",
+    "source": "Chapitre 2, Section 2"
+  }
+]

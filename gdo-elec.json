@@ -1,0 +1,200 @@
+[
+  {
+    "id": "gdo-elec-001",
+    "level": "TF",
+    "q": "Quelle est la valeur de la tension limite conventionnelle de contact (UL) en courant alternatif, en dessous de laquelle le contact peut être maintenu sans danger ?",
+    "choices": [
+      "12 V",
+      "25 V",
+      "50 V",
+      "60 V"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 2, §1.2.2. Le document précise que la tension limite UL est fixée à 25 V en courant alternatif et 60 V en courant continu. La réponse D (60 V) correspond au continu, ce qui en fait un distracteur plausible.",
+    "source": "Chapitre 2, §1.2.2."
+  },
+  {
+    "id": "gdo-elec-002",
+    "level": "TF",
+    "q": "Parmi les propositions suivantes, lesquelles définissent correctement les grandeurs électriques de base ?",
+    "choices": [
+      "La tension (U) est exprimée en ampères (A)",
+      "L'intensité (I) correspond au débit d'électrons dans un conducteur",
+      "La résistance (r) est exprimée en ohms (Ω)",
+      "La puissance (P) se mesure en volts (V)"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 1, §2.3. L'intensité est le flux d'électrons (en A), la résistance s'exprime en Ω. La tension est en volts (pas A), la puissance est en watts (pas V).",
+    "source": "Chapitre 1, §2.3."
+  },
+  {
+    "id": "gdo-elec-003",
+    "level": "TF",
+    "q": "Quelle est la tension du réseau de distribution basse tension délivrée aux particuliers en France en monophasé ?",
+    "choices": [
+      "400 V",
+      "230 V",
+      "63 V",
+      "20 000 V"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 1, §5.2.5. Le document indique que le courant monophasé transporte l'électricité à 230 V. Le triphasé est à 400 V, ce qui en fait un distracteur plausible fréquemment confondu.",
+    "source": "Chapitre 1, §5.2.5."
+  },
+  {
+    "id": "gdo-elec-004",
+    "level": "TF",
+    "q": "Quels sont les deux termes correctement définis dans le document concernant les accidents électriques ?",
+    "choices": [
+      "L'électrisation désigne uniquement les accidents mortels par courant électrique",
+      "L'électrocution est réservée à une électrisation mortelle",
+      "L'électrisation est l'ensemble des lésions provoquées par le passage du courant à travers le corps",
+      "L'électrocution peut désigner n'importe quel contact avec une source électrique"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Chapitre 2, §1. Le document précise explicitement : « L'électrisation est l'ensemble des lésions provoquées par le passage d'un courant électrique à travers le corps. Le terme électrocution est réservé à une électrisation mortelle, soit immédiatement, soit très précocement. »",
+    "source": "Chapitre 2, §1."
+  },
+  {
+    "id": "gdo-elec-005",
+    "level": "TF",
+    "q": "Quelle est la distance minimale de périmètre à établir autour d'un câble tombé au sol pour éviter la tension de pas, selon le document ?",
+    "choices": [
+      "3 mètres",
+      "5 mètres",
+      "8 mètres",
+      "10 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, §1.4. Le document indique : « faire un périmètre de 8 m pour éviter la tension de pas et les projections de métal en fusion lors d'un court-circuit ». Les valeurs 5 et 10 m correspondent à d'autres distances de sécurité du même document, ce qui rend les distracteurs très plausibles.",
+    "source": "Chapitre 2, §1.4."
+  },
+  {
+    "id": "gdo-elec-006",
+    "level": "F",
+    "q": "Lors d'un incendie sur une installation basse tension non encore coupée, quels moyens d'extinction le porte-lance peut-il employer ?",
+    "choices": [
+      "Un extincteur CO2",
+      "Un jet droit à moins de 5 mètres",
+      "Un jet diffusé d'attaque à une distance minimale de 5 mètres",
+      "De la mousse filmogène à courte portée"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Chapitre 3, §3.1. Le document précise : « l'extinction doit se faire au moyen d'extincteurs appropriés (CO2, poudre). S'il n'existe pas d'autre possibilité que la mise en œuvre d'une lance, seul le jet diffusé d'attaque est autorisé, en respectant une distance minimale entre la lance et l'installation de 5 mètres ». Le jet droit à moins de 5 m est explicitement interdit.",
+    "source": "Chapitre 3, §3.1."
+  },
+  {
+    "id": "gdo-elec-007",
+    "level": "F",
+    "q": "Lors d'une intervention en présence d'une installation photovoltaïque, quelle affirmation est correcte concernant le risque électrique ?",
+    "choices": [
+      "Les panneaux PV cessent de produire de l'énergie une fois l'onduleur coupé",
+      "Couper l'alimentation ENEDIS supprime le risque électrique de tout le système PV",
+      "Un panneau PV pris individuellement présente une tension généralement inférieure à 60 V continus, donc pas de risque mortel à l'échelle du module",
+      "Les panneaux PV ne produisent aucune énergie la nuit, le risque est donc nul"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 2, §2.1.1. Le document indique qu'un module pris individuellement ne présente pas de risque mortel car sa tension est inférieure à 60 V continus. En revanche, les panneaux branchés en série s'additionnent pour atteindre plusieurs centaines de volts. A, B et D sont des erreurs classiques explicitement réfutées dans le document.",
+    "source": "Chapitre 2, §2.1.1."
+  },
+  {
+    "id": "gdo-elec-008",
+    "level": "F",
+    "q": "Selon les principes opérationnels du document, quelle phase vise à « figer le risque dans l'état et les dimensions qu'il avait à l'arrivée des secours » ?",
+    "choices": [
+      "Analyser",
+      "Maîtriser",
+      "Stabiliser",
+      "Consigner"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 5, §2.2. Le document définit précisément : « Stabiliser – L'effet recherché consiste à figer le risque dans l'état et les dimensions qu'il avait à l'arrivée des secours. » Maîtriser (B) consiste à supprimer le risque pour agir sur le sinistre.",
+    "source": "Chapitre 5, §2.2."
+  },
+  {
+    "id": "gdo-elec-009",
+    "level": "M",
+    "q": "Un équipier intervient sur un feu sous une ligne HTA aérienne, avant la mise hors tension. Quelles distances de sécurité doit-il respecter ?",
+    "choices": [
+      "Au moins 5 mètres de l'installation en jet diffusé d'attaque",
+      "Au moins 10 mètres des câbles (aucun matériel ni sapeur-pompier ne doit s'approcher davantage)",
+      "Au moins 3 mètres en jet droit",
+      "Au moins 2 mètres si l'intervenant est équipé de gants isolants"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Chapitre 3, §3.2 et §3.2.2. Pour les installations HTA-HTB : 5 m en jet diffusé, 10 m en jet droit (§3.2). Pour un feu sous ou à proximité d'une ligne HT : « Aucun sapeur-pompier ou matériel ne doit s'approcher à moins de 10 mètres des câbles électriques » (§3.2.2). Le port de gants (D) n'est pas présenté comme une exception aux distances réglementaires.",
+    "source": "Chapitre 3, §3.2"
+  },
+  {
+    "id": "gdo-elec-010",
+    "level": "M",
+    "q": "Lors de l'arrivée sur les lieux d'un accident de véhicule contre un poteau électrique, le conducteur est conscient et demande à sortir. Le véhicule est en contact avec les câbles. Quelle est l'action prioritaire de l'équipier ?",
+    "choices": [
+      "Aider la victime à sortir immédiatement car sa vie est en danger",
+      "Demander à la victime de rester dans le véhicule et la rassurer jusqu'à la mise en sécurité électrique",
+      "Sectionner le câble à l'aide de la cisaille isolante du lot de sauvetage",
+      "Établir une lance en jet diffusé à 5 mètres pour refroidir le câble"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chapitre 5, §3.1. Le document est explicite : « Si des victimes conscientes sont à l'intérieur, il importe de les rassurer et de leur demander de ne pas sortir du véhicule avant la mise en sécurité de la zone d'intervention. » Il ne faut jamais toucher un véhicule en contact avec une installation électrique. Aucune action d'extinction n'est requise et la cisaille n'est pas une préconisation du document.",
+    "source": "Chapitre 5, §3.1."
+  },
+  {
+    "id": "gdo-elec-011",
+    "level": "M",
+    "q": "Un équipier intervient lors d'un incendie impliquant des batteries de stockage électrochimique. Quels risques simultanés sont à prendre en compte selon le document ?",
+    "choices": [
+      "Risque électrique permanent car la tension de la batterie ne peut pas être interrompue",
+      "Risque chimique lié aux composés dangereux dégagés lors d'un emballement thermique",
+      "Risque d'effets missiles par fragmentation des enveloppes des stockeurs",
+      "Risque nul si le BMS (Battery Management System) est actif"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Chapitre 2, §3. Le tableau des risques du document décrit trois grands types de risques : électrique (tension permanente non interruptible), chimique (dégagement de composés dangereux lors d'emballement) et incendie/explosif (fragmentation, projection de matière enflammée, effets missiles). Le BMS est un système de gestion, mais le document ne présente pas son activation comme une garantie d'absence de risque (D est faux).",
+    "source": "Chapitre 2, §3."
+  },
+  {
+    "id": "gdo-elec-012",
+    "level": "M",
+    "q": "Un équipier fait partie d'un binôme déployant une échelle à mains à proximité d'un poste. Il aperçoit des câbles aériens dans la zone. Selon le tableau des distances limites de voisinage, quelle distance minimale doit-il respecter vis-à-vis des lignes Haute Tension aériennes ?",
+    "choices": [
+      "2 mètres",
+      "3 mètres",
+      "5 mètres",
+      "10 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Chapitre 3, §3.3. Le tableau « distances limites de voisinage » du document indique que pour les lignes HTA (comme pour les lignes HTB, BT, caténaires SNCF et lignes aériennes de tramways), la distance limite est de 5 mètres. La valeur 3 m (B) correspond à une distance spécifique aux caténaires en zone ferroviaire et constitue un distracteur plausible. La valeur 10 m (D) correspond au périmètre de sécurité autour d'une chute de câble, non aux distances de voisinage des MEA.",
+    "source": "Chapitre 3, §3.3."
+  }
+]

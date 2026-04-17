@@ -1,0 +1,1010 @@
+[
+  {
+    "id": "gdo-routier-001",
+    "level": "TF",
+    "q": "Sur une autoroute, à quelle fréquence sont disposées les bornes d'appel d'urgence ?",
+    "choices": [
+      "Tous les kilomètres",
+      "Tous les 2 kilomètres",
+      "Tous les 5 kilomètres",
+      "Tous les 500 mètres"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« En France, elles sont disposées tous les 2 kilomètres. » Source : Chapitre 1, §1.1, Le réseau routier national.",
+    "source": "Chapitre 1, §1.1"
+  },
+  {
+    "id": "gdo-routier-002",
+    "level": "TF",
+    "q": "Quel code est inscrit sur le cartouche d'identification d'une route nationale ?",
+    "choices": [
+      "La lettre D en noir sur fond jaune",
+      "La lettre N en blanc sur fond rouge",
+      "La lettre C en noir sur fond blanc",
+      "La lettre M en blanc sur fond bleu"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Les routes du réseau routier national sont identifiées par un cartouche contenant la lettre A ou N et le numéro de la route en blanc sur un fond de couleur rouge. » Source : Chapitre 1, §1.1.",
+    "source": "Chapitre 1, §1.1."
+  },
+  {
+    "id": "gdo-routier-003",
+    "level": "TF",
+    "q": "Qu'est-ce que la cellule de survie d'un véhicule léger ?",
+    "choices": [
+      "Le compartiment moteur",
+      "L'habitacle",
+      "Le coffre",
+      "La zone autour du réservoir de carburant"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'habitacle est conçu pour rester aussi intact que possible grâce à des renforts assurant sa résistance. Ce volume renforcé s'appelle aussi \"cellule de survie\". » Source : Chapitre 1, §2.1.1.",
+    "source": "Chapitre 1, §2.1.1."
+  },
+  {
+    "id": "gdo-routier-004",
+    "level": "TF",
+    "q": "De quelle couleur sont les câbles haute tension dans un véhicule électrique ou hybride ?",
+    "choices": [
+      "Rouge",
+      "Jaune",
+      "Orange",
+      "Bleu"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Tout élément de distribution de la haute tension est de couleur orange. » / « Les câbles d'alimentation haute tension sont de couleur orange. » Source : Chapitre 1, §4 et §3.",
+    "source": "Chapitre 1, §4"
+  },
+  {
+    "id": "gdo-routier-005",
+    "level": "TF",
+    "q": "Quelle est la vitesse minimale à laquelle un airbag peut se déclencher lors d'un impact ?",
+    "choices": [
+      "10 km/h",
+      "20 km/h",
+      "25 km/h",
+      "50 km/h"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Les airbags peuvent se déclencher à partir d'une vitesse d'impact égale ou supérieure à 25 km/h, selon le type de choc. » Source : Chapitre 1, §2.3.2.",
+    "source": "Chapitre 1, §2.3.2."
+  },
+  {
+    "id": "gdo-routier-006",
+    "level": "TF",
+    "q": "Que signifie l'acronyme FAD dans le contexte des opérations de secours ?",
+    "choices": [
+      "Fiche d'action défensive",
+      "Fiche d'aide à la décision",
+      "Formation aux accidents de désincarcération",
+      "Fiche d'application des doctrines"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Les FAD (fiches d'aide à la décision) sont des documents opérationnels permettant aux services de secours d'intervenir efficacement. Source : Annexe B et tout le document.",
+    "source": ""
+  },
+  {
+    "id": "gdo-routier-007",
+    "level": "TF",
+    "q": "À quelle pression maximale le GPL-c est-il stocké dans les réservoirs des véhicules ?",
+    "choices": [
+      "5 bar",
+      "10 bar",
+      "27 bar",
+      "200 bar"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le GPL-c est stocké sous pression (10 bar maximum) dans des réservoirs en métal. » Source : Chapitre 1, §3, Le moteur thermique fonctionnant au gaz.",
+    "source": "Chapitre 1, §3"
+  },
+  {
+    "id": "gdo-routier-008",
+    "level": "TF",
+    "q": "Quelle température de fusion déclenche le thermo-fusible des réservoirs GNC et GPL-c ?",
+    "choices": [
+      "80 °C",
+      "110 °C",
+      "180 °C",
+      "220 °C"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le thermo-fusible fond dès lors que la température atteint 110 °C. » Source : Chapitre 1, §3, véhicules GPL-c et GNC.",
+    "source": "Chapitre 1, §3"
+  },
+  {
+    "id": "gdo-routier-009",
+    "level": "TF",
+    "q": "Quel est le débit minimum de la lance à eau lors de l'attaque d'un incendie de véhicule ?",
+    "choices": [
+      "100 L/min",
+      "150 L/min",
+      "250 L/min",
+      "500 L/min"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« L'attaque est réalisée au moyen de lance à eau avec un débit minimum de 250 litres par minute. » Source : Chapitre 5, §3.1 et Principaux apports.",
+    "source": "Chapitre 5, §3.1"
+  },
+  {
+    "id": "gdo-routier-010",
+    "level": "TF",
+    "q": "Dans quel axe le binôme doit-il progresser lors de l'attaque d'un feu de véhicule ?",
+    "choices": [
+      "Dans l'axe arrière du véhicule",
+      "Dans l'axe 3/4 avant du véhicule en feu",
+      "Perpendiculairement au véhicule",
+      "Dans l’axe avant du véhicule"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le binôme doit progresser dans l'axe 3/4 avant du véhicule en feu. » Source : Chapitre 5, §3.1 et Principaux apports.",
+    "source": "Chapitre 5, §3.1"
+  },
+  {
+    "id": "gdo-routier-011",
+    "level": "TF",
+    "q": "Que signifie l'acronyme TPRD ?",
+    "choices": [
+      "Tube de pression et régulation de décompression",
+      "Thermal Pressure Relief Device (dispositif de décompression actionné par la température)",
+      "Transport de produits à risque dangereux",
+      "Technicien en prévention des risques dimensionnels"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« TPRD (thermal pressure relief device) est un dispositif de décompression actionné par la température. » Source : Annexe A (liste des abréviations).",
+    "source": ""
+  },
+  {
+    "id": "gdo-routier-012",
+    "level": "TF",
+    "q": "Quel est le périmètre de sécurité « a priori » fixé lors des feux de véhicules ?",
+    "choices": [
+      "20 mètres",
+      "30 mètres",
+      "50 mètres",
+      "100 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Lors des feux de véhicules, le zonage a priori est fixé à 50 mètres. » Source : Chapitre 3, §2.",
+    "source": "Chapitre 3, §2."
+  },
+  {
+    "id": "gdo-routier-013",
+    "level": "TF",
+    "q": "Combien de pages maximum comporte une fiche d'aide à la décision (FAD) ?",
+    "choices": [
+      "2 pages",
+      "4 pages",
+      "6 pages",
+      "10 pages"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Comportant au maximum 4 pages, ces fiches comprennent tout ou parties des sections… » Source : Annexe B, §B.1.",
+    "source": ""
+  },
+  {
+    "id": "gdo-routier-014",
+    "level": "TF",
+    "q": "À quelle température est stocké le GNL dans les réservoirs cryogéniques de véhicules ?",
+    "choices": [
+      "0 °C",
+      "-80 °C",
+      "-130 °C",
+      "-160 °C"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "« Le GNL est obtenu par condensation du gaz naturel à -160 °C. » Source : Chapitre 1, §3.",
+    "source": "Chapitre 1, §3."
+  },
+  {
+    "id": "gdo-routier-015",
+    "level": "TF",
+    "q": "Que représente le premier chiffre d'un code danger sur une plaque orange TMD ?",
+    "choices": [
+      "Le code matière ONU",
+      "Le danger principal",
+      "Le mode de transport",
+      "Le pays d'origine"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le 1er chiffre correspond au danger principal. » Source : Chapitre 1, §5, identification du chargement.",
+    "source": "Chapitre 1, §5"
+  },
+  {
+    "id": "gdo-routier-016",
+    "level": "TF",
+    "q": "Que signifie la lettre « X » précédant un numéro de code danger sur une plaque TMD orange ?",
+    "choices": [
+      "Le produit est radioactif",
+      "Le produit réagit violemment avec l'eau",
+      "Le produit nécessite un transport exclusif",
+      "Le chargement est explosif"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Si le numéro est précédé d'un X, le produit transporté présente une réaction violente avec l'eau. » Source : Chapitre 1, §5.",
+    "source": "Chapitre 1, §5."
+  },
+  {
+    "id": "gdo-routier-017",
+    "level": "TF",
+    "q": "Quel équipement de sécurité tertiaire permet aux services de secours d'accéder à la FAD d'un véhicule par smartphone ?",
+    "choices": [
+      "L'eCall 112",
+      "Le QR code spécifique dédié aux secours",
+      "L'ABS",
+      "Le système AFIL"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Un QR code spécifique dédié aux secours : étiquette apposée sur le véhicule, permettant un accès immédiat à la FAD du véhicule. » Source : Chapitre 1, §2.3.3.",
+    "source": "Chapitre 1, §2.3.3."
+  },
+  {
+    "id": "gdo-routier-018",
+    "level": "TF",
+    "q": "Quelle est la contenance maximale autorisée pour un réservoir GPL-c dans un véhicule léger ?",
+    "choices": [
+      "50 litres",
+      "80 litres",
+      "100 litres",
+      "150 litres"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "« La contenance autorisée varie entre 30 et 150 litres. » Source : Chapitre 1, §3.",
+    "source": "Chapitre 1, §3."
+  },
+  {
+    "id": "gdo-routier-019",
+    "level": "TF",
+    "q": "Dans un tunnel, à quelle interdistance les niches de sécurité sont-elles implantées ?",
+    "choices": [
+      "Tous les 50 à 100 mètres",
+      "Tous les 150 à 200 mètres",
+      "Tous les 300 à 400 mètres",
+      "Tous les 500 mètres"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'interdistance entre deux niches varie entre 150 et 200 mètres. » Source : Chapitre 1, §1.3.2.",
+    "source": "Chapitre 1, §1.3.2."
+  },
+  {
+    "id": "gdo-routier-020",
+    "level": "TF",
+    "q": "Quelle mention figure à la rubrique P3 de la carte grise d'un véhicule fonctionnant au gaz naturel (GNC ou GNL) ?",
+    "choices": [
+      "GPL",
+      "GN",
+      "HH",
+      "EE"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'énergie figurant sur le certificat d'immatriculation (carte grise) à la rubrique P3 est \"GN\" pour gaz naturel. » Source : Chapitre 1, §3.",
+    "source": "Chapitre 1, §3."
+  },
+  {
+    "id": "gdo-routier-021",
+    "level": "F",
+    "q": "L'airbag constitue quelle proportion de la protection en cas de choc par rapport à la ceinture de sécurité ?",
+    "choices": [
+      "50 % ceinture / 50 % airbag",
+      "80 % ceinture / 20 % airbag",
+      "20 % ceinture / 80 % airbag",
+      "70 % ceinture / 30 % airbag"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'airbag est donc un équipement de sécurité passive qui vient compléter le travail de la ceinture de sécurité (ratio 80 % ceinture / 20 % airbag). » Source : Chapitre 1, §2.3.2.",
+    "source": "Chapitre 1, §2.3.2."
+  },
+  {
+    "id": "gdo-routier-022",
+    "level": "F",
+    "q": "Lors d'un incendie de véhicule au gaz, quelle est la hauteur maximale que peut atteindre une torchère provenant des dispositifs de sécurité ?",
+    "choices": [
+      "5 mètres",
+      "10 mètres",
+      "15 mètres",
+      "20 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Le fonctionnement des dispositifs de sécurité (soupape de sécurité, thermo-fusible) peut provoquer une torchère de gaz enflammée qui peut atteindre 15 mètres. » Source : Chapitre 2, §1.1.1.",
+    "source": "Chapitre 2, §1.1.1."
+  },
+  {
+    "id": "gdo-routier-023",
+    "level": "F",
+    "q": "Un réservoir de GNC ou d'H2 se videra-t-il complètement lorsque le fusible thermique aura fondu ?",
+    "choices": [
+      "Non, il se videra progressivement sur plusieurs heures",
+      "Oui, complètement en 3 minutes d'une seule traite",
+      "Non, il ne se videra qu'à 80 % de sa capacité",
+      "Oui, en 30 minutes environ"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Un réservoir de GNC ou H2 se videra complètement en 3 minutes d'une seule traite lorsque le fusible thermique aura fondu (torchère continue). » Source : Chapitre 2, §1.1.1, note de bas de page.",
+    "source": "Chapitre 2, §1.1.1"
+  },
+  {
+    "id": "gdo-routier-024",
+    "level": "F",
+    "q": "Lors d'un BLEVE d'un réservoir de 50 litres de GPL, à quelle distance peuvent être projetés les éclats avec effets missiles ?",
+    "choices": [
+      "Jusqu'à 30 mètres",
+      "Jusqu'à 50 mètres",
+      "Jusqu'à 100 mètres",
+      "Jusqu'à 200 mètres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« La projection d'éclats avec effets missiles pouvant aller jusqu'à 100 mètres dans les zones de danger identifiées (avant et arrière). » Source : Chapitre 2, §1.1.1.",
+    "source": "Chapitre 2, §1.1.1."
+  },
+  {
+    "id": "gdo-routier-025",
+    "level": "F",
+    "q": "Quelle est la règle concernant l'engagement du personnel à l'intérieur d'un véhicule instable ?",
+    "choices": [
+      "L'engagement est toujours autorisé si une victime est présente",
+      "Aucun engagement ne doit être réalisé tant que le véhicule n'est pas stabilisé ou arrimé totalement",
+      "L'engagement est possible si un agent reste à l'extérieur pour surveiller",
+      "L'engagement est autorisé après calage des roues"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Aucun engagement de personnel à l'intérieur d'un véhicule instable ne doit être réalisé tant qu'il n'est pas stabilisé ou arrimé totalement. » Source : Chapitre 3, §3.1.",
+    "source": "Chapitre 3, §3.1."
+  },
+  {
+    "id": "gdo-routier-026",
+    "level": "F",
+    "q": "Que doit faire le conducteur d'un engin de secours en se positionnant sur intervention, concernant le braquage de ses roues ?",
+    "choices": [
+      "Braquer les roues vers la zone de flux pour faciliter le départ",
+      "Laisser les roues droites pour permettre un départ rapide",
+      "Braquer les roues en direction opposée à la zone de flux",
+      "Mettre les roues en position de freinage maximal"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Le conducteur veillera à braquer les roues du véhicule en direction opposée à la zone de flux de manière à éviter, en cas de choc violent par l'arrière, la projection de l'engin dans la direction du lieu de l'accident. » Source : Chapitre 3, §1.1.",
+    "source": "Chapitre 3, §1.1."
+  },
+  {
+    "id": "gdo-routier-027",
+    "level": "F",
+    "q": "Lors d'une opération de désincarcération, le dégarnissage est-il obligatoire ?",
+    "choices": [
+      "Non, il est facultatif si le chef d'agrès estime la zone sans risque",
+      "Oui, il est obligatoire avant toute action de désincarcération",
+      "Non, il n'est nécessaire que sur les véhicules électriques",
+      "Oui, mais uniquement si la FAD est disponible"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le dégarnissage est obligatoire avant toute action de désincarcération sur la zone travaillée. C'est une condition essentielle de sécurité. » Source : Chapitre 3, §3.3.",
+    "source": "Chapitre 3, §3.3."
+  },
+  {
+    "id": "gdo-routier-028",
+    "level": "F",
+    "q": "À quelle vitesse maximale les véhicules de secours doivent-ils circuler en contre-sens dans un tunnel ?",
+    "choices": [
+      "20 km/h",
+      "30 km/h",
+      "50 km/h",
+      "70 km/h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Limiter sa vitesse à 30 km/h. » Source : Chapitre 5, §3.5.2.",
+    "source": "Chapitre 5, §3.5.2."
+  },
+  {
+    "id": "gdo-routier-029",
+    "level": "F",
+    "q": "Quel est le principal principe sur lequel repose la sécurité dans les tunnels en cas d'incendie pour les usagers ?",
+    "choices": [
+      "Attendre l'arrivée des sapeurs-pompiers dans son véhicule",
+      "L'auto-évacuation immédiate des usagers sans attendre les secours",
+      "Se réfugier dans les niches de sécurité en attendant les secours",
+      "Faire demi-tour avec son véhicule pour sortir du tunnel"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« C'est un des principes fondamentaux sur lequel repose la sécurité des tunnels. En cas d'incendie dans un tunnel routier, les usagers doivent immédiatement quitter leur véhicule et se diriger vers les débouchés du tunnel... sans attendre l'arrivée des sapeurs-pompiers. » Source : Chapitre 5, §3.5.3.",
+    "source": "Chapitre 5, §3.5.3."
+  },
+  {
+    "id": "gdo-routier-030",
+    "level": "F",
+    "q": "Quelle est la première étape de la sécurisation d'un véhicule accidenté selon le moyen mnémotechnique des 5I ?",
+    "choices": [
+      "Immobiliser",
+      "Interdire",
+      "Identifier",
+      "Inspecter"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Les 5I commencent par « Identifier » : « L'identification du type de véhicule est importante. Celle-ci permet de cibler la FAD ainsi que les informations utiles dont l'énergie du véhicule. » Source : Chapitre 5, §4.2.",
+    "source": "Chapitre 5, §4.2."
+  },
+  {
+    "id": "gdo-routier-031",
+    "level": "F",
+    "q": "Lors de la coupure du contact d'un véhicule électrique ou hybride, quel effet de sécurité est obtenu ?",
+    "choices": [
+      "Activation du système ABS et ESP",
+      "Ouverture des relais haute tension et fermeture des électrovannes pour les véhicules GPL/GNC/H2",
+      "Déclenchement automatique des airbags non encore activés",
+      "Mise en circuit de la batterie 12V de secours"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La coupure du contact entraîne un premier niveau de sécurité du véhicule à savoir l'ouverture des relais HT pour les véhicules électriques et hybrides et la fermeture des électrovannes pour les véhicules GPL, GNc, H². » Source : Chapitre 5, §4.2.5.",
+    "source": "Chapitre 5, §4.2.5."
+  },
+  {
+    "id": "gdo-routier-032",
+    "level": "F",
+    "q": "Quelles sont les deux zones de flux clairement définies dans le zonage opérationnel sur le domaine routier qui présentent des niveaux de risque élevés pour les intervenants ?",
+    "choices": [
+      "Zone d'exclusion",
+      "Zone logistique",
+      "Zone contrôlée",
+      "Zone de navigation"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le zonage opérationnel distingue la zone d'exclusion (rouge, danger absolu) et la zone contrôlée (orange, risque élevé) comme zones à risque pour les intervenants. Source : Chapitre 5, §1.2.",
+    "source": "Chapitre 5, §1.2."
+  },
+  {
+    "id": "gdo-routier-033",
+    "level": "F",
+    "q": "Quel est le principe de l'immobilisation d'un véhicule accidenté lors de la désincarcération ?",
+    "choices": [
+      "Neutraliser les effets suspensifs du véhicule",
+      "Remplacer la stabilisation si elle n'est pas réalisable",
+      "Contribuer à limiter les mouvements dans l'habitacle",
+      "Permettre le déplacement du véhicule par l'engin de secours routier"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« L'immobilisation vise à neutraliser les effets suspensifs des véhicules. C'est une action de prévention qui contribue à limiter les mouvements dans l'habitacle. » Source : Chapitre 3, §3.2.",
+    "source": "Chapitre 3, §3.2."
+  },
+  {
+    "id": "gdo-routier-034",
+    "level": "F",
+    "q": "Lors d'un incendie d'un véhicule au gaz dans un tunnel, quels phénomènes peuvent être aggravés par rapport à un incident à l'air libre ? (",
+    "choices": [
+      "La réflexion des effets de torchère sur les parois",
+      "La diminution de la toxicité des fumées grâce à la dilution",
+      "L'accentuation des effets des explosions de réservoirs par réflexion des parois",
+      "La réduction automatique de la pression des réservoirs grâce au confinement"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Une réflexion des effets (torchère) sur les parois du tunnel, pouvant potentiellement exposer les intervenants à des effets dangereux ; une accentuation des effets des explosions des réservoirs du fait de la réflexion des parois. » Source : Chapitre 2, §1.2.2.",
+    "source": "Chapitre 2, §1.2.2."
+  },
+  {
+    "id": "gdo-routier-035",
+    "level": "F",
+    "q": "Lors du retrait du matériel de signalisation d'urgence en fin d'intervention, dans quel sens doit-il être retiré ?",
+    "choices": [
+      "Dans le même sens que sa pose",
+      "Dans le sens inverse de sa pose",
+      "Simultanément par deux équipes, depuis les deux extrémités",
+      "En commençant par les cônes les plus éloignés du lieu d'accident"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le retrait du matériel de signalisation se fait dans le sens inverse de sa pose et dans la mesure du possible, sous la protection d'un véhicule. » Source : Chapitre 3, §1.3.",
+    "source": "Chapitre 3, §1.3."
+  },
+  {
+    "id": "gdo-routier-036",
+    "level": "F",
+    "q": "Quelles sont les caractéristiques d'un emballement thermique d'une batterie lithium ?",
+    "choices": [
+      "Des crépitements et un bruit de gaz sous pression",
+      "Des micro-explosions à l’intérieur de la batterie",
+      "Un épaississement des fumées et un changement de couleur des flammes",
+      "Un dégagement de gaz sans fumées"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Un emballement thermique d'une batterie se caractérise notamment par : des crépitements ; un bruit de gaz sous pression ; un épaississement des fumées ; un changement de couleur des flammes. » Source : Chapitre 2, §1.1.2.",
+    "source": "Chapitre 2, §1.1.2."
+  },
+  {
+    "id": "gdo-routier-037",
+    "level": "F",
+    "q": "Quel type de verre est obligatoire pour les pare-brise automobiles ?",
+    "choices": [
+      "Le verre trempé",
+      "Le verre feuilleté",
+      "Le polycarbonate",
+      "Le verre athermique"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le verre feuilleté est un verre obligatoire pour les pare-brise automobiles. » Source : Chapitre 1, §2.2.2.",
+    "source": "Chapitre 1, §2.2.2."
+  },
+  {
+    "id": "gdo-routier-038",
+    "level": "F",
+    "q": "Dans quel sens les véhicules de secours doivent-ils progresser en cas d'incendie dans un tunnel ?",
+    "choices": [
+      "À contre-courant des fumées, pour attaquer le foyer",
+      "Dans le sens de l'évacuation des fumées pour des raisons de toxicité et de chute d'oxygène",
+      "Perpendiculairement au flux pour maintenir une zone de sécurité",
+      "Dans n'importe quel sens si les ARI sont portés"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Si les véhicules des services de secours sont amenés à pénétrer dans le tunnel, ils doivent progresser dans le sens de l'évacuation des fumées pour des raisons évidentes de toxicité des fumées mais également à cause de la chute d'oxygène. » Source : Chapitre 5, §3.5.2.",
+    "source": "Chapitre 5, §3.5.2."
+  },
+  {
+    "id": "gdo-routier-039",
+    "level": "F",
+    "q": "Lors d'un déplacement seul sur la chaussée, quelle(s) recommandation(s) s'applique(nt) au sapeur-pompier ?",
+    "choices": [
+      "Se déplacer au centre de la chaussée pour être visible",
+      "De préférence, se déplacer derrière les glissières de sécurité,",
+      "Porter impérativement un EPI haute-visibilité et marcher face à la circulation",
+      "Se déplacer uniquement sur la bande d'arrêt d'urgence"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« En cas de déplacement seul, le faire de préférence, derrière les glissières de sécurité, en suivant un itinéraire le plus éloigné possible de la circulation. » Source : Chapitre 3, §1.",
+    "source": "Chapitre 3, §1."
+  },
+  {
+    "id": "gdo-routier-040",
+    "level": "F",
+    "q": "Comment la batterie d'un véhicule hybride non rechargeable (HEV) est-elle rechargée ?",
+    "choices": [
+      "Via le moteur thermique",
+      "Via une prise de recharge externe uniquement",
+      "Via le dispositif de récupération d'énergie cinétique au freinage ou à la décélération",
+      "Via un panneau solaire intégré au toit"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« La batterie d'un véhicule électrique hybride (HEV) est rechargée via le moteur thermique et via le dispositif de récupération d'énergie cinétique au freinage ou à la décélération. » Source : Chapitre 1, §4.",
+    "source": "Chapitre 1, §4."
+  },
+  {
+    "id": "gdo-routier-041",
+    "level": "F",
+    "q": "Quel EPI particulier doit obligatoirement être porté lors des déplacements sur le domaine routier en intervention ?",
+    "choices": [
+      "Tenue de feu complète",
+      "Un EPI haute-visibilité",
+      "Des lunettes de protection anti-UV",
+      "Des bottes imperméables renforcées"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'évolution sur le domaine routier nécessite le port d'EPI haute-visibilité en complément des autres EPI (tenue de feu OU tenue de service et d'intervention). » Source : Chapitre 3, §1.",
+    "source": "Chapitre 3, §1."
+  },
+  {
+    "id": "gdo-routier-042",
+    "level": "F",
+    "q": "Quel masque est préconisé, au minimum, pour les sauveteurs lors de la découpe des vitrages pendant une désincarcération ?",
+    "choices": [
+      "Un masque chirurgical",
+      "Un masque FFP1",
+      "Un masque FFP2",
+      "Un appareil respiratoire isolant (ARI)"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« L'utilisation d'un masque, a minima FFP2, est préconisée pour les sauveteurs et les victimes lors de la découpe des vitrages et des matériaux pouvant produire des poussières. » Source : Chapitre 3, §3.",
+    "source": "Chapitre 3, §3."
+  },
+  {
+    "id": "gdo-routier-043",
+    "level": "M",
+    "q": "Un sapeur-pompier intervient sur un feu de voiture électrique dont la batterie est en emballement thermique mais sans trappe thermo-fusible. Après avoir tenté en vain d'intégrer l'eau dans le casing, quelle est la conduite à tenir ?",
+    "choices": [
+      "Continuer à arroser la batterie avec un débit augmenté pour accélérer l'extinction",
+      "S'abstenir de toute tentative d'extinction de la batterie et se limiter à la sécurité des tiers et la protection de l'environnement",
+      "Percer le casing à l'aide d'un outil de forcement pour faciliter l'introduction d'eau",
+      "Recouvrir le véhicule d'une couverture anti-feu pour piéger les gaz"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Si l'opération s'avère inefficace, il convient de s'abstenir de toute tentative d'extinction et de refroidissement de la batterie. Seules la sécurité des tiers et la protection de l'environnement sont recommandées. » Source : Chapitre 5, §3.1.1.2. Attention : l'usage d'un outil de forcement est explicitement interdit, et la couverture anti-feu est proscrite en cas d'emballement thermique.",
+    "source": "Chapitre 5, §3.1.1.2."
+  },
+  {
+    "id": "gdo-routier-044",
+    "level": "M",
+    "q": "Sur un véhicule retourné sur le toit équipé d'un réservoir GPL-c, quel est le risque spécifique lié à la position du véhicule sur le comportement de la soupape de sécurité ?",
+    "choices": [
+      "La soupape ne peut plus s'activer car elle est obstruée par le sol",
+      "La soupape se trouve dans la phase liquide du GPL, ce qui peut conduire à un BLEVE",
+      "La torchère est moins puissante car le gaz s'écoule en phase gazeuse",
+      "La soupape s'active deux fois plus rapidement du fait de la pression du liquide"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Véhicule retourné ou couché : La soupape se trouve dans la phase liquide. En cas d'ouverture, malgré la torchère, il n'y a pas de changement d'état à l'intérieur du réservoir donc pas de baisse de température. Risque : BLEVE. » Source : Chapitre 2, §1.1.1, tableau des situations.",
+    "source": "Chapitre 2, §1.1.1"
+  },
+  {
+    "id": "gdo-routier-045",
+    "level": "M",
+    "q": "Lors d'une opération de désincarcération, un intervenant doit utiliser un outil de coupe. Quelles règles de sécurité s'appliquent à l'utilisation de cet outil ?",
+    "choices": [
+      "Toujours se déplacer avec l'outil fermé, dirigé vers le bas",
+      "Placer les mains sur les mâchoires pour guider la coupe avec précision",
+      "Ne jamais placer ses mains sur les mâchoires ou lames d'un outil",
+      "Placer l'outil le plus loin possible de la partie à découper pour avoir plus de levier"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Toujours se déplacer avec l'outil fermé, dirigé vers le bas ; ne jamais placer ses mains sur les mâchoires ou lames d'un outil. » Source : Chapitre 3, §3.5.",
+    "source": "Chapitre 3, §3.5."
+  },
+  {
+    "id": "gdo-routier-046",
+    "level": "M",
+    "q": "Lors d'une intervention sur un véhicule électrique ou hybride en charge sur une borne de recharge, sans confirmation de coupure de l'alimentation électrique, quelle est la conduite à tenir ?",
+    "choices": [
+      "Traiter l'incendie normalement avec une lance à eau",
+      "Se limiter à protéger l'environnement sans intervenir sur le véhicule",
+      "Couper l'alimentation de la borne par un système d'arrêt d'urgence ou la coupure générale, puis procéder à l'extinction",
+      "Recouvrir immédiatement le véhicule d'une couverture anti-feu"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Lors d'une intervention sur véhicule électrique ou hybride en charge, sans confirmation de coupure, on se limitera à protéger l'environnement. » Source : Chapitre 5, §3.3.",
+    "source": "Chapitre 5, §3.3."
+  },
+  {
+    "id": "gdo-routier-047",
+    "level": "M",
+    "q": "Quels sont les effets indésirables d'une tentative d'extinction ou de refroidissement inefficace d'une batterie haute tension en emballement thermique ?",
+    "choices": [
+      "L'augmentation du temps de combustion",
+      "La réduction immédiate des fumées toxiques",
+      "La production accrue de fumées",
+      "Un risque de reprise de feu plusieurs jours après le sinistre initial"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Les effets indésirables listés dans le document incluent : augmentation du temps de combustion, production accrue de fumées, projection de particules de métal en fusion, consommation importante d'eau, risque de reprise de feu plusieurs jours après. Source : Chapitre 5, §3.1.1.2.",
+    "source": "Chapitre 5, §3.1.1.2."
+  },
+  {
+    "id": "gdo-routier-048",
+    "level": "M",
+    "q": "Un binôme doit intervenir sur un feu de véhicule au gaz. Quelles actions s'imposent lors de l'approche et de l'attaque ?",
+    "choices": [
+      "Faire coiffer l'ARI par le personnel d'attaque",
+      "Réaliser l'approche par l'arrière du véhicule dans son axe",
+      "Faire réaliser l'approche par le ¾ avant du véhicule",
+      "S'assurer de la protection du personnel derrière des abris de fortune (mur, véhicule, mobilier urbain)"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "« Faire coiffer systématiquement l'ARI par le personnel d'attaque ; faire réaliser l'approche par laxe ¾ 'avant du véhicule, en dehors de son axe et des côtés ; s'assurer de la protection du personnel derrière des abris de fortune. » Source : Chapitre 5, §3.1.1.1. L'approche par l'arrière dans l'axe est dangereuse et exclue.",
+    "source": "Chapitre 5, §3.1.1.1."
+  },
+  {
+    "id": "gdo-routier-049",
+    "level": "M",
+    "q": "Lors d'une opération de secours routier, la lecture de l'accident est une aide à la décision. Quels critères liés au véhicule entrent dans cette analyse ?",
+    "choices": [
+      "L'estimation de l'energy equivalent speed (EES)",
+      "Les blessures que présente la victime",
+      "La déformation des véhicules et le taux de recouvrement",
+      "Le type et la localisation du choc"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "La lecture de l'accident porte notamment sur « l'estimation de l'EES, la déformation des véhicules, le type et la localisation du choc ». Source : Chapitre 5, §4.3.2.",
+    "source": "Chapitre 5, §4.3.2."
+  },
+  {
+    "id": "gdo-routier-050",
+    "level": "M",
+    "q": "Un sapeur-pompier arrive sur un accident de voiture impliquant un utilisateur de deux-roues. Il constate que la victime porte un équipement de protection complet. Quelle particularité cela entraîne-t-il ?",
+    "choices": [
+      "La victime est nécessairement en meilleur état, les traumatismes sont réduits par l'équipement",
+      "Le port des équipements de protection complexifie l'examen de la victime et la recherche de traumatismes lors du bilan complémentaire",
+      "L'équipement doit être retiré immédiatement pour faciliter l'accès aux blessures",
+      "L'examen est simplifié car l'équipement indique les zones protégées et les zones à risque"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le port des équipements de protection (casque, veste, bottes, renforts) complexifie l'examen de la victime et la recherche de traumatismes lors du bilan complémentaire. » Source : Chapitre 2, §2.2.3.",
+    "source": "Chapitre 2, §2.2.3."
+  },
+  {
+    "id": "gdo-routier-051",
+    "level": "M",
+    "q": "Un véhicule poids lourd transportant de l'hydrogène est couché sur le flanc suite à un accident. Quelles mesures s'imposent ?",
+    "choices": [
+      "Ne pas intervenir sur la semi-remorque en cas de fuite H2 ou de feu, sauf dégagement nécessaire de personne",
+      "Assurer une zone d'exclusion de 50 mètres",
+      "Procéder immédiatement au refroidissement des réservoirs avec deux lances à eau",
+      "S'approcher par l'arrière de la remorque pour fermer les vannes manuelles"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "« Ne pas intervenir sur la semi-remorque en cas de fuite H2 ou de feu, sauf dégagement nécessaire de personne ; assurer une zone d'exclusion de 50 mètres. » Source : Chapitre 5, §5.1.",
+    "source": "Chapitre 5, §5.1."
+  },
+  {
+    "id": "gdo-routier-052",
+    "level": "M",
+    "q": "Laquelle des affirmations suivantes sur le verre trempé N'est PAS exacte ?",
+    "choices": [
+      "Il est utilisé principalement pour les vitres latérales et la lunette arrière",
+      "En cas de brisure, il reste collé à une feuille plastique et ne produit pas d'éclats dangereux",
+      "Il est chauffé puis refroidi rapidement, ce qui le rend plus résistant",
+      "Il se casse en de nombreux petits morceaux qui présentent moins de risques de blessure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La propriété de « rester collé à une feuille plastique » correspond au verre feuilleté, pas au verre trempé. Le verre trempé, lui, « se casse en plein de petits morceaux ». Source : Chapitre 1, §2.2.1 et §2.2.2.",
+    "source": "Chapitre 1, §2.2.1"
+  },
+  {
+    "id": "gdo-routier-053",
+    "level": "M",
+    "q": "En présence d'une « smart key » (carte intelligente) lors de l'immobilisation d'un véhicule accidenté, quelle précaution particulière doit être prise ?",
+    "choices": [
+      "La smart key doit être placée dans le véhicule pour maintenir le système actif",
+      "La smart key doit être éloignée d'au moins 5 mètres du véhicule",
+      "La smart key doit être remise au conducteur ou à un proche immédiatement",
+      "La smart key n'a aucun impact sur les systèmes de sécurité du véhicule"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« En présence d'une smart key (carte intelligente), on prendra soin de l'éloigner (5 mètres). » Source : Chapitre 5, §4.2.4.",
+    "source": "Chapitre 5, §4.2.4."
+  },
+  {
+    "id": "gdo-routier-054",
+    "level": "M",
+    "q": "Lors d'un incendie de tunnel, quelle est la priorité opérationnelle selon la doctrine ?",
+    "choices": [
+      "L'extinction rapide du foyer est l'objectif prioritaire pour limiter les dommages",
+      "L'évacuation et la mise en sécurité des usagers sont prioritaires sur la lutte contre le feu",
+      "La protection des équipements du tunnel (ventilation, éclairage) est la priorité absolue",
+      "La sécurisation des accès au tunnel est la seule action à mener en phase réflexe"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La lutte contre le feu n'est pas l'objectif prioritaire. » La doctrine précise que les opérations de sauvetage et de mise à l'abri des usagers passent avant la lutte contre le feu. Source : Chapitre 5, §3.5.",
+    "source": "Chapitre 5, §3.5."
+  },
+  {
+    "id": "gdo-routier-055",
+    "level": "M",
+    "q": "Qu'est-ce que l'energy equivalent speed (EES) utilisé dans la lecture d'un accident ?",
+    "choices": [
+      "La vitesse réelle du véhicule au moment de l'impact mesurée par la boîte noire",
+      "La vitesse à laquelle il faudrait projeter un véhicule contre un obstacle fixe indéformable pour observer les mêmes déformations que lors de l'accident",
+      "La différence de vitesse entre les deux véhicules impliqués dans la collision",
+      "La vitesse maximale théorique du véhicule selon ses caractéristiques constructeur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'EES est défini comme la vitesse à laquelle il faudrait projeter un véhicule contre un obstacle fixe et indéformable pour observer les mêmes déformations que lors de l'accident. » Source : Annexe F.",
+    "source": ""
+  },
+  {
+    "id": "gdo-routier-056",
+    "level": "M",
+    "q": "Quels facteurs influencent le comportement d'une torchère sur un véhicule GPL selon sa position et le dispositif activé ? (2 bonnes réponses)",
+    "choices": [
+      "Le déclenchement d'une soupape pour un véhicule sur ses roues produit une torchère en phase gazeuse",
+      "Le déclenchement du thermo-fusible produit une torchère par cycles réguliers",
+      "Le déclenchement d'une soupape pour un véhicule sur le toit produit une torchère en phase liquide continue",
+      "La position du véhicule n'influe pas sur le comportement de la torchère"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Le déclenchement de la soupape pour un véhicule sur ses roues entraînera une torchère en phase gazeuse cyclée ; le déclenchement de la soupape pour un véhicule sur le toit entraînera une torchère en phase liquide continue. » Source : Chapitre 2, §1.1.1.",
+    "source": "Chapitre 2, §1.1.1."
+  },
+  {
+    "id": "gdo-routier-057",
+    "level": "M",
+    "q": "Quelles sont les conséquences du risque incendie sur les personnes dans le cadre d'interventions sur le domaine routier ?",
+    "choices": [
+      "La toxicité des fumées",
+      "La contamination radioactive",
+      "Les brûlures",
+      "Le risque électrostatique lié aux carburants"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Les conséquences principales du risque incendie sont, pour les personnes, la toxicité des fumées et les brûlures. » Source : Chapitre 2, §1.1.",
+    "source": "Chapitre 2, §1.1."
+  },
+  {
+    "id": "gdo-routier-058",
+    "level": "M",
+    "q": "Lors d'une opération de secours routier, à quel point fixe doit-on éviter d'attacher l'arrimage d'un véhicule instable ?",
+    "choices": [
+      "À un arbre résistant",
+      "À un poteau électrique béton",
+      "À un lampadaire",
+      "À un engin de secours calé"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Les lampadaires sont à proscrire car ils présentent une faible résistance. » Source : Chapitre 3, §3.1.",
+    "source": "Chapitre 3, §3.1."
+  },
+  {
+    "id": "gdo-routier-059",
+    "level": "M",
+    "q": "Concernant l'utilisation d'une couverture anti-feu sur un véhicule électrique en emballement thermique de batterie, quelle est la doctrine ?",
+    "choices": [
+      "La couverture est recommandée pour limiter les projections de métal en fusion",
+      "La couverture est interdite car les gaz inflammables et toxiques de la batterie restent piégés sous la couverture, créant un danger lors de son retrait",
+      "La couverture est autorisée uniquement si elle est imperméable aux gaz",
+      "La couverture est recommandée pour couper l'alimentation en oxygène de la batterie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'utilisation de ce type de matériel est toutefois à proscrire face à un emballement thermique du fait du dégagement de gaz inflammables et toxiques générés par la batterie qui restent piégés sous la couverture. Cette situation génère un danger lors du retrait ultérieur de la couverture. » Source : Chapitre 5, §3.1.",
+    "source": "Chapitre 5, §3.1."
+  },
+  {
+    "id": "gdo-routier-060",
+    "level": "M",
+    "q": "Quels sont les dangers liés à la manipulation de vérins hydrauliques de capot lors d'un feu de véhicule ?",
+    "choices": [
+      "Ils peuvent être projetés à grande vitesse en dehors du véhicule lors d'un feu",
+      "Ils explosent toujours avant les airbags lors d'une montée en température",
+      "Une projection d'huile peut se produire suite à un sectionnement du vérin",
+      "Leur sectionnement est recommandé pour libérer la pression hydraulique"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Lors d'un feu de véhicule, il est fréquent de voir ces vérins être projetés à grande vitesse en dehors des véhicules. Une projection d'huile peut se produire suite à un sectionnement du vérin. D'une manière générale, on évitera de les sectionner. » Source : Chapitre 2, §1.1.6.",
+    "source": "Chapitre 2, §1.1.6."
+  },
+  {
+    "id": "gdo-routier-061",
+    "level": "M",
+    "q": "Concernant le marquage de l'énergie d'un véhicule lors d'une désincarcération, quel est le code utilisé pour un véhicule fonctionnant à l'hydrogène ?",
+    "choices": [
+      "HY",
+      "HH",
+      "H²",
+      "VE"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Hydrogène : H². » Source : Chapitre 3, §3.4. (À distinguer de HY qui correspond à Hybride.)",
+    "source": "Chapitre 3, §3.4."
+  },
+  {
+    "id": "gdo-routier-062",
+    "level": "M",
+    "q": "Lors d'une intervention sur la voie publique, une vigie peut être mise en place. Quelle est sa mission spécifique ?",
+    "choices": [
+      "Surveiller les victimes dans le véhicule pendant la désincarcération",
+      "Assurer un regard permanent face à la circulation pour alerter en cas de danger venant des véhicules circulants",
+      "Gérer les communications radio entre les différents équipages",
+      "Surveiller l'évolution de l'incendie et signaler tout départ de feu secondaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La vigilance des personnels doit être accrue et peut être complétée par la mise en place d'une vigie (sonnette) assurée par un personnel faisant face à la circulation. » Source : Chapitre 3, §1.",
+    "source": "Chapitre 3, §1."
+  }
+]

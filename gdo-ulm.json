@@ -1,0 +1,134 @@
+[
+  {
+    "id": "gdo-ulm-001",
+    "level": "TF",
+    "q": "Combien de classes d'ULM existent officiellement en France ?",
+    "choices": [
+      "4",
+      "5",
+      "6",
+      "8"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le chapitre 1, section 1 précise explicitement : « En France, 6 classes existent. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-002",
+    "level": "TF",
+    "q": "Quel est le nombre maximum de personnes pouvant être accueillies à bord d'un ULM ?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Section 2, « Secours d'Urgence Aux Personnes » : « Un ULM peut accueillir au maximum 2 personnes. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-003",
+    "level": "TF",
+    "q": "À quoi sont assimilables les carburants utilisés par les ULM ?",
+    "choices": [
+      "Au gazole et au fioul domestique",
+      "Au super sans plomb ou au kérosène (plus rare)",
+      "Au gaz naturel comprimé",
+      "À l'éthanol et au méthanol"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Section 2, « Incendie » : « Les carburants utilisés sont assimilables à du super sans plomb ou du kérosène (plus rare). »",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-004",
+    "level": "F",
+    "q": "Quels sont les deux principaux types de pathologies rencontrées sur les victimes d'accidents d'ULM ?",
+    "choices": [
+      "Noyades",
+      "Traumatismes",
+      "Brûlures",
+      "Intoxications au CO"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Section 2, « Secours d'Urgence Aux Personnes » : « Les traumatismes et brûlures restent les principales pathologies qu'on peut rencontrer sur les victimes. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-005",
+    "level": "F",
+    "q": "En cas de non-inflammation du carburant après un crash d'ULM, quels risques doivent être pris en compte par les intervenants ?",
+    "choices": [
+      "Risque d'explosion à l'air libre",
+      "Risque de pollution",
+      "Risque d'électrocution par batterie lithium",
+      "Risque d'inflammation"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Section 2, « Incendie » : « il faut prendre en compte les risques générés par ces matières (explosion à l'air libre, inflammation, pollution). » — La réponse D est piège car l'inflammation est citée dans le document mais la question porte sur la non-inflammation ; A et B sont explicitement listés parmi les risques résiduels dans ce contexte.",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-006",
+    "level": "F",
+    "q": "Lors d'une intervention sur un crash d'ULM, quelle est la compétence exclusive pour neutraliser un parachute balistique non déclenché ?",
+    "choices": [
+      "Le chef d'agrès",
+      "Le service de déminage",
+      "Le SAMU",
+      "Les services de gendarmerie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Section 3, « Mesures communes pour toutes opérations de crash d'aéronef » : « Sa neutralisation reste de la compétence des services de déminage. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-007",
+    "level": "M",
+    "q": "Lors d'une désincarcération sur un ULM accidenté, quelle précaution particulière doit être prise par rapport aux équipements spécifiques de l'aéronef ?",
+    "choices": [
+      "Sectionner rapidement tous les câbles pour libérer les victimes au plus vite",
+      "Éviter de sectionner les câbles actionnant les systèmes de parachute",
+      "Neutraliser en priorité le réservoir de carburant avec de la mousse",
+      "Démonter le moteur avant toute action de secours aux victimes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Section 3, « La prise en compte des victimes » : « Si une désincarcération est nécessaire, la démarche doit rester prudente pour ne pas sectionner notamment les câbles actionnant les systèmes de parachute. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-ulm-008",
+    "level": "M",
+    "q": "Un parachute balistique non déclenché est découvert sur un ULM accidenté sans incendie. Quelles affirmations sont conformes à la doctrine ?",
+    "choices": [
+      "Les intervenants ne doivent pas travailler dans la zone d'éjection du parachute",
+      "Le cône d'exclusion recommandé est de 100 mètres de long pour 30 mètres de largeur",
+      "Le parachute peut être neutralisé par les sapeurs-pompiers en binôme",
+      "Ces systèmes restent actifs et instables pendant et après un incendie"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Section 3 : le cône d'exclusion est explicitement schématisé (100 m × 30 m) ; « les secours veilleront à ne pas travailler dans la zone d'éjection » ; « ces systèmes restent actifs et instables pendant et après un incendie. » La neutralisation relève du déminage (pas des SP). E est plausible mais le document précise que le signalement « peut être altéré ou disparaître » — cette affirmation est donc vraie selon le document mais n'est pas dans notre sélection des 3 réponses-cibles car B, A et D sont les trois points centraux de la doctrine sécurité intervenants.",
+    "source": ""
+  }
+]

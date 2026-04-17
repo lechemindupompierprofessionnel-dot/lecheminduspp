@@ -11,7 +11,7 @@
   --cream:#F5F0E8;--charcoal:#1C1C1C;--gray:#6B6560;--gray-light:#9B9590;
   --red:#B83232;--red-dark:#8B2020;--border:#D8D0C2;--white:#FFFFFF;
 }
-body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:40px 20px}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charcoal);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 20px}
 .card{max-width:540px;width:100%;text-align:center}
 .icon{width:72px;height:72px;background:var(--red);display:flex;align-items:center;justify-content:center;margin:0 auto 28px;animation:popIn .5s cubic-bezier(.22,1,.36,1)}
 @keyframes popIn{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
@@ -33,6 +33,7 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
 .countdown{margin-top:14px;font-size:.8rem;color:var(--gray-light)}
 .countdown strong{color:var(--charcoal)}
 .signature{margin-top:36px;padding-top:24px;border-top:1px solid var(--border);font-size:.85rem;color:var(--gray);line-height:1.7}
+.footer-copy{margin-top:24px;font-size:.75rem;color:var(--gray-light);text-align:center}
 </style>
 </head>
 <body>
@@ -79,7 +80,8 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
     </div>
   </div>
 
-  <a class="btn" href="https://69dce858d5ca69297806f164--shiny-marshmallow-8bb5a5.netlify.app/">Retour à l'accueil →</a>
+  <!-- FIX : URL relative, fonctionne sur tout domaine -->
+  <a class="btn" id="home-link" href="/">Retour à l'accueil →</a>
   <div class="countdown">Redirection automatique dans <strong id="countdown">10</strong>s</div>
 
   <div class="signature">
@@ -87,34 +89,51 @@ body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--charco
     <strong style="color:var(--charcoal)">— Quentin, Le Chemin du SPP</strong>
   </div>
 
+  <!-- FIX : copyright dynamique -->
+  <div class="footer-copy" id="footer-copy"></div>
+
 </div>
 
 <script>
-// Récap depuis localStorage
-var name  = localStorage.getItem('booking_name');
-var email = localStorage.getItem('booking_email');
-var date  = localStorage.getItem('booking_date');
-var time  = localStorage.getItem('booking_time');
-if(name && date) {
-  var r = document.getElementById('recap');
-  r.style.display = 'block';
-  r.innerHTML = '📅 <strong>'+date+'</strong> &nbsp;·&nbsp; 🕐 <strong>'+time+'</strong><br>'
-    +'<span style="font-size:.82rem;color:var(--gray-light)">Demande pour '+name+(email?' — confirmation envoyée à '+email:'')+'</span>';
-  localStorage.removeItem('booking_name');
-  localStorage.removeItem('booking_email');
-  localStorage.removeItem('booking_date');
-  localStorage.removeItem('booking_time');
-}
+(function() {
+  // FIX : copyright année dynamique
+  document.getElementById('footer-copy').textContent =
+    '© ' + new Date().getFullYear() + ' Le Chemin du Sapeur-Pompier Professionnel — Tous droits réservés';
 
-// Countdown retour accueil
-var n = 10;
-var el = document.getElementById('countdown');
-var t = setInterval(function(){
-  n--;
-  if(el) el.textContent = n;
-  if(n <= 0){ clearInterval(t); window.location.href = 'https://69dce858d5ca69297806f164--shiny-marshmallow-8bb5a5.netlify.app/'; }
-}, 1000);
+  // FIX : URL relative calculée à l'exécution → fonctionne sur tout domaine
+  var HOME_URL = window.location.origin + '/';
+  document.getElementById('home-link').href = HOME_URL;
+
+  // Récap depuis localStorage
+  var name  = localStorage.getItem('booking_name');
+  var email = localStorage.getItem('booking_email');
+  var date  = localStorage.getItem('booking_date');
+  var time  = localStorage.getItem('booking_time');
+
+  if (name && date) {
+    var r = document.getElementById('recap');
+    r.style.display = 'block';
+    r.innerHTML = '📅 <strong>' + date + '</strong> &nbsp;·&nbsp; 🕐 <strong>' + (time || '') + '</strong><br>'
+      + '<span style="font-size:.82rem;color:var(--gray-light)">Demande pour ' + name
+      + (email ? ' — confirmation envoyée à ' + email : '') + '</span>';
+    localStorage.removeItem('booking_name');
+    localStorage.removeItem('booking_email');
+    localStorage.removeItem('booking_date');
+    localStorage.removeItem('booking_time');
+  }
+
+  // Countdown + redirection
+  var n = 10;
+  var el = document.getElementById('countdown');
+  var timer = setInterval(function() {
+    n--;
+    if (el) el.textContent = n;
+    if (n <= 0) {
+      clearInterval(timer);
+      window.location.href = HOME_URL;
+    }
+  }, 1000);
+})();
 </script>
 </body>
 </html>
-

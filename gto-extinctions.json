@@ -1,0 +1,1193 @@
+[
+  {
+    "id": "gto-extinctions-001",
+    "level": "TF",
+    "q": "Quelle est la pression minimale que doit fournir un hydrant (poteau ou bouche d'incendie) ?",
+    "choices": [
+      "0,5 bar",
+      "1 bar",
+      "2 bars",
+      "3 bars"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §1) Les hydrants doivent « fournir une pression minimale de 1 bar et maximale de 16 bars ».",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-002",
+    "level": "TF",
+    "q": "Quel est le débit d'un poteau d'incendie de 100 mm ?",
+    "choices": [
+      "30 m³/h",
+      "60 m³/h",
+      "90 m³/h",
+      "120 m³/h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §3) « Les PI de 100 : débit de 60 m³/h ou 17 l/s ou 1 000 l/min ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-003",
+    "level": "TF",
+    "q": "Combien de tours faut-il effectuer pour ouvrir un poteau d'incendie de 80 mm ou de 100 mm ?",
+    "choices": [
+      "7 tours",
+      "10 tours",
+      "13 tours",
+      "17 tours"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-1 — §3) Les PI de 80 et de 100 mm s'ouvrent en faisant « treize tours ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-004",
+    "level": "TF",
+    "q": "De quelle couleur est peint un poteau d'incendie branché sur un réseau d'eau surpressée ?",
+    "choices": [
+      "Entièrement rouge",
+      "Entièrement bleu",
+      "Jaune sur au moins 50 % de sa surface",
+      "Gris sur sa coquille supérieure"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-1 — §3.2) « Les PI branchés sur des réseaux d'eau sur-pressés sont de couleur jaune sur au moins 50 % de leur surface ».",
+    "source": "§3.2"
+  },
+  {
+    "id": "gto-extinctions-005",
+    "level": "TF",
+    "q": "Quel est le débit d'une bouche d'incendie de 100 mm ?",
+    "choices": [
+      "500 litres/minute",
+      "1 000 litres/minute",
+      "1 500 litres/minute",
+      "2 000 litres/minute"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §4) « Une bouche d'incendie possède un débit de 1 000 litres/minute ».",
+    "source": "§4"
+  },
+  {
+    "id": "gto-extinctions-006",
+    "level": "TF",
+    "q": "Combien de tours faut-il effectuer pour ouvrir un poteau d'incendie de 150 mm ?",
+    "choices": [
+      "10 tours",
+      "13 tours",
+      "15 tours",
+      "17 tours"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "(ETX-STR-RES-1 — §3) « Pour les ouvrir [PI de 150], il faut faire dix-sept tours ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-007",
+    "level": "TF",
+    "q": "Le symbole utilisé dans les plans de secours pour désigner un poteau d'incendie est :",
+    "choices": [
+      "Un carré",
+      "Un triangle",
+      "Un cercle",
+      "Un rectangle"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-1 — §4) Le tableau des symboles indique : « Poteau d'incendie : un cercle, abréviation utilisable : PI ».",
+    "source": "§4"
+  },
+  {
+    "id": "gto-extinctions-008",
+    "level": "TF",
+    "q": "Quelle est la quantité d'eau minimale requise (disponible en 1 heure) pour couvrir un risque courant faible ?",
+    "choices": [
+      "10 m³",
+      "20 m³",
+      "30 m³",
+      "60 m³"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-1 — §1.2.1) « Faibles : quantité d'eau et durée adaptée en fonction de la nature du risque, avec un minimum 30 m³ utilisables en 1 heure ».",
+    "source": "§1.2.1"
+  },
+  {
+    "id": "gto-extinctions-009",
+    "level": "TF",
+    "q": "Dans le cadre de la DECI, la durée totale moyenne indicative des phases de lutte contre l'incendie au moyen de lances est de :",
+    "choices": [
+      "1 heure",
+      "2 heures",
+      "3 heures",
+      "4 heures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §1.2) « Les phases indicatives ont une durée totale moyenne indicative de deux heures ».",
+    "source": "§1.2"
+  },
+  {
+    "id": "gto-extinctions-010",
+    "level": "TF",
+    "q": "Quelle est la signification du symbole « triangle bleu » dans la signalisation des points d'eau ?",
+    "choices": [
+      "Citerne enterrée",
+      "Bouche d'incendie",
+      "Point d'aspiration",
+      "Poteau sur réseau surpressé"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-2 — §5.2) « Les points d'aspiration sont signalés par un panneau avec un triangle bleu ».",
+    "source": "§5.2"
+  },
+  {
+    "id": "gto-extinctions-011",
+    "level": "TF",
+    "q": "Quelle est la différence de pression générée par 10 mètres de dénivelée sur un réseau d'alimentation hydraulique ?",
+    "choices": [
+      "0,5 bar pour 10 m",
+      "1 bar pour 10 m",
+      "2 bars pour 10 m",
+      "5 bars pour 10 m"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §2.2 ; ETX-STR-ETB — §1.3) « La différence de niveau entre le réservoir et l'hydrant donne une pression de 1 bar par 10 mètres de dénivelée ».",
+    "source": "§2.2"
+  },
+  {
+    "id": "gto-extinctions-012",
+    "level": "TF",
+    "q": "Quelle est la lettre symbolisant le débit dans le vocabulaire opérationnel des sapeurs-pompiers ?",
+    "choices": [
+      "P",
+      "J",
+      "Q",
+      "D"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-ETB — §1.1) « Le débit correspond à la quantité d'eau qui passe dans une section de tuyau, par unité de temps. Son symbole est la lettre Q ».",
+    "source": "§1.1"
+  },
+  {
+    "id": "gto-extinctions-013",
+    "level": "TF",
+    "q": "Quel est le débit minimum recommandé pour réaliser une attaque d'atténuation ?",
+    "choices": [
+      "100 L/min",
+      "150 L/min",
+      "250 L/min",
+      "500 L/min"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-8 — §3) « 250 L/min est un minimum » pour l'attaque d'atténuation.",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-014",
+    "level": "TF",
+    "q": "La LDT (lance du dévidoir tournant) est constituée de tuyaux semi-rigides de quel diamètre ?",
+    "choices": [
+      "25 ou 33 mm",
+      "45 ou 70 mm",
+      "70 ou 110 mm",
+      "40 ou 65 mm"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "(ETEX-STR-ETB-1 — §1) « L'établissement de la lance en eau du dévidoir tournant (LDT) est constitué de 40 à 80 m de tuyaux semi-rigides de diamètre de 23 ou 33 mm ».",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-015",
+    "level": "TF",
+    "q": "Quel est le symbole utilisé dans les plans de secours pour désigner une bouche d'incendie (prise d'eau sous pression) ?",
+    "choices": [
+      "Un cercle",
+      "Un triangle",
+      "Un rectangle",
+      "Un carré"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "(ETX-STR-RES-1 — §4) « Prise d'eau sous pression, notamment bouche d'incendie : un carré, abréviation utilisable : BI ».",
+    "source": "§4"
+  },
+  {
+    "id": "gto-extinctions-016",
+    "level": "TF",
+    "q": "Dans le refroidissement des fumées, quelle durée cible les impulsions courtes ?",
+    "choices": [
+      "Moins d'une demi-seconde",
+      "2 à 5 secondes",
+      "5 à 10 secondes",
+      "Environ 30 secondes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "(ETEX-STR-TDE-1 — §2) « Les impulsions courtes s'obtiennent par une manœuvre du robinet de lance en ouverture/fermeture la plus rapide possible (cibler une demi seconde au plus) ».",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-017",
+    "level": "TF",
+    "q": "L'extinction indirecte vise principalement à produire de la vapeur d'eau pour inerter un volume. Sur quelles surfaces l'application d'eau se fait-elle ?",
+    "choices": [
+      "Directement sur le foyer",
+      "Sur les parois du local (plafond notamment)",
+      "Sur les fenêtres et les ouvrants",
+      "Sur les matériaux combustibles au sol"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-3 — §2) « L'application consistera à badigeonner le plus largement possible le plafond du compartiment ». L'objectif est d'utiliser l'énergie thermique des parois pour convertir l'eau en vapeur.",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-018",
+    "level": "TF",
+    "q": "En risque courant important, quelle est la distance maximale généralement retenue entre deux points d'eau incendie ?",
+    "choices": [
+      "100 m",
+      "150 m",
+      "200 m",
+      "400 m"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-1 — §) « En risque courant important, la distance entre deux PEI est généralement de 200 m car nos dévidoirs à main sont armés de 200 m de tuyaux de 70 mm ».",
+    "source": ""
+  },
+  {
+    "id": "gto-extinctions-019",
+    "level": "TF",
+    "q": "Quelle est la technique d'extinction directe qui consiste à projeter de l'eau de manière très ponctuelle sur une petite surface ciblée, avec une ouverture partielle et courte du robinet de lance ?",
+    "choices": [
+      "Le badigeonnage (painting)",
+      "Le ricochet",
+      "L'application ponctuelle (penciling)",
+      "L'impulsion longue"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-2 — §2.2) « L'application d'eau très ponctuelle (penciling) permet de déposer un paquet d'eau sur une surface relativement petite et ciblée. L'ouverture de lance sera partielle et courte ».",
+    "source": "§2.2"
+  },
+  {
+    "id": "gto-extinctions-020",
+    "level": "TF",
+    "q": "Quelle est la contenance d'eau embarquée habituelle d'un FPT classique (fourgon pompe tonne) ?",
+    "choices": [
+      "600 à 1 200 L",
+      "1 500 L",
+      "Environ 3 000 L",
+      "5 000 L"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-ETB-4 — §4.1) « L'intervention à l'aide d'un FPT disposant de 3 000 L d'eau laisse une marge de manœuvre intéressante ».",
+    "source": "§4.1"
+  },
+  {
+    "id": "gto-extinctions-021",
+    "level": "TF",
+    "q": "Quel est le signe le plus facilement perceptible par le binôme indiquant que les fumées accumulent une grande quantité d'énergie thermique ?",
+    "choices": [
+      "L'apparition de rollovers",
+      "La chaleur ressentie",
+      "Le changement de couleur des fumées",
+      "Le bruit de craquement de la structure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-6 — §2.1) « La chaleur ressentie reflète la quantité d'énergie accumulée dans les fumées et est plus facilement perceptible par l'équipe ».",
+    "source": "§2.1"
+  },
+  {
+    "id": "gto-extinctions-022",
+    "level": "TF",
+    "q": "Dans quelle direction s'effectue généralement l'établissement d'une division d'alimentation (avec dévidoir mobile ou tuyaux en couronne) ?",
+    "choices": [
+      "Du point d'attaque vers l'engin-pompe",
+      "De l'engin-pompe vers l'emplacement de la division",
+      "Du point d'eau vers le foyer",
+      "Du haut vers le bas de la structure"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "(ETEX-STR-ETB-2 — §3) Pour la division sur tuyaux en écheveaux (coffre), le déploiement se fait « de l'emplacement de la division à l'engin-pompe », c'est-à-dire en partant du point d'attaque.",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-023",
+    "level": "TF",
+    "q": "Quel est le débit d'un poteau d'incendie de 80 mm ?",
+    "choices": [
+      "20 m³/h",
+      "30 m³/h",
+      "60 m³/h",
+      "120 m³/h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §3) « Les PI de 80 : débit de 30 m³/h ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-024",
+    "level": "TF",
+    "q": "La technique de refroidissement des fumées (gas cooling) vise à convertir l'eau projetée en vapeur. Quel effet cette vapeur produit-elle sur la fumée ?",
+    "choices": [
+      "Elle augmente la température de la fumée",
+      "Elle refroidit et inerté la fumée",
+      "Elle dilate la fumée et la fait monter",
+      "Elle provoque l'inflammation immédiate de la fumée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-1 — §1) L'objectif est de « refroidir » la fumée et de « sécuriser l'environnement de travail par inertage à la vapeur ».",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-025",
+    "level": "TF",
+    "q": "En hydraulique opérationnelle, que représente le symbole « J » ?",
+    "choices": [
+      "Le débit",
+      "La pression",
+      "Les pertes de charge",
+      "Le volume"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-ETB — §1.3) « Le symbole généralement utilisé pour des pertes de charge est J. Elles s'expriment en bar par hectomètre (b/hm) ». ## PARTIE 2 — ÉTABLISSEMENTS ET MANŒUVRES",
+    "source": "§1.3"
+  },
+  {
+    "id": "gto-extinctions-026",
+    "level": "F",
+    "q": "Une ligne d'attaque est composée, en règle générale, d'une lance et de quel diamètre de tuyaux souples ?",
+    "choices": [
+      "Tuyaux de 25 mm",
+      "Tuyaux de 45 mm",
+      "Tuyaux de 70 mm",
+      "Tuyaux de 110 mm"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB — §3.3) « La ligne d'attaque est en règle générale un établissement composé d'une lance et de 2 à 3 tuyaux souples de diamètre 45 ».",
+    "source": "§3.3"
+  },
+  {
+    "id": "gto-extinctions-027",
+    "level": "F",
+    "q": "Parmi les affirmations suivantes, lesquelles sont des effets du refroidissement des fumées (gas cooling) ?",
+    "choices": [
+      "Prévenir le déclenchement du flashover par inertage de la fumée",
+      "Chasser les fumées du volume",
+      "Stabiliser ou rehausser le plafond de fumée",
+      "Déclencher immédiatement l'extinction du foyer"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-1 — §1) Le refroidissement des fumées permet notamment de « prévenir le déclenchement du Flashover » et de « stabiliser / rehausser le plafond de fumée ». L'oxygène n'est pas augmenté ; l'extinction directe du foyer n'est pas l'objectif premier.",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-028",
+    "level": "F",
+    "q": "Dans quelles situations un binôme d'attaque (BAT) ne doit-il pas établir ses tuyaux ?",
+    "choices": [
+      "Devant les ouvrants dans l'angle de diffusion",
+      "Sur des voies publiques balisées",
+      "Au droit des façades et sous les toitures touchées par l'incendie",
+      "À l'intérieur d'un volume de plain-pied"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "(ETEX-STR-ETB — §4.1) « Il faut éviter d'établir : devant les ouvrants (angle de diffusion d'un potentiel phénomène à cinétique rapide d'environ 30°) ; au droit des façades et sous les toitures touchées par l'incendie ».",
+    "source": "§4.1"
+  },
+  {
+    "id": "gto-extinctions-029",
+    "level": "F",
+    "q": "Quand le moyen hydraulique doit-il être prêt à l'utilisation avant de pénétrer en zone d'exclusion ?",
+    "choices": [
+      "Après l'entrée dans le volume",
+      "Avant de pénétrer dans la zone d'exclusion",
+      "Seulement si la victime est visible",
+      "Sur ordre explicite du chef de colonne"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB — §4.1) « Le moyen hydraulique devant être prêt à l'utilisation en zone d'exclusion, ils doivent être établis avant d'y pénétrer ».",
+    "source": "§4.1"
+  },
+  {
+    "id": "gto-extinctions-030",
+    "level": "F",
+    "q": "Quelle est la mission principale du binôme d'alimentation (BAL) ?",
+    "choices": [
+      "Porter la lance et progresser au contact du feu",
+      "Permettre au BAT d’avoir un moyen en eau",
+      "Réaliser la reconnaissance du bâtiment",
+      "Évacuer les victimes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB — §5.1) « Les binômes d'alimentation (BAL) ont pour vocation première d'alimenter les prises d'eau et/ou l'engin-pompe ».",
+    "source": "§5.1"
+  },
+  {
+    "id": "gto-extinctions-031",
+    "level": "F",
+    "q": "Quelle est la mission du conducteur pour l'alimentation de son engin à partir d'un point d'eau situé à moins de 20 mètres ?",
+    "choices": [
+      "Il commande le BAL pour alimenter",
+      "Il peut alimenter seul son engin",
+      "Il doit demander l'autorisation du chef d'agrès",
+      "Il ne peut pas alimenter seul, quel que soit la distance"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB — §5.1) « Le conducteur a pour mission d'alimenter seul son engin pour une prise d'eau située à moins de 20 mètres de l'engin ».",
+    "source": "§5.1"
+  },
+  {
+    "id": "gto-extinctions-032",
+    "level": "F",
+    "q": "Parmi les caractéristiques suivantes, lesquelles sont vraies pour une bouche d'incendie (BI) ?",
+    "choices": [
+      "Elle est alimentée par une colonne montante de diamètre 100 mm minimum",
+      "Son débit est de 1 000 litres/minute",
+      "Il existe des bouches d'incendie de 80 mm",
+      "Elle est munie d'une douille à rebord saillant"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "(ETX-STR-RES-1 — §4) La BI est alimentée par une colonne de 100 mm min, débite 1 000 L/min, et est munie d'une douille à rebord saillant. « Il n'existe pas de bouches de 80 mm ».",
+    "source": "§4"
+  },
+  {
+    "id": "gto-extinctions-033",
+    "level": "F",
+    "q": "Pour un établissement de tuyau sur voie publique, quelles mesures le binôme doit-il prendre ?",
+    "choices": [
+      "Utiliser un balisage de sécurité approprié",
+      "Établir les tuyaux de façon perpendiculaire à la route",
+      "Suivre le plus possible les bords de voies",
+      "Faire la circulation pour rediriger les véhicules ailleurs"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "(ETEX-STR-ETB — §4.2) « Les établissements sur voie publique nécessitent l'utilisation d'un balisage de sécurité approprié (équipements individuels et collectifs) et suivent le plus possible les bords de voies ».",
+    "source": "§4.2"
+  },
+  {
+    "id": "gto-extinctions-034",
+    "level": "F",
+    "q": "Quelle est l'optimisation recommandée pour l'alimentation d'un engin-pompe afin d'exploiter au maximum les capacités de sa pompe ?",
+    "choices": [
+      "Une ligne de diamètre 45",
+      "Une ligne de diamètre 110 ou deux lignes de diamètre 70",
+      "Trois lignes de diamètre 45",
+      "Une ligne de diamètre 70 uniquement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB-4 — §3) « L'alimentation de l'engin doit être si possible optimisée, soit par une ligne de diamètre 110, soit par deux lignes de diamètre 70, afin d'optimiser les capacités de sa pompe ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-035",
+    "level": "F",
+    "q": "Pour quelle raison évite-t-on en général de faire travailler une pompe à plus de 80 % de ses capacités ?",
+    "choices": [
+      "Pour économiser l'eau",
+      "Pour préserver la pompe et garantir la sécurité des intervenants (risque de rupture hydraulique)",
+      "Pour réduire les pertes de charge",
+      "Pour respecter les consignes du chef de colonne"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB-4 — §3) « On évite de la faire travailler à plus de 80 % de ses capacités, pour la préserver et ainsi garantir son intégrité et donc un maximum de sécurité pour les intervenants (risque de rupture hydraulique) ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-036",
+    "level": "F",
+    "q": "Quelles sont les caractéristiques d'une aire d'aspiration ?",
+    "choices": [
+      "Une surface minimale de 4 m × 3 m par motopompe remorquable",
+      "Une pente comprise entre 2 % et 7 % maximum",
+      "Une surface minimale de 10 m × 5 m",
+      "Une pente obligatoirement nulle pour des raisons de sécurité"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "(ETX-STR-RES-2 — §3.1.1) « Une aire d'aspiration est constituée d'une surface de 4 m × 3 m par motopompe remorquable au minimum [...] dotée d'une pente de 2 % [...] mais limitée à 7 % pour des raisons de sécurité ».",
+    "source": "§3.1.1"
+  },
+  {
+    "id": "gto-extinctions-037",
+    "level": "F",
+    "q": "Dans quels types de structures les impulsions courtes (short puls) sont-elles à privilégier pour le gas cooling ?",
+    "choices": [
+      "Magasins, entrepôts, atriums",
+      "Garages de grande superficie",
+      "Locaux d'habitations standards, hôtels, bureaux",
+      "Bâtiments industriels avec plafond très haut"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-1 — §2) « Cette technique [impulsions courtes] est à privilégier dans des structures de type : locaux d'habitations standards, hôtels, bureaux, etc. »",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-038",
+    "level": "F",
+    "q": "Un ordre d'établissement doit en principe comporter plusieurs éléments. Parmi les suivants, lesquels font partie d'un ordre complet ?",
+    "choices": [
+      "La nature du moyen hydraulique",
+      "La vitesse de l’établissement",
+      "L'emplacement",
+      "La mission à réaliser"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "(ETEX-STR-ETB — §6.2) « Un ordre pour un établissement doit en principe comporter : la nature du moyen hydraulique (ce que je veux), l'emplacement (à quel endroit), le cheminement (par où), la mission (pour quelle mission) ».",
+    "source": "§6.2"
+  },
+  {
+    "id": "gto-extinctions-039",
+    "level": "F",
+    "q": "Dans quel cas est-il préférable de réaliser une attaque d'atténuation (transitional attack) avant d'entrer dans un bâtiment ?",
+    "choices": [
+      "Sur des feux peu développés en début d'incendie",
+      "Sur des feux proches du flashover ou post-flashover pilotés par le vent",
+      "Uniquement pour les feux de caves",
+      "En priorité sur les feux de toiture"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-8 — §1 et §2) « Cette technique s'applique sur des feux proches du Flashover ou du Post-Flashover depuis l'extérieur. » Elle est « à privilégier sur les feux pilotés par le vent avant d'initier une attaque par l'intérieur ».",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-040",
+    "level": "F",
+    "q": "Quelle est la position recommandée au porte-lance (chef d'équipe) lorsqu'il pénètre dans un local en feu ?",
+    "choices": [
+      "En position semi-debout pour avoir une meilleure vision",
+      "Dans la position la plus basse possible, par avancées successives",
+      "Dans le sens de tirage des fumées",
+      "Derrière l'équipier qui tient le tuyau"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE — §3.1) « Lorsqu'il pénètre dans un local, le porte-lance doit explorer le local dans la position la plus basse possible, par avancées successives ».",
+    "source": "§3.1"
+  },
+  {
+    "id": "gto-extinctions-041",
+    "level": "F",
+    "q": "Quels sont les deux principaux indicateurs de dangerosité surveillés par le binôme lors d'un repli sous refroidissement de fumées ?",
+    "choices": [
+      "La densité optique des fumées",
+      "L'apparition d'anges danseurs",
+      "La vitesse de progression du foyer",
+      "La chaleur ressentie"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "(ETEX-STR-TDE-6 — §2.1) « Les deux principaux indicateurs relatifs à la dangerosité de la situation sont : l'apparition au sein de la fumée de flammes isolées, discontinues (anges danseurs) [...] ; la chaleur ressentie ».",
+    "source": "§2.1"
+  },
+  {
+    "id": "gto-extinctions-042",
+    "level": "F",
+    "q": "Lors d'un prolongement ou remplacement de tuyau sur une ligne d'attaque, qui commande la fermeture de l'arrivée d'eau ?",
+    "choices": [
+      "Le conducteur",
+      "Le chef d'agrès",
+      "Le chef d'équipe du binôme d'attaque (BAT)",
+      "Le binôme d'alimentation (BAL)"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-ETB-6 — §3) « Dans tous les cas, la fermeture de l'arrivée d'eau est commandée par le chef d'équipe du binôme d'attaque. C'est en effet sa sécurité et celle de son équipier qui sont en jeu ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-043",
+    "level": "F",
+    "q": "Quels sont les deux réseaux de distribution d'eau que l'on distingue ?",
+    "choices": [
+      "Les réseaux souterrains et les réseaux aériens",
+      "Les réseaux étoilés et les réseaux maillés",
+      "Les réseaux sous pression et les réseaux gravitaires",
+      "Les réseaux publics et les réseaux privés"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §2.3) « On distingue deux sortes de réseaux : les réseaux étoilés [...] et les réseaux maillés ».",
+    "source": "§2.3"
+  },
+  {
+    "id": "gto-extinctions-044",
+    "level": "F",
+    "q": "Dans le cadre de l'extinction combinée/massive, à quel stade de développement du feu cette technique est-elle appliquée ?",
+    "choices": [
+      "En phase d'incubation (avant inflammation)",
+      "En phase de croissance (avant flashover)",
+      "Sur des feux pleinement développés (post-flashover)",
+      "Uniquement lors de la phase de déblai"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-4 — §2) « Ces techniques de lance s'opèrent depuis l'extérieur du bâtiment sur des feux pleinement développés (Post Flashover) ».",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-045",
+    "level": "F",
+    "q": "Quels effets produit l'extinction combinée/massive ?",
+    "choices": [
+      "Refroidissement massif des surfaces combustibles",
+      "Évacuation des fumées",
+      "Production importante de vapeur",
+      "Ventilation du volume en créant un tirage naturel"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-4 — §1) « La technique combinée permet d'associer les effets de l'extinction directe (refroidissement massif de surfaces combustibles) et indirecte (production importante de vapeur) ».",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-046",
+    "level": "F",
+    "q": "Dans quelles situations peut-on utiliser des piscines privées comme point d'eau incendie ?",
+    "choices": [
+      "Elles sont toujours utilisables et systématiquement référencées dans le RDDECI",
+      "Elles peuvent être utilisées si les conditions le permettent, mais ne sont pas considérées comme des PEI officiels",
+      "Elles sont interdites d'usage pour les sapeurs-pompiers",
+      "Elles remplacent un poteau d'incendie absent"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-2 — §4.5) « Elles peuvent être utilisées, le cas échéant, si les conditions le permettent, mais ne sont généralement pas identifiées sur les parcellaires. Elles ne sont pas considérées comme des points d'eau d'incendie ».",
+    "source": "§4.5"
+  },
+  {
+    "id": "gto-extinctions-047",
+    "level": "F",
+    "q": "Quels sont les deux avantages principaux d'un réservoir d'incendie couvert ou enterré par rapport à un bassin ouvert ?",
+    "choices": [
+      "Il est moins coûteux à construire",
+      "Réduction des risques d'accidents (chutes) et meilleure hygiène",
+      "Diminution des inconvénients dus au gel ou à l'évaporation",
+      "Il peut être alimenté par les eaux de pluie"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "(ETX-STR-RES-2 — §4.2) « Ils présentent des avantages en termes d'hygiène et de salubrité, de réduction d'accidents, de diminution des inconvénients dus au gel ou à l'évaporation ».",
+    "source": "§4.2"
+  },
+  {
+    "id": "gto-extinctions-048",
+    "level": "F",
+    "q": "Selon les pertes de charge, si l'on double le débit dans un tuyau, les pertes de charge sont :",
+    "choices": [
+      "Doublées",
+      "Multipliées par 3",
+      "Multipliées par 4",
+      "Inchangées"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-ETB — §1.3) Les pertes de charge sont « directement proportionnelles au carré du débit (ex. si on double le débit, on multiplie par 4 les pertes de charge) ».",
+    "source": "§1.3"
+  },
+  {
+    "id": "gto-extinctions-049",
+    "level": "F",
+    "q": "Le repli sous écran d'eau (corridor hydraulique) est décrit comme une manœuvre difficile. Pourquoi ?",
+    "choices": [
+      "Car la vapeur produite peut générer d'importantes brûlures même à 100°C",
+      "Car cette manœuvre nécessite d'importants moyens en eau rarement immédiatement disponibles",
+      "Car le jet droit peut déstratifier les fumées et provoquer un flashover",
+      "Car elle demande 2 lances en eau"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-6 — §2.2) « Même si une pulvérisation abondante peut permettre d'abaisser la température à 100°C, à cette température la vapeur d'eau peut générer d'importantes brûlures. De plus cette manœuvre nécessite d'importants moyens en eau rarement immédiatement disponibles ».",
+    "source": "§2.2"
+  },
+  {
+    "id": "gto-extinctions-050",
+    "level": "F",
+    "q": "Quelle réserve doit faire le chef d'équipe sur son épaule lors de la mise en œuvre de la LDT ?",
+    "choices": [
+      "1 tour",
+      "2 à 3 tours",
+      "5 tours",
+      "Aucune réserve n'est nécessaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB-1 — §5) « Afin de faciliter la mise en œuvre de l'action, le chef d'équipe doit faire une réserve sur l'épaule de deux à trois tours ». ## PARTIE 3 — NIVEAU MOYEN (ANALYSE SITUATIONNELLE)",
+    "source": "§5"
+  },
+  {
+    "id": "gto-extinctions-051",
+    "level": "M",
+    "q": "Un équipier (double porte-lance) observe que le plafond de fumée est très bas et très turbulent, avec une interface fumée/air agitée. Quelle action est la plus adaptée pour sécuriser l'ambiance ?",
+    "choices": [
+      "Effectuer des impulsions courtes répétées vers le haut pour refroidir la fumée",
+      "Passer en jet droit et badigeonner les parois latérales hautes et le plafond par un balayage progressif",
+      "Ouvrir la lance au maximum en jet diffusé large pour inerter rapidement",
+      "Se positionner debout pour avoir une meilleure vision et rendre compte au chef d'agrès"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-1 — §3) En situation proche du flashover avec plafond instable, « il est fortement déconseillé de faire des impulsions ». La technique recommandée est de « passer en jet droit, appliquer l'eau sur les parties hautes des parois latérales et sur le plafond en opérant un balayage (sweep) progressivement ».",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-052",
+    "level": "M",
+    "q": "En situation de pré-backdraft, après avoir appliqué de l'eau par extinction indirecte depuis l'entrebâillement de la porte, comment le binôme identifie-t-il que l'ambiance dans le local est maîtrisée ?",
+    "choices": [
+      "La disparition du foyer",
+      "La sortie de vapeur sans surpression remarquable",
+      "L'augmentation de la chaleur ressentie",
+      "Le changement de couleur de la fumée vers le blanc pur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-5 — §2) « La sortie ou non de vapeur 'sous pression' précisera le niveau de l'ambiance thermique dans le local. Reproduire l'application d'eau jusqu'à ce que les indicateurs indiquent que l'ambiance dans le local est contrôlée (sortie de vapeur sans surpression remarquable) ».",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-053",
+    "level": "M",
+    "q": "Lors d'un incendie d'appartement au 6e étage sans colonne sèche, le chef d'équipe BAL établit une division d'alimentation au pied du bâtiment puis une division d'attaque dans les étages. Quel(s) objectif(s) tactique(s) cette organisation vise-t-elle principalement ?",
+    "choices": [
+      "Réduire le débit disponible à la lance pour économiser l'eau",
+      "Limiter l'utilisation de tuyaux de diamètre 45 sur de grandes longueurs, sources de pertes de charge importantes",
+      "Permettre au chef d'agrès de rester au pied du bâtiment",
+      "Respecter la règle interdisant les tuyaux de 70 dans les escaliers"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB-2 — §4 et ETEX-STR-ETB-3 §4) « La prolongation de la division d'alimentation permet de limiter le recours à des tuyaux de diamètre 45 générateur de perte de charge. En effet, les établissements obliques en particulier exigent des longueurs de tuyaux importantes ».",
+    "source": "§4"
+  },
+  {
+    "id": "gto-extinctions-054",
+    "level": "M",
+    "q": "Un poteau d'incendie est partiellement peint en gris sur son capot ou sa coquille. De quel type de poteau s'agit-il ?",
+    "choices": [
+      "Un PI de 80 mm",
+      "Un PI sur réseau surpressé",
+      "Un PI de 100 mm en coffre",
+      "Un PI de 150 mm"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETX-STR-RES-1 — §3) Pour les PI de 100 mm : « Ils sont entièrement rouges lorsqu'ils ne sont pas fermés par un coffre ou ils ont une partie de leur capot ou coquille peinte en gris ». La couleur grise du capot identifie donc un PI de 100 mm (fermé par coffre ou capot gris).",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-055",
+    "level": "M",
+    "q": "L'équipier BAT adapte en permanence l'établissement. Parmi les actions suivantes, lesquelles relèvent de son rôle lors de la progression ?",
+    "choices": [
+      "Ajuster l'établissement pour éviter les coudes et coincements",
+      "Aider à obtenir l'angle d'application adéquat en appuyant ou soulevant le tuyau",
+      "Se placer de l'autre côté du tuyau pour avoir un champ de vision à 360° avec le chef",
+      "Observer le feu et informer le chef d'équipe de tout signe d'aggravation E. Aider à obtenir l'angle d'application adéquat en appuyant ou soulevant le tuyau"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "(ETEX-STR-TDE — §3.2) L'équipier ajuste l'établissement (A), se place de l'autre côté du tuyau pour couvrir 360° (C), observe le feu et informe le chef (D), et (B) aide à l'angle d'application.",
+    "source": "§3.2"
+  },
+  {
+    "id": "gto-extinctions-056",
+    "level": "M",
+    "q": "Lors d'une attaque d'atténuation (transitional attack), quel est le principal intérêt d’utiliser un jet droit plutôt qu'un jet diffusé ?",
+    "choices": [
+      "Pour augmenter la portée et toucher le plafond distant",
+      "Pour ne pas perturber l'aéraulique de la pièce et disperser l'eau par l'impact sur le plafond",
+      "Le jet diffusé est plus efficace mais plus dangereux pour les intervenants",
+      "La réglementation interdit le jet diffusé depuis l'extérieur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-8 — §2 et §3) « La lance doit être réglée en jet droit de façon à ne pas perturber l'aéraulique de la pièce. » Et explicitement : « l'utilisation d'une lance en jet diffusé pour cette technique d'application d'eau n'aura aucun effet ».",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-057",
+    "level": "M",
+    "q": "Un binôme progresse dans un couloir enfumé et les anges danseurs réapparaissent malgré les impulsions de lance. Quelle est la conduite à tenir ?",
+    "choices": [
+      "Augmenter le débit au maximum et maintenir la progression",
+      "Se replier, car la méthode utilisée est inappropriée et ne permet pas de prendre le dessus sur le feu",
+      "Passer à l'extinction indirecte depuis l'intérieur du couloir",
+      "Demander au conducteur plus de pression"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-6 — §2.1) « La persistance de la chaleur ressentie malgré l'action de lance est le signe que l'équipe n'est pas en mesure de prendre le dessus sur le feu. Elle doit alors se replier pour modifier la méthode et les moyens mis en œuvre ». De plus : « une extinction prenant un temps inhabituel doit faire l'objet d'une remontée d'information au chef d'agrès. La méthode peut en effet être inappropriée ».",
+    "source": "§2.1"
+  },
+  {
+    "id": "gto-extinctions-058",
+    "level": "M",
+    "q": "Un Poteau Incendie est entièrement rouge avec une partie de son capot peinte en jaune. Quelle est la particularité de ce poteau ?",
+    "choices": [
+      "C'est un PI de 80 mm en réseau étoilé",
+      "C'est un PI de 150 mm (capot jaune caractéristique)",
+      "C'est un PI sur réseau surpressé (50 % jaune minimum)",
+      "C'est un poteau relais sur dalle"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETX-STR-RES-1 — §3) Pour les PI de 150 mm : « Ils sont entièrement rouges lorsqu'ils ne sont pas fermés par un coffre ou ils ont une partie de leur capot ou coquille peinte en jaune ». La couleur jaune du capot (et non 50 % de jaune sur toute la surface) distingue le PI 150 du PI surpressé.",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-059",
+    "level": "M",
+    "q": "Lesquels des éléments suivants rendent les pertes de charge plus importantes dans un établissement hydraulique ?",
+    "choices": [
+      "Un tuyau de faible diamètre",
+      "Un terrain en pente descendante vers le foyer",
+      "Un long établissement de tuyaux",
+      "Une pression moins forte à la pompe"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "(ETEX-STR-ETB — §1.3) Les pertes de charge sont « directement proportionnelles à la longueur de l'établissement » (C) et « inversement proportionnelles au diamètre du tuyau » — donc un faible diamètre génère plus de pertes de charge (A). La pente descendante génère au contraire un gain de pression.",
+    "source": "§1.3"
+  },
+  {
+    "id": "gto-extinctions-060",
+    "level": "M",
+    "q": "Pour l'extinction indirecte, la méthode est applicable uniquement dans certaines conditions. Laquelle des affirmations suivantes est exacte ?",
+    "choices": [
+      "Elle s'applique sur des pièces où la porte ne peut pas être fermée",
+      "Elle nécessite un jet droit à débit maximum dirigé directement sur le foyer",
+      "Elle s'applique sur des locaux dont il est possible de refermer la porte, avec une application sur le plafond en jet diffusé 20-30°",
+      "Elle est réservée aux situations post-flashover depuis l'extérieur"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-3 — §2) « Cette méthode est à utiliser sur des locaux dont il est possible de refermer la porte. [...] L'application se fera à partir d'un jet diffusé de 20 à 30° env. sur la base d'un débit modéré (entre 100 et 300 L/min). »",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-061",
+    "level": "M",
+    "q": "Lors d'un feu piloté par le vent, quelles sont les règles tactiques à respecter par le binôme d'attaque ?",
+    "choices": [
+      "Attaquer le feu face au vent pour bénéficier d'un apport d'air frais",
+      "Éviter au maximum de se trouver exposé au flux généré par le vent",
+      "Attaquer le feu avec le vent dans le dos",
+      "Ouvrir tous les ouvrants pour évacuer les fumées"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-7 — §2) Il convient de « éviter au maximum de se trouver exposé au flux généré » (B) et d'« attaquer le feu avec le vent dans le dos » (C).",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-062",
+    "level": "M",
+    "q": "Un tuyau est percé sur la ligne d'attaque pendant la phase d’extinction. Quelle est la séquence correcte d'actions ?",
+    "choices": [
+      "L'équipier ferme l'eau immédiatement sans attendre l'ordre, puis remplace le tuyau",
+      "Le chef d'équipe commande la fermeture de l'eau, se met en sécurité, puis l'équipier remplace le tuyau et rouvre l'eau sur ordre du chef d'équipe",
+      "Le conducteur ferme l'eau depuis la pompe, puis le BAL remplace le tuyau",
+      "Le chef d'agrès décide seul de la fermeture et du remplacement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB-6 — §3 + schémas) « Le chef BAT se met en sécurité et commande à l'équipier BAT de fermer l'eau ; l'équipier BAT établit le tuyau ; l'équipier BAT rouvre l'eau sur ordre du chef d'équipe ». C'est le chef d'équipe BAT qui commande la fermeture.",
+    "source": "§3"
+  },
+  {
+    "id": "gto-extinctions-063",
+    "level": "M",
+    "q": "Laquelle des propositions suivantes N'est PAS une caractéristique attendue d'un hydrant normalisé ?",
+    "choices": [
+      "Être raccordé à un réseau d'eau sous pression capable de fournir le débit réglementaire pendant au moins 2 heures",
+      "Être incongelable (colonne d'arrivée d'eau à 1 m minimum sous terre)",
+      "Fournir une pression minimale de 1 bar et maximale de 16 bars",
+      "Être alimenté exclusivement par un réseau gravitaire sans pompe de relevage"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "(ETX-STR-RES-1 — §1 et §2.2) Les hydrants peuvent être alimentés par pompes de relevage si la pente est insuffisante. L'alimentation exclusive par réseau gravitaire n'est pas une condition normative. Les critères A, B et C sont explicitement listés dans le document.",
+    "source": "§1"
+  },
+  {
+    "id": "gto-extinctions-064",
+    "level": "M",
+    "q": "Lors d'un sinistre en étage nécessitant un établissement d’une ligne d’attaque par l'extérieur ou dans un jour d'escalier, comment les tuyaux sont-ils mis en place ?",
+    "choices": [
+      "Ils sont établis en déroulant le dévidoir depuis le bas vers le haut en tirant directement",
+      "Ils sont établis au sol et hissés à l'aide de la commande ou tirés derrière le chef BAT si celui-ci utilise une échelle",
+      "L'équipier monte avec les tuyaux enroulés sur son épaule",
+      "Le dévidoir tournant est déplacé physiquement à l'étage"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB-1 — §5) « Pour un établissement vertical par l'extérieur ou un jour d'escalier, les tuyaux sont établis au sol et hissés à l'aide de la commande ou tirés derrière le chef BAT si celui-ci utilise une échelle ».",
+    "source": "§5"
+  },
+  {
+    "id": "gto-extinctions-065",
+    "level": "M",
+    "q": "Dans un local sinistré, l'extinction combinée/massive (T, Z, O) peut provoquer un risque. Lequel ?",
+    "choices": [
+      "Risque d'explosion de la citerne de l'engin",
+      "Propagation de l'incendie à un volume adjacent en présence d'un ouvrant entre les deux volumes",
+      "Risque de fragiliser la structure.",
+      "Déstabilisation du toit par surpression hydraulique"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE-4 — §2) « Cette technique peut entraîner une propagation de l'incendie à un autre volume adjacent, en présence d'un ouvrant entre les deux volumes ».",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-066",
+    "level": "M",
+    "q": "Lesquelles des affirmations suivantes concernant les pertes de charge sont exactes ?",
+    "choices": [
+      "Elles sont indépendantes de la pression, seul le débit compte",
+      "Elles sont directement proportionnelles à la longueur de l'établissement",
+      "Elles sont directement proportionnelles à la pression en sortie de pompe",
+      "Elles varient de 1 bar/10 m en fonction de la dénivelée"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "(ETEX-STR-ETB — §1.3) « Indépendantes de la pression, seul le débit compte » (A) ; « directement proportionnelles à la longueur de l'établissement » (B) ; « varient d'1 bar/10 m en fonction de la dénivelée » (D).",
+    "source": "§1.3"
+  },
+  {
+    "id": "gto-extinctions-067",
+    "level": "M",
+    "q": "Un BAT réalise l'extinction d'un feu d'appartement au R+1 avec une LDV. L'intervention prend un temps inhabituellement long et le feu ne régresse pas. Que doit faire le chef d'équipe ?",
+    "choices": [
+      "Augmenter seul le débit de la lance sans en référer à personne",
+      "Remonter l'information au chef d'agrès car la méthode peut être inappropriée et nécessite une réorientation",
+      "Sortir du volume",
+      "Attendre un renforcement en eau avant de rendre compte"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE — §3.1) « Une extinction prenant un temps inhabituel doit faire l'objet d'une remontée d'information au chef d'agrès. La méthode utilisée peut en effet être inappropriée à la situation et doit alors faire l'objet d'une réorientation ».",
+    "source": "§3.1"
+  },
+  {
+    "id": "gto-extinctions-068",
+    "level": "M",
+    "q": "Lors de l'alimentation par noria d'engins, pour garantir la pérennité de l'eau au niveau des lances, quelle organisation est préconisée ?",
+    "choices": [
+      "Laisser l'engin alimentant le dispositif en place et le remplir avec les norias",
+      "Faire des rotations simultanées de tous les engins vers le point d'eau",
+      "Arrêter les lances le temps du remplissage",
+      "Utiliser un seul engin avec les mises en aspiration répétées"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "(ETEX-STR-ETB-4 — §7.2) « Pour garantir la pérennité de l'eau au niveau des lances en action, il est préférable de laisser l'engin alimentant le dispositif en place et de le remplir avec les norias ».",
+    "source": "§7.2"
+  },
+  {
+    "id": "gto-extinctions-069",
+    "level": "M",
+    "q": "Lors d'une situation pré-backdraft, quelle technique d'extinction indirecte le binôme doit-il employer depuis l'entrebâillement de la porte ?",
+    "choices": [
+      "Entrouvrir la porte de façon contrôlée",
+      "Appliquer un jet à 30° sur 1 à 2 secondes (plus si le local est grand/haut) en visant le plafond",
+      "Refermer partiellement la porte (laisser 1 cm env.) pour observer la sortie de vapeur",
+      "Reproduire les applications d'eau jusqu'à ce que la vapeur sorte sans surpression remarquable"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "(ETEX-STR-TDE-5 — §2) La procédure complète décrite dans le document comprend toutes ces 4 étapes successives : entrouvrir la porte, appliquer l'eau en visant le plafond (1-2 sec), refermer partiellement et observer la vapeur, répéter jusqu'à stabilisation.",
+    "source": "§2"
+  },
+  {
+    "id": "gto-extinctions-070",
+    "level": "M",
+    "q": "Lors d'une extinction directe par ricochet depuis une porte, quelles précautions de mise en œuvre doivent être respectées ?",
+    "choices": [
+      "Limiter les temps d'application pour contrôler l'efficacité de l'action",
+      "Utiliser un jet diffusé large pour maximiser la couverture",
+      "Veiller à ne pas mettre en suspension des braises pouvant mettre à feu la fumée présente dans le local",
+      "Maintenir la lance en jet plein jusqu’à extinction"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "(ETEX-STR-TDE-2 — §3.1) Les principes de mise en œuvre du ricochet incluent : « veiller à ne pas mettre en suspension des braises pouvant mettre à feu de la fumée présente dans le local » (C) et « limiter les temps d'application de façon à contrôler l'efficacité de l'action » (A). Le ricochet utilise un jet étroit (robinet complètement ouvert), pas un jet diffusé.",
+    "source": "§3.1"
+  },
+  {
+    "id": "gto-extinctions-071",
+    "level": "M",
+    "q": "Un établissement de grande longueur est nécessaire pour relier un point d'eau éloigné. À partir de quelle distance environ est-il préférable d'utiliser une ligne de 110 mm plutôt que deux dévidoirs de 70 mm ?",
+    "choices": [
+      "À partir de 100 m",
+      "À partir de 200 m",
+      "À partir de 400 m",
+      "À partir de 600 m"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "(ETEX-STR-ETB-4 — §7.4) « On préférera l'établissement d'une ligne de 110 au-delà d'environ 400 m (correspondant à l'équivalent de deux dévidoirs de 70 sur un FPT), en termes de pertes de charges notamment ».",
+    "source": "§7.4"
+  },
+  {
+    "id": "gto-extinctions-072",
+    "level": "M",
+    "q": "En cas de situation d'urgence où le repli est impossible et que les intervenants sont directement menacés par un phénomène, quelle est la technique de protection ultime du binôme ?",
+    "choices": [
+      "Se replier en courant en jet droit devant soi",
+      "Se jeter au sol face contre terre, maintenir la lance au-dessus en jet de diffusion de protection au débit maximum",
+      "Se placer dos au foyer et protéger sa nuque avec un jet diffusé de protection",
+      "Ouvrir au maximum la lance en jet droit et progresser vers une sortie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-TDE — §4) « Le binôme doit : se jeter au sol face contre terre, binôme regroupé ; maintenir la lance au-dessus des casques en jet de diffusion de protection au débit maximum ».",
+    "source": "§4"
+  },
+  {
+    "id": "gto-extinctions-073",
+    "level": "M",
+    "q": "Concernant les pertes de charge liées à la dénivelée, quelle affirmation est exacte pour un établissement montant ?",
+    "choices": [
+      "Une pente positive génère un gain de pression de 1 bar par 10 m",
+      "Une pente positive génère une perte de pression de 1 bar par 10 m",
+      "La dénivelée n'a aucune influence sur les pertes de charge",
+      "Une pente positive génère 2 bars de pression supplémentaire par 10 m"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "(ETEX-STR-ETB — §1.3) « Les pertes de charge varient d'1 bar/10 m en fonction de la dénivelée (si pente positive, perte de 1 bar par 10 m de différence de hauteur, si pente négative, gain de pression de 1 bar par 10 m) ».",
+    "source": "§1.3"
+  }
+]

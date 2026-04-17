@@ -1,0 +1,818 @@
+[
+  {
+    "id": "sis-001",
+    "level": "TF",
+    "q": "De quelle mission principale sont chargés les services d'incendie ?",
+    "choices": [
+      "La sécurité routière",
+      "La prévention, la protection et la lutte contre les incendies",
+      "L'aide médicale urgente",
+      "La police judiciaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-2 CGCT (version 2021) : \"Les services d'incendie et de secours sont chargés de la prévention, de la protection et de la lutte contre les incendies.\" C'est la mission principale et première énoncée par la loi.",
+    "source": ""
+  },
+  {
+    "id": "sis-002",
+    "level": "TF",
+    "q": "Quel texte fondateur du 3 mai 1996 a posé les bases de l'organisation des services d'incendie et de secours en créant les SDIS comme établissements publics ?",
+    "choices": [
+      "La loi n°96-369 du 3 mai 1976",
+      "La loi n°96-369 du 3 mai 1986",
+      "La loi n°96-369 du 3 mai 1996",
+      "La loi n°96-369 du 3 mai 2006"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La loi n°96-369 du 3 mai 1996 \"relative aux services d'incendie et de secours\" est le texte fondateur qui a créé dans chaque département un établissement public dénommé SDIS (art. 1er).",
+    "source": ""
+  },
+  {
+    "id": "sis-003",
+    "level": "TF",
+    "q": "Combien de missions spécifiques sont dans le cadre des compétences des SIS ?",
+    "choices": [
+      "Deux missions",
+      "Trois missions",
+      "Quatre missions",
+      "Cinq missions"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-2 CGCT : quatre missions sont listées — 1° prévention et évaluation des risques, 2° préparation des mesures de sauvegarde, 3° protection des personnes, des animaux, des biens et de l'environnement, 4° secours et soins d'urgence aux personnes.",
+    "source": ""
+  },
+  {
+    "id": "sis-004",
+    "level": "TF",
+    "q": "Depuis la loi Matras du 25 novembre 2021, la mission de protection inclut expressément la protection de quelle nouvelle catégorie, ajoutée à \"personnes, biens et environnement\" ?",
+    "choices": [
+      "Les végétaux",
+      "Les animaux",
+      "Les bâtiments historiques",
+      "Les véhicules"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 2 de la loi n°2021-1520 du 25 novembre 2021 : au 3°, après le mot \"personnes\", sont insérés les mots \"des animaux\". Le 3° devient : \"La protection des personnes, des animaux, des biens et de l'environnement.\"",
+    "source": "Art. 2"
+  },
+  {
+    "id": "sis-005",
+    "level": "TF",
+    "q": "Sous quelle autorité les services d'incendie et de secours sont-ils placés pour emploi ?",
+    "choices": [
+      "Sous l'autorité exclusive du préfet uniquement",
+      "Sous l'autorité du maire ou du préfet, dans le cadre de leurs pouvoirs respectifs de police",
+      "Sous l'autorité du président du conseil d'administration du SDIS",
+      "Sous l'autorité exclusive du directeur départemental"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-3 CGCT : \"Les services d'incendie et de secours sont placés pour emploi sous l'autorité du maire ou du préfet, agissant dans le cadre de leurs pouvoirs respectifs de police.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-006",
+    "level": "TF",
+    "q": "Qui établit le règlement opérationnel ?",
+    "choices": [
+      "Le président du conseil d'administration du SDIS",
+      "Le directeur départemental des SIS",
+      "Le préfet",
+      "Le maire de la commune chef-lieu"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-4 CGCT : \"le maire et le préfet mettent en oeuvre les moyens relevant des services d'incendie et de secours dans les conditions prévues par un règlement opérationnel arrêté par le préfet après avis du conseil d'administration du service d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-007",
+    "level": "TF",
+    "q": "De combien d'éléments se compose le corps départemental de sapeurs-pompiers ?",
+    "choices": [
+      "Deux catégories",
+      "Trois catégories",
+      "Quatre catégories",
+      "Cinq catégories"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-5 CGCT : le corps départemental est composé de — 1° des sapeurs-pompiers professionnels, 2° des sapeurs-pompiers volontaires, 3° des volontaires en service civique des sapeurs-pompiers. Soit trois catégories.",
+    "source": ""
+  },
+  {
+    "id": "sis-008",
+    "level": "TF",
+    "q": "Quelle est la dénomination exacte de l'établissement public créé dans chaque département pour les services d'incendie et de secours ?",
+    "choices": [
+      "Centre Départemental d'Incendie et de Secours",
+      "Service Départemental d'Incendie et de Secours",
+      "Groupement Départemental d'Incendie et de Secours",
+      "Brigade Départementale d'Incendie et de Secours"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-1 CGCT et art. 1er de la loi 96-369 : \"Il est créé dans chaque département un établissement public, dénommé service départemental d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-009",
+    "level": "TF",
+    "q": "Quelle loi a introduit la possibilité pour les sapeurs-pompiers de participer à la réalisation d'actes de télémédecine dans le cadre de leurs missions ?",
+    "choices": [
+      "La loi n°2021-1520 du 25 novembre 1981",
+      "La loi n°2021-1520 du 25 novembre 1991",
+      "La loi n°2021-1520 du 25 novembre 2021",
+      "La loi n°2021-1520 du 25 novembre 2011"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 3 de la loi n°2021-1520 (dite loi Matras) : \"Afin de réaliser leurs missions de secours et de soins d'urgence, les sapeurs-pompiers peuvent participer à la réalisation d'actes de télémédecine, dans le cadre de leurs compétences.\" Cet alinéa a été ajouté à l'art. L.1424-2 CGCT.",
+    "source": "Art. 3"
+  },
+  {
+    "id": "sis-010",
+    "level": "TF",
+    "q": "Qui nomme le directeur départemental des services d'incendie et de secours ?",
+    "choices": [
+      "Le préfet seul",
+      "Le président du conseil d'administration seul",
+      "Le ministre de l'intérieur",
+      "Le président du conseil départemental"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 32 de la loi 96-369 (repris dans L.1424-32 CGCT) : \"Le directeur départemental des services d'incendie et de secours est nommé par le ministre de l'intérieur après avis du préfet et avec l'accord du président du conseil d'administration.\"",
+    "source": "Art. 32"
+  },
+  {
+    "id": "sis-011",
+    "level": "TF",
+    "q": "Quelle est la périodicité minimale de révision du schéma départemental d'analyse et de couverture des risques (SDACR) ?",
+    "choices": [
+      "Tous les trois ans",
+      "Tous les quatre ans",
+      "Tous les cinq ans",
+      "Tous les dix ans"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-7 CGCT (version consolidée) : \"La révision du schéma intervient tous les cinq ans. Elle est précédée d'une évaluation des objectifs du précédent schéma.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-012",
+    "level": "TF",
+    "q": "Quelle est la fréquence minimale de réunion du conseil d'administration du SDIS selon l'article ?",
+    "choices": [
+      "Une fois par trimestre",
+      "Une fois par semestre",
+      "Une fois par an",
+      "Deux fois par trimestre"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-28 CGCT : \"Le conseil d'administration se réunit à l'initiative de son président au moins une fois par semestre.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-013",
+    "level": "TF",
+    "q": "Les frais de formation des sapeurs-pompiers volontaires constituent quel type de dépenses ?",
+    "choices": [
+      "Des dépenses facultatives",
+      "Des dépenses d'équipement",
+      "Des dépenses obligatoires",
+      "Des dépenses sur délibération"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-38 CGCT : \"Les frais de formation des sapeurs-pompiers volontaires constituent des dépenses obligatoires pour la commune, l'établissement public de coopération intercommunale ou le service départemental ou territorial d'incendie et de secours dont ils relèvent.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-014",
+    "level": "TF",
+    "q": "Quel article du CGCT institue la Conférence nationale des services d'incendie et de secours auprès du ministre chargé de la sécurité civile ?",
+    "choices": [
+      "L'article L.1424-4",
+      "L'article L.1424-4-1",
+      "L'article L.1424-31",
+      "L'article L.1424-33"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-4-1 CGCT (créé par la loi Matras 2021, art. 24) : \"Une Conférence nationale des services d'incendie et de secours est instituée auprès du ministre chargé de la sécurité civile.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-015",
+    "level": "TF",
+    "q": "Quel est le délai légal dans lequel un conseil d'administration convoqué en urgence doit se réunir de plein droit après envoi de la convocation?",
+    "choices": [
+      "Le lendemain",
+      "Le deuxième jour",
+      "Le troisième jour",
+      "Le cinquième jour"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-28 CGCT : \"Le conseil d'administration se réunit de plein droit le troisième jour suivant l'envoi de la convocation au préfet et à ses membres.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-016",
+    "level": "TF",
+    "q": "Selon l'article par qui est élaboré le schéma départemental d'analyse et de couverture des risques (SDACR) ?",
+    "choices": [
+      "Par le préfet seul",
+      "Par le conseil d'administration du SDIS seul",
+      "Par le service départemental ou territorial d'incendie et de secours, sous l'autorité du préfet",
+      "Par le conseil départemental"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-7 CGCT : \"Le schéma départemental d'analyse et de couverture des risques est élaboré, sous l'autorité du préfet, par le service départemental ou territorial d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-017",
+    "level": "TF",
+    "q": "Qui peut prononcer la dissolution du corps départemental en cas de difficultés de fonctionnement ?",
+    "choices": [
+      "Le préfet, par arrêté préfectoral",
+      "Le ministre de l'intérieur, par arrêté, sur proposition du préfet et après avis du CA",
+      "Le président du conseil d'administration, par délibération",
+      "Le conseil d'administration à la majorité des deux tiers"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-6 CGCT : \"En cas de difficultés de fonctionnement, le corps départemental est dissous par arrêté du ministre de l'intérieur, pris sur proposition du préfet, après avis du conseil d'administration du service d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-018",
+    "level": "TF",
+    "q": "Comment se nomment les interventions effectuées par les SIS sur prescription du SAMU pour des transports de malades, blessés ou parturientes ne relevant pas de l'article L.1424-2 ?",
+    "choices": [
+      "Les missions de renfort sanitaire",
+      "Les carences ambulancières",
+      "Les transports secondaires",
+      "Les missions hors cadre"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-42 II CGCT : \"Les interventions effectuées par les services d'incendie et de secours sur la prescription du service d'aide médicale urgente [...] qui ne relèvent pas de l'article L. 1424-2 sont des carences ambulancières.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-019",
+    "level": "TF",
+    "q": "Dans quelle condition les moyens du SDIS consacrés aux actions de prévention sont-ils définis ?",
+    "choices": [
+      "Par arrêté préfectoral",
+      "Par le conseil d'administration, en tenant compte du nombre des établissements recevant du public",
+      "Par délibération du conseil municipal",
+      "Par décret en Conseil d'État"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-3 CGCT, dernier alinéa : \"Les moyens du service départemental ou territorial d'incendie et de secours consacrés aux actions de prévention sont définis par le conseil d'administration en tenant compte du nombre des établissements dans le département relevant de la réglementation applicable aux risques d'incendie et de panique dans les établissements recevant du public.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-020",
+    "level": "F",
+    "q": "Dans quels cas les SIS interviennent-ils pour des secours et soins d'urgence aux personnes ?",
+    "choices": [
+      "Lorsque les personnes présentent des signes de détresse vitale",
+      "Lorsque les personnes sont victimes d'accidents, de sinistres ou de catastrophes",
+      "Lorsque les personnes sont âgées de plus de 75 ans",
+      "Lorsque les personnes demandent une assistance médicale non urgente"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. L.1424-2 CGCT, 4° : les SIS interviennent lorsque les personnes a) sont victimes d'accidents, sinistres ou catastrophes, b) présentent des signes de détresse vitale, c) présentent des signes de détresse fonctionnelle justifiant l'urgence à agir. Les propositions A et B correspondent à a) et b).",
+    "source": ""
+  },
+  {
+    "id": "sis-021",
+    "level": "F",
+    "q": "Quelle est la mission du commandant des opérations de secours (COS) ?",
+    "choices": [
+      "Déclencher le plan ORSEC",
+      "Assurer, sous l'autorité du directeur des opérations de secours, la mise en oeuvre de tous les moyens publics et privés mobilisés pour les opérations de secours",
+      "Nommer les personnels d'intervention",
+      "Arrêter le règlement opérationnel"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-4 CGCT, alinéa 2 : \"Le commandant des opérations de secours désigné est chargé, sous l'autorité du directeur des opérations de secours, de la mise en oeuvre de tous les moyens publics et privés mobilisés pour l'accomplissement des opérations de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-022",
+    "level": "F",
+    "q": "Sous quelle autorité le directeur départemental des SIS est-il placé pour la direction opérationnelle ?",
+    "choices": [
+      "Sous l'autorité du président du conseil d'administration",
+      "Sous l'autorité du représentant de l'État dans le département",
+      "Sous l'autorité du maire",
+      "Sous l'autorité du ministre de l'intérieur directement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-33 CGCT : \"Le directeur départemental des services d'incendie et de secours est placé sous l'autorité du représentant de l'Etat dans le département pour la direction opérationnelle du service d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-023",
+    "level": "F",
+    "q": "Le directeur départemental est placé sous l'autorité de qui pour la gestion administrative et financière ?",
+    "choices": [
+      "Du représentant de l'État dans le département",
+      "Du ministre de l'intérieur",
+      "Du président du conseil d'administration du service d'incendie et de secours",
+      "Du président du conseil départemental"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-33 CGCT : \"Il est placé sous l'autorité du président du conseil d'administration du service d'incendie et de secours pour la gestion administrative et financière de l'établissement.\" Le DDSIS a donc une double autorité selon les domaines.",
+    "source": ""
+  },
+  {
+    "id": "sis-024",
+    "level": "F",
+    "q": "Qui recrute et gère les sapeurs-pompiers professionnels ?",
+    "choices": [
+      "Les communes",
+      "Le service départemental ou territorial d'incendie et de secours",
+      "Le préfet",
+      "Le ministère de l'intérieur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-9 CGCT : \"Les sapeurs-pompiers professionnels, officiers et non officiers, sont recrutés et gérés par le service départemental ou territorial d'incendie et de secours, dans le cadre des dispositions législatives et réglementaires qui leur sont applicables.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-025",
+    "level": "F",
+    "q": "Qui engage et gère les sapeurs-pompiers volontaires au sein des SDIS ?",
+    "choices": [
+      "Les communes dont ils sont issus",
+      "Le service départemental ou territorial d'incendie et de secours",
+      "Le préfet, par délégation",
+      "Le conseil départemental"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-10 CGCT : \"Les sapeurs-pompiers volontaires et les volontaires en service civique des sapeurs-pompiers sont engagés et gérés par le service départemental ou territorial d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-026",
+    "level": "F",
+    "q": "Sur quelles questions la commission administrative et technique des SIS (CATSIS) est-elle consultée ?",
+    "choices": [
+      "Les questions budgétaires et financières",
+      "Les questions d'ordre technique ou opérationnel intéressant les SIS",
+      "Les questions relatives au recrutement des SPP",
+      "Les questions relatives aux marchés publics"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-31 CGCT : \"Cette commission est consultée sur les questions d'ordre technique ou opérationnel intéressant les services d'incendie et de secours, sous réserve des dispositions de l'article L1424-40.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-027",
+    "level": "F",
+    "q": "Qui est seul compétent pour acquérir ou louer les matériels nécessaires aux missions des centres relevant des communes et EPCI ?",
+    "choices": [
+      "La commune concernée",
+      "L'EPCI compétent en matière d'incendie et de secours",
+      "Le service départemental ou territorial d'incendie et de secours",
+      "Le département"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-12 CGCT (version originale loi 96-369, art.12) : \"Il est seul compétent pour acquérir ou louer les matériels nécessaires aux missions des centres d'incendie et de secours relevant des communes et des établissements publics de coopération intercommunale.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-028",
+    "level": "F",
+    "q": "Que peuvent faire les SIS s'ils ont procédé à des interventions ne se rattachant pas directement à leurs missions ?",
+    "choices": [
+      "Ils doivent refuser toute indemnisation",
+      "Ils peuvent demander une participation aux frais aux bénéficiaires, dans les conditions déterminées par délibération du conseil d'administration",
+      "Ils facturent automatiquement selon un tarif national fixé par décret",
+      "Ils transmettent la facture directement au préfet"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-42 I CGCT : \"S'ils ont procédé à des interventions ne se rattachant pas directement à l'exercice de leurs missions, ils peuvent demander aux personnes physiques ou morales bénéficiaires ou demandeuses une participation aux frais, dans les conditions déterminées par délibération du conseil d'administration.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-029",
+    "level": "F",
+    "q": "Les contributions des communes, des EPCI et du département au budget du SDIS constituent quel type de dépenses ?",
+    "choices": [
+      "Des dépenses facultatives selon décision du conseil d'administration",
+      "Des dépenses sur vote annuel du conseil municipal",
+      "Des dépenses obligatoires",
+      "Des dépenses d'équipement uniquement"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-35 CGCT, alinéa 4 : \"Les contributions des communes, des établissements publics de coopération intercommunale et du département au budget du service d'incendie et de secours constituent des dépenses obligatoires.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-030",
+    "level": "F",
+    "q": "Quels membres composent la Conférence nationale des SIS ?",
+    "choices": [
+      "Un député et un sénateur",
+      "Des représentants de l'État",
+      "Des représentants des tribunaux administratifs",
+      "Pour un quart au moins, des représentants des sapeurs-pompiers volontaires et professionnels"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. L.1424-4-1 CGCT : \"Elle comprend un député et un sénateur, des représentants de l'Etat, pour un quart au moins des représentants des sapeurs-pompiers volontaires et professionnels et, en majorité, des représentants des conseils d'administration des services d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-031",
+    "level": "F",
+    "q": "Qui préside le conseil d'administration du SDIS ?",
+    "choices": [
+      "Le préfet de département",
+      "Le directeur départemental des SIS",
+      "Le président du conseil départemental ou un membre du CA désigné par lui",
+      "Un membre élu à la majorité absolue par l'ensemble du conseil d'administration"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-27 CGCT : \"Le conseil d'administration est présidé par le président du conseil départemental ou l'un des membres du conseil d'administration désigné par le président du conseil départemental après le renouvellement des représentants du département et celui des représentants des communes et des EPCI.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-032",
+    "level": "F",
+    "q": "Tout sapeur-pompier volontaire bénéficie dès le début de son engagement d'une formation initiale. Qu'est-il prévu ensuite ?",
+    "choices": [
+      "Aucune autre formation n'est obligatoire",
+      "Une formation continue ultérieure",
+      "Une formation tous les trois ans seulement si le SPV le demande",
+      "Un bilan annuel de compétences"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-37 CGCT : \"Tout sapeur-pompier volontaire ou tout volontaire en service civique des sapeurs-pompiers bénéficie, dès le début de sa période d'engagement, d'une formation initiale et, ultérieurement, d'une formation continue.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-033",
+    "level": "F",
+    "q": "Après quel avis le représentant de l'État arrête-t-il le schéma départemental d'analyse et de couverture des risques ?",
+    "choices": [
+      "Après avis simple du conseil d'administration du SDIS uniquement",
+      "Après avis du conseil départemental et avis conforme du conseil d'administration du SIS",
+      "Après avis conforme du préfet de zone",
+      "Après délibération du conseil municipal de la commune chef-lieu"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-7 CGCT : \"Après avis du conseil départemental, le représentant de l'Etat dans le département arrête le schéma départemental sur avis conforme du conseil d'administration du service d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-034",
+    "level": "F",
+    "q": "De quels outils opérationnels le SDIS doit-il disposer ?",
+    "choices": [
+      "D'un centre opérationnel départemental d'incendie et de secours (CODIS)",
+      "D'un ou plusieurs centres de traitement de l'alerte (CTA)",
+      "D'un centre de coordination médicale avancée",
+      "D'un état-major de zone de défense"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. L.1424-44 CGCT : \"1° D'un centre opérationnel départemental d'incendie et de secours chargé de la coordination de l'activité opérationnelle ; 2° D'un, ou, si nécessaire, plusieurs centres de traitement de l'alerte, chargés de la réception, du traitement et de la réorientation éventuelle des demandes de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-035",
+    "level": "F",
+    "q": "Dans quelle situation le préfet peut-il demander une nouvelle délibération du conseil d'administration ?",
+    "choices": [
+      "Lorsque le budget dépasse le seuil fixé par décret",
+      "Lorsqu'une délibération paraît de nature à affecter la capacité opérationnelle du SIS ou la bonne distribution des moyens",
+      "Lorsque la majorité des membres le demande",
+      "Lorsque le directeur départemental le sollicite"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-25 CGCT : \"Si une délibération paraît de nature à affecter la capacité opérationnelle du service d'incendie et de secours ou la bonne distribution des moyens, le préfet peut demander une nouvelle délibération.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-036",
+    "level": "F",
+    "q": "Quels territoires ou villes ne sont pas soumis aux dispositions générales du chapitre IV sur les SDIS ?",
+    "choices": [
+      "La ville de Paris et les départements des Hauts-de-Seine, Seine-Saint-Denis et Val-de-Marne",
+      "La collectivité territoriale de Saint-Pierre-et-Miquelon (avec exceptions)",
+      "Le département de la Gironde",
+      "La ville de Lyon"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. L.1424-49 CGCT : \"I – Les dispositions du présent chapitre ne s'appliquent pas à la Ville de Paris et dans les départements des Hauts-de-Seine, de la Seine-Saint-Denis et du Val-de-Marne.\" et \"III – Les dispositions du présent chapitre ne s'appliquent pas à la collectivité territoriale de Saint-Pierre-et-Miquelon, à l'exception des articles L. 1424-2 et L. 1424-3...\"",
+    "source": ""
+  },
+  {
+    "id": "sis-037",
+    "level": "F",
+    "q": "La sous-direction santé comprend plusieurs professionnels. Lesquels parmi les suivants sont expressément mentionnés ?",
+    "choices": [
+      "Des médecins et des pharmaciens",
+      "Des infirmiers",
+      "Des vétérinaires",
+      "Des psychologues"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Art. L.1424-34 CGCT : \"La sous-direction santé comprend notamment des médecins, des pharmaciens, des cadres de santé, des infirmiers, des psychothérapeutes, des psychologues, des vétérinaires et des professionnels de santé experts de sapeurs-pompiers.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-038",
+    "level": "M",
+    "q": "En cas de péril imminent lors d'une opération de secours, quelle est la compétence reconnue au commandant des opérations de secours s ?",
+    "choices": [
+      "Il peut déclencher seul le plan ORSEC sans en référer à quiconque",
+      "Il prend les mesures nécessaires à la protection de la population et à la sécurité des personnels engagés, et en rend compte au directeur des opérations de secours",
+      "Il doit attendre l'autorisation du préfet avant toute action",
+      "Il peut ordonner l'évacuation d'une commune entière sans restriction"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-4 CGCT, alinéa 3 : \"En cas de péril imminent, le commandant des opérations de secours prend les mesures nécessaires à la protection de la population et à la sécurité des personnels engagés. Il en rend compte au directeur des opérations de secours.\" C'est une exception à l'autorité hiérarchique normale, limitée au péril imminent.",
+    "source": ""
+  },
+  {
+    "id": "sis-039",
+    "level": "M",
+    "q": "Un SDIS est sollicité pour déloger un essaim d'abeilles dans un jardin privé, sans aucun danger pour des personnes. Quelles sont les deux affirmations correctes sur cette situation ?",
+    "choices": [
+      "Le SDIS peut différer ou refuser son engagement pour préserver sa disponibilité opérationnelle",
+      "Le SDIS est obligé d'intervenir immédiatement car c'est une mission de service public",
+      "S'il intervient, le SDIS peut demander une participation aux frais au bénéficiaire",
+      "Le SDIS doit facturer selon un tarif national fixé par arrêté ministériel"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. L.1424-42 I CGCT : \"S'ils ont été sollicités pour des interventions ne se rattachant pas directement à l'exercice de leurs missions, ils peuvent différer ou refuser leur engagement afin de préserver une disponibilité opérationnelle\" et \"S'ils ont procédé à des interventions ne se rattachant pas directement à l'exercice de leurs missions, ils peuvent demander [...] une participation aux frais, dans les conditions déterminées par délibération du conseil d'administration.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-040",
+    "level": "M",
+    "q": "La loi Matras de 2021 a modifié l'article concernant les soins d'urgence. Quelles sont les deux affirmations correctes sur ce nouveau dispositif ?",
+    "choices": [
+      "Les actes de soins d'urgence réalisables par les SPP non-professionnels de santé sont définis par décret en Conseil d'État",
+      "Un arrêté conjoint des ministres chargés de la sécurité civile et de la santé fixe les compétences nécessaires à la réalisation de ces actes",
+      "Tout SPP peut réaliser tous les actes médicaux sans restriction",
+      "Les actes de soins sont définis exclusivement par le directeur départemental des SIS"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. L.1424-2 CGCT (modifié par loi 2021-1520, art. 2) : \"Les actes de soins d'urgence qui peuvent être réalisés par les sapeurs-pompiers n'étant pas par ailleurs professionnels de santé ainsi que leurs modalités de mise en œuvre sont définis par décret en Conseil d'Etat. Un arrêté conjoint des ministres chargés de la sécurité civile et de la santé fixe les compétences nécessaires à la réalisation de ces actes et leurs modalités d'évaluation.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-041",
+    "level": "M",
+    "q": "Le conseil d'administration d'un SDIS souhaite modifier la répartition des contributions entre communes et EPCI. Quel critère le conseil d'administration peut-il prendre en compte en faveur de certaines communes ou EPCI ? Sélectionnez les trois bonnes réponses.",
+    "choices": [
+      "La présence dans leurs effectifs d'agents publics ayant la qualité de sapeur-pompier volontaire",
+      "La disponibilité accordée aux SPV pendant le temps de travail",
+      "Le nombre d'habitants de la commune par rapport à la moyenne nationale",
+      "Les mesures sociales prises en faveur du volontariat"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. L.1424-35 CGCT, alinéa 3 : \"Le conseil d'administration peut, à cet effet, prendre en compte au profit des communes et des EPCI la présence dans leur effectif d'agents publics titulaires ou non titulaires ayant la qualité de sapeur-pompier volontaire, la disponibilité qui leur est accordée pendant le temps de travail ou les mesures sociales prises en faveur du volontariat.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-042",
+    "level": "M",
+    "q": "Selon l'article L.1424-31 CGCT (version Matras 2021), parmi les membres de la CATSIS figurent des élus parmi les sapeurs-pompiers. Quelles sont les deux catégories de représentants élus mentionnées ?",
+    "choices": [
+      "Des représentants des sapeurs-pompiers professionnels et volontaires, élus par l'ensemble des SP en service dans le département",
+      "Des représentants des fonctionnaires territoriaux du SIS n'ayant pas la qualité de SPP, élus par leurs pairs",
+      "Des représentants des communes élus par les maires",
+      "Des représentants du département élus par le conseil départemental"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. L.1424-31 CGCT, 1° et 2° : \"1° Des représentants des sapeurs-pompiers professionnels et volontaires, élus dans les quatre mois suivant le renouvellement général des conseils municipaux par l'ensemble des sapeurs-pompiers en service dans le département ; 2° Des représentants des fonctionnaires territoriaux du service d'incendie et de secours n'ayant pas la qualité de sapeur-pompier professionnel, élus [...] par l'ensemble des fonctionnaires territoriaux du service d'incendie et de secours n'ayant pas la qualité de sapeur-pompier professionnel.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-043",
+    "level": "M",
+    "q": "Un sapeur-pompier volontaire officier d'un SDIS souhaite être nommé dans ses fonctions. Quelle est la règle générale applicable, et quelle dérogation existe-t-il ?",
+    "choices": [
+      "Il est nommé uniquement par le préfet ; aucune dérogation n'existe",
+      "Il est engagé et géré par le SDIS (règle générale) ; par dérogation, les officiers et sous-officiers SPV peuvent être nommés conjointement par l'autorité compétente de l'État et le président du CA",
+      "Il est nommé uniquement par le président du CA, sans intervention de l'État",
+      "Il est nommé par le maire de sa commune d'affectation"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-10 CGCT : \"Les sapeurs-pompiers volontaires [...] sont engagés et gérés par le service départemental ou territorial d'incendie et de secours. Par dérogation au premier alinéa, les officiers et les sous-officiers de sapeurs-pompiers volontaires peuvent, dans des conditions fixées par voie réglementaire, être nommés dans leurs grades ou fonctions conjointement par l'autorité compétente de l'Etat et le président du conseil d'administration du service d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-044",
+    "level": "M",
+    "q": "Lequel des énoncés suivants est INEXACT concernant les dispositions du SDACR ?",
+    "choices": [
+      "Le schéma dresse l'inventaire des risques de toute nature pour la sécurité des personnes et des biens",
+      "Le schéma comprend une partie relative au risque d'incendie de forêt, de surfaces agricoles et de végétation",
+      "Le schéma peut être arrêté unilatéralement par le préfet",
+      "La révision du schéma est précédée d'une évaluation des objectifs du précédent schéma"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.1424-7 CGCT : le schéma est arrêté par le préfet MAIS \"sur avis conforme du conseil d'administration du service d'incendie et de secours\". L'avis conforme est contraignant, ce qui rend inexact l'énoncé C qui parle d'\"unilatéralement sans consultation.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-045",
+    "level": "M",
+    "q": "Quelles compétences un établissement public interdépartemental d'incendie et de secours (EPIDIS) peut-il exercer ?",
+    "choices": [
+      "L'acquisition, la location et la gestion d'équipements et matériels, ainsi que la constitution d'un groupement de commandes",
+      "La formation des sapeurs-pompiers professionnels et volontaires en liaison avec les organismes compétents",
+      "L'information et la sensibilisation du public aux risques affectant la sécurité des personnes et des biens",
+      "Le recrutement direct de sapeurs-pompiers professionnels pour les SDIS membres"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Art. L.1424-52 CGCT liste les compétences de l'EPIDIS, dont : a) acquisition/gestion/groupement de commandes, b) formation des SP, d) information et sensibilisation du public, e) réalisation d'études et recherches. Le recrutement direct (D) n'est pas une compétence de l'EPIDIS.",
+    "source": ""
+  },
+  {
+    "id": "sis-046",
+    "level": "M",
+    "q": "Quelles sont les règles de composition minimale et maximale du conseil d'administration du SDIS, et quelle est la part minimale des sièges du département ?",
+    "choices": [
+      "Entre 10 et 25 membres ; le département doit disposer d'au moins la moitié des sièges",
+      "Entre 15 et 30 membres ; les sièges du département ne peuvent être inférieurs aux trois cinquièmes du nombre total des sièges",
+      "Entre 12 et 28 membres ; la répartition est libre selon délibération",
+      "Entre 15 et 30 membres ; les sièges sont répartis à parts égales entre le département et les communes/EPCI"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-24-1 CGCT : \"Le conseil d'administration comprend quinze membres au moins et trente membres au plus. [...] Le nombre des sièges attribués au département ne peut être inférieur aux trois cinquièmes du nombre total des sièges, celui des sièges attribués aux communes et aux établissements publics de coopération intercommunale ne peut être inférieur au cinquième du nombre total des sièges.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-047",
+    "level": "M",
+    "q": "La loi Matras de 2021 a créé les réserves citoyennes des SIS. Sous quelle condition un SDIS peut-il instituer une telle réserve ?",
+    "choices": [
+      "Sur simple décision du directeur départemental",
+      "Par arrêté préfectoral",
+      "Sur délibération du conseil d'administration et après consultation du réseau associatif départemental des acteurs de la sécurité civile",
+      "Sur décision du ministre de l'intérieur"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. L.724-15 CSI (créé par loi 2021-1520, art. 47) : \"Les services départementaux et territoriaux d'incendie et de secours, sur délibération de leur conseil d'administration et après consultation du réseau associatif départemental des acteurs de la sécurité civile, peuvent instituer une réserve citoyenne des services d'incendie et de secours.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-048",
+    "level": "M",
+    "q": "Quelles règles s'appliquent à la composition du bureau du conseil d'administration concernant la parité entre les sexes ? Sélectionnez les deux affirmations correctes.",
+    "choices": [
+      "Le premier et le troisième vice-présidents doivent être de sexe différent de celui du président",
+      "Au moins un vice-président doit être élu parmi les représentants des communes et des EPCI",
+      "Le président doit obligatoirement être un homme",
+      "La parité s'applique uniquement au niveau du conseil, pas du bureau"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. L.1424-27 CGCT (modifié par loi Matras, art. 25) : \"Le premier et le troisième vice-présidents sont de sexe différent de celui du président. Un vice-président au moins est élu parmi les représentants des communes et des établissements publics de coopération intercommunale.\"",
+    "source": ""
+  },
+  {
+    "id": "sis-049",
+    "level": "M",
+    "q": "L'article L.1424-7 CGCT précise que le schéma départemental comprend désormais une partie spécifique sur certains risques. Laquelle ?",
+    "choices": [
+      "Le risque nucléaire, radiologique, biologique et chimique (NRBC)",
+      "Le risque d'incendie de forêt, de surfaces agricoles et de végétation",
+      "Le risque terroriste",
+      "Le risque sismique"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. L.1424-7 CGCT (version consolidée au 14 avril 2026) : \"Un schéma départemental d'analyse et de couverture des risques dresse l'inventaire des risques [...]. Il comprend une partie relative au risque d'incendie de forêt, de surfaces agricoles et de végétation et détermine les objectifs de couverture de ce risque.\" Cet ajout est récent et reflète l'enjeu feux de végétation.",
+    "source": ""
+  },
+  {
+    "id": "sis-050",
+    "level": "M",
+    "q": "Parmi les affirmations suivantes, laquelle est INEXACTE concernant la modernisation de la sécurité civile et orientation générale selon l'annexe de cette loi ?",
+    "choices": [
+      "Elle vise à s'attaquer résolument aux risques en les anticipant davantage",
+      "Elle vise à refonder la protection des populations",
+      "Elle vise à supprimer le rôle des sapeurs-pompiers volontaires pour professionnaliser entièrement les SIS",
+      "Elle vise à mobiliser tous les moyens en encourageant les solidarités"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "L'annexe de la loi 2004-811 précise les trois axes : \"s'attaquer résolument aux risques\", \"refonder la protection des populations\" et \"mobiliser tous les moyens, en encourageant les solidarités.\" La loi affirme au contraire que \"l'effectif des sapeurs-pompiers volontaires doit être impérativement maintenu\" et promeut le volontariat.",
+    "source": ""
+  }
+]

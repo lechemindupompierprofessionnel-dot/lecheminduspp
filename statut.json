@@ -1,0 +1,1719 @@
+[
+  {
+    "id": "statut-001",
+    "level": "TF",
+    "q": "En cas de faute grave, par quel texte l'autorité peut-elle suspendre un fonctionnaire ?",
+    "choices": [
+      "Décret du préfet de département",
+      "Décision de l'autorité ayant pouvoir disciplinaire",
+      "Décision du tribunal administratif",
+      "Délibération du conseil de discipline"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 30 de la loi 83-634 — « l'auteur de cette faute peut être suspendu par l'autorité ayant pouvoir disciplinaire ».",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-002",
+    "level": "TF",
+    "q": "Quel est le délai maximal dans lequel la situation d'un fonctionnaire suspendu doit être définitivement réglée ?",
+    "choices": [
+      "2 mois",
+      "3 mois",
+      "4 mois",
+      "6 mois"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 30 loi 83-634 — « Sa situation doit être définitivement réglée dans le délai de quatre mois ».",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-003",
+    "level": "TF",
+    "q": "Quels éléments de rémunération le fonctionnaire suspendu conserve-t-il ?",
+    "choices": [
+      "Son traitement",
+      "Sa prime de feu",
+      "L'indemnité de résidence",
+      "Ses heures supplémentaires"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. 30 loi 83-634 — le fonctionnaire suspendu conserve son traitement et l'indemnité de résidence (ainsi que le supplément familial de traitement et les prestations familiales obligatoires).",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-004",
+    "level": "TF",
+    "q": "Le conseil de discipline est une formation de quelle instance ?",
+    "choices": [
+      "Du tribunal administratif",
+      "Du conseil supérieur de la fonction publique territoriale",
+      "De la commission administrative paritaire",
+      "Du centre de gestion"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 1er du décret 89-677 — « Le conseil de discipline est une formation de la commission administrative paritaire dont relève le fonctionnaire poursuivi ».",
+    "source": "Art. 1er"
+  },
+  {
+    "id": "statut-005",
+    "level": "TF",
+    "q": "Qui préside le conseil de discipline des fonctionnaires territoriaux ?",
+    "choices": [
+      "Le préfet de département",
+      "Un élu de la collectivité concernée",
+      "Un magistrat de l'ordre administratif",
+      "Le directeur du centre de gestion"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 1er décret 89-677 — « Le conseil de discipline est présidé par un magistrat de l'ordre administratif, en activité ou honoraire, désigné par le président du tribunal administratif ».",
+    "source": "Art. 1er"
+  },
+  {
+    "id": "statut-006",
+    "level": "TF",
+    "q": "Dans quel délai le conseil de discipline doit-il se prononcer lorsque le fonctionnaire a fait l'objet d'une mesure de suspension ?",
+    "choices": [
+      "15 jours",
+      "1 mois",
+      "2 mois",
+      "4 mois"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 13 décret 89-677 — « Le délai est ramené à un mois lorsque le fonctionnaire poursuivi a fait l'objet d'une mesure de suspension ».",
+    "source": "Art. 13"
+  },
+  {
+    "id": "statut-007",
+    "level": "TF",
+    "q": "Qui dirige la sous-direction santé d'un SDIS ?",
+    "choices": [
+      "Le directeur départemental des services d'incendie et de secours",
+      "Le pharmacien-chef",
+      "Le médecin-chef",
+      "L'infirmier-chef"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. R1424-26 CGCT — « le médecin-chef dirige la sous-direction santé et conseille les autorités des services d'incendie et de secours ».",
+    "source": ""
+  },
+  {
+    "id": "statut-008",
+    "level": "TF",
+    "q": "Combien de suppléants du président sont désignés pour le conseil de discipline ?",
+    "choices": [
+      "1",
+      "2",
+      "3",
+      "4"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 1er décret 89-677 — « Deux suppléants du président sont désignés dans les mêmes conditions ».",
+    "source": "Art. 1er"
+  },
+  {
+    "id": "statut-009",
+    "level": "TF",
+    "q": "Quelle est la durée minimale de services effectifs à compter de la sanction disciplinaire permettant à un fonctionnaire de demander l'effacement d'une sanction du 2ème ou 3ème groupe ?",
+    "choices": [
+      "5 ans",
+      "7 ans",
+      "10 ans",
+      "15 ans"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 31 décret 89-677 — « après dix années de services effectifs à compter de la date de la sanction disciplinaire ».",
+    "source": "Art. 31"
+  },
+  {
+    "id": "statut-010",
+    "level": "TF",
+    "q": "Le décret 2023-543 supprime quelle voie d'avancement au grade de Commandant de sapeurs-pompiers professionnels ?",
+    "choices": [
+      "L'avancement au choix",
+      "L'avancement par ancienneté",
+      "L'examen professionnel",
+      "Le concours interne"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Notice du décret 2023-543 — « Ce décret vient supprimer la voie de l'examen professionnel d'avancement au grade de commandant de sapeurs-pompiers professionnels ».",
+    "source": "décret 2023-543"
+  },
+  {
+    "id": "statut-011",
+    "level": "TF",
+    "q": "Qui désigne les représentants des collectivités territoriales au conseil de discipline ?",
+    "choices": [
+      "Le préfet de département",
+      "Le directeur du centre de gestion",
+      "Le président du conseil de discipline",
+      "L'autorité territoriale"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 1er décret 89-677 — « Les représentants des collectivités territoriales ou de leurs établissements publics sont désignés par le président du conseil de discipline par tirage au sort ».",
+    "source": "Art. 1er"
+  },
+  {
+    "id": "statut-012",
+    "level": "TF",
+    "q": "La loi 83-634 du 13 juillet 1983 est communément appelée :",
+    "choices": [
+      "La loi Defferre",
+      "La loi Le Pors",
+      "La loi Rocard",
+      "La loi Sapin"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Intitulé non officiel mentionné dans le document — « loi Le Pors ».",
+    "source": ""
+  },
+  {
+    "id": "statut-013",
+    "level": "TF",
+    "q": "Qui approuve les référentiels nationaux définissant les modalités d'évaluation de l'aptitude des sapeurs-pompiers ?",
+    "choices": [
+      "Le préfet de région",
+      "Le directeur départemental du SDIS",
+      "Le ministre chargé de la sécurité civile",
+      "Le médecin-chef de la sous-direction santé"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. R.722-2 issu du décret 2025-330 — les référentiels nationaux sont « approuvés par décision du ministre chargé de la sécurité civile ».",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-014",
+    "level": "TF",
+    "q": "Dans le cadre de la sous-direction santé, qui peut assister le médecin-chef dans l'exercice de ses attributions ?",
+    "choices": [
+      "Le DDSIS uniquement",
+      "Un médecin-chef adjoint",
+      "Un infirmier-chef",
+      "Un pharmacien-chef"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. R1424-26 CGCT — « Il peut être assisté par un médecin-chef adjoint qui le seconde ou le supplée, le cas échéant, dans l'ensemble de ses attributions ».",
+    "source": ""
+  },
+  {
+    "id": "statut-015",
+    "level": "TF",
+    "q": "Quel est l'objet principal du décret 2025-330 du 10 avril 2025 ?",
+    "choices": [
+      "La revalorisation des indemnités des sapeurs-pompiers volontaires",
+      "La médecine d'aptitude des sapeurs-pompiers professionnels et volontaires",
+      "La suppression de l'examen professionnel de commandant",
+      "L'organisation de la sous-direction santé"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Objet du décret 2025-330 — « le décret modifie les dispositions relatives à la médecine d'aptitude des sapeurs-pompiers professionnels et volontaires ».",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-016",
+    "level": "TF",
+    "q": "Dans quel(s) cas peut-on doubler les indemnités des SPV ?",
+    "choices": [
+      "Lorsqu'ils font des heures supplémentaires dans leur SDIS",
+      "Lorsqu'ils sont mobilisés dans le cadre de renforts hors département et que leurs employeurs sont subrogés",
+      "Lorsqu'ils effectuent des gardes de nuit",
+      "Lorsqu'ils participent à des formations spécialisées"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 3-1 créé par le décret 2023-543 — le montant des indemnités est doublé « lorsque les employeurs publics ou privés sont subrogés dans le versement de ces indemnités » lors de renforts hors département.",
+    "source": "Art. 3"
+  },
+  {
+    "id": "statut-017",
+    "level": "TF",
+    "q": "Le conseil de discipline délibère en présence de quelles personnes ?",
+    "choices": [
+      "Du fonctionnaire poursuivi et de ses conseils",
+      "Des témoins",
+      "Uniquement de ses membres",
+      "Du représentant de l'autorité territoriale"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 10 décret 89-677 — « Le conseil de discipline délibère à huis clos hors la présence du fonctionnaire poursuivi, de son ou de ses conseils et des témoins ».",
+    "source": "Art. 10"
+  },
+  {
+    "id": "statut-018",
+    "level": "F",
+    "q": "Quelles prestations un fonctionnaire suspendu continue-t-il à percevoir même en cas de retenue sur traitement ?",
+    "choices": [
+      "Sa prime de service",
+      "Le supplément familial de traitement",
+      "Les prestations familiales obligatoires",
+      "L'indemnité de résidence"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Art. 30 loi 83-634 — « Il continue, néanmoins, à percevoir la totalité des suppléments pour charges de famille », ce qui recouvre le supplément familial de traitement et les prestations familiales obligatoires.",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-019",
+    "level": "F",
+    "q": "Que se passe-t-il si, à l'expiration du délai de 4 mois de suspension, aucune décision n'est prise et que le fonctionnaire ne fait pas l'objet de poursuites pénales ?",
+    "choices": [
+      "Il est révoqué d'office",
+      "Il est rétabli dans ses fonctions",
+      "Sa suspension est prolongée automatiquement",
+      "Il est mis en disponibilité"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 30 loi 83-634 — « le fonctionnaire qui ne fait pas l'objet de poursuites pénales est rétabli dans ses fonctions ».",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-020",
+    "level": "F",
+    "q": "Quels droits le fonctionnaire poursuivi peut-il exercer devant le conseil de discipline ?",
+    "choices": [
+      "Présenter des observations écrites ou orales",
+      "Demander l'ajournement indéfini de l'audience",
+      "Citer des témoins",
+      "Se faire assister par un ou plusieurs conseils de son choix"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Art. 6 décret 89-677 — « Il peut présenter devant le conseil de discipline des observations écrites ou orales, citer des témoins et se faire assister par un ou plusieurs conseils de son choix ».",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-021",
+    "level": "F",
+    "q": "Quel délai de droit commun le conseil de discipline a-t-il pour se prononcer à compter de sa saisine par l'autorité territoriale ?",
+    "choices": [
+      "1 mois",
+      "2 mois",
+      "3 mois",
+      "4 mois"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 13 décret 89-677 — « Le conseil de discipline doit se prononcer dans le délai de deux mois à compter du jour où il a été saisi par l'autorité territoriale ».",
+    "source": "Art. 13"
+  },
+  {
+    "id": "statut-022",
+    "level": "F",
+    "q": "À quelle condition le conseil de discipline peut-il proposer de suspendre la procédure disciplinaire dans l'attente d'un jugement pénal ?",
+    "choices": [
+      "Si le fonctionnaire le demande",
+      "À la majorité des membres présents",
+      "Sur décision du président seul",
+      "Si l'autorité territoriale y consent"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 13 décret 89-677 — « le conseil de discipline peut, à la majorité des membres présents, proposer de suspendre la procédure disciplinaire jusqu'à l'intervention de la décision du tribunal ».",
+    "source": "Art. 13"
+  },
+  {
+    "id": "statut-023",
+    "level": "F",
+    "q": "Les heures indemnisées au titre de l'indemnité de mobilisation opérationnelle peuvent-elles faire l'objet d'une compensation horaire ?",
+    "choices": [
+      "Oui, sans restriction",
+      "Oui, mais uniquement pour les SPP de catégorie A",
+      "Non, elles ne peuvent pas faire l'objet d'une compensation horaire",
+      "Oui, si l'agent en fait la demande"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 6-8 (créé par le décret 2023-543) — « Les heures ainsi indemnisées ne peuvent faire l'objet d'une compensation horaire ».",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-024",
+    "level": "F",
+    "q": "L'aptitude médicale des sapeurs-pompiers est appréciée à quels() moment(s) de la carrière ?",
+    "choices": [
+      "Uniquement lors du recrutement",
+      "Lors du recrutement ou du premier engagement",
+      "Tout au long de la carrière ou de l'activité",
+      "Uniquement en fin de carrière avant la retraite"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Art. R.722-2 issu du décret 2025-330 — « Cette aptitude est appréciée lors du recrutement ou du premier engagement puis tout au long de la carrière ou de l'activité ».",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-025",
+    "level": "F",
+    "q": "Sur quoi repose l'évaluation de l'aptitude médicale des sapeurs-pompiers ?",
+    "choices": [
+      "Uniquement sur des tests physiques",
+      "Sur une évaluation médicale des capacités physiques, sensorielles et psychologiques",
+      "Sur un questionnaire déclaratif",
+      "Sur l'avis exclusif du médecin traitant"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. R.722-2 décret 2025-330 — « repose sur une évaluation médicale des capacités physiques, sensorielles et psychologiques ».",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-026",
+    "level": "F",
+    "q": "La commission consultative de la sous-direction santé est présidée par :",
+    "choices": [
+      "Le directeur départemental des services d'incendie et de secours",
+      "Le pharmacien-chef",
+      "Le médecin-chef",
+      "L'infirmier-chef"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. R1424-27 CGCT (version en vigueur) — « Cette commission est présidée par le médecin-chef ».",
+    "source": ""
+  },
+  {
+    "id": "statut-027",
+    "level": "F",
+    "q": "Lorsqu'un fonctionnaire est rétabli dans ses fonctions après non-lieu, relaxe ou acquittement, qui procède à ce rétablissement ?",
+    "choices": [
+      "Le conseil de discipline",
+      "Le tribunal administratif",
+      "L'autorité hiérarchique",
+      "Le préfet"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 30 loi 83-634 — « l'autorité hiérarchique procède au rétablissement dans ses fonctions du fonctionnaire ».",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-028",
+    "level": "F",
+    "q": "Combien de fois au maximum chaque partie (fonctionnaire ou autorité territoriale) peut-elle demander le report d'une affaire devant le conseil de discipline ?",
+    "choices": [
+      "Autant de fois qu'elle le souhaite",
+      "Une seule fois",
+      "Deux fois",
+      "Trois fois"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 8 décret 89-677 — « Le fonctionnaire et l'autorité territoriale ne peuvent demander qu'un seul report ».",
+    "source": "Art. 8"
+  },
+  {
+    "id": "statut-029",
+    "level": "F",
+    "q": "Quelles professions de santé peuvent être intégrées à la sous-direction santé ?",
+    "choices": [
+      "Médecins",
+      "Infirmiers",
+      "Kinésithérapeutes",
+      "Pharmaciens"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. R1424-25 CGCT — « La sous-direction santé comprend notamment des sapeurs-pompiers professionnels et volontaires, des infirmiers, médecins, pharmaciens et vétérinaires ». Les kinésithérapeutes ne sont pas cités.",
+    "source": ""
+  },
+  {
+    "id": "statut-030",
+    "level": "F",
+    "q": "Pour quel type de dispositif préventif l'indemnité de mobilisation opérationnelle peut-elle être versée au sein du propre SDIS d'un SPP ?",
+    "choices": [
+      "La protection des zones côtières",
+      "La protection de la forêt contre l'incendie",
+      "Les dispositifs préventifs lors d'événements sportifs",
+      "La protection des ouvrages d'art"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 6-9 créé par le décret 2023-543 — « l'indemnité de mobilisation opérationnelle peut être versée aux sapeurs-pompiers professionnels mobilisés préventivement par leur service d'incendie et de secours à la protection de la forêt contre l'incendie ».",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-031",
+    "level": "F",
+    "q": "Dans quel cadre les professionnels de santé de la sous-direction santé interviennent-ils lors des opérations de secours ?",
+    "choices": [
+      "Uniquement pour les victimes civiles",
+      "Pour la médicalisation/paramédicalisation des victimes, le soutien aux sapeurs-pompiers, et la coordination des équipes de soins",
+      "Exclusivement pour le soutien psychologique des sapeurs-pompiers",
+      "Pour la seule organisation du transport sanitaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. R1424-24 CGCT, 1° a), b) et c) — les missions comprennent la prise en charge des victimes, le soutien médical/psychologique aux SPP, et la coordination des équipes de soins.",
+    "source": ""
+  },
+  {
+    "id": "statut-032",
+    "level": "F",
+    "q": "La sanction prononcée par l'autorité disciplinaire est-elle immédiatement exécutoire ?",
+    "choices": [
+      "Non, elle prend effet après un délai de 15 jours",
+      "Oui, elle est immédiatement exécutoire",
+      "Elle ne prend effet qu'après notification au fonctionnaire",
+      "Elle est suspendue pendant la durée d'un éventuel recours"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 14 décret 89-677 — « La sanction prononcée par l'autorité ayant pouvoir disciplinaire est immédiatement exécutoire ».",
+    "source": "Art. 14"
+  },
+  {
+    "id": "statut-033",
+    "level": "M",
+    "q": "Un sapeur-pompier professionnel de catégorie B est suspendu pour faute grave. Au bout de 4 mois, aucune décision n'a été prise mais il fait l'objet de poursuites pénales. Dans quel(s) cas peut-il ne pas être rétabli dans ses fonctions ?",
+    "choices": [
+      "Si les mesures décidées par l'autorité judiciaire s'y opposent",
+      "Si le syndicat le demande",
+      "Si l'intérêt du service s'y oppose",
+      "Si le préfet émet un avis négatif"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. 30 loi 83-634 — « S'il fait l'objet de poursuites pénales et que les mesures décidées par l'autorité judiciaire ou l'intérêt du service n'y font pas obstacle, il est également rétabli dans ses fonctions ». L'absence de rétablissement est donc possible si ces deux conditions font obstacle.",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-034",
+    "level": "M",
+    "q": "Un fonctionnaire suspendu n'est pas rétabli dans ses fonctions après 4 mois en raison de poursuites pénales. Quelles solutions s'offrent à l'administration pour gérer sa situation ?",
+    "choices": [
+      "Prononcer sa révocation sans consultation du conseil de discipline",
+      "L'affecter provisoirement dans un emploi compatible avec les obligations du contrôle judiciaire",
+      "Le détacher d'office à titre provisoire dans un autre corps ou cadre d'emplois",
+      "Décider d'une mise à la retraite d'office immédiate"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Art. 30 loi 83-634 — sur décision motivée, il peut être « affecté provisoirement » ou « détaché d'office, à titre provisoire, dans un autre corps ou cadre d'emplois ».",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-035",
+    "level": "M",
+    "q": "Lors du délibéré du conseil de discipline, comment le président procède-t-il pour déterminer la sanction à proposer ?",
+    "choices": [
+      "Il soumet d'abord la sanction la plus légère",
+      "Il met aux voix la proposition la plus sévère parmi celles exprimées, puis en cas d'échec les suivantes par ordre décroissant de sévérité",
+      "Il procède à un vote unique sur la sanction proposée par l'autorité territoriale",
+      "Il dresse une liste et désigne la sanction médiane"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 12 décret 89-677 — « le président du conseil de discipline met aux voix la proposition de sanction la plus sévère parmi celles qui ont été exprimées lors du délibéré. Si cette proposition ne recueille pas l'accord de la majorité, le président met aux voix les autres sanctions [...] en commençant par la plus sévère après la sanction proposée ».",
+    "source": "Art. 12"
+  },
+  {
+    "id": "statut-036",
+    "level": "M",
+    "q": "La commission médicale d'aptitude peut être saisie par quels acteurs ?",
+    "choices": [
+      "Le directeur départemental des services d'incendie et de secours",
+      "Le président du conseil d'administration du SDIS",
+      "Le président de la commission",
+      "Les médecins du SDIS agréés à la détermination de l'aptitude"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Art. R.722-5 issu du décret 2025-330 — elle « peut être saisie de toute question relative aux conditions de santé particulières des sapeurs-pompiers par le directeur départemental des services d'incendie et de secours, son président ou les médecins du service d'incendie et de secours agréés ».",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-037",
+    "level": "M",
+    "q": "Pour l'agrément à la détermination de l'aptitude des sapeurs-pompiers, quelles listes particulières sont établies ?",
+    "choices": [
+      "Une liste des médecins agréés pour l'aptitude aux fonctions de sapeur-pompier",
+      "Une liste des médecins agréés pour l'aptitude à la conduite des sapeurs-pompiers",
+      "Une liste nationale des médecins généralistes autorisés à examiner les SPP",
+      "Une liste des infirmiers autorisés à prononcer l'aptitude définitive"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. R.722-3 issu du décret 2025-330 — deux listes particulières sont créées : l'une pour l'aptitude aux fonctions, l'autre pour l'aptitude à la conduite.",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-038",
+    "level": "M",
+    "q": "La commission consultative de la sous-direction santé comprend obligatoirement quels membres ?",
+    "choices": [
+      "Le médecin-chef (président)",
+      "Le médecin-chef adjoint",
+      "Deux pharmaciens",
+      "Deux infirmiers"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. R1424-27 CGCT — la commission comprend le médecin-chef (président), le médecin-chef adjoint, le pharmacien-chef, l'infirmier-chef, deux médecins, un pharmacien et deux infirmiers. Il y a un seul pharmacien (le pharmacien-chef + un pharmacien), non deux pharmaciens.",
+    "source": ""
+  },
+  {
+    "id": "statut-039",
+    "level": "M",
+    "q": "La commission médicale d'aptitude rend un avis obligatoire dans quel(s) cas ?",
+    "choices": [
+      "Pour toute visite médicale annuelle d'un SPP",
+      "Pour toute restriction d'aptitude définitive concernant un SPP ou SPV",
+      "Pour toute décision d'inaptitude définitive concernant un SPP ou SPV",
+      "Pour tout arrêt maladie de plus de 30 jours"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Art. R.722-5 décret 2025-330 — « Elle rend également un avis sur toute restriction d'aptitude ou décision d'inaptitude définitives concernant un sapeur-pompier professionnel ou volontaire ».",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-040",
+    "level": "M",
+    "q": "Lorsqu'un agent occupant un emploi fonctionnel est poursuivi disciplinairement, qui siège en qualité de représentants du personnel au conseil de discipline ?",
+    "choices": [
+      "Les membres titulaires de la CAP de sa catégorie",
+      "Trois fonctionnaires occupant un emploi fonctionnel tirés au sort sur une liste régionale",
+      "Des représentants syndicaux désignés par les organisations représentatives",
+      "Des fonctionnaires de catégorie A tirés au sort sur une liste nationale"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 2 décret 89-677 — « siègent en qualité de représentants du personnel trois fonctionnaires occupant un emploi fonctionnel, tirés au sort par le président du conseil de discipline parmi une liste [...] comportant tous les agents occupant un emploi fonctionnel dans la région ».",
+    "source": "Art. 2"
+  },
+  {
+    "id": "statut-041",
+    "level": "M",
+    "q": "Laquelle des affirmations suivantes sur l'indemnité de mobilisation opérationnelle est INCORRECTE ?",
+    "choices": [
+      "Elle peut être versée en cas de mobilisation préventive à la protection de la forêt",
+      "Son montant journalier maximum s'applique pour une durée d'engagement supérieure à 10 heures",
+      "Elle est cumulable avec une compensation horaire",
+      "Ses montants sont fixés par arrêté conjoint"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 6-9 décret 2023-543 — « Les heures ainsi indemnisées ne peuvent faire l'objet d'une compensation horaire ». Cette indemnité est donc non cumulable avec une récupération horaire.",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-042",
+    "level": "M",
+    "q": "Quel est le rôle spécifique attribué au médecin-chef dans la procédure de conseil médical applicable aux SPP ?",
+    "choices": [
+      "Il préside le conseil médical pour les SPP",
+      "Il peut présenter des observations au conseil médical lorsqu'il statue sur le cas d'un SPP",
+      "Il se substitue au médecin agréé désigné par le préfet",
+      "Il convoque et statue lui-même sur l'aptitude définitive"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 3 du décret 2025-330 modifiant le décret du 30 juillet 1987 — « Ce dernier [le médecin-chef] peut également présenter des observations écrites au conseil médical ».",
+    "source": "Art. 3"
+  },
+  {
+    "id": "statut-043",
+    "level": "M",
+    "q": "La sous-direction santé possède une mission de conseil et d'expertise. Quelles activités relèvent de cette mission ?",
+    "choices": [
+      "Contribuer à l'amélioration continue des pratiques professionnelles",
+      "Assurer la gestion administrative du personnel non soignant",
+      "Contribuer à la définition des politiques territoriales en lien avec la santé",
+      "Gérer directement les achats de matériels opérationnels"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. R1424-24, 6° a) et b) CGCT — le conseil et l'expertise comprennent « la contribution à l'amélioration continue des pratiques professionnelles » et « la contribution à la définition et à la mise en œuvre des politiques territoriales en lien avec la santé ».",
+    "source": ""
+  },
+  {
+    "id": "statut-044",
+    "level": "M",
+    "q": "Qui est habilité à réaliser l'évaluation de l'état de santé (par opposition à la détermination de l'aptitude) ?",
+    "choices": [
+      "Un médecin du SDIS agréé",
+      "Un infirmier habilité à cet effet",
+      "Le médecin traitant de l'agent",
+      "Un étudiant en 2ème ou 3ème cycle des études de médecine habilité"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. R.722-3 II décret 2025-330 — « L'évaluation de l'état de santé est réalisée par un médecin du service d'incendie et de secours agréé à la détermination de l'aptitude des sapeurs-pompiers, par un médecin, un infirmier ou un étudiant en deuxième ou en troisième cycle des études de médecine habilité à cet effet ». Le médecin traitant n'est pas mentionné.",
+    "source": "décret 2025-330"
+  },
+  {
+    "id": "statut-045",
+    "level": "M",
+    "q": "Pour la protection de la forêt contre l'incendie, à partir de combien d'heures d'engagement le montant journalier maximum de l'indemnité de mobilisation opérationnelle s'applique-t-il ?",
+    "choices": [
+      "8 heures",
+      "10 heures",
+      "12 heures",
+      "24 heures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 6-9 décret 2023-543 — « son montant journalier maximum dans le cas d'une durée d'engagement supérieure à dix heures ». Pour les renforts hors département (art. 6-8), ce seuil est de vingt-quatre heures.",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-046",
+    "level": "TF",
+    "q": "Quel texte a abrogé la loi Le Pors du 13 juillet 1983 ?",
+    "choices": [
+      "La loi du 6 août 2019 de transformation de la fonction publique",
+      "L'ordonnance n° 2021-1574 du 24 novembre 2021",
+      "Le décret du 30 juillet 1987",
+      "La loi du 26 janvier 1984"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "En-tête de la loi 83-634 — « Abrogé par Ordonnance n°2021-1574 du 24 novembre 2021 - art. 8 ».",
+    "source": ""
+  },
+  {
+    "id": "statut-047",
+    "level": "TF",
+    "q": "L'autorité investie du pouvoir disciplinaire informe l'intéressé des faits qui lui sont reprochés par quelle voie ?",
+    "choices": [
+      "Par voie orale lors d'un entretien formel",
+      "Par écrit",
+      "Par voie d'affichage au tableau de service",
+      "Par courriel uniquement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 4 décret 89-677 — « L'autorité investie du pouvoir disciplinaire informe par écrit l'intéressé de la procédure disciplinaire engagée contre lui ».",
+    "source": "Art. 4"
+  },
+  {
+    "id": "statut-048",
+    "level": "F",
+    "q": "Quel droit fondamental est garanti au fonctionnaire dès l'ouverture de la procédure disciplinaire ?",
+    "choices": [
+      "La communication intégrale de son dossier individuel",
+      "La possibilité de se faire assister par un ou plusieurs conseils de son choix",
+      "La possibilité de récuser le président du conseil de discipline",
+      "Le droit de demander une expertise médicale"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Art. 4 décret 89-677 — l'intéressé dispose du droit « d'obtenir la communication intégrale de son dossier individuel » et « de se faire assister par un ou plusieurs conseils de son choix ».",
+    "source": "Art. 4"
+  },
+  {
+    "id": "statut-049",
+    "level": "F",
+    "q": "Les membres des conseils de discipline sont soumis à quelle obligation concernant les informations dont ils ont eu connaissance ?",
+    "choices": [
+      "L'obligation de transparence et de publication",
+      "L'obligation de discrétion professionnelle",
+      "L'obligation de témoignage devant les juridictions",
+      "L'obligation de rapport au préfet"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 30 décret 89-677 — « Les membres des conseils de discipline sont soumis à l'obligation de discrétion professionnelle pour tous les faits et documents dont ils ont eu connaissance en leur qualité ».",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-050",
+    "level": "M",
+    "q": "Pour les renforts hors département, à partir de quelle durée d'engagement le montant journalier maximum de l'indemnité de mobilisation opérationnelle s'applique-t-il, et en quoi diffère-t-il du dispositif forêt ?",
+    "choices": [
+      "24 heures pour les renforts hors département, contre 10 heures pour la forêt",
+      "12 heures pour les deux dispositifs",
+      "10 heures pour les renforts hors département, contre 24 heures pour la forêt",
+      "Les deux dispositifs ont le même seuil de 24 heures"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Art. 6-8 décret 2023-543 — seuil de « vingt-quatre heures » pour les renforts hors département. Art. 6-9 — seuil de « dix heures » pour la protection de la forêt. Le seuil est donc différent entre les deux dispositifs.",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-051",
+    "level": "M",
+    "q": "Le dossier du fonctionnaire doit être reconstitué après effacement d'une sanction disciplinaire. Sous quel contrôle cette reconstitution est-elle effectuée ?",
+    "choices": [
+      "Du préfet de département",
+      "Du directeur du centre de gestion",
+      "Du président du conseil de discipline",
+      "De l'autorité territoriale seule"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 31 décret 89-677 — « Le dossier du fonctionnaire est reconstitué dans sa nouvelle composition sous le contrôle du président du conseil de discipline ». ## QCM COMPLET",
+    "source": "Art. 31"
+  },
+  {
+    "id": "statut-052",
+    "level": "TF",
+    "q": "Quelle est la nature juridique des sapeurs-pompiers professionnels ?",
+    "choices": [
+      "Des agents contractuels de droit public",
+      "Des fonctionnaires territoriaux",
+      "Des fonctionnaires d'État mis à disposition",
+      "Des agents publics relevant d'un statut spécial autonome"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 1er du décret n° 90-850 : « Les sapeurs-pompiers professionnels sont des fonctionnaires territoriaux chargés de l'exécution des missions définies à l'article L. 1424-2 du code général des collectivités territoriales. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-053",
+    "level": "TF",
+    "q": "Quel est le taux de l'indemnité de feu dont peuvent bénéficier les sapeurs-pompiers professionnels ?",
+    "choices": [
+      "15 % du traitement soumis à retenue pour pension",
+      "20 % du traitement soumis à retenue pour pension",
+      "25 % du traitement soumis à retenue pour pension",
+      "30 % du traitement soumis à retenue pour pension"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 6-3 du décret n° 90-850 : « une indemnité de feu d'un taux de 25 % du traitement soumis à retenue pour pension. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-054",
+    "level": "TF",
+    "q": "Les sapeurs-pompiers sont-ils autorisés à porter leur tenue réglementaire lors de manifestations sur la voie publique soumises à déclaration préalable ?",
+    "choices": [
+      "Oui, dès lors qu'ils sont en repos",
+      "Oui, avec l'autorisation du directeur du SDIS",
+      "Non, ils ne sont pas autorisés à porter la tenue hors service dans ces circonstances",
+      "Oui, uniquement en tenue de service courant"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 2 du décret n° 90-850 : « Ils ne sont pas autorisés à porter l'une des tenues réglementaires ou d'éléments composant ces tenues lorsqu'ils ne sont pas en service, notamment à l'occasion de manifestations sur la voie publique soumises au régime de déclaration préalable. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-055",
+    "level": "TF",
+    "q": "A quelle date est entré en vigueur le nouveau régime de carrières de catégorie C ?",
+    "choices": [
+      "14 mai 2016 (date de publication)",
+      "1er juillet 2016",
+      "1er janvier 2017",
+      "1er janvier 2020"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 19 du décret n° 2016-596 : « Le présent décret entre en vigueur le 1er janvier 2017. »",
+    "source": "décret n° 2016-596"
+  },
+  {
+    "id": "statut-056",
+    "level": "TF",
+    "q": "Combien de spécialités au maximum peuvent être prises en compte pour le calcul de l'indemnité de spécialité des SPP ?",
+    "choices": [
+      "Une seule",
+      "Deux",
+      "Trois",
+      "Quatre"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 6-5 du décret n° 90-850 : « Le nombre de spécialités pouvant être pris en compte pour le calcul de l'indemnité est limité à deux. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-057",
+    "level": "TF",
+    "q": "Quel est le délai de prescription au-delà duquel aucune procédure disciplinaire ne peut être engagée contre un fonctionnaire ?",
+    "choices": [
+      "1 an",
+      "2 ans",
+      "3 ans",
+      "5 ans"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 36 de la loi n° 2016-483 (inséré à l'article 19 de la loi de 1983) : « Aucune procédure disciplinaire ne peut être engagée au-delà d'un délai de trois ans à compter du jour où l'administration a eu une connaissance effective de la réalité, de la nature et de l'ampleur des faits passibles de sanction. »",
+    "source": ""
+  },
+  {
+    "id": "statut-058",
+    "level": "TF",
+    "q": "Quel est le taux maximum de l'indemnité de logement pour les SPP non logés ?",
+    "choices": [
+      "5 % du traitement augmenté de l'indemnité de résidence",
+      "8 % du traitement augmenté de l'indemnité de résidence",
+      "10 % du traitement augmenté de l'indemnité de résidence",
+      "15 % du traitement augmenté de l'indemnité de résidence"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 6-6 du décret n° 90-850 : « Les sapeurs-pompiers professionnels non logés peuvent percevoir une indemnité de logement égale au maximum à 10 % du traitement augmenté de l'indemnité de résidence. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-059",
+    "level": "TF",
+    "q": "Entre combien d'échelles de rémunération les grades de catégorie C sont-ils répartis ?",
+    "choices": [
+      "2 échelles",
+      "3 échelles",
+      "4 échelles",
+      "5 échelles"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 1er du décret n° 2016-596 : « Les grades et emplois des fonctionnaires territoriaux classés dans la catégorie C sont répartis entre les trois échelles de rémunération énumérées ci-après, en allant vers la plus élevée : C1, C2 et C3. »",
+    "source": "décret n° 2016-596"
+  },
+  {
+    "id": "statut-060",
+    "level": "TF",
+    "q": "Quel fonctionnaire peut consulter un référent déontologue ?",
+    "choices": [
+      "Uniquement les fonctionnaires de catégorie A",
+      "Tout fonctionnaire",
+      "Uniquement les fonctionnaires occupant des emplois à responsabilité",
+      "Uniquement les fonctionnaires faisant l'objet d'une enquête disciplinaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 11 V de la loi n° 2016-483 (article 28 bis) : « Tout fonctionnaire a le droit de consulter un référent déontologue, chargé de lui apporter tout conseil utile au respect des obligations et des principes déontologiques. »",
+    "source": ""
+  },
+  {
+    "id": "statut-061",
+    "level": "TF",
+    "q": "Qui fixe le régime indemnitaire des sapeurs-pompiers professionnels ?",
+    "choices": [
+      "Le préfet de département",
+      "Le directeur départemental des services d'incendie et de secours",
+      "Le conseil d'administration du service d'incendie et de secours",
+      "Le ministre chargé de la sécurité civile"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 6-1 du décret n° 90-850 : « Le régime indemnitaire des sapeurs-pompiers professionnels est fixé par le conseil d'administration du service d'incendie et de secours dans les limites déterminées aux articles suivants. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-062",
+    "level": "TF",
+    "q": "Quel principe impose au fonctionnaire de s'abstenir de manifester ses opinions religieuses dans l'exercice de ses fonctions ?",
+    "choices": [
+      "Le principe d'impartialité",
+      "Le principe de laïcité",
+      "Le principe de neutralité",
+      "Le principe d'intégrité"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 1er de la loi n° 2016-483 (article 25 de la loi de 1983) : « Le fonctionnaire exerce ses fonctions dans le respect du principe de laïcité. A ce titre, il s'abstient notamment de manifester, dans l'exercice de ses fonctions, ses opinions religieuses. »",
+    "source": ""
+  },
+  {
+    "id": "statut-063",
+    "level": "TF",
+    "q": "A quoi ont droit les SPP en ce qui concerne le logement en caserne ?",
+    "choices": [
+      "Ils sont obligatoirement logés en caserne",
+      "Ils ont droit au logement en caserne dans la limite des locaux disponibles",
+      "Ils ont droit au logement uniquement pendant les gardes",
+      "Le logement en caserne est optionnel et payant"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 5 du décret n° 90-850 : « Les sapeurs-pompiers professionnels ont droit au logement en caserne dans la limite des locaux disponibles. Dans ce cas, l'électricité et le chauffage leur sont fournis à titre obligatoire et gratuit. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-064",
+    "level": "TF",
+    "q": "Quel grade correspond à l'emploi opérationnel de « Chef d'agrès tout engin » ?",
+    "choices": [
+      "Sergent",
+      "Adjudant",
+      "Caporal-chef",
+      "Lieutenant de 2e classe"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Tableau de concordance annexé au décret n° 90-850 : l'Adjudant occupe notamment l'emploi de « Chef d'agrès tout engin ».",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-065",
+    "level": "F",
+    "q": "Un fonctionnaire territorial de catégorie C est recruté dans un grade en échelle C1. A quel échelon est-il classé lors de sa nomination, en l'absence de dispositions particulières ?",
+    "choices": [
+      "À l'échelon correspondant à son ancienneté globale",
+      "Au 1er échelon du grade",
+      "À l'échelon médian de l'échelle C1",
+      "À l'échelon déterminé par tirage au sort"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 4 I du décret n° 2016-596 : « Les fonctionnaires recrutés dans un cadre d'emplois ou un emploi de catégorie C dans un grade situé en échelle de rémunération C1 ou C2 sont classés, lors de leur nomination, au 1er échelon de ce grade, sous réserve des dispositions prévues aux II à IV et aux articles 5 à 10. »",
+    "source": "décret n° 2016-596"
+  },
+  {
+    "id": "statut-066",
+    "level": "F",
+    "q": "Quels SPP sont exclus du bénéfice de l'indemnité de spécialité ?",
+    "choices": [
+      "Les sapeurs et caporaux",
+      "Les officiers de grade de lieutenant et supérieur",
+      "Ceux occupant des emplois de chef de groupement, sous-directeur, directeur adjoint ou directeur",
+      "Les SPP n'ayant pas validé de formation de spécialité"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Article 6-5 du décret n° 90-850 : « Les sapeurs-pompiers professionnels, à l'exclusion de ceux occupant des emplois de chef de groupement, de sous-directeur, de directeur adjoint ou de directeur, peuvent bénéficier d'une indemnité de spécialité. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-067",
+    "level": "F",
+    "q": "Un fonctionnaire à temps complet souhaitant créer une entreprise peut demander un service à temps partiel. Quelle est la durée maximum de l'autorisation initiale ?",
+    "choices": [
+      "1 an",
+      "2 ans",
+      "3 ans",
+      "5 ans"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 7 de la loi n° 2016-483 (article 25 septies III) : « L'autorisation [...] est accordée [...] pour une durée maximale de deux ans, renouvelable pour une durée d'un an, à compter de la création ou de la reprise de cette entreprise. »",
+    "source": ""
+  },
+  {
+    "id": "statut-068",
+    "level": "F",
+    "q": "Quels types de récompenses collectives peuvent être attribuées pour actes de courage et de dévouement ?",
+    "choices": [
+      "Des médailles individuelles uniquement",
+      "Des récompenses collectives à des services d'incendie et de secours",
+      "Des promotions collectives de grade",
+      "Des indemnités exceptionnelles collectives"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 20 du décret n° 90-850 : « des récompenses collectives peuvent être attribuées pour actes de courage et de dévouement à des services d'incendie et de secours. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-069",
+    "level": "F",
+    "q": "Laquelle de ces activités un fonctionnaire à temps complet peut-il exercer librement sans autorisation ?",
+    "choices": [
+      "Créer une entreprise commerciale immatriculée au RCS",
+      "La production des œuvres de l'esprit",
+      "Donner des consultations juridiques dans des litiges intéressant une personne publique",
+      "Participer aux organes de direction d'une société à but lucratif"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 7 de la loi n° 2016-483 (article 25 septies V) : « La production des œuvres de l'esprit, au sens des articles L. 112-1, L. 112-2 et L. 112-3 du code de la propriété intellectuelle, s'exerce librement [...]. »",
+    "source": ""
+  },
+  {
+    "id": "statut-070",
+    "level": "F",
+    "q": "A qui s'applique la doctrine opérationnelle définie par le ministre chargé de la sécurité civile ?",
+    "choices": [
+      "Aux seuls officiers SPP",
+      "À l'ensemble des sapeurs-pompiers professionnels",
+      "Aux SPP et associations de protections civiles de façon identique",
+      "Uniquement aux SPP de catégorie C"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 3 du décret n° 90-850 : « La doctrine opérationnelle définie par le ministre chargé de la sécurité civile s'applique à l'ensemble des sapeurs-pompiers professionnels. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-071",
+    "level": "F",
+    "q": "Que risque un fonctionnaire qui ne respecte pas un avis d'incompatibilité rendu par la commission de déontologie ?",
+    "choices": [
+      "Une retenue sur traitement automatique de 50 %",
+      "Des poursuites disciplinaires",
+      "Une mise en disponibilité d'office",
+      "Une révocation immédiate sans procédure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 10 de la loi n° 2016-483 (article 25 octies VI) : « Lorsque le fonctionnaire ne respecte pas l'avis rendu au titre des mêmes 2° et 3°, il peut faire l'objet de poursuites disciplinaires. »",
+    "source": ""
+  },
+  {
+    "id": "statut-072",
+    "level": "F",
+    "q": "Quelle distinction est attachée à la fourragère tricolore pour les SPP d'un service ayant reçu une distinction collective ?",
+    "choices": [
+      "Elle est attribuée uniquement au chef de service",
+      "Tous les SPP en activité dans ce service sont autorisés à la porter",
+      "Elle est réservée aux officiers du service distingué",
+      "Elle ne peut être portée qu'en tenue de cérémonie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 21 du décret n° 90-850 : « Les sapeurs-pompiers professionnels, en activité dans un service d'incendie et de secours ayant fait l'objet d'une distinction collective au moins égale à la médaille de bronze pour actes de courage et de dévouement, sont autorisés à porter une fourragère tricolore. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-073",
+    "level": "F",
+    "q": "La protection fonctionnelle peut-elle être accordée aux proches d'un fonctionnaire victime d'atteintes liées à ses fonctions ?",
+    "choices": [
+      "Non, la protection est strictement personnelle",
+      "Oui, au conjoint, concubin, partenaire PACS, enfants et ascendants directs, sur leur demande",
+      "Oui, mais uniquement au conjoint marié",
+      "Oui, uniquement en cas de décès du fonctionnaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 20 de la loi n° 2016-483 (article 11 V) : « La protection peut être accordée, sur leur demande, au conjoint, au concubin, au partenaire lié par un pacte civil de solidarité au fonctionnaire, à ses enfants et à ses ascendants directs. »",
+    "source": ""
+  },
+  {
+    "id": "statut-074",
+    "level": "F",
+    "q": "Qui organise les concours et examens pour les cadres d'emplois des SPP de catégorie C ?",
+    "choices": [
+      "Le CNFPT exclusivement",
+      "Les services départementaux et territoriaux d'incendie et de secours",
+      "Les centres de gestion de la FPT",
+      "Le ministre chargé de la sécurité civile directement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 9 du décret n° 90-850 : « Les services départementaux et territoriaux d'incendie et de secours organisent les concours et examens prévus [...] pour l'ensemble des sapeurs-pompiers professionnels des cadres d'emplois de sapeurs-pompiers professionnels de catégorie C. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-075",
+    "level": "M",
+    "q": "Quelles sont les affirmations exactes concernant le délai de prescription disciplinaire ?",
+    "choices": [
+      "Le délai de 3 ans court à compter du jour où le fonctionnaire a commis les faits",
+      "Le délai est interrompu en cas de poursuites pénales jusqu'à la décision définitive",
+      "Passé ce délai, les faits ne peuvent plus être invoqués dans une procédure disciplinaire, sauf si une autre procédure avait été engagée avant l'expiration",
+      "Le délai est suspendu pendant la durée de la suspension du fonctionnaire"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Article 36 de la loi n° 2016-483 : le délai court « à compter du jour où l'administration a eu une connaissance effective » (A est faux), il est interrompu en cas de poursuites pénales (B), et les faits ne peuvent plus être invoqués passé ce délai sauf procédure préalablement engagée (C). La suspension ne suspend pas le délai (D faux).",
+    "source": ""
+  },
+  {
+    "id": "statut-076",
+    "level": "M",
+    "q": "Un SPP est logé en casernement, peut-il percevoir l'indemnité forfaitaire pour travaux supplémentaires (IFTS) ?",
+    "choices": [
+      "Oui, dans les mêmes conditions que les SPP non logés",
+      "Non, les SPP logés en casernement ne peuvent percevoir l'IFTS",
+      "Oui, mais uniquement pour les heures effectuées la nuit",
+      "Oui, avec un plafond réduit de moitié"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 6-7 du décret n° 90-850 : « Les sapeurs-pompiers professionnels logés en casernement ou par nécessité absolue de service ne peuvent percevoir l'indemnité forfaitaire pour travaux supplémentaires. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-077",
+    "level": "M",
+    "q": "Dans quelles situations un SPP a-t-il le droit au port individuel de la fourragère ?",
+    "choices": [
+      "Uniquement s'il est encore en activité dans le service distingué",
+      "S'il a personnellement pris part aux actions primées, même après passage dans un autre service non distingué",
+      "Uniquement si le service dans lequel il est affecté au moment du port a été distingué",
+      "S'il a servi au moins 5 ans dans le service distingué"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 22 du décret n° 90-850 : « Tout sapeur-pompier professionnel qui a personnellement pris part aux actions qui ont valu à un service l'attribution de la fourragère a droit au port individuel de cette distinction, même après passage dans un autre service auquel elle n'a pas été accordée. »",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-078",
+    "level": "M",
+    "q": "Quel événement interrompt le délai de prescription disciplinaire de 3 ans ?",
+    "choices": [
+      "La suspension du fonctionnaire par l'autorité disciplinaire",
+      "L'ouverture de poursuites pénales à l'encontre du fonctionnaire",
+      "La saisine du conseil de discipline",
+      "La demande de communication du dossier par le fonctionnaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Article 36 de la loi n° 2016-483 : « En cas de poursuites pénales exercées à l'encontre du fonctionnaire, ce délai est interrompu jusqu'à la décision définitive de classement sans suite, de non-lieu, d'acquittement, de relaxe ou de condamnation. »",
+    "source": ""
+  },
+  {
+    "id": "statut-079",
+    "level": "M",
+    "q": "Un fonctionnaire territorial à temps complet souhaite exercer une activité accessoire lucrative. Quelle condition est requise ?",
+    "choices": [
+      "L'activité est compatible avec ses fonctions et n'en affecte pas l'exercice, après autorisation de l'autorité hiérarchique",
+      "L'activité est exercée uniquement le week-end",
+      "L'activité est déclarée à l'administration dans les 6 mois",
+      "L'activité est autorisée de plein droit dès lors qu'elle est exercée hors des heures de service"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Article 7 de la loi n° 2016-483 (article 25 septies IV) : « Le fonctionnaire peut être autorisé par l'autorité hiérarchique dont il relève à exercer à titre accessoire une activité [...] dès lors que cette activité est compatible avec les fonctions qui lui sont confiées et n'affecte pas leur exercice. »",
+    "source": ""
+  },
+  {
+    "id": "statut-080",
+    "level": "M",
+    "q": "Quelles sont les affirmations exactes concernant le régime indemnitaire des SPP ?",
+    "choices": [
+      "Le régime indemnitaire comporte les indemnités prévues au décret,",
+      "Le président du conseil d'administration détermine le taux individuel applicable à chaque SPP",
+      "Seuls les emplois inscrits au budget du SIS effectivement pourvus sont pris en compte",
+      "Les indemnités sont uniformément fixées par arrêté ministériel pour tous les SDIS"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Articles 6-2 du décret n° 90-850 : le régime comporte les indemnités prévues et celles de la FPT sans même objet (A), le président du CA fixe le taux individuel (B), seuls les emplois effectivement pourvus sont pris en compte (C). D est faux : le CA fixe dans des limites, pas le ministre directement.",
+    "source": "décret n° 90-850"
+  },
+  {
+    "id": "statut-081",
+    "level": "TF",
+    "q": "Quel est le nom de la nouvelle instance de dialogue social créée dans les collectivités territoriales par la loi du 6 août 2019, en remplacement du comité technique et du CHSCT ?",
+    "choices": [
+      "Comité d'hygiène et de sécurité territorial",
+      "Comité social territorial",
+      "Comité paritaire local",
+      "Conseil de service territorial"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 4, II — L'article 32 de la loi 84-53 est réécrit pour créer le « comité social territorial », qui se substitue au comité technique et au CHSCT.",
+    "source": ""
+  },
+  {
+    "id": "statut-082",
+    "level": "TF",
+    "q": "Dans quels Services Départementaux d'Incendie et de Secours (SDIS) une formation spécialisée en matière de santé, de sécurité et de conditions de travail est-elle obligatoirement créée ?",
+    "choices": [
+      "Uniquement dans les SDIS de plus de 200 agents",
+      "Uniquement dans les SDIS de catégorie A",
+      "Dans chaque SDIS, sans condition d'effectifs",
+      "Dans les SDIS de plus de 50 agents seulement"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Loi 2019-828, art. 4, II — Art. 32-1 loi 84-53 : « Cette formation est créée dans chaque service départemental d'incendie et de secours par décision de l'organe délibérant, sans condition d'effectifs. »",
+    "source": "Art. 32"
+  },
+  {
+    "id": "statut-083",
+    "level": "TF",
+    "q": "Qui préside les comités sociaux territoriaux ?",
+    "choices": [
+      "Le préfet de département",
+      "L'autorité territoriale ou son représentant, qui ne peut être qu'un élu local",
+      "Le directeur général des services",
+      "Le représentant syndical majoritaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 4, II — Art. 32 loi 84-53 : « Les comités sociaux territoriaux sont présidés par l'autorité territoriale ou son représentant, qui ne peut être qu'un élu local. »",
+    "source": "Art. 32"
+  },
+  {
+    "id": "statut-084",
+    "level": "TF",
+    "q": "La loi du 6 août 2019 introduit la possibilité de mettre fin d'un commun accord aux fonctions d'un fonctionnaire. Comment ce dispositif est-il appelé ?",
+    "choices": [
+      "Démission d'office",
+      "Mise en disponibilité conventionnelle",
+      "Rupture conventionnelle",
+      "Résiliation amiable"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Loi 2019-828, art. 72 — La rupture conventionnelle résulte d'une convention signée par les deux parties et entraîne radiation des cadres et perte de la qualité de fonctionnaire.",
+    "source": ""
+  },
+  {
+    "id": "statut-085",
+    "level": "TF",
+    "q": "Quel est le délai maximal dans lequel un agent public doit recevoir communication des informations essentielles relatives à l'exercice de ses fonctions, à compter du premier jour d'exercice ?",
+    "choices": [
+      "24 heures",
+      "3 jours calendaires",
+      "7 jours calendaires",
+      "15 jours calendaires"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Décret 2024-1038, Annexe, Art. R115-3 CGFP : « La communication des informations intervient, en une ou plusieurs fois, au plus tard dans un délai de sept jours calendaires à compter du premier jour d'exercice des fonctions. »",
+    "source": ""
+  },
+  {
+    "id": "statut-086",
+    "level": "TF",
+    "q": "Lors d'un entretien professionnel annuel, quelle information le fonctionnaire doit-il obligatoirement recevoir ?",
+    "choices": [
+      "Le montant de sa prochaine augmentation de traitement",
+      "Une information sur l'ouverture et l'utilisation de ses droits au compte personnel de formation",
+      "La liste des postes disponibles dans sa collectivité",
+      "Les résultats du rapport social unique de l'année précédente"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 27, III — Art. 76 loi 84-53 (et art. 55 loi 84-16) : lors de l'entretien professionnel annuel, « les fonctionnaires reçoivent une information sur l'ouverture et l'utilisation de leurs droits afférents au compte prévu à l'article 22 quater ».",
+    "source": "Art. 76"
+  },
+  {
+    "id": "statut-087",
+    "level": "TF",
+    "q": "Dans le cadre des nominations aux emplois de direction, quel est le seuil de représentation de chaque sexe que doivent respecter les collectivités territoriales de plus de 40 000 habitants ?",
+    "choices": [
+      "20 %",
+      "30 %",
+      "40 %",
+      "50 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Loi 2019-828, art. 82 — Art. 6 quater loi 83-634 : « les nominations [...] doivent concerner, [...] au moins 40 % de personnes de chaque sexe. »",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-088",
+    "level": "TF",
+    "q": "Dans la fonction publique territoriale, quelle commission examine les décisions individuelles défavorables telles que l'avancement, la promotion interne ou la discipline ?",
+    "choices": [
+      "Le comité social territorial",
+      "La commission consultative paritaire",
+      "La commission administrative paritaire (CAP)",
+      "Le conseil de prud'hommes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Loi 2019-828, art. 10, III — Art. 30 loi 84-53 : la CAP examine les décisions individuelles listées aux articles 46, 60, 72, 76, 89, 93 et 96.",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-089",
+    "level": "F",
+    "q": "Parmi les sujets suivants, lesquels relèvent de la compétence du comité social territorial ?",
+    "choices": [
+      "La protection de la santé physique et mentale des agents au travail",
+      "Les orientations stratégiques sur les politiques de ressources humaines",
+      "La fixation individuelle des primes de chaque agent",
+      "Les enjeux et politiques d'égalité professionnelle et de lutte contre les discriminations"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Loi 2019-828, art. 4, II — Art. 33 loi 84-53 : les CST connaissent des questions relatives aux points 1° à 8°, dont notamment le 3° (orientations RH), le 5° (égalité professionnelle) et le 7° (santé, sécurité). La fixation individuelle des primes n'est pas dans le champ de compétence du CST.",
+    "source": "Art. 33"
+  },
+  {
+    "id": "statut-090",
+    "level": "F",
+    "q": "Qu'est-ce qu'une ligne directrice de gestion (LDG) dans la fonction publique territoriale ?",
+    "choices": [
+      "Un acte réglementaire pris par le préfet fixant les règles nationales de mobilité",
+      "Un document arrêté par l'autorité territoriale, après avis du comité social territorial, déterminant la stratégie pluriannuelle de pilotage des RH",
+      "Un accord collectif obligatoirement négocié avec les syndicats",
+      "Un règlement intérieur de la collectivité approuvé par l'assemblée délibérante"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 30, II — Art. 33-5 loi 84-53 : « des lignes directrices de gestion sont arrêtées par l'autorité territoriale, après avis du comité social territorial. »",
+    "source": "Art. 33"
+  },
+  {
+    "id": "statut-091",
+    "level": "F",
+    "q": "Quels documents l'agent public doit-il obligatoirement recevoir selon parmi les éléments suivants ?",
+    "choices": [
+      "Le montant de sa rémunération avec ses éléments constitutifs",
+      "Ses droits à congés rémunérés",
+      "L'évaluation de son logement de fonction",
+      "Ses droits à la formation"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Décret 2024-1038, Art. R115-2 CGFP — Les informations obligatoires incluent le 9° (montant de la rémunération et ses éléments), le 10° (droits à congés rémunérés) et le 11° (droits à la formation). L'évaluation d'un logement de fonction ne figure pas dans cette liste.",
+    "source": ""
+  },
+  {
+    "id": "statut-092",
+    "level": "F",
+    "q": "Lors d'une procédure disciplinaire, quel nouveau groupe de sanction est introduit par la loi du 6 août 2019 dans la fonction publique de l'État ?",
+    "choices": [
+      "L'avertissement oral",
+      "L'exclusion temporaire de fonctions pour une durée maximale de 3 jours (1er groupe)",
+      "La mise en garde écrite",
+      "La suspension temporaire de salaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 31, II — Art. 66 loi 84-16 modifié : il est inséré après le 4e alinéa la sanction : « l'exclusion temporaire de fonctions pour une durée maximale de trois jours », placée dans le 1er groupe de sanctions.",
+    "source": "Art. 66"
+  },
+  {
+    "id": "statut-093",
+    "level": "F",
+    "q": "Un fonctionnaire territorial ayant fait l'objet d'une sanction du 2e ou 3e groupe peut demander la suppression de toute mention de cette sanction de son dossier. Après combien d'années de services effectifs à compter de la date de la sanction ?",
+    "choices": [
+      "5 ans",
+      "8 ans",
+      "10 ans",
+      "15 ans"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Loi 2019-828, art. 31, III — Art. 89 loi 84-53 modifié : « après dix années de services effectifs à compter de la date de la sanction disciplinaire, [le fonctionnaire peut] introduire [...] une demande tendant à la suppression de toute mention de la sanction prononcée dans son dossier. »",
+    "source": "Art. 89"
+  },
+  {
+    "id": "statut-094",
+    "level": "F",
+    "q": "Quelle est la particularité de la formation spécialisée en matière de santé, sécurité et conditions de travail (FSSSCT) créée dans les comités sociaux par rapport au comité social lui-même ?",
+    "choices": [
+      "Elle est présidée par le médecin du travail",
+      "Elle traite les questions relatives à la santé, la sécurité et les conditions de travail, sauf celles relatives aux projets de réorganisation de services",
+      "Elle ne comprend que des représentants du personnel, sans représentants de l'employeur",
+      "Elle se réunit uniquement après un accident du travail"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 4, II — Art. 33-1 loi 84-53 : « La formation spécialisée [...] est chargée d'exercer les attributions énoncées au 7° de l'article 33, sauf lorsque ces questions se posent dans le cadre de projets de réorganisation de services examinés par le comité social territorial. »",
+    "source": "Art. 33"
+  },
+  {
+    "id": "statut-095",
+    "level": "F",
+    "q": "Dans la fonction publique territoriale, quels organismes peuvent désormais mettre en place un dispositif de signalement des actes de violence, discrimination ou harcèlement pour le compte des collectivités qui en font la demande ?",
+    "choices": [
+      "Les SDIS",
+      "Les centres de gestion",
+      "Le CNFPT",
+      "Les préfectures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 80, II — Art. 26-2 loi 84-53 : « Les centres de gestion mettent en place, pour le compte des collectivités territoriales et de leurs établissements publics qui en font la demande, le dispositif de signalement prévu à l'article 6 quater A. »",
+    "source": "Art. 26"
+  },
+  {
+    "id": "statut-096",
+    "level": "M",
+    "q": "Un fonctionnaire territorial de catégorie C (sapeur-pompier professionnel de 1re classe) souhaite exercer une activité accessoire en dehors de ses heures de service en tant qu'instructeur de natation dans une association. Lequel ou lesquels de ces principes encadrent cette démarche ?",
+    "choices": [
+      "Le principe d'exclusivité des fonctions publiques lui interdit toute activité rémunérée",
+      "Il doit respecter les règles relatives au cumul d'activités",
+      "Il doit déclarer cette activité à son autorité hiérarchique",
+      "Son autorité hiérarchique peut solliciter l'avis du référent déontologue en cas de doute sur la compatibilité"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Loi 2019-828, art. 34 et décret 2024-1038, Art. R122 CGFP — Les règles du cumul d'activités (art. 25 septies loi 83-634) imposent une déclaration préalable à l'autorité hiérarchique. Lorsqu'un doute subsiste, l'autorité peut saisir le référent déontologue (voire la HATVP pour certains emplois). L'exclusivité n'est pas absolue : des activités accessoires sont autorisées sous conditions.",
+    "source": "décret 2024-1038"
+  },
+  {
+    "id": "statut-097",
+    "level": "M",
+    "q": "La commission administrative paritaire (CAP) de la fonction publique territoriale est compétente pour examiner quelle décision individuelle parmi celles listées ci-dessous ?",
+    "choices": [
+      "Les mutations comportant un simple changement d'affectation interne",
+      "L'avancement de grade",
+      "Les décisions de mobilité (mutations)",
+      "Les sanctions disciplinaires"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Loi 2019-828, art. 10, III — Art. 30 loi 84-53 : la CAP examine les décisions relatives aux articles 46 (avancement), 60, 72, 76, 89 (discipline), 93 et 96. Les décisions de mobilité/mutations ne relèvent plus des CAP depuis le 1er janvier 2020 (art. 94 IV 1°). Les mutations simples internes non plus..",
+    "source": "Art. 30"
+  },
+  {
+    "id": "statut-098",
+    "level": "M",
+    "q": "Un fonctionnaire territorial est en disponibilité pour convenance personnelle. Laquelle ou lesquelles des affirmations suivantes sont exactes ?",
+    "choices": [
+      "Il n'acquiert pas de droits à la retraite durant cette période",
+      "Il conserve ses droits à l'avancement pendant toute la durée de la disponibilité",
+      "Il conserve ses droits à l'avancement dans la limite de 5 ans pour l'ensemble de sa carrière",
+      "La période de disponibilité est assimilée à des services effectifs dans le cadre d'emplois"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Loi 2019-828, art. 85, II — Art. 72 al. 2 loi 84-53 : dans cette position, « le fonctionnaire n'acquiert pas de droit à la retraite [...]. Il conserve ses droits à l'avancement, dans la limite d'une durée de cinq ans pour l'ensemble de sa carrière. » La période n'est pas assimilée à des services effectifs (à la différence du congé parental).",
+    "source": "Art. 72"
+  },
+  {
+    "id": "statut-099",
+    "level": "M",
+    "q": "En matière d'égalité professionnelle, la loi impose aux collectivités d'élaborer un plan d'action pluriannuel. Quelles mesures ce plan doit-il obligatoirement comporter ?",
+    "choices": [
+      "L'évaluation, la prévention et le traitement des écarts de rémunération entre les femmes et les hommes",
+      "Des mesures de recrutement exclusivement féminin pour les postes où les femmes sont sous-représentées",
+      "La garantie de l'égal accès des femmes et des hommes aux corps et grades",
+      "La prévention et le traitement des discriminations et actes de harcèlement"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Loi 2019-828, art. 80 — Art. 6 septies loi 83-634 : le plan d'action comporte des mesures visant à : 1° évaluer, prévenir et traiter les écarts de rémunération, 2° garantir l'égal accès, 3° favoriser l'articulation vie pro/vie personnelle, 4° prévenir et traiter discriminations et harcèlements. Le recrutement exclusivement féminin n'est pas prévu et serait contraire au principe d'égal accès.",
+    "source": "Art. 6"
+  },
+  {
+    "id": "statut-100",
+    "level": "M",
+    "q": "Un agent de la fonction publique territoriale de catégorie C est convoqué devant une instance disciplinaire. Une témoin citée dans la procédure s'estime victime d'agissements de harcèlement moral de la part de l'agent mis en cause. Que prévoit la loi pour ce témoin ?",
+    "choices": [
+      "Elle peut demander à être assistée par une tierce personne de son choix devant l'instance disciplinaire",
+      "Elle bénéficie automatiquement du statut de partie civile",
+      "Elle peut choisir un représentant syndical pour l'assister",
+      "Elle ne peut pas prendre la parole devant l'instance disciplinaire"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Loi 2019-828, art. 31, I — Art. 29 al. 2 loi 83-634 : « Toute personne ayant qualité de témoin cité dans le cadre d'une procédure disciplinaire et qui s'estime victime des agissements mentionnés aux articles 6, 6 bis, 6 ter, 6 quinquies ou 6 sexies de la part du fonctionnaire convoqué devant l'instance disciplinaire peut demander à être assistée, devant cette même instance, d'une tierce personne de son choix. »",
+    "source": "Art. 29"
+  },
+  {
+    "id": "statut-101",
+    "level": "M",
+    "q": "Laquelle ou lesquelles de ces situations caractérisent une « incompatibilité » susceptible d'être retenue par la Haute Autorité pour la Transparence de la Vie Publique (HATVP) lors de l'examen d'une activité privée envisagée par un fonctionnaire quittant ses fonctions ?",
+    "choices": [
+      "L'activité risque de compromettre l'indépendance ou la neutralité du service d'origine",
+      "L'activité est exercée dans un secteur sans lien avec les fonctions antérieures",
+      "L'activité place l'intéressé en situation de commettre une prise illégale d'intérêts (art. 432-12 du code pénal)",
+      "L'activité méconnaît un principe déontologique mentionné à l'article 25 loi 83-634"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Loi 2019-828, art. 34 — Art. 25 octies VI loi 83-634 : la HATVP examine « si l'activité qu'exerce le fonctionnaire risque de compromettre ou de mettre en cause le fonctionnement normal, l'indépendance ou la neutralité du service, de méconnaître tout principe déontologique mentionné à l'article 25 ou de placer l'intéressé en situation de commettre les infractions prévues aux articles 432-12 ou 432-13 du code pénal. »",
+    "source": "Art. 25"
+  },
+  {
+    "id": "statut-102",
+    "level": "M",
+    "q": "Parmi les affirmations suivantes sur le droit de grève des agents territoriaux des SDIS, laquelle ou lesquelles sont exactes ?",
+    "choices": [
+      "Un agent qui a déclaré son intention de participer à la grève doit informer l'autorité territoriale de son intention d'y participer au plus tard 48 heures avant, comprenant au moins un jour ouvré",
+      "Les informations issues des déclarations individuelles peuvent être utilisées à des fins disciplinaires directes",
+      "Un agent qui renonce à participer à la grève doit en informer l'autorité territoriale au plus tard 24 heures avant l'heure prévue de sa participation",
+      "Un agent qui participe à la grève et décide de reprendre son service doit en informer l'autorité territoriale au plus tard 24 heures avant l'heure de sa reprise"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Loi 2019-828, art. 56 — Art. 7-2 II loi 84-53 : les délais de 48 h et 24 h sont posés respectivement pour la déclaration d'intention de grève, la renonciation et la reprise. « Les informations issues de ces déclarations individuelles ne peuvent être utilisées que pour l'organisation du service durant la grève », ce qui exclut une utilisation disciplinaire directe.",
+    "source": "Art. 7"
+  },
+  {
+    "id": "statut-103",
+    "level": "M",
+    "q": "Quelles décisions individuelles ne relèvent PLUS des attributions des commissions administratives paritaires dans la fonction publique territoriale depuis le 1er janvier 2020 ?",
+    "choices": [
+      "Les sanctions disciplinaires",
+      "Les décisions de mobilité (mutations)",
+      "L'avancement de grade",
+      "La promotion interne"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 94, IV — « Les décisions individuelles relatives aux mutations et aux mobilités ne relèvent plus des attributions des commissions administratives paritaires à compter du 1er janvier 2020, au sein de la fonction publique territoriale et de la fonction publique hospitalière. »",
+    "source": ""
+  },
+  {
+    "id": "statut-104",
+    "level": "F",
+    "q": "La durée du travail effectif dans la fonction publique de l'État (et par extension pour les agents publics) est-elle fixée ?",
+    "choices": [
+      "À 1 600 heures annuelles",
+      "À 1 607 heures annuelles",
+      "À 35 heures hebdomadaires uniquement",
+      "À 1 582 heures annuelles"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Loi 2019-828, art. 48 — Art. 65 bis loi 84-16 : « le décompte du temps de travail est réalisé sur la base d'une durée annuelle de travail effectif de 1 607 heures. »",
+    "source": "Art. 65"
+  },
+  {
+    "id": "statut-105",
+    "level": "M",
+    "q": "Un fonctionnaire territorial a fait l'objet d'une exclusion temporaire de fonctions de 3 jours (sanction du 1er groupe). Quelles sont les conséquences sur son dossier ?",
+    "choices": [
+      "Cette sanction est inscrite au dossier et effacée automatiquement au bout de 3 ans",
+      "Le blâme et l'exclusion temporaire de fonctions sont tous deux inscrits au dossier et effacés automatiquement au bout de 3 ans si aucune nouvelle sanction n'intervient",
+      "L'exclusion de 3 jours peut être prononcée sans consultation préalable du conseil de discipline",
+      "L'exclusion de 3 jours ne figure pas dans les sanctions du 1er groupe de la FPT"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Loi 2019-828, art. 31, II — Art. 66 al. 16 loi 84-16 : « le blâme et l'exclusion temporaire de fonctions sont inscrits au dossier du fonctionnaire. Ils sont effacés automatiquement au bout de trois ans si aucune sanction n'est intervenue pendant cette période. » L'art. 66 al. final précise que l'exclusion temporaire de 3 jours max peut être prononcée sans conseil de discipline.",
+    "source": "Art. 66"
+  }
+]

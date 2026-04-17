@@ -1,0 +1,476 @@
+[
+  {
+    "id": "textes-001",
+    "level": "TF",
+    "q": "Le cadre d'emplois des sapeurs et caporaux de sapeurs-pompiers professionnels appartient à quelle catégorie de la fonction publique territoriale ?",
+    "choices": [
+      "Catégorie A",
+      "Catégorie B",
+      "Catégorie C",
+      "Catégorie D"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 1 du décret n° 2012-520 — « constituent un cadre d'emplois de sapeurs-pompiers professionnels non officiers de catégorie C ».",
+    "source": "Art. 1"
+  },
+  {
+    "id": "textes-002",
+    "level": "TF",
+    "q": "Quels sont les trois grades qui composent le cadre d'emplois des sapeurs et caporaux de sapeurs-pompiers professionnels ?",
+    "choices": [
+      "Sapeur, caporal, sergent",
+      "Sapeur, caporal, caporal-chef",
+      "Caporal, caporal-chef, sergent",
+      "Sapeur, sapeur de 1re classe, caporal"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 1 du décret n° 2012-520 — « Ce cadre d'emplois comprend les grades de sapeur, de caporal et de caporal-chef de sapeurs-pompiers professionnels. »",
+    "source": "Art. 1"
+  },
+  {
+    "id": "textes-003",
+    "level": "TF",
+    "q": "Dans quel(s) type(s) d'établissement les sapeurs et caporaux exercent-ils leurs fonctions ?",
+    "choices": [
+      "Dans les services de l'État uniquement",
+      "Dans les services départementaux et territoriaux d'incendie et de secours",
+      "Dans les brigades de la gendarmerie nationale",
+      "Dans tout service public territorial"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 2 du décret n° 2012-520 — « Les sapeurs et caporaux exercent leurs fonctions dans les services départementaux et territoriaux d'incendie et de secours. »",
+    "source": "Art. 2"
+  },
+  {
+    "id": "textes-004",
+    "level": "TF",
+    "q": "Le recrutement au grade de sapeur de sapeurs-pompiers professionnels s'effectue :",
+    "choices": [
+      "Par concours externe sur titre",
+      "Par examen professionnel",
+      "Sans concours",
+      "Par liste d'aptitude après concours interne"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 3 du décret n° 2012-520 — « Le recrutement au grade de sapeur de sapeurs-pompiers professionnels est effectué sans concours conformément aux dispositions du 3° de l'article L. 326-1 du code général de la fonction publique. »",
+    "source": "Art. 3"
+  },
+  {
+    "id": "textes-005",
+    "level": "TF",
+    "q": "Quelle est la durée du stage pour les candidats nommés sapeurs ou caporaux stagiaires ?",
+    "choices": [
+      "Six mois",
+      "Un an",
+      "Deux ans",
+      "Dix-huit mois"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 7 du décret n° 2012-520 — « nommés sapeurs et caporaux stagiaires, pour une durée d'un an ».",
+    "source": "Art. 7"
+  },
+  {
+    "id": "textes-006",
+    "level": "TF",
+    "q": "Le concours externe de caporal de sapeurs-pompiers professionnels comporte quels types d'épreuves ?",
+    "choices": [
+      "Des épreuves d'admissibilité uniquement",
+      "Des épreuves d'admissibilité et d'admission uniquement",
+      "Des épreuves d'admissibilité, de préadmission et d'admission",
+      "Des épreuves de préadmission et d'admission uniquement"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 1 du décret n° 2020-1474 — « Les concours externes de caporal de sapeurs-pompiers professionnels (…) comportent des épreuves d'admissibilité, de préadmission et d'admission. »",
+    "source": "Art. 1"
+  },
+  {
+    "id": "textes-007",
+    "level": "TF",
+    "q": "En quoi consiste l'épreuve d'admission du concours externe de caporal ?",
+    "choices": [
+      "Une épreuve écrite de synthèse de dossier",
+      "Un entretien individuel avec le jury à partir d'une fiche individuelle",
+      "Un questionnaire à choix multiples",
+      "Une épreuve physique de parcours professionnel"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 4 du décret n° 2020-1474 — « L'épreuve d'admission consiste en un entretien individuel avec le jury à partir d'une fiche individuelle établie par le candidat. »",
+    "source": "Art. 4"
+  },
+  {
+    "id": "textes-008",
+    "level": "TF",
+    "q": "Quelle est la durée de la première épreuve d'admissibilité du concours externe de caporal (étude de texte) ?",
+    "choices": [
+      "Trente minutes",
+      "Une heure",
+      "Deux heures",
+      "Trois heures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 2 du décret n° 2020-1474 — « Une étude de texte, d'une durée d'une heure, coefficient 1. »",
+    "source": "Art. 2"
+  },
+  {
+    "id": "textes-009",
+    "level": "TF",
+    "q": "En qualité d'équipier, dans quel grade un sapeur-pompier professionnel est-il amené à participer aux missions dans les centres d'incendie et de secours ?",
+    "choices": [
+      "Caporal uniquement",
+      "Sapeur uniquement",
+      "Sapeur et caporal",
+      "Caporal-chef uniquement"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 2 du décret n° 2012-520 — « 1° Les sapeurs participent (…) en qualité d'équipier ; 2° Les caporaux participent (…) en qualité d'équipier ou de chef d'équipe. »",
+    "source": "Art. 2"
+  },
+  {
+    "id": "textes-010",
+    "level": "TF",
+    "q": "Le jury du concours externe de caporal comprend combien de membres titulaires ?",
+    "choices": [
+      "Trois membres",
+      "Quatre membres",
+      "Six membres",
+      "Neuf membres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 47-I du décret n° 2020-1474 — « Pour le cadre d'emplois des sapeurs et caporaux, six membres titulaires répartis en trois collèges égaux. »",
+    "source": "Art. 47"
+  },
+  {
+    "id": "textes-011",
+    "level": "F",
+    "q": "Quelles sont les conditions simultanées requises pour se présenter au concours externe de caporal ouvert au titre du 2° ?",
+    "choices": [
+      "Être titulaire d'un diplôme de niveau 3 minimum",
+      "Avoir la qualité de sapeur-pompier volontaire",
+      "Justifier de trois ans au moins d'activité en qualité de SPV ou assimilée",
+      "Avoir validé la formation initiale du sapeur de SPV pour l'ensemble des domaines opérationnels"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Art. 5-2° du décret n° 2012-520 — le concours voie 2° est ouvert aux candidats ayant la qualité de SPV, justifiant de trois ans d'activité et ayant validé la formation initiale du sapeur SPV pour l'ensemble des domaines opérationnels.",
+    "source": "Art. 5"
+  },
+  {
+    "id": "textes-012",
+    "level": "F",
+    "q": "Quelle est la durée maximale de la présentation lors de l'entretien oral d'admission du concours externe de caporal ?",
+    "choices": [
+      "Cinq minutes",
+      "Dix minutes",
+      "Quinze minutes",
+      "Vingt minutes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Art. 4 du décret n° 2020-1474 — « entretien individuel avec le jury (…) d'une durée de quinze minutes dont cinq minutes au plus de présentation. »",
+    "source": "Art. 4"
+  },
+  {
+    "id": "textes-013",
+    "level": "F",
+    "q": "Quelles épreuves composent les épreuves physiques du concours externe de caporal ?",
+    "choices": [
+      "Une épreuve de natation",
+      "Une épreuve de grimper de corde",
+      "Un parcours professionnel adapté",
+      "Une épreuve d'endurance cardio-respiratoire"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Art. 48 du décret n° 2020-1474 — « Les épreuves physiques comprennent : 1° Une épreuve de natation ; 2° Une épreuve de parcours professionnel adapté ; 3° Une épreuve d'endurance cardio-respiratoire. »",
+    "source": "Art. 48"
+  },
+  {
+    "id": "textes-014",
+    "level": "F",
+    "q": "Que se passe-t-il si un candidat échoue à l'épreuve physique de natation lors du concours externe de caporal ?",
+    "choices": [
+      "Sa note est ramenée à zéro mais il peut continuer le concours",
+      "Il est éliminé du concours",
+      "Il peut demander une dérogation auprès du jury",
+      "Sa note est compensée par les autres épreuves physiques"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 54-2° du décret n° 2020-1474 — « Entraînent l'élimination du candidat : (…) 2° Le constat d'un échec à l'épreuve physique de natation. »",
+    "source": "Art. 54"
+  },
+  {
+    "id": "textes-015",
+    "level": "F",
+    "q": "Dans le jury du concours de caporal, qui préside le jury parmi les personnalités qualifiées ?",
+    "choices": [
+      "Un représentant du Centre national de la fonction publique territoriale",
+      "Un officier de sapeurs-pompiers professionnels extérieur au SDIS organisateur, désigné sur proposition du chef d'état-major de zone",
+      "Un élu local, membre du conseil d'administration d'un SDIS",
+      "Un représentant du ministère de l'intérieur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 47-I du décret n° 2020-1474 — « deux personnalités qualifiées : un officier de sapeurs-pompiers professionnels extérieur au service (…) désigné sur proposition du chef d'état-major de zone territorialement compétent, président. »",
+    "source": "Art. 47"
+  },
+  {
+    "id": "textes-016",
+    "level": "F",
+    "q": "Quelle est la note minimale à ne pas atteindre à l'une des épreuves obligatoires d'admissibilité ou d'admission pour être éliminé du concours de caporal ?",
+    "choices": [
+      "Moins de 8 sur 20",
+      "Moins de 5 sur 20",
+      "Moins de 6 sur 20",
+      "Moins de 10 sur 20"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 54-4° du décret n° 2020-1474 — « Entraînent l'élimination du candidat : (…) 4° Toute note inférieure à 5 sur 20 à l'une des épreuves obligatoires d'admissibilité ou d'admission. »",
+    "source": "Art. 54"
+  },
+  {
+    "id": "textes-017",
+    "level": "F",
+    "q": "Parmi les thèmes suivants, lesquels font partie du programme du QCM « activités et compétences de l'équipier SPV » du concours externe de caporal (voie 2°) ?",
+    "choices": [
+      "Lutte contre les incendies",
+      "Secours d'urgence aux personnes",
+      "Gestion des finances publiques locales",
+      "Protection des personnes et des biens, opérations diverses"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. 2 de l'arrêté du 30 novembre 2020 — le programme comprend : lutte contre les incendies, secours d'urgence aux personnes, protection des personnes et des biens, techniques opérationnelles, culture administrative. La gestion des finances publiques locales n'en fait pas partie.",
+    "source": "Art. 2"
+  },
+  {
+    "id": "textes-018",
+    "level": "F",
+    "q": "Quelle est la durée maximale de prolongation du stage des sapeurs ou caporaux stagiaires lorsque la formation d'intégration n'a pu être dispensée dans la période initiale ?",
+    "choices": [
+      "Six mois",
+      "Un an",
+      "Dix-huit mois",
+      "Deux ans"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 8 du décret n° 2012-520 — « Cette prolongation ne peut dépasser un an. »",
+    "source": "Art. 8"
+  },
+  {
+    "id": "textes-019",
+    "level": "F",
+    "q": "Quelle note minimale un candidat doit-il obtenir en moyenne à l'ensemble des épreuves pour être admis à un concours de la FPT ?",
+    "choices": [
+      "8 sur 20",
+      "10 sur 20",
+      "12 sur 20",
+      "14 sur 20"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 18 du décret n° 2013-593 — « Un candidat ne peut être admis si la moyenne de ses notes aux épreuves est inférieure à 10 sur 20 après application des coefficients correspondants. »",
+    "source": "Art. 18"
+  },
+  {
+    "id": "textes-020",
+    "level": "F",
+    "q": "La culture administrative figure-t-elle dans le programme du QCM de la seconde épreuve d'admissibilité du concours externe de caporal (voie 2°) ?",
+    "choices": [
+      "Non, ce programme ne concerne que les techniques opérationnelles",
+      "Oui, sous forme de notions sur les institutions politiques et administratives, les SIS et les bases du droit de la fonction publique",
+      "Oui, mais uniquement pour les questions relatives aux finances publiques",
+      "Non, la culture administrative est réservée aux concours de sous-officiers"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 2-5° de l'arrêté du 30 novembre 2020 — « 5. Culture administrative : Institutions politiques et administratives de la France ; Services d'incendie et de secours ; Bases du droit de la fonction publique. »",
+    "source": "Art. 2"
+  },
+  {
+    "id": "textes-021",
+    "level": "M",
+    "q": "Laquelle des affirmations suivantes concernant les caporaux N'EST PAS conforme ?",
+    "choices": [
+      "Les caporaux peuvent exercer les fonctions de chef d'équipe après deux années de services effectifs dans leur grade",
+      "Les caporaux participent aux activités de formation incombant aux services d'incendie et de secours",
+      "Les caporaux peuvent occuper les fonctions de chef d'équipe dès leur nomination dans le grade",
+      "Les caporaux ont vocation à participer aux interventions nécessitant une technicité supérieure"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 2-2° du décret n° 2012-520 — « Ils ne peuvent occuper les fonctions de chef d'équipe qu'après deux années de services effectifs dans leur grade. » La nomination immédiate aux fonctions de chef d'équipe est donc exclue.",
+    "source": "Art. 2"
+  },
+  {
+    "id": "textes-022",
+    "level": "M",
+    "q": "Lequel de ces candidats remplit les conditions d'ancienneté pour être détaché dans le grade de caporal du cadre d'emplois des sapeurs et caporaux SPP (voie détachement de militaires) ?",
+    "choices": [
+      "Un caporal militaire justifiant de cinq ans de services effectifs dont deux dans ce grade",
+      "Un caporal militaire justifiant de huit ans de services effectifs dont deux dans ce grade",
+      "Un soldat justifiant de six ans de services effectifs",
+      "Un caporal-chef militaire justifiant de six ans de services effectifs dont deux dans ce grade"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 16 du décret n° 2012-520 — tableau : « Caporal ou quartier-maître de 2e classe justifiant d'au moins huit années de services effectifs en qualité de militaire, dont deux dans ces grades » → grade de détachement : Caporal.",
+    "source": "Art. 16"
+  },
+  {
+    "id": "textes-023",
+    "level": "M",
+    "q": "Dans quelle situation un candidat inscrit sur liste d'aptitude est-il automatiquement radié de celle-ci ?",
+    "choices": [
+      "S'il refuse une offre d'emploi",
+      "S'il refuse deux offres d'emploi notifiées dans les conditions réglementaires",
+      "S'il ne se manifeste pas dans le délai d'un an suivant son inscription",
+      "S'il ne répond pas à une offre dans un délai d'un mois"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 23 du décret n° 2013-593 — « Toute personne inscrite sur une liste d'aptitude qui a refusé deux offres d'emploi notifiées dans les conditions prévues au présent article, est radiée de la liste d'aptitude. »",
+    "source": "Art. 23"
+  },
+  {
+    "id": "textes-024",
+    "level": "M",
+    "q": "Parmi les situations suivantes, lesquelles entraînent l'élimination d'un candidat au concours externe de caporal ?",
+    "choices": [
+      "Une note inférieure à 5/20 à l'épreuve d'entretien d'admission",
+      "Un échec à l'épreuve de natation",
+      "Une moyenne inférieure à 8/20 aux épreuves physiques de parcours et d'endurance",
+      "Une moyenne inférieure à 12/20 à l'ensemble des épreuves du concours"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Art. 54 du décret n° 2020-1474 — causes d'élimination : note < 5/20 à une épreuve obligatoire (A), échec à la natation (B), moyenne < 8/20 aux épreuves physiques de parcours et endurance (C). La moyenne éliminatoire à l'ensemble du concours est < 10/20",
+    "source": "Art. 54"
+  },
+  {
+    "id": "textes-025",
+    "level": "M",
+    "q": "Dans le jury du concours de caporal, les représentants du grade de caporal, caporal-chef, sergent ou adjudant sont désignés selon quelle procédure ?",
+    "choices": [
+      "Par nomination directe du président du jury",
+      "Par tirage au sort parmi les membres de la commission administrative paritaire compétente",
+      "Par élection interne au SDIS organisateur",
+      "Par désignation du directeur du SDIS"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 47-I du décret n° 2020-1474 — « deux représentants du grade de caporal, caporal-chef, sergent ou adjudant de sapeurs-pompiers professionnels, désignés par tirage au sort parmi les membres de la commission administrative paritaire compétente. »",
+    "source": "Art. 47"
+  },
+  {
+    "id": "textes-026",
+    "level": "M",
+    "q": "Quelles conditions sont requises pour qu'un agent détaché dans le cadre d'emplois des sapeurs et caporaux puisse demander à y être intégré ?",
+    "choices": [
+      "Avoir été détaché depuis deux ans au moins",
+      "Avoir satisfait aux obligations de formation du grade de détachement",
+      "Avoir reçu l'accord du directeur du SDIS d'origine",
+      "Faire une demande en ce sens"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Art. 15 du décret n° 2012-520 — « Les agents détachés dans le présent cadre d'emplois peuvent, sur leur demande, y être intégrés lorsqu'ils y ont été détachés depuis deux ans au moins et sous réserve d'avoir satisfait aux obligations de formation du grade de détachement concerné. » L'accord du directeur du SDIS d'origine n'est pas une condition mentionnée.",
+    "source": "Art. 15"
+  },
+  {
+    "id": "textes-027",
+    "level": "M",
+    "q": "Concernant la proportion entre recrutements de sapeurs et de caporaux, laquelle des règles suivantes est exacte ?",
+    "choices": [
+      "Le nombre de recrutements de sapeurs ne peut excéder le double des recrutements de caporaux",
+      "Pour deux recrutements de caporaux, on ne peut recruter qu'un sapeur au maximum",
+      "Les deux recrutements sont totalement indépendants",
+      "Le nombre de recrutements de sapeurs doit être au moins égal à celui des caporaux"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 3 du décret n° 2012-520 — « Au titre d'une année civile, les recrutements de sapeurs ne peuvent intervenir qu'à raison d'un pour deux recrutements de caporaux figurant sur la liste d'aptitude prévue à l'article 5. ». Les Sapeurs étant recrutés sans concours nécessaires.",
+    "source": "Art. 3"
+  },
+  {
+    "id": "textes-028",
+    "level": "M",
+    "q": "Lequel des thèmes suivants N'EST PAS inclus dans le programme du QCM de mathématiques du concours externe de caporal (voie 1°) ?",
+    "choices": [
+      "Les opérations sur les nombres décimaux et les fractions",
+      "Les volumes courants (parallélépipède, prisme, cylindre, cône, sphère)",
+      "La vitesse et vitesse moyenne",
+      "Les probabilités et les statistiques"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Art. 1 de l'arrêté du 30 novembre 2020 — le programme couvre l'arithmétique, la géométrie et des notions associées (temps, vitesse, poids, densité). Les probabilités et statistiques n'y figurent pas.",
+    "source": "Art. 1"
+  },
+  {
+    "id": "textes-029",
+    "level": "M",
+    "q": "Laquelle des propositions suivantes concernant la titularisation des stagiaires N'EST PAS conforme ?",
+    "choices": [
+      "La titularisation est subordonnée à la validation de la formation d'intégration du sapeur",
+      "Le stagiaire peut être titularisé même s'il n'a pas validé sa formation d'intégration, sur décision de l'autorité territoriale",
+      "En cas de stage prolongé, la titularisation prend effet à la date prévue de fin de la période de stage initiale",
+      "Si la titularisation n'est pas prononcée, le stagiaire peut être réintégré dans son corps d'origine s'il était fonctionnaire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 9 du décret n° 2012-520 — « les stagiaires sont titularisés (…) sous réserve qu'ils aient validé la formation d'intégration du sapeur. » Il n'existe aucune dérogation permettant une titularisation sans validation de cette formation.",
+    "source": "Art. 9"
+  }
+]

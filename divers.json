@@ -1,0 +1,296 @@
+[
+  {
+    "id": "divers-001",
+    "level": "TF",
+    "q": "Quelle est la tranche d'effectif correspondant à la 2ème catégorie d'ERP ?",
+    "choices": [
+      "Au-dessus de 1 500 personnes",
+      "De 701 à 1 500 personnes",
+      "De 301 à 700 personnes",
+      "300 personnes et au-dessous"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. R143-19 — La 2ème catégorie correspond à un effectif de 701 à 1 500 personnes.",
+    "source": ""
+  },
+  {
+    "id": "divers-002",
+    "level": "TF",
+    "q": "La 4ème catégorie d'ERP comprend les établissements dont l'effectif est de :",
+    "choices": [
+      "300 personnes et au-dessous, à l'exception des établissements de 5ème catégorie",
+      "De 301 à 700 personnes",
+      "Moins de 150 personnes",
+      "De 701 à 1 500 personnes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Art. R143-19 — La 4ème catégorie est définie comme « 300 personnes et au-dessous, à l'exception des établissements compris dans la 5ème catégorie ».",
+    "source": ""
+  },
+  {
+    "id": "divers-003",
+    "level": "TF",
+    "q": "Sous quelle autorité est défini le plan communal de sauvegarde ?",
+    "choices": [
+      "Le préfet de département",
+      "Le président du conseil départemental",
+      "Le maire",
+      "Le directeur départemental des services d'incendie et de secours"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 1 — « Le plan communal de sauvegarde définit, sous l'autorité du maire, l'organisation prévue par la commune… »",
+    "source": "Art. 1"
+  },
+  {
+    "id": "divers-004",
+    "level": "TF",
+    "q": "Quel est le délai maximal entre deux révisions du plan communal ou intercommunal de sauvegarde ?",
+    "choices": [
+      "2 ans",
+      "3 ans",
+      "4 ans",
+      "5 ans"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Art. 6 — « Dans tous les cas, le délai de révision ne peut excéder cinq ans. »",
+    "source": "Art. 6"
+  },
+  {
+    "id": "divers-005",
+    "level": "TF",
+    "q": "A qui le maire transmet-il le plan communal de sauvegarde après son adoption ?",
+    "choices": [
+      "Au président du conseil régional",
+      "Au préfet du département",
+      "Au directeur de cabinet de la préfecture",
+      "Au sous-préfet d'arrondissement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 4 — « Il est transmis par le maire au préfet du département. »",
+    "source": "Art. 4"
+  },
+  {
+    "id": "divers-006",
+    "level": "TF",
+    "q": "Le PCS définit les actions de la commune en matière de :",
+    "choices": [
+      "Alerte, information, protection et soutien de la population",
+      "Extinction des incendies et secours à victimes",
+      "Planification des gardes et astreintes",
+      "Formation des sapeurs-pompiers volontaires"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Art. 1 — « l'organisation prévue par la commune pour assurer l'alerte, l'information, la protection et le soutien de la population au regard des risques connus. »",
+    "source": "Art. 1"
+  },
+  {
+    "id": "divers-007",
+    "level": "TF",
+    "q": "Selon quel critère les établissements recevant du public sont-ils répartis en types ?",
+    "choices": [
+      "L'effectif maximal admissible",
+      "La nature de leur exploitation",
+      "La surface totale du bâtiment",
+      "L'année de construction"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. R143-18 — « Les établissements, répartis en types selon la nature de leur exploitation… »",
+    "source": ""
+  },
+  {
+    "id": "divers-008",
+    "level": "TF",
+    "q": "Le PCS complète quel(s) autre(s) plan(s) ?",
+    "choices": [
+      "Les plans ORSEC de protection générale des populations",
+      "Les plans de prévention des risques industriels",
+      "Le SDACR",
+      "Les plans de secours spécialisés"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Art. 1 — « Le plan communal de sauvegarde complète les plans ORSEC de protection générale des populations. »",
+    "source": "Art. 1"
+  },
+  {
+    "id": "divers-009",
+    "level": "TF",
+    "q": "A qui incombe la mise en œuvre du plan communal ou intercommunal de sauvegarde ?",
+    "choices": [
+      "Au préfet de département",
+      "Au président de l'intercommunalité",
+      "À chaque maire sur le territoire de sa commune",
+      "Au directeur des services de secours"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. 7 — « La mise en oeuvre du plan communal ou intercommunal de sauvegarde relève de la responsabilité de chaque maire sur le territoire de sa commune. »",
+    "source": "Art. 7"
+  },
+  {
+    "id": "divers-010",
+    "level": "TF",
+    "q": "Le PCS comprend obligatoirement un annuaire opérationnel. Dans quelle rubrique figure-t-il ?",
+    "choices": [
+      "Dans le diagnostic des risques et vulnérabilités locales",
+      "Dans l'organisation assurant la protection et le soutien de la population",
+      "Dans les modalités de mise en œuvre de la réserve communale",
+      "Dans l'inventaire des moyens de la commune"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. 3 (I c) — L'organisation assurant la protection et le soutien de la population comprend « notamment un annuaire opérationnel et un règlement d'emploi des différents moyens d'alerte ».",
+    "source": "Art. 3"
+  },
+  {
+    "id": "divers-011",
+    "level": "F",
+    "q": "Quels éléments peuvent entrer en compte dans la détermination de l'effectif du public d'un ERP ?",
+    "choices": [
+      "Le nombre de places assises",
+      "La surface des locaux techniques",
+      "La surface réservée au public",
+      "Le nombre d'issues de secours"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. R143-19 — L'effectif est déterminé « d'après le nombre de places assises, la surface réservée au public, la déclaration contrôlée du chef de l'établissement ou d'après l'ensemble de ces indications. »",
+    "source": ""
+  },
+  {
+    "id": "divers-012",
+    "level": "F",
+    "q": "Sur quels documents l'analyse des risques du PCS s'appuie-t-elle ?",
+    "choices": [
+      "Le dossier départemental sur les risques majeurs établi par le préfet",
+      "Le règlement opérationnel du SDIS",
+      "Les plans de prévention des risques naturels prévisibles approuvés par le préfet",
+      "Le schéma directeur d'aménagement et de gestion des eaux"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. 2 — L'analyse des risques s'appuie « notamment sur les informations recueillies lors de l'élaboration du dossier départemental sur les risques majeurs établi par le préfet du département, les plans de prévention des risques naturels prévisibles ou les plans particuliers d'intervention approuvés par le préfet ».",
+    "source": "Art. 2"
+  },
+  {
+    "id": "divers-013",
+    "level": "F",
+    "q": "Quels éléments font partie du contenu obligatoire du PCS ?",
+    "choices": [
+      "Le document d'information communal sur les risques majeurs (DICRIM)",
+      "L'inventaire des véhicules du SDIS",
+      "Le diagnostic des risques et des vulnérabilités locales",
+      "L'organisation assurant la protection et le soutien de la population"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Art. 3 (I) — Le PCS comprend obligatoirement : a) le DICRIM, b) le diagnostic des risques et vulnérabilités locales, c) l'organisation assurant la protection et le soutien de la population.",
+    "source": "Art. 3"
+  },
+  {
+    "id": "divers-014",
+    "level": "F",
+    "q": "Dans quels cas le maire met-il en œuvre le PCS ?",
+    "choices": [
+      "Pour faire face à un événement affectant directement le territoire de la commune",
+      "Pour gérer les gardes et astreintes des agents municipaux",
+      "Dans le cadre d'une opération de secours d'une ampleur ou de nature particulière nécessitant une large mobilisation de moyens",
+      "Pour organiser les élections municipales"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Art. 7 — Le maire met en œuvre le plan « soit pour faire face à un événement affectant directement le territoire de la commune, soit dans le cadre d'une opération de secours d'une ampleur ou de nature particulière nécessitant une large mobilisation de moyens. »",
+    "source": "Art. 7"
+  },
+  {
+    "id": "divers-015",
+    "level": "M",
+    "q": "Un établissement accueille 280 visiteurs et emploie 30 salariés dont 10 travaillent dans des locaux indépendants disposant de leurs propres dégagements. Dans quelle catégorie cet ERP est-il classé ?",
+    "choices": [
+      "5ème catégorie",
+      "4ème catégorie",
+      "3ème catégorie",
+      "2ème catégorie"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. R143-19 — L'effectif à retenir est de 280 (public) + 20 (personnel sans locaux indépendants) = 300 personnes. Mais la 4ème catégorie est « 300 personnes et au-dessous, à l'exception des établissements de 5ème catégorie ». Attention : on doit ensuite appliquer la règle de majoration : 280 + 20 = 300 → 4ème catégorie. Si l'on retient 280 + 30 = 310 (tous les salariés sans distinction), c'est la 3ème catégorie (301-700). La question teste la maîtrise de la règle de majoration : seuls les 20 salariés sans locaux indépendants sont ajoutés → 300 personnes → 4ème catégorie. *(Note : réponse correcte B — 4ème catégorie : 280 + 20 = 300 ≤ 300)* Réponse correcte : B Justification : Art. R143-19 — On majore l'effectif du public (280) du personnel n'occupant pas de locaux indépendants avec leurs propres dégagements (30 - 10 = 20), soit 280 + 20 = 300 personnes → 4ème catégorie (300 personnes et au-dessous).",
+    "source": ""
+  },
+  {
+    "id": "divers-016",
+    "level": "M",
+    "q": "Un ERP accueille 650 personnes du public ; et 60 salariés tous installés dans des locaux indépendants avec dégagements propres. Dans quelle catégorie est-il classé ?",
+    "choices": [
+      "1ère catégorie",
+      "2ème catégorie",
+      "3ème catégorie",
+      "4ème catégorie"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Art. R143-19 — Le personnel occupant des locaux indépendants avec leurs propres dégagements n'est pas ajouté à l'effectif. L'effectif retenu est donc 650 personnes → 3ème catégorie (301 à 700 personnes).",
+    "source": ""
+  },
+  {
+    "id": "divers-017",
+    "level": "M",
+    "q": "Un ERP de type indéterminé, ne correspondant à aucun type du règlement de sécurité, souhaite ouvrir. Parmi les affirmations suivantes, lesquelles sont exactes ?",
+    "choices": [
+      "Il est exempt de toute obligation de sécurité puisqu'aucun type ne lui correspond",
+      "Il reste assujetti aux prescriptions relatif aux ERP",
+      "Les mesures de sécurité sont fixées en tenant compte des types dont la nature d'exploitation se rapproche le plus",
+      "Il est automatiquement classé en 5ème catégorie"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Art. R143-20 — Ces établissements « sont néanmoins assujettis aux prescriptions du présent chapitre » et les mesures sont précisées « en tenant compte de celles qui sont imposées aux types d'établissements dont la nature d'exploitation se rapproche le plus ».",
+    "source": ""
+  },
+  {
+    "id": "divers-018",
+    "level": "M",
+    "q": "Parmi les affirmations suivantes relatives à la 5ème catégorie d'ERP, laquelle est correcte ?",
+    "choices": [
+      "Elle regroupe les établissements dont l'effectif dépasse 1 500 personnes",
+      "Elle correspond aux établissements dont l'effectif du public n'atteint pas le chiffre minimum fixé par le règlement de sécurité pour chaque type d'exploitation",
+      "Elle est réservée aux établissements de plein air",
+      "Elle concerne uniquement les établissements scolaires"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Art. R143-19 — La 5ème catégorie correspond aux « établissements faisant l'objet de l'article R. 143-14 dans lesquels l'effectif du public n'atteint pas le chiffre minimum fixé par le règlement de sécurité pour chaque type d'exploitation. »",
+    "source": ""
+  }
+]

@@ -1,0 +1,233 @@
+[
+  {
+    "id": "gdo-agricole-001",
+    "level": "TF",
+    "q": "Qu'est-ce que l'écobuage ?",
+    "choices": [
+      "Un procédé de stockage anaérobie des végétaux pour l'alimentation animale.",
+      "Une technique qui consiste à brûler directement les végétaux sur pied.",
+      "Un processus biologique de dégradation de matières organiques sans oxygène.",
+      "Une méthode de séchage du fourrage en vrac."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le lexique du GDO définit l'écobuage comme « la technique qui consiste à brûler directement les végétaux sur pied. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-002",
+    "level": "TF",
+    "q": "Quelle est la teneur en azote de l'ammoniac anhydre utilisé comme engrais ?",
+    "choices": [
+      "33,5 %",
+      "46 %",
+      "82 %",
+      "28 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le GDO précise que l'ammoniac anhydre est « l'engrais azoté qui a la plus forte teneur en azote (82 %). »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-003",
+    "level": "TF",
+    "q": "À quelle température la résistance de l'acier commence-t-elle à diminuer lors d'un incendie ?",
+    "choices": [
+      "200 °C",
+      "300 °C",
+      "400 °C",
+      "600 °C"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le GDO indique que pour les constructions métalliques, « la résistance commence à diminuer à 400°. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-004",
+    "level": "TF",
+    "q": "Parmi les gaz dégagés lors du brassage du lisier, lequel est décrit comme le plus dangereux et devient inodore lorsqu'il est concentré ?",
+    "choices": [
+      "Le méthane (CH4)",
+      "Le dioxyde de carbone (CO2)",
+      "L'ammoniac (NH3)",
+      "L'hydrogène sulfuré (H2S)"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Le GDO précise que l'hydrogène sulfuré est « le plus dangereux » et qu'il « devient inodore lorsqu'il est concentré (à partir de 150 ppm). »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-005",
+    "level": "TF",
+    "q": "A partir de quelle température la fermentation du fourrage est-elle considérée comme dangereuse (à cœur) ?",
+    "choices": [
+      "À partir de 45 °C",
+      "Au-delà de 45 °C",
+      "À partir de 30 °C",
+      "À partir de 70 °C"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO indique que « la température normale de fermentation (à cœur) se situe aux alentours de 45 °C. Au-delà, celle-ci est considérée comme dangereuse. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-006",
+    "level": "F",
+    "q": "Lors d'un incendie dans un bâtiment agricole à structure métallique, quel phénomène physique explique l'effondrement rapide de la structure ?",
+    "choices": [
+      "La corrosion accélérée des métaux par les fumées acides.",
+      "La dilatation thermique et la perte de rigidité de l'acier entraînant un flambage.",
+      "L'auto-inflammation des éléments de contreventement.",
+      "La combustion directe de l'acier au-dessus de 900 °C."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO explique que des « dilatations importantes se produisent sous l'effet de la chaleur, causant ainsi un effondrement plus rapide de l'ensemble de la structure (phénomène de flambage). »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-007",
+    "level": "F",
+    "q": "Lors de la découverte d'un engin explosif ou d'une munition en milieu agricole, quelles actions sont correctes pour un équipier ?",
+    "choices": [
+      "Jeter de l'eau sur l'engin pour le refroidir et limiter le risque d'explosion.",
+      "Ne pas manipuler l'engin et interdire à quiconque d'y toucher.",
+      "Éloigner le public sans délai.",
+      "Recouvrir l'engin d'une bâche pour limiter la projection d'éclats en cas d'explosion."
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Le GDO indique qu'il faut « éloigner le public sans délai » et « ne pas manipuler l'engin suspect (et interdire à quiconque d'y toucher) ». Il est également précisé de « ne pas jeter d'eau et ne pas le recouvrir ».",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-008",
+    "level": "F",
+    "q": "Concernant les toitures en fibrociment (amiante-ciment) lors d'un incendie, quelle affirmation est exacte ?",
+    "choices": [
+      "L'amiante présente un faible risque car elle est liée au ciment et ne se libère pas à haute température.",
+      "Les plaques portées à très haute température éclatent et libèrent des fibres d'amiante transportées par les gaz chauds sur de grandes distances.",
+      "Le risque amiante n'apparaît que lors des opérations de déblai, jamais en phase de combustion active.",
+      "Les fibres d'amiante libérées lors d'un incendie sont uniquement dangereuses par contact cutané."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO précise que « dans un incendie, les plaques de toitures, portées à très haute température, éclatent et libèrent des milliards de fibres d'amiante dans l'air. Les gaz chauds transportent ensuite ces fibres sur des distances importantes. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-009",
+    "level": "F",
+    "q": "Lors d'un incendie en présence de produits phytosanitaires, quel périmètre de sécurité doit être établi en zone contrôlée ?",
+    "choices": [
+      "50 mètres de rayon",
+      "100 mètres de rayon",
+      "200 mètres de rayon",
+      "300 mètres de rayon"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO précise pour les feux de produits phytosanitaires de « faire réaliser un périmètre de sécurité : zone contrôlée de 100 mètres de rayon (fumées toxiques). »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-010",
+    "level": "M",
+    "q": "Lors d'un incendie dans un bâtiment d'élevage avicole à ventilation dynamique (mécanique), une coupure électrique survient. Quelles affirmations sont exactes concernant les conséquences pour les intervenants ?",
+    "choices": [
+      "Les ventelles restent en général en position fermée, ce qui empêche le désenfumage naturel.",
+      "Le risque d'embrasement généralisé éclair (EGE) ou d'explosion de fumées devient fort probable.",
+      "La ventilation statique prend automatiquement le relais et compense l'arrêt des ventilateurs.",
+      "En l'absence de sauvetage humain, aucun sapeur-pompier ne doit s'engager à l'intérieur du bâtiment."
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le GDO indique qu'en cas de coupure électrique avec ventilation dynamique, « les ventelles restent, en général, en position fermée » et que « le risque d'apparition de phénomène thermique est fort probable ». Il précise également qu'en l'absence de sauvetage humain, « le COS doit veiller à ce qu'aucun sapeur-pompier ne s'engage à l'intérieur. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-011",
+    "level": "M",
+    "q": "Un équipier intervient sur un feu en présence d'ammonitrates à haut dosage (plus de 80 % de nitrate d'ammonium). Parmi les éléments suivants, lesquels peuvent déclencher une détonation de ces engrais ?",
+    "choices": [
+      "Une contamination par des matières organiques (paille, cagettes en bois).",
+      "Un confinement associé à une dérive de température.",
+      "Un contact avec les eaux d'extinction.",
+      "Un impact à haute vitesse d'un projectile."
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le GDO précise que les ammonitrates à haut dosage « sont susceptibles de détonner s'ils font l'objet d'une contamination (matières organiques, chlore, acides, poudres de métaux, hydrocarbures, eaux d'extinction…) et si certaines conditions sont réunies (dérive de température, confinement ou impact à haute vitesse d'un projectile). » Les eaux d'extinction figurent parmi les agents contaminants mais sont citées séparément des conditions ; la combinaison retenue ici s'appuie sur les trois facteurs les plus explicitement présentés comme déclencheurs dans le document.",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-012",
+    "level": "M",
+    "q": "Lors d'une intervention sur une unité de méthanisation agricole présentant une fuite de biogaz, quelles mesures de sécurité immédiates s'imposent à l'équipier ?",
+    "choices": [
+      "Porter les EPI et l'appareil respiratoire isolant (ARI).",
+      "Stationner les engins à au moins 100 mètres de l'installation.",
+      "Utiliser immédiatement un appareil radio pour alerter le CODIS depuis la zone de fuite.",
+      "Procéder sans délai à l'extinction du foyer avec de l'eau en jet droit."
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Le GDO indique pour les interventions sur méthaniseur : « porter les EPI et l'ARI » et « stationner les engins à 100 mètres de l'installation au moins ». Il précise également de « déposer aux engins les appareils susceptibles d'être déflagrants », ce qui exclut l'usage d'une radio à proximité immédiate.",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-013",
+    "level": "M",
+    "q": "Un équipier intervient sur un feu de fourrage en balles rectangulaires stockées dans un hangar. L'exploitant signale que le stockage date de 3 semaines. Quels signes précurseurs d'une fermentation anormale l'équipier doit-il rechercher ?",
+    "choices": [
+      "Un dégagement de vapeur d'eau générant une condensation en partie supérieure du tas.",
+      "Une coloration verte du fourrage indiquant une humidité résiduelle excessive.",
+      "Une odeur caractéristique de « roussi » dégagée par le fourrage.",
+      "Un gonflement uniforme des balles dû à la production de CO2."
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le GDO liste parmi les signes précurseurs d'une fermentation anormale : « le dégagement de vapeur d'eau générant une condensation en partie supérieure du tas » et « une odeur caractéristique de 'roussi' dégagée par le fourrage prévient du risque d'incendie. »",
+    "source": ""
+  },
+  {
+    "id": "gdo-agricole-014",
+    "level": "M",
+    "q": "Lors d'une intervention pour pollution au lisier suite à la rupture d'une fosse, un équipier doit travailler à proximité de la fosse pour mettre en place une rétention. Quelle précaution est absolument indispensable avant de s'approcher ?",
+    "choices": [
+      "Porter uniquement des gants de protection chimique, le risque gazeux étant faible en extérieur.",
+      "S'assurer de disposer de moyens de détection gaz, car le risque toxique (notamment H2S) est présent même en milieu ouvert.",
+      "Attendre que la croûte de surface du lisier bovin se reconstitue avant d'intervenir, ce qui garantit l'absence de dégagement gazeux.",
+      "Utiliser un jet d'eau en rideau pour disperser les gaz avant l'engagement, puis intervenir sans protection respiratoire."
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO précise que « lors de l'engagement d'une équipe, une vigilance particulière devra être portée sur les moyens de détection gaz (indispensables à une intervention en excavation ou en fosse à lisier). » Il rappelle également le risque mortel de l'H2S, gaz qui « devient inodore lorsqu'il est concentré (à partir de 150 ppm) », et que les lisiers de bovins peuvent libérer une bouffée concentrée de gaz toxique en cas de rupture de la croûte de surface. Guide de Doctrine Opérationnelle (GDO) – *Interventions en présence de gaz* – DGSCGC J'ai maintenant suffisamment de matière pour générer un QCM complet. Voici la production : ## ANALYSE DES GRANDS THÈMES DU DOCUMENT Source : Guide de Doctrine Opérationnelle (GDO) – *Interventions en présence de gaz* – DGSCGC, 1ère édition, Décembre 2021. Thèmes identifiés : - Les différents gaz (gaz naturel, GPL, biométhane, H₂, acétylène, O₂, CO, H₂S) — propriétés physico-chimiques - L'atmosphère explosive (ATEX, zones, LIE/LSE, plage d'explosivité) - Les bouteilles de gaz (code couleur des ogives, composants, conditionnement) - Les risques (explosion, BLEVE, UVCE, risques pour les personnes) - La sécurité des intervenants (règles générales, détecteurs, coupure de gaz, coupure courant) - Les effets des gaz toxiques sur l'organisme (CO, H₂S, seuils) ## RÉPARTITION DES QUESTIONS Nombre de questions retenues : 12 | Niveau | % cible | Nombre | | --- | --- | --- | | TF – Très facile | 34 % | 4 | | F – Facile | 33 % | 4 | | M – Moyen | 33 % | 4 | Répartition des réponses correctes : - 1 seule bonne réponse : 6 questions (50 %) - 2 bonnes réponses : 4 questions (30 % ≈ arrondi à 3-4) - 3 bonnes réponses : 2 questions (18 % ≈ arrondi à 1-2) - 4 bonnes réponses : 0 question (2 % → 0 sur 12)",
+    "source": ""
+  }
+]

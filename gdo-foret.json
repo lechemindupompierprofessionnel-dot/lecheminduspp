@@ -1,0 +1,167 @@
+[
+  {
+    "id": "gdo-foret-001",
+    "level": "TF",
+    "q": "En dessous de quel seuil d'humidité relative de l'air l'éclosion et la propagation du feu sont-elles très fortement aggravées ?",
+    "choices": [
+      "50 %",
+      "45 %",
+      "30 %",
+      "20 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le GDO indique explicitement (chapitre 1 – §2.3.2) : « En dessous de 30 %, l'éclosion et la propagation du feu sont très fortement aggravées. » C'est un seuil clé à mémoriser.",
+    "source": "§2.3.2"
+  },
+  {
+    "id": "gdo-foret-002",
+    "level": "TF",
+    "q": "Quelle est la valeur empirique retenue pour estimer la vitesse de propagation d'un incendie à partir de la vitesse du vent moyen, dans des conditions moyennes ?",
+    "choices": [
+      "1 % de la vitesse du vent",
+      "3 % de la vitesse du vent",
+      "5 % de la vitesse du vent",
+      "10 % de la vitesse du vent"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO (chapitre 1 – §2.3.3) précise : « La valeur empirique de 3 % de la vitesse du vent moyen est retenue comme recevable en conditions moyennes pour estimer la vitesse de propagation de l'incendie sur le terrain. »",
+    "source": "§2.3.3"
+  },
+  {
+    "id": "gdo-foret-003",
+    "level": "TF",
+    "q": "Quel apport journalier en eau potable est préconisé pour un sapeur-pompier en opération afin de lutter contre la déshydratation ?",
+    "choices": [
+      "1 à 2 litres pour 24 heures",
+      "2 à 3 litres pour 24 heures",
+      "3,5 à 5 litres pour 24 heures",
+      "6 à 8 litres pour 24 heures"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le GDO (chapitre 3 – §5, Hydratation) indique : « Pour lutter contre la déshydratation et assurer les besoins hydriques, l'apport de 3,5 à 5 litres minimum en eau potable est nécessaire pour 24 heures. »",
+    "source": "§5"
+  },
+  {
+    "id": "gdo-foret-004",
+    "level": "TF",
+    "q": "Parmi les espèces végétales suivantes, lesquelles présentent une inflammabilité classée « Forte » ? *(2 bonnes réponses)*",
+    "choices": [
+      "Hêtre",
+      "Bruyère / callune",
+      "Arbousier",
+      "Pin d'Alep"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Le tableau d'inflammabilité du GDO (chapitre 1 – §2.1.1) classe les bruyères/callune et le Pin d'Alep en inflammabilité « Forte ». L'arbousier est classé « Faible » et le hêtre n'apparaît pas dans les plus inflammables.",
+    "source": "§2.1.1"
+  },
+  {
+    "id": "gdo-foret-005",
+    "level": "F",
+    "q": "Dans la morphologie d'un feu en développement, qu'est-ce qu'une « pénétrante » ?",
+    "choices": [
+      "Un accès permettant de longer une lisière sans la traverser",
+      "Un accès permettant de traverser une lisière ou de traverser la zone d'intervention",
+      "Une lisière de feu poussée par le vent qui s'élargit progressivement",
+      "Un foyer secondaire transporté par la colonne de convection"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO (chapitre 2 – §1.1) définit précisément : « Une pénétrante est un accès permettant de traverser une lisière ou permettant de traverser la zone d'intervention. » La définition A correspond à la rocade.",
+    "source": "§1.1"
+  },
+  {
+    "id": "gdo-foret-006",
+    "level": "F",
+    "q": "Concernant la sécurité individuelle d'un intervenant sur un feu d'espaces naturels, quelles affirmations sont correctes ? *(2 bonnes réponses)*",
+    "choices": [
+      "L'intervenant peut s'isoler du groupe si l'action l'exige",
+      "L'intervenant doit définir un chemin et une zone de repli en cas de difficulté",
+      "L'intervenant doit observer l'évolution du feu pour éviter de se retrouver piégé",
+      "L'eau des citernes des engins peut être consommée en cas d'urgence"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Le GDO (chapitre 3 – §2, Sécurité individuelle) liste les obligations de chaque intervenant, parmi lesquelles « définir un chemin et une zone de repli en cas de difficulté » et « observer l'évolution du feu pour éviter de se retrouver piégé ». Le même chapitre (§5) précise formellement : « Ne jamais boire l'eau des citernes des engins ou des points d'eau d'incendie. » L'isolement est également explicitement proscrit.",
+    "source": "§2"
+  },
+  {
+    "id": "gdo-foret-007",
+    "level": "F",
+    "q": "Quelle est la caractéristique principale des feux de sols (feux de tourbe) par rapport aux feux de surface ?",
+    "choices": [
+      "Leur vitesse de propagation est élevée et leur extinction rapide",
+      "Leur propagation est souterraine, leur rémanence est grande et leur extinction difficile",
+      "Ils sont les plus virulents et génèrent les flammes les plus hautes",
+      "Ils ne produisent pas de fumée lors de leur combustion"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO (chapitre 2 – §1.2.1) précise que les feux de tourbe « se propagent dans le sol, sont peu virulents avec une faible vitesse de propagation et une grande rémanence. Ils peuvent durer des mois et résister tout l'hiver sous une couche de neige. » Ils produisent en outre beaucoup de fumée du fait de la combustion incomplète.",
+    "source": "§1.2.1"
+  },
+  {
+    "id": "gdo-foret-008",
+    "level": "F",
+    "q": "Dans le cadre des opérations, quelles sont les obligations de l'équipage concernant les établissements (tuyaux) lors d'un repli vers l'engin ? *(3 bonnes réponses)*",
+    "choices": [
+      "Abandonner la lance dès que la visibilité devient insuffisante pour progresser plus vite",
+      "Ne jamais abandonner une lance alimentée lors du retour à l'engin en cas de fuite",
+      "Suivre toujours l'établissement pour regagner la cabine de l'engin en cas de mauvaise visibilité",
+      "Assurer la permanence de l'eau dans les tuyaux"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Le GDO (chapitre 3 – §1, Sécurité collective) indique : « Ne jamais abandonner une lance alimentée lors du retour à l'engin en cas de fuite » ; « Les établissements sont une ligne de vie en cas de mauvaise visibilité. TOUJOURS suivre l'établissement pour regagner la cabine de l'engin » ; et « assurer la permanence de l'eau dans les tuyaux. »",
+    "source": "§1"
+  },
+  {
+    "id": "gdo-foret-009",
+    "level": "M",
+    "q": "Un équipier intervenant à proximité d'une ligne ENEDIS mise hors tension par l'exploitant se demande s'il peut s'en approcher librement. Quelle est la bonne attitude ?",
+    "choices": [
+      "Il peut s'approcher librement, la mise hors tension garantit l'absence de tout risque électrique",
+      "Il ne peut pas s'approcher à moins de 3 mètres de l'ouvrage ENEDIS, même mis hors tension, car les courants induits peuvent rester très élevés",
+      "Il ne peut pas s'approcher à moins de 5 mètres de l'ouvrage, quelle que soit la nature du réseau",
+      "Il peut s'approcher après avoir reçu une autorisation orale du chef d'agrès"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le GDO (chapitre 3 – §8) précise que la mise hors tension « n'autorise pas les sapeurs-pompiers à approcher à moins de 5 mètres des ouvrages RTE, 3 mètres d'ouvrage ENEDIS. De même les courants induits sur la ligne qui peuvent rester très élevés, ne sont pas supprimés. » La distance de 5 mètres concerne RTE (haute tension), 3 mètres ENEDIS : A est fausse car le risque subsiste, C confond les deux réseaux.",
+    "source": "§8"
+  },
+  {
+    "id": "gdo-foret-010",
+    "level": "M",
+    "q": "Lors de l'arrivée sur les lieux d'un feu d'espaces naturels, un primo-intervenant repère le point de départ présumé. Lesquelles des actions suivantes respectent les consignes relatives à la préservation des traces et indices ?",
+    "choices": [
+      "Noyer abondamment la zone présumée du départ pour éviter toute reprise",
+      "Éviter le piétinement, le passage de véhicules et de personnes sur la zone présumée du départ",
+      "Baliser la zone présumée avec de la rubalise, sous forme circulaire, si possible en dehors de la zone carbonisée",
+      "Raser immédiatement les végétaux calcinés à l'aide d'un outil de pionnier pour faciliter l'accès aux enquêteurs"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Le GDO (chapitre 4 – §4.5) indique que les primo-intervenants doivent « éviter le noyage, le piétinement, le passage de véhicules et de personnes sur la \"zone présumée\" du départ de feu » et « baliser la \"zone présumée\" avec de la rubalise : matérialisée sous forme circulaire, si possible en dehors de la zone carbonisée ». Noyer (A) et raser la végétation (D) détruiraient des éléments essentiels pour l'enquête.",
+    "source": "§4.5"
+  }
+]

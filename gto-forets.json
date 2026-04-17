@@ -1,0 +1,201 @@
+[
+  {
+    "id": "gto-forets-001",
+    "level": "TF",
+    "q": "Quelle est la capacité d'autoprotection (CA) minimale d'un camion-citerne feux de forêts moyen (CCFM) ?",
+    "choices": [
+      "150 litres",
+      "300 litres",
+      "500 litres",
+      "1 500 litres"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le tableau du §3.1 (chapitre 2) indique que la CA minimale est de 300 litres pour tous les types de CCF (CCFL, CCFM, CCFS). À ne pas confondre avec la capacité utile (CU) minimale du CCFM qui est de 1 500 litres.",
+    "source": "§3.1"
+  },
+  {
+    "id": "gto-forets-002",
+    "level": "TF",
+    "q": "Quelle est l'autonomie minimale du système d'air respirable embarqué dans un CCF, pour 4 personnes ?",
+    "choices": [
+      "6 minutes",
+      "8 minutes",
+      "10 minutes",
+      "15 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le §3 du chapitre 2 précise que le système d'air respirable offre une autonomie minimale de 10 minutes pour 4 personnes sur une consommation de 30 l/min par personne. (À ne pas confondre avec le masque de fuite d'urgence, dont l'autonomie est de 6 minutes – §2.2.)",
+    "source": "§3"
+  },
+  {
+    "id": "gto-forets-003",
+    "level": "TF",
+    "q": "Parmi les propositions suivantes, lesquelles correspondent à des tuyaux principalement utilisés lors des opérations de lutte contre les feux de forêts ?",
+    "choices": [
+      "Tuyaux souples DN 25",
+      "Tuyaux semi-rigides DN 35",
+      "Tuyaux souples DN 45",
+      "Tuyaux rigides DN 110"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le §4.2 (chapitre 1) indique que « les tuyaux principalement utilisés lors des opérations de lutte et de noyage sont des tuyaux souples de diamètre DN 45 ou DN 25 ».",
+    "source": "§4.2"
+  },
+  {
+    "id": "gto-forets-004",
+    "level": "TF",
+    "q": "Quel est le seul espace de survie reconnu pour les personnels face à un événement brutal lors d'une opération de lutte ?",
+    "choices": [
+      "Le zone brûlée à proximité",
+      "La cabine du véhicule",
+      "Un cabanon ou une maison identifiée en zone pyro-résistante",
+      "Le point d'eau le plus proche"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le §2.1 (chapitre 2) stipule expressément : « La cabine du véhicule, avec ses équipements de protection des personnels intrinsèque reste et restera toujours l'unique espace de survie pour les personnels face à un évènement brutal. »",
+    "source": "§2.1"
+  },
+  {
+    "id": "gto-forets-005",
+    "level": "TF",
+    "q": "Parmi les outils suivants, lesquels font partie du matériel de forestage ?",
+    "choices": [
+      "Serpe",
+      "Lance queue de paon",
+      "Pioche",
+      "Vanne d'arrêt FDF"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le §4.7 (chapitre 1) liste trois variétés d'outils de forestage : les outils coupants manuels (serpe, croissant, hachette…), les outils non coupants manuels (pelle, pioche, fourche recourbée…) et les outils mécaniques portables. La lance queue de paon et la vanne d'arrêt sont des matériels hydrauliques.",
+    "source": "§4.7"
+  },
+  {
+    "id": "gto-forets-006",
+    "level": "F",
+    "q": "Lors du repli d'urgence, quelle est la posture initiale que doivent adopter les équipiers dès que le chef d'agrès donne l'ordre de repli ?",
+    "choices": [
+      "Ils se mettent debout, masque de fuite en main, et courent vers le CCF",
+      "Ils s'accroupissent au sol, la lance restant ouverte en jet diffusé de protection",
+      "Ils ferment immédiatement leur lance et rejoignent le conducteur",
+      "Ils posent la lance et utilisent le tuyau comme corde de sécurité pour progresser debout"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le §2.2 (chapitre 2) décrit la séquence du repli d'urgence : dès l'ordre du chef d'agrès, « les personnels s'accroupissent au sol, la lance reste ouverte en jet diffusé de protection ». La fermeture de la lance n'intervient pas à ce stade.",
+    "source": "§2.2"
+  },
+  {
+    "id": "gto-forets-007",
+    "level": "F",
+    "q": "Quelle quantité minimale d'eau dans la citerne est nécessaire pour mettre en œuvre un hydro-éjecteur afin de ravitailler un engin ?",
+    "choices": [
+      "100 litres",
+      "200 litres",
+      "300 litres",
+      "500 litres"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le §4.5 (chapitre 1) précise : « L'hydro-éjecteur permet le ravitaillement de l'engin sur des points d'eau naturels ou artificiels en cas d'impossibilité de mise en aspiration. Cette manœuvre nécessite de disposer d'une quantité suffisante d'eau dans la citerne (300 litres). »",
+    "source": "§4.5"
+  },
+  {
+    "id": "gto-forets-008",
+    "level": "F",
+    "q": "Lors de la mise en œuvre de l'établissement d'une lance 500, à partir de tuyaux roulés, dans quel ordre s'exécutent les manœuvres ? Identifiez les deux affirmations correctes.",
+    "choices": [
+      "L'équipier 2 établit ses tuyaux avant ceux de l'équipier 1",
+      "L'équipier 1 établit ses tuyaux en premier pour être au plus près du feu",
+      "Toutes les manœuvres s'exécutent du point d'attaque vers le point d'eau",
+      "Toutes les manœuvres s'exécutent du point d'eau vers le point d'attaque"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "Le préambule du chapitre 3 énonce : « l'équipier 2 établit ses tuyaux avant ceux de l'équipier 1 afin que ce dernier soit toujours au plus près du point d'attaque » ; et « toutes les manœuvres s'exécutent du point d'eau vers le point d'attaque ». Les propositions B et C sont donc inversées.",
+    "source": ""
+  },
+  {
+    "id": "gto-forets-009",
+    "level": "M",
+    "q": "Lors d'une attaque offensive mobile en UIFF, quelles sont les deux règles que doit respecter le porte-lance du premier CCF ?",
+    "choices": [
+      "Rabattre les flammes par un mouvement vertical en balayant 1/3 dans le brûlé et 2/3 dans la végétation non brûlée",
+      "Rabattre les flammes exclusivement dans la végétation non brûlée pour maximiser l'extinction",
+      "Garder un contact visuel permanent avec le CCF qui le suit",
+      "Attendre l'autorisation du chef de groupe avant d'ouvrir la lance"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le tableau §4.1.1 (chapitre 4) précise que le porte-lance du 1er CCF doit « rabattre les flammes par un mouvement vertical tout en effectuant un balayage de la lisière active de 1/3 dans brûlé et 2/3 dans la végétation non brûlée » et « garder un contact visuel permanent avec le CCF qui le suit ».",
+    "source": "§4.1.1"
+  },
+  {
+    "id": "gto-forets-010",
+    "level": "M",
+    "q": "Un équipier est en établissement à pied lorsqu'une saute de feu survient brusquement derrière lui. Il doit activer le repli d'urgence. Parmi les actions listées ci-dessous, quelles sont celles qui font partie de la séquence correcte du repli ?",
+    "choices": [
+      "Coiffer le masque de fuite pour bénéficier d'air moins vicié",
+      "Utiliser le tuyau comme ligne guide pour retrouver le CCF",
+      "Fermer la lance avant de se déplacer pour économiser l'eau",
+      "Ouvrir la surpression de la cabine et coiffer les demi-masques d'air respirable"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le §2.2 (chapitre 2) décrit la séquence : coiffe du masque de fuite (A), utilisation du tuyau comme ligne guide (B), puis à l'intérieur du CCF ouverture de la surpression et coiffe des demi-masques (D). La lance reste ouverte en jet diffusé de protection (C est faux).",
+    "source": "§2.2"
+  },
+  {
+    "id": "gto-forets-011",
+    "level": "M",
+    "q": "Un équipier en ligne d'appui statique avec son GIFF attend l'ordre d'ouverture des lances. Quelles sont les deux missions qui lui sont expressément attribuées en tant qu'équipier 1 ?",
+    "choices": [
+      "Établir la lance 500 et procéder à l'extinction",
+      "Donner l'ordre d'ouverture de la lance 500 sur ordre du chef de groupe",
+      "Établir la LDT et la disposer en attente derrière l'engin avec une réserve suffisante",
+      "Commander la mise en œuvre du canon"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Le tableau §5.2.2 (chapitre 4) attribue à l'équipier 1 : « Établit la lance 500. Procède à l'extinction » et « Établit la LDT qu'il dispose en attente derrière l'engin avec une réserve suffisante. » L'ordre d'ouverture relève du chef du GIFF/chef d'agrès (B faux) ; la commande du canon relève du chef d'agrès (D faux).",
+    "source": "§5.2.2"
+  },
+  {
+    "id": "gto-forets-012",
+    "level": "M",
+    "q": "Lors d'un feu dans un espace agricole de type miscanthus, un équipier-porte-lance est engagé à côté de son engin pour attaquer le front de feu par l'arrière. Le CCF est en mouvement. Quelle est la règle de sécurité impérative qui s'applique à lui dans ce cas ?",
+    "choices": [
+      "Il doit toujours rester à plus de 5 mètres latéralement du CCF pour éviter les projections",
+      "Il doit être impérativement longé sur le CCF pour éviter tout risque de chute",
+      "Il doit fermer la lance et rejoindre la cabine si la vitesse du CCF dépasse 10 km/h",
+      "Il doit maintenir le jet en position diffusée et rester en permanence dans la zone brûlée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Les §1.3 et §1.4 (chapitre 5) précisent dans deux contextes distincts (espace agricole et miscanthus) : « Si le porte-lance ne marche pas à côté de l'engin, il doit impérativement être longé sur le CCF pour éviter tout risque de chute. » Cette règle est répétée verbatim à deux reprises dans le GTO, soulignant son caractère impératif.",
+    "source": "§1.3"
+  }
+]
