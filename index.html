@@ -2015,40 +2015,84 @@ if(window.location.search.indexOf('success') !== -1) {
 var currentMember  = null;   // membre connecté (payé OU non payé)
 var isPaidMember   = false;  // true uniquement si le membre a réglé 59€ ou 217€
 
-// Identifiants des plans payants (à maintenir en miroir de Memberstack)
-// Chaque entrée peut être soit un planId (pln_...), soit un priceId (prc_...)
-// On compare de manière tolérante aux deux, car selon la version de l'API
-// Memberstack on trouve l'un ou l'autre dans planConnections.
+// Identifiants des plans payants (à maintenir en miroir de Memberstack).
+// On liste à la fois les priceId (prc_...) ET les planId (pln_...) car
+// Memberstack V2 stocke les deux à des endroits différents :
+//   - planConnection.planId            → pln_...
+//   - planConnection.payment.priceId   → prc_...
+// Avoir les deux dans la liste nous donne une double sécurité.
 var PAID_PLAN_IDS = [
   // 59 € — accès plateforme seul
   'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222',
+  'pln_plateforme-59--2gqj0mlv',
   // 217 € — pack complet (plateforme + 3 séances coaching)
-  'prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj'
+  'prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj',
+  'pln_pack-complet-217--v0t02yl'
 ];
 
 // Vérifie qu'un membre Memberstack a effectivement réglé l'un des plans payants.
 // Renvoie false pour un compte créé sans paiement (cas principal du bug).
+//
+// Memberstack V2 stocke les plans dans `planConnections` avec cette structure :
+//   { id: 'con_sb_...', active: true, status: 'ACTIVE',
+//     planId: 'pln_...', type: 'PAID', payment: { priceId: 'prc_...' }, ... }
+// On cherche donc le planId / priceId à tous les endroits possibles.
 function hasPaidAccess(member) {
   if (!member) return false;
   var conns = member.planConnections || member.plans || [];
   if (!conns || !conns.length) return false;
+
   for (var i = 0; i < conns.length; i++) {
     var c = conns[i] || {};
-    // Un plan n'est valable que s'il est actif/complété
+
+    // 1. Le plan doit être actif. On teste d'abord `active` (booléen Memberstack V2)
+    //    puis `status` (string). On est tolérant : si les deux sont absents, on
+    //    considère actif (cas d'un achat one-time sans status explicite).
     var status = (c.status || '').toUpperCase();
-    var activeStatuses = ['ACTIVE','TRIALING','COMPLETED','PAID'];
-    // Sur certaines réponses, il n'y a pas de champ status pour un plan lifetime
-    // déjà payé : on le considère actif par défaut si status absent.
-    var isActive = status === '' || activeStatuses.indexOf(status) !== -1;
+    var activeStatuses = ['ACTIVE','TRIALING','COMPLETED','PAID','SUCCEEDED'];
+    var isActive;
+    if (typeof c.active === 'boolean') {
+      isActive = c.active === true;
+    } else if (status) {
+      isActive = activeStatuses.indexOf(status) !== -1;
+    } else {
+      isActive = true; // ni active ni status → on accepte
+    }
     if (!isActive) continue;
-    // Rapproche planId et priceId (selon versions d'API Memberstack)
-    var candidates = [c.planId, c.priceId, c.id, c.plan && c.plan.id, c.price && c.price.id];
+
+    // 2. Collecte tous les identifiants potentiels dans la connection.
+    //    On ratisse large pour couvrir toutes les versions de l'API Memberstack.
+    var payment = c.payment || {};
+    var plan    = c.plan    || {};
+    var price   = c.price   || {};
+    var candidates = [
+      c.planId, c.priceId, c.id,
+      plan.id, plan.planId, plan.priceId,
+      price.id, price.priceId, price.planId,
+      payment.priceId, payment.planId, payment.id
+    ];
     for (var j = 0; j < candidates.length; j++) {
       if (candidates[j] && PAID_PLAN_IDS.indexOf(candidates[j]) !== -1) return true;
     }
   }
   return false;
 }
+
+// Helper debug — appeler depuis la console : debugMemberAccess()
+// Affiche un rapport détaillé sur le membre connecté et son statut payant.
+window.debugMemberAccess = function() {
+  var ms = getMemberstack();
+  if (!ms) { console.log('[debug] Memberstack non initialisé'); return; }
+  return ms.getCurrentMember().then(function(r) {
+    var m = r && r.data && r.data.member;
+    if (!m) { console.log('[debug] Aucun membre connecté'); return; }
+    console.log('[debug] Membre:', m.auth && m.auth.email, '| verified:', m.verified);
+    console.log('[debug] planConnections:', JSON.stringify(m.planConnections, null, 2));
+    console.log('[debug] PAID_PLAN_IDS:', PAID_PLAN_IDS);
+    console.log('[debug] hasPaidAccess →', hasPaidAccess(m));
+    return m;
+  });
+};
 
 // Re-fetch du membre depuis Memberstack pour récupérer les plans à jour
 // (à appeler après un paiement, car le "member" retourné par openModal('signup')
@@ -2098,19 +2142,53 @@ function toggleMobileNav() { document.getElementById('mobileNav').classList.togg
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
 // ============================================================
-// RETOUR STRIPE — détection ?success=1
+// RETOUR STRIPE / MEMBERSTACK — détection du retour checkout
 // ============================================================
+// Stripe checkout redirige avec l'un de ces paramètres selon le flux :
+//   - ?success=1               (ancien flux custom)
+//   - ?fromCheckout=true       (Memberstack V2)
+//   - ?forceRefetch=true       (Memberstack V2, force re-fetch du membre)
+//   - ?msPriceId=prc_...       (Memberstack V2, priceId acheté)
+// On déclenche le refresh + la page "merci" dès qu'on détecte l'un d'eux.
 (function(){
-  if(!window.location.search.includes('success')) return;
+  var qs = window.location.search;
+  var isCheckoutReturn = /[?&](success|fromCheckout|forceRefetch|msPriceId)=/.test(qs);
+  if(!isCheckoutReturn) return;
 
   goTo('merci');
 
-  // Retour d'un paiement Stripe : on re-fetch le membre pour que
-  // planConnections reflète bien le nouvel achat et que isPaidMember
-  // passe à true (après un petit délai pour laisser le webhook arriver).
-  setTimeout(function(){
-    try { if (typeof refreshMemberAccess === 'function') refreshMemberAccess(); } catch(e){}
-  }, 2500);
+  // Le webhook Stripe → Memberstack peut prendre quelques secondes pour créer
+  // la planConnection. On tente plusieurs refetch successifs jusqu'à ce que
+  // hasPaidAccess passe à true (ou jusqu'à 6 tentatives = ~15s max).
+  var attempts = 0;
+  var maxAttempts = 6;
+  function tryRefresh() {
+    attempts++;
+    try {
+      if (typeof refreshMemberAccess !== 'function') return;
+      refreshMemberAccess().then(function(m) {
+        if (m && typeof hasPaidAccess === 'function' && hasPaidAccess(m)) {
+          // Paiement bien reconnu → on arrête de réessayer
+          showToast('✅ Paiement validé, accès débloqué !');
+          return;
+        }
+        if (attempts < maxAttempts) {
+          setTimeout(tryRefresh, 2500);
+        } else {
+          // Après plusieurs tentatives, on laisse le membre tel quel.
+          // L'accès sera reconnu au prochain chargement de page.
+          console.warn('[checkout-return] hasPaidAccess reste false après ' + attempts + ' tentatives');
+        }
+      });
+    } catch(e) { console.error('[checkout-return] refresh error', e); }
+  }
+  setTimeout(tryRefresh, 2000);
+
+  // Nettoyage des paramètres d'URL pour éviter de re-déclencher au reload
+  try {
+    var cleanUrl = window.location.pathname + window.location.hash;
+    window.history.replaceState({}, document.title, cleanUrl);
+  } catch(e) {}
 
   var name  = localStorage.getItem('booking_name');
   var email = localStorage.getItem('booking_email');
