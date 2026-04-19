@@ -1,0 +1,4292 @@
+[
+  {
+    "id": "pse-001",
+    "level": "TF",
+    "q": "Selon la loi n° 2020-840 du 3 juillet 2020, quiconque porte assistance de manière bénévole à une personne en situation apparente de péril grave et imminent bénéficie de la qualité de :",
+    "choices": [
+      "Secouriste volontaire",
+      "Collaborateur occasionnel du service public",
+      "Sapeur-pompier volontaire temporaire",
+      "Agent de la sécurité civile"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La loi n° 2020-840 du 3 juillet 2020 précise que le citoyen sauveteur bénéficie de la qualité de « collaborateur occasionnel du service public ».",
+    "source": "PSE 2024 – Fiche 01AC01"
+  },
+  {
+    "id": "pse-002",
+    "level": "F",
+    "q": "Parmi les missions du secouriste sur intervention, lesquelles sont expressément citées par la fiche « Enjeux et principes » ?",
+    "choices": [
+      "Examiner la victime",
+      "Secourir",
+      "Encaisser les soins auprès de la victime",
+      "Surveiller la victime"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le tableau des rôles cite notamment : se rendre sur les lieux, protéger, accéder à la victime, examiner, alerter, secourir, surveiller, aider les renforts. Aucun acte d'encaissement de soins n'est prévu.",
+    "source": "PSE 2024 – Fiche 01AC02"
+  },
+  {
+    "id": "pse-003",
+    "level": "TF",
+    "q": "Dans quelle situation le secouriste peut-il développer un « traumatisme vicariant » ?",
+    "choices": [
+      "Après avoir été lui-même victime d'une agression",
+      "En étant exposé au récit ou à la prise en charge de victimes traumatisées sans être directement en danger",
+      "Après un exercice sportif intense",
+      "Après une vaccination obligatoire"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le traumatisme vicariant est défini comme une forme de psychotraumatisme où l'intervenant, sans avoir été directement mis en danger, peut développer des symptômes de stress aigu ou post-traumatique.",
+    "source": "PSE 2024 – Fiche 01AC04"
+  },
+  {
+    "id": "pse-004",
+    "level": "M",
+    "q": "Lors de la respiration contrôlée proposée comme technique de stabilisation psycho-physiologique, la durée recommandée de l'exercice est de :",
+    "choices": [
+      "1 à 2 minutes",
+      "3 à 5 minutes",
+      "10 à 15 minutes",
+      "30 minutes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« En pratique : sur 3 à 5 minutes » pour l'exercice de respiration contrôlée.",
+    "source": "PSE 2024 – Fiche 01FT04"
+  },
+  {
+    "id": "pse-005",
+    "level": "F",
+    "q": "Concernant l'écoute active pratiquée par le secouriste, quelles formulations sont recommandées ?",
+    "choices": [
+      "« Moi, ça m'est aussi arrivé... »",
+      "« Si je comprends bien... »",
+      "« Ce n'est pas grave, ça va aller »",
+      "« Ce que vous me dites, c'est… »"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "L'écoute active privilégie la reformulation par : « Si je comprends bien... », « En somme... », « Ce que vous me dites c'est... ». Parler de soi et banaliser sont explicitement déconseillés.",
+    "source": "PSE 2024 – Fiche 01FT03"
+  },
+  {
+    "id": "pse-006",
+    "level": "TF",
+    "q": "Quelles sont les menaces vitales à rechercher ?",
+    "choices": [
+      "Une hémorragie externe grave",
+      "Une obstruction des voies aériennes",
+      "Une absence de réaction sans respiration ou avec respiration anormale",
+      "Une tension artérielle anormale"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Les trois menaces vitales sont : hémorragie externe grave, obstruction des voies aériennes / LVA menacée, absence de réaction sans respiration ou respiration anormale. La tension artérielle est un paramètre mesuré ultérieurement (4ème regard).",
+    "source": "PSE 2024 – Fiche 02PR02"
+  },
+  {
+    "id": "pse-007",
+    "level": "F",
+    "q": "Lors de la recherche de la ventilation chez une victime qui a perdu connaissance, la recherche se fait pendant :",
+    "choices": [
+      "5 secondes au plus",
+      "10 secondes au plus",
+      "15 secondes au plus",
+      "30 secondes au plus"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La recherche de la ventilation s'effectue « durant dix secondes au plus ».",
+    "source": "PSE 2024 – Fiche 02FT03"
+  },
+  {
+    "id": "pse-008",
+    "level": "TF",
+    "q": "Quelle est la fréquence ventilatoire normale chez l'adulte au repos ?",
+    "choices": [
+      "8 à 12 mouvements par minute",
+      "12 à 20 mouvements par minute",
+      "20 à 30 mouvements par minute",
+      "30 à 40 mouvements par minute"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Fréquences ventilatoires normales : adulte 12-20, enfant 20-30, nourrisson 30-40, nouveau-né 40-60 mvts/min.",
+    "source": "PSE 2024 – Fiche 02FT03"
+  },
+  {
+    "id": "pse-009",
+    "level": "TF",
+    "q": "Quelle est la fréquence cardiaque normale chez un nourrisson ?",
+    "choices": [
+      "60 à 100 battements par minute",
+      "70 à 140 battements par minute",
+      "100 à 160 battements par minute",
+      "120 à 160 battements par minute"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "FC normales : adulte 60-100, enfant 70-140, nourrisson 100-160, nouveau-né 120-160 bpm.",
+    "source": "PSE 2024 – Fiche 02FT04"
+  },
+  {
+    "id": "pse-010",
+    "level": "F",
+    "q": "La pression artérielle normale chez un adulte au repos et réveillé oscille autour de :",
+    "choices": [
+      "80 mmHg systolique / 100 mmHg diastolique",
+      "100 mmHg systolique / 80 mmHg diastolique",
+      "120 mmHg systolique / 60 mmHg diastolique",
+      "140 mmHg systolique / 90 mmHg diastolique"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La pression artérielle chez l'adulte au repos et réveillé oscille autour de 100 mmHg de PA systolique et 80 mmHg de PA diastolique. »",
+    "source": "PSE 2024 – Fiches 02FT04, 02FT06"
+  },
+  {
+    "id": "pse-011",
+    "level": "TF",
+    "q": "La saturation pulsée en oxygène (SpO2) se situe normalement entre :",
+    "choices": [
+      "85 et 94 %",
+      "89 et 94 %",
+      "94 et 100 %",
+      "100 et 110 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« La SpO2 se situe normalement entre 94 et 100 %. »",
+    "source": "PSE 2024 – Fiche 02FT07"
+  },
+  {
+    "id": "pse-012",
+    "level": "M",
+    "q": "Concernant le temps de recoloration cutanée (TRC), quelles affirmations sont exactes ?",
+    "choices": [
+      "La recoloration normale se fait en moins de 2 secondes",
+      "Le secouriste comprime l'extrémité du doigt entre pouce et index pendant 3 secondes",
+      "Un TRC supérieur à 2 secondes peut signer une détresse circulatoire",
+      "Il se mesure sur les lèvres de la victime"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "« Comprimer fortement pendant 3 secondes, entre le pouce et l'index, l'extrémité d'un doigt. » La recoloration du lit de l'ongle est normalement inférieure à 2 s. Au 3ème regard, TRC > 2 s évoque une détresse circulatoire.",
+    "source": "PSE 2024 – Fiche 02FT04"
+  },
+  {
+    "id": "pse-013",
+    "level": "TF",
+    "q": "Le score de Glasgow, outil de mesure du niveau de conscience, varie de :",
+    "choices": [
+      "0 à 10",
+      "1 à 15",
+      "3 à 15",
+      "5 à 20"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« C'est un score allant de 3 si la victime est en coma aréactif à 15 si elle est parfaitement consciente. »",
+    "source": "PSE 2024 – Fiche 02FT09"
+  },
+  {
+    "id": "pse-014",
+    "level": "F",
+    "q": "Dans le score EVDA (AVPU en anglo-saxon), la lettre « D » correspond à :",
+    "choices": [
+      "Difficulté respiratoire",
+      "Décédée",
+      "Réactive à la Douleur",
+      "Désorientée"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "EVDA = Éveillée / réactive à la Voix / réactive à la Douleur / Aréactive.",
+    "source": "PSE 2024 – Fiche 02FT09"
+  },
+  {
+    "id": "pse-015",
+    "level": "F",
+    "q": "Le score FAST de reconnaissance de l'AVC repose sur l'évaluation :",
+    "choices": [
+      "De la face",
+      "De l'abdomen",
+      "Des bras",
+      "De la parole"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "FAST = Face, Arm, Speech, Time. Les tests portent sur sourire/asymétrie, extension des bras 10 secondes, répétition d'une phrase. L'abdomen ne fait pas partie du FAST.",
+    "source": "PSE 2024 – Fiche 02FT09"
+  },
+  {
+    "id": "pse-016",
+    "level": "TF",
+    "q": "À partir de quelle valeur sur l'échelle numérique (EN) la victime nécessite-t-elle une prise en charge de la douleur ?",
+    "choices": [
+      "EN ≥ 2/10",
+      "EN ≥ 4/10",
+      "EN ≥ 6/10",
+      "EN ≥ 8/10"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La victime nécessite une prise en charge de la douleur si EN ≥ 4/10. » De même pour l'EVA.",
+    "source": "PSE 2024 – Fiche 02FT10"
+  },
+  {
+    "id": "pse-017",
+    "level": "M",
+    "q": "Sur l'échelle verbale simple (EVS), à quel niveau la prise en charge de la douleur devient-elle nécessaire ?",
+    "choices": [
+      "EVS ≥ 1",
+      "EVS ≥ 2",
+      "EVS ≥ 3",
+      "EVS ≥ 4"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "EVS 0=nulle, 1=faible, 2=modérée, 3=intense, 4=insupportable. « La victime nécessite une prise en charge de la douleur si EVS ≥ 2. »",
+    "source": "PSE 2024 – Fiche 02FT10"
+  },
+  {
+    "id": "pse-018",
+    "level": "F",
+    "q": "Chez un enfant de 4 à 10 ans, quelle échelle d'évaluation de la douleur est particulièrement adaptée ?",
+    "choices": [
+      "Échelle verbale simple (EVS)",
+      "Échelle des 6 visages",
+      "Échelle numérique (EN) de 0 à 10",
+      "Échelle visuelle analogique millimétrée (EVA)"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Cette échelle est basée sur le principe de l'EVA, mais adaptée pour des enfants de 4 à 10 ans. »",
+    "source": "PSE 2024 – Fiche 02FT10"
+  },
+  {
+    "id": "pse-019",
+    "level": "TF",
+    "q": "À quelle fréquence la mesure des paramètres physiologiques est-elle renouvelée lors de la surveillance d'une victime présentant une détresse vitale ?",
+    "choices": [
+      "Toutes les 2 minutes",
+      "Toutes les 5 minutes",
+      "Toutes les 10 à 15 minutes",
+      "Toutes les 30 minutes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La mesure des paramètres physiologiques est renouvelée toutes les 5 minutes en cas de détresse vitale, sinon toutes les 10 à 15 minutes. »",
+    "source": "PSE 2024 – Fiche 02PR05"
+  },
+  {
+    "id": "pse-020",
+    "level": "M",
+    "q": "Lors de la mesure de la pression artérielle par auscultation, combien de mmHg faut-il continuer à gonfler le brassard après disparition du bruit du pouls ?",
+    "choices": [
+      "10 mmHg",
+      "20 mmHg",
+      "30 mmHg",
+      "50 mmHg"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Continuer à gonfler de 30 mmHg en plus, après disparition du bruit du pouls. »",
+    "source": "PSE 2024 – Fiche 02FT06"
+  },
+  {
+    "id": "pse-021",
+    "level": "M",
+    "q": "Chez quelle(s) victime(s) le thermomètre auriculaire est-il contre-indiqué ?",
+    "choices": [
+      "Un nourrisson de moins de 3 mois",
+      "Un adulte portant un appareil auditif",
+      "Une victime de traumatisme auriculaire bilatéral (accident avec explosion)",
+      "Un enfant de 5 ans"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Le thermomètre auriculaire ne doit pas être utilisé chez : un nourrisson de moins de 3 mois, car le diamètre de son conduit auditif est inférieur à celui de la sonde du thermomètre ; une victime d'un traumatisme auriculaire bilatéral, lors d'un accident avec explosion, par exemple. »",
+    "source": "PSE 2024 – Fiche 02FT08"
+  },
+  {
+    "id": "pse-022",
+    "level": "TF",
+    "q": "Chez un enfant de moins de 2 ans, quelle technique de prise de température est indiquée ?",
+    "choices": [
+      "Rectale",
+      "Buccale",
+      "Axillaire en dépistage",
+      "Tympanique en première intention"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "De la naissance à 2 ans : rectale indiquée, axillaire pour le dépistage. La tympanique est contre-indiquée avant 3 mois et la buccale n'est recommandée qu'au- delà de 5 ans.",
+    "source": "PSE 2024 – Fiche 02FT08"
+  },
+  {
+    "id": "pse-023",
+    "level": "F",
+    "q": "Parmi les paramètres physiologiques mesurés systématiquement, on retrouve :",
+    "choices": [
+      "La fréquence respiratoire",
+      "La glycémie capillaire",
+      "La fréquence cardiaque",
+      "La pression artérielle"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Les paramètres systématiques sont : FR, SpO2, FC, PA. La glycémie, la température ou l'ECG ne sont réalisés qu'en fonction du contexte et des plaintes.",
+    "source": "PSE 2024 – Fiche 02PR04"
+  },
+  {
+    "id": "pse-024",
+    "level": "TF",
+    "q": "L'équipement de protection individuelle du secouriste peut comprendre notamment :",
+    "choices": [
+      "Des gants à usage unique",
+      "Une lampe de poche ou frontale",
+      "Des bandes réfléchissantes",
+      "Un appareil respiratoire isolant systématique"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "L'EPI simple, léger et efficace comprend : gants à usage unique, bandes réfléchissantes, gants de manutention, blouson adapté, éventuellement casque, lampe de poche ou frontale. L'ARI n'est pas dans l'EPI standard du secouriste.",
+    "source": "PSE 2024 – Fiche 03AC01"
+  },
+  {
+    "id": "pse-025",
+    "level": "F",
+    "q": "Concernant les gants à usage unique, quelles affirmations sont exactes ?",
+    "choices": [
+      "Ils protègent d'une contamination par les liquides biologiques",
+      "Ils protègent totalement du risque de plaie par objet perforant",
+      "Devant des débris de verre, il faut mettre des gants épais de manutention",
+      "Ils sont réutilisables s'ils ne sont pas déchirés"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Les gants à usage unique protègent des liquides biologiques mais « nullement du risque de plaie par un objet perforant ». Devant des débris de verre, il faut mettre des gants épais de manutention. Ils sont à usage unique donc non réutilisables.",
+    "source": "PSE 2024 – Fiche 03AC01"
+  },
+  {
+    "id": "pse-026",
+    "level": "F",
+    "q": "Lors du protocole relatif aux matériels immergeables, quel est le temps minimum de contact de la solution détergente désinfectante à respecter ?",
+    "choices": [
+      "5 minutes",
+      "10 minutes",
+      "15 minutes",
+      "30 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Au minimum, respecter un temps de contact de quinze minutes. »",
+    "source": "PSE 2024 – Fiche 04FT06"
+  },
+  {
+    "id": "pse-027",
+    "level": "TF",
+    "q": "Les DASRI (Déchets d'Activités de Soins à Risques Infectieux) sont reconnaissables par :",
+    "choices": [
+      "Leur couleur jaune",
+      "Leur pictogramme",
+      "Leur matière",
+      "Leur couleur verte"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Les emballages DASRI sont « reconnaissables grâce à leur couleur jaune et leur pictogramme spécifique reconnu internationalement ».",
+    "source": "PSE 2024 – Fiche 04FT09"
+  },
+  {
+    "id": "pse-028",
+    "level": "M",
+    "q": "Lors du retrait des gants à usage unique, la technique consiste notamment à :",
+    "choices": [
+      "Saisir le premier gant au niveau du poignet en évitant de toucher la peau",
+      "Retourner le premier gant en le roulant dans la paume de l'autre main",
+      "Insérer 1 ou 2 doigts en crochet à l'intérieur du second gant sans toucher sa face externe",
+      "Jeter les gants dans les ordures ménagères classiques"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "La procédure décrit : saisir au poignet sans toucher la peau, retirer en retournant, rouler dans la paume, insérer les doigts en crochet à l'intérieur du second. Les gants sont jetés dans un conteneur DASRI, pas dans les ordures ménagères.",
+    "source": "PSE 2024 – Fiche 04FT07"
+  },
+  {
+    "id": "pse-029",
+    "level": "TF",
+    "q": "Chez l'adulte en arrêt cardiaque, la RCP consiste à répéter des cycles de :",
+    "choices": [
+      "15 compressions thoraciques pour 2 insufflations",
+      "30 compressions thoraciques pour 2 insufflations",
+      "30 compressions thoraciques pour 5 insufflations",
+      "50 compressions thoraciques pour 2 insufflations"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Pratiquer une RCP en répétant des cycles de trente compressions thoraciques suivies de deux insufflations. »",
+    "source": "PSE 2024 – Fiches 05PR01, 05PR02"
+  },
+  {
+    "id": "pse-030",
+    "level": "F",
+    "q": "Chez l'enfant ou le nourrisson en arrêt cardiaque, la RCP consiste à répéter des cycles de :",
+    "choices": [
+      "5 compressions pour 2 insufflations",
+      "15 compressions pour 2 insufflations",
+      "30 compressions pour 2 insufflations",
+      "30 compressions pour 5 insufflations"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Débuter immédiatement une RCP en répétant des cycles de 15 compressions thoraciques suivies de 2 insufflations. »",
+    "source": "PSE 2024 – Fiche 05PR03"
+  },
+  {
+    "id": "pse-031",
+    "level": "TF",
+    "q": "Chez l'enfant ou le nourrisson en arrêt cardiaque, combien d'insufflations initiales doivent être réalisées avant de débuter les compressions thoraciques ?",
+    "choices": [
+      "2",
+      "3",
+      "5",
+      "10"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Réaliser immédiatement 5 insufflations, de préférence à l'aide d'un insufflateur manuel de taille adaptée. »",
+    "source": "PSE 2024 – Fiche 05PR03"
+  },
+  {
+    "id": "pse-032",
+    "level": "F",
+    "q": "Lors d'une RCP, à quelle fréquence les sauveteurs réalisant les compressions thoraciques doivent-ils être relayés ?",
+    "choices": [
+      "Toutes les minutes",
+      "Toutes les 2 minutes",
+      "Toutes les 5 minutes",
+      "Uniquement en cas de fatigue extrême"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Relayer le sauveteur qui réalise les compressions thoraciques toutes les 2 minutes en interrompant le moins possible les compressions thoraciques. »",
+    "source": "PSE 2024 – Fiches 05PR01, 05FT04"
+  },
+  {
+    "id": "pse-033",
+    "level": "TF",
+    "q": "Lors des compressions thoraciques chez l'adulte, la fréquence à maintenir est de :",
+    "choices": [
+      "50 à 70 par minute",
+      "80 à 100 par minute",
+      "100 à 120 par minute",
+      "140 à 160 par minute"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Maintenir une fréquence comprise entre 100 et 120 compressions par minute. »",
+    "source": "PSE 2024 – Fiche 05FT04"
+  },
+  {
+    "id": "pse-034",
+    "level": "TF",
+    "q": "Chez l'adulte, la profondeur des compressions thoraciques est de :",
+    "choices": [
+      "2 cm environ",
+      "Environ 4 cm, sans dépasser 5 cm",
+      "Environ 5 cm, sans dépasser 6 cm",
+      "Au moins 7 cm"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Réaliser des compressions thoraciques d'une profondeur d'environ 5 cm, sans dépasser 6 cm. »",
+    "source": "PSE 2024 – Fiche 05FT04"
+  },
+  {
+    "id": "pse-035",
+    "level": "F",
+    "q": "Chez le nourrisson, quelle est la profondeur recommandée des compressions thoraciques ?",
+    "choices": [
+      "Environ 2 cm",
+      "Environ 4 cm",
+      "Environ 5 cm",
+      "Environ 6 cm"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Réaliser des compressions d'une profondeur d'un tiers de son épaisseur, soit environ 4 cm » chez le nouveau-né ou le nourrisson.",
+    "source": "PSE 2024 – Fiche 05FT04"
+  },
+  {
+    "id": "pse-036",
+    "level": "M",
+    "q": "Chez le nouveau-né en détresse à la naissance, les compressions thoraciques sont indiquées lorsque la fréquence cardiaque est :",
+    "choices": [
+      "Inférieure à 100 bpm",
+      "Inférieure à 80 bpm",
+      "Inférieure à 60 bpm",
+      "Inférieure à 40 bpm"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Elles sont aussi indiquées en présence d'un nouveau-né qui présente une détresse à la naissance, c'est-à-dire lorsqu'il a une fréquence cardiaque inférieure à soixante battements par minute. »",
+    "source": "PSE 2024 – Fiche 05FT04"
+  },
+  {
+    "id": "pse-037",
+    "level": "M",
+    "q": "Chez le nouveau-né en RCP, le rythme est de :",
+    "choices": [
+      "30 compressions pour 2 insufflations",
+      "15 compressions pour 2 insufflations",
+      "3 compressions pour 1 insufflation, à 120/min",
+      "5 compressions pour 1 insufflation"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Le rythme de la RCP est de 3 compressions à une fréquence instantanée de 120 par minute pour 1 insufflation » chez le nouveau-né.",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-038",
+    "level": "TF",
+    "q": "Où placer les électrodes d'un DAE chez l'adulte ?",
+    "choices": [
+      "Une sous la clavicule droite, contre le bord droit du sternum",
+      "Une sur le côté gauche du thorax, 5 à 10 cm au-dessous de l'aisselle gauche",
+      "Une dans le dos, entre les omoplates",
+      "Deux collées côte à côte au centre du thorax"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Chez l'adulte : « une juste au-dessous de la clavicule droite, contre le bord droit du sternum, l'autre sur le côté gauche du thorax, 5 à 10 cm au-dessous de l'aisselle gauche. » Le dos/omoplates concerne le nourrisson.",
+    "source": "PSE 2024 – Fiche 05FT15"
+  },
+  {
+    "id": "pse-039",
+    "level": "F",
+    "q": "Chez le nourrisson, quelle est la position des électrodes du DAE ?",
+    "choices": [
+      "Sous la clavicule droite et sous l'aisselle gauche",
+      "Une dans le dos, entre les deux omoplates, l'autre devant au milieu du thorax",
+      "Deux collées côte à côte sur le sternum",
+      "Une sur la nuque, une sur l'abdomen"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chez le nourrisson : « une dans le dos, entre les deux omoplates, l'autre devant, au milieu du thorax. »",
+    "source": "PSE 2024 – Fiche 05FT15"
+  },
+  {
+    "id": "pse-040",
+    "level": "M",
+    "q": "En présence d'une victime porteuse d'un stimulateur cardiaque ou d'un défibrillateur implantable, le secouriste doit :",
+    "choices": [
+      "Ne pas utiliser le DAE",
+      "Coller l'électrode (normalement sous la clavicule droite) à un travers de main du dispositif médical implantable",
+      "Attendre l'avis du médecin régulateur avant toute action",
+      "Retirer le boîtier implantable avant de choquer"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Afin de ne pas altérer le fonctionnement du défibrillateur et de ne pas diminuer l'efficacité du choc, coller l'électrode qui est normalement sous la clavicule droite à un travers de main du dispositif médical implantable. »",
+    "source": "PSE 2024 – Fiche 05FT15"
+  },
+  {
+    "id": "pse-041",
+    "level": "M",
+    "q": "Le DAE ne doit pas être utilisé, sans précaution préalable, dans les situations suivantes :",
+    "choices": [
+      "Présence de matériel hautement inflammable (butane, essence) ou explosif",
+      "Victime allongée sur une surface métallique conductrice sans isolation",
+      "Victime porteuse d'un timbre médicamenteux (patch) sur la zone de pose de l'électrode",
+      "Victime allongée dans son véhicule"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Ces trois situations sont listées explicitement : dégager du milieu inflammable, retirer de la surface métallique ou glisser un isolant, retirer le timbre et essuyer avant de coller l'électrode.",
+    "source": "PSE 2024 – Fiche 05FT15"
+  },
+  {
+    "id": "pse-042",
+    "level": "TF",
+    "q": "Lors d'une ventilation artificielle par méthode orale (bouche-à-bouche), la durée de l'insufflation est de :",
+    "choices": [
+      "1 seconde environ",
+      "3 secondes",
+      "5 secondes",
+      "10 secondes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "« Insuffler progressivement jusqu'à ce que la poitrine de la victime commence à se soulever (durant 1 seconde environ). »",
+    "source": "PSE 2024 – Fiche 05FT16"
+  },
+  {
+    "id": "pse-043",
+    "level": "F",
+    "q": "Lors d'une RCP chez l'adulte, la durée totale de réalisation des deux insufflations successives ne doit pas excéder :",
+    "choices": [
+      "3 secondes",
+      "5 secondes",
+      "8 secondes",
+      "10 secondes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La durée de réalisation de ces deux insufflations successives ne doit pas excéder 5 secondes. »",
+    "source": "PSE 2024 – Fiche 05FT16"
+  },
+  {
+    "id": "pse-044",
+    "level": "M",
+    "q": "La ventilation artificielle est indiquée chez une victime :",
+    "choices": [
+      "En arrêt respiratoire",
+      "Présentant une respiration agonique et dont la FR est ≤ 6 mvts/min",
+      "Ventilant normalement mais inconsciente",
+      "Qui respire spontanément sans gêne"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "La ventilation artificielle est nécessaire « en présence d'une victime en arrêt respiratoire ou présentant une respiration agonique et dont la fréquence respiratoire est inférieure ou égale à six mouvements par minute ».",
+    "source": "PSE 2024 – Fiches 05FT16, 05FT17"
+  },
+  {
+    "id": "pse-045",
+    "level": "TF",
+    "q": "Le débit d'oxygène réglé sur la bouteille pour une administration par insufflation lors d'une RCP est de :",
+    "choices": [
+      "6 l/min",
+      "9 l/min",
+      "15 l/min",
+      "20 l/min"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Régler le débit de la bouteille d'oxygène à 15 l/min. »",
+    "source": "PSE 2024 – Fiche 05FT01"
+  },
+  {
+    "id": "pse-046",
+    "level": "TF",
+    "q": "L'inhalation d'oxygène est indiquée lorsque la SpO2 d'une victime descend en dessous de :",
+    "choices": [
+      "89 %",
+      "94 %",
+      "96 %",
+      "99 %"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Une mesure de la SpO2 qui indique une valeur < 94 %. » (Seuil à 89 % pour l'insuffisant respiratoire chronique.)",
+    "source": "PSE 2024 – Fiche 05FT20"
+  },
+  {
+    "id": "pse-047",
+    "level": "F",
+    "q": "Pour une administration d'oxygène par masque à haute concentration (MHC) chez l'adulte ou l'enfant, le débit initial est de :",
+    "choices": [
+      "6 l/min",
+      "9 l/min",
+      "12 l/min",
+      "15 l/min"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Pour le MHC : plage d'utilisation 9 à 15 l/min, débit initial 15 l/min.",
+    "source": "PSE 2024 – Fiche 05FT20"
+  },
+  {
+    "id": "pse-048",
+    "level": "M",
+    "q": "Dans quelles situations l'administration d'O2 au MHC à 15 l/min est-elle systématique, quel que soit le niveau de SpO2 ?",
+    "choices": [
+      "Intoxication aux fumées d'incendie",
+      "Intoxication au monoxyde de carbone",
+      "Accident de décompression",
+      "Malaise vagal"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "« Intoxication aux fumées d'incendie, intoxication au monoxyde de carbone, accident de décompression : inhalation d'O2 avec un MHC et à un débit de 15 l/min, quel que soit le niveau de SpO2. »",
+    "source": "PSE 2024 – Fiche 05FT20"
+  },
+  {
+    "id": "pse-049",
+    "level": "M",
+    "q": "Pour l'insuffisant respiratoire chronique, l'objectif de saturation visé est de :",
+    "choices": [
+      "94 à 98 %",
+      "89 à 94 %",
+      "99 à 100 %",
+      "Supérieur à 98 %"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« SpO2 de 89 à 94 % chez l'insuffisant respiratoire chronique. » (94 à 98 % pour les autres.)",
+    "source": "PSE 2024 – Fiche 05FT20"
+  },
+  {
+    "id": "pse-050",
+    "level": "TF",
+    "q": "À quelle pression une bouteille d'oxygène pleine est-elle remplie ?",
+    "choices": [
+      "100 bar",
+      "150 bar",
+      "200 bar",
+      "300 bar"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Les bouteilles… contiennent respectivement, lorsqu'elles sont pleines, sous une pression de 200 bar. »",
+    "source": "PSE 2024 – Fiche 05FT21"
+  },
+  {
+    "id": "pse-051",
+    "level": "F",
+    "q": "Les bouteilles d'oxygène doivent être conservées à une température inférieure à :",
+    "choices": [
+      "20 °C",
+      "30 °C",
+      "40 °C",
+      "50 °C"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "« Les bouteilles doivent être protégées des intempéries, des sources de chaleur (température supérieure ou égale à 50 °C). »",
+    "source": "PSE 2024 – Fiche 05FT21"
+  },
+  {
+    "id": "pse-052",
+    "level": "M",
+    "q": "Concernant les consignes de manipulation d'une bouteille d'oxygène, quelles affirmations sont exactes ?",
+    "choices": [
+      "Les bouteilles doivent être maintenues en position verticale, robinet fermé",
+      "Les bouteilles peuvent être graissées pour faciliter le filetage",
+      "Il ne faut jamais soulever une bouteille par son robinet",
+      "L'ouverture de la bouteille doit être réalisée lentement"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Bouteilles verticales robinet fermé, jamais soulevées par le robinet, ouverture lente. Les bouteilles « ne doivent jamais être graissées ou lubrifiées ni enduites de corps gras » car l'oxygène est un comburant.",
+    "source": "PSE 2024 – Fiche 05FT21"
+  },
+  {
+    "id": "pse-053",
+    "level": "F",
+    "q": "La quantité d'oxygène contenue dans une bouteille (en litres) se calcule comment ?",
+    "choices": [
+      "Pression × volume en eau",
+      "Pression ÷ volume en eau",
+      "Pression + volume en eau",
+      "Volume en eau × 200"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "« La quantité d'oxygène (exprimée en litre) est le produit de la pression (exprimée en bar) par le volume en eau de la bouteille (exprimé en litre). »",
+    "source": "PSE 2024 – Fiche 05FT21"
+  },
+  {
+    "id": "pse-054",
+    "level": "TF",
+    "q": "Lors d'une hémorragie externe grave avec zone « non garrotable », l'action de secours prioritaire si la compression manuelle est inefficace ou impossible consiste à :",
+    "choices": [
+      "Poser un garrot aussi haut que possible",
+      "Utiliser une gaze imbibée de substance hémostatique",
+      "Ne rien faire et attendre les secours",
+      "Appliquer du froid sur la plaie"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Si la compression (manuelle et pansement compressif) est inefficace ou impossible, utiliser : soit un garrot si la zone est garrotable, soit une gaze imbibée d'une substance hémostatique si la zone est non garrotable. »",
+    "source": "PSE 2024 – Fiche 05PR08"
+  },
+  {
+    "id": "pse-055",
+    "level": "F",
+    "q": "Lors de la pose d'un garrot, celui-ci est positionné :",
+    "choices": [
+      "À quelques centimètres de la plaie, idéalement 5 à 7 cm",
+      "Entre la plaie et la racine du membre",
+      "Directement sur une articulation pour plus d'efficacité",
+      "Uniquement en dessous de la plaie, côté extrémité"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "« Positionner le garrot : à quelques centimètres de la plaie (idéalement 5 à 7 cm), entre la plaie et la racine du membre, jamais sur une articulation. »",
+    "source": "PSE 2024 – Fiche 05FT08"
+  },
+  {
+    "id": "pse-056",
+    "level": "M",
+    "q": "Une fois posé, le garrot :",
+    "choices": [
+      "Peut être desserré par le secouriste toutes les 10 minutes",
+      "Ne doit être desserré que sur ordre d'un médecin",
+      "Doit faire l'objet de la notation de son heure de pose",
+      "Doit être retiré dès que le saignement est arrêté"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "« Une fois le garrot posé, il ne doit être desserré que sur ordre d'un médecin. » « Noter l'heure de pose du garrot (sur le garrot, sur la fiche de la victime, voire sur son front). »",
+    "source": "PSE 2024 – Fiche 05FT08"
+  },
+  {
+    "id": "pse-057",
+    "level": "F",
+    "q": "Lors de l'utilisation d'une gaze imbibée de substance hémostatique, la pression doit être exercée pendant au minimum :",
+    "choices": [
+      "1 minute",
+      "3 minutes",
+      "5 minutes",
+      "10 minutes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Exercer une pression pendant au minimum 3 min et jusqu'à l'arrêt du saignement. »",
+    "source": "PSE 2024 – Fiche 05FT14"
+  },
+  {
+    "id": "pse-058",
+    "level": "M",
+    "q": "Une gaze imbibée de substance hémostatique, une fois mise en place dans la plaie :",
+    "choices": [
+      "Doit être systématiquement retirée au bout de 10 minutes",
+      "Ne doit jamais être retirée",
+      "Est contre-indiquée en présence d'un corps étranger",
+      "Peut être complétée par une seconde gaze si insuffisante"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "« NE JAMAIS RETIRER UNE GAZE IMBIBÉE DE SUBSTANCE HÉMOSTATIQUE DE LA PLAIE. » « En présence de corps étrangers, la pose d'une gaze imbibée de substance hémostatique est contre-indiquée. » Possibilité de rajouter une autre gaze.",
+    "source": "PSE 2024 – Fiche 05FT14"
+  },
+  {
+    "id": "pse-059",
+    "level": "TF",
+    "q": "Face à une hémorragie extériorisée par le nez consécutive à un choc minime, quelle conduite est recommandée ?",
+    "choices": [
+      "Placer la victime en position assise, tête penchée en avant",
+      "Placer la victime en position assise, tête penchée en arrière",
+      "Comprimer les narines durant 10 minutes avec le pouce et l'index",
+      "Demander à la victime de respirer par la bouche sans parler"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Position assise tête en avant, se moucher fortement, se comprimer les narines 10 minutes, respirer par la bouche sans parler. L'allongement est réservé aux hémorragies vaginales.",
+    "source": "PSE 2024 – Fiche 05PR09"
+  },
+  {
+    "id": "pse-060",
+    "level": "TF",
+    "q": "Face à une obstruction complète des voies aériennes chez un adulte conscient, la première manœuvre à réaliser est :",
+    "choices": [
+      "Appeler les secours et attendre",
+      "De 1 à 5 claques vigoureuses dans le dos, entre les deux omoplates",
+      "Immédiatement 5 compressions abdominales",
+      "Mettre la victime en PLS"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Donner de 1 à 5 claques dans le dos » en premier, puis si inefficaces « réaliser de 1 à 5 compressions ».",
+    "source": "PSE 2024 – Fiche 05PR11"
+  },
+  {
+    "id": "pse-061",
+    "level": "F",
+    "q": "Chez quelles victimes les compressions thoraciques (et non abdominales) sont-elles réalisées en cas d'Obstruction des Voies Aériennes (OVA) complète ?",
+    "choices": [
+      "Un nourrisson",
+      "Un adulte obèse ou une femme enceinte",
+      "Un adulte debout",
+      "Une personne alitée ou allongée difficilement mobilisable"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Compressions thoraciques si nourrisson, adulte obèse ou femme enceinte impossibles à encercler, personne alitée difficilement mobilisable. L'adulte standard debout reçoit des compressions abdominales.",
+    "source": "PSE 2024 – Fiche 05PR11"
+  },
+  {
+    "id": "pse-062",
+    "level": "M",
+    "q": "Une victime présentant une obstruction complète des voies aériennes perd connaissance pendant les manœuvres de désobstruction. Le secouriste doit :",
+    "choices": [
+      "L'accompagner au sol",
+      "Débuter par des insufflations car il s’agit d’un arrêt respiratoire",
+      "Commencer par une PLS puis aspirer les sécrétions",
+      "Vérifier la présence du corps étranger dans la bouche à la fin de chaque cycle de compressions et le retirer s'il est accessible"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "« L'accompagner au sol ; adopter la CAT face à une victime en arrêt cardiaque en débutant par les compressions thoraciques, quel que soit l'âge de la victime ; vérifier la présence du corps étranger dans la bouche, à la fin de chaque cycle. »",
+    "source": "PSE 2024 – Fiche 05PR11"
+  },
+  {
+    "id": "pse-063",
+    "level": "F",
+    "q": "Concernant la détresse circulatoire chez l'adulte, elle se manifeste notamment par :",
+    "choices": [
+      "Une fréquence cardiaque > 120 bpm (au repos) ou < 40 bpm",
+      "Un TRC supérieur à 2 secondes",
+      "Une PA systolique inférieure à 90 mmHg",
+      "Une glycémie supérieure à 2 g/l"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Paramètres d'une détresse circulatoire : FC > 120 ou < 40 bpm, TRC > 2 s, PAS < 90 mmHg. La glycémie n'est pas un critère de détresse circulatoire.",
+    "source": "PSE 2024 – Fiche 05AC02"
+  },
+  {
+    "id": "pse-064",
+    "level": "M",
+    "q": "La détresse respiratoire peut être évoquée par les signes suivants :",
+    "choices": [
+      "Une fréquence respiratoire > 30 mvts/min",
+      "Une SpO2 < 96 %",
+      "Une cyanose des doigts, lobes d'oreilles et lèvres",
+      "Une sensation de soif"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« La fréquence respiratoire est rapide souvent supérieure à 30 mvts/min ; la baisse de la SpO2 < 94 % (< 89 % chez IRC) ; coloration bleutée (cyanose) au niveau des doigts, du lobe des oreilles et des lèvres. » Une FC à 70 bpm est normale.",
+    "source": "PSE 2024 – Fiche 05AC04"
+  },
+  {
+    "id": "pse-065",
+    "level": "F",
+    "q": "Face à une victime inconsciente qui respire et n'est pas suspecte d'un traumatisme, la position recommandée est :",
+    "choices": [
+      "Position latérale de sécurité (PLS)",
+      "Position assise",
+      "Allongée strictement sur le dos en attendant un avis médical",
+      "Les jambes repliées"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "« Placer la victime en position latérale de sécurité pour maintenir la liberté des voies aériennes. En cas de grossesse, la position latérale gauche est préférable. »",
+    "source": "PSE 2024 – Fiche 05PR12"
+  },
+  {
+    "id": "pse-066",
+    "level": "M",
+    "q": "Face à une victime ayant perdu connaissance, respirant, et suspecte d'un traumatisme, la conduite à tenir initiale est :",
+    "choices": [
+      "La mettre immédiatement en PLS",
+      "La maintenir sur le dos en attendant un avis médical",
+      "Poursuivre la stabilisation de la tête à deux mains",
+      "Assurer une liberté des voies aériennes permanente"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "« Maintenir la victime sur le dos dans l'attente d'un avis médical. Poursuivre la stabilisation de la tête de la victime à deux mains. Assurer une liberté des voies aériennes permanente. » La mise en PLS à 2 secouristes ne se fait que sur indication médicale.",
+    "source": "PSE 2024 – Fiche 05PR12"
+  },
+  {
+    "id": "pse-067",
+    "level": "TF",
+    "q": "On considère qu'une victime est en hypoglycémie si la valeur mesurée de la glycémie est :",
+    "choices": [
+      "< 1,2 g/l (ou < 6,6 mmol/l)",
+      "< 0,6 g/l (ou < 3,3 mmol/l)",
+      "< 2,0 g/l (ou < 11 mmol/l)",
+      "> 1,8 g/l (ou > 10 mmol/l)"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« On considère qu'une victime est en hypoglycémie si la valeur mesurée de la glycémie est < 3,3 mmol/l (ou < 60 mg/dl ou < 0,6 g/l). »",
+    "source": "PSE 2024 – Fiche 06AC05"
+  },
+  {
+    "id": "pse-068",
+    "level": "F",
+    "q": "Chez un adulte diabétique conscient en hypoglycémie, la quantité de sucre recommandée est de :",
+    "choices": [
+      "1 à 2 morceaux de sucre",
+      "4 morceaux ou cuillères à café de sucre",
+      "8 morceaux de sucre",
+      "1 à 2 comprimés d'aspirine"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Donner de préférence du sucre en morceaux ou en poudre (4 morceaux ou cuillères à café de sucre), sinon une boisson sucrée comme un jus d'orange ou du miel. »",
+    "source": "PSE 2024 – Fiche 06PR05"
+  },
+  {
+    "id": "pse-069",
+    "level": "F",
+    "q": "Chez un enfant diabétique conscient en hypoglycémie, la dose recommandée de sucre est :",
+    "choices": [
+      "1 morceau ou cuillère à café",
+      "2 à 3 morceaux ou cuillères à café",
+      "4 morceaux ou cuillères à café",
+      "6 à 8 morceaux"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Pour les enfants, deux à trois morceaux ou cuillères à café de sucre sont la dose recommandée. »",
+    "source": "PSE 2024 – Fiche 06PR05"
+  },
+  {
+    "id": "pse-070",
+    "level": "M",
+    "q": "Après l'ingestion de sucre chez une victime en hypoglycémie, au bout de combien de temps faut-il compter pour observer une amélioration ?",
+    "choices": [
+      "Immédiatement",
+      "2 à 3 minutes",
+      "10 à 15 minutes",
+      "30 à 60 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Il faut compter environ 10 à 15 minutes entre l'ingestion du sucre, une élévation de la glycémie et une amélioration des signes. Si aucune amélioration ne survient au bout de 15 minutes, une seconde dose de sucre peut être prise. »",
+    "source": "PSE 2024 – Fiche 06PR05"
+  },
+  {
+    "id": "pse-071",
+    "level": "F",
+    "q": "Face à une crise convulsive généralisée chez l'adulte, pendant la phase convulsive, le secouriste doit :",
+    "choices": [
+      "Faire en sorte que la victime n'avale pas sa langue",
+      "Protéger la tête de la victime en glissant un tissu plié dessous",
+      "Écarter tout objet traumatisant autour de la victime",
+      "Contraindre les mouvements pour éviter les blessures"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "« Ne jamais contraindre les mouvements de la victime durant toute la crise. Protéger la tête de la victime en glissant si possible un vêtement ou un tissu plié sous sa tête, sans recouvrir les voies aériennes. Écarter tout objet qui pourrait être traumatisant. Ne rien placer entre les dents de la victime. »",
+    "source": "PSE 2024 – Fiche 06PR02"
+  },
+  {
+    "id": "pse-072",
+    "level": "TF",
+    "q": "La phase convulsive d'une crise généralisée dure en règle générale :",
+    "choices": [
+      "Moins de 5 minutes",
+      "10 à 15 minutes",
+      "20 à 30 minutes",
+      "Plusieurs heures"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "« Cette phase dure en règle générale moins de cinq minutes, période pendant laquelle la victime peut se mordre la langue. »",
+    "source": "PSE 2024 – Fiche 06AC02"
+  },
+  {
+    "id": "pse-073",
+    "level": "M",
+    "q": "Après une crise convulsive généralisée, quelle(s) mesure(s) le secouriste doit-il systématiquement prendre ?",
+    "choices": [
+      "Réaliser une mesure de la glycémie capillaire après la phase convulsive",
+      "Administrer immédiatement de l'oxygène au MHC à 15 l/min",
+      "Noter l'heure de survenue et la durée de la crise",
+      "Installer la victime en PLS si elle respire"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "« Réaliser une mesure de la glycémie capillaire après la phase convulsive ; poursuivre le bilan, noter l'heure de survenue et la durée de la crise ; installer la victime en PLS, si elle respire. » L'O2 n'est pas systématique.",
+    "source": "PSE 2024 – Fiche 06PR02"
+  },
+  {
+    "id": "pse-074",
+    "level": "F",
+    "q": "Face à une crise d'asthme chez une victime consciente, le secouriste doit systématiquement :",
+    "choices": [
+      "Installer la victime en position assise ou demi-assise",
+      "L'allonger à plat dos strictement",
+      "L'aider à prendre son traitement (aérosol doseur)",
+      "Administrer de l'oxygène en inhalation"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Installer la victime dans la position où elle se sent le mieux (souvent assise ou demi-assise qui facilite la respiration), aider à prendre le médicament prescrit (aérosol doseur), administrer de l'O2 en inhalation si nécessaire. (En fonction de la saturation)",
+    "source": "PSE 2024 – Fiche 06PR03"
+  },
+  {
+    "id": "pse-075",
+    "level": "M",
+    "q": "En cas de réaction allergique grave traitée par auto- injecteur d'adrénaline (AIA), une seconde injection peut être envisagée :",
+    "choices": [
+      "En cas d'absence d'amélioration ou de récidive dans les 10 à 15 minutes suivant la première injection",
+      "Immédiatement après la première, par précaution",
+      "En cas d'absence d'amélioration ou de récidive dans les 25 à 30 minutes suivant la première injection",
+      "Seulement sur avis médical renouvelé"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "« En l'absence d'amélioration ou en cas de récidive dans les 10 à 15 minutes qui suivent la première injection, une deuxième injection à l'aide de l'auto-injecteur peut être réalisée. Si possible, demander un nouvel avis au médecin régulateur. »",
+    "source": "PSE 2024 – Fiche 06PR07"
+  },
+  {
+    "id": "pse-076",
+    "level": "F",
+    "q": "Face à une douleur thoracique non traumatique avec signes de détresse circulatoire, la position d'attente à installer est :",
+    "choices": [
+      "Assise",
+      "Demi-assise",
+      "Allongée horizontale strictement",
+      "PLS systématique"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Elle présente les signes d'une détresse circulatoire : appliquer la conduite à tenir adaptée à une détresse circulatoire (position allongée horizontale, oxygène si nécessaire, lutter contre le froid). »",
+    "source": "PSE 2024 – Fiche 06PR04"
+  },
+  {
+    "id": "pse-077",
+    "level": "TF",
+    "q": "Quel pourcentage d'AVC est dû à une obstruction d'une artère cérébrale ?",
+    "choices": [
+      "50 %",
+      "65 %",
+      "85 %",
+      "95 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La fiche 06AC01 précise que l'obstruction d'une artère cérébrale (infarctus cérébral) est la cause la plus fréquente d'AVC avec 85 % des cas.",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-078",
+    "level": "F",
+    "q": "Concernant l'accident ischémique transitoire (AIT), quelle(s) affirmation(s) est (sont) exacte(s) ?",
+    "choices": [
+      "Les signes durent jamais plus d'une heure",
+      "Il s'agit d'une forme bénigne sans risque ultérieur",
+      "Il peut annoncer la survenue d'un AVC constitué",
+      "Il peut être confondu avec un simple malaise"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "L'AIT est une obstruction qui se résorbe spontanément, les signes durent de quelques secondes à quelques minutes, jamais plus d'une heure. C'est un signe d'alarme qui peut annoncer la survenue d'un AVC constitué et présente les mêmes risques. Il peut passer inaperçu et être confondu avec un simple malaise.",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-079",
+    "level": "F",
+    "q": "La victime d'AVC est la :",
+    "choices": [
+      "1ère cause de handicap chez l'adulte",
+      "2ème cause de handicap chez l'adulte",
+      "3ème cause de mortalité",
+      "1ère cause de mortalité"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "L'AVC est la 1ère cause de handicap chez l'adulte et la 3ème cause de mortalité.",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-080",
+    "level": "M",
+    "q": "Dans quel délai les traitements de l'infarctus cérébral sont-ils les plus efficaces ?",
+    "choices": [
+      "30 minutes à 1 heure",
+      "2 à 3 heures",
+      "6 à 8 heures",
+      "24 heures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Les nouveaux traitements sont très efficaces s'ils sont administrés précocement (2 à 3 heures après le début des signes).",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-081",
+    "level": "TF",
+    "q": "Le test FAST utilisé pour dépister un AVC signifie :",
+    "choices": [
+      "Face, Arm, Speech Test",
+      "Fast Action Stroke Treatment",
+      "Face, Abdomen, Speech Test",
+      "Fear, Anxiety, Symptoms Test"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Les trois signes (déformation de la bouche, faiblesse d'un ou des deux bras, difficulté du langage) sont communément appelés FAST ou « Face, Arm et Speech test ».",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-082",
+    "level": "M",
+    "q": "Pourquoi la mesure de la glycémie capillaire est-elle indispensable au 4ème regard chez une victime suspecte d'AVC ?",
+    "choices": [
+      "Parce que l'hypoglycémie aggrave systématiquement tous les AVC",
+      "Parce qu'une hypoglycémie peut simuler un AVC",
+      "Parce qu'une hyperglycémie provoque un AVC",
+      "Parce que c'est exigé par le médecin régulateur"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Une hypoglycémie peut simuler un AVC et donner un ou plusieurs des signes. Il est donc indispensable de rechercher et de corriger une hypoglycémie avant d'affirmer être en présence de signes d'AVC.",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-083",
+    "level": "F",
+    "q": "Devant une victime consciente présentant des signes d'AVC, comment l'installer ?",
+    "choices": [
+      "En position strictement horizontale à plat dos",
+      "Assise",
+      "En PLS si elle présente des nausées ou des vomissements",
+      "Demi-assise systématiquement"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Installer la victime en position strictement horizontale à plat ou en PLS si elle présente des nausées et des vomissements.",
+    "source": "PSE 2024 – Fiche 06PR01"
+  },
+  {
+    "id": "pse-084",
+    "level": "TF",
+    "q": "Quelle proportion des victimes d'AVC présente des troubles de la déglutition associés ?",
+    "choices": [
+      "1/4",
+      "1/3",
+      "1/2",
+      "Près des 2/3"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Près des 2/3 des victimes qui présentent un AVC présentent des troubles de la déglutition associés.",
+    "source": "PSE 2024 – Fiche 06PR01"
+  },
+  {
+    "id": "pse-085",
+    "level": "F",
+    "q": "Concernant la phase tonico-clonique d'une crise convulsive généralisée chez l'adulte, quelle durée habituelle ?",
+    "choices": [
+      "Moins de 5 minutes",
+      "Entre 5 et 10 minutes",
+      "Entre 10 et 20 minutes",
+      "Au-delà de 20 minutes"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Cette phase (secousses musculaires, révulsion oculaire, contracture de la mâchoire) dure en règle générale moins de cinq minutes.",
+    "source": "PSE 2024 – Fiche 06AC02"
+  },
+  {
+    "id": "pse-086",
+    "level": "TF",
+    "q": "Pendant la crise convulsive, il faut :",
+    "choices": [
+      "Placer un objet entre les dents pour éviter la morsure de langue",
+      "Protéger la tête en glissant si possible un vêtement plié dessous",
+      "Contraindre les mouvements de la victime",
+      "Écarter tout objet qui pourrait être traumatisant"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Ne jamais contraindre les mouvements ; ne rien placer entre les dents (la victime n'avalera pas sa langue) ; protéger la tête en glissant si possible un vêtement ou un tissu plié ; écarter tout objet qui pourrait être traumatisant.",
+    "source": "PSE 2024 – Fiche 06PR02"
+  },
+  {
+    "id": "pse-087",
+    "level": "M",
+    "q": "Chez le nourrisson convulsif, la prise en charge spécifique inclut :",
+    "choices": [
+      "Prendre la température",
+      "Découvrir l'enfant et placer des linges humides sur son front et sa nuque",
+      "Aérer et ventiler la pièce",
+      "Transmettre un bilan systématiquement"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "La prise en charge est identique à celle de l'adulte, mais il faut en plus : prendre la température, découvrir l'enfant, placer des linges humides sur son front et sa nuque, aérer et ventiler la pièce, transmettre un bilan systématiquement.",
+    "source": "PSE 2024 – Fiche 06PR02"
+  },
+  {
+    "id": "pse-088",
+    "level": "TF",
+    "q": "La crise d'asthme est une détresse :",
+    "choices": [
+      "Respiratoire",
+      "Circulatoire",
+      "Neurologique",
+      "Cutanée"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "La crise d'asthme est une détresse respiratoire provoquée par une inflammation et une contraction des fibres musculaires lisses des bronchioles.",
+    "source": "PSE 2024 – Fiche 06AC03"
+  },
+  {
+    "id": "pse-089",
+    "level": "F",
+    "q": "Face à une douleur thoracique non traumatique avec détresse circulatoire, la position d'attente est :",
+    "choices": [
+      "Assise",
+      "Demi-assise",
+      "Allongée à plat horizontale",
+      "Latérale de sécurité"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Devant une détresse circulatoire la victime doit être allongée horizontalement ; la position assise/demi-assise est réservée à la détresse respiratoire.",
+    "source": "PSE 2024 – Fiche 06AC04"
+  },
+  {
+    "id": "pse-090",
+    "level": "M",
+    "q": "Un adulte diabétique en malaise hypoglycémique conscient, capable d'avaler, doit recevoir :",
+    "choices": [
+      "1 morceau de sucre",
+      "4 morceaux de sucre",
+      "8 morceaux de sucre",
+      "Un demi-litre d'eau sucrée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chez l'adulte l'apport glucidique standard est de 4 morceaux de sucre dissous ou équivalent.",
+    "source": "PSE 2024 – Fiche 06PR05"
+  },
+  {
+    "id": "pse-091",
+    "level": "F",
+    "q": "Concernant le resucrage d'un diabétique en hypoglycémie :",
+    "choices": [
+      "L'amélioration doit être perceptible en 10 à 15 minutes",
+      "Une seconde dose peut être donnée si les signes persistent à 15 minutes",
+      "On peut donner du sucre à un diabétique inconscient",
+      "Chez l'enfant, on donne habituellement 2 à 3 morceaux de sucre"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Amélioration attendue en 10 à 15 minutes, possibilité de renouveler le resucrage à 15 min, 2 à 3 morceaux chez l'enfant. Interdit chez toute victime inconsciente (risque d'inhalation).",
+    "source": "PSE 2024 – Fiche 06PR05"
+  },
+  {
+    "id": "pse-092",
+    "level": "F",
+    "q": "Concernant le DAI (dispositif auto-injectable) d'adrénaline :",
+    "choices": [
+      "Il s'injecte par voie intramusculaire sur la face externe de la cuisse",
+      "Il s'injecte en intraveineux",
+      "Il peut être administré à travers un vêtement peu épais en cas d'urgence",
+      "Une 2ème injection peut être réalisée 10 à 15 minutes après la 1ère si les signes persistent"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Le DAI s'injecte en intramusculaire sur la face externe de la cuisse (ou à défaut le deltoïde), peut passer à travers un vêtement peu épais en cas d'urgence ; la 2ème injection peut être réalisée 10 à 15 minutes après la 1ère.",
+    "source": "PSE 2024 – Fiche 06AC07"
+  },
+  {
+    "id": "pse-093",
+    "level": "TF",
+    "q": "Quelle est la position d'attente de référence pour une victime présentant une détresse respiratoire ?",
+    "choices": [
+      "Allongée à plat dos",
+      "Assise ou demi-assise",
+      "PLS",
+      "Debout"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Position assise ou demi-assise indiquée pour les détresses respiratoires.",
+    "source": "PSE 2024 – Fiche 06FT01"
+  },
+  {
+    "id": "pse-094",
+    "level": "M",
+    "q": "Lors de l'administration d'un médicament par spray buccal, la victime doit retenir sa respiration pendant :",
+    "choices": [
+      "5 secondes",
+      "10 secondes",
+      "20 secondes",
+      "30 secondes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Demander à la victime de retenir sa respiration pendant 10 secondes avant de respirer de nouveau normalement.",
+    "source": "PSE 2024 – Fiche 06FT02"
+  },
+  {
+    "id": "pse-095",
+    "level": "F",
+    "q": "Après injection par DAI, le dispositif :",
+    "choices": [
+      "Doit être recapuchonné soigneusement",
+      "Doit être éliminé dans un conteneur DASRI",
+      "Peut être réutilisé sur la même victime si besoin",
+      "Doit être maintenu en place quelques secondes avant retrait"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Maintenir le dispositif en place pendant quelques secondes avant de le retirer, puis éliminer dans un conteneur de recueil de DASRI (pas de recapuchonnage, usage unique).",
+    "source": "PSE 2024 – Fiche 06FT02"
+  },
+  {
+    "id": "pse-096",
+    "level": "M",
+    "q": "Parmi les manœuvres physiques contre une perte de connaissance imminente, laquelle est la plus efficace ?",
+    "choices": [
+      "L'accroupissement",
+      "Le croisement des membres inférieurs",
+      "Le crochetage des doigts",
+      "Toutes ont une efficacité identique"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le croisement des membres inférieurs à une efficacité supérieure aux deux autres techniques. »",
+    "source": "PSE 2024 – Fiche 06FT03"
+  },
+  {
+    "id": "pse-097",
+    "level": "M",
+    "q": "Parmi les facteurs de risque d'AVC recherchés à l'interrogatoire, on retient :",
+    "choices": [
+      "Hypertension artérielle et maladie cardiovasculaire",
+      "Diabète ou hypercholestérolémie",
+      "Tabagisme, obésité",
+      "Traitement anticoagulant"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Facteurs de risque cités : HTA et maladie CV, diabète ou hypercholestérolémie, obésité, tabagisme, traitement anticoagulant.",
+    "source": "PSE 2024 – Fiche 06AC01"
+  },
+  {
+    "id": "pse-098",
+    "level": "M",
+    "q": "Dans le cadre d'un malaise, le bilan recherche :",
+    "choices": [
+      "Les circonstances de survenue",
+      "Les antécédents médicaux",
+      "Les traitements en cours",
+      "Uniquement la fréquence cardiaque"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Le bilan comprend circonstances, antécédents, traitements, prises récentes ; la FC est un élément parmi d'autres, non exclusif.",
+    "source": "PSE 2024 – Fiche 06AC06"
+  },
+  {
+    "id": "pse-099",
+    "level": "TF",
+    "q": "L'hypothermie accidentelle se définit comme une chute involontaire de la température corporelle au-dessous de :",
+    "choices": [
+      "37 °C",
+      "36 °C",
+      "35 °C",
+      "34 °C"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« L'hypothermie accidentelle se définit comme une chute involontaire de la température corporelle au-dessous de 35 °C. »",
+    "source": "PSE 2024 – Fiche 07AC07"
+  },
+  {
+    "id": "pse-100",
+    "level": "F",
+    "q": "Associez correctement le stade d'hypothermie à sa plage de température :",
+    "choices": [
+      "Légère : 35 à 32 °C",
+      "Modérée : 32 à 27 °C",
+      "Sévère : 27 à 24 °C",
+      "Grave : Inférieure à 24 °C"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "Les stades d'hypothermie sont : légère 35-32 °C, modérée 32-28 °C, sévère 28-24 °C, grave < 24 °C.",
+    "source": "PSE 2024 – Fiche 07AC07"
+  },
+  {
+    "id": "pse-101",
+    "level": "M",
+    "q": "Lors de la prise en charge d'une victime hypotherme en arrêt cardiaque apparent, les précautions particulières incluent :",
+    "choices": [
+      "Rechercher la présence de signes de vie pendant au moins 1 minute",
+      "Réaliser immédiatement 3 chocs de défibrillation consécutifs",
+      "En cas de température < 30 °C, limiter le nombre de chocs à 3 tant que la victime n'est pas réchauffée",
+      "Ne jamais débuter de RCP tant que la victime n'est pas réchauffée"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Rechercher la présence de signes de vie au moins pendant 1 minute… En cas de température < 30 °C doit être limité à 3 tant que la victime n'est pas réchauffée. » En cas de doute, débuter la RCP.",
+    "source": "PSE 2024 – Fiche 07PR08"
+  },
+  {
+    "id": "pse-102",
+    "level": "F",
+    "q": "Chez une victime d'avalanche ensevelie, la perte de température est d'environ :",
+    "choices": [
+      "1 degré par heure",
+      "3 degrés par heure",
+      "5 degrés par heure",
+      "10 degrés par heure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La victime ensevelie perd 3 degrés environ par heure. »",
+    "source": "PSE 2024 – Fiche 07AC14"
+  },
+  {
+    "id": "pse-103",
+    "level": "F",
+    "q": "En cas d'affection liée à la chaleur (coup de chaleur) avec détresse vitale, la température corporelle retrouvée est en général :",
+    "choices": [
+      "Normale",
+      "Inférieure à 36 °C",
+      "Supérieure à 37,5 °C",
+      "Supérieure à 40 °C"
+    ],
+    "correct": [
+      2,
+      3
+    ],
+    "expl": "« Les affections liées à la chaleur sont des élévations anormales, au-dessus de 37,5 °C, de la température corporelle. » « Coup de chaleur… associe une température corporelle supérieure à 40 °C et des troubles neurologiques. »",
+    "source": "PSE 2024 – Fiche 07AC04"
+  },
+  {
+    "id": "pse-104",
+    "level": "TF",
+    "q": "Un syndrome de suspension se définit comme les manifestations survenant chez une victime suspendue, immobile, en position verticale pendant une durée :",
+    "choices": [
+      "Supérieure à 1 minute",
+      "Supérieure à 5 minutes",
+      "Supérieure à 30 minutes",
+      "Supérieure à 2 heures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« Le traumatisme de suspension ou syndrome de suspension regroupe toutes les manifestations qui surviennent chez une victime qui est suspendue, immobile, en position verticale pendant une durée prolongée (plus de 5 minutes). »",
+    "source": "PSE 2024 – Fiche 07AC12"
+  },
+  {
+    "id": "pse-105",
+    "level": "M",
+    "q": "Concernant la compression de membre (« crush syndrome »), quelles affirmations sont exactes ?",
+    "choices": [
+      "Elle est dite prolongée si elle dure plus de 2 heures",
+      "En cas d'impossibilité d'obtenir un avis médical et si la compression dure plus de 4 heures, la pose d'un garrot avant dégagement est recommandée",
+      "Les déchets toxiques accumulés peuvent provoquer un arrêt cardiaque au moment du dégagement",
+      "Le dégagement doit toujours être immédiat"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "« Elle est dite prolongée si elle est de plus de deux heures. » « Mettre en place un garrot, si la durée de compression est supérieure à quatre heures. » « Cela peut se traduire par la survenue brutale d'un arrêt cardiaque… juste après le dégagement. » Le dégagement doit se faire en présence d'une équipe médicale, sauf exception.",
+    "source": "PSE 2024 – Fiches 07AC05, 07PR06"
+  },
+  {
+    "id": "pse-106",
+    "level": "TF",
+    "q": "L'accouchement normal survient entre :",
+    "choices": [
+      "30 et 34 semaines d'aménorrhée",
+      "37 et 41 semaines d'aménorrhée",
+      "42 et 45 semaines d'aménorrhée",
+      "25 et 30 semaines d'aménorrhée"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« L'accouchement survient lors du 9ème mois de grossesse, soit entre 37 et 41 semaines révolues d'aménorrhée. » Avant 37 SA, on parle d'accouchement prématuré.",
+    "source": "PSE 2024 – Fiche 07AC03"
+  },
+  {
+    "id": "pse-107",
+    "level": "M",
+    "q": "Lors de la prise en charge d'un nouveau-né à la naissance, quelles actions sont recommandées ?",
+    "choices": [
+      "Clamper le cordon au minimum après 1 minute de vie",
+      "Si le nouveau-né est aréactif, réaliser 40 insufflations à l'air en 1 minute",
+      "Clamper le plus vite possible le cordon dès la sortie",
+      "Réévaluer l'état du nouveau-né toutes les minutes"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "« Clamper le cordon au minimum après 1 minute de vie » ; « si son état est inchangé, réaliser 40 insufflations à l'air en 1 minute » ; « réévaluer l'état du nouveau- né toutes les minutes et adapter la conduite à tenir ».",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-108",
+    "level": "F",
+    "q": "Chez le nouveau-né dont la FC est < 60 battements par minute, la conduite à tenir est :",
+    "choices": [
+      "Surveiller étroitement sans autre geste",
+      "Réaliser une RCP avec apport complémentaire d'oxygène",
+      "Appliquer un rythme de 3 compressions pour 1 insufflation à 120/min",
+      "Réaliser une PLS immédiate"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "« < 60 battements par minute : réaliser une RCP avec un apport complémentaire d'oxygène… de 120 par minute pour 1 insufflation. »",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-109",
+    "level": "TF",
+    "q": "Toute personne exposée à une explosion et indemne :",
+    "choices": [
+      "Doit être considérée comme suspecte de blast",
+      "Peut quitter les lieux sans bilan",
+      "Doit faire l'objet d'un examen médical systématique",
+      "Ne présentera pas de lésions dans les heures suivantes"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "« Toute personne exposée à une explosion, même si elle ne présente pas de signe évident, est suspecte d'un traumatisme par effet de souffle et peut secondairement présenter une détresse respiratoire : faire examiner systématiquement par un médecin. » Les lésions peuvent se manifester à retardement, parfois plus de 24 h après.",
+    "source": "PSE 2024 – Fiche 07AC13"
+  },
+  {
+    "id": "pse-110",
+    "level": "F",
+    "q": "Lors d'un accident de plongée, la conduite à tenir en l'absence de détresse vitale comprend :",
+    "choices": [
+      "Administrer de l'oxygène au MHC à 15 l/min quelle que soit la SpO2",
+      "Faire boire de l'eau plate (0,5 à 1 l sur une heure, en fractionnant)",
+      "Allonger la victime strictement à plat dos avec les jambes surélevées",
+      "Laisser la victime dans sa combinaison pour conserver sa chaleur"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "« Administrer de l'oxygène en inhalation à l'aide d'un masque à haute concentration à un débit de 15 l/min, quelle que soit la saturation en oxygène. » « Faire boire de l'eau plate (0,5 à 1 l en fractionnant les prises sur une heure). » Il faut déshabiller et sécher la victime.",
+    "source": "PSE 2024 – Fiche 07PR02"
+  },
+  {
+    "id": "pse-111",
+    "level": "M",
+    "q": "En cas de risque persistant de foudre, quelles règles de sécurité doivent être respectées par les intervenants ?",
+    "choices": [
+      "Porter un casque de protection",
+      "Respecter une distance entre individus supérieure à 3 mètres",
+      "Progresser en faisant de grandes enjambées pour se mettre à l'abri",
+      "S'éloigner des arêtes, sommets, arbres isolés"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "« Porter un casque de protection ; respecter une distance entre individus > 3 m ; progresser en faisant des petits pas ; s'éloigner des arêtes, des sommets, des arbres isolés ; éviter les clairières. »",
+    "source": "PSE 2024 – Fiche 07AC15"
+  },
+  {
+    "id": "pse-112",
+    "level": "TF",
+    "q": "Une électrisation mortelle est appelée :",
+    "choices": [
+      "Foudroiement",
+      "Électrocution",
+      "Fibrillation",
+      "Tétanisation"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le terme électrocution est réservé à une électrisation mortelle, soit immédiatement, soit très précocement.",
+    "source": "PSE 2024 – Fiche 07AC01"
+  },
+  {
+    "id": "pse-113",
+    "level": "M",
+    "q": "Concernant les effets du courant électrique selon son intensité :",
+    "choices": [
+      "1 mA provoque une sensation de picotements",
+      "30 mA provoque une tétanisation des muscles respiratoires",
+      "80 mA peut provoquer une fibrillation ventriculaire",
+      "500 mA est le seuil d'inflammation"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Sensation de picotements à 1 mA, tétanisation des muscles respiratoires à 30 mA jusqu'à la fibrillation ventriculaire à 80 mA.",
+    "source": "PSE 2024 – Fiche 07AC01"
+  },
+  {
+    "id": "pse-114",
+    "level": "F",
+    "q": "Concernant la tension électrique, quelle affirmation est exacte ?",
+    "choices": [
+      "Les hauts voltages (≥ 1000 V) brûlent et les faibles voltages (< 1000 V) tuent",
+      "Les faibles voltages brûlent et les hauts voltages tuent",
+      "Seuls les hauts voltages peuvent provoquer des brûlures",
+      "Les faibles voltages sont toujours inoffensifs"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "« Il est classique de dire que les hauts voltages (≥ 1000 V) brûlent et les faibles voltages (< 1000 V) tuent. »",
+    "source": "PSE 2024 – Fiche 07AC01"
+  },
+  {
+    "id": "pse-115",
+    "level": "F",
+    "q": "Face à une victime d'accident électrique toujours en contact avec une source sous tension, que faire ?",
+    "choices": [
+      "Tirer rapidement la victime avec les mains nues",
+      "Ne pas s'approcher ou toucher avant d'être certain que l'alimentation est coupée",
+      "Utiliser un objet métallique pour écarter le câble",
+      "Faire écarter immédiatement les personnes présentes"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Ne pas s'approcher ou toucher avant coupure certaine ; faire écarter immédiatement les personnes présentes et leur interdire de toucher la victime.",
+    "source": "PSE 2024 – Fiche 07PR01"
+  },
+  {
+    "id": "pse-116",
+    "level": "M",
+    "q": "En cas de véhicule en contact accidentel avec une ligne électrique :",
+    "choices": [
+      "Les occupants doivent sortir le plus vite possible",
+      "Les occupants doivent rester à l'intérieur tant que la ligne n'est pas hors tension",
+      "Le véhicule est isolé de la terre grâce à ses pneumatiques",
+      "On peut s'approcher sans risque du véhicule"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Ordonner aux occupants de rester à l'intérieur tant que la ligne n'est pas hors tension. « Les occupants d'un véhicule ne courent pas de risque tant qu'ils restent à l'intérieur de leur véhicule. En effet, celui-ci est isolé de la terre grâce à ses pneumatiques. »",
+    "source": "PSE 2024 – Fiche 07PR01"
+  },
+  {
+    "id": "pse-117",
+    "level": "F",
+    "q": "Un accident lié à la plongée peut survenir jusqu'à combien de temps après la sortie de l'eau ?",
+    "choices": [
+      "1 heure",
+      "6 heures",
+      "12 heures",
+      "24 heures"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Toute manifestation qui survient pendant, immédiatement après ou dans les vingt-quatre heures qui suivent une plongée.",
+    "source": "PSE 2024 – Fiche 07AC02"
+  },
+  {
+    "id": "pse-118",
+    "level": "M",
+    "q": "L'accident le plus grave à la remontée, lors d'une plongée en scaphandre, est :",
+    "choices": [
+      "Le placage de masque",
+      "L'otite barotraumatique",
+      "La surpression pulmonaire",
+      "La narcose à l'azote"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Lors de la remontée, la surpression pulmonaire est l'accident le plus grave qui peut entraîner la mort du plongeur.",
+    "source": "PSE 2024 – Fiche 07AC02"
+  },
+  {
+    "id": "pse-119",
+    "level": "F",
+    "q": "Un accouchement à terme survient habituellement entre :",
+    "choices": [
+      "30 et 34 SA",
+      "34 et 36 SA",
+      "37 et 41 SA",
+      "Au-delà de 41 SA"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "L'accouchement à terme survient habituellement entre 37 et 41 semaines d'aménorrhée ; avant 37 SA l'enfant est considéré comme prématuré.",
+    "source": "PSE 2024 – Fiche 07AC03"
+  },
+  {
+    "id": "pse-120",
+    "level": "M",
+    "q": "Parmi les trois étapes d'un accouchement, quelle est la durée habituelle de la phase de délivrance ?",
+    "choices": [
+      "5 à 10 minutes",
+      "20 à 30 minutes",
+      "1 à 2 heures",
+      "Plus de 3 heures"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La phase de délivrance (expulsion du placenta) dure habituellement 20 à 30 minutes après la naissance.",
+    "source": "PSE 2024 – Fiche 07AC03"
+  },
+  {
+    "id": "pse-121",
+    "level": "F",
+    "q": "Chez un nouveau-né dont la fréquence cardiaque est comprise entre 60 et 100 battements par minute, la conduite à tenir est :",
+    "choices": [
+      "Compressions thoraciques isolées",
+      "Insufflations sans compressions thoraciques",
+      "RCP avec rythme 3:1",
+      "Surveillance simple"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "FC entre 60 et 100 bpm : réaliser des insufflations à l'air sans compressions thoraciques, réévaluer la FC toutes les minutes.",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-122",
+    "level": "M",
+    "q": "Si un nouveau-né présente une FC inférieure à 60 bpm, le rythme de la RCP est :",
+    "choices": [
+      "30 compressions / 2 insufflations à 100/min",
+      "15 compressions / 2 insufflations à 100/min",
+      "3 compressions / 1 insufflation à 120/min instantanés",
+      "5 compressions / 1 insufflation à 80/min"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "FC < 60 bpm : RCP avec rythme 3 compressions pour 1 insufflation à une fréquence instantanée de 120 par minute.",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-123",
+    "level": "F",
+    "q": "Concernant la pose du clamp sur le cordon ombilical :",
+    "choices": [
+      "Le premier clamp est posé à 3-5 cm de l'ombilic",
+      "Le premier clamp est posé à 10-15 cm de l'ombilic",
+      "On sectionne entre les deux clamps",
+      "Le clampage doit être réalisé avant la 1ère minute de vie"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Poser le premier clamp à environ 10 à 15 cm de l'ombilic, couper le cordon entre les clamps. Le clampage est réalisé après la 1ère minute de vie.",
+    "source": "PSE 2024 – Fiche 07FT01"
+  },
+  {
+    "id": "pse-124",
+    "level": "TF",
+    "q": "On parle d'affection liée à la chaleur au-dessus de quelle température corporelle ?",
+    "choices": [
+      "37 °C",
+      "37,5 °C",
+      "38 °C",
+      "39 °C"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Les affections liées à la chaleur sont des élévations anormales, au-dessus de 37,5 °C, de la température corporelle.",
+    "source": "PSE 2024 – Fiche 07AC04"
+  },
+  {
+    "id": "pse-125",
+    "level": "F",
+    "q": "Le coup de chaleur associe :",
+    "choices": [
+      "Une température corporelle supérieure à 40 °C",
+      "Des troubles neurologiques",
+      "Une température comprise entre 37,5 °C et 38,5 °C",
+      "Il évolue vers une détresse vitale"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le coup de chaleur associe une température corporelle supérieure à 40 °C et des troubles neurologiques et évolue vers une détresse vitale.",
+    "source": "PSE 2024 – Fiche 07AC04"
+  },
+  {
+    "id": "pse-126",
+    "level": "M",
+    "q": "Dans le traitement du coup de chaleur, quel est l'objectif de température à atteindre ?",
+    "choices": [
+      "Inférieure à 37 °C",
+      "Inférieure à 37,5 °C",
+      "Inférieure à 39,4 °C",
+      "Inférieure à 40 °C"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "L'objectif est de retrouver une température inférieure à 39,4 °C.",
+    "source": "PSE 2024 – Fiche 07PR05"
+  },
+  {
+    "id": "pse-127",
+    "level": "M",
+    "q": "Pour accélérer le refroidissement d'une victime d'insolation ou de coup de chaleur, on peut placer de la glace :",
+    "choices": [
+      "Directement sur la peau au niveau du front",
+      "Sans contact direct avec la peau, au niveau des gros troncs vasculaires",
+      "Aux plis de l'aine et aux aisselles",
+      "Sur toute la surface du thorax"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Placer, sans contact direct avec la peau pour ne pas brûler, de la glace au niveau des gros troncs vasculaires (plis de l'aine, aisselle), de la tête, de la nuque.",
+    "source": "PSE 2024 – Fiche 07PR05"
+  },
+  {
+    "id": "pse-128",
+    "level": "F",
+    "q": "La compression de membre est qualifiée de prolongée à partir de :",
+    "choices": [
+      "30 minutes",
+      "1 heure",
+      "2 heures",
+      "4 heures"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La compression est considérée comme prolongée à partir de 2 heures.",
+    "source": "PSE 2024 – Fiche 07AC05"
+  },
+  {
+    "id": "pse-129",
+    "level": "F",
+    "q": "La prise en charge des gelures comprend un réchauffement à :",
+    "choices": [
+      "Température corporelle normale (37 °C)",
+      "37 à 39 °C pendant 20 à 30 minutes",
+      "42 à 45 °C pendant 10 minutes",
+      "Eau froide pendant 20 minutes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Réchauffement à 37-39 °C pendant 20 à 30 minutes, jamais supérieur à 39 °C.",
+    "source": "PSE 2024 – Fiche 07AC06"
+  },
+  {
+    "id": "pse-130",
+    "level": "TF",
+    "q": "L'hypothermie est définie par une température corporelle inférieure à :",
+    "choices": [
+      "36 °C",
+      "35 °C",
+      "34 °C",
+      "32 °C"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "L'hypothermie est définie par une température centrale inférieure à 35 °C.",
+    "source": "PSE 2024 – Fiche 07AC07"
+  },
+  {
+    "id": "pse-131",
+    "level": "M",
+    "q": "Concernant les stades d'hypothermie, laquelle (lesquelles) est (sont) exacte(s) ?",
+    "choices": [
+      "Hypothermie légère : 32-35 °C",
+      "Hypothermie modérée : 28-32 °C",
+      "Hypothermie sévère : 24-28 °C",
+      "Hypothermie grave : < 24 °C"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Légère 32-35 °C / Modérée 28-32 °C / Sévère 24-28 °C / Grave < 24 °C.",
+    "source": "PSE 2024 – Fiche 07AC07"
+  },
+  {
+    "id": "pse-132",
+    "level": "M",
+    "q": "Chez une victime en hypothermie sévère (< 30 °C) en arrêt cardiaque, combien de chocs électriques au maximum doivent être délivrés avant médicalisation ?",
+    "choices": [
+      "1",
+      "3",
+      "5",
+      "Sans limite"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Chez une victime en hypothermie < 30 °C, les chocs électriques sont limités à 3 maximum tant que la victime n'est pas réchauffée.",
+    "source": "PSE 2024 – Fiche 07PR08"
+  },
+  {
+    "id": "pse-133",
+    "level": "F",
+    "q": "Concernant l'administration de naloxone par voie intranasale lors d'une intoxication aux opiacés :",
+    "choices": [
+      "Indiquée chez toute victime à partir de 14 ans",
+      "Administrable chez les enfants de tout âge",
+      "Administrée en une pulvérisation dans une narine",
+      "Renouvelable au bout de 2 à 3 minutes si l'état ne s'améliore pas"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Administrer une pulvérisation de naloxone dans une narine chez toute victime âgée de 14 ans et plus ; renouveler au bout de 2 à 3 minutes si l'état ne s'améliore pas. Efficacité non établie chez les moins de 14 ans.",
+    "source": "PSE 2024 – Fiche 07PR09"
+  },
+  {
+    "id": "pse-134",
+    "level": "M",
+    "q": "À partir de quelle fréquence respiratoire la naloxone est-elle indiquée face à une intoxication aux opiacés ?",
+    "choices": [
+      "FR < 12 mouvements/min",
+      "FR < 18 mouvements/min",
+      "FR < 20 mouvements/min",
+      "FR < 6 mouvements/min"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Devant une victime qui présente une intoxication aux opiacés avec dépression respiratoire (FR < 12 mvts/min) et/ou une perte de connaissance.",
+    "source": "PSE 2024 – Fiche 07PR09"
+  },
+  {
+    "id": "pse-135",
+    "level": "F",
+    "q": "Face à une intoxication en environnement toxique, le secouriste doit :",
+    "choices": [
+      "Se protéger du toxique en restant à distance",
+      "Supprimer la cause ou aérer le local si nécessaire",
+      "Entrer immédiatement dans l'atmosphère toxique",
+      "Soustraire la victime le plus rapidement possible de l'environnement toxique"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Se protéger du toxique en restant à distance, supprimer la cause ou aérer le local si nécessaire, soustraire la victime le plus rapidement possible.",
+    "source": "PSE 2024 – Fiche 07PR10"
+  },
+  {
+    "id": "pse-136",
+    "level": "F",
+    "q": "Concernant la définition de la noyade :",
+    "choices": [
+      "C'est une détresse respiratoire due à l'immersion ou à la submersion",
+      "La submersion concerne le visage recouvert d'eau ou d'un liquide",
+      "L'immersion concerne le corps dans l'eau alors que la tête est au-dessus du niveau",
+      "C'est toujours d'origine cardiaque primaire"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "La noyade est une détresse respiratoire due à l'immersion ou à la submersion ; distinctions claires entre immersion et submersion.",
+    "source": "PSE 2024 – Fiche 07AC09"
+  },
+  {
+    "id": "pse-137",
+    "level": "M",
+    "q": "Chez une victime de noyade en arrêt cardiaque, l'idéal est de :",
+    "choices": [
+      "Réaliser immédiatement 5 insufflations initiales avant les compressions",
+      "Débuter directement par 30 compressions thoraciques",
+      "Effectuer des manœuvres de désobstruction abdominale systématiques",
+      "Sécher le thorax avant de placer les électrodes du DAE"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "Idéalement, il convient de réaliser immédiatement cinq insufflations initiales avant de débuter les compressions ; sécher le thorax avant de placer les électrodes pour la défibrillation. Les techniques de désobstruction abdominale sont dangereuses et ne doivent pas être réalisées.",
+    "source": "PSE 2024 – Fiche 07PR11"
+  },
+  {
+    "id": "pse-138",
+    "level": "F",
+    "q": "Le débit d'oxygène administré à une victime de noyade en arrêt cardiaque est :",
+    "choices": [
+      "3 l/min",
+      "9 l/min",
+      "12 l/min",
+      "15 l/min"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "L'administration d'oxygène sera rapide, systématique et à haute concentration (15 l/min) tant que la victime est en arrêt cardiaque.",
+    "source": "PSE 2024 – Fiche 07PR11"
+  },
+  {
+    "id": "pse-139",
+    "level": "M",
+    "q": "Face à une victime de noyade, les techniques de désobstruction abdominale :",
+    "choices": [
+      "Doivent être réalisées systématiquement",
+      "Ne doivent pas être réalisées",
+      "Peuvent entraîner une régurgitation et une inhalation",
+      "Retardent la mise en œuvre de la RCP"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Les techniques de désobstruction des voies aériennes (tapes dans le dos, compressions abdominales) sont dangereuses et ne doivent pas être réalisées. Elles peuvent entraîner régurgitation, inhalation, lésions traumatiques et retardent la RCP.",
+    "source": "PSE 2024 – Fiche 07PR11"
+  },
+  {
+    "id": "pse-140",
+    "level": "F",
+    "q": "Face à une victime suspectée de pendaison, le secouriste doit :",
+    "choices": [
+      "Déplacer et retirer tous les objets du lieu",
+      "Ne pas détruire, jeter ou déplacer les objets plus que nécessaire",
+      "Desserrer et enlever rapidement toute source de constriction du cou",
+      "Allonger la victime au sol en limitant les mouvements du rachis cervical"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Ne pas détruire, jeter ou déplacer les objets plus que nécessaire (éléments susceptibles de servir de preuve) ; desserrer et enlever rapidement toute source de constriction ; allonger la victime au sol en limitant les mouvements du rachis cervical.",
+    "source": "PSE 2024 – Fiche 07PR12"
+  },
+  {
+    "id": "pse-141",
+    "level": "M",
+    "q": "Conduite à tenir face à une piqûre de méduse :",
+    "choices": [
+      "Rincer à l'eau douce froide",
+      "Arroser dès que possible avec du vinaigre de table",
+      "Si la douleur persiste, placer la zone dans l'eau chaude",
+      "Enlever les filaments avec la main nue"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Enlever les filaments en se protégeant avec un gant (pas la main nue) ; arroser avec du vinaigre de table ; placer la zone dans de l'eau chaude jusqu'à disparition de la douleur. L'eau douce est déconseillée.",
+    "source": "PSE 2024 – Fiche 07PR13"
+  },
+  {
+    "id": "pse-142",
+    "level": "F",
+    "q": "Face à une morsure de serpent, il faut :",
+    "choices": [
+      "Aspirer le venin avec un dispositif mécanique",
+      "Ne jamais pratiquer de techniques d'aspiration",
+      "Injecter immédiatement du sérum antivenimeux",
+      "Ne pas injecter de sérum antivenimeux"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Ne jamais pratiquer de techniques d'aspiration, qu'elles soient buccales ou à l'aide d'un appareil, et ne pas injecter de sérum antivenimeux.",
+    "source": "PSE 2024 – Fiche 07PR13"
+  },
+  {
+    "id": "pse-143",
+    "level": "M",
+    "q": "Face à une piqûre de vive (ou rascasse), il faut :",
+    "choices": [
+      "Appliquer immédiatement du froid pendant 30 minutes",
+      "Placer la zone atteinte dans l'eau chaude pendant 30 minutes minimum",
+      "Inciser la plaie",
+      "Demander un avis médical si nécessaire"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Placer la zone atteinte dans l'eau chaude pendant trente minutes au minimum, demander un avis médical.",
+    "source": "PSE 2024 – Fiche 07PR13"
+  },
+  {
+    "id": "pse-144",
+    "level": "F",
+    "q": "En présence d'une morsure de tique, que faire ?",
+    "choices": [
+      "Brûler la tique avec une allumette",
+      "Utiliser un tire-tique en respectant le guide d'utilisation",
+      "Rechercher la présence d'autres tiques",
+      "Appliquer de l'alcool avant de retirer la tique"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Utiliser un tire-tique en respectant le guide d'utilisation ; rechercher la présence d'autres tiques. Les méthodes traditionnelles (brûler, alcool) ne sont pas recommandées.",
+    "source": "PSE 2024 – Fiche 07PR13"
+  },
+  {
+    "id": "pse-145",
+    "level": "F",
+    "q": "Le syndrome de suspension apparaît quand une victime est suspendue immobile en position verticale pendant plus de :",
+    "choices": [
+      "1 minute",
+      "3 minutes",
+      "5 minutes",
+      "15 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Le syndrome de suspension regroupe toutes les manifestations qui surviennent chez une victime suspendue, immobile, en position verticale pendant une durée prolongée (plus de 5 minutes).",
+    "source": "PSE 2024 – Fiche 07AC12"
+  },
+  {
+    "id": "pse-146",
+    "level": "M",
+    "q": "Le décès par syndrome de suspension peut survenir :",
+    "choices": [
+      "En quelques minutes",
+      "En plusieurs heures",
+      "Uniquement après plusieurs jours",
+      "Uniquement chez les personnes à risque cardiaque"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Le décès peut être rapide et survenir en quelques minutes ou plusieurs heures.",
+    "source": "PSE 2024 – Fiche 07AC12"
+  },
+  {
+    "id": "pse-147",
+    "level": "F",
+    "q": "Concernant les victimes d'explosion, on distingue les types de lésions :",
+    "choices": [
+      "Blast primaire (onde de choc directe)",
+      "Blast secondaire (projection d'objets)",
+      "Blast tertiaire (projection de la victime)",
+      "Blast quaternaire (brûlures, intoxications)"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Les lésions liées à une explosion sont classiquement divisées en quatre catégories : blast primaire, secondaire, tertiaire, quaternaire.",
+    "source": "PSE 2024 – Fiche 07AC13"
+  },
+  {
+    "id": "pse-148",
+    "level": "M",
+    "q": "Les lésions de blast peuvent apparaître :",
+    "choices": [
+      "Uniquement immédiatement",
+      "De manière retardée jusqu'à 24 heures après l'explosion",
+      "Uniquement plusieurs jours plus tard",
+      "Uniquement chez les victimes conscientes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Les lésions peuvent apparaître de manière retardée jusqu'à 24 heures après l'explosion, ce qui impose un examen médical systématique.",
+    "source": "PSE 2024 – Fiche 07PR15"
+  },
+  {
+    "id": "pse-149",
+    "level": "F",
+    "q": "Une victime ensevelie sous une avalanche perd en moyenne sa température corporelle à raison de :",
+    "choices": [
+      "1 °C par heure",
+      "3 °C par heure",
+      "5 °C par heure",
+      "10 °C par heure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Une victime ensevelie sous une avalanche perd environ 3 °C par heure de sa température corporelle.",
+    "source": "PSE 2024 – Fiche 07AC14"
+  },
+  {
+    "id": "pse-150",
+    "level": "M",
+    "q": "Règles de sécurité face à la foudre :",
+    "choices": [
+      "Maintenir une distance entre les intervenants supérieure à 3 mètres",
+      "Avancer à grands pas",
+      "Porter un casque",
+      "Se regrouper en plusieurs personnes"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Distance intervenants > 3 m ; avancer à petits pas ; porter un casque ; éviter de se regrouper.",
+    "source": "PSE 2024 – Fiche 07PR17"
+  },
+  {
+    "id": "pse-151",
+    "level": "F",
+    "q": "L'accouchement se déroule en trois étapes :",
+    "choices": [
+      "Travail, expulsion, délivrance",
+      "Prodromes, contractions, expulsion",
+      "Rupture des eaux, contractions, naissance",
+      "Préparation, accouchement, relevage"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Les trois étapes de l'accouchement sont le travail, l'expulsion et la délivrance.",
+    "source": "PSE 2024 – Fiche 07AC03"
+  },
+  {
+    "id": "pse-152",
+    "level": "M",
+    "q": "Si l'état du nouveau-né reste inchangé lors de la prise en charge, le rythme des insufflations est de :",
+    "choices": [
+      "20 par minute",
+      "30 par minute",
+      "40 par minute",
+      "60 par minute"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Si l'état du nouveau-né reste inchangé, réaliser 40 insufflations par minute.",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-153",
+    "level": "F",
+    "q": "Chez le nouveau-né avec FC > 100 bpm, la conduite à tenir est :",
+    "choices": [
+      "Débuter une RCP 3:1",
+      "Réaliser des insufflations seules",
+      "Surveiller étroitement le nouveau-né",
+      "Clamper et sectionner le cordon"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "FC > 100 bpm : surveiller étroitement le nouveau-né.",
+    "source": "PSE 2024 – Fiche 07PR04"
+  },
+  {
+    "id": "pse-154",
+    "level": "M",
+    "q": "Face à une crampe de chaleur, la conduite à tenir inclut :",
+    "choices": [
+      "Soustraire la victime à la cause",
+      "Refroidir éventuellement avec l'application de glace",
+      "Réaliser des étirements doux et des massages musculaires",
+      "Indiquer à la victime de ne pas reprendre l'activité avant arrêt complet des signes"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "En cas de crampe : soustraire à la cause, refroidir (glace), étirements doux et massages, ne pas reprendre l'activité avant l'arrêt complet des signes.",
+    "source": "PSE 2024 – Fiche 07PR05"
+  },
+  {
+    "id": "pse-155",
+    "level": "F",
+    "q": "La compression de membre devient une urgence absolue à partir de :",
+    "choices": [
+      "1 heure",
+      "2 heures",
+      "4 heures",
+      "6 heures"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Au-delà de 4 h, la pose d'un garrot avant le dégagement est envisagée en cas d'impossibilité d'avis médical.",
+    "source": "PSE 2024 – Fiche 07AC05"
+  },
+  {
+    "id": "pse-156",
+    "level": "M",
+    "q": "Concernant les accidents de plongée en apnée :",
+    "choices": [
+      "Ils sont favorisés par une hyperventilation préalable",
+      "L'hyperventilation peut provoquer une insensibilité à la baisse d'oxygène",
+      "Ils peuvent conduire à une perte de connaissance responsable de noyade",
+      "Ils sont exclus du champ des accidents de plongée"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "L'hyperventilation préalable à la plongée en apnée peut provoquer une insensibilité à la baisse de l'oxygène dans le sang, responsable de troubles du jugement voire de perte de connaissance ; ce trouble est responsable de noyades.",
+    "source": "PSE 2024 – Fiche 07AC02"
+  },
+  {
+    "id": "pse-157",
+    "level": "F",
+    "q": "Face à une victime d'avalanche, la rigidité cadavérique :",
+    "choices": [
+      "N'est pas à considérer comme un critère de mort",
+      "Autorise un arrêt immédiat des soins",
+      "Est un critère absolu de décès",
+      "Peut être trompeuse en situation d'hypothermie"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "La rigidité chez une victime d'avalanche n'est pas un critère de mort ; l'hypothermie profonde peut simuler un décès.",
+    "source": "PSE 2024 – Fiche 07AC14"
+  },
+  {
+    "id": "pse-158",
+    "level": "TF",
+    "q": "Pour qu'une brûlure soit qualifiée de simple chez l'adulte, la surface de la/des cloque(s) doit être :",
+    "choices": [
+      "Inférieure à celle de la moitié de la paume de la main de la victime",
+      "Inférieure à 20 % de la surface corporelle",
+      "Inférieure à 10 % de la surface corporelle",
+      "Inférieure à l'équivalent d'une pièce de 2 €"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Une brûlure est qualifiée de simple « lorsqu'il s'agit de rougeurs de la peau chez l'adulte ou d'une cloque dont la surface est inférieure à celle de la moitié de la paume de la main de la victime ».",
+    "source": "PSE 2024 – Fiche 08AC01"
+  },
+  {
+    "id": "pse-159",
+    "level": "F",
+    "q": "Le refroidissement d'une brûlure thermique par ruissellement d'eau tempérée est indiqué si :",
+    "choices": [
+      "La brûlure s'est produite il y a moins de 30 minutes",
+      "La victime est consciente et sans détresse circulatoire",
+      "La surface brûlée est inférieure à 20 % chez l'adulte",
+      "La surface brûlée est supérieure à 30 % chez l'enfant"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Refroidir « si la brûlure s'est produite il y a moins de 30 minutes ; et si la victime est consciente ; et n'a pas de détresse circulatoire ; et si la surface brûlée est inférieure à 20 % chez un adulte, 10 % chez un enfant ou un nourrisson ».",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-160",
+    "level": "M",
+    "q": "En présence d'une brûlure thermique grave, l'arrosage doit être arrêté :",
+    "choices": [
+      "Au bout de 10 minutes minimum, idéalement 20 minutes",
+      "Dès l'arrivée des secours médicalisés",
+      "Après 1 heure minimum",
+      "Il ne doit jamais être interrompu"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "« En présence d'une brûlure grave : arrêter l'arrosage au bout de 10 minutes minimum idéalement 20 minutes. »",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-161",
+    "level": "F",
+    "q": "La règle utilisée chez l'adulte pour évaluer la surface d'une brûlure est appelée :",
+    "choices": [
+      "Règle de Glasgow",
+      "Règle de Wallace",
+      "Règle de Lund et Browder",
+      "Règle des neuf de Wallace"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "« La plus connue, chez l'adulte, est la règle de Wallace » (également connue sous le nom de « règle des neuf »). La règle de Lund et Browder est une alternative.",
+    "source": "PSE 2024 – Fiche 08AC01"
+  },
+  {
+    "id": "pse-162",
+    "level": "TF",
+    "q": "Face à une brûlure chimique, le lavage à grande eau tempérée doit durer au moins :",
+    "choices": [
+      "5 minutes",
+      "10 minutes",
+      "20 minutes",
+      "1 heure"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« Laver à grande eau tempérée durant vingt minutes au moins, la zone atteinte pour diluer et éliminer le produit chimique. »",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-163",
+    "level": "M",
+    "q": "Face à une brûlure interne par ingestion de produit chimique, quelles conduites sont recommandées ?",
+    "choices": [
+      "Allonger la victime sur le côté",
+      "Faire vomir la victime pour éliminer le produit",
+      "Donner à boire à la victime pour diluer le produit",
+      "Garder l'emballage du produit chimique en cause"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "« Allonger la victime sur le côté ; ne jamais faire vomir la victime et ne jamais donner à boire à la victime ; garder l'emballage du produit chimique en cause. »",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-164",
+    "level": "F",
+    "q": "Une plaie est considérée comme grave du fait :",
+    "choices": [
+      "D'une hémorragie associée",
+      "D'un mécanisme pénétrant (objet tranchant, perforant, morsure)",
+      "De sa localisation (cou, thorax, abdomen, œil, orifices naturels)",
+      "Si la victime n’est pas à jour dans ses vaccins"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "« Une plaie est considérée comme grave du fait, entre autres : d'une hémorragie associée ; d'un mécanisme pénétrant ; de sa localisation ; de son aspect (déchiquetée, écrasée) ; de plaies multiples. »",
+    "source": "PSE 2024 – Fiche 08AC02"
+  },
+  {
+    "id": "pse-165",
+    "level": "M",
+    "q": "Face à un traumatisme dentaire avec délogement d'une dent, le secouriste doit :",
+    "choices": [
+      "Saisir la dent par la racine pour la protéger",
+      "Rincer la dent si elle est souillée avec du sérum physiologique pendant 10 secondes maximum",
+      "Envelopper la dent dans un film étirable alimentaire pour la transporter",
+      "Conserver la dent dans du sérum physiologique"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "« Récupérer la dent tombée en la saisissant par la couronne et pas par la racine ; rincer la dent si elle est souillée pendant 10 secondes maximum avec du sérum physiologique ou sous l'eau courante ; l'envelopper dans un film étirable alimentaire. » Il ne faut pas la conserver dans de l'eau du robinet ni dans du sérum physiologique.",
+    "source": "PSE 2024 – Fiche 08PR02"
+  },
+  {
+    "id": "pse-166",
+    "level": "F",
+    "q": "Lors de la mise en place d'une ceinture pelvienne, la durée de pose ne doit pas dépasser :",
+    "choices": [
+      "1 minute",
+      "3 à 5 minutes",
+      "10 minutes",
+      "20 minutes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La mise en place de la ceinture ne doit pas prendre plus de 3 à 5 minutes. »",
+    "source": "PSE 2024 – Fiche 08FT01"
+  },
+  {
+    "id": "pse-167",
+    "level": "M",
+    "q": "Face à une plaie grave, la conduite à tenir comprend :",
+    "choices": [
+      "Ne jamais retirer le corps étranger pénétrant",
+      "Protéger la plaie par pansement stérile (sauf plaie du thorax)",
+      "Retirer immédiatement tout corps étranger pour nettoyer la plaie",
+      "Appliquer la conduite à tenir adaptée à la détresse vitale si présente"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "« Ne jamais retirer le corps étranger pénétrant ; protéger la plaie par pansement stérile, à l'exception des plaies du thorax ; appliquer la CAT adaptée selon la détresse vitale. »",
+    "source": "PSE 2024 – Fiche 08PR02"
+  },
+  {
+    "id": "pse-168",
+    "level": "TF",
+    "q": "Lors du froid appliqué sur un traumatisme de membre, la durée d'application ne doit pas excéder :",
+    "choices": [
+      "5 minutes",
+      "20 minutes",
+      "45 minutes",
+      "1 heure"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "« La durée d'application ne doit pas excéder vingt minutes. Elle peut être réduite de moitié en cas d'inconfort. »",
+    "source": "PSE 2024 – Fiche 08FT13"
+  },
+  {
+    "id": "pse-169",
+    "level": "F",
+    "q": "Dans la règle de Wallace chez l'adulte :",
+    "choices": [
+      "La paume et les doigts de la victime représentent 1 %",
+      "Le tronc antérieur représente 18 %",
+      "Chaque membre inférieur représente 18 %",
+      "La tête représente 9 %"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "La surface de la main (paume et doigts) est égale à 1 % de la surface totale chez l'adulte, l'enfant et le nourrisson. Les proportions de Wallace chez l'adulte sont : tronc ant/post 18 %, chaque MI 18 %, tête 9 %.",
+    "source": "PSE 2024 – Fiche 08AC01"
+  },
+  {
+    "id": "pse-170",
+    "level": "M",
+    "q": "Le refroidissement d'une brûlure thermique est indiqué si :",
+    "choices": [
+      "La brûlure a moins de 30 minutes",
+      "La victime est consciente",
+      "La victime n'a pas de détresse circulatoire",
+      "La surface brûlée est inférieure à 20 % chez l'adulte"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Refroidir si : brûlure < 30 min, victime consciente, pas de détresse circulatoire, surface brûlée < 20 % chez l'adulte (< 10 % chez l'enfant/nourrisson).",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-171",
+    "level": "F",
+    "q": "En présence d'une brûlure grave, le refroidissement doit :",
+    "choices": [
+      "Être poursuivi jusqu'à disparition complète de la douleur",
+      "Être arrêté au bout de 10 minutes minimum, idéalement 20 minutes",
+      "Utiliser de l'eau glacée pour plus d'efficacité",
+      "Utiliser de l'eau tempérée en ruissellement sans pression"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Arrêter l'arrosage au bout de 10 minutes minimum, idéalement 20 minutes ; refroidissement avec de l'eau tempérée, en laissant ruisseler sans pression.",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-172",
+    "level": "M",
+    "q": "Face à une brûlure chimique, le lavage doit durer :",
+    "choices": [
+      "Au moins 5 minutes",
+      "Au moins 10 minutes",
+      "Au moins 20 minutes",
+      "Au moins 45 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Laver à grande eau tempérée durant vingt minutes au moins pour diluer et éliminer le produit chimique.",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-173",
+    "level": "F",
+    "q": "Face à une brûlure interne par ingestion, le secouriste doit :",
+    "choices": [
+      "Allonger la victime sur le côté",
+      "Ne jamais faire vomir la victime",
+      "Donner à boire pour diluer",
+      "Garder l'emballage du produit chimique en cause"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Allonger la victime sur le côté, ne jamais faire vomir ni donner à boire, garder l'emballage.",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-174",
+    "level": "M",
+    "q": "La vaccination antitétanique doit être à jour. Sa validité maximale est de :",
+    "choices": [
+      "5 ans chez l'adulte, 10 ans chez l'enfant",
+      "10 ans chez l'adulte, 5 ans chez l'enfant",
+      "10 ans chez l'adulte comme chez l'enfant",
+      "5 ans chez l'adulte comme chez l'enfant"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Si le sujet n'a pas été vacciné, ou si la vaccination a plus de dix ans chez l'adulte ou cinq ans chez l'enfant, il doit consulter un médecin.",
+    "source": "PSE 2024 – Fiche 08AC02"
+  },
+  {
+    "id": "pse-175",
+    "level": "F",
+    "q": "Une plaie est considérée comme grave si :",
+    "choices": [
+      "Elle présente une hémorragie associée",
+      "Elle est pénétrante",
+      "Elle est localisée au cou, thorax, abdomen ou œil",
+      "Elle est superficielle et saigne peu"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Une plaie est grave du fait d'une hémorragie associée, d'un mécanisme pénétrant, de sa localisation (cou, thorax, abdomen, œil, orifices naturels), de son aspect ou de plaies multiples.",
+    "source": "PSE 2024 – Fiche 08AC02"
+  },
+  {
+    "id": "pse-176",
+    "level": "M",
+    "q": "Face à une plaie grave avec corps étranger pénétrant, il faut :",
+    "choices": [
+      "Retirer immédiatement le corps étranger",
+      "Ne jamais retirer le corps étranger pénétrant",
+      "Protéger la plaie par un pansement stérile humidifié",
+      "Installer la victime en position d'attente adaptée"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Ne jamais retirer le corps étranger pénétrant ; protéger par pansement stérile (humidifié si détresse vitale) ; installer en position d'attente adaptée.",
+    "source": "PSE 2024 – Fiche 08PR02"
+  },
+  {
+    "id": "pse-177",
+    "level": "F",
+    "q": "Face à un traumatisme dentaire avec dent avulsée :",
+    "choices": [
+      "La dent peut être rincée 10 secondes maximum au sérum physiologique",
+      "Elle peut être transportée dans du lait de vache",
+      "Elle peut être transportée dans la salive de la victime",
+      "Elle doit être nettoyée soigneusement avec du savon"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "En cas de traumatisme dentaire, la dent peut être rincée rapidement (10 sec max) au sérum physiologique, puis transportée dans du lait de vache ou la salive de la victime (jamais frottée ni lavée au savon).",
+    "source": "PSE 2024 – Fiche 08PR02"
+  },
+  {
+    "id": "pse-178",
+    "level": "F",
+    "q": "Face à un traumatisme de l'abdomen, la position d'attente est :",
+    "choices": [
+      "Allongée à plat dos jambes fléchies",
+      "Position demi-assise",
+      "Debout si la victime le supporte",
+      "PLS"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Mettre immédiatement la victime dans une position allongée à plat dos, jambes fléchies.",
+    "source": "PSE 2024 – Fiche 08PR03"
+  },
+  {
+    "id": "pse-179",
+    "level": "M",
+    "q": "Face à une éviscération abdominale, que faire ?",
+    "choices": [
+      "Remettre les viscères en place",
+      "Ne pas remettre les viscères en place",
+      "Envelopper les viscères dans un champ stérile humidifié avec du sérum physiologique",
+      "Couvrir avec des compresses sèches"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Ne pas remettre les viscères en place ; envelopper les viscères dans un champ stérile humidifié avec du sérum physiologique, sans les mobiliser ni les comprimer (ne pas utiliser de compresses).",
+    "source": "PSE 2024 – Fiche 08PR03"
+  },
+  {
+    "id": "pse-180",
+    "level": "F",
+    "q": "Toute femme enceinte victime d'un traumatisme violent :",
+    "choices": [
+      "Doit être considérée comme traumatisée de l'abdomen",
+      "Doit faire l'objet d'une consultation en service d'urgence ou spécialisé",
+      "Ne nécessite un bilan que s'il y a des signes de détresse",
+      "Peut attendre 24 heures avant consultation"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Toute femme enceinte victime d'un traumatisme violent (AVP, chute, coup dans l'abdomen) doit être considérée comme traumatisée de l'abdomen et faire l'objet d'une consultation spécialisée.",
+    "source": "PSE 2024 – Fiche 08PR03"
+  },
+  {
+    "id": "pse-181",
+    "level": "F",
+    "q": "La mortalité des traumatismes du bassin est de l'ordre de :",
+    "choices": [
+      "2 à 5 %",
+      "5 à 8 %",
+      "8 à 15 %",
+      "20 à 30 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La mortalité des traumatismes du bassin est de l'ordre de 8 à 15 %.",
+    "source": "PSE 2024 – Fiche 08AC04"
+  },
+  {
+    "id": "pse-182",
+    "level": "M",
+    "q": "Les traumatismes du bassin surviennent essentiellement :",
+    "choices": [
+      "Dans un contexte de traumatisme à haute cinétique",
+      "Uniquement chez la personne âgée",
+      "Avec dans 2 cas sur 3 des lésions associées",
+      "Uniquement dans les accidents domestiques"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Les traumatismes du bassin surviennent dans un contexte de traumatisme à haute cinétique avec dans 2 cas sur 3 des lésions associées (thorax, crâne, membres).",
+    "source": "PSE 2024 – Fiche 08AC04"
+  },
+  {
+    "id": "pse-183",
+    "level": "M",
+    "q": "Toute victime traumatisée qui a perdu connaissance et présente des signes de détresse circulatoire :",
+    "choices": [
+      "Doit être considérée comme suspecte d'un traumatisme du bassin",
+      "Ne nécessite pas de contention pelvienne systématique",
+      "Doit faire l'objet d'une mise en place d'une ceinture pelvienne après avis médical",
+      "Doit être mobilisée le plus possible pour évaluer la douleur"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Toute victime traumatisée inconsciente avec détresse circulatoire doit être considérée suspecte d'un traumatisme du bassin ; la contention pelvienne est mise en place après avis médical (ou en cas d'impossibilité d'avis).",
+    "source": "PSE 2024 – Fiche 08AC04"
+  },
+  {
+    "id": "pse-184",
+    "level": "F",
+    "q": "La mise en place d'une ceinture pelvienne ne doit pas excéder :",
+    "choices": [
+      "1 minute",
+      "3 à 5 minutes",
+      "10 minutes",
+      "15 minutes"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "La mise en place de la ceinture ne doit pas prendre plus de 3 à 5 minutes.",
+    "source": "PSE 2024 – Fiche 08FT01"
+  },
+  {
+    "id": "pse-185",
+    "level": "M",
+    "q": "Une fois mise en place, la ceinture pelvienne prend appui :",
+    "choices": [
+      "Sur les côtes flottantes",
+      "Sur les grands trochanters",
+      "Sur la symphyse pubienne",
+      "Au niveau des genoux"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Elle prend appui sur les côtés au niveau des grands trochanters ; en avant, elle passe sur la symphyse pubienne.",
+    "source": "PSE 2024 – Fiche 08FT01"
+  },
+  {
+    "id": "pse-186",
+    "level": "F",
+    "q": "Un hématome en « lunettes » (autour des yeux) peut témoigner :",
+    "choices": [
+      "D'une fracture des os de la base du crâne",
+      "D'un simple traumatisme du nez",
+      "D'une contusion des paupières",
+      "D'un traumatisme abdominal"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Un hématome en « lunettes » (autour des yeux) peut témoigner d'une fracture des os de la base du crâne.",
+    "source": "PSE 2024 – Fiche 08AC05"
+  },
+  {
+    "id": "pse-187",
+    "level": "M",
+    "q": "L'intervalle libre après un traumatisme crânien correspond à :",
+    "choices": [
+      "Une période sans aucun signe après l'accident",
+      "Des troubles de la conscience apparaissant plusieurs minutes à plusieurs heures après l'accident",
+      "Une amélioration transitoire définitive",
+      "Survient alors que la victime était parfaitement consciente"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Troubles de la conscience apparaissant plusieurs minutes à plusieurs heures après l'accident alors que la victime était parfaitement consciente (intervalle libre).",
+    "source": "PSE 2024 – Fiche 08AC05"
+  },
+  {
+    "id": "pse-188",
+    "level": "M",
+    "q": "Toute chute d'un enfant ou d'un nourrisson d'une hauteur supérieure à sa taille :",
+    "choices": [
+      "Doit faire suspecter un traumatisme crânien",
+      "Ne nécessite un avis médical qu'en cas de signes anormaux",
+      "Doit faire l'objet d'un avis médical immédiat",
+      "N'a pas de signification particulière"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Toute chute d'un enfant ou d'un nourrisson d'une hauteur supérieure à sa taille (table à langer, chaise haute) doit faire suspecter un traumatisme crânien et faire l'objet d'un avis médical immédiat.",
+    "source": "PSE 2024 – Fiche 08AC05"
+  },
+  {
+    "id": "pse-189",
+    "level": "F",
+    "q": "Parmi les mécanismes à haut risque d'atteinte du rachis, on retient :",
+    "choices": [
+      "Chute sur la tête d'une hauteur > 1 mètre",
+      "Chute sur les fesses d'une hauteur > 3 mètres",
+      "Véhicule accidenté à vitesse > 40 km/h",
+      "Chute sur la tête d'une hauteur < 50 cm"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Les mécanismes à haut risque sont : chute sur la tête > 1 m, chute sur les fesses > 3 m, véhicule à plus de 40 km/h avec arrêt brutal.",
+    "source": "PSE 2024 – Fiche 08AC06"
+  },
+  {
+    "id": "pse-190",
+    "level": "M",
+    "q": "Sont considérés comme mécanismes à haut risque de lésion du rachis :",
+    "choices": [
+      "Piéton renversé",
+      "Victime éjectée d'un véhicule",
+      "Chute de cheval",
+      "Collision à 2 roues"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Tous ces mécanismes figurent dans la liste des traumatismes à haut risque du rachis.",
+    "source": "PSE 2024 – Fiche 08AC06"
+  },
+  {
+    "id": "pse-191",
+    "level": "F",
+    "q": "L'immobilisation du rachis corps entier d'une victime est réalisée en priorité :",
+    "choices": [
+      "Dans un matelas immobilisateur à dépression (MID)",
+      "Sur un plan dur",
+      "Sur un brancard souple",
+      "Dans la chaise de transport"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "L'immobilisation corps entier est réalisée en priorité dans un matelas immobilisateur à dépression ; le plan dur n'est utilisé qu'exceptionnellement.",
+    "source": "PSE 2024 – Fiche 08PR06"
+  },
+  {
+    "id": "pse-192",
+    "level": "M",
+    "q": "Concernant l'usage du collier cervical :",
+    "choices": [
+      "Il est systématique dès suspicion de traumatisme du rachis",
+      "Son usage systématique n'est plus conseillé",
+      "Il ne doit pas être utilisé en cas de possible obstruction des voies aériennes",
+      "Il doit être desserré une fois l'immobilisation sur le MID réalisée"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "L'usage systématique du collier n'est plus conseillé ; contre-indiqué si possible obstruction des voies aériennes ou déformation préexistante ; desserré une fois l'immobilisation sur le MID réalisée.",
+    "source": "PSE 2024 – Fiche 08PR06"
+  },
+  {
+    "id": "pse-193",
+    "level": "M",
+    "q": "Pour relever un enfant suspect d'une lésion du rachis et allongé au sol, quel dispositif privilégier ?",
+    "choices": [
+      "Un brancard cuillère",
+      "Un plan dur",
+      "Un matelas immobilisateur à dépression (MID) ou attelle à dépression pour petits enfants",
+      "Transport à bras"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Pour relever utiliser un brancard cuillère plutôt qu'un plan dur ; pour l'immobilisation utiliser un MID (ou attelle à dépression pour petits enfants), le plan dur étant réservé à l'extraction.",
+    "source": "PSE 2024 – Fiche 08PR06"
+  },
+  {
+    "id": "pse-194",
+    "level": "F",
+    "q": "Face à une plaie thoracique sans détresse respiratoire avérée, la conduite à tenir inclut :",
+    "choices": [
+      "Mise en position assise ou demi-assise",
+      "Protection par dispositif non occlusif si disponible, sinon laisser à l'air libre",
+      "Pansement occlusif hermétique systématique",
+      "Ne jamais retirer un corps étranger pénétrant"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Position assise/demi-assise dès qu'il existe une gêne respiratoire ; pansement non occlusif ou à défaut laisser à l'air libre ; ne pas retirer un corps étranger pénétrant (sauf s'il empêche une RCP).",
+    "source": "PSE 2024 – Fiche 08PR07"
+  },
+  {
+    "id": "pse-195",
+    "level": "F",
+    "q": "Toute plaie thoracique est considérée comme :",
+    "choices": [
+      "Grave, même en l'absence de détresse respiratoire",
+      "Simple si elle saigne peu",
+      "Grave uniquement si elle est pénétrante",
+      "Banale si la victime respire normalement"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Toute plaie thoracique est considérée comme grave, même en l'absence de détresse respiratoire.",
+    "source": "PSE 2024 – Fiche 08AC07"
+  },
+  {
+    "id": "pse-196",
+    "level": "M",
+    "q": "Lors d'une immobilisation de membre par attelle, on immobilise :",
+    "choices": [
+      "Uniquement la zone fracturée",
+      "La lésion et les articulations sus et sous-jacentes",
+      "Tout le membre de manière systématique",
+      "Le membre et le bassin"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Lors de la mise en place de l'attelle, il faut toujours immobiliser la lésion et les articulations situées au-dessus et en dessous.",
+    "source": "PSE 2024 – Fiche 08PR08"
+  },
+  {
+    "id": "pse-197",
+    "level": "F",
+    "q": "Face à une fracture ouverte non hémorragique :",
+    "choices": [
+      "Recouvrir la plaie d'un pansement stérile avant l'immobilisation",
+      "Immobiliser directement sans pansement",
+      "Ne jamais toucher au morceau d'os visible",
+      "Réaligner systématiquement avant immobilisation"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Ouverte non hémorragique : pansement stérile avant immobilisation ; si morceau d'os visible, ne pas toucher. Le réalignement est un geste médical.",
+    "source": "PSE 2024 – Fiche 08PR08"
+  },
+  {
+    "id": "pse-198",
+    "level": "M",
+    "q": "Face à un traumatisme oculaire, le secouriste doit :",
+    "choices": [
+      "Tenter de retirer le corps étranger de l'œil",
+      "Ne jamais chercher à retirer un corps étranger oculaire",
+      "Demander à la victime de fermer les yeux et rester à plat dos",
+      "Recouvrir les deux yeux par des compresses stériles s'il n'y a pas de corps étranger"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Ne jamais retirer un corps étranger oculaire ; demander à la victime de ne pas bouger, fermer les yeux, rester à plat dos ; recouvrir (sans appuyer) les deux yeux par des compresses stériles seulement s'il n'existe pas de corps étranger.",
+    "source": "PSE 2024 – Fiche 08PR09"
+  },
+  {
+    "id": "pse-199",
+    "level": "F",
+    "q": "Face à une fracture de la face (mandibule, maxillaire) susceptible de provoquer un saignement abondant :",
+    "choices": [
+      "Installer la victime sur le côté",
+      "Installer la victime à plat dos",
+      "Appliquer la conduite à tenir devant une détresse respiratoire si nécessaire",
+      "Mettre en place un collier cervical systématiquement"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "Fractures de la face : installer la victime sur le côté car le saignement peut encombrer les voies aériennes, appliquer la conduite à tenir devant une détresse respiratoire si nécessaire.",
+    "source": "PSE 2024 – Fiche 08PR09"
+  },
+  {
+    "id": "pse-200",
+    "level": "M",
+    "q": "Concernant l'attelle à traction pneumatique de Donway, quelle pression de traction est généralement prescrite par le médecin ?",
+    "choices": [
+      "5 kg",
+      "10 kg",
+      "15 kg",
+      "30 kg"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Utiliser la pompe pour appliquer la pression de traction prescrite par le médecin, en général de 15 kg.",
+    "source": "PSE 2024 – Fiche 08FT04"
+  },
+  {
+    "id": "pse-201",
+    "level": "F",
+    "q": "L'attelle à traction ne peut pas être utilisée si :",
+    "choices": [
+      "Les deux membres inférieurs sont atteints",
+      "Il existe un traumatisme de la cheville ou du pied",
+      "Il existe un traumatisme du bassin",
+      "Il s'agit d'un adulte isolé sans médecin"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Contre-indications : les deux MI atteints (préférer le MID), traumatisme cheville/pied, traumatisme bassin/partie basse du dos ; et elle ne peut être mise en place qu'à la demande et en présence d'un médecin.",
+    "source": "PSE 2024 – Fiche 08FT04"
+  },
+  {
+    "id": "pse-202",
+    "level": "F",
+    "q": "La longueur au niveau de la base d'une écharpe triangulaire est au minimum de :",
+    "choices": [
+      "60 cm",
+      "90 cm",
+      "1,2 m",
+      "2 m"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La longueur au niveau de la base est de 1,2 m au minimum.",
+    "source": "PSE 2024 – Fiche 08FT05"
+  },
+  {
+    "id": "pse-203",
+    "level": "F",
+    "q": "Concernant l'utilisation du plan dur :",
+    "choices": [
+      "Il est essentiellement utilisé pour permettre une extraction",
+      "Il remplace avantageusement le MID pour l'immobilisation au transport",
+      "Il est utilisé en l'absence de MID pour immobiliser une victime suspecte de trauma rachis",
+      "Il permet d'allonger une victime suspecte d'un trauma du rachis trouvée debout"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Le plan dur est essentiellement utilisé pour l'extraction et l'installation d'une victime debout ; utilisé avec immobilisateur de tête en l'absence de MID. Le MID reste la référence pour l'immobilisation au transport.",
+    "source": "PSE 2024 – Fiche 08FT06"
+  },
+  {
+    "id": "pse-204",
+    "level": "M",
+    "q": "Dimensions et caractéristiques du plan dur :",
+    "choices": [
+      "Environ 1,85 m de long",
+      "En PVC radiotransparent résistant à l'eau",
+      "Obligatoirement équipé de roulettes",
+      "Équipé de sangles de maintien et de poignées de portage"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Plan rectangulaire de 1,85 m environ, en PVC, radiotransparent, résistant à l'eau, équipé de poignées de portage et sangles de maintien.",
+    "source": "PSE 2024 – Fiche 08FT06"
+  },
+  {
+    "id": "pse-205",
+    "level": "M",
+    "q": "Lors de la mise en forme du MID autour de la tête :",
+    "choices": [
+      "Le matelas doit appuyer sur le sommet du crâne",
+      "Le matelas ne doit en aucun cas appuyer sur le sommet du crâne",
+      "L'aspiration de l'air entraînerait une flexion de la tête",
+      "Les blocs de tête peuvent être utilisés à l'intérieur du matelas"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Le matelas ne doit en aucun cas appuyer sur le sommet du crâne, car l'aspiration entraînerait par rétraction une flexion de la tête ; les blocs de tête peuvent être utilisés à l'intérieur du matelas.",
+    "source": "PSE 2024 – Fiche 08FT07"
+  },
+  {
+    "id": "pse-206",
+    "level": "F",
+    "q": "Le maintien de la tête en position neutre doit être interrompu si :",
+    "choices": [
+      "Une résistance au déplacement de la tête est perçue",
+      "Le déplacement déclenche ou aggrave une douleur cervicale",
+      "Le déplacement déclenche des paresthésies dans les membres",
+      "La victime se plaint simplement d'une gêne"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "La manœuvre doit être immédiatement interrompue si résistance au déplacement, douleur cervicale déclenchée ou aggravée, sensations anormales (fourmillements, décharges électriques) dans les membres.",
+    "source": "PSE 2024 – Fiche 08FT08"
+  },
+  {
+    "id": "pse-207",
+    "level": "M",
+    "q": "L'attelle cervico-thoracique (ACT) est utilisée :",
+    "choices": [
+      "Pour l'extraction d'une victime incarcérée",
+      "Comme moyen d'immobilisation pour le transport à l'hôpital",
+      "Après pose préalable d'un collier cervical",
+      "Retirée avant le transport vers l'hôpital"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "L'ACT est un moyen d'extraction après pose d'un collier cervical ; retirée avant le transport vers l'hôpital (pas d'immobilisation au transport).",
+    "source": "PSE 2024 – Fiche 08FT09"
+  },
+  {
+    "id": "pse-208",
+    "level": "F",
+    "q": "Concernant la mise en place du collier cervical, la hauteur du collier doit être égale à :",
+    "choices": [
+      "La distance entre le menton et le haut du sternum",
+      "La distance entre le menton et les clavicules latérales",
+      "La distance entre la nuque et les épaules",
+      "La taille de la tête divisée par deux"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "La hauteur du collier cervical doit être égale à la distance qui sépare le menton du haut du sternum de la victime.",
+    "source": "PSE 2024 – Fiche 08FT10"
+  },
+  {
+    "id": "pse-209",
+    "level": "M",
+    "q": "Contre-indications à la pose du collier cervical :",
+    "choices": [
+      "Possible obstruction des voies aériennes",
+      "Déformation préexistante du rachis cervical",
+      "Impossibilité de mettre la tête en position neutre",
+      "Traumatisme à haut risque du rachis"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Le collier ne doit pas être utilisé si obstruction possible des VA, impossibilité de mettre la tête en position neutre (déformation préexistante). Le traumatisme à haut risque n'est pas une contre-indication, c'est au contraire une indication possible.",
+    "source": "PSE 2024 – Fiche 08FT10"
+  },
+  {
+    "id": "pse-210",
+    "level": "F",
+    "q": "La durée maximale d'application de froid est de :",
+    "choices": [
+      "5 minutes",
+      "10 minutes",
+      "20 minutes",
+      "45 minutes"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La durée d'application ne doit pas excéder vingt minutes. Elle peut être réduite de moitié en cas d'inconfort.",
+    "source": "PSE 2024 – Fiche 08FT13"
+  },
+  {
+    "id": "pse-211",
+    "level": "M",
+    "q": "L'application de froid est proscrite :",
+    "choices": [
+      "Sur une plaie",
+      "Chez une victime qui a perdu connaissance",
+      "Sur une piqûre d'insecte",
+      "Sur un traumatisme de membre sans plaie"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "L'application de froid est proscrite sur une plaie ou chez une victime qui a perdu connaissance. Elle est au contraire indiquée en cas de traumatisme de membre sans plaie ou de piqûre d'insecte.",
+    "source": "PSE 2024 – Fiche 08FT13"
+  },
+  {
+    "id": "pse-212",
+    "level": "F",
+    "q": "Concernant le conditionnement d'un membre sectionné :",
+    "choices": [
+      "Envelopper dans une compresse stérile humide",
+      "Placer dans un sachet plastique",
+      "Mettre en contact direct avec la glace",
+      "Placer le sachet dans un second récipient contenant glace + eau"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le membre sectionné doit être enveloppé dans une compresse stérile humide, placé dans un sachet plastique ; le sachet est ensuite mis dans un récipient avec glace et eau, sans contact direct du membre avec la glace (risque de gelure).",
+    "source": "PSE 2024 – Fiche 08FT17"
+  },
+  {
+    "id": "pse-213",
+    "level": "M",
+    "q": "Concernant le refroidissement d'une brûlure simple :",
+    "choices": [
+      "L'arrosage est poursuivi jusqu'à la disparition de la douleur",
+      "On peut percer les cloques si elles gênent la victime",
+      "Protéger la brûlure par un pansement stérile ou un film plastique non adhésif",
+      "Conseiller à la victime de consulter s'il s'agit d'un enfant ou nourrisson"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "Brûlure simple : poursuivre l'arrosage jusqu'à disparition de la douleur ; ne pas percer les cloques ; protéger par pansement stérile ou film plastique non adhésif ; consulter en cas d'enfant/nourrisson.",
+    "source": "PSE 2024 – Fiche 08PR01"
+  },
+  {
+    "id": "pse-214",
+    "level": "F",
+    "q": "Le réalignement de membre est réalisé :",
+    "choices": [
+      "Par tout secouriste en cas de déformation",
+      "Chaque fois que possible par un médecin",
+      "Sur avis médical en l'absence de médecin",
+      "Peut porter sur un avant-bras ou une jambe"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Le réalignement est effectué chaque fois que possible par un médecin ; en l'absence de médecin, on peut réaliser sur avis médical un réalignement d'un avant-bras ou d'une jambe.",
+    "source": "PSE 2024 – Fiche 08FT11"
+  },
+  {
+    "id": "pse-215",
+    "level": "M",
+    "q": "Le retrait du casque de protection chez une victime :",
+    "choices": [
+      "Est réalisé idéalement à deux secouristes",
+      "Peut être réalisé par un secouriste isolé seulement s'il ne peut obtenir un renfort immédiat",
+      "Est un geste systématiquement délégué au médecin",
+      "Peut entraîner une aggravation de l'état de la victime en cas de mobilisation du rachis cervical"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Idéalement à deux secouristes ; retrait en isolé réservé aux cas où aucun renfort immédiat n'est possible ; la mobilisation du rachis cervical peut entraîner une aggravation.",
+    "source": "PSE 2024 – Fiche 08FT12"
+  },
+  {
+    "id": "pse-216",
+    "level": "F",
+    "q": "Le pansement stérile type SSA présente :",
+    "choices": [
+      "Un format de 60 × 80 cm",
+      "Une face argentée alvéolée imprégnée de Métalline",
+      "Quatre rubans permettant de l'attacher",
+      "Une compresse tissée stérile blanche"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Le pansement SSA a un format de 60 × 80 cm, une face argentée alvéolée imprégnée de Métalline, quatre rubans pour l'attacher.",
+    "source": "PSE 2024 – Fiche 08FT14"
+  },
+  {
+    "id": "pse-217",
+    "level": "M",
+    "q": "Un bandage circulaire maintenu avec une bande :",
+    "choices": [
+      "Ne présente aucun risque",
+      "Peut conduire à un effet garrot",
+      "Impose une surveillance de l'apparition progressive d'une douleur diffuse ou d'un saignement",
+      "Impose un contrôle de la circulation du membre en dessous du pansement"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "Un bandage circulaire peut conduire à un effet garrot, d'où la nécessité de surveiller apparition d'une douleur diffuse, saignement, et la circulation en aval.",
+    "source": "PSE 2024 – Fiche 08FT15"
+  },
+  {
+    "id": "pse-218",
+    "level": "F",
+    "q": "Le pansement individuel :",
+    "choices": [
+      "Est à l'origine conçu pour les plaies par balle",
+      "Contient deux compresses absorbantes (une fixe, une mobile)",
+      "Peut être utilisé pour tout type de plaie non étendue",
+      "Contient un gel hémostatique"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Le pansement individuel est à l'origine conçu pour les plaies par balle, contient deux compresses absorbantes (une fixe, une mobile), peut être utilisé pour tout type de plaie non étendue.",
+    "source": "PSE 2024 – Fiche 08FT16"
+  },
+  {
+    "id": "pse-219",
+    "level": "F",
+    "q": "Face à une personne en situation de crise psychique, la posture du secouriste doit privilégier :",
+    "choices": [
+      "Le recours à la contention physique",
+      "L'instauration d'un dialogue et d'une relation de confiance",
+      "Faire relativiser la victime (« ce n'est rien… »)",
+      "L'approche calme et non intrusive"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "L'abord relationnel repose sur le dialogue, la relation de confiance et une approche empathique ; la banalisation (« ce n'est pas grave ») est explicitement déconseillée, la contention physique n'est pas un premier recours.",
+    "source": "PSE 2024 – Fiches 09AC01, 01PR01"
+  },
+  {
+    "id": "pse-220",
+    "level": "F",
+    "q": "Les réactions de crise d'une victime peuvent prendre deux formes :",
+    "choices": [
+      "Réactions silencieuses (hypoactives)",
+      "Réactions bruyantes (hyperactives)",
+      "Réactions uniquement motrices",
+      "Réactions uniquement verbales"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Deux cas de figure : victime présentant une attitude hypoactive (réactions silencieuses : sidération, mutisme...) ou hyperactive (réactions bruyantes : agitation, hyperémotivité...).",
+    "source": "PSE 2024 – Fiche 09AC01"
+  },
+  {
+    "id": "pse-221",
+    "level": "M",
+    "q": "L'état de sidération chez une victime :",
+    "choices": [
+      "Peut durer d'une minute à plusieurs heures",
+      "Associe une paralysie physique et psychique",
+      "Disparaît toujours dans l'heure",
+      "Est caractérisé par un regard vide et une expression d'incompréhension"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "L'état de sidération est une paralysie de la capacité d'agir et de la volonté autant physique que psychique ; regard vide, expression d'incompréhension totale ; peut durer une minute comme plusieurs heures.",
+    "source": "PSE 2024 – Fiche 09AC01"
+  },
+  {
+    "id": "pse-222",
+    "level": "F",
+    "q": "Les critères d'urgence suicidaire élevée incluent :",
+    "choices": [
+      "Planification claire, passage à l'acte prévu à court terme",
+      "Accès direct et immédiat à un moyen de se suicider",
+      "Une idéation suicidaire récente mais floue",
+      "Sentiment d'avoir tout fait et tout essayé"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Critères d'urgence élevée : planification claire avec scénario ; sentiment d'avoir tout fait et ne plus vouloir d'aide ; accès direct et immédiat à un moyen (médicaments, armes, corde...).",
+    "source": "PSE 2024 – Fiche 09PR01"
+  },
+  {
+    "id": "pse-223",
+    "level": "M",
+    "q": "Les Cellules d'Urgence Médico-Psychologique (CUMP) sont :",
+    "choices": [
+      "Composées de spécialistes (psychiatres, psychologues, infirmiers)",
+      "Un dispositif de prise en charge psychologique précoce",
+      "Une instance relevant de la police nationale",
+      "Activées dans le cadre du SAMU"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Les CUMP sont composées de spécialistes (psychiatres, psychologues, infirmiers), constituent un dispositif de prise en charge psychologique précoce intervenant dans le cadre du SAMU.",
+    "source": "PSE 2024 – Fiche 09PR01"
+  },
+  {
+    "id": "pse-224",
+    "level": "M",
+    "q": "Face à une victime en réaction de crise hypoactive (silencieuse), le secouriste doit :",
+    "choices": [
+      "Rechercher le contact visuel",
+      "Rassurer la victime par une présence calme et bienveillante",
+      "Ramener doucement la victime dans « l'ici et maintenant »",
+      "Provoquer une stimulation intense pour la sortir de la sidération"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Chez une victime hypoactive : rechercher le contact visuel, rassurer par une présence calme, ramener doucement dans l'« ici et maintenant ». La provocation ou la stimulation intense est contre-indiquée.",
+    "source": "PSE 2024 – Fiche 09PR01"
+  },
+  {
+    "id": "pse-225",
+    "level": "TF",
+    "q": "Le brancardage à quatre secouristes sur une victime traumatisé comprend :",
+    "choices": [
+      "Un chef, qui se place à la tête de la victime dans tous les cas",
+      "Trois porteurs répartis le long de la victime (Pieds, Jambes, Bassin)",
+      "Deux secouristes répartis le long de la victime (Épaules, Bassin)",
+      "Un secouriste supplémentaire faisant rouler le brancard"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "Le brancardage à 4 secouristes implique un chef à la tête de la victime et 3 porteurs répartis.",
+    "source": "PSE 2024 – Fiche 10FT03"
+  },
+  {
+    "id": "pse-226",
+    "level": "F",
+    "q": "Parmi les positions d'attente et de transport, laquelle est indiquée pour une victime présentant une contusion ou une plaie grave de l'abdomen ?",
+    "choices": [
+      "Position assise",
+      "Position allongée sur le côté",
+      "Position cuisses fléchies, jambes repliées",
+      "PLS systématique"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "« La position cuisses fléchies, jambes repliées. Elle est indiquée pour les victimes qui présentent une contusion, une plaie grave de l'abdomen ou de violentes douleurs abdominales. »",
+    "source": "PSE 2024 – Fiche 06FT01"
+  },
+  {
+    "id": "pse-227",
+    "level": "F",
+    "q": "Concernant la chaise de transport, son utilisation nécessite :",
+    "choices": [
+      "Une victime sans détresse ni atteinte grave",
+      "Une victime pouvant supporter la position assise",
+      "Systématiquement deux secouristes",
+      "Une victime inconsciente"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "La chaise est utilisée si la victime ne présente pas de détresse ou d'atteinte grave et peut supporter la position assise.",
+    "source": "PSE 2024 – Fiche 10AC01"
+  },
+  {
+    "id": "pse-228",
+    "level": "M",
+    "q": "Concernant le brancard cuillère :",
+    "choices": [
+      "Il a une largeur de 43 cm au niveau du tronc",
+      "Il est réglable en longueur",
+      "Il est équipé de trois sangles d'arrimage",
+      "Il est constitué de deux parties glissées latéralement sous le blessé"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Cadre tubulaire large de 43 cm au niveau du tronc, réglable en longueur, équipé de trois sangles d'arrimage, constitué de deux parties glissées latéralement sous le blessé.",
+    "source": "PSE 2024 – Fiche 10AC01"
+  },
+  {
+    "id": "pse-229",
+    "level": "F",
+    "q": "L'aide à la marche est indiquée pour :",
+    "choices": [
+      "Un blessé léger pouvant maintenir la station debout",
+      "Déplacer la victime sur quelques mètres vers une zone calme ou un abri",
+      "Une victime en détresse circulatoire",
+      "Une victime traumatisée du rachis"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Indiquée pour un blessé léger qui peut maintenir la station debout et marcher sur quelques mètres vers une zone calme ou un abri.",
+    "source": "PSE 2024 – Fiche 10FT01"
+  },
+  {
+    "id": "pse-230",
+    "level": "M",
+    "q": "Concernant l'arrimage de la victime au brancard, les sangles ne doivent pas appuyer sur :",
+    "choices": [
+      "Une blessure",
+      "Le cou",
+      "La partie inférieure du thorax",
+      "La partie supérieure de l'abdomen"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "Veiller à ce qu'aucune sangle n'appuie sur une blessure, le cou, la partie inférieure du thorax, la partie supérieure de l'abdomen.",
+    "source": "PSE 2024 – Fiche 10FT02"
+  },
+  {
+    "id": "pse-231",
+    "level": "F",
+    "q": "Lors du brancardage en descente, il est préférable de brancarder la victime :",
+    "choices": [
+      "Tête en avant",
+      "Pieds en avant",
+      "Position indifférente",
+      "Tournée sur le côté"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Si la progression se fait dans le sens de la descente, il est préférable de brancarder la victime les pieds en avant.",
+    "source": "PSE 2024 – Fiche 10FT03"
+  },
+  {
+    "id": "pse-232",
+    "level": "TF",
+    "q": "Lors d'un brancardage sur terrain plat, la position traditionnelle est :",
+    "choices": [
+      "Tête en avant dans le sens de la marche",
+      "Pieds en avant dans le sens de la marche",
+      "Victime couchée sur le côté",
+      "En position assise"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Traditionnellement, la victime est brancardée tête en avant, dans le sens de la marche.",
+    "source": "PSE 2024 – Fiche 10FT03"
+  },
+  {
+    "id": "pse-233",
+    "level": "M",
+    "q": "Lors du brancardage à 4 secouristes en pente, pour maintenir le brancard horizontal :",
+    "choices": [
+      "Les secouristes placés vers le bas tiennent les poignées à deux mains",
+      "Ils les relèvent jusqu'à la ceinture, la poitrine ou l'épaule",
+      "Les secouristes placés vers le haut accroupissent le brancard",
+      "Le brancard peut être incliné selon la pente"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Demander aux secouristes qui sont vers le bas de tenir les poignées à deux mains et de les relever jusqu'à la ceinture, la poitrine ou l'épaule de façon à maintenir le brancard en position horizontale.",
+    "source": "PSE 2024 – Fiche 10FT03"
+  },
+  {
+    "id": "pse-234",
+    "level": "F",
+    "q": "Le déplacement d'une victime non valide nécessite :",
+    "choices": [
+      "Au minimum un secouriste",
+      "Au minimum deux secouristes",
+      "Une chaise de transport uniquement",
+      "Un brancard systématiquement"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Le déplacement d'une victime non valide est réalisé à deux secouristes pour assurer un soutien bilatéral.",
+    "source": "PSE 2024 – Fiche 10FT06"
+  },
+  {
+    "id": "pse-235",
+    "level": "M",
+    "q": "Concernant le relevage à l'aide d'un brancard cuillère :",
+    "choices": [
+      "C'est la technique de référence pour relever une victime allongée au sol",
+      "Il peut être équipé de blocs de tête pour assurer une restriction des mouvements du rachis cervical",
+      "Il nécessite obligatoirement 5 secouristes",
+      "Il est utilisé pour transférer la victime sur un autre dispositif"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Le brancard cuillère est la technique de référence pour relever une victime allongée au sol ; peut recevoir des blocs de tête ; est utilisé pour le transfert sur un autre moyen de transport.",
+    "source": "PSE 2024 – Fiche 10FT09"
+  },
+  {
+    "id": "pse-236",
+    "level": "F",
+    "q": "Le relevage à 4 secouristes par technique du pont néerlandais est indiqué quand :",
+    "choices": [
+      "La corpulence de la victime est importante",
+      "Une aide peut faire glisser le brancard sous la victime",
+      "La victime est coopérante et peut marcher",
+      "Un 4ème porteur est disponible"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Technique classique de relevage à 4 porteurs ; utilisation d'une aide pour glisser le brancard ; indiquée pour corpulence importante ou lorsque le nombre de secouristes le permet.",
+    "source": "PSE 2024 – Fiche 10FT10"
+  },
+  {
+    "id": "pse-237",
+    "level": "M",
+    "q": "La technique dite de la « cuillère » (transfert lit-brancard) :",
+    "choices": [
+      "Nécessite 3 secouristes",
+      "Est indiquée pour une victime suspecte d'atteinte du rachis",
+      "Est contre-indiquée en cas de lésions traumatiques",
+      "Les secouristes se placent sur le côté du lit"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "3 secouristes placés sur le côté du lit à hauteur des épaules, hanches, genoux ; contre-indiquée en cas de suspicion d'atteinte du rachis ou de lésions traumatiques.",
+    "source": "PSE 2024 – Fiche 10FT11"
+  },
+  {
+    "id": "pse-238",
+    "level": "F",
+    "q": "L'alèse portoir :",
+    "choices": [
+      "Est principalement utilisée comme dispositif de transfert",
+      "Permet de faire glisser le blessé d'un brancard à un autre",
+      "Constitue un plan dur rigide",
+      "Peut être utilisée pour une victime traumatisée du rachis"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "L'alèse portoir est principalement utilisée comme dispositif de transfert ; lavable ; mais ne constitue pas un plan dur rigide et ne doit pas être utilisée pour relever une victime avec atteinte traumatique grave.",
+    "source": "PSE 2024 – Fiche 10FT13"
+  },
+  {
+    "id": "pse-239",
+    "level": "F",
+    "q": "Le brancardage à trois secouristes est réalisé :",
+    "choices": [
+      "Lorsque la corpulence de la victime permet ce nombre réduit de porteurs",
+      "Avec un secouriste placé entre les hampes aux pieds de la victime",
+      "Uniquement en terrain plat",
+      "Avec deux secouristes à la tête, un aux pieds"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Brancardage à 3 secouristes : quand la corpulence le permet ; un secouriste au pied entre les hampes, deux à la tête de part et d'autre ; possible en terrain plat, pente ou escalier.",
+    "source": "PSE 2024 – Fiche 10FT04"
+  },
+  {
+    "id": "pse-240",
+    "level": "M",
+    "q": "Face à une situation à nombreuses victimes, les actions prioritaires du secouriste comprennent :",
+    "choices": [
+      "Transmettre sans délai la situation de nombreuses victimes",
+      "Indiquer le nombre approximatif de victimes et leur état de gravité apparent",
+      "Prendre en charge la victime la plus gravement atteinte et ignorer les autres",
+      "Appliquer les principes de repérage de nombreuses victimes"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "La conduite prévoit : transmettre sans délai la situation et le nombre approximatif de victimes, appliquer les principes de repérage. L'abandon des autres victimes est contraire au principe de priorisation en SNV.",
+    "source": "PSE 2024 – Fiches 02PR01, 11AC01"
+  },
+  {
+    "id": "pse-241",
+    "level": "F",
+    "q": "L'accident catastrophique à effet limité (ACEL) se caractérise par :",
+    "choices": [
+      "Un afflux brutal mais limité de victimes (entre 10 et 100)",
+      "Une inadéquation temporaire entre besoins et moyens disponibles",
+      "Un nombre systématiquement supérieur à 500 victimes",
+      "Une situation évolutive susceptible d'entraîner un nombre élevé de victimes"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "L'ACEL se caractérise par un afflux brutal mais relativement limité de victimes (entre 10 et 100), une inadéquation temporaire moyens/besoins, ou une situation évolutive susceptible d'entraîner un nombre élevé.",
+    "source": "PSE 2024 – Fiche 11AC01"
+  },
+  {
+    "id": "pse-242",
+    "level": "TF",
+    "q": "L'organisation de la réponse de sécurité civile repose sur :",
+    "choices": [
+      "La planification ORSEC",
+      "La planification NRBC exclusivement",
+      "La planification POLMAR exclusivement",
+      "Aucun plan particulier"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "L'organisation s'appuie sur la planification ORSEC (Code de la sécurité intérieure).",
+    "source": "PSE 2024 – Fiche 11AC01"
+  },
+  {
+    "id": "pse-243",
+    "level": "F",
+    "q": "Dans le repérage SNV, la couleur NOIR correspond à :",
+    "choices": [
+      "Victime dont le décès ne fait aucun doute",
+      "Victime ayant perdu connaissance et ne respirant pas après LVA",
+      "Victime consciente sans détresse vitale",
+      "Victime autonome pouvant se déplacer seule"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "NOIR : victime dont le décès ne fait aucun doute (tête séparée du tronc, déchiquetée, raideur cadavérique) ou victime ayant perdu connaissance et ne respirant pas après LVA.",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-244",
+    "level": "M",
+    "q": "Dans le repérage SNV, la couleur ROUGE correspond à :",
+    "choices": [
+      "Victime ayant perdu connaissance mais respirant après LVA",
+      "Victime consciente avec hémorragie ou détresse vitale",
+      "Victime consciente sans détresse vitale et ne pouvant se déplacer",
+      "Victime autonome pouvant se déplacer seule"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "ROUGE : victime ayant perdu connaissance et respirant après LVA ; victime avec hémorragie ou consciente présentant une détresse vitale.",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-245",
+    "level": "F",
+    "q": "Dans le repérage SNV, la couleur JAUNE correspond à :",
+    "choices": [
+      "Victime consciente sans détresse vitale et ne pouvant se déplacer seule",
+      "Victime consciente et autonome",
+      "Victime en arrêt cardiaque",
+      "Victime dont le décès ne fait aucun doute"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "JAUNE : victime consciente qui ne présente pas de détresse vitale et ne pouvant se déplacer seule.",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-246",
+    "level": "M",
+    "q": "Dans le repérage SNV chez l'adulte, sont considérés comme seuils de détresse :",
+    "choices": [
+      "Fréquence respiratoire > 30 mvts/min",
+      "Fréquence cardiaque > 120 bpm",
+      "Fréquence respiratoire > 20 mvts/min",
+      "Fréquence cardiaque > 100 bpm"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Chez l'adulte, en cas de nombreuses victimes, sont considérés comme détresse : FR > 30 mvts/min ou FC > 120 bpm.",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-247",
+    "level": "F",
+    "q": "Lors du repérage SNV, l'appréciation de la respiration et de la circulation ne doit pas excéder :",
+    "choices": [
+      "5 secondes par fonction",
+      "10 secondes par fonction",
+      "15 secondes par fonction",
+      "30 secondes par fonction"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Apprécier la respiration et la circulation sans excéder 15 sec par fonction.",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-248",
+    "level": "M",
+    "q": "Lors du repérage SNV face à une victime consciente avec hémorragie, le secouriste :",
+    "choices": [
+      "Traite l'hémorragie",
+      "Transporte immédiatement la victime au PMA",
+      "Pose le bracelet ROUGE",
+      "Passe directement à la victime suivante"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "En présence d'une hémorragie, traiter l'hémorragie avant de passer à la victime suivante ; identifier la victime par la couleur ROUGE.",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-249",
+    "level": "M",
+    "q": "Lors du repérage SNV, si une victime a perdu connaissance, la première action après avoir écarté le décès manifeste est :",
+    "choices": [
+      "Réaliser une libération des voies aériennes (LVA)",
+      "Passer directement à la victime suivante",
+      "Débuter une RCP de longue durée",
+      "Transmettre un bilan au médecin régulateur"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Si perte de connaissance : libération des voies aériennes ; puis évaluation de la respiration (PLS si respire, NOIR si ne respire pas après LVA).",
+    "source": "PSE 2024 – Fiche 11FT01"
+  },
+  {
+    "id": "pse-250",
+    "level": "TF",
+    "q": "Que signifie l'abréviation DASRI ?",
+    "choices": [
+      "Déchets d'activités de soins à risques infectieux",
+      "Dispositif anti-septique à risque infectieux",
+      "Désinfection des accidents sanitaires à risque interne",
+      "Détection automatique de situations réservées aux infirmiers"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "DASRI = Déchets d'activités de soins à risques infectieux.",
+    "source": "PSE 2024 – Fiche 12AC01"
+  },
+  {
+    "id": "pse-251",
+    "level": "TF",
+    "q": "Que signifie l'abréviation LVA ?",
+    "choices": [
+      "Libération des voies aériennes",
+      "Lutte contre la ventilation anormale",
+      "Luxation des vertèbres antérieures",
+      "Limite de validité à l'administration"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "LVA = Libération des voies aériennes.",
+    "source": "PSE 2024 – Fiche 12AC01"
+  },
+  {
+    "id": "pse-252",
+    "level": "F",
+    "q": "Que signifie l'abréviation CUMP ?",
+    "choices": [
+      "Cellule d'urgence médico-psychologique",
+      "Centre d'urgence médicale pré-hospitalière",
+      "Coordination des urgences et moyens psychiatriques",
+      "Cellule universitaire de médecine populaire"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "CUMP = Cellule d'urgence médico-psychologique.",
+    "source": "PSE 2024 – Fiche 12AC01"
+  },
+  {
+    "id": "pse-253",
+    "level": "F",
+    "q": "Que signifient les abréviations DEA et DSA ?",
+    "choices": [
+      "DEA : Défibrillateur entièrement automatisé / DSA : Défibrillateur semi-automatique",
+      "DEA : Dispositif externe d'assistance / DSA : Dispositif de secours automatique",
+      "Les deux termes sont synonymes du DAE",
+      "Ce sont deux acronymes désuets"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "DEA = Défibrillateur entièrement automatisé ; DSA = Défibrillateur semi-automatique.",
+    "source": "PSE 2024 – Fiche 12AC01"
+  },
+  {
+    "id": "pse-254",
+    "level": "M",
+    "q": "Selon la classification morphologique du PSE 2024, un nourrisson est caractérisé comme :",
+    "choices": [
+      "Pouvant tenir sur la cuisse du secouriste",
+      "Pouvant tenir sur l'avant-bras du secouriste",
+      "Ressemblant à un adulte morphologiquement",
+      "Pouvant tenir dans la paume du secouriste"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Selon les repères morphologiques : l'enfant peut tenir sur la cuisse du secouriste ; le nourrisson (et le nouveau-né) peut tenir sur l'avant-bras du secouriste.",
+    "source": "PSE 2024 – Fiche 12AC01"
+  }
+]

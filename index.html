@@ -2521,6 +2521,10 @@ function setQcmNb(btn, n) {
 // ---------- CHARGEMENT JSON ----------
 // Charge un fichier JSON de thème et le met en cache.
 // Retourne une Promise avec les questions.
+// Tolérant aux erreurs : si un fichier est manquant (404) ou invalide,
+// on renvoie un tableau vide au lieu de faire planter tout le chargement.
+// Cela permet d'avoir des catégories listées dans DOCTRINES_SUBCATS dont
+// le JSON n'existe pas encore.
 function loadCat(cat) {
   if (loadedQuestions[cat]) {
     return Promise.resolve(loadedQuestions[cat]);
@@ -2532,9 +2536,19 @@ function loadCat(cat) {
     path += cat + '.json';
   }
   return fetch(path).then(function(resp) {
-    if (!resp.ok) throw new Error('Fichier introuvable : ' + path);
+    if (!resp.ok) {
+      // 404 ou autre erreur HTTP : on loggue mais on renvoie un pool vide
+      console.warn('[loadCat] Fichier introuvable ou erreur : ' + path + ' (' + resp.status + ')');
+      loadedQuestions[cat] = [];
+      return [];
+    }
     return resp.json();
   }).then(function(questions) {
+    if (!Array.isArray(questions)) {
+      console.warn('[loadCat] Contenu invalide pour : ' + path);
+      loadedQuestions[cat] = [];
+      return [];
+    }
     // Enrichit chaque question avec sa catégorie et son label
     questions.forEach(function(q) {
       q.cat = cat;
@@ -2544,6 +2558,11 @@ function loadCat(cat) {
     });
     loadedQuestions[cat] = questions;
     return questions;
+  }).catch(function(err) {
+    // Erreur réseau ou JSON invalide : on dégrade proprement
+    console.warn('[loadCat] Erreur de chargement pour ' + path + ' :', err);
+    loadedQuestions[cat] = [];
+    return [];
   });
 }
 
