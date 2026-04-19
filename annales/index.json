@@ -166,6 +166,62 @@
       "title": "CDG69 / SDMIS — Session 2021 — Sujet 1 (Incendies Australie)",
       "nb_questions": 30,
       "duration_min": 60
+    },
+    {
+      "id": "maths-cdg69-2025",
+      "theme": "maths",
+      "year": 2025,
+      "title": "CDG69 / SDMIS — Session 2025",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg13-2023",
+      "theme": "maths",
+      "year": 2023,
+      "title": "CDG13 — Session 2023 (Bouches-du-Rhône)",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg35-2023",
+      "theme": "maths",
+      "year": 2023,
+      "title": "CDG35 — Session 2023 (Ille-et-Vilaine)",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg69-2023",
+      "theme": "maths",
+      "year": 2023,
+      "title": "CDG69 / SDMIS — Session 2023",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg13-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG13 — Session 2021 (Bouches-du-Rhône)",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg35-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG35 — Session 2021 (Ille-et-Vilaine)",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg57-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG57 — Session 2021 (Moselle)",
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg69-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG69 / SDMIS — Session 2021",
+      "duration_min": 60
     }
   ]
 }
