@@ -199,114 +199,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .qcm-selection-summary{font-size:.86rem;color:var(--gray);margin-bottom:14px;line-height:1.55;min-height:40px}
 .qcm-nb-btn{padding:10px 16px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all .2s}
 .qcm-nb-btn.active{background:var(--red);color:white;border-color:var(--red)}
-
-/* ===== LAYOUT HORIZONTAL QCM ===== */
-.qcm-layout{display:block;min-height:calc(100vh - 68px);margin-top:68px;background:var(--cream)}
-
-/* Bandeau démo (non-payants) — au-dessus de tout */
-.qcm-demo-banner{background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);color:white;padding:14px 5%;display:flex;align-items:center;justify-content:center;gap:14px;flex-wrap:wrap;font-size:.92rem;font-weight:500;line-height:1.4;text-align:center}
-.qcm-demo-banner strong{font-weight:700}
-.qcm-demo-banner-count{background:rgba(255,255,255,.18);padding:4px 12px;border-radius:4px;font-weight:700;font-size:.88rem;letter-spacing:.5px}
-
-/* Barre horizontale de sélection */
-.qcm-topbar{background:white;border-bottom:1px solid var(--border);padding:24px 5% 20px}
-.qcm-topbar-row{display:flex;align-items:center;gap:20px;flex-wrap:wrap;margin-bottom:16px}
-.qcm-topbar-row:last-child{margin-bottom:0}
-.qcm-mode-tabs{display:inline-flex;gap:6px;background:var(--cream2);padding:4px;border-radius:4px;flex-shrink:0}
-.qcm-mode-tab{padding:8px 16px;background:transparent;border:none;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:600;color:var(--gray);cursor:pointer;transition:all .15s;border-radius:3px}
-.qcm-mode-tab.active{background:white;color:var(--red);box-shadow:0 1px 3px rgba(0,0,0,.08)}
-.qcm-topbar-score{margin-left:auto;display:flex;align-items:center;gap:10px;font-size:.85rem;color:var(--gray)}
-.qcm-topbar-score strong{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--red);font-weight:900}
-
-.qcm-sb-section{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-right:12px;flex-shrink:0}
-
-/* Pastilles de thèmes (remplacent les lignes verticales) */
-.qcm-chips-wrap{display:flex;flex-wrap:wrap;gap:8px;align-items:center;flex:1}
-.qcm-chip{padding:8px 14px;font-size:.84rem;color:var(--gray);cursor:pointer;display:inline-flex;align-items:center;gap:8px;border:1.5px solid var(--border);background:white;transition:all .15s;user-select:none;border-radius:4px;white-space:nowrap}
-.qcm-chip:hover{background:var(--cream);border-color:var(--gray-light)}
-.qcm-chip.checked{background:var(--red-pale);border-color:var(--red);color:var(--red-dark);font-weight:600}
-.qcm-chip.checked .qcm-chip-icon{color:var(--red)}
-.qcm-chip-icon{font-size:.95rem;line-height:1}
-.qcm-chip-count{background:var(--cream2);padding:2px 7px;font-size:.72rem;color:var(--gray-light);font-weight:600;border-radius:3px}
-.qcm-chip.checked .qcm-chip-count{background:white;color:var(--red)}
-.qcm-chip-all{background:var(--red-pale);border-color:var(--red-pale2);color:var(--red);font-weight:600;border-style:dashed}
-.qcm-chip-all:hover{background:var(--red-pale2)}
-
-/* Panneau dépliable des doctrines (sous-catégories) */
-.qcm-doctrines-panel{display:none;width:100%;margin-top:10px;padding:14px 16px;background:var(--cream);border:1px solid var(--border);border-radius:4px}
-.qcm-doctrines-panel.open{display:flex;flex-wrap:wrap;gap:6px}
-.qcm-chip-sub{padding:6px 12px;font-size:.78rem}
-
-/* Bouton de lancement (inline dans la topbar) */
-.qcm-launch-inline{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.qcm-selection-summary{font-size:.83rem;color:var(--gray);line-height:1.5}
-.qcm-launch-btn-inline{padding:11px 22px;font-size:.88rem}
-
-/* Zone principale QCM */
-.qcm-main{padding:32px 5% 48px;background:var(--cream)}
-
-/* CTA d'achat en bas (non-payants) */
-.qcm-bottom-cta{max-width:760px;margin:32px auto 0;background:white;border:1px solid var(--red-pale2);border-left:4px solid var(--red);padding:24px 28px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
-.qcm-bottom-cta-text{flex:1;min-width:240px}
-.qcm-bottom-cta-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:4px;font-weight:700}
-.qcm-bottom-cta-sub{font-size:.88rem;color:var(--gray);line-height:1.5}
-.qcm-bottom-cta-features{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:12px;font-size:.8rem;color:var(--gray)}
-.qcm-bottom-cta-features span{white-space:nowrap}
-
-/* Social proof */
-.qcm-social-proof{max-width:760px;margin:20px auto 0;background:var(--cream2);padding:24px 28px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;border:1px solid var(--border)}
-.qcm-social-proof-author{display:flex;align-items:center;gap:12px;flex-shrink:0;min-width:200px}
-.qcm-social-proof-avatar{width:48px;height:48px;background:var(--red);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
-.qcm-social-proof-name{font-weight:700;color:var(--charcoal);font-size:.95rem;line-height:1.2}
-.qcm-social-proof-role{font-size:.78rem;color:var(--gray);letter-spacing:.3px;margin-top:2px}
-.qcm-social-proof-quote{flex:1;font-size:.88rem;color:var(--gray);line-height:1.65;font-style:italic;min-width:240px;border-left:2px solid var(--red-pale2);padding-left:16px}
-
-/* Sticky bar de rappel (non-payants sur biblio/annales/concours) */
-.sticky-unlock-bar{position:fixed;bottom:0;left:0;right:0;z-index:90;background:var(--dark);color:white;border-top:3px solid var(--red);padding:14px 5%;box-shadow:0 -4px 20px rgba(0,0,0,.15);animation:slideUpSticky .4s ease}
-@keyframes slideUpSticky{from{transform:translateY(100%)}to{transform:translateY(0)}}
-.sticky-unlock-content{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-.sticky-unlock-icon{font-size:1.3rem;flex-shrink:0}
-.sticky-unlock-text{flex:1;font-size:.9rem;line-height:1.5;min-width:240px}
-.sticky-unlock-text strong{color:white;font-weight:700}
-.sticky-unlock-text #sticky-unlock-sub{color:rgba(255,255,255,.75)}
-.sticky-unlock-bar .btn-red{flex-shrink:0;padding:10px 20px;font-size:.85rem}
-.sticky-unlock-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;flex-shrink:0;transition:color .2s}
-.sticky-unlock-close:hover{color:white}
-@media(max-width:700px){
-  .sticky-unlock-bar{padding:12px 4%}
-  .sticky-unlock-content{gap:10px}
-  .sticky-unlock-text{font-size:.82rem;min-width:0;flex-basis:100%;order:-1}
-  .sticky-unlock-icon{display:none}
-}
-
-/* Panneau de lancement démo (non-payants) */
-.qcm-demo-launch{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:8px 0}
-.qcm-demo-launch-info{flex:1;min-width:260px}
-.qcm-demo-launch-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);font-weight:700;margin-bottom:4px;line-height:1.3}
-.qcm-demo-launch-sub{font-size:.88rem;color:var(--gray);line-height:1.55}
-.qcm-demo-launch-score{display:flex;flex-direction:column;align-items:flex-end;gap:2px;padding:0 8px;border-right:1px solid var(--border);padding-right:20px}
-.qcm-demo-launch-score span{font-size:.7rem;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
-.qcm-demo-launch-score strong{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--red);font-weight:900;line-height:1}
-.qcm-demo-launch-btn{padding:14px 26px;font-size:.92rem;white-space:nowrap}
-@media(max-width:900px){
-  .qcm-demo-launch{flex-direction:column;align-items:stretch;text-align:center}
-  .qcm-demo-launch-info{min-width:0}
-  .qcm-demo-launch-score{align-items:center;border-right:none;border-top:1px solid var(--border);padding:12px 0 0;width:100%}
-  .qcm-demo-launch-btn{width:100%;justify-content:center}
-}
-
-/* Responsive : retour à une disposition plus compacte sur mobile */
-@media (max-width:900px){
-  .qcm-topbar{padding:18px 5% 16px}
-  .qcm-topbar-row{gap:12px}
-  .qcm-mode-tabs{width:100%}
-  .qcm-mode-tab{flex:1}
-  .qcm-topbar-score{margin-left:0;width:100%;justify-content:center}
-  .qcm-sb-section{width:100%;margin-bottom:8px}
-  .qcm-chip{font-size:.8rem;padding:7px 12px}
-  .qcm-launch-inline{width:100%;flex-direction:column;align-items:stretch}
-  .qcm-launch-btn-inline{width:100%;justify-content:center}
-}
+.qcm-layout{display:grid;grid-template-columns:420px 1fr;gap:0;min-height:calc(100vh - 68px);margin-top:68px}
+.qcm-sidebar{background:white;border-right:1px solid var(--border);padding:40px 32px;position:sticky;top:68px;height:calc(100vh - 68px);overflow-y:auto}
 .qcm-sb-title{font-family:'Playfair Display',serif;font-size:1.5rem;margin-bottom:28px;color:var(--charcoal);padding-bottom:16px;border-bottom:2px solid var(--red)}
 .qcm-cat{padding:12px 16px;font-size:.95rem;color:var(--gray);cursor:pointer;border:1px solid transparent;transition:all .2s;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
 .qcm-cat:hover{background:var(--cream);border-color:var(--border)}
@@ -888,6 +782,8 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .hero-right{display:none}
   .offer-grid{grid-template-columns:1fr}
   .story-grid{grid-template-columns:1fr}
+  .qcm-layout{grid-template-columns:1fr}
+  .qcm-sidebar{position:static;height:auto}
   .actu-featured{grid-template-columns:1fr}
   .actu-secondary-grid{grid-template-columns:1fr}
   .ch-hero{grid-template-columns:1fr;gap:40px}
@@ -1301,108 +1197,77 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   <div style="margin-top:68px"></div>
   <div class="qcm-layout" style="margin-top:0">
 
-    <!-- BANDEAU DÉMO (non-payants uniquement) -->
-    <div class="qcm-demo-banner" id="qcm-demo-banner" style="display:none">
-      <span>🎁 <strong>Session démo gratuite</strong> — 10 QCM/jour · <span id="demo-banner-days">—</span> jours avant le concours · chaque jour compte.</span>
-      <span class="qcm-demo-banner-count"><span id="demo-banner-count">10</span> restants aujourd'hui</span>
-    </div>
+    <!-- SIDEBAR -->
+    <div class="qcm-sidebar">
 
-    <!-- BARRE HORIZONTALE DE SÉLECTION -->
-    <div class="qcm-topbar">
-
-      <!-- Ligne 1 : onglets + score (PAYANTS UNIQUEMENT) -->
-      <div class="qcm-topbar-row" id="qcm-topbar-paid-header">
-        <div class="qcm-mode-tabs">
-          <button class="qcm-mode-tab active" id="tab-select" onclick="switchQcmMode('select')">🎯 Par thème</button>
-          <button class="qcm-mode-tab" id="tab-random" onclick="switchQcmMode('random')">🔀 Aléatoire</button>
-        </div>
-        <div class="qcm-topbar-score">
-          <span>Ton score :</span>
-          <strong id="score-display">0 / 0</strong>
-        </div>
+      <!-- MODE SELECTOR -->
+      <div class="qcm-mode-tabs">
+        <button class="qcm-mode-tab active" id="tab-select" onclick="switchQcmMode('select')">🎯 Par thème</button>
+        <button class="qcm-mode-tab" id="tab-random" onclick="switchQcmMode('random')">🔀 Aléatoire</button>
       </div>
 
-      <!-- PANNEAU DÉMO (non-payants uniquement) -->
-      <div id="qcm-panel-demo" style="display:none">
-        <div class="qcm-demo-launch">
-          <div class="qcm-demo-launch-info">
-            <div class="qcm-demo-launch-title">🎯 Lance ta session démo du jour</div>
-            <div class="qcm-demo-launch-sub">10 questions tirées au hasard parmi les 590+ du concours, avec corrections détaillées et sources.</div>
-          </div>
-          <div class="qcm-demo-launch-score">
-            <span>Ton score</span>
-            <strong id="score-display-demo">0 / 0</strong>
-          </div>
-          <button class="btn btn-red qcm-demo-launch-btn" id="qcm-demo-launch-btn" onclick="launchDemoQcm()">
-            Lancer la démo →
-          </button>
-        </div>
-      </div>
-
-      <!-- MODE: PAR THÈME (PAYANTS) -->
+      <!-- MODE: PAR THÈME -->
       <div id="qcm-panel-select">
-        <!-- Ligne 2 : chips de thèmes -->
-        <div class="qcm-topbar-row">
-          <div class="qcm-sb-section">Thèmes</div>
-          <div class="qcm-chips-wrap">
-            <div class="qcm-chip qcm-chip-all" onclick="toggleSelectAll()">
-              <span class="qcm-chip-icon" id="select-all-icon">☐</span>
-              <span id="select-all-label">Tout</span>
-            </div>
-            <div class="qcm-chip" onclick="toggleCat('statut')">
-              <span class="qcm-chip-icon" id="chk-statut">☐</span>
-              <span>Statut SPP</span>
-              <span class="qcm-chip-count" id="count-statut">105</span>
-            </div>
-            <div class="qcm-chip" onclick="toggleCat('sis')">
-              <span class="qcm-chip-icon" id="chk-sis">☐</span>
-              <span>SIS</span>
-              <span class="qcm-chip-count" id="count-sis">50</span>
-            </div>
-            <div class="qcm-chip" onclick="toggleDoctrinesPanel(event)">
-              <span class="qcm-chip-icon" id="chk-doctrines">☐</span>
-              <span>Doctrines Op.</span>
-              <span class="qcm-chip-count" id="count-doctrines">534</span>
-              <span class="qcm-subcat-arrow" id="arrow-doctrines">▸</span>
-            </div>
-            <div class="qcm-chip" onclick="toggleCat('divers')">
-              <span class="qcm-chip-icon" id="chk-divers">☐</span>
-              <span>Divers</span>
-              <span class="qcm-chip-count" id="count-divers">18</span>
-            </div>
-            <div class="qcm-chip" onclick="toggleCat('textes')">
-              <span class="qcm-chip-icon" id="chk-textes">☐</span>
-              <span>Textes structurants</span>
-              <span class="qcm-chip-count" id="count-textes">29</span>
-            </div>
-          </div>
+        <div class="qcm-sb-section">Sélectionne un ou plusieurs thèmes</div>
+
+        <!-- Tout sélectionner -->
+        <div class="qcm-select-all" onclick="toggleSelectAll()">
+          <span id="select-all-icon">☐</span> <span id="select-all-label">Tout sélectionner</span>
         </div>
 
-        <!-- Panneau dépliable : sous-catégories Doctrines -->
-        <div class="qcm-doctrines-panel" id="doctrines-sub">
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gto-ventilation',event)"><span class="qcm-chip-icon" id="chk-gto-ventilation">☐</span><span>GTO Ventilation</span><span class="qcm-chip-count" id="count-gto-ventilation">12</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gto-sauvetage',event)"><span class="qcm-chip-icon" id="chk-gto-sauvetage">☐</span><span>GTO Sauvetage</span><span class="qcm-chip-count" id="count-gto-sauvetage">49</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gto-sauvegarde',event)"><span class="qcm-chip-icon" id="chk-gto-sauvegarde">☐</span><span>GTO Sauvegarde</span><span class="qcm-chip-count" id="count-gto-sauvegarde">73</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-chip-icon" id="chk-gto-forets">☐</span><span>GTO Feux Forêts</span><span class="qcm-chip-count" id="count-gto-forets">12</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gto-extinctions',event)"><span class="qcm-chip-icon" id="chk-gto-extinctions">☐</span><span>GTO Extinctions</span><span class="qcm-chip-count" id="count-gto-extinctions">73</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gto-vicie',event)"><span class="qcm-chip-icon" id="chk-gto-vicie">☐</span><span>GTO Milieu Vicié</span><span class="qcm-chip-count" id="count-gto-vicie">100</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-ssuap',event)"><span class="qcm-chip-icon" id="chk-gdo-ssuap">☐</span><span>GDO SSUAP</span><span class="qcm-chip-count" id="count-gdo-ssuap">14</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-fumees',event)"><span class="qcm-chip-icon" id="chk-gdo-fumees">☐</span><span>GDO Fumées</span><span class="qcm-chip-count" id="count-gdo-fumees">11</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-chip-icon" id="chk-gdo-elec">☐</span><span>GDO Électricité</span><span class="qcm-chip-count" id="count-gdo-elec">12</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-chip-icon" id="chk-gdo-silos">☐</span><span>GDO Silos</span><span class="qcm-chip-count" id="count-gdo-silos">12</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-gaz',event)"><span class="qcm-chip-icon" id="chk-gdo-gaz">☐</span><span>GDO Gaz</span><span class="qcm-chip-count" id="count-gdo-gaz">12</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-chip-icon" id="chk-gdo-agricole">☐</span><span>GDO Agricole</span><span class="qcm-chip-count" id="count-gdo-agricole">14</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-incendie',event)"><span class="qcm-chip-icon" id="chk-gdo-incendie">☐</span><span>GDO Incendie</span><span class="qcm-chip-count" id="count-gdo-incendie">60</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-chip-icon" id="chk-gdo-ulm">☐</span><span>GDO ULM</span><span class="qcm-chip-count" id="count-gdo-ulm">8</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-routier',event)"><span class="qcm-chip-icon" id="chk-gdo-routier">☐</span><span>GDO Routier</span><span class="qcm-chip-count" id="count-gdo-routier">62</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-chip-icon" id="chk-gdo-foret">☐</span><span>GDO Forêt & EN</span><span class="qcm-chip-count" id="count-gdo-foret">10</span></div>
-          <div class="qcm-chip qcm-chip-sub" onclick="toggleSubCat('pse',event)"><span class="qcm-chip-icon" id="chk-pse">☐</span><span>PSE1 / PSE2</span><span class="qcm-chip-count" id="count-pse">0</span></div>
+        <!-- Catégories à cocher -->
+        <div class="qcm-check-item" onclick="toggleCat('statut')">
+          <span class="qcm-checkbox" id="chk-statut">☐</span>
+          <span class="qcm-check-label">Statut SPP &amp; Fonctionnaire</span>
+          <span class="qcm-cat-count" id="count-statut">105</span>
+        </div>
+        <div class="qcm-check-item" onclick="toggleCat('sis')">
+          <span class="qcm-checkbox" id="chk-sis">☐</span>
+          <span class="qcm-check-label">Organisation d'un SIS</span>
+          <span class="qcm-cat-count" id="count-sis">50</span>
         </div>
 
-        <!-- Ligne 3 : résumé + bouton lancer -->
-        <div class="qcm-topbar-row qcm-launch-inline">
+        <!-- Doctrines avec sous-cats -->
+        <div class="qcm-check-item qcm-check-parent" onclick="toggleDoctrinesPanel(event)">
+          <span class="qcm-checkbox" id="chk-doctrines">☐</span>
+          <span class="qcm-check-label">Doctrines Opérationnelles</span>
+          <span style="display:flex;align-items:center;gap:4px"><span class="qcm-cat-count" id="count-doctrines">534</span><span class="qcm-subcat-arrow" id="arrow-doctrines">▸</span></span>
+        </div>
+        <div class="qcm-subcats" id="doctrines-sub">
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-ventilation',event)"><span class="qcm-checkbox" id="chk-gto-ventilation">☐</span><span class="qcm-check-label">GTO Ventilation Opérationnelle</span><span class="qcm-cat-count" id="count-gto-ventilation">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvetage',event)"><span class="qcm-checkbox" id="chk-gto-sauvetage">☐</span><span class="qcm-check-label">GTO Sauvetage &amp; Mise en Sécurité</span><span class="qcm-cat-count" id="count-gto-sauvetage">49</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvegarde',event)"><span class="qcm-checkbox" id="chk-gto-sauvegarde">☐</span><span class="qcm-check-label">GTO Sauvegarde Opérationnelle</span><span class="qcm-cat-count" id="count-gto-sauvegarde">73</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-extinctions',event)"><span class="qcm-checkbox" id="chk-gto-extinctions">☐</span><span class="qcm-check-label">GTO Établissements &amp; Extinctions</span><span class="qcm-cat-count" id="count-gto-extinctions">73</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-vicie',event)"><span class="qcm-checkbox" id="chk-gto-vicie">☐</span><span class="qcm-check-label">GTO Engagement Milieu Vicié</span><span class="qcm-cat-count" id="count-gto-vicie">100</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ssuap',event)"><span class="qcm-checkbox" id="chk-gdo-ssuap">☐</span><span class="qcm-check-label">GDO SSUAP</span><span class="qcm-cat-count" id="count-gdo-ssuap">14</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-fumees',event)"><span class="qcm-checkbox" id="chk-gdo-fumees">☐</span><span class="qcm-check-label">GDO Toxicité des Fumées</span><span class="qcm-cat-count" id="count-gdo-fumees">11</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-gaz',event)"><span class="qcm-checkbox" id="chk-gdo-gaz">☐</span><span class="qcm-check-label">GDO Présence Gaz</span><span class="qcm-cat-count" id="count-gdo-gaz">12</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-incendie',event)"><span class="qcm-checkbox" id="chk-gdo-incendie">☐</span><span class="qcm-check-label">GDO Incendie Structure</span><span class="qcm-cat-count" id="count-gdo-incendie">60</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-routier',event)"><span class="qcm-checkbox" id="chk-gdo-routier">☐</span><span class="qcm-check-label">GDO Milieu Routier</span><span class="qcm-cat-count" id="count-gdo-routier">62</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
+          <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">0</span></div>
+        </div>
+
+        <div class="qcm-check-item" onclick="toggleCat('divers')">
+          <span class="qcm-checkbox" id="chk-divers">☐</span>
+          <span class="qcm-check-label">Divers</span>
+          <span class="qcm-cat-count" id="count-divers">18</span>
+        </div>
+        <div class="qcm-check-item" onclick="toggleCat('textes')">
+          <span class="qcm-checkbox" id="chk-textes">☐</span>
+          <span class="qcm-check-label">Textes structurants du concours</span>
+          <span class="qcm-cat-count" id="count-textes">29</span>
+        </div>
+
+        <!-- Résumé sélection + bouton lancer -->
+        <div class="qcm-launch-wrap">
           <div class="qcm-selection-summary" id="qcm-selection-summary">Aucun thème sélectionné</div>
-          <button class="btn btn-red qcm-launch-btn-inline" id="qcm-launch-btn" style="opacity:.4;pointer-events:none" onclick="launchQcm()">
+          <button class="btn btn-red" id="qcm-launch-btn" style="width:100%;justify-content:center;display:flex;font-size:.85rem;padding:12px;opacity:.4;pointer-events:none" onclick="launchQcm()">
             Lancer les QCM →
           </button>
         </div>
@@ -1410,36 +1275,54 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 
       <!-- MODE: ALÉATOIRE -->
       <div id="qcm-panel-random" style="display:none">
-        <div class="qcm-topbar-row">
-          <div class="qcm-sb-section">Nombre de questions</div>
+        <div class="qcm-sb-section">Mode entraînement</div>
+        <div style="font-size:.83rem;color:var(--gray);line-height:1.6;margin-bottom:16px">Les questions piochent aléatoirement dans <strong style="color:var(--charcoal)">tous les thèmes</strong> du concours.</div>
+
+        <div style="margin-bottom:12px">
+          <div style="font-size:.75rem;font-weight:600;letter-spacing:.5px;text-transform:uppercase;color:var(--gray);margin-bottom:8px">Nombre de questions</div>
           <div style="display:flex;gap:6px;flex-wrap:wrap">
             <button class="qcm-nb-btn active" onclick="setQcmNb(this,5)">5</button>
             <button class="qcm-nb-btn" onclick="setQcmNb(this,10)">10</button>
             <button class="qcm-nb-btn" onclick="setQcmNb(this,20)">20</button>
             <button class="qcm-nb-btn" onclick="setQcmNb(this,30)">30</button>
           </div>
-          <button class="btn btn-red qcm-launch-btn-inline" style="margin-left:auto" onclick="launchRandomQcm()">
-            🔀 Lancer l'entraînement →
-          </button>
         </div>
-        <div class="qcm-topbar-row">
-          <div style="font-size:.82rem;color:var(--gray);line-height:1.55">
-            💡 Les questions piochent aléatoirement dans <strong style="color:var(--charcoal)">tous les thèmes</strong> du concours — idéal pour simuler les conditions du jour J.
-          </div>
+
+        <button class="btn btn-red" style="width:100%;justify-content:center;display:flex;font-size:.85rem;padding:12px;margin-top:8px" onclick="launchRandomQcm()">
+          🔀 Lancer l'entraînement →
+        </button>
+
+        <div style="margin-top:16px;background:var(--cream2);border:1px solid var(--border);padding:12px;font-size:.8rem;color:var(--gray);line-height:1.55">
+          💡 Idéal pour simuler les conditions du concours et ne pas stagner dans un seul thème.
         </div>
       </div>
 
+      <!-- SCORE + CTA -->
+      <div style="border-top:1px solid var(--border);margin-top:28px;padding-top:22px">
+        <div style="font-size:.78rem;color:var(--gray-light);margin-bottom:10px;letter-spacing:1.5px;text-transform:uppercase;font-weight:600">Ton score</div>
+        <div style="font-family:'Playfair Display',serif;font-size:2rem;color:var(--red);line-height:1.1" id="score-display">0 / 0</div>
+        <div style="font-size:.88rem;color:var(--gray);margin-top:4px">questions répondues</div>
+      </div>
+      <div style="margin-top:22px;background:var(--red-pale);border:1px solid var(--red-pale2);padding:20px" id="qcm-unlock-cta">
+        <div style="font-size:.88rem;font-weight:600;color:var(--red);margin-bottom:8px">🔒 Accès complet</div>
+        <div style="font-size:.9rem;color:var(--gray);line-height:1.55;margin-bottom:14px">Débloquez les 700+ QCM pour 59€</div>
+        <button class="btn btn-red" style="width:100%;font-size:.88rem;padding:13px" onclick="goTo('formation')">Débloquer →</button>
+      </div>
+      <div style="margin-top:22px;background:#edf7ee;border:1px solid #c3e6c8;padding:20px;display:none" id="qcm-member-cta">
+        <div style="font-size:.88rem;font-weight:600;color:#1a5c25;margin-bottom:8px">✅ Accès complet activé</div>
+        <div style="font-size:.9rem;color:var(--gray);line-height:1.55">Tu as accès à tous les QCM.</div>
+      </div>
     </div>
 
     <!-- MAIN QCM -->
     <div class="qcm-main">
       <div id="qcm-launch-screen">
-        <!-- Écran d'accueil PAYANTS -->
-        <div id="qcm-launch-paid" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
+        <!-- Écran d'accueil avant lancement -->
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
           <div style="font-size:3rem;margin-bottom:20px">🎯</div>
           <div class="s-eyebrow" style="text-align:center">Prêt à t'entraîner ?</div>
           <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:12px;line-height:1.2">Choisis tes thèmes<br>ou lance un entraînement aléatoire</div>
-          <div style="font-size:.9rem;color:var(--gray);max-width:480px;line-height:1.7">Sélectionne les thèmes dans la barre au-dessus, puis clique sur <strong style="color:var(--charcoal)">Lancer les QCM</strong>.</div>
+          <div style="font-size:.9rem;color:var(--gray);max-width:400px;line-height:1.7">Sélectionne les thèmes dans la colonne de gauche, puis clique sur <strong style="color:var(--charcoal)">Lancer les QCM</strong>.</div>
           <div style="margin-top:32px;display:flex;gap:16px;flex-wrap:wrap;justify-content:center">
             <div style="background:white;border:1px solid var(--border);padding:20px 24px;text-align:left;min-width:160px">
               <div style="font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Par thème</div>
@@ -1451,15 +1334,6 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
             </div>
           </div>
         </div>
-
-        <!-- Écran d'accueil NON-PAYANTS -->
-        <div id="qcm-launch-demo" style="display:none;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
-          <div style="font-size:3rem;margin-bottom:20px">🎁</div>
-          <div class="s-eyebrow" style="text-align:center">Mode découverte</div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:12px;line-height:1.2">Teste la qualité<br>de nos QCM gratuitement</div>
-          <div style="font-size:.9rem;color:var(--gray);max-width:520px;line-height:1.7">Clique sur <strong style="color:var(--charcoal)">Lancer la démo</strong> au-dessus pour découvrir 10 questions aléatoires, avec corrections détaillées et sources réglementaires.</div>
-        </div>
-      </div>
       </div>
       <div id="qcm-session" style="display:none">
         <div class="qcm-header">
@@ -1476,36 +1350,6 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <div id="qcm-area"></div>
       </div>
     </div>
-
-    <!-- CTA D'ACHAT EN BAS (non-payants) -->
-    <div class="qcm-bottom-cta" id="qcm-bottom-cta" style="display:none">
-      <div class="qcm-bottom-cta-text">
-        <div class="qcm-bottom-cta-title">🔒 Tu es en mode démo</div>
-        <div class="qcm-bottom-cta-sub">Tu accèdes à <strong>10 questions aléatoires par jour</strong> piochées parmi les 590+ du concours. Débloque l'accès complet pour t'entraîner sans limite, thème par thème, sur la totalité de la banque.</div>
-        <div class="qcm-bottom-cta-features">
-          <span>✓ 590+ QCM sourcés</span>
-          <span>✓ Textes officiels à jour</span>
-          <span>✓ Corrections détaillées</span>
-          <span>✓ Paiement unique — pas d'abonnement</span>
-        </div>
-      </div>
-      <button class="btn btn-red" onclick="msPay('prc_acc-s-plateforme-de-pr-paration-candidat-54v0222')">Débloquer — 59€ →</button>
-    </div>
-
-    <!-- BLOC SOCIAL PROOF (non-payants) -->
-    <div class="qcm-social-proof" id="qcm-social-proof" style="display:none">
-      <div class="qcm-social-proof-author">
-        <div class="qcm-social-proof-avatar">Q</div>
-        <div>
-          <div class="qcm-social-proof-name">Conçu par Quentin</div>
-          <div class="qcm-social-proof-role">Sapeur-pompier professionnel en poste</div>
-        </div>
-      </div>
-      <div class="qcm-social-proof-quote">
-        « J'ai préparé ce concours pendant 2 ans en partant de zéro. Cette banque de QCM rassemble tout ce que j'aurais aimé avoir pendant ma prépa : des questions sourcées dans les vrais textes, des corrections qui expliquent le pourquoi, et une couverture complète du programme. »
-      </div>
-    </div>
-
   </div>
 </div>
 
@@ -2163,19 +2007,6 @@ if(window.location.search.indexOf('success') !== -1) {
   </div>
 </footer>
 
-<!-- STICKY BAR (non-payants) — affichée sur biblio/annales/concours, pas sur QCM ni home/formation/coaching -->
-<div class="sticky-unlock-bar" id="sticky-unlock-bar" style="display:none">
-  <div class="sticky-unlock-content">
-    <span class="sticky-unlock-icon">🔒</span>
-    <span class="sticky-unlock-text">
-      <strong>Contenu réservé aux membres</strong> —
-      <span id="sticky-unlock-sub">débloque l'accès complet pour t'entraîner sans limite.</span>
-    </span>
-    <button class="btn btn-red" onclick="msPay('prc_acc-s-plateforme-de-pr-paration-candidat-54v0222')">Débloquer — 59€ →</button>
-    <button class="sticky-unlock-close" onclick="dismissStickyBar()" aria-label="Fermer">✕</button>
-  </div>
-</div>
-
 <!-- ===== JAVASCRIPT ===== -->
 <script>
 // ============================================================
@@ -2184,84 +2015,40 @@ if(window.location.search.indexOf('success') !== -1) {
 var currentMember  = null;   // membre connecté (payé OU non payé)
 var isPaidMember   = false;  // true uniquement si le membre a réglé 59€ ou 217€
 
-// Identifiants des plans payants (à maintenir en miroir de Memberstack).
-// On liste à la fois les priceId (prc_...) ET les planId (pln_...) car
-// Memberstack V2 stocke les deux à des endroits différents :
-//   - planConnection.planId            → pln_...
-//   - planConnection.payment.priceId   → prc_...
-// Avoir les deux dans la liste nous donne une double sécurité.
+// Identifiants des plans payants (à maintenir en miroir de Memberstack)
+// Chaque entrée peut être soit un planId (pln_...), soit un priceId (prc_...)
+// On compare de manière tolérante aux deux, car selon la version de l'API
+// Memberstack on trouve l'un ou l'autre dans planConnections.
 var PAID_PLAN_IDS = [
   // 59 € — accès plateforme seul
   'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222',
-  'pln_plateforme-59--2gqj0mlv',
   // 217 € — pack complet (plateforme + 3 séances coaching)
-  'prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj',
-  'pln_pack-complet-217--v0t02yl'
+  'prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj'
 ];
 
 // Vérifie qu'un membre Memberstack a effectivement réglé l'un des plans payants.
 // Renvoie false pour un compte créé sans paiement (cas principal du bug).
-//
-// Memberstack V2 stocke les plans dans `planConnections` avec cette structure :
-//   { id: 'con_sb_...', active: true, status: 'ACTIVE',
-//     planId: 'pln_...', type: 'PAID', payment: { priceId: 'prc_...' }, ... }
-// On cherche donc le planId / priceId à tous les endroits possibles.
 function hasPaidAccess(member) {
   if (!member) return false;
   var conns = member.planConnections || member.plans || [];
   if (!conns || !conns.length) return false;
-
   for (var i = 0; i < conns.length; i++) {
     var c = conns[i] || {};
-
-    // 1. Le plan doit être actif. On teste d'abord `active` (booléen Memberstack V2)
-    //    puis `status` (string). On est tolérant : si les deux sont absents, on
-    //    considère actif (cas d'un achat one-time sans status explicite).
+    // Un plan n'est valable que s'il est actif/complété
     var status = (c.status || '').toUpperCase();
-    var activeStatuses = ['ACTIVE','TRIALING','COMPLETED','PAID','SUCCEEDED'];
-    var isActive;
-    if (typeof c.active === 'boolean') {
-      isActive = c.active === true;
-    } else if (status) {
-      isActive = activeStatuses.indexOf(status) !== -1;
-    } else {
-      isActive = true; // ni active ni status → on accepte
-    }
+    var activeStatuses = ['ACTIVE','TRIALING','COMPLETED','PAID'];
+    // Sur certaines réponses, il n'y a pas de champ status pour un plan lifetime
+    // déjà payé : on le considère actif par défaut si status absent.
+    var isActive = status === '' || activeStatuses.indexOf(status) !== -1;
     if (!isActive) continue;
-
-    // 2. Collecte tous les identifiants potentiels dans la connection.
-    //    On ratisse large pour couvrir toutes les versions de l'API Memberstack.
-    var payment = c.payment || {};
-    var plan    = c.plan    || {};
-    var price   = c.price   || {};
-    var candidates = [
-      c.planId, c.priceId, c.id,
-      plan.id, plan.planId, plan.priceId,
-      price.id, price.priceId, price.planId,
-      payment.priceId, payment.planId, payment.id
-    ];
+    // Rapproche planId et priceId (selon versions d'API Memberstack)
+    var candidates = [c.planId, c.priceId, c.id, c.plan && c.plan.id, c.price && c.price.id];
     for (var j = 0; j < candidates.length; j++) {
       if (candidates[j] && PAID_PLAN_IDS.indexOf(candidates[j]) !== -1) return true;
     }
   }
   return false;
 }
-
-// Helper debug — appeler depuis la console : debugMemberAccess()
-// Affiche un rapport détaillé sur le membre connecté et son statut payant.
-window.debugMemberAccess = function() {
-  var ms = getMemberstack();
-  if (!ms) { console.log('[debug] Memberstack non initialisé'); return; }
-  return ms.getCurrentMember().then(function(r) {
-    var m = r && r.data && r.data.member;
-    if (!m) { console.log('[debug] Aucun membre connecté'); return; }
-    console.log('[debug] Membre:', m.auth && m.auth.email, '| verified:', m.verified);
-    console.log('[debug] planConnections:', JSON.stringify(m.planConnections, null, 2));
-    console.log('[debug] PAID_PLAN_IDS:', PAID_PLAN_IDS);
-    console.log('[debug] hasPaidAccess →', hasPaidAccess(m));
-    return m;
-  });
-};
 
 // Re-fetch du membre depuis Memberstack pour récupérer les plans à jour
 // (à appeler après un paiement, car le "member" retourné par openModal('signup')
@@ -2304,47 +2091,6 @@ function goTo(id) {
   if (id === 'qcm') { initQcm(); checkAccessGate('qcm'); }
   if (id === 'biblio' || id === 'actu') checkAccessGate(id);
   if (id === 'concours') { checkAccessGate('concours'); renderAnnalesThemes(); }
-
-  // Sticky bar pour non-payants : affichée sur biblio/concours/actu
-  updateStickyBar(id);
-}
-
-// Affiche/cache la sticky bar de rappel selon la page et le statut membre
-function updateStickyBar(pageId) {
-  var bar = document.getElementById('sticky-unlock-bar');
-  if (!bar) return;
-  // Page-cible : seulement sur pages de contenu verrouillé pour non-payants
-  var targetPages = ['biblio','concours','actu'];
-  var onTargetPage = targetPages.indexOf(pageId) !== -1;
-  // Dismissé par l'utilisateur ? (localStorage, valable 1 journée)
-  var dismissed = false;
-  try {
-    var raw = localStorage.getItem('sticky_bar_dismissed_v1');
-    if (raw) {
-      var data = JSON.parse(raw);
-      if (data.date === getTodayKey()) dismissed = true;
-    }
-  } catch(e) {}
-  // Affichage : page cible + non-payant + non-dismissé
-  var shouldShow = onTargetPage && !isPaidMember && !dismissed;
-  bar.style.display = shouldShow ? 'block' : 'none';
-  // Sous-message adapté à la page
-  if (shouldShow) {
-    var subEl = document.getElementById('sticky-unlock-sub');
-    if (subEl) {
-      if (pageId === 'biblio') subEl.textContent = 'accède à toute la bibliothèque documentaire.';
-      else if (pageId === 'concours') subEl.textContent = 'accède aux annales corrigées du concours.';
-      else if (pageId === 'actu') subEl.textContent = 'accède aux actualités détaillées du concours.';
-    }
-  }
-}
-
-function dismissStickyBar() {
-  var bar = document.getElementById('sticky-unlock-bar');
-  if (bar) bar.style.display = 'none';
-  try {
-    localStorage.setItem('sticky_bar_dismissed_v1', JSON.stringify({ date: getTodayKey() }));
-  } catch(e) {}
 }
 
 // Mobile nav
@@ -2352,53 +2098,19 @@ function toggleMobileNav() { document.getElementById('mobileNav').classList.togg
 function closeMobileNav() { document.getElementById('mobileNav').classList.remove('open'); }
 
 // ============================================================
-// RETOUR STRIPE / MEMBERSTACK — détection du retour checkout
+// RETOUR STRIPE — détection ?success=1
 // ============================================================
-// Stripe checkout redirige avec l'un de ces paramètres selon le flux :
-//   - ?success=1               (ancien flux custom)
-//   - ?fromCheckout=true       (Memberstack V2)
-//   - ?forceRefetch=true       (Memberstack V2, force re-fetch du membre)
-//   - ?msPriceId=prc_...       (Memberstack V2, priceId acheté)
-// On déclenche le refresh + la page "merci" dès qu'on détecte l'un d'eux.
 (function(){
-  var qs = window.location.search;
-  var isCheckoutReturn = /[?&](success|fromCheckout|forceRefetch|msPriceId)=/.test(qs);
-  if(!isCheckoutReturn) return;
+  if(!window.location.search.includes('success')) return;
 
   goTo('merci');
 
-  // Le webhook Stripe → Memberstack peut prendre quelques secondes pour créer
-  // la planConnection. On tente plusieurs refetch successifs jusqu'à ce que
-  // hasPaidAccess passe à true (ou jusqu'à 6 tentatives = ~15s max).
-  var attempts = 0;
-  var maxAttempts = 6;
-  function tryRefresh() {
-    attempts++;
-    try {
-      if (typeof refreshMemberAccess !== 'function') return;
-      refreshMemberAccess().then(function(m) {
-        if (m && typeof hasPaidAccess === 'function' && hasPaidAccess(m)) {
-          // Paiement bien reconnu → on arrête de réessayer
-          showToast('✅ Paiement validé, accès débloqué !');
-          return;
-        }
-        if (attempts < maxAttempts) {
-          setTimeout(tryRefresh, 2500);
-        } else {
-          // Après plusieurs tentatives, on laisse le membre tel quel.
-          // L'accès sera reconnu au prochain chargement de page.
-          console.warn('[checkout-return] hasPaidAccess reste false après ' + attempts + ' tentatives');
-        }
-      });
-    } catch(e) { console.error('[checkout-return] refresh error', e); }
-  }
-  setTimeout(tryRefresh, 2000);
-
-  // Nettoyage des paramètres d'URL pour éviter de re-déclencher au reload
-  try {
-    var cleanUrl = window.location.pathname + window.location.hash;
-    window.history.replaceState({}, document.title, cleanUrl);
-  } catch(e) {}
+  // Retour d'un paiement Stripe : on re-fetch le membre pour que
+  // planConnections reflète bien le nouvel achat et que isPaidMember
+  // passe à true (après un petit délai pour laisser le webhook arriver).
+  setTimeout(function(){
+    try { if (typeof refreshMemberAccess === 'function') refreshMemberAccess(); } catch(e){}
+  }, 2500);
 
   var name  = localStorage.getItem('booking_name');
   var email = localStorage.getItem('booking_email');
@@ -2496,109 +2208,6 @@ var CAT_LABELS = {
   'pse': 'Secourisme PSE1 / PSE2'
 };
 
-// ============================================================
-// QUOTA DÉMO QUOTIDIENNE
-// ============================================================
-// Les non-payants ont droit à 10 QCM aléatoires par jour (reset à minuit local).
-// Le quota est stocké en localStorage : suffisant pour la majorité des utilisateurs,
-// contournable via navigation privée mais ceux qui le font n'achèteraient pas de toute façon.
-var DEMO_DAILY_QUOTA = 10;
-var DEMO_QUOTA_KEY = 'demo_qcm_quota_v1';
-
-function getTodayKey() {
-  var d = new Date();
-  return d.getFullYear() + '-' + (d.getMonth() + 1) + '-' + d.getDate();
-}
-
-// Renvoie le nombre de QCM démo déjà consommés aujourd'hui
-function getDemoUsedToday() {
-  try {
-    var raw = localStorage.getItem(DEMO_QUOTA_KEY);
-    if (!raw) return 0;
-    var data = JSON.parse(raw);
-    if (data.date !== getTodayKey()) return 0; // date différente → reset
-    return data.used || 0;
-  } catch(e) { return 0; }
-}
-
-// Incrémente le compteur (appelé quand on lance une session démo)
-function consumeDemoQuota(n) {
-  try {
-    var used = getDemoUsedToday() + n;
-    localStorage.setItem(DEMO_QUOTA_KEY, JSON.stringify({
-      date: getTodayKey(),
-      used: used
-    }));
-  } catch(e) {}
-}
-
-// Vérifie si l'utilisateur a encore du quota dispo
-function hasDemoQuotaLeft() {
-  return getDemoUsedToday() < DEMO_DAILY_QUOTA;
-}
-
-// Renvoie le nombre de questions restantes pour aujourd'hui
-function getDemoRemaining() {
-  return Math.max(0, DEMO_DAILY_QUOTA - getDemoUsedToday());
-}
-
-// Toutes les catégories du site (pour le pool démo aléatoire)
-function getAllCats() {
-  return ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
-}
-
-// Charge 10 questions aléatoires parmi TOUS les thèmes, pour la démo.
-// Retourne une Promise avec un pool mélangé de {nombre} questions.
-function loadDemoPool(nombre) {
-  return loadCats(getAllCats()).then(function(all) {
-    return shuffle(all).slice(0, Math.min(nombre, all.length));
-  });
-}
-
-// Écran affiché quand le quota démo est épuisé
-function showDemoQuotaExhaustedScreen() {
-  var area = document.getElementById('qcm-area');
-  if (!area) return;
-
-  // Construit la grille des thèmes verrouillés (teasing)
-  var teaserCats = [
-    {cat:'statut', count:105}, {cat:'sis', count:50},
-    {cat:'gto-vicie', count:100}, {cat:'gto-sauvegarde', count:73},
-    {cat:'gto-extinctions', count:73}, {cat:'gdo-incendie', count:60},
-    {cat:'gdo-routier', count:62}, {cat:'gto-sauvetage', count:49},
-    {cat:'textes', count:29}, {cat:'divers', count:18}
-  ];
-  var teaserGrid = teaserCats.map(function(t) {
-    var label = (typeof CAT_LABELS_SHORT !== 'undefined' && CAT_LABELS_SHORT[t.cat]) || t.cat;
-    return '<div style="background:var(--cream2);border:1px solid var(--border);padding:12px 14px;font-size:.82rem;line-height:1.4;position:relative">' +
-      '<div style="font-weight:700;color:var(--charcoal);margin-bottom:2px">' + label + '</div>' +
-      '<div style="font-size:.8rem;color:var(--gray)"><strong style="color:var(--red)">' + t.count + '</strong> questions</div>' +
-      '<div style="position:absolute;top:10px;right:12px;font-size:.95rem;opacity:.35">🔒</div>' +
-    '</div>';
-  }).join('');
-
-  area.innerHTML =
-    '<div style="max-width:760px;margin:0 auto;background:white;border:1px solid var(--border);padding:40px 32px;text-align:center">' +
-      '<div style="font-size:2.2rem;margin-bottom:14px">🔒</div>' +
-      '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:10px;line-height:1.2">Tu as terminé ta session<br>démo du jour</div>' +
-      '<div style="width:40px;height:2px;background:var(--red);margin:16px auto"></div>' +
-      '<div style="font-size:.95rem;color:var(--gray);line-height:1.7;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto">' +
-        'Tu viens de tester <strong>' + DEMO_DAILY_QUOTA + ' questions aléatoires</strong>. ' +
-        'Reviens demain pour ' + DEMO_DAILY_QUOTA + ' nouvelles questions gratuites, ' +
-        'ou <strong>débloque dès maintenant</strong> tous les thèmes du concours.' +
-      '</div>' +
-
-      // Teasing : ce qu'il rate
-      '<div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;text-align:left">Ce qui t\'attend dans la version complète</div>' +
-      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:28px">' + teaserGrid + '</div>' +
-
-      // CTA
-      '<button class="btn btn-red" style="width:100%;max-width:420px;justify-content:center;margin-bottom:12px" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès complet — 59€ →</button>' +
-      '<br>' +
-      '<button class="btn btn-outline-red" style="margin-top:4px" onclick="stopSession()">← Retour</button>' +
-    '</div>';
-}
-
 // QCM de démonstration (accessibles même aux non-membres, avant achat)
 // 3 questions chargées depuis le JSON ne marcheraient pas pour les non-membres
 // (pas d'accès aux fichiers), donc on garde une mini-banque démo ici.
@@ -2643,7 +2252,6 @@ var qcmMode = 'select';  // 'select' | 'random'
 var randomNb = 5;
 
 var activeSession = [];  // questions de la session en cours
-var sessionAnswers = []; // réponses de l'utilisateur : [[0,2], [1], ...] (indices cochés par question)
 var qIdx = 0, score = 0, answered = 0;
 
 // ---------- MODE SWITCH ----------
@@ -2717,9 +2325,7 @@ function updateCheckbox(cat) {
   var el = document.getElementById('chk-' + cat);
   if (!el) return;
   el.textContent = selectedCats[cat] ? '☑' : '☐';
-  // Compatible avec l'ancien HTML (.qcm-check-item/.qcm-subcheck-item)
-  // et la nouvelle barre horizontale (.qcm-chip)
-  var item = el.closest('.qcm-chip, .qcm-check-item, .qcm-subcheck-item');
+  var item = el.closest('.qcm-check-item, .qcm-subcheck-item');
   if (item) item.classList.toggle('checked', !!selectedCats[cat]);
 }
 
@@ -2758,10 +2364,6 @@ function setQcmNb(btn, n) {
 // ---------- CHARGEMENT JSON ----------
 // Charge un fichier JSON de thème et le met en cache.
 // Retourne une Promise avec les questions.
-// Tolérant aux erreurs : si un fichier est manquant (404) ou invalide,
-// on renvoie un tableau vide au lieu de faire planter tout le chargement.
-// Cela permet d'avoir des catégories listées dans DOCTRINES_SUBCATS dont
-// le JSON n'existe pas encore.
 function loadCat(cat) {
   if (loadedQuestions[cat]) {
     return Promise.resolve(loadedQuestions[cat]);
@@ -2773,19 +2375,9 @@ function loadCat(cat) {
     path += cat + '.json';
   }
   return fetch(path).then(function(resp) {
-    if (!resp.ok) {
-      // 404 ou autre erreur HTTP : on loggue mais on renvoie un pool vide
-      console.warn('[loadCat] Fichier introuvable ou erreur : ' + path + ' (' + resp.status + ')');
-      loadedQuestions[cat] = [];
-      return [];
-    }
+    if (!resp.ok) throw new Error('Fichier introuvable : ' + path);
     return resp.json();
   }).then(function(questions) {
-    if (!Array.isArray(questions)) {
-      console.warn('[loadCat] Contenu invalide pour : ' + path);
-      loadedQuestions[cat] = [];
-      return [];
-    }
     // Enrichit chaque question avec sa catégorie et son label
     questions.forEach(function(q) {
       q.cat = cat;
@@ -2795,11 +2387,6 @@ function loadCat(cat) {
     });
     loadedQuestions[cat] = questions;
     return questions;
-  }).catch(function(err) {
-    // Erreur réseau ou JSON invalide : on dégrade proprement
-    console.warn('[loadCat] Erreur de chargement pour ' + path + ' :', err);
-    loadedQuestions[cat] = [];
-    return [];
   });
 }
 
@@ -2812,39 +2399,24 @@ function loadCats(cats) {
 }
 
 // ---------- LANCEMENT SESSION ----------
-
-// Lancement démo (non-payants) : 10 questions aléatoires parmi tous les thèmes,
-// quota de 10 par jour (reset à minuit local).
-function launchDemoQcm() {
-  if (!hasDemoQuotaLeft()) {
-    showLoadingScreen();
-    showDemoQuotaExhaustedScreen();
-    return;
-  }
-  showLoadingScreen();
-  loadDemoPool(DEMO_DAILY_QUOTA).then(function(pool) {
-    if (pool.length === 0) {
-      showToast('⚠️ Aucune question disponible pour la démo.');
-      return;
-    }
-    consumeDemoQuota(pool.length);
-    startSession(pool, '🎁 Session démo — ' + pool.length + ' questions aléatoires');
-    // On rafraîchit les compteurs affichés (bandeau haut)
-    if (typeof checkAccessGate === 'function') checkAccessGate('qcm');
-  }).catch(function(err) {
-    console.error('Erreur chargement démo :', err);
-    showToast('⚠️ Erreur de chargement. Réessaie dans un instant.');
-  });
-}
-
 function launchQcm() {
   var cats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
   var selected = cats.filter(function(c){ return selectedCats[c]; });
   if (selected.length === 0) return;
 
-  // Sécurité : si un non-payant arrive ici (bouton caché mais par prudence)
-  // on bascule sur la démo
-  if (!isPaidMember) { launchDemoQcm(); return; }
+  // Non payant (visiteur OU compte gratuit) : on montre uniquement
+  // les questions démo correspondant aux thèmes cochés
+  if (!isPaidMember) {
+    var demoPool = DEMO_QUESTIONS.filter(function(q){ return selected.indexOf(q.cat) !== -1; });
+    if (demoPool.length === 0) {
+      // Aucune démo sur les thèmes sélectionnés → prompt d'achat
+      showToast('⚠️ Les thèmes sélectionnés sont réservés aux membres. Débloque la plateforme pour y accéder.');
+      openLockModal();
+      return;
+    }
+    startSession(shuffle(demoPool), buildSessionTitle(selected) + ' (démo)');
+    return;
+  }
 
   // Membre : chargement des vraies questions
   showLoadingScreen();
@@ -2862,8 +2434,12 @@ function launchQcm() {
 }
 
 function launchRandomQcm() {
-  // Sécurité : non-payant → démo
-  if (!isPaidMember) { launchDemoQcm(); return; }
+  // Non payant : pioche dans les démos uniquement
+  if (!isPaidMember) {
+    var demoPool = shuffle(DEMO_QUESTIONS.slice()).slice(0, Math.min(randomNb, DEMO_QUESTIONS.length));
+    startSession(demoPool, '🔀 Entraînement aléatoire (démo)');
+    return;
+  }
 
   // Membre : charge TOUS les thèmes puis pioche
   var allCats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
@@ -2910,7 +2486,6 @@ function shuffle(arr) {
 
 function startSession(pool, title) {
   activeSession = pool;
-  sessionAnswers = [];  // tracking des réponses pour l'analyse de fin de démo
   qIdx = 0; score = 0; answered = 0;
   document.getElementById('qcm-launch-screen').style.display = 'none';
   document.getElementById('qcm-session').style.display = '';
@@ -2918,173 +2493,6 @@ function startSession(pool, title) {
   document.getElementById('q-total').textContent = pool.length;
   renderQ();
   updateScore();
-}
-
-// Totaux de questions par catégorie (pour le pitch "X autres questions t'attendent")
-// À maintenir à jour avec les vraies valeurs des JSON
-var CAT_TOTALS = {
-  'statut': 105, 'sis': 50, 'divers': 18, 'textes': 29,
-  'gto-ventilation': 12, 'gto-sauvetage': 49, 'gto-sauvegarde': 73,
-  'gto-forets': 12, 'gto-extinctions': 73, 'gto-vicie': 100,
-  'gdo-ssuap': 14, 'gdo-fumees': 11, 'gdo-elec': 12, 'gdo-silos': 12,
-  'gdo-gaz': 12, 'gdo-agricole': 14, 'gdo-incendie': 60, 'gdo-ulm': 8,
-  'gdo-routier': 62, 'gdo-foret': 10, 'pse': 0
-};
-
-// Labels courts (pour l'affichage compact dans l'écran de fin)
-var CAT_LABELS_SHORT = {
-  'statut': 'Statut SPP', 'sis': 'Org. SIS', 'divers': 'Divers', 'textes': 'Textes structurants',
-  'gto-ventilation': 'GTO Ventilation', 'gto-sauvetage': 'GTO Sauvetage',
-  'gto-sauvegarde': 'GTO Sauvegarde', 'gto-forets': 'GTO Feux Forêts',
-  'gto-extinctions': 'GTO Extinctions', 'gto-vicie': 'GTO Milieu Vicié',
-  'gdo-ssuap': 'GDO SSUAP', 'gdo-fumees': 'GDO Fumées', 'gdo-elec': 'GDO Électricité',
-  'gdo-silos': 'GDO Silos', 'gdo-gaz': 'GDO Gaz', 'gdo-agricole': 'GDO Agricole',
-  'gdo-incendie': 'GDO Incendie', 'gdo-ulm': 'GDO ULM', 'gdo-routier': 'GDO Routier',
-  'gdo-foret': 'GDO Forêts', 'pse': 'PSE1/PSE2'
-};
-
-// Analyse la session par catégorie — renvoie { cat: {total, correct, pct} }
-function analyzeSessionByCategory(session, userAnswers) {
-  var stats = {};
-  session.forEach(function(q, i) {
-    var cat = q.cat || 'divers';
-    if (!stats[cat]) stats[cat] = { total: 0, correct: 0 };
-    stats[cat].total++;
-    // userAnswers[i] est l'array des indices cochés par l'utilisateur
-    var userAns = (userAnswers && userAnswers[i]) || [];
-    var correctAns = q.correct || [];
-    var isCorrect = userAns.length === correctAns.length &&
-      userAns.every(function(a) { return correctAns.indexOf(a) !== -1; });
-    if (isCorrect) stats[cat].correct++;
-  });
-  // Calcule le pct
-  Object.keys(stats).forEach(function(c) {
-    stats[c].pct = stats[c].total > 0 ? Math.round(stats[c].correct / stats[c].total * 100) : 0;
-  });
-  return stats;
-}
-
-// Construit le HTML du pitch personnalisé pour non-payants en fin de démo.
-// Identifie la catégorie la plus faible + celles où il reste le plus à explorer.
-function buildDemoResultPitch(session, userAnswers, score, pct) {
-  var stats = analyzeSessionByCategory(session, userAnswers);
-  var catKeys = Object.keys(stats);
-
-  // Identification du point faible (plus petit pct, puis plus grand total restant)
-  var weakest = null;
-  catKeys.forEach(function(c) {
-    var s = stats[c];
-    if (!weakest) { weakest = { cat: c, s: s }; return; }
-    if (s.pct < weakest.s.pct) weakest = { cat: c, s: s };
-    else if (s.pct === weakest.s.pct) {
-      var remainingNew = (CAT_TOTALS[c] || 0) - s.total;
-      var remainingOld = (CAT_TOTALS[weakest.cat] || 0) - weakest.s.total;
-      if (remainingNew > remainingOld) weakest = { cat: c, s: s };
-    }
-  });
-
-  // Liste des catégories vues (triées par plus gros potentiel restant)
-  var categoriesSeen = catKeys.map(function(c) {
-    var total = CAT_TOTALS[c] || 0;
-    return {
-      cat: c,
-      label: CAT_LABELS_SHORT[c] || c,
-      vuesTotal: stats[c].total,
-      vuesCorrect: stats[c].correct,
-      vuesPct: stats[c].pct,
-      remaining: Math.max(0, total - stats[c].total)
-    };
-  }).sort(function(a, b) { return b.remaining - a.remaining; });
-
-  // Total de questions restantes sur toute la banque (pour le pitch global)
-  var grandTotal = 0;
-  Object.keys(CAT_TOTALS).forEach(function(c) { grandTotal += CAT_TOTALS[c]; });
-  var remainingTotal = grandTotal - session.length;
-
-  // Message principal calibré sur le score
-  var headline, subline;
-  if (pct >= 80) {
-    headline = 'Excellent niveau ! 🏅';
-    subline = 'Tu maîtrises déjà bien les bases — prêt à passer à l\'entraînement quotidien ?';
-  } else if (pct >= 60) {
-    headline = 'Bon début ! 👍';
-    subline = 'Tu as les fondations. Il te manque la régularité et la profondeur pour décrocher le concours.';
-  } else if (pct >= 40) {
-    headline = 'Le potentiel est là 📚';
-    subline = 'Tes erreurs sont normales — elles montrent exactement ce qu\'il te reste à travailler.';
-  } else {
-    headline = 'Beaucoup à apprendre — c\'est normal 💪';
-    subline = 'Ces 10 questions t\'ont montré le niveau du concours. La bonne nouvelle ? Tout est travaillable.';
-  }
-
-  // Bloc point faible (si pertinent)
-  var weakestBlock = '';
-  if (weakest && weakest.s.pct < 100 && (CAT_TOTALS[weakest.cat] || 0) > weakest.s.total) {
-    var weakLabel = CAT_LABELS_SHORT[weakest.cat] || weakest.cat;
-    var weakRemaining = (CAT_TOTALS[weakest.cat] || 0) - weakest.s.total;
-    weakestBlock =
-      '<div style="background:var(--red-pale);border-left:3px solid var(--red);padding:16px 20px;margin:24px 0;text-align:left">' +
-        '<div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px">⚠️ Ton point faible identifié</div>' +
-        '<div style="font-size:.95rem;color:var(--charcoal);line-height:1.5">' +
-          '<strong>' + weakLabel + '</strong> — ' + weakest.s.correct + '/' + weakest.s.total + ' bonnes réponses. ' +
-          '<strong style="color:var(--red)">' + weakRemaining + ' autres questions</strong> de ce thème t\'attendent dans la version complète.' +
-        '</div>' +
-      '</div>';
-  }
-
-  // Grille des catégories vues
-  var gridItems = categoriesSeen.map(function(c) {
-    var scoreColor = c.vuesPct >= 75 ? '#2d7a3a' : c.vuesPct >= 50 ? '#B8860B' : 'var(--red)';
-    var remainingText = c.remaining > 0
-      ? '<span style="color:var(--red);font-weight:600">+' + c.remaining + ' à découvrir 🔒</span>'
-      : '<span style="color:var(--gray-light)">complet</span>';
-    return '<div style="background:white;border:1px solid var(--border);padding:12px 14px;text-align:left;font-size:.82rem;line-height:1.45">' +
-      '<div style="font-weight:700;color:var(--charcoal);margin-bottom:3px">' + c.label + '</div>' +
-      '<div style="color:var(--gray);margin-bottom:2px">' + c.vuesCorrect + '/' + c.vuesTotal + ' · <span style="color:' + scoreColor + ';font-weight:600">' + c.vuesPct + '%</span></div>' +
-      '<div style="font-size:.75rem">' + remainingText + '</div>' +
-    '</div>';
-  }).join('');
-
-  var ctaLogin = currentMember
-    ? ''
-    : '<div style="font-size:.82rem;color:var(--gray);margin-top:14px">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>';
-
-  return [
-    '<div style="background:white;border:1px solid var(--border);padding:40px 32px;text-align:center;max-width:760px;margin:0 auto">',
-
-      // En-tête : score + headline
-      '<div style="font-size:2.6rem;margin-bottom:10px">' + (pct >= 80 ? '🏅' : pct >= 60 ? '👍' : pct >= 40 ? '📚' : '💪') + '</div>',
-      '<div style="font-family:\'Playfair Display\',serif;font-size:1.7rem;color:var(--charcoal);margin-bottom:6px;line-height:1.2">' + headline + '</div>',
-      '<div style="font-size:.95rem;color:var(--gray);line-height:1.6;margin-bottom:18px;max-width:520px;margin-left:auto;margin-right:auto">' + subline + '</div>',
-
-      // Score global
-      '<div style="font-size:1.05rem;color:var(--charcoal);margin-bottom:4px">Score : <strong>' + score + ' / ' + session.length + '</strong> · <strong style="color:var(--red)">' + pct + '%</strong></div>',
-      '<div style="width:100%;max-width:420px;margin:12px auto 0;background:var(--border-light);height:6px"><div style="height:6px;background:var(--red);width:' + pct + '%"></div></div>',
-
-      // Point faible identifié
-      weakestBlock,
-
-      // Grille détail par catégorie
-      '<div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin:28px 0 12px">Détail par thème</div>',
-      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:28px">' + gridItems + '</div>',
-
-      // Pitch final
-      '<div style="background:var(--cream);padding:20px 24px;margin-bottom:22px;border:1px dashed var(--red-pale2)">',
-        '<div style="font-family:\'Playfair Display\',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:6px">',
-          '<strong style="color:var(--red)">' + remainingTotal + '+ questions</strong> t\'attendent dans la version complète',
-        '</div>',
-        '<div style="font-size:.85rem;color:var(--gray);line-height:1.55">Paiement unique — pas d\'abonnement — accès illimité jusqu\'au concours.</div>',
-      '</div>',
-
-      // CTA
-      '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">',
-        '<button class="btn btn-outline-red" onclick="stopSession()">← Retour</button>',
-        '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès complet — 59€ →</button>',
-      '</div>',
-      ctaLogin,
-
-    '</div>'
-  ].join('');
 }
 
 function stopSession() {
@@ -3106,7 +2514,26 @@ function renderQ() {
     var pct = activeSession.length > 0 ? Math.round(score / activeSession.length * 100) : 0;
     var emoji = pct >= 80 ? '🏅' : pct >= 60 ? '👍' : '📚';
     if (!isPaidMember) {
-      area.innerHTML = buildDemoResultPitch(activeSession, sessionAnswers, score, pct);
+      // Adapte le CTA selon que l'utilisateur a déjà un compte ou non
+      var ctaLogin = currentMember
+        ? '' // déjà connecté → ne pas proposer la connexion
+        : '<div style="font-size:.82rem;color:var(--gray)">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>';
+      area.innerHTML = [
+        '<div style="background:white;border:1px solid var(--border);padding:48px 36px;text-align:center">',
+          '<div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div>',
+          '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Session terminée</div>',
+          '<div style="font-size:1rem;color:var(--gray);margin-bottom:4px">Score : <strong style="color:var(--charcoal)">' + score + ' / ' + activeSession.length + '</strong> — <strong style="color:var(--red)">' + pct + '%</strong></div>',
+          '<div style="width:100%;background:var(--border-light);height:6px;margin:16px 0 28px"><div style="height:6px;background:var(--red);width:' + pct + '%"></div></div>',
+          '<div style="font-size:.9rem;color:var(--gray);line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">',
+            'Tu viens de compléter une session de démonstration.<br>Accède aux <strong style="color:var(--charcoal)">700+ QCM complets</strong> pour progresser jusqu\'au jour J.',
+          '</div>',
+          '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">',
+            '<button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button>',
+            '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Accès complet — 59€ →</button>',
+          '</div>',
+          ctaLogin,
+        '</div>'
+      ].join('');
     } else {
       // Enregistre la session dans les statistiques
       var sessCats = [];
@@ -3115,34 +2542,7 @@ function renderQ() {
       });
       var sessTitle = document.getElementById('qcm-cat-title');
       espTrackSession(sessTitle ? sessTitle.textContent : 'Session QCM', sessCats, score, activeSession.length);
-      // Message adapté au score
-      var paidHeadline, paidSubline;
-      if (pct >= 80) {
-        paidHeadline = 'Excellent travail !';
-        paidSubline = 'Tu maîtrises ces thèmes. Passe aux QCM que tu n\'as pas encore vus pour élargir.';
-      } else if (pct >= 60) {
-        paidHeadline = 'Solide !';
-        paidSubline = 'Bonne base. Identifie tes erreurs pour cibler la session suivante.';
-      } else if (pct >= 40) {
-        paidHeadline = 'En progression';
-        paidSubline = 'Retravaille les questions ratées — c\'est là que la marge de manœuvre est la plus grande.';
-      } else {
-        paidHeadline = 'À remettre sur le métier';
-        paidSubline = 'Ne te décourage pas — relance une session, la répétition fait la différence.';
-      }
-      area.innerHTML =
-        '<div class="question-card" style="text-align:center;max-width:640px;margin:0 auto">' +
-          '<div style="font-size:2.8rem;margin-bottom:12px">' + emoji + '</div>' +
-          '<div style="font-family:\'Playfair Display\',serif;font-size:1.5rem;color:var(--charcoal);margin-bottom:6px;line-height:1.2">' + paidHeadline + '</div>' +
-          '<div style="font-size:.9rem;color:var(--gray);line-height:1.55;margin-bottom:18px;max-width:440px;margin-left:auto;margin-right:auto">' + paidSubline + '</div>' +
-          '<div style="font-size:1rem;color:var(--charcoal);margin-bottom:4px">Score : <strong>' + score + ' / ' + activeSession.length + '</strong> · <strong style="color:var(--red)">' + pct + '%</strong></div>' +
-          '<div style="width:100%;max-width:420px;margin:12px auto 24px;background:var(--border-light);height:5px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div>' +
-          '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">' +
-            '<button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button>' +
-            '<button class="btn btn-outline-red" onclick="goTo(\'espace\')">📊 Voir mes stats</button>' +
-            '<button class="btn btn-red" onclick="launchQcm()">Relancer →</button>' +
-          '</div>' +
-        '</div>';
+      area.innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div><div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Score : ' + score + ' / ' + activeSession.length + ' (' + pct + '%)</div><div style="width:100%;background:var(--border-light);height:5px;margin:12px 0 20px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button><button class="btn btn-outline-red" onclick="goTo(\'espace\')">📊 Voir mes stats</button><button class="btn btn-red" onclick="launchQcm()">Relancer →</button></div></div>';
     }
     document.getElementById('qcm-prog').style.width = '100%';
     return;
@@ -3245,9 +2645,6 @@ function submitMultiAnswer() {
   answered++;
   if (isCorrect) score++;
 
-  // Mémorise la réponse pour l'analyse de fin de démo
-  sessionAnswers[qIdx] = currentMultiSelection.slice();
-
   // Affichage du résultat
   var choices = document.querySelectorAll('.q-choice');
   choices.forEach(function(c, i) {
@@ -3279,8 +2676,6 @@ function submitMultiAnswer() {
 function answerSingle(idx) {
   var q = activeSession[qIdx];
   answered++;
-  // Mémorise la réponse pour l'analyse de fin de démo
-  sessionAnswers[qIdx] = [idx];
   var choices = document.querySelectorAll('.q-choice');
   choices.forEach(function(c) { c.disabled = true; c.onclick = null; });
   var isCorrect = q.correct.indexOf(idx) !== -1;
@@ -3320,11 +2715,8 @@ function showExplAndNext(q, isCorrect) {
 }
 
 function updateScore() {
-  var txt = score + ' / ' + answered;
   var el = document.getElementById('score-display');
-  if (el) el.textContent = txt;
-  var elDemo = document.getElementById('score-display-demo');
-  if (elDemo) elDemo.textContent = txt;
+  if (el) el.textContent = score + ' / ' + answered;
 }
 
 // Stubs conservés pour compatibilité (ne font plus rien)
@@ -4087,11 +3479,6 @@ function updateNavMember(member) {
       nameEl.style.display = 'inline';
     }
     checkAccessGate('qcm');
-    // Mise à jour sticky bar selon le statut du membre et la page en cours
-    try {
-      var activePage = document.querySelector('.page.active');
-      if (activePage) updateStickyBar(activePage.id.replace('page-',''));
-    } catch(e){}
     // Migration localStorage → Supabase en arrière-plan (payants uniquement)
     if (isPaidMember) {
       setTimeout(function(){ try { espMigrateLocalToSupabase(); } catch(e){} }, 1200);
@@ -4107,11 +3494,6 @@ function updateNavMember(member) {
     if (spaceBtn) spaceBtn.style.display = 'none';
     if (espaceItem) espaceItem.style.display = 'none';
     if (mobileEspace) mobileEspace.style.display = 'none';
-    // Déconnexion → mettre à jour la sticky bar aussi
-    try {
-      var activePage2 = document.querySelector('.page.active');
-      if (activePage2) updateStickyBar(activePage2.id.replace('page-',''));
-    } catch(e){}
   }
 }
 
@@ -4121,63 +3503,10 @@ function checkAccessGate(page) {
   // "CTA membre"    = affiché uniquement pour les payants
   var hasPaid = isPaidMember;
   if (page === 'qcm') {
-    // Bandeau haut + CTA bas + social proof : réservés aux non-payants
-    var demoBanner = document.getElementById('qcm-demo-banner');
-    var bottomCta  = document.getElementById('qcm-bottom-cta');
-    var socialProof= document.getElementById('qcm-social-proof');
-    if (demoBanner)  demoBanner.style.display  = hasPaid ? 'none' : 'flex';
-    if (bottomCta)   bottomCta.style.display   = hasPaid ? 'none' : 'flex';
-    if (socialProof) socialProof.style.display = hasPaid ? 'none' : 'flex';
-
-    // Panneau de sélection : démo pour non-payants, thème/aléatoire pour payants
-    var paidHeader = document.getElementById('qcm-topbar-paid-header');
-    var panelDemo  = document.getElementById('qcm-panel-demo');
-    var panelSel   = document.getElementById('qcm-panel-select');
-    var panelRand  = document.getElementById('qcm-panel-random');
-    if (hasPaid) {
-      if (paidHeader) paidHeader.style.display = 'flex';
-      if (panelDemo)  panelDemo.style.display  = 'none';
-      // panelSel et panelRand gérés par switchQcmMode — on laisse leur état courant
-      if (panelSel && qcmMode === 'select')  panelSel.style.display  = 'block';
-      if (panelRand && qcmMode === 'random') panelRand.style.display = 'block';
-    } else {
-      if (paidHeader) paidHeader.style.display = 'none';
-      if (panelDemo)  panelDemo.style.display  = 'block';
-      if (panelSel)   panelSel.style.display   = 'none';
-      if (panelRand)  panelRand.style.display  = 'none';
-    }
-
-    // Écrans d'accueil différents selon le statut
-    var welcomePaid = document.getElementById('qcm-launch-paid');
-    var welcomeDemo = document.getElementById('qcm-launch-demo');
-    if (welcomePaid) welcomePaid.style.display = hasPaid ? 'flex' : 'none';
-    if (welcomeDemo) welcomeDemo.style.display = hasPaid ? 'none' : 'flex';
-
-    // Compteurs démo restants
-    if (!hasPaid) {
-      var remaining = getDemoRemaining();
-      var remain1 = document.getElementById('demo-banner-count');
-      var remain2 = document.getElementById('demo-quota-left');
-      if (remain1) remain1.textContent = remaining;
-      if (remain2) remain2.textContent = remaining;
-      // Synchronise les jours restants avant concours depuis le countdown en haut
-      var daysEl = document.getElementById('cd-d');
-      var bannerDays = document.getElementById('demo-banner-days');
-      if (daysEl && bannerDays) bannerDays.textContent = daysEl.textContent;
-      // Désactive visuellement le bouton si quota épuisé
-      var btn = document.getElementById('qcm-demo-launch-btn');
-      if (btn) {
-        if (remaining === 0) {
-          btn.style.opacity = '.4';
-          btn.style.pointerEvents = 'none';
-          btn.textContent = 'Reviens demain →';
-        } else {
-          btn.style.opacity = '1';
-          btn.style.pointerEvents = 'auto';
-          btn.textContent = 'Lancer la démo →';
-        }
-      }
-    }
+    var unlockCta = document.getElementById('qcm-unlock-cta');
+    var memberCta = document.getElementById('qcm-member-cta');
+    if (unlockCta) unlockCta.style.display = hasPaid ? 'none' : 'block';
+    if (memberCta) memberCta.style.display = hasPaid ? 'block' : 'none';
   }
 }
 
@@ -4194,54 +3523,32 @@ function msPay(priceId) {
   function onCheckoutSuccess() {
     return refreshMemberAccess().then(function() { goTo('merci'); });
   }
-  // Lance le checkout Stripe pour un membre déjà connecté
-  function doCheckout() {
-    ms.purchasePlansWithCheckout({ priceId: priceId })
-      .then(function(result) { if (result && result.data) onCheckoutSuccess(); })
-      .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
-  }
-
-  // Ouvre la modal de CONNEXION (pour les comptes déjà existants)
-  function openLoginThenCheckout() {
-    ms.openModal('login').then(function(result) {
-      if (result && result.data && result.data.member) {
-        updateNavMember(result.data.member);
-        doCheckout();
-      }
-    }).catch(function(e) { console.error('msPay openModal(login) error:', e); });
-  }
-
-  // Ouvre la modal d'INSCRIPTION, avec fallback automatique vers login
-  // si l'email est déjà utilisé (cas du paiement refusé + retour arrière).
-  function openSignupThenCheckout() {
-    ms.openModal('signup').then(function(result) {
-      if (result && result.data && result.data.member) {
-        updateNavMember(result.data.member);
-        doCheckout();
-      }
-    }).catch(function(e) {
-      // Memberstack renvoie une erreur si l'email existe déjà
-      var msg = (e && (e.message || e.error || '')) + '';
-      var isDuplicateEmail = /already|exist|utilis|taken|registered/i.test(msg);
-      if (isDuplicateEmail) {
-        showToast('Un compte existe déjà avec cet email — connecte-toi pour continuer.');
-        setTimeout(openLoginThenCheckout, 300);
-      } else {
-        console.error('msPay openModal(signup) error:', e);
-      }
-    });
-  }
-
   ms.getCurrentMember().then(function(res) {
     if (res && res.data && res.data.member) {
       // Membre connecté → checkout direct
-      doCheckout();
+      ms.purchasePlansWithCheckout({ priceId: priceId })
+        .then(function(result) { if (result && result.data) onCheckoutSuccess(); })
+        .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
     } else {
-      // Non connecté → on laisse le choix entre inscription et connexion
-      openSignupThenCheckout();
+      // Non connecté → inscription puis checkout
+      ms.openModal('signup').then(function(result) {
+        if (result && result.data && result.data.member) {
+          updateNavMember(result.data.member); // encore non payant à ce stade
+          ms.purchasePlansWithCheckout({ priceId: priceId })
+            .then(function() { onCheckoutSuccess(); })
+            .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
+        }
+      }).catch(function(e) { console.error('msPay openModal error:', e); });
     }
   }).catch(function() {
-    openSignupThenCheckout();
+    ms.openModal('signup').then(function(result) {
+      if (result && result.data && result.data.member) {
+        updateNavMember(result.data.member);
+        ms.purchasePlansWithCheckout({ priceId: priceId })
+          .then(function() { onCheckoutSuccess(); })
+          .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
+      }
+    }).catch(function(e) { console.error('msPay fallback error:', e); });
   });
 }
 
@@ -4525,8 +3832,10 @@ function startExam(annaleId) {
     openLockModal();
     return;
   }
-  // Charge le fichier détaillé de l'annale
-  var path = 'annales/' + annaleId + '.json';
+  // Charge le fichier détaillé de l'annale (organisé en sous-dossiers par thème)
+  var annaleInfo = (annalesData && annalesData.annales || []).find(function(a) { return a.id === annaleId; });
+  var themeFolder = annaleInfo ? annaleInfo.theme : '';
+  var path = 'annales/' + themeFolder + '/' + annaleId + '.json';
   fetch(path).then(function(r) {
     if (!r.ok) throw new Error('Fichier introuvable : ' + path);
     return r.json();
