@@ -250,6 +250,50 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .qcm-bottom-cta-text{flex:1;min-width:240px}
 .qcm-bottom-cta-title{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:4px;font-weight:700}
 .qcm-bottom-cta-sub{font-size:.88rem;color:var(--gray);line-height:1.5}
+.qcm-bottom-cta-features{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:12px;font-size:.8rem;color:var(--gray)}
+.qcm-bottom-cta-features span{white-space:nowrap}
+
+/* Social proof */
+.qcm-social-proof{max-width:760px;margin:20px auto 0;background:var(--cream2);padding:24px 28px;display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap;border:1px solid var(--border)}
+.qcm-social-proof-author{display:flex;align-items:center;gap:12px;flex-shrink:0;min-width:200px}
+.qcm-social-proof-avatar{width:48px;height:48px;background:var(--red);color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700}
+.qcm-social-proof-name{font-weight:700;color:var(--charcoal);font-size:.95rem;line-height:1.2}
+.qcm-social-proof-role{font-size:.78rem;color:var(--gray);letter-spacing:.3px;margin-top:2px}
+.qcm-social-proof-quote{flex:1;font-size:.88rem;color:var(--gray);line-height:1.65;font-style:italic;min-width:240px;border-left:2px solid var(--red-pale2);padding-left:16px}
+
+/* Sticky bar de rappel (non-payants sur biblio/annales/concours) */
+.sticky-unlock-bar{position:fixed;bottom:0;left:0;right:0;z-index:90;background:var(--dark);color:white;border-top:3px solid var(--red);padding:14px 5%;box-shadow:0 -4px 20px rgba(0,0,0,.15);animation:slideUpSticky .4s ease}
+@keyframes slideUpSticky{from{transform:translateY(100%)}to{transform:translateY(0)}}
+.sticky-unlock-content{max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.sticky-unlock-icon{font-size:1.3rem;flex-shrink:0}
+.sticky-unlock-text{flex:1;font-size:.9rem;line-height:1.5;min-width:240px}
+.sticky-unlock-text strong{color:white;font-weight:700}
+.sticky-unlock-text #sticky-unlock-sub{color:rgba(255,255,255,.75)}
+.sticky-unlock-bar .btn-red{flex-shrink:0;padding:10px 20px;font-size:.85rem}
+.sticky-unlock-close{background:none;border:none;color:rgba(255,255,255,.5);font-size:1.1rem;cursor:pointer;padding:4px 8px;line-height:1;flex-shrink:0;transition:color .2s}
+.sticky-unlock-close:hover{color:white}
+@media(max-width:700px){
+  .sticky-unlock-bar{padding:12px 4%}
+  .sticky-unlock-content{gap:10px}
+  .sticky-unlock-text{font-size:.82rem;min-width:0;flex-basis:100%;order:-1}
+  .sticky-unlock-icon{display:none}
+}
+
+/* Panneau de lancement démo (non-payants) */
+.qcm-demo-launch{display:flex;align-items:center;gap:24px;flex-wrap:wrap;padding:8px 0}
+.qcm-demo-launch-info{flex:1;min-width:260px}
+.qcm-demo-launch-title{font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);font-weight:700;margin-bottom:4px;line-height:1.3}
+.qcm-demo-launch-sub{font-size:.88rem;color:var(--gray);line-height:1.55}
+.qcm-demo-launch-score{display:flex;flex-direction:column;align-items:flex-end;gap:2px;padding:0 8px;border-right:1px solid var(--border);padding-right:20px}
+.qcm-demo-launch-score span{font-size:.7rem;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
+.qcm-demo-launch-score strong{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--red);font-weight:900;line-height:1}
+.qcm-demo-launch-btn{padding:14px 26px;font-size:.92rem;white-space:nowrap}
+@media(max-width:900px){
+  .qcm-demo-launch{flex-direction:column;align-items:stretch;text-align:center}
+  .qcm-demo-launch-info{min-width:0}
+  .qcm-demo-launch-score{align-items:center;border-right:none;border-top:1px solid var(--border);padding:12px 0 0;width:100%}
+  .qcm-demo-launch-btn{width:100%;justify-content:center}
+}
 
 /* Responsive : retour à une disposition plus compacte sur mobile */
 @media (max-width:900px){
@@ -1259,15 +1303,15 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 
     <!-- BANDEAU DÉMO (non-payants uniquement) -->
     <div class="qcm-demo-banner" id="qcm-demo-banner" style="display:none">
-      <span>🎁 <strong>Session démo gratuite</strong> — 10 QCM aléatoires par jour, piochés parmi les 590+ du concours.</span>
+      <span>🎁 <strong>Session démo gratuite</strong> — 10 QCM/jour · <span id="demo-banner-days">—</span> jours avant le concours · chaque jour compte.</span>
       <span class="qcm-demo-banner-count"><span id="demo-banner-count">10</span> restants aujourd'hui</span>
     </div>
 
     <!-- BARRE HORIZONTALE DE SÉLECTION -->
     <div class="qcm-topbar">
 
-      <!-- Ligne 1 : onglets + score -->
-      <div class="qcm-topbar-row">
+      <!-- Ligne 1 : onglets + score (PAYANTS UNIQUEMENT) -->
+      <div class="qcm-topbar-row" id="qcm-topbar-paid-header">
         <div class="qcm-mode-tabs">
           <button class="qcm-mode-tab active" id="tab-select" onclick="switchQcmMode('select')">🎯 Par thème</button>
           <button class="qcm-mode-tab" id="tab-random" onclick="switchQcmMode('random')">🔀 Aléatoire</button>
@@ -1278,7 +1322,24 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         </div>
       </div>
 
-      <!-- MODE: PAR THÈME -->
+      <!-- PANNEAU DÉMO (non-payants uniquement) -->
+      <div id="qcm-panel-demo" style="display:none">
+        <div class="qcm-demo-launch">
+          <div class="qcm-demo-launch-info">
+            <div class="qcm-demo-launch-title">🎯 Lance ta session démo du jour</div>
+            <div class="qcm-demo-launch-sub">10 questions tirées au hasard parmi les 590+ du concours, avec corrections détaillées et sources.</div>
+          </div>
+          <div class="qcm-demo-launch-score">
+            <span>Ton score</span>
+            <strong id="score-display-demo">0 / 0</strong>
+          </div>
+          <button class="btn btn-red qcm-demo-launch-btn" id="qcm-demo-launch-btn" onclick="launchDemoQcm()">
+            Lancer la démo →
+          </button>
+        </div>
+      </div>
+
+      <!-- MODE: PAR THÈME (PAYANTS) -->
       <div id="qcm-panel-select">
         <!-- Ligne 2 : chips de thèmes -->
         <div class="qcm-topbar-row">
@@ -1373,8 +1434,8 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
     <!-- MAIN QCM -->
     <div class="qcm-main">
       <div id="qcm-launch-screen">
-        <!-- Écran d'accueil avant lancement -->
-        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
+        <!-- Écran d'accueil PAYANTS -->
+        <div id="qcm-launch-paid" style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
           <div style="font-size:3rem;margin-bottom:20px">🎯</div>
           <div class="s-eyebrow" style="text-align:center">Prêt à t'entraîner ?</div>
           <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:12px;line-height:1.2">Choisis tes thèmes<br>ou lance un entraînement aléatoire</div>
@@ -1390,6 +1451,15 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
             </div>
           </div>
         </div>
+
+        <!-- Écran d'accueil NON-PAYANTS -->
+        <div id="qcm-launch-demo" style="display:none;flex-direction:column;align-items:center;justify-content:center;min-height:60vh;text-align:center;padding:40px 20px">
+          <div style="font-size:3rem;margin-bottom:20px">🎁</div>
+          <div class="s-eyebrow" style="text-align:center">Mode découverte</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:12px;line-height:1.2">Teste la qualité<br>de nos QCM gratuitement</div>
+          <div style="font-size:.9rem;color:var(--gray);max-width:520px;line-height:1.7">Clique sur <strong style="color:var(--charcoal)">Lancer la démo</strong> au-dessus pour découvrir 10 questions aléatoires, avec corrections détaillées et sources réglementaires.</div>
+        </div>
+      </div>
       </div>
       <div id="qcm-session" style="display:none">
         <div class="qcm-header">
@@ -1412,8 +1482,28 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
       <div class="qcm-bottom-cta-text">
         <div class="qcm-bottom-cta-title">🔒 Tu es en mode démo</div>
         <div class="qcm-bottom-cta-sub">Tu accèdes à <strong>10 questions aléatoires par jour</strong> piochées parmi les 590+ du concours. Débloque l'accès complet pour t'entraîner sans limite, thème par thème, sur la totalité de la banque.</div>
+        <div class="qcm-bottom-cta-features">
+          <span>✓ 590+ QCM sourcés</span>
+          <span>✓ Textes officiels à jour</span>
+          <span>✓ Corrections détaillées</span>
+          <span>✓ Paiement unique — pas d'abonnement</span>
+        </div>
       </div>
       <button class="btn btn-red" onclick="msPay('prc_acc-s-plateforme-de-pr-paration-candidat-54v0222')">Débloquer — 59€ →</button>
+    </div>
+
+    <!-- BLOC SOCIAL PROOF (non-payants) -->
+    <div class="qcm-social-proof" id="qcm-social-proof" style="display:none">
+      <div class="qcm-social-proof-author">
+        <div class="qcm-social-proof-avatar">Q</div>
+        <div>
+          <div class="qcm-social-proof-name">Conçu par Quentin</div>
+          <div class="qcm-social-proof-role">Sapeur-pompier professionnel en poste</div>
+        </div>
+      </div>
+      <div class="qcm-social-proof-quote">
+        « J'ai préparé ce concours pendant 2 ans en partant de zéro. Cette banque de QCM rassemble tout ce que j'aurais aimé avoir pendant ma prépa : des questions sourcées dans les vrais textes, des corrections qui expliquent le pourquoi, et une couverture complète du programme. »
+      </div>
     </div>
 
   </div>
@@ -2073,6 +2163,19 @@ if(window.location.search.indexOf('success') !== -1) {
   </div>
 </footer>
 
+<!-- STICKY BAR (non-payants) — affichée sur biblio/annales/concours, pas sur QCM ni home/formation/coaching -->
+<div class="sticky-unlock-bar" id="sticky-unlock-bar" style="display:none">
+  <div class="sticky-unlock-content">
+    <span class="sticky-unlock-icon">🔒</span>
+    <span class="sticky-unlock-text">
+      <strong>Contenu réservé aux membres</strong> —
+      <span id="sticky-unlock-sub">débloque l'accès complet pour t'entraîner sans limite.</span>
+    </span>
+    <button class="btn btn-red" onclick="msPay('prc_acc-s-plateforme-de-pr-paration-candidat-54v0222')">Débloquer — 59€ →</button>
+    <button class="sticky-unlock-close" onclick="dismissStickyBar()" aria-label="Fermer">✕</button>
+  </div>
+</div>
+
 <!-- ===== JAVASCRIPT ===== -->
 <script>
 // ============================================================
@@ -2201,6 +2304,47 @@ function goTo(id) {
   if (id === 'qcm') { initQcm(); checkAccessGate('qcm'); }
   if (id === 'biblio' || id === 'actu') checkAccessGate(id);
   if (id === 'concours') { checkAccessGate('concours'); renderAnnalesThemes(); }
+
+  // Sticky bar pour non-payants : affichée sur biblio/concours/actu
+  updateStickyBar(id);
+}
+
+// Affiche/cache la sticky bar de rappel selon la page et le statut membre
+function updateStickyBar(pageId) {
+  var bar = document.getElementById('sticky-unlock-bar');
+  if (!bar) return;
+  // Page-cible : seulement sur pages de contenu verrouillé pour non-payants
+  var targetPages = ['biblio','concours','actu'];
+  var onTargetPage = targetPages.indexOf(pageId) !== -1;
+  // Dismissé par l'utilisateur ? (localStorage, valable 1 journée)
+  var dismissed = false;
+  try {
+    var raw = localStorage.getItem('sticky_bar_dismissed_v1');
+    if (raw) {
+      var data = JSON.parse(raw);
+      if (data.date === getTodayKey()) dismissed = true;
+    }
+  } catch(e) {}
+  // Affichage : page cible + non-payant + non-dismissé
+  var shouldShow = onTargetPage && !isPaidMember && !dismissed;
+  bar.style.display = shouldShow ? 'block' : 'none';
+  // Sous-message adapté à la page
+  if (shouldShow) {
+    var subEl = document.getElementById('sticky-unlock-sub');
+    if (subEl) {
+      if (pageId === 'biblio') subEl.textContent = 'accède à toute la bibliothèque documentaire.';
+      else if (pageId === 'concours') subEl.textContent = 'accède aux annales corrigées du concours.';
+      else if (pageId === 'actu') subEl.textContent = 'accède aux actualités détaillées du concours.';
+    }
+  }
+}
+
+function dismissStickyBar() {
+  var bar = document.getElementById('sticky-unlock-bar');
+  if (bar) bar.style.display = 'none';
+  try {
+    localStorage.setItem('sticky_bar_dismissed_v1', JSON.stringify({ date: getTodayKey() }));
+  } catch(e) {}
 }
 
 // Mobile nav
@@ -2415,18 +2559,43 @@ function loadDemoPool(nombre) {
 function showDemoQuotaExhaustedScreen() {
   var area = document.getElementById('qcm-area');
   if (!area) return;
+
+  // Construit la grille des thèmes verrouillés (teasing)
+  var teaserCats = [
+    {cat:'statut', count:105}, {cat:'sis', count:50},
+    {cat:'gto-vicie', count:100}, {cat:'gto-sauvegarde', count:73},
+    {cat:'gto-extinctions', count:73}, {cat:'gdo-incendie', count:60},
+    {cat:'gdo-routier', count:62}, {cat:'gto-sauvetage', count:49},
+    {cat:'textes', count:29}, {cat:'divers', count:18}
+  ];
+  var teaserGrid = teaserCats.map(function(t) {
+    var label = (typeof CAT_LABELS_SHORT !== 'undefined' && CAT_LABELS_SHORT[t.cat]) || t.cat;
+    return '<div style="background:var(--cream2);border:1px solid var(--border);padding:12px 14px;font-size:.82rem;line-height:1.4;position:relative">' +
+      '<div style="font-weight:700;color:var(--charcoal);margin-bottom:2px">' + label + '</div>' +
+      '<div style="font-size:.8rem;color:var(--gray)"><strong style="color:var(--red)">' + t.count + '</strong> questions</div>' +
+      '<div style="position:absolute;top:10px;right:12px;font-size:.95rem;opacity:.35">🔒</div>' +
+    '</div>';
+  }).join('');
+
   area.innerHTML =
-    '<div class="question-card" style="text-align:center;padding:48px 32px;max-width:600px;margin:0 auto">' +
-      '<div style="font-size:2.2rem;margin-bottom:16px">🔒</div>' +
-      '<div style="font-family:\'Playfair Display\',serif;font-size:1.5rem;color:var(--charcoal);margin-bottom:12px;line-height:1.3">Tu as terminé ta session<br>démo du jour</div>' +
-      '<div style="width:40px;height:2px;background:var(--red);margin:18px auto"></div>' +
-      '<div style="font-size:.95rem;color:var(--gray);line-height:1.7;margin-bottom:28px">' +
-        'Tu viens de tester <strong>' + DEMO_DAILY_QUOTA + ' questions aléatoires</strong> parmi notre banque de <strong>590+ QCM</strong>. ' +
+    '<div style="max-width:760px;margin:0 auto;background:white;border:1px solid var(--border);padding:40px 32px;text-align:center">' +
+      '<div style="font-size:2.2rem;margin-bottom:14px">🔒</div>' +
+      '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:10px;line-height:1.2">Tu as terminé ta session<br>démo du jour</div>' +
+      '<div style="width:40px;height:2px;background:var(--red);margin:16px auto"></div>' +
+      '<div style="font-size:.95rem;color:var(--gray);line-height:1.7;margin-bottom:28px;max-width:520px;margin-left:auto;margin-right:auto">' +
+        'Tu viens de tester <strong>' + DEMO_DAILY_QUOTA + ' questions aléatoires</strong>. ' +
         'Reviens demain pour ' + DEMO_DAILY_QUOTA + ' nouvelles questions gratuites, ' +
-        'ou <strong>débloque l\'accès complet dès maintenant</strong> pour t\'entraîner sans limite.' +
+        'ou <strong>débloque dès maintenant</strong> tous les thèmes du concours.' +
       '</div>' +
-      '<button class="btn btn-red" style="width:100%;justify-content:center;margin-bottom:12px" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès complet — 59€ →</button>' +
-      '<button class="btn btn-outline-red" style="width:100%;justify-content:center" onclick="stopSession()">← Retour</button>' +
+
+      // Teasing : ce qu'il rate
+      '<div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin-bottom:14px;text-align:left">Ce qui t\'attend dans la version complète</div>' +
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:10px;margin-bottom:28px">' + teaserGrid + '</div>' +
+
+      // CTA
+      '<button class="btn btn-red" style="width:100%;max-width:420px;justify-content:center;margin-bottom:12px" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès complet — 59€ →</button>' +
+      '<br>' +
+      '<button class="btn btn-outline-red" style="margin-top:4px" onclick="stopSession()">← Retour</button>' +
     '</div>';
 }
 
@@ -2474,6 +2643,7 @@ var qcmMode = 'select';  // 'select' | 'random'
 var randomNb = 5;
 
 var activeSession = [];  // questions de la session en cours
+var sessionAnswers = []; // réponses de l'utilisateur : [[0,2], [1], ...] (indices cochés par question)
 var qIdx = 0, score = 0, answered = 0;
 
 // ---------- MODE SWITCH ----------
@@ -2642,33 +2812,39 @@ function loadCats(cats) {
 }
 
 // ---------- LANCEMENT SESSION ----------
+
+// Lancement démo (non-payants) : 10 questions aléatoires parmi tous les thèmes,
+// quota de 10 par jour (reset à minuit local).
+function launchDemoQcm() {
+  if (!hasDemoQuotaLeft()) {
+    showLoadingScreen();
+    showDemoQuotaExhaustedScreen();
+    return;
+  }
+  showLoadingScreen();
+  loadDemoPool(DEMO_DAILY_QUOTA).then(function(pool) {
+    if (pool.length === 0) {
+      showToast('⚠️ Aucune question disponible pour la démo.');
+      return;
+    }
+    consumeDemoQuota(pool.length);
+    startSession(pool, '🎁 Session démo — ' + pool.length + ' questions aléatoires');
+    // On rafraîchit les compteurs affichés (bandeau haut)
+    if (typeof checkAccessGate === 'function') checkAccessGate('qcm');
+  }).catch(function(err) {
+    console.error('Erreur chargement démo :', err);
+    showToast('⚠️ Erreur de chargement. Réessaie dans un instant.');
+  });
+}
+
 function launchQcm() {
   var cats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
   var selected = cats.filter(function(c){ return selectedCats[c]; });
   if (selected.length === 0) return;
 
-  // Non payant : 10 questions aléatoires parmi TOUS les thèmes,
-  // quota de 10 par jour (reset à minuit). Les thèmes cochés sont ignorés.
-  if (!isPaidMember) {
-    if (!hasDemoQuotaLeft()) {
-      showLoadingScreen(); // force l'affichage de la zone QCM
-      showDemoQuotaExhaustedScreen();
-      return;
-    }
-    showLoadingScreen();
-    loadDemoPool(DEMO_DAILY_QUOTA).then(function(pool) {
-      if (pool.length === 0) {
-        showToast('⚠️ Aucune question disponible pour la démo.');
-        return;
-      }
-      consumeDemoQuota(pool.length);
-      startSession(pool, '🎁 Session démo — ' + pool.length + ' questions aléatoires');
-    }).catch(function(err) {
-      console.error('Erreur chargement démo :', err);
-      showToast('⚠️ Erreur de chargement. Réessaie dans un instant.');
-    });
-    return;
-  }
+  // Sécurité : si un non-payant arrive ici (bouton caché mais par prudence)
+  // on bascule sur la démo
+  if (!isPaidMember) { launchDemoQcm(); return; }
 
   // Membre : chargement des vraies questions
   showLoadingScreen();
@@ -2686,27 +2862,8 @@ function launchQcm() {
 }
 
 function launchRandomQcm() {
-  // Non payant : même logique que launchQcm — 10 aléatoires, 10/jour max
-  if (!isPaidMember) {
-    if (!hasDemoQuotaLeft()) {
-      showLoadingScreen();
-      showDemoQuotaExhaustedScreen();
-      return;
-    }
-    showLoadingScreen();
-    loadDemoPool(DEMO_DAILY_QUOTA).then(function(pool) {
-      if (pool.length === 0) {
-        showToast('⚠️ Aucune question disponible pour la démo.');
-        return;
-      }
-      consumeDemoQuota(pool.length);
-      startSession(pool, '🎁 Session démo — ' + pool.length + ' questions aléatoires');
-    }).catch(function(err) {
-      console.error('Erreur chargement démo :', err);
-      showToast('⚠️ Erreur de chargement. Réessaie dans un instant.');
-    });
-    return;
-  }
+  // Sécurité : non-payant → démo
+  if (!isPaidMember) { launchDemoQcm(); return; }
 
   // Membre : charge TOUS les thèmes puis pioche
   var allCats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
@@ -2753,6 +2910,7 @@ function shuffle(arr) {
 
 function startSession(pool, title) {
   activeSession = pool;
+  sessionAnswers = [];  // tracking des réponses pour l'analyse de fin de démo
   qIdx = 0; score = 0; answered = 0;
   document.getElementById('qcm-launch-screen').style.display = 'none';
   document.getElementById('qcm-session').style.display = '';
@@ -2760,6 +2918,173 @@ function startSession(pool, title) {
   document.getElementById('q-total').textContent = pool.length;
   renderQ();
   updateScore();
+}
+
+// Totaux de questions par catégorie (pour le pitch "X autres questions t'attendent")
+// À maintenir à jour avec les vraies valeurs des JSON
+var CAT_TOTALS = {
+  'statut': 105, 'sis': 50, 'divers': 18, 'textes': 29,
+  'gto-ventilation': 12, 'gto-sauvetage': 49, 'gto-sauvegarde': 73,
+  'gto-forets': 12, 'gto-extinctions': 73, 'gto-vicie': 100,
+  'gdo-ssuap': 14, 'gdo-fumees': 11, 'gdo-elec': 12, 'gdo-silos': 12,
+  'gdo-gaz': 12, 'gdo-agricole': 14, 'gdo-incendie': 60, 'gdo-ulm': 8,
+  'gdo-routier': 62, 'gdo-foret': 10, 'pse': 0
+};
+
+// Labels courts (pour l'affichage compact dans l'écran de fin)
+var CAT_LABELS_SHORT = {
+  'statut': 'Statut SPP', 'sis': 'Org. SIS', 'divers': 'Divers', 'textes': 'Textes structurants',
+  'gto-ventilation': 'GTO Ventilation', 'gto-sauvetage': 'GTO Sauvetage',
+  'gto-sauvegarde': 'GTO Sauvegarde', 'gto-forets': 'GTO Feux Forêts',
+  'gto-extinctions': 'GTO Extinctions', 'gto-vicie': 'GTO Milieu Vicié',
+  'gdo-ssuap': 'GDO SSUAP', 'gdo-fumees': 'GDO Fumées', 'gdo-elec': 'GDO Électricité',
+  'gdo-silos': 'GDO Silos', 'gdo-gaz': 'GDO Gaz', 'gdo-agricole': 'GDO Agricole',
+  'gdo-incendie': 'GDO Incendie', 'gdo-ulm': 'GDO ULM', 'gdo-routier': 'GDO Routier',
+  'gdo-foret': 'GDO Forêts', 'pse': 'PSE1/PSE2'
+};
+
+// Analyse la session par catégorie — renvoie { cat: {total, correct, pct} }
+function analyzeSessionByCategory(session, userAnswers) {
+  var stats = {};
+  session.forEach(function(q, i) {
+    var cat = q.cat || 'divers';
+    if (!stats[cat]) stats[cat] = { total: 0, correct: 0 };
+    stats[cat].total++;
+    // userAnswers[i] est l'array des indices cochés par l'utilisateur
+    var userAns = (userAnswers && userAnswers[i]) || [];
+    var correctAns = q.correct || [];
+    var isCorrect = userAns.length === correctAns.length &&
+      userAns.every(function(a) { return correctAns.indexOf(a) !== -1; });
+    if (isCorrect) stats[cat].correct++;
+  });
+  // Calcule le pct
+  Object.keys(stats).forEach(function(c) {
+    stats[c].pct = stats[c].total > 0 ? Math.round(stats[c].correct / stats[c].total * 100) : 0;
+  });
+  return stats;
+}
+
+// Construit le HTML du pitch personnalisé pour non-payants en fin de démo.
+// Identifie la catégorie la plus faible + celles où il reste le plus à explorer.
+function buildDemoResultPitch(session, userAnswers, score, pct) {
+  var stats = analyzeSessionByCategory(session, userAnswers);
+  var catKeys = Object.keys(stats);
+
+  // Identification du point faible (plus petit pct, puis plus grand total restant)
+  var weakest = null;
+  catKeys.forEach(function(c) {
+    var s = stats[c];
+    if (!weakest) { weakest = { cat: c, s: s }; return; }
+    if (s.pct < weakest.s.pct) weakest = { cat: c, s: s };
+    else if (s.pct === weakest.s.pct) {
+      var remainingNew = (CAT_TOTALS[c] || 0) - s.total;
+      var remainingOld = (CAT_TOTALS[weakest.cat] || 0) - weakest.s.total;
+      if (remainingNew > remainingOld) weakest = { cat: c, s: s };
+    }
+  });
+
+  // Liste des catégories vues (triées par plus gros potentiel restant)
+  var categoriesSeen = catKeys.map(function(c) {
+    var total = CAT_TOTALS[c] || 0;
+    return {
+      cat: c,
+      label: CAT_LABELS_SHORT[c] || c,
+      vuesTotal: stats[c].total,
+      vuesCorrect: stats[c].correct,
+      vuesPct: stats[c].pct,
+      remaining: Math.max(0, total - stats[c].total)
+    };
+  }).sort(function(a, b) { return b.remaining - a.remaining; });
+
+  // Total de questions restantes sur toute la banque (pour le pitch global)
+  var grandTotal = 0;
+  Object.keys(CAT_TOTALS).forEach(function(c) { grandTotal += CAT_TOTALS[c]; });
+  var remainingTotal = grandTotal - session.length;
+
+  // Message principal calibré sur le score
+  var headline, subline;
+  if (pct >= 80) {
+    headline = 'Excellent niveau ! 🏅';
+    subline = 'Tu maîtrises déjà bien les bases — prêt à passer à l\'entraînement quotidien ?';
+  } else if (pct >= 60) {
+    headline = 'Bon début ! 👍';
+    subline = 'Tu as les fondations. Il te manque la régularité et la profondeur pour décrocher le concours.';
+  } else if (pct >= 40) {
+    headline = 'Le potentiel est là 📚';
+    subline = 'Tes erreurs sont normales — elles montrent exactement ce qu\'il te reste à travailler.';
+  } else {
+    headline = 'Beaucoup à apprendre — c\'est normal 💪';
+    subline = 'Ces 10 questions t\'ont montré le niveau du concours. La bonne nouvelle ? Tout est travaillable.';
+  }
+
+  // Bloc point faible (si pertinent)
+  var weakestBlock = '';
+  if (weakest && weakest.s.pct < 100 && (CAT_TOTALS[weakest.cat] || 0) > weakest.s.total) {
+    var weakLabel = CAT_LABELS_SHORT[weakest.cat] || weakest.cat;
+    var weakRemaining = (CAT_TOTALS[weakest.cat] || 0) - weakest.s.total;
+    weakestBlock =
+      '<div style="background:var(--red-pale);border-left:3px solid var(--red);padding:16px 20px;margin:24px 0;text-align:left">' +
+        '<div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px">⚠️ Ton point faible identifié</div>' +
+        '<div style="font-size:.95rem;color:var(--charcoal);line-height:1.5">' +
+          '<strong>' + weakLabel + '</strong> — ' + weakest.s.correct + '/' + weakest.s.total + ' bonnes réponses. ' +
+          '<strong style="color:var(--red)">' + weakRemaining + ' autres questions</strong> de ce thème t\'attendent dans la version complète.' +
+        '</div>' +
+      '</div>';
+  }
+
+  // Grille des catégories vues
+  var gridItems = categoriesSeen.map(function(c) {
+    var scoreColor = c.vuesPct >= 75 ? '#2d7a3a' : c.vuesPct >= 50 ? '#B8860B' : 'var(--red)';
+    var remainingText = c.remaining > 0
+      ? '<span style="color:var(--red);font-weight:600">+' + c.remaining + ' à découvrir 🔒</span>'
+      : '<span style="color:var(--gray-light)">complet</span>';
+    return '<div style="background:white;border:1px solid var(--border);padding:12px 14px;text-align:left;font-size:.82rem;line-height:1.45">' +
+      '<div style="font-weight:700;color:var(--charcoal);margin-bottom:3px">' + c.label + '</div>' +
+      '<div style="color:var(--gray);margin-bottom:2px">' + c.vuesCorrect + '/' + c.vuesTotal + ' · <span style="color:' + scoreColor + ';font-weight:600">' + c.vuesPct + '%</span></div>' +
+      '<div style="font-size:.75rem">' + remainingText + '</div>' +
+    '</div>';
+  }).join('');
+
+  var ctaLogin = currentMember
+    ? ''
+    : '<div style="font-size:.82rem;color:var(--gray);margin-top:14px">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>';
+
+  return [
+    '<div style="background:white;border:1px solid var(--border);padding:40px 32px;text-align:center;max-width:760px;margin:0 auto">',
+
+      // En-tête : score + headline
+      '<div style="font-size:2.6rem;margin-bottom:10px">' + (pct >= 80 ? '🏅' : pct >= 60 ? '👍' : pct >= 40 ? '📚' : '💪') + '</div>',
+      '<div style="font-family:\'Playfair Display\',serif;font-size:1.7rem;color:var(--charcoal);margin-bottom:6px;line-height:1.2">' + headline + '</div>',
+      '<div style="font-size:.95rem;color:var(--gray);line-height:1.6;margin-bottom:18px;max-width:520px;margin-left:auto;margin-right:auto">' + subline + '</div>',
+
+      // Score global
+      '<div style="font-size:1.05rem;color:var(--charcoal);margin-bottom:4px">Score : <strong>' + score + ' / ' + session.length + '</strong> · <strong style="color:var(--red)">' + pct + '%</strong></div>',
+      '<div style="width:100%;max-width:420px;margin:12px auto 0;background:var(--border-light);height:6px"><div style="height:6px;background:var(--red);width:' + pct + '%"></div></div>',
+
+      // Point faible identifié
+      weakestBlock,
+
+      // Grille détail par catégorie
+      '<div style="font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray);margin:28px 0 12px">Détail par thème</div>',
+      '<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px;margin-bottom:28px">' + gridItems + '</div>',
+
+      // Pitch final
+      '<div style="background:var(--cream);padding:20px 24px;margin-bottom:22px;border:1px dashed var(--red-pale2)">',
+        '<div style="font-family:\'Playfair Display\',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:6px">',
+          '<strong style="color:var(--red)">' + remainingTotal + '+ questions</strong> t\'attendent dans la version complète',
+        '</div>',
+        '<div style="font-size:.85rem;color:var(--gray);line-height:1.55">Paiement unique — pas d\'abonnement — accès illimité jusqu\'au concours.</div>',
+      '</div>',
+
+      // CTA
+      '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">',
+        '<button class="btn btn-outline-red" onclick="stopSession()">← Retour</button>',
+        '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Débloquer l\'accès complet — 59€ →</button>',
+      '</div>',
+      ctaLogin,
+
+    '</div>'
+  ].join('');
 }
 
 function stopSession() {
@@ -2781,26 +3106,7 @@ function renderQ() {
     var pct = activeSession.length > 0 ? Math.round(score / activeSession.length * 100) : 0;
     var emoji = pct >= 80 ? '🏅' : pct >= 60 ? '👍' : '📚';
     if (!isPaidMember) {
-      // Adapte le CTA selon que l'utilisateur a déjà un compte ou non
-      var ctaLogin = currentMember
-        ? '' // déjà connecté → ne pas proposer la connexion
-        : '<div style="font-size:.82rem;color:var(--gray)">Déjà un compte ? <button onclick="goTo(\'connexion\')" style="background:none;border:none;color:var(--red);font-family:\'DM Sans\',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;text-decoration:underline">Se connecter →</button></div>';
-      area.innerHTML = [
-        '<div style="background:white;border:1px solid var(--border);padding:48px 36px;text-align:center">',
-          '<div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div>',
-          '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Session terminée</div>',
-          '<div style="font-size:1rem;color:var(--gray);margin-bottom:4px">Score : <strong style="color:var(--charcoal)">' + score + ' / ' + activeSession.length + '</strong> — <strong style="color:var(--red)">' + pct + '%</strong></div>',
-          '<div style="width:100%;background:var(--border-light);height:6px;margin:16px 0 28px"><div style="height:6px;background:var(--red);width:' + pct + '%"></div></div>',
-          '<div style="font-size:.9rem;color:var(--gray);line-height:1.75;margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">',
-            'Tu viens de compléter une session de démonstration.<br>Accède aux <strong style="color:var(--charcoal)">700+ QCM complets</strong> pour progresser jusqu\'au jour J.',
-          '</div>',
-          '<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:20px">',
-            '<button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button>',
-            '<button class="btn btn-red" onclick="msPay(\'prc_acc-s-plateforme-de-pr-paration-candidat-54v0222\')">Accès complet — 59€ →</button>',
-          '</div>',
-          ctaLogin,
-        '</div>'
-      ].join('');
+      area.innerHTML = buildDemoResultPitch(activeSession, sessionAnswers, score, pct);
     } else {
       // Enregistre la session dans les statistiques
       var sessCats = [];
@@ -2809,7 +3115,34 @@ function renderQ() {
       });
       var sessTitle = document.getElementById('qcm-cat-title');
       espTrackSession(sessTitle ? sessTitle.textContent : 'Session QCM', sessCats, score, activeSession.length);
-      area.innerHTML = '<div class="question-card" style="text-align:center"><div style="font-size:2.8rem;margin-bottom:16px">' + emoji + '</div><div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Score : ' + score + ' / ' + activeSession.length + ' (' + pct + '%)</div><div style="width:100%;background:var(--border-light);height:5px;margin:12px 0 20px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div><div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap"><button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button><button class="btn btn-outline-red" onclick="goTo(\'espace\')">📊 Voir mes stats</button><button class="btn btn-red" onclick="launchQcm()">Relancer →</button></div></div>';
+      // Message adapté au score
+      var paidHeadline, paidSubline;
+      if (pct >= 80) {
+        paidHeadline = 'Excellent travail !';
+        paidSubline = 'Tu maîtrises ces thèmes. Passe aux QCM que tu n\'as pas encore vus pour élargir.';
+      } else if (pct >= 60) {
+        paidHeadline = 'Solide !';
+        paidSubline = 'Bonne base. Identifie tes erreurs pour cibler la session suivante.';
+      } else if (pct >= 40) {
+        paidHeadline = 'En progression';
+        paidSubline = 'Retravaille les questions ratées — c\'est là que la marge de manœuvre est la plus grande.';
+      } else {
+        paidHeadline = 'À remettre sur le métier';
+        paidSubline = 'Ne te décourage pas — relance une session, la répétition fait la différence.';
+      }
+      area.innerHTML =
+        '<div class="question-card" style="text-align:center;max-width:640px;margin:0 auto">' +
+          '<div style="font-size:2.8rem;margin-bottom:12px">' + emoji + '</div>' +
+          '<div style="font-family:\'Playfair Display\',serif;font-size:1.5rem;color:var(--charcoal);margin-bottom:6px;line-height:1.2">' + paidHeadline + '</div>' +
+          '<div style="font-size:.9rem;color:var(--gray);line-height:1.55;margin-bottom:18px;max-width:440px;margin-left:auto;margin-right:auto">' + paidSubline + '</div>' +
+          '<div style="font-size:1rem;color:var(--charcoal);margin-bottom:4px">Score : <strong>' + score + ' / ' + activeSession.length + '</strong> · <strong style="color:var(--red)">' + pct + '%</strong></div>' +
+          '<div style="width:100%;max-width:420px;margin:12px auto 24px;background:var(--border-light);height:5px"><div style="height:5px;background:var(--red);width:' + pct + '%"></div></div>' +
+          '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">' +
+            '<button class="btn btn-outline-red" onclick="stopSession()">Changer les thèmes</button>' +
+            '<button class="btn btn-outline-red" onclick="goTo(\'espace\')">📊 Voir mes stats</button>' +
+            '<button class="btn btn-red" onclick="launchQcm()">Relancer →</button>' +
+          '</div>' +
+        '</div>';
     }
     document.getElementById('qcm-prog').style.width = '100%';
     return;
@@ -2912,6 +3245,9 @@ function submitMultiAnswer() {
   answered++;
   if (isCorrect) score++;
 
+  // Mémorise la réponse pour l'analyse de fin de démo
+  sessionAnswers[qIdx] = currentMultiSelection.slice();
+
   // Affichage du résultat
   var choices = document.querySelectorAll('.q-choice');
   choices.forEach(function(c, i) {
@@ -2943,6 +3279,8 @@ function submitMultiAnswer() {
 function answerSingle(idx) {
   var q = activeSession[qIdx];
   answered++;
+  // Mémorise la réponse pour l'analyse de fin de démo
+  sessionAnswers[qIdx] = [idx];
   var choices = document.querySelectorAll('.q-choice');
   choices.forEach(function(c) { c.disabled = true; c.onclick = null; });
   var isCorrect = q.correct.indexOf(idx) !== -1;
@@ -2982,8 +3320,11 @@ function showExplAndNext(q, isCorrect) {
 }
 
 function updateScore() {
+  var txt = score + ' / ' + answered;
   var el = document.getElementById('score-display');
-  if (el) el.textContent = score + ' / ' + answered;
+  if (el) el.textContent = txt;
+  var elDemo = document.getElementById('score-display-demo');
+  if (elDemo) elDemo.textContent = txt;
 }
 
 // Stubs conservés pour compatibilité (ne font plus rien)
@@ -3746,6 +4087,11 @@ function updateNavMember(member) {
       nameEl.style.display = 'inline';
     }
     checkAccessGate('qcm');
+    // Mise à jour sticky bar selon le statut du membre et la page en cours
+    try {
+      var activePage = document.querySelector('.page.active');
+      if (activePage) updateStickyBar(activePage.id.replace('page-',''));
+    } catch(e){}
     // Migration localStorage → Supabase en arrière-plan (payants uniquement)
     if (isPaidMember) {
       setTimeout(function(){ try { espMigrateLocalToSupabase(); } catch(e){} }, 1200);
@@ -3761,6 +4107,11 @@ function updateNavMember(member) {
     if (spaceBtn) spaceBtn.style.display = 'none';
     if (espaceItem) espaceItem.style.display = 'none';
     if (mobileEspace) mobileEspace.style.display = 'none';
+    // Déconnexion → mettre à jour la sticky bar aussi
+    try {
+      var activePage2 = document.querySelector('.page.active');
+      if (activePage2) updateStickyBar(activePage2.id.replace('page-',''));
+    } catch(e){}
   }
 }
 
@@ -3770,19 +4121,62 @@ function checkAccessGate(page) {
   // "CTA membre"    = affiché uniquement pour les payants
   var hasPaid = isPaidMember;
   if (page === 'qcm') {
-    // Affichage conditionnel des éléments non-payant : bandeau haut + CTA bas
+    // Bandeau haut + CTA bas + social proof : réservés aux non-payants
     var demoBanner = document.getElementById('qcm-demo-banner');
     var bottomCta  = document.getElementById('qcm-bottom-cta');
-    if (demoBanner) demoBanner.style.display = hasPaid ? 'none' : 'flex';
-    if (bottomCta)  bottomCta.style.display  = hasPaid ? 'none' : 'flex';
+    var socialProof= document.getElementById('qcm-social-proof');
+    if (demoBanner)  demoBanner.style.display  = hasPaid ? 'none' : 'flex';
+    if (bottomCta)   bottomCta.style.display   = hasPaid ? 'none' : 'flex';
+    if (socialProof) socialProof.style.display = hasPaid ? 'none' : 'flex';
 
-    // Mise à jour des compteurs démo restants (si non-payant)
+    // Panneau de sélection : démo pour non-payants, thème/aléatoire pour payants
+    var paidHeader = document.getElementById('qcm-topbar-paid-header');
+    var panelDemo  = document.getElementById('qcm-panel-demo');
+    var panelSel   = document.getElementById('qcm-panel-select');
+    var panelRand  = document.getElementById('qcm-panel-random');
+    if (hasPaid) {
+      if (paidHeader) paidHeader.style.display = 'flex';
+      if (panelDemo)  panelDemo.style.display  = 'none';
+      // panelSel et panelRand gérés par switchQcmMode — on laisse leur état courant
+      if (panelSel && qcmMode === 'select')  panelSel.style.display  = 'block';
+      if (panelRand && qcmMode === 'random') panelRand.style.display = 'block';
+    } else {
+      if (paidHeader) paidHeader.style.display = 'none';
+      if (panelDemo)  panelDemo.style.display  = 'block';
+      if (panelSel)   panelSel.style.display   = 'none';
+      if (panelRand)  panelRand.style.display  = 'none';
+    }
+
+    // Écrans d'accueil différents selon le statut
+    var welcomePaid = document.getElementById('qcm-launch-paid');
+    var welcomeDemo = document.getElementById('qcm-launch-demo');
+    if (welcomePaid) welcomePaid.style.display = hasPaid ? 'flex' : 'none';
+    if (welcomeDemo) welcomeDemo.style.display = hasPaid ? 'none' : 'flex';
+
+    // Compteurs démo restants
     if (!hasPaid) {
       var remaining = getDemoRemaining();
       var remain1 = document.getElementById('demo-banner-count');
       var remain2 = document.getElementById('demo-quota-left');
       if (remain1) remain1.textContent = remaining;
       if (remain2) remain2.textContent = remaining;
+      // Synchronise les jours restants avant concours depuis le countdown en haut
+      var daysEl = document.getElementById('cd-d');
+      var bannerDays = document.getElementById('demo-banner-days');
+      if (daysEl && bannerDays) bannerDays.textContent = daysEl.textContent;
+      // Désactive visuellement le bouton si quota épuisé
+      var btn = document.getElementById('qcm-demo-launch-btn');
+      if (btn) {
+        if (remaining === 0) {
+          btn.style.opacity = '.4';
+          btn.style.pointerEvents = 'none';
+          btn.textContent = 'Reviens demain →';
+        } else {
+          btn.style.opacity = '1';
+          btn.style.pointerEvents = 'auto';
+          btn.textContent = 'Lancer la démo →';
+        }
+      }
     }
   }
 }
