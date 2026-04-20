@@ -2241,7 +2241,7 @@ if(window.location.search.indexOf('success') !== -1) {
           <div class="esp-section-sub">Tes scores par domaine sur les <strong>7 derniers jours</strong>. Les axes verts sont tes points forts, les rouges tes points à travailler en priorité.</div>
         </div>
         <div style="background:white;border:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
-          <div id="esp-radar-canvas" style="flex:1;min-width:300px;max-width:520px;margin:0 auto">
+          <div id="esp-radar-canvas" style="flex:1;min-width:320px;max-width:620px;margin:0 auto">
             <!-- SVG injecté dynamiquement -->
           </div>
           <div id="esp-radar-legend" style="flex:1;min-width:240px;font-size:.9rem;line-height:1.8">
@@ -4627,10 +4627,10 @@ function renderEspRadar(data) {
   wrap.querySelector('div[style*="background:white"]').style.display = '';
 
   // Paramètres SVG
-  var size = 320;            // taille carrée du SVG
+  var size = 460;            // taille carrée du SVG
   var cx = size / 2;         // centre x
   var cy = size / 2;         // centre y
-  var R = 110;               // rayon max
+  var R = 170;               // rayon max
   var rings = [20, 40, 60, 80, 100]; // graduation
 
   // Calcul des coordonnées pour chaque axe (départ à 12h, puis sens horaire)
@@ -4660,7 +4660,7 @@ function renderEspRadar(data) {
   // 3. Valeurs de graduation (20/40/60/80/100) sur l'axe vertical supérieur
   rings.forEach(function(pct){
     var y = cy - (pct / 100) * R;
-    svg += '<text x="' + (cx + 4) + '" y="' + (y + 3) + '" font-family="DM Sans, sans-serif" font-size="9" fill="#a8a196">' + pct + '</text>';
+    svg += '<text x="' + (cx + 5) + '" y="' + (y + 3) + '" font-family="DM Sans, sans-serif" font-size="11" fill="#a8a196">' + pct + '</text>';
   });
 
   // 4. Le polygone des scores
@@ -4669,7 +4669,7 @@ function renderEspRadar(data) {
     var p = axisXY(i, score);
     return p.x.toFixed(1) + ',' + p.y.toFixed(1);
   }).join(' ');
-  svg += '<polygon points="' + points + '" fill="rgba(204,34,41,0.18)" stroke="#CC2229" stroke-width="2" stroke-linejoin="round"/>';
+  svg += '<polygon points="' + points + '" fill="rgba(204,34,41,0.18)" stroke="#CC2229" stroke-width="2.5" stroke-linejoin="round"/>';
 
   // 5. Points aux sommets, colorés selon le score
   axesOrder.forEach(function(a, i){
@@ -4677,24 +4677,24 @@ function renderEspRadar(data) {
     if (score == null) return;
     var p = axisXY(i, score);
     var color = espRadarColor(score);
-    svg += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="5.5" fill="' + color + '" stroke="white" stroke-width="2"/>';
+    svg += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="7" fill="' + color + '" stroke="white" stroke-width="2.5"/>';
   });
 
   // 6. Labels des axes
   axesOrder.forEach(function(a, i){
-    var labelPos = axisXY(i, 128); // un peu hors du radar
+    var labelPos = axisXY(i, 195); // un peu hors du radar
     var label = axesLabels[a];
     // Ajustement text-anchor selon position
     var anchor = 'middle';
     if (labelPos.x < cx - 15) anchor = 'end';
     else if (labelPos.x > cx + 15) anchor = 'start';
     var color = espRadarColor(scores[a]);
-    svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 3).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2a2a2a" text-anchor="' + anchor + '">' + label + '</text>';
+    svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 3).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="13" font-weight="600" fill="#2a2a2a" text-anchor="' + anchor + '">' + label + '</text>';
     // Affichage du score en sous-ligne
     if (scores[a] != null) {
-      svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 16).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="' + color + '" text-anchor="' + anchor + '">' + scores[a] + '%</text>';
+      svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 20).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="12" font-weight="700" fill="' + color + '" text-anchor="' + anchor + '">' + scores[a] + '%</text>';
     } else {
-      svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 16).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="10" fill="#a8a196" text-anchor="' + anchor + '">non évalué</text>';
+      svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 20).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="11" fill="#a8a196" text-anchor="' + anchor + '">non évalué</text>';
     }
   });
 
