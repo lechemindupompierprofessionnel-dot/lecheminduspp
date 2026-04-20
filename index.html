@@ -2940,6 +2940,14 @@ function loadCat(cat) {
       if (typeof q.correct === 'number') q.correct = [q.correct];
     });
     loadedQuestions[cat] = questions;
+    // Mise à jour automatique du compteur à partir des questions réellement chargées
+    // (évite que CAT_TOTALS hardcodé soit désynchronisé si on ajoute des questions)
+    if (typeof CAT_TOTALS !== 'undefined') {
+      CAT_TOTALS[cat] = questions.length;
+    }
+    // Met à jour le compteur affiché dans le menu QCM si l'élément existe
+    var countEl = document.getElementById('count-' + cat);
+    if (countEl) countEl.textContent = questions.length;
     return questions;
   });
 }
@@ -3274,6 +3282,43 @@ function initQcm() {
   // Mais on rafraîchit la barre de lancement au cas où le statut membre aurait changé
   if (typeof updateSummary === 'function') updateSummary();
   if (typeof refreshDemoBanner === 'function') refreshDemoBanner();
+  // Précharge toutes les catégories en arrière-plan pour synchroniser les compteurs.
+  // loadCat() met à jour CAT_TOTALS et l'élément #count-XXX dans le DOM au fur et à mesure.
+  // L'utilisateur voit les compteurs hardcodés dans l'HTML pendant ~200ms puis ils se corrigent.
+  preloadAllCategoriesForCounts();
+}
+
+// Précharge toutes les catégories (best-effort, erreurs silencieuses)
+// Objectif : remplir le DOM avec les vrais compteurs issus des fichiers JSON,
+// et tenir à jour CAT_TOTALS/le total doctrines affiché.
+var _qcmCountsPreloaded = false;
+function preloadAllCategoriesForCounts() {
+  if (_qcmCountsPreloaded) return;
+  _qcmCountsPreloaded = true;
+  var mainCats = ['statut', 'sis', 'divers', 'textes'];
+  var allCats = mainCats.concat(DOCTRINES_SUBCATS);
+  var loaded = 0;
+  allCats.forEach(function(cat) {
+    loadCat(cat).then(function(){
+      loaded++;
+      // Quand toutes les doctrines sont chargées, met à jour le sous-total du groupe doctrines
+      if (loaded === allCats.length) refreshDoctrinesTotal();
+    }).catch(function(err){
+      console.warn('Préchargement ' + cat + ' échoué :', err.message);
+      loaded++;
+      if (loaded === allCats.length) refreshDoctrinesTotal();
+    });
+  });
+}
+
+// Recalcule le sous-total « Doctrines » affiché à côté du groupe principal
+function refreshDoctrinesTotal() {
+  var total = 0;
+  DOCTRINES_SUBCATS.forEach(function(sub) {
+    total += CAT_TOTALS[sub] || 0;
+  });
+  var el = document.getElementById('count-doctrines');
+  if (el) el.textContent = total;
 }
 
 // Affiché quand un non-payant atteint sa limite quotidienne de 10 questions
