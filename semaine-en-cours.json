@@ -1,0 +1,90 @@
+{
+  "semaine": "2026-W17",
+  "semaine_label": "Semaine du 20 au 26 avril 2026",
+  "titre": "Semaine 1 — Retour à l'entraînement",
+  "intro": "Cette première semaine vise à reprendre progressivement le travail aérobie et à re-tester les charges de musculation. On privilégie la qualité technique et l'écoute du corps plutôt que l'intensité maximale.",
+
+  "seances": [
+    {
+      "jour": "lundi",
+      "titre": "Fractionné court VMA",
+      "type": "course",
+      "duree_min": 55,
+      "blocs": [
+        { "type": "echauffement", "texte": "20 min footing très lent (60% VMA) + 5 min de gammes (montées de genoux, talons-fesses, foulées bondissantes)." },
+        { "type": "serie", "repetitions": 8, "distance_m": 400, "intensite_pct": 95, "recup": "1'30\" trot lent" },
+        { "type": "recup", "texte": "10 min de retour au calme en footing très lent." }
+      ],
+      "notes": "Objectif : tenir l'allure sur les 8 répétitions. Si tu perds plus de 5 s sur la dernière, c'est que tu es parti trop vite au début."
+    },
+    {
+      "jour": "mardi",
+      "titre": "Renforcement bas du corps",
+      "type": "muscu",
+      "duree_min": 50,
+      "blocs": [
+        { "type": "echauffement", "texte": "10 min vélo ou rameur + mobilité hanches/chevilles + 2 séries légères de squat à vide." },
+        { "type": "exercice", "exercice": "squat", "series": 4, "repetitions": 6, "intensite_pct": 75, "recup": "2 min" },
+        { "type": "exercice", "exercice": "sdt", "series": 3, "repetitions": 5, "intensite_pct": 70, "recup": "2 min" },
+        { "type": "exercice", "nom": "Fentes marchées (haltères)", "exercice": "autre", "series": 3, "repetitions": 12, "recup": "1'30\"", "texte": "12 répétitions par jambe, charge modérée." },
+        { "type": "recup", "texte": "5 min d'étirements bas du corps : ischio-jambiers, quadriceps, mollets." }
+      ],
+      "notes": "Descends bien en dessous de la parallèle sur le squat. Dos gainé en permanence. Si la charge calculée te semble trop lourde, enlève 5 à 10 % et re-teste ton 1RM la semaine prochaine."
+    },
+    {
+      "jour": "mercredi",
+      "titre": "Repos actif",
+      "type": "repos",
+      "note": "Journée de récupération. Idéal pour une marche de 30 à 45 min, des étirements passifs ou une séance de mobilité douce. Pas de charge ni d'intensité."
+    },
+    {
+      "jour": "jeudi",
+      "titre": "Circuit training métier",
+      "type": "circuit",
+      "duree_min": 40,
+      "blocs": [
+        { "type": "echauffement", "texte": "10 min de corde à sauter progressive + rotations articulaires complètes." },
+        { "type": "circuit", "texte": "5 tours de l'enchaînement suivant, récup 1'30\" entre chaque tour :\n• 15 burpees\n• 20 squats au poids de corps\n• 10 tractions (ou 20 tirages élastique si tractions difficiles)\n• 30 s de gainage planche\n• 15 pompes" },
+        { "type": "recup", "texte": "5 à 10 min de récupération active + étirements." }
+      ],
+      "notes": "L'objectif est de simuler la sollicitation métier : cardio + muscu en continu. Garde une technique propre même sous fatigue — c'est ce qui se travaille ici."
+    },
+    {
+      "jour": "vendredi",
+      "titre": "Seuil — course continue",
+      "type": "course",
+      "duree_min": 45,
+      "blocs": [
+        { "type": "echauffement", "texte": "15 min footing lent + 4 accélérations progressives de 30 s." },
+        { "type": "course_tempo", "duree_min": 20, "intensite_pct": 80 },
+        { "type": "recup", "texte": "10 min footing lent de retour au calme." }
+      ],
+      "notes": "Allure seuil = allure à laquelle tu peux tenir une conversation difficile, une phrase courte à la fois. Si tu peux chanter, c'est trop lent. Si tu ne peux plus parler, c'est trop rapide."
+    },
+    {
+      "jour": "samedi",
+      "titre": "Renforcement haut du corps + tractions",
+      "type": "muscu",
+      "duree_min": 55,
+      "blocs": [
+        { "type": "echauffement", "texte": "10 min de rameur ou échauffement articulaire épaules + 1 série légère sur chaque exercice." },
+        { "type": "exercice", "exercice": "devc", "series": 4, "repetitions": 8, "intensite_pct": 70, "recup": "2 min" },
+        { "type": "exercice", "exercice": "trac", "series": 4, "repetitions": 5, "intensite_pct": 50, "recup": "2 min" },
+        { "type": "exercice", "nom": "Rowing haltère un bras", "exercice": "autre", "series": 3, "repetitions": 10, "recup": "1'30\"" },
+        { "type": "exercice", "nom": "Dips (ou pompes surélevées)", "exercice": "autre", "series": 3, "repetitions": 10, "recup": "1'30\"" },
+        { "type": "recup", "texte": "Étirements pectoraux, épaules, grand dorsal." }
+      ],
+      "notes": "Pour les tractions, enchaîne sans descendre complètement entre les répétitions. Si tu atteins facilement le nombre cible, ajoute 1 répétition la semaine suivante."
+    },
+    {
+      "jour": "dimanche",
+      "titre": "Sortie longue en endurance",
+      "type": "course",
+      "duree_min": 60,
+      "blocs": [
+        { "type": "footing", "duree_min": 60, "intensite_pct": 70 }
+      ],
+      "notes": "Allure conversationnelle : tu dois pouvoir discuter sans être essoufflé. C'est la clé du développement de l'endurance fondamentale. Ne te laisse pas tenter d'accélérer."
+    }
+  ]
+}
