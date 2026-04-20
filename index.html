@@ -3044,8 +3044,10 @@ function renderQ() {
     document.getElementById('qcm-prog-text').textContent = q.catLabel;
   }
 
-  // Détermine si c'est une question à réponses multiples
-  var isMulti = q.correct.length > 1;
+  // Toutes les questions sont désormais à choix multiples :
+  // une ou plusieurs bonnes réponses sont possibles, le candidat ne sait pas
+  // à l'avance combien — il doit cocher toutes les bonnes et uniquement celles-là.
+  var isMulti = true;
 
   // Badge niveau (TF, F, M)
   var levelLabels = { 'TF': 'Très facile', 'F': 'Facile', 'M': 'Moyen', 'D': 'Difficile' };
@@ -3055,27 +3057,15 @@ function renderQ() {
     levelBadge = '<span style="font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:' + levelColors[q.level] + ';border:1px solid ' + levelColors[q.level] + ';padding:3px 8px;margin-left:10px">' + levelLabels[q.level] + '</span>';
   }
 
-  // Indicateur "plusieurs réponses"
-  var multiHint = isMulti
-    ? '<div style="background:var(--red-pale);border:1px solid var(--red-pale2);padding:8px 14px;margin-bottom:16px;font-size:.8rem;color:var(--red);font-weight:600;display:inline-block">📌 Plusieurs réponses possibles — coche toutes les bonnes</div>'
-    : '';
+  // Indicateur neutre : ne révèle pas le nombre de bonnes réponses
+  var multiHint = '<div style="background:var(--red-pale);border:1px solid var(--red-pale2);padding:8px 14px;margin-bottom:16px;font-size:.8rem;color:var(--red);font-weight:600;display:inline-block">📌 Coche la ou les bonnes réponses</div>';
 
-  var choicesHtml;
-  if (isMulti) {
-    // Cases à cocher pour multi-réponses
-    choicesHtml = q.choices.map(function(c, i) {
-      return '<button class="q-choice" onclick="toggleMultiChoice(' + i + ')" id="c' + i + '" data-checked="0"><span class="q-letter" id="box' + i + '">☐</span>' + c + '</button>';
-    }).join('');
-  } else {
-    // Boutons classiques pour mono-réponse
-    choicesHtml = q.choices.map(function(c, i) {
-      return '<button class="q-choice" onclick="answerSingle(' + i + ')" id="c' + i + '"><span class="q-letter">' + String.fromCharCode(65 + i) + '</span>' + c + '</button>';
-    }).join('');
-  }
+  // Cases à cocher systématiques pour toutes les questions
+  var choicesHtml = q.choices.map(function(c, i) {
+    return '<button class="q-choice" onclick="toggleMultiChoice(' + i + ')" id="c' + i + '" data-checked="0"><span class="q-letter" id="box' + i + '">☐</span>' + c + '</button>';
+  }).join('');
 
-  var submitBtn = isMulti
-    ? '<button class="btn btn-red" id="q-submit-btn" style="margin-top:16px;width:100%;justify-content:center;display:flex;opacity:.4;pointer-events:none" onclick="submitMultiAnswer()">Valider ma réponse →</button>'
-    : '';
+  var submitBtn = '<button class="btn btn-red" id="q-submit-btn" style="margin-top:16px;width:100%;justify-content:center;display:flex;opacity:.4;pointer-events:none" onclick="submitMultiAnswer()">Valider ma réponse →</button>';
 
   area.innerHTML =
     '<div class="question-card">' +
