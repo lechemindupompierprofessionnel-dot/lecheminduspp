@@ -199,7 +199,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .qcm-nb-btn.active{background:var(--red);color:white;border-color:var(--red)}
 
 /* Mode selector horizontal (par thème / aléatoire) */
-.qcm-mode-switch{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:22px}
+.qcm-mode-switch{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin-bottom:22px}
 .qcm-mode-card{padding:18px 20px;border:1.5px solid var(--border);background:white;cursor:pointer;transition:all .2s;text-align:left}
 .qcm-mode-card:hover{border-color:var(--red)}
 .qcm-mode-card.active{border-color:var(--red);background:var(--red-pale)}
@@ -1417,6 +1417,10 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
               <div class="qcm-mode-card-title">🔀 Aléatoire</div>
               <div class="qcm-mode-card-desc">Mix de tous les thèmes — pour simuler le concours.</div>
             </div>
+            <div class="qcm-mode-card" id="tab-review" onclick="switchQcmMode('review')">
+              <div class="qcm-mode-card-title">🧠 Révision intelligente</div>
+              <div class="qcm-mode-card-desc">Cible automatiquement les questions que tu rates le plus.</div>
+            </div>
           </div>
 
           <!-- MODE PAR THÈME : grille horizontale -->
@@ -1475,7 +1479,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-routier',event)"><span class="qcm-checkbox" id="chk-gdo-routier">☐</span><span class="qcm-check-label">GDO Milieu Routier</span><span class="qcm-cat-count" id="count-gdo-routier">62</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">0</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">254</span></div>
               </div>
             </div>
           </div>
@@ -1487,6 +1491,35 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
               <div class="qcm-random-info-text">
                 Les questions piochent aléatoirement dans <strong>tous les thèmes</strong> du concours.
                 Idéal pour simuler les conditions du concours et ne pas stagner dans un seul domaine.
+              </div>
+            </div>
+          </div>
+
+          <!-- MODE RÉVISION INTELLIGENTE -->
+          <div id="qcm-panel-review" style="display:none">
+            <div class="qcm-random-info">
+              <div class="qcm-random-info-icon">🧠</div>
+              <div class="qcm-random-info-text">
+                L'algorithme analyse ton historique et te propose les questions que tu as <strong>plus souvent ratées que réussies</strong>.
+                Les catégories où ton score global est le plus faible sont privilégiées automatiquement.
+              </div>
+            </div>
+            <div id="qcm-review-stats" style="background:white;border:1px solid var(--border);padding:20px;margin-top:14px">
+              <div id="qcm-review-loading" style="text-align:center;padding:24px;color:var(--gray);font-size:.9rem">⏳ Analyse de ton historique…</div>
+              <div id="qcm-review-ready" style="display:none">
+                <div style="display:flex;align-items:center;gap:14px;margin-bottom:16px">
+                  <div style="font-size:2rem">📊</div>
+                  <div>
+                    <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);line-height:1.25"><span id="qcm-review-pool-count">0</span> question<span id="qcm-review-pool-s"></span> à réviser</div>
+                    <div style="font-size:.82rem;color:var(--gray);margin-top:3px">identifiée<span id="qcm-review-pool-s2"></span> dans ton historique</div>
+                  </div>
+                </div>
+                <div id="qcm-review-weak-cats" style="font-size:.85rem;color:var(--charcoal);line-height:1.7;padding-top:14px;border-top:1px solid var(--border-light)"></div>
+              </div>
+              <div id="qcm-review-empty" style="display:none;text-align:center;padding:12px 8px">
+                <div style="font-size:2.3rem;margin-bottom:10px">🌱</div>
+                <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:8px">Pas encore assez de données</div>
+                <div style="font-size:.88rem;color:var(--gray);line-height:1.65;max-width:440px;margin:0 auto">Pour activer la révision intelligente, commence par faire quelques sessions classiques en mode « Par thème » ou « Aléatoire ». Dès que tu auras raté quelques questions, l'algorithme pourra t'aider à travailler tes points faibles.</div>
               </div>
             </div>
           </div>
@@ -2718,8 +2751,14 @@ function switchQcmMode(mode) {
   qcmMode = mode;
   document.getElementById('tab-select').classList.toggle('active', mode === 'select');
   document.getElementById('tab-random').classList.toggle('active', mode === 'random');
+  var tabReview = document.getElementById('tab-review');
+  if (tabReview) tabReview.classList.toggle('active', mode === 'review');
   document.getElementById('qcm-panel-select').style.display = mode === 'select' ? '' : 'none';
   document.getElementById('qcm-panel-random').style.display = mode === 'random' ? '' : 'none';
+  var panReview = document.getElementById('qcm-panel-review');
+  if (panReview) panReview.style.display = mode === 'review' ? '' : 'none';
+  // Quand on bascule en mode révision, on déclenche l'analyse du pool
+  if (mode === 'review') analyzeReviewPool();
   updateSummary();
 }
 
@@ -2848,6 +2887,26 @@ function updateSummary() {
   var demoExhausted = !isPaidMember && remainingDemo === 0;
   var effectiveNb = !isPaidMember ? Math.min(randomNb, remainingDemo) : randomNb;
 
+  // Mode révision intelligente → bouton actif si pool non vide
+  if (qcmMode === 'review') {
+    var poolSize = (reviewPoolCache && reviewPoolCache.items) ? reviewPoolCache.items.length : 0;
+    if (demoExhausted) {
+      summary.innerHTML = '<span class="dim">⏰ Limite démo atteinte — reviens demain ou débloque l\'accès complet.</span>';
+      btn.classList.add('disabled');
+      btn.textContent = '🧠 Lancer la révision →';
+    } else if (poolSize === 0) {
+      summary.innerHTML = '<span class="dim">Pas encore de questions à réviser — fais d\'abord quelques sessions classiques.</span>';
+      btn.classList.add('disabled');
+      btn.textContent = '🧠 Lancer la révision →';
+    } else {
+      var nWanted = Math.min(effectiveNb, poolSize);
+      summary.innerHTML = '<strong>' + nWanted + ' question' + (nWanted > 1 ? 's' : '') + '</strong> <span class="dim">— ciblées sur tes points faibles (pool : ' + poolSize + ')</span>';
+      btn.classList.remove('disabled');
+      btn.textContent = '🧠 Lancer la révision →';
+    }
+    return;
+  }
+
   // Mode aléatoire → bouton toujours actif (sauf démo épuisée)
   if (qcmMode === 'random') {
     if (demoExhausted) {
@@ -2963,7 +3022,9 @@ function loadCats(cats) {
 // ---------- LANCEMENT SESSION ----------
 // Routeur selon le mode sélectionné
 function launchQcmSession() {
-  if (qcmMode === 'random') {
+  if (qcmMode === 'review') {
+    launchReviewSession();
+  } else if (qcmMode === 'random') {
     launchRandomQcm();
   } else {
     launchQcm();
@@ -3483,7 +3544,7 @@ function submitMultiAnswer() {
   if (submitBtn) submitBtn.style.display = 'none';
 
   // Tracking statistiques espace candidat
-  if (q.cat) espTrackAnswer(q.cat, isCorrect, q.level);
+  if (q.cat) espTrackAnswer(q.cat, isCorrect, q.level, q.id);
 
   showExplAndNext(q, isCorrect);
   currentMultiSelection = [];
@@ -3515,7 +3576,7 @@ function answerSingle(idx) {
     qText: q.q || ''
   });
   // Tracking statistiques espace candidat
-  if (q.cat) espTrackAnswer(q.cat, isCorrect, q.level);
+  if (q.cat) espTrackAnswer(q.cat, isCorrect, q.level, q.id);
   showExplAndNext(q, isCorrect);
 }
 
@@ -3617,7 +3678,7 @@ function espTodayKey() {
 // Chaque tracker écrit TOUJOURS en localStorage (instantané, pour l'UX)
 // et en parallèle essaie d'écrire dans Supabase.
 
-function espTrackAnswer(cat, isCorrect, level) {
+function espTrackAnswer(cat, isCorrect, level, questionId) {
   if (!currentMember) return;
   // Local
   var data = espLoadLocal();
@@ -3627,6 +3688,18 @@ function espTrackAnswer(cat, isCorrect, level) {
   data.perCat[cat].lastSeen = Date.now();
   var today = espTodayKey();
   if (data.activeDays.indexOf(today) === -1) data.activeDays.push(today);
+  // Historique détaillé par question (pour la révision intelligente)
+  if (questionId) {
+    if (!data.perQuestion) data.perQuestion = {};
+    var key = cat + ':' + questionId;
+    if (!data.perQuestion[key]) {
+      data.perQuestion[key] = { cat: cat, qid: questionId, seen: 0, correct: 0, lastResult: null, lastSeen: 0 };
+    }
+    data.perQuestion[key].seen++;
+    if (isCorrect) data.perQuestion[key].correct++;
+    data.perQuestion[key].lastResult = isCorrect ? 'correct' : 'wrong';
+    data.perQuestion[key].lastSeen = Date.now();
+  }
   espSaveLocal(data);
   // Supabase (best-effort, non bloquant)
   if (window.supabaseClient) {
@@ -3635,7 +3708,8 @@ function espTrackAnswer(cat, isCorrect, level) {
       member_email: espMemberEmail(),
       category: cat,
       level: level || null,
-      is_correct: !!isCorrect
+      is_correct: !!isCorrect,
+      question_id: questionId || null
     }).then(function(res){
       if (res && res.error) console.warn('Supabase insert answer :', res.error.message);
     });
@@ -3793,6 +3867,252 @@ function espAddBooking(info) {
     arr = arr.filter(function(b) { return (b.timestamp || 0) > cutoff; });
     localStorage.setItem('booking_history_v1', JSON.stringify(arr));
   } catch(e) {}
+}
+
+// ================================================================
+// RÉVISION INTELLIGENTE
+// ================================================================
+// L'algo considère qu'une question est à réviser si, dans l'historique
+// du candidat, le nombre d'erreurs dépasse strictement le nombre de bonnes
+// réponses. Les catégories sont pondérées selon le score global du candidat
+// (plus le score est faible, plus on pioche dans cette catégorie).
+
+var reviewPoolCache = null; // { items: [{cat, qid, seen, correct}, ...], catScores: { cat: pctScore }, fetchedAt: ts }
+
+// Récupère l'historique détaillé des réponses depuis Supabase (ou localStorage en fallback)
+// Retourne via callback : { perQuestion: {key: {cat, qid, seen, correct}}, perCat: {cat: {seen, correct}} }
+function espFetchDetailedHistory(cb) {
+  var local = espLoadLocal();
+  var localResult = {
+    perQuestion: local.perQuestion || {},
+    perCat: local.perCat || {}
+  };
+  // Pas de Supabase → on se contente du local
+  if (!window.supabaseClient || !currentMember) {
+    cb(localResult);
+    return;
+  }
+  var mid = espMemberId();
+  if (!mid) { cb(localResult); return; }
+  // On récupère toutes les réponses individuelles qui ont un question_id
+  window.supabaseClient.from('qcm_answers')
+    .select('category,question_id,is_correct')
+    .eq('member_id', mid)
+    .not('question_id', 'is', null)
+    .limit(10000)
+    .then(function(res){
+      if (res.error || !res.data) {
+        console.warn('Supabase fetch review history :', res.error && res.error.message);
+        cb(localResult);
+        return;
+      }
+      var perQuestion = {};
+      var perCat = {};
+      res.data.forEach(function(row) {
+        var cat = row.category;
+        var qid = row.question_id;
+        if (!cat || !qid) return;
+        var key = cat + ':' + qid;
+        if (!perQuestion[key]) {
+          perQuestion[key] = { cat: cat, qid: qid, seen: 0, correct: 0 };
+        }
+        perQuestion[key].seen++;
+        if (row.is_correct) perQuestion[key].correct++;
+        if (!perCat[cat]) perCat[cat] = { seen: 0, correct: 0 };
+        perCat[cat].seen++;
+        if (row.is_correct) perCat[cat].correct++;
+      });
+      cb({ perQuestion: perQuestion, perCat: perCat });
+    }).catch(function(err){
+      console.warn('Supabase fetch review history exception :', err);
+      cb(localResult);
+    });
+}
+
+// Analyse le pool de révision et affiche le récap dans l'UI
+function analyzeReviewPool() {
+  var loadingEl = document.getElementById('qcm-review-loading');
+  var readyEl = document.getElementById('qcm-review-ready');
+  var emptyEl = document.getElementById('qcm-review-empty');
+  if (!loadingEl || !readyEl || !emptyEl) return;
+  loadingEl.style.display = 'block';
+  readyEl.style.display = 'none';
+  emptyEl.style.display = 'none';
+
+  espFetchDetailedHistory(function(data) {
+    var perQuestion = data.perQuestion || {};
+    var perCat = data.perCat || {};
+    // On ne garde que les questions plus ratées que réussies (wrong > correct)
+    var poolItems = [];
+    Object.keys(perQuestion).forEach(function(k){
+      var r = perQuestion[k];
+      var wrong = r.seen - r.correct;
+      if (wrong > r.correct) {
+        poolItems.push(r);
+      }
+    });
+    // Scores par catégorie
+    var catScores = {};
+    Object.keys(perCat).forEach(function(c){
+      var row = perCat[c];
+      catScores[c] = row.seen > 0 ? Math.round(row.correct / row.seen * 100) : 100;
+    });
+    // Mise en cache pour la sélection au lancement
+    reviewPoolCache = {
+      items: poolItems,
+      catScores: catScores,
+      fetchedAt: Date.now()
+    };
+
+    loadingEl.style.display = 'none';
+    if (poolItems.length === 0) {
+      emptyEl.style.display = 'block';
+      // Désactive le bouton de lancement tant qu'on est en mode révision
+      var btn = document.getElementById('qcm-launch-btn');
+      if (btn) {
+        btn.classList.add('disabled');
+        btn.style.pointerEvents = 'none';
+      }
+      updateSummary();
+      return;
+    }
+    readyEl.style.display = 'block';
+    document.getElementById('qcm-review-pool-count').textContent = poolItems.length;
+    var plur = poolItems.length > 1 ? 's' : '';
+    document.getElementById('qcm-review-pool-s').textContent = plur;
+    document.getElementById('qcm-review-pool-s2').textContent = plur;
+
+    // Catégories prioritaires : celles présentes dans le pool, triées par score croissant
+    var catCounts = {};
+    poolItems.forEach(function(it){
+      catCounts[it.cat] = (catCounts[it.cat] || 0) + 1;
+    });
+    var catList = Object.keys(catCounts).map(function(c){
+      return { cat: c, count: catCounts[c], score: catScores[c] != null ? catScores[c] : 0 };
+    }).sort(function(a,b){ return a.score - b.score; });
+
+    var top = catList.slice(0, 3);
+    var html = '<div style="font-size:.78rem;color:var(--gray);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:8px">Catégories prioritaires</div>';
+    html += top.map(function(item){
+      var label = (typeof CAT_LABELS !== 'undefined' && CAT_LABELS[item.cat]) ? CAT_LABELS[item.cat] : item.cat;
+      var color = item.score < 50 ? 'var(--red)' : (item.score < 70 ? '#B87500' : '#2F7D3A');
+      return '<div style="display:flex;justify-content:space-between;align-items:center;padding:6px 0;font-size:.88rem">' +
+               '<span>' + label + ' <span style="color:var(--gray);font-size:.78rem">· ' + item.count + ' question' + (item.count > 1 ? 's' : '') + '</span></span>' +
+               '<span style="color:' + color + ';font-weight:600">' + item.score + '%</span>' +
+             '</div>';
+    }).join('');
+    document.getElementById('qcm-review-weak-cats').innerHTML = html;
+
+    // Active le bouton de lancement
+    var btn = document.getElementById('qcm-launch-btn');
+    if (btn) {
+      btn.classList.remove('disabled');
+      btn.style.pointerEvents = '';
+    }
+    updateSummary();
+  });
+}
+
+// Sélectionne N questions à réviser, pondérées par la faiblesse de chaque catégorie.
+// Retourne un tableau de {cat, qid} où on pioche proportionnellement.
+function pickWeightedReviewQuestions(n) {
+  if (!reviewPoolCache || !reviewPoolCache.items || reviewPoolCache.items.length === 0) return [];
+  var items = reviewPoolCache.items.slice();
+  var catScores = reviewPoolCache.catScores || {};
+  // Calcul du poids par catégorie : plus le score est bas, plus le poids est élevé
+  function weightForCat(cat) {
+    var score = catScores[cat] != null ? catScores[cat] : 75;
+    if (score < 50) return 2.0;
+    if (score < 70) return 1.5;
+    return 1.0;
+  }
+  // Construction d'une urne pondérée : chaque question est répétée selon le poids
+  // de sa catégorie, ce qui biaise le tirage sans exclure les cats fortes
+  var urn = [];
+  items.forEach(function(it){
+    var w = weightForCat(it.cat);
+    // On répète ×2 ou ×3 pour multiplier les chances (entiers uniquement)
+    var reps = Math.round(w * 2); // w=1 → 2x, w=1.5 → 3x, w=2 → 4x
+    for (var i = 0; i < reps; i++) urn.push(it);
+  });
+  // Tirage sans remise de n questions distinctes
+  var picked = [];
+  var pickedKeys = {};
+  var safety = 0;
+  while (picked.length < n && urn.length > 0 && safety < 5000) {
+    safety++;
+    var idx = Math.floor(Math.random() * urn.length);
+    var it = urn[idx];
+    var key = it.cat + ':' + it.qid;
+    if (!pickedKeys[key]) {
+      pickedKeys[key] = true;
+      picked.push(it);
+    }
+    // Pour éviter un tirage infini, on retire l'item de l'urne
+    urn.splice(idx, 1);
+  }
+  return picked;
+}
+
+// Prépare et lance une session de révision : charge les JSON des cats concernées,
+// extrait les questions demandées, puis démarre la session classique
+function launchReviewSession() {
+  // Plafond démo pour les non-payants
+  var wanted = randomNb || 10;
+  if (!isPaidMember) {
+    var remaining = demoRemainingToday();
+    if (remaining === 0) {
+      showDemoLimitReached();
+      return;
+    }
+    wanted = Math.min(wanted, remaining);
+  }
+
+  var picks = pickWeightedReviewQuestions(wanted);
+  if (picks.length === 0) {
+    showToast('Aucune question à réviser trouvée. Fais quelques sessions d\'abord !');
+    return;
+  }
+
+  // On regroupe par catégorie pour minimiser les fetches
+  var byCat = {};
+  picks.forEach(function(p){
+    if (!byCat[p.cat]) byCat[p.cat] = [];
+    byCat[p.cat].push(p.qid);
+  });
+  var cats = Object.keys(byCat);
+
+  showLoadingScreen();
+  Promise.all(cats.map(function(c){ return loadCat(c); })).then(function(loadedArrs){
+    var found = [];
+    cats.forEach(function(c, i){
+      var questions = loadedArrs[i];
+      var ids = byCat[c];
+      ids.forEach(function(qid){
+        var q = questions.find(function(x){ return x.id === qid; });
+        if (q) found.push(q);
+      });
+    });
+    if (found.length === 0) {
+      showToast('Questions introuvables dans les fichiers de référence.');
+      stopSession();
+      return;
+    }
+    // Mélange pour ne pas présenter toutes les questions d'une même cat d'affilée
+    for (var i = found.length - 1; i > 0; i--) {
+      var j = Math.floor(Math.random() * (i + 1));
+      var tmp = found[i]; found[i] = found[j]; found[j] = tmp;
+    }
+    // Consommation du quota démo si non payant
+    if (!isPaidMember) demoConsume(found.length);
+    // Démarrage via le point d'entrée classique
+    var title = '🧠 Révision intelligente · ' + found.length + ' question' + (found.length > 1 ? 's' : '');
+    startSession(found, title);
+  }).catch(function(err){
+    console.warn('Erreur chargement session révision :', err);
+    showToast('Impossible de charger les questions de révision.');
+    stopSession();
+  });
 }
 
 // ---------- AGRÉGATION POUR L'AFFICHAGE ----------
@@ -3987,7 +4307,7 @@ var CAT_TOTALS = {
   'gto-forets': 7, 'gto-extinctions': 24, 'gto-vicie': 20,
   'gdo-ssuap': 45, 'gdo-fumees': 30, 'gdo-elec': 15, 'gdo-silos': 4,
   'gdo-gaz': 20, 'gdo-agricole': 11, 'gdo-incendie': 60,
-  'gdo-ulm': 8, 'gdo-routier': 62, 'gdo-foret': 10, 'pse': 0
+  'gdo-ulm': 8, 'gdo-routier': 62, 'gdo-foret': 10, 'pse': 254
 };
 
 // ----- Formatage temps relatif -----
