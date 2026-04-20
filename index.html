@@ -4869,6 +4869,21 @@ function updateNavMember(member) {
     // Migration localStorage → Supabase en arrière-plan (payants uniquement)
     if (isPaidMember) {
       setTimeout(function(){ try { espMigrateLocalToSupabase(); } catch(e){} }, 1200);
+      // Synchronise le profil prépa physique depuis Supabase
+      // (pour que le candidat retrouve ses valeurs sur tous ses appareils)
+      setTimeout(function(){
+        try {
+          if (typeof syncPrepaProfileFromSupabase === 'function') {
+            syncPrepaProfileFromSupabase(function(){
+              // Si on est actuellement sur la page prépa, on rafraîchit l'affichage
+              var prepaPage = document.getElementById('page-prepa');
+              if (prepaPage && prepaPage.classList.contains('active')) {
+                if (typeof paintPrepa === 'function') paintPrepa();
+              }
+            });
+          }
+        } catch(e){}
+      }, 1500);
     }
     // Rafraîchit l'UI QCM selon le statut membre
     if (typeof refreshDemoBanner === 'function') refreshDemoBanner();
@@ -5540,6 +5555,8 @@ function savePrepaProfile(event) {
   }
   try {
     localStorage.setItem(PREPA_PROFILE_KEY, JSON.stringify(profile));
+    // Sync Supabase en arrière-plan (non bloquant)
+    pushPrepaProfileToSupabase(profile);
     closePrepaProfile();
     showToast('✓ Tes valeurs ont été enregistrées');
     renderPrepa();
@@ -5547,6 +5564,86 @@ function savePrepaProfile(event) {
     showToast('⚠️ Impossible d\'enregistrer');
   }
   return false;
+}
+
+// Pousse le profil prépa vers Supabase (best-effort, ne bloque pas l'UI)
+function pushPrepaProfileToSupabase(profile) {
+  if (!window.supabaseClient || !currentMember) return;
+  var mid = espMemberId();
+  if (!mid) return;
+  var payload = {
+    member_id:    mid,
+    member_email: espMemberEmail(),
+    poids:        profile.poids,
+    vma:          profile.vma,
+    t3000:        profile.t3000,
+    front_squat:  profile.front_squat,
+    sdt:          profile.sdt,
+    devm:         profile.devm,
+    trac:         profile.trac,
+    squat:        profile.squat,
+    devc:         profile.devc,
+    updated_at:   profile.updatedAt || new Date().toISOString()
+  };
+  // Upsert sur member_id : créé la ligne si absente, la met à jour sinon
+  window.supabaseClient.from('prepa_profiles')
+    .upsert(payload, { onConflict: 'member_id' })
+    .then(function(res){
+      if (res && res.error) console.warn('Supabase upsert prepa profile :', res.error.message);
+    });
+}
+
+// Récupère le profil prépa depuis Supabase et remplace le localStorage
+// si la version distante est plus récente (ou si local vide).
+// Appelle cb(profile) quand terminé (profil local éventuellement mis à jour).
+function syncPrepaProfileFromSupabase(cb) {
+  cb = cb || function(){};
+  if (!window.supabaseClient || !currentMember) { cb(getPrepaProfile()); return; }
+  var mid = espMemberId();
+  if (!mid) { cb(getPrepaProfile()); return; }
+  window.supabaseClient.from('prepa_profiles')
+    .select('*')
+    .eq('member_id', mid)
+    .limit(1)
+    .then(function(res){
+      if (res.error || !res.data || res.data.length === 0) {
+        // Pas de profil distant. Si local existe, on le pousse pour initialiser côté serveur.
+        var local = getPrepaProfile();
+        if (local) pushPrepaProfileToSupabase(local);
+        cb(local);
+        return;
+      }
+      var remote = res.data[0];
+      var local = getPrepaProfile();
+      var remoteTs = remote.updated_at ? new Date(remote.updated_at).getTime() : 0;
+      var localTs  = (local && local.updatedAt) ? new Date(local.updatedAt).getTime() : 0;
+      // Si la version distante est strictement plus récente OU local inexistant → on remplace
+      if (!local || remoteTs > localTs) {
+        var profile = {
+          poids:       remote.poids,
+          vma:         remote.vma,
+          t3000:       remote.t3000,
+          front_squat: remote.front_squat,
+          sdt:         remote.sdt,
+          devm:        remote.devm,
+          trac:        remote.trac,
+          squat:       remote.squat,
+          devc:        remote.devc,
+          updatedAt:   remote.updated_at
+        };
+        try { localStorage.setItem(PREPA_PROFILE_KEY, JSON.stringify(profile)); } catch(e){}
+        cb(profile);
+      } else if (localTs > remoteTs) {
+        // Local plus récent → on pousse vers Supabase
+        pushPrepaProfileToSupabase(local);
+        cb(local);
+      } else {
+        cb(local);
+      }
+    }).catch(function(err){
+      console.warn('Sync prepa profile (fetch) :', err);
+      cb(getPrepaProfile());
+    });
 }
 
 function openPrepaProfile() {
@@ -5868,6 +5965,16 @@ function renderPrepa() {
   }
   if (unlockCta) unlockCta.style.display = 'none';
   if (memberCta) memberCta.style.display = 'block';
+
+  // Sync Supabase du profil prépa (une fois par session de navigation, fallback
+  // au cas où le hook de login n'a pas fini à temps)
+  if (!window._prepaProfileSynced && typeof syncPrepaProfileFromSupabase === 'function') {
+    window._prepaProfileSynced = true;
+    syncPrepaProfileFromSupabase(function(){
+      // Re-render après sync si la page prépa est toujours ouverte
+      if (prepaData && typeof paintPrepa === 'function') paintPrepa();
+    });
+  }
 
   // Charger le JSON une seule fois, puis l'utiliser
   if (prepaData) {
