@@ -2233,6 +2233,29 @@ if(window.location.search.indexOf('success') !== -1) {
         <button class="esp-priority-btn" onclick="reviseWeakestCategory()">Réviser ce thème →</button>
       </div>
 
+      <!-- RADAR HEBDOMADAIRE -->
+      <div id="esp-radar-wrap" style="margin-bottom:36px">
+        <div style="margin-bottom:8px">
+          <div class="esp-eyebrow">🕸️ Ta semaine</div>
+          <div class="esp-section-title">Vue radar hebdomadaire</div>
+          <div class="esp-section-sub">Tes scores par domaine sur les <strong>7 derniers jours</strong>. Les axes verts sont tes points forts, les rouges tes points à travailler en priorité.</div>
+        </div>
+        <div style="background:white;border:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+          <div id="esp-radar-canvas" style="flex:1;min-width:300px;max-width:520px;margin:0 auto">
+            <!-- SVG injecté dynamiquement -->
+          </div>
+          <div id="esp-radar-legend" style="flex:1;min-width:240px;font-size:.9rem;line-height:1.8">
+            <!-- Légende injectée dynamiquement -->
+          </div>
+        </div>
+        <div id="esp-radar-empty" style="display:none;background:white;border:1px solid var(--border);padding:40px 32px;text-align:center">
+          <div style="font-size:2.5rem;margin-bottom:12px">🕸️</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:8px">Pas encore de données cette semaine</div>
+          <div style="font-size:.88rem;color:var(--gray);line-height:1.65;max-width:480px;margin:0 auto 18px">Lance quelques sessions QCM dans la semaine pour voir apparaître ton radar de progression. Il se mettra à jour automatiquement.</div>
+          <button class="btn btn-red" onclick="goTo('qcm')">Démarrer un QCM →</button>
+        </div>
+      </div>
+
       <!-- PERFORMANCES PAR CATÉGORIE -->
       <div style="margin-bottom:8px">
         <div class="esp-eyebrow">📊 Performances détaillées</div>
@@ -4432,6 +4455,9 @@ function _renderEspaceWith(data) {
   // --- Priorité de révision (catégorie la plus faible parmi celles vues) ---
   renderEspPriority(data);
 
+  // --- Radar hebdomadaire (vue synthétique par domaine) ---
+  renderEspRadar(data);
+
   // --- Coachings à venir (affiché en haut si présents — information temporelle) ---
   renderEspBookings();
 
@@ -4497,6 +4523,216 @@ function reviseWeakestCategory() {
   updateSummary();
   goTo('qcm');
   setTimeout(function(){ launchQcm(); }, 200);
+}
+
+// ---------- RADAR HEBDOMADAIRE (SVG pur) ----------
+// 5 axes : Statut SPP / Org. SIS / Doctrines / Secourisme / Textes épars
+// Chaque axe = score moyen en % sur les 7 derniers jours (ou global si aucune réponse cette semaine)
+// Code couleur : <50% rouge, 50-70% orange, 70-85% vert clair, >=85% vert foncé
+
+// Mapping des catégories vers les 5 axes du radar
+function espMapCatToAxis(cat) {
+  if (cat === 'statut') return 'statut';
+  if (cat === 'sis') return 'sis';
+  if (cat === 'pse') return 'secourisme';
+  if (cat === 'textes' || cat === 'divers') return 'textes';
+  // Tout ce qui est GTO / GDO → doctrines
+  if (cat && (cat.indexOf('gto-') === 0 || cat.indexOf('gdo-') === 0)) return 'doctrines';
+  return null;
+}
+
+// Calcule les scores agrégés par axe, filtrés sur les 7 derniers jours si possible
+function espComputeRadarScores(data) {
+  var axes = { statut: [0, 0], sis: [0, 0], doctrines: [0, 0], secourisme: [0, 0], textes: [0, 0] };
+  // [correct, seen] pour chaque axe
+
+  // Si on a perQuestion (tracking granulaire avec horodatage), on filtre les 7 derniers jours
+  // Sinon on utilise perCat (agrégé global, pas de filtrage temporel possible)
+  var weekCutoff = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  var hasRecentData = false;
+
+  if (data.perQuestion) {
+    Object.keys(data.perQuestion).forEach(function(k){
+      var r = data.perQuestion[k];
+      if (!r.lastSeen || r.lastSeen < weekCutoff) return;
+      var axis = espMapCatToAxis(r.cat);
+      if (!axis) return;
+      // On approxime : chaque question vue compte pour 1 point de vue, selon son taux de réussite
+      var qPct = r.seen > 0 ? (r.correct / r.seen) : 0;
+      axes[axis][0] += qPct;
+      axes[axis][1] += 1;
+      hasRecentData = true;
+    });
+  }
+
+  // Fallback : si aucune donnée récente, on prend le score global par catégorie
+  if (!hasRecentData && data.perCat) {
+    Object.keys(data.perCat).forEach(function(c){
+      var row = data.perCat[c];
+      if (!row.seen) return;
+      var axis = espMapCatToAxis(c);
+      if (!axis) return;
+      axes[axis][0] += row.correct;
+      axes[axis][1] += row.seen;
+    });
+  }
+
+  // Transformation en pourcentages
+  var result = {};
+  Object.keys(axes).forEach(function(a){
+    var r = axes[a];
+    result[a] = r[1] > 0 ? Math.round((r[0] / r[1]) * 100) : null;
+  });
+  result._hasRecentData = hasRecentData;
+  return result;
+}
+
+// Couleur selon le score (palette déjà utilisée ailleurs dans le site)
+function espRadarColor(pct) {
+  if (pct == null) return '#d4d4d4'; // gris pour "non noté"
+  if (pct < 50) return '#CC2229';    // rouge
+  if (pct < 70) return '#E89005';    // orange
+  if (pct < 85) return '#5DA862';    // vert clair
+  return '#2F7D3A';                  // vert foncé
+}
+
+// Rendu principal du radar
+function renderEspRadar(data) {
+  var wrap = document.getElementById('esp-radar-wrap');
+  var canvas = document.getElementById('esp-radar-canvas');
+  var legend = document.getElementById('esp-radar-legend');
+  var emptyEl = document.getElementById('esp-radar-empty');
+  if (!wrap || !canvas) return;
+
+  var scores = espComputeRadarScores(data);
+  var axesOrder = ['statut', 'sis', 'doctrines', 'secourisme', 'textes'];
+  var axesLabels = {
+    statut: 'Statut SPP',
+    sis: 'Org. SIS',
+    doctrines: 'Doctrines',
+    secourisme: 'Secourisme',
+    textes: 'Textes épars'
+  };
+
+  // Vérifie s'il y a au moins un score non nul
+  var hasAnyScore = axesOrder.some(function(a){ return scores[a] != null; });
+  if (!hasAnyScore) {
+    canvas.innerHTML = '';
+    legend.innerHTML = '';
+    wrap.querySelector('div[style*="background:white"]').style.display = 'none';
+    emptyEl.style.display = 'block';
+    return;
+  }
+  emptyEl.style.display = 'none';
+  wrap.querySelector('div[style*="background:white"]').style.display = '';
+
+  // Paramètres SVG
+  var size = 320;            // taille carrée du SVG
+  var cx = size / 2;         // centre x
+  var cy = size / 2;         // centre y
+  var R = 110;               // rayon max
+  var rings = [20, 40, 60, 80, 100]; // graduation
+
+  // Calcul des coordonnées pour chaque axe (départ à 12h, puis sens horaire)
+  function axisXY(axisIndex, valuePct) {
+    var angle = -Math.PI / 2 + (axisIndex * 2 * Math.PI / axesOrder.length);
+    var r = (valuePct / 100) * R;
+    return { x: cx + r * Math.cos(angle), y: cy + r * Math.sin(angle) };
+  }
+
+  // Construction du SVG
+  var svg = '<svg viewBox="0 0 ' + size + ' ' + size + '" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:' + size + 'px;display:block;margin:0 auto">';
+
+  // 1. Les anneaux concentriques + graduations
+  rings.forEach(function(pct){
+    var r = (pct / 100) * R;
+    svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + r.toFixed(1) + '" fill="none" stroke="#e8e3d8" stroke-width="1"/>';
+  });
+  // Graduation 100% plus marquée
+  svg += '<circle cx="' + cx + '" cy="' + cy + '" r="' + R + '" fill="none" stroke="#c9c1ae" stroke-width="1.2"/>';
+
+  // 2. Les axes radiaux (lignes partant du centre)
+  axesOrder.forEach(function(a, i){
+    var p = axisXY(i, 100);
+    svg += '<line x1="' + cx + '" y1="' + cy + '" x2="' + p.x.toFixed(1) + '" y2="' + p.y.toFixed(1) + '" stroke="#dcd5c2" stroke-width="1"/>';
+  });
+
+  // 3. Valeurs de graduation (20/40/60/80/100) sur l'axe vertical supérieur
+  rings.forEach(function(pct){
+    var y = cy - (pct / 100) * R;
+    svg += '<text x="' + (cx + 4) + '" y="' + (y + 3) + '" font-family="DM Sans, sans-serif" font-size="9" fill="#a8a196">' + pct + '</text>';
+  });
+
+  // 4. Le polygone des scores
+  var points = axesOrder.map(function(a, i){
+    var score = scores[a] != null ? scores[a] : 0;
+    var p = axisXY(i, score);
+    return p.x.toFixed(1) + ',' + p.y.toFixed(1);
+  }).join(' ');
+  svg += '<polygon points="' + points + '" fill="rgba(204,34,41,0.18)" stroke="#CC2229" stroke-width="2" stroke-linejoin="round"/>';
+
+  // 5. Points aux sommets, colorés selon le score
+  axesOrder.forEach(function(a, i){
+    var score = scores[a];
+    if (score == null) return;
+    var p = axisXY(i, score);
+    var color = espRadarColor(score);
+    svg += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="5.5" fill="' + color + '" stroke="white" stroke-width="2"/>';
+  });
+
+  // 6. Labels des axes
+  axesOrder.forEach(function(a, i){
+    var labelPos = axisXY(i, 128); // un peu hors du radar
+    var label = axesLabels[a];
+    // Ajustement text-anchor selon position
+    var anchor = 'middle';
+    if (labelPos.x < cx - 15) anchor = 'end';
+    else if (labelPos.x > cx + 15) anchor = 'start';
+    var color = espRadarColor(scores[a]);
+    svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 3).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="11" font-weight="600" fill="#2a2a2a" text-anchor="' + anchor + '">' + label + '</text>';
+    // Affichage du score en sous-ligne
+    if (scores[a] != null) {
+      svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 16).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="10" font-weight="700" fill="' + color + '" text-anchor="' + anchor + '">' + scores[a] + '%</text>';
+    } else {
+      svg += '<text x="' + labelPos.x.toFixed(1) + '" y="' + (labelPos.y + 16).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="10" fill="#a8a196" text-anchor="' + anchor + '">non évalué</text>';
+    }
+  });
+
+  svg += '</svg>';
+  canvas.innerHTML = svg;
+
+  // Légende : niveaux avec couleurs + analyse
+  var sortedScores = axesOrder
+    .map(function(a){ return { axis: a, label: axesLabels[a], score: scores[a] }; })
+    .filter(function(x){ return x.score != null; })
+    .sort(function(a, b){ return a.score - b.score; });
+
+  var legendHtml = '';
+  legendHtml += '<div style="font-size:.72rem;color:var(--gray);text-transform:uppercase;letter-spacing:1.2px;margin-bottom:12px">Échelle</div>';
+  legendHtml += '<div style="display:flex;flex-direction:column;gap:4px;margin-bottom:20px">';
+  legendHtml += '<div style="display:flex;align-items:center;gap:8px;font-size:.82rem"><span style="display:inline-block;width:12px;height:12px;background:#CC2229"></span><span>Moins de 50% · à travailler</span></div>';
+  legendHtml += '<div style="display:flex;align-items:center;gap:8px;font-size:.82rem"><span style="display:inline-block;width:12px;height:12px;background:#E89005"></span><span>50% à 70% · à consolider</span></div>';
+  legendHtml += '<div style="display:flex;align-items:center;gap:8px;font-size:.82rem"><span style="display:inline-block;width:12px;height:12px;background:#5DA862"></span><span>70% à 85% · bon niveau</span></div>';
+  legendHtml += '<div style="display:flex;align-items:center;gap:8px;font-size:.82rem"><span style="display:inline-block;width:12px;height:12px;background:#2F7D3A"></span><span>Plus de 85% · maîtrisé</span></div>';
+  legendHtml += '</div>';
+
+  // Analyse automatique
+  if (sortedScores.length > 0) {
+    var worst = sortedScores[0];
+    var best = sortedScores[sortedScores.length - 1];
+    legendHtml += '<div style="padding-top:16px;border-top:1px solid var(--border-light)">';
+    if (sortedScores.length >= 2 && worst.score < 70) {
+      legendHtml += '<div style="font-size:.85rem;color:var(--charcoal);line-height:1.6">🎯 <strong>Priorité :</strong> ton plus bas score est en <strong>' + worst.label + '</strong> (' + worst.score + '%). Concentre-toi là-dessus cette semaine.</div>';
+    }
+    if (best.score >= 70) {
+      legendHtml += '<div style="font-size:.85rem;color:var(--charcoal);line-height:1.6;margin-top:8px">✅ <strong>Point fort :</strong> ' + best.label + ' (' + best.score + '%). Entretiens ce niveau sans trop y passer de temps.</div>';
+    }
+    var avg = Math.round(sortedScores.reduce(function(s, x){ return s + x.score; }, 0) / sortedScores.length);
+    legendHtml += '<div style="font-size:.85rem;color:var(--gray);line-height:1.6;margin-top:12px;padding-top:12px;border-top:1px dashed var(--border-light)">Moyenne globale : <strong style="color:' + espRadarColor(avg) + '">' + avg + '%</strong>' + (scores._hasRecentData ? ' · 7 derniers jours' : ' · historique complet (pas d\'activité cette semaine)') + '</div>';
+    legendHtml += '</div>';
+  }
+
+  legend.innerHTML = legendHtml;
 }
 
 function renderEspCats(data) {
