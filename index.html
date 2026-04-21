@@ -4581,15 +4581,23 @@ function espFetchStats(cb) {
       var dayKey = dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
       if (activeDays.indexOf(dayKey) === -1) activeDays.push(dayKey);
     });
-    var sessList = sessions.map(function(s) {
-      return {
-        date: new Date(s.created_at).getTime(),
-        title: s.title,
-        cats: s.categories || [],
-        score: s.score, total: s.total, pct: s.pct
-      };
-    });
+    var sessList = sessions
+      .filter(function(s){
+        // Les entrées [PREPA] ne sont PAS des sessions QCM — elles sont stockées
+        // dans la même table pour éviter de créer une 4e table, mais doivent être
+        // ignorées par les stats QCM.
+        return !(s.title && s.title.indexOf('[PREPA]') === 0);
+      })
+      .map(function(s) {
+        return {
+          date: new Date(s.created_at).getTime(),
+          title: s.title,
+          cats: s.categories || [],
+          score: s.score, total: s.total, pct: s.pct
+        };
+      });
     sessions.forEach(function(s){
+      // Jour actif : on compte aussi les séances prépa (c'est bien un jour d'activité)
       var dt = new Date(s.created_at);
       var dayKey = dt.getFullYear()+'-'+String(dt.getMonth()+1).padStart(2,'0')+'-'+String(dt.getDate()).padStart(2,'0');
       if (activeDays.indexOf(dayKey) === -1) activeDays.push(dayKey);
@@ -5284,7 +5292,8 @@ function renderShareCanvas() {
   ctx.stroke();
 
   // === 4. STATS SUR UNE SEULE LIGNE (5 éléments équidistants) ===
-  var statsY = 430;
+  // statsY = ligne de base des chiffres. Emoji au-dessus (y-70), label en-dessous (y+38)
+  var statsY = 470;
 
   // 5 stats équidistantes entre contentX et contentR
   var statPositions = [
@@ -5295,24 +5304,32 @@ function renderShareCanvas() {
     contentX + contentW * 0.90
   ];
 
-  function drawStat(x, y, bigValue, label, isAccent) {
+  function drawStat(x, y, emoji, bigValue, label, isAccent) {
+    // Emoji au-dessus (plus petit, dans la teinte neutre — ne doit pas voler la vedette au chiffre)
+    if (emoji) {
+      ctx.font = '400 36px "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", ' + FONT;
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'alphabetic';
+      ctx.fillText(emoji, x, y - 70);
+    }
+    // Chiffre principal
     ctx.fillStyle = isAccent ? COL_RED : COL_TEXT;
     ctx.font = '900 68px ' + FONT;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText(bigValue, x, y);
-
+    // Label
     ctx.fillStyle = COL_MUTED;
     ctx.font = '600 16px ' + FONT;
     ctx.fillText(label, x, y + 38);
   }
 
-  drawStat(statPositions[0], statsY, String(s.streak), s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF', false);
-  drawStat(statPositions[1], statsY, String(s.sessions), s.sessions > 1 ? 'SESSIONS' : 'SESSION', false);
-  drawStat(statPositions[2], statsY, String(s.questions), 'QUESTIONS', false);
+  drawStat(statPositions[0], statsY, '🔥', String(s.streak), s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF', false);
+  drawStat(statPositions[1], statsY, '🎯', String(s.sessions), s.sessions > 1 ? 'SESSIONS' : 'SESSION', false);
+  drawStat(statPositions[2], statsY, '📝', String(s.questions), 'QUESTIONS', false);
   var scoreText = s.score > 0 ? (s.score + '%') : '—';
-  drawStat(statPositions[3], statsY, scoreText, 'SCORE', true);
-  drawStat(statPositions[4], statsY, String(s.prepa || 0), 'PRÉPA PHYSIQUE', false);
+  drawStat(statPositions[3], statsY, '📊', scoreText, 'SCORE', true);
+  drawStat(statPositions[4], statsY, '💪', String(s.prepa || 0), 'SÉANCE DE SPORT', false);
 
   // === 5. LIGNE SÉPARATRICE INFÉRIEURE ===
   ctx.strokeStyle = COL_TEXT;
@@ -6510,6 +6527,21 @@ function updateNavMember(member) {
               }
             });
           }
+          // Synchronise aussi les séances prépa validées (multi-appareils)
+          if (typeof syncPrepaDoneFromSupabase === 'function') {
+            syncPrepaDoneFromSupabase(function(){
+              // Rafraîchit la page prépa si active
+              var prepaPage = document.getElementById('page-prepa');
+              if (prepaPage && prepaPage.classList.contains('active')) {
+                if (typeof paintPrepa === 'function') paintPrepa();
+              }
+              // Rafraîchit aussi l'espace candidat si actif (met à jour la stat "séances prépa")
+              var espacePage = document.getElementById('page-espace');
+              if (espacePage && espacePage.classList.contains('active')) {
+                if (typeof renderEspace === 'function') renderEspace();
+              }
+            });
+          }
         } catch(e){}
       }, 1500);
     }
@@ -7278,6 +7310,49 @@ function syncPrepaProfileFromSupabase(cb) {
     });
 }
 
+// Récupère toutes les séances de prépa physique validées sur Supabase
+// et reconstruit le localStorage prepa_done_v1 en conséquence (fusion
+// multi-appareils). Appelle cb() quand terminé.
+function syncPrepaDoneFromSupabase(cb) {
+  cb = cb || function(){};
+  if (!window.supabaseClient || !currentMember) { cb(); return; }
+  var mid = espMemberId();
+  if (!mid) { cb(); return; }
+
+  // On récupère toutes les sessions dont le title commence par [PREPA]
+  window.supabaseClient.from('qcm_sessions')
+    .select('title, created_at')
+    .eq('member_id', mid)
+    .like('title', '[PREPA]%')
+    .then(function(res){
+      if (res && res.error) {
+        console.warn('Supabase select prepa_done :', res.error.message);
+        cb();
+        return;
+      }
+      var rows = (res && res.data) || [];
+      // Parse chaque ligne : title = "[PREPA] semaine-id_niveau_jour"
+      // On reconstruit l'objet { "semaine_niveau": ["lundi", ...] }
+      var rebuilt = {};
+      rows.forEach(function(row){
+        if (!row || !row.title) return;
+        var rest = row.title.replace(/^\[PREPA\]\s*/, '');
+        // Le jour est le dernier segment après le dernier "_"
+        var lastUnderscore = rest.lastIndexOf('_');
+        if (lastUnderscore === -1) return;
+        var semId = rest.slice(0, lastUnderscore);  // "cycle1-S1_confirme"
+        var jour  = rest.slice(lastUnderscore + 1);  // "lundi"
+        if (!rebuilt[semId]) rebuilt[semId] = [];
+        if (rebuilt[semId].indexOf(jour) === -1) rebuilt[semId].push(jour);
+      });
+      // Écrase le localStorage avec la version Supabase (source de vérité)
+      try {
+        localStorage.setItem(PREPA_DONE_KEY, JSON.stringify(rebuilt));
+      } catch(e){}
+      cb();
+    });
+}
+
 function openPrepaProfile() {
   var p = getPrepaProfile() || {};
   document.getElementById('prof-poids').value       = p.poids || '';
@@ -7791,13 +7866,45 @@ function togglePrepaDone(jour) {
   var semId = prepaData.semaine + '_' + activeLevel;
   var done = getPrepaDone(semId);
   var idx = done.indexOf(jour);
-  if (idx === -1) {
+  var isValidating = (idx === -1);
+  if (isValidating) {
     done.push(jour);
     showToast('✓ Séance du ' + jour + ' validée — bravo !');
   } else {
     done.splice(idx, 1);
   }
   setPrepaDone(semId, done);
+
+  // Synchro Supabase : quand on valide, on enregistre. Quand on dé-valide, on supprime.
+  // On réutilise la table qcm_sessions existante avec un préfixe [PREPA] dans le title
+  // (même pattern que [ANNALE] pour le mode concours).
+  if (window.supabaseClient && currentMember) {
+    var prepaTitle = '[PREPA] ' + semId + '_' + jour;  // ex: "[PREPA] cycle1-S1_confirme_lundi"
+    if (isValidating) {
+      // Ajoute l'enregistrement
+      window.supabaseClient.from('qcm_sessions').insert({
+        member_id: espMemberId(),
+        member_email: espMemberEmail(),
+        title: prepaTitle,
+        categories: ['prepa_physique'],
+        score: 1,
+        total: 1,
+        pct: 100
+      }).then(function(res){
+        if (res && res.error) console.warn('Supabase insert prepa :', res.error.message);
+      });
+    } else {
+      // Supprime l'enregistrement correspondant
+      window.supabaseClient.from('qcm_sessions')
+        .delete()
+        .eq('member_id', espMemberId())
+        .eq('title', prepaTitle)
+        .then(function(res){
+          if (res && res.error) console.warn('Supabase delete prepa :', res.error.message);
+        });
+    }
+  }
+
   paintPrepa();
   // Ré-ouvrir le jour qu'on vient de toggler pour l'UX
   setTimeout(function(){
