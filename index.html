@@ -1379,6 +1379,64 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .esp-tab{padding:10px 6px;font-size:.72rem;min-width:auto}
   .esp-tab-ic{font-size:1rem}
 }
+
+/* ===== ANNUAIRE DES CANDIDATS ===== */
+.cand-filters{background:white;border:1px solid var(--border);padding:18px 22px;margin-bottom:28px}
+.cand-filters-row{display:flex;align-items:center;gap:16px;flex-wrap:wrap;padding:6px 0}
+.cand-filters-row + .cand-filters-row{padding-top:12px;border-top:1px solid var(--border-light);margin-top:6px}
+.cand-filter-label{font-size:.78rem;font-weight:600;color:var(--charcoal);letter-spacing:.3px;text-transform:uppercase;flex-shrink:0}
+.cand-filter-chips{display:flex;gap:6px;flex-wrap:wrap}
+.cand-chip{background:transparent;border:1px solid var(--border);padding:7px 14px;font-size:.78rem;color:var(--gray);cursor:pointer;font-family:inherit;transition:all .15s}
+.cand-chip:hover{border-color:var(--red);color:var(--charcoal)}
+.cand-chip.active{background:var(--red);border-color:var(--red);color:white;font-weight:600}
+.cand-counter{font-size:.85rem;color:var(--gray);margin-bottom:18px}
+.cand-counter strong{color:var(--charcoal);font-weight:700}
+.cand-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}
+.cand-card{background:white;border:1px solid var(--border);padding:28px 20px 22px;text-align:center;cursor:pointer;transition:transform .2s,border-color .15s,box-shadow .2s;position:relative}
+.cand-card:hover{transform:translateY(-3px);border-color:var(--red);box-shadow:0 6px 22px rgba(0,0,0,.08)}
+.cand-card-icon{font-size:3rem;line-height:1;margin-bottom:12px}
+.cand-card-pseudo{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:var(--charcoal);line-height:1.2;margin-bottom:6px;word-break:break-word}
+.cand-card-badge{font-size:.76rem;color:var(--red);font-weight:600;letter-spacing:.3px}
+.cand-card-rarity{position:absolute;top:10px;right:10px;font-size:.64rem;letter-spacing:.8px;text-transform:uppercase;font-weight:700;padding:3px 8px;color:white}
+.cand-card-rarity.commun{background:#b0b0b0}
+.cand-card-rarity.rare{background:#4a7bd1}
+.cand-card-rarity.epique{background:#9240c9}
+.cand-card-rarity.legendaire{background:#c08413}
+
+/* ===== PAGE PROFIL ===== */
+.prof-wrap{max-width:900px;margin:0 auto;padding:0 20px 80px}
+.prof-hero{background:white;border:1px solid var(--border);padding:50px 32px 42px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden}
+.prof-hero::before{content:'';position:absolute;top:0;left:0;right:0;height:4px;background:var(--red)}
+.prof-showcase-icon{font-size:5.2rem;line-height:1;margin-bottom:18px}
+.prof-showcase-rarity{font-size:.76rem;letter-spacing:1.5px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.prof-showcase-rarity.commun{color:#888}
+.prof-showcase-rarity.rare{color:#4a7bd1}
+.prof-showcase-rarity.epique{color:#9240c9}
+.prof-showcase-rarity.legendaire{color:#c08413}
+.prof-pseudo{font-family:'Playfair Display',serif;font-size:2.2rem;font-weight:700;color:var(--charcoal);margin-bottom:18px;line-height:1.1}
+.prof-showcase-name{font-family:'Playfair Display',serif;font-style:italic;font-size:1.15rem;color:var(--red);margin-bottom:10px}
+.prof-showcase-desc{font-size:.88rem;color:var(--gray);line-height:1.6;max-width:480px;margin:0 auto}
+.prof-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:36px}
+.prof-stat{background:white;border:1px solid var(--border);padding:22px 14px;text-align:center}
+.prof-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--charcoal);line-height:1;margin-bottom:6px}
+.prof-stat-lbl{font-size:.76rem;color:var(--gray);letter-spacing:.3px;text-transform:uppercase;font-weight:500}
+.prof-collection{margin-bottom:40px}
+.prof-report{text-align:center;padding:30px 0 10px;border-top:1px solid var(--border-light)}
+.prof-report-btn{background:none;border:none;font-size:.8rem;color:var(--gray-light);cursor:pointer;font-family:inherit;padding:8px 16px;transition:color .15s}
+.prof-report-btn:hover{color:var(--red)}
+@media(max-width:640px){
+  .prof-stats{grid-template-columns:1fr 1fr}
+  .prof-stat:last-child{grid-column:1/-1}
+  .prof-pseudo{font-size:1.7rem}
+  .prof-showcase-icon{font-size:4.2rem}
+}
+
+/* ===== MODALE SIGNALEMENT ===== */
+#report-modal{position:fixed;inset:0;z-index:9998;background:rgba(28,18,12,0.82);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+#report-modal.visible{display:flex}
+.report-box{background:white;max-width:420px;width:100%;padding:36px 30px 28px;position:relative}
+.report-reason{background:var(--cream2);border:1px solid var(--border);padding:14px 18px;font-family:inherit;font-size:.86rem;color:var(--charcoal);cursor:pointer;text-align:left;transition:all .15s}
+.report-reason:hover{border-color:var(--red);background:var(--red-pale);color:var(--red)}
 </style>
 </head>
 <body>
@@ -1459,6 +1517,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   <div class="mobile-nav-link" onclick="goTo('prepa');closeMobileNav()">Préparation physique</div>
   <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()">Bibliothèque</div>
   <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()">Actualités</div>
+  <div class="mobile-nav-link" onclick="goTo('candidats');closeMobileNav()">👥 Les candidats</div>
   <div class="mobile-nav-link" id="mobile-espace-link" style="display:none" onclick="goTo('espace');closeMobileNav()">📊 Mon espace candidat</div>
   <button class="btn btn-red" onclick="openPopup()">Ebook Gratuit</button>
 </div>
@@ -1497,6 +1556,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <button class="nav-dropdown-item" data-page="prepa" onclick="goTo('prepa')">Préparation physique</button>
         <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')">Bibliothèque</button>
         <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')">Actualités</button>
+        <button class="nav-dropdown-item" data-page="candidats" onclick="goTo('candidats')">👥 Les candidats</button>
         <button class="nav-dropdown-item" data-page="espace" id="nav-espace-item" onclick="goTo('espace')" style="display:none">📊 Mon espace candidat</button>
       </div>
     </div>
@@ -3167,6 +3227,135 @@ if(window.location.search.indexOf('success') !== -1) {
     <div id="esp-zoom-content">
       <!-- SVG cloné injecté dynamiquement -->
     </div>
+  </div>
+</div>
+
+<!-- ============================= PAGE: ANNUAIRE DES CANDIDATS ============================= -->
+<div class="page" id="page-candidats">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="s-eyebrow">Communauté</div>
+      <div class="s-title">Les <em>candidats</em></div>
+      <div class="s-intro">
+        Découvre celles et ceux qui préparent le concours avec toi. Chacun porte fièrement son badge favori.
+      </div>
+    </div>
+  </div>
+
+  <div class="section" style="padding-top:30px">
+
+    <!-- Filtres -->
+    <div class="cand-filters">
+      <div class="cand-filters-row">
+        <div class="cand-filter-label">Filtrer par badge vitrine :</div>
+        <div class="cand-filter-chips" id="cand-filter-chips">
+          <button class="cand-chip active" data-cat="all" onclick="candFilterByCategory('all')">Tous</button>
+          <button class="cand-chip" data-cat="parcours" onclick="candFilterByCategory('parcours')">Parcours</button>
+          <button class="cand-chip" data-cat="regularite" onclick="candFilterByCategory('regularite')">Régularité</button>
+          <button class="cand-chip" data-cat="anciennete" onclick="candFilterByCategory('anciennete')">Ancienneté</button>
+          <button class="cand-chip" data-cat="performance" onclick="candFilterByCategory('performance')">Performance</button>
+          <button class="cand-chip" data-cat="insolites" onclick="candFilterByCategory('insolites')">Insolites</button>
+          <button class="cand-chip" data-cat="concours" onclick="candFilterByCategory('concours')">Concours</button>
+          <button class="cand-chip" data-cat="statut" onclick="candFilterByCategory('statut')">Abonnement</button>
+        </div>
+      </div>
+      <div class="cand-filters-row">
+        <div class="cand-filter-label">Trier par :</div>
+        <div class="cand-filter-chips">
+          <button class="cand-chip active" data-sort="recent" onclick="candSetSort('recent')">Plus récents</button>
+          <button class="cand-chip" data-sort="alpha" onclick="candSetSort('alpha')">Pseudo A-Z</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Compteur + loader -->
+    <div class="cand-counter" id="cand-counter">Chargement…</div>
+
+    <!-- Grille candidats -->
+    <div class="cand-grid" id="cand-grid"></div>
+
+    <!-- État vide -->
+    <div id="cand-empty" style="display:none;text-align:center;padding:60px 20px;color:var(--gray);font-size:.9rem;line-height:1.7">
+      Aucun candidat ne correspond à ce filtre pour l'instant.
+    </div>
+  </div>
+</div>
+
+<!-- ============================= PAGE: PROFIL INDIVIDUEL D'UN CANDIDAT ============================= -->
+<div class="page" id="page-profil">
+  <div class="section" style="padding-top:80px">
+    <div class="prof-wrap">
+
+      <!-- Loader -->
+      <div id="prof-loader" style="text-align:center;padding:80px 20px;color:var(--gray)">Chargement…</div>
+
+      <!-- Profil introuvable -->
+      <div id="prof-notfound" style="display:none;text-align:center;padding:80px 20px">
+        <div style="font-size:3rem;margin-bottom:16px">🔍</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:10px">Profil introuvable</div>
+        <div style="font-size:.9rem;color:var(--gray);line-height:1.6;margin-bottom:24px">Ce pseudo n'existe pas ou n'a pas encore obtenu son premier badge.</div>
+        <button class="btn btn-outline-red" onclick="goTo('candidats')">← Retour à l'annuaire</button>
+      </div>
+
+      <!-- Contenu profil -->
+      <div id="prof-content" style="display:none">
+        <div style="margin-bottom:28px">
+          <button class="btn btn-outline" style="font-size:.8rem;padding:8px 16px" onclick="goTo('candidats')">← Tous les candidats</button>
+        </div>
+
+        <div class="prof-hero">
+          <div class="prof-showcase-icon" id="prof-showcase-icon">🏆</div>
+          <div class="prof-showcase-rarity" id="prof-showcase-rarity">—</div>
+          <div class="prof-pseudo" id="prof-pseudo">—</div>
+          <div class="prof-showcase-name" id="prof-showcase-name">—</div>
+          <div class="prof-showcase-desc" id="prof-showcase-desc">—</div>
+        </div>
+
+        <div class="prof-stats">
+          <div class="prof-stat">
+            <div class="prof-stat-num" id="prof-stat-count">0</div>
+            <div class="prof-stat-lbl">badges obtenus</div>
+          </div>
+          <div class="prof-stat">
+            <div class="prof-stat-num" id="prof-stat-total">40</div>
+            <div class="prof-stat-lbl">badges au total</div>
+          </div>
+          <div class="prof-stat">
+            <div class="prof-stat-num" id="prof-stat-since">—</div>
+            <div class="prof-stat-lbl">candidat depuis</div>
+          </div>
+        </div>
+
+        <!-- Collection (réutilise le style esp-bc-*) -->
+        <div class="prof-collection">
+          <h2 class="esp-badges-title" style="margin-bottom:20px">Sa collection</h2>
+          <div id="prof-badges-list"></div>
+        </div>
+
+        <!-- Signalement -->
+        <div class="prof-report">
+          <button class="prof-report-btn" onclick="openReportModal()">🚩 Signaler ce profil</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================= MODALE SIGNALEMENT ============================= -->
+<div id="report-modal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeReportModal()">
+  <div class="report-box">
+    <button class="bd-close" onclick="closeReportModal()" aria-label="Fermer">✕</button>
+    <div style="font-size:2rem;text-align:center;margin-bottom:12px">🚩</div>
+    <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);text-align:center;margin-bottom:8px">Signaler ce profil</div>
+    <div style="font-size:.86rem;color:var(--gray);text-align:center;line-height:1.55;margin-bottom:22px">Ton signalement sera examiné. Choisis un motif ci-dessous.</div>
+    <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:18px">
+      <button class="report-reason" onclick="submitReport('pseudo_inapproprie')">Pseudo offensant, insultant ou inapproprié</button>
+      <button class="report-reason" onclick="submitReport('usurpation')">Usurpation d'identité</button>
+      <button class="report-reason" onclick="submitReport('spam')">Spam, publicité, comportement abusif</button>
+      <button class="report-reason" onclick="submitReport('autre')">Autre raison</button>
+    </div>
+    <button class="btn btn-outline" style="width:100%;justify-content:center" onclick="closeReportModal()">Annuler</button>
   </div>
 </div>
 
@@ -4945,6 +5134,293 @@ function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
 }
 
 // ============================================================
+// ANNUAIRE DES CANDIDATS — /candidats
+// ============================================================
+
+var candidatesState = {
+  list: [],           // cache des candidats chargés (avec pseudo + showcase_badge_id + created_at)
+  loaded: false,
+  filter: 'all',      // catégorie de badge vitrine
+  sort: 'recent'      // 'recent' ou 'alpha'
+};
+
+// Charge les profils ayant au moins 1 badge obtenu
+function loadCandidatesList() {
+  if (!window.supabaseClient) return Promise.resolve([]);
+  // On récupère les profils publics (non bannis, non masqués) avec un showcase_badge_id non null
+  // (le showcase est auto-défini sur le 1er badge, donc ça exclut naturellement les "sans badge")
+  return window.supabaseClient
+    .from('profiles')
+    .select('pseudo, showcase_badge_id, created_at')
+    .eq('is_banned', false)
+    .not('showcase_badge_id', 'is', null)
+    .order('created_at', { ascending: false })
+    .limit(500)
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[cand] loadCandidatesList error', res.error);
+        return [];
+      }
+      return res.data || [];
+    })
+    .catch(function(e){ console.warn('[cand] loadCandidatesList exception', e); return []; });
+}
+
+function candFilterByCategory(cat) {
+  candidatesState.filter = cat;
+  document.querySelectorAll('#cand-filter-chips .cand-chip').forEach(function(el){
+    el.classList.toggle('active', el.getAttribute('data-cat') === cat);
+  });
+  renderCandidatesGrid();
+}
+
+function candSetSort(sort) {
+  candidatesState.sort = sort;
+  document.querySelectorAll('.cand-filters .cand-chip[data-sort]').forEach(function(el){
+    el.classList.toggle('active', el.getAttribute('data-sort') === sort);
+  });
+  renderCandidatesGrid();
+}
+
+function renderCandidatesList() {
+  var grid = document.getElementById('cand-grid');
+  var counter = document.getElementById('cand-counter');
+  var empty = document.getElementById('cand-empty');
+  if (!grid || !counter) return;
+
+  counter.textContent = 'Chargement…';
+  grid.innerHTML = '';
+  empty.style.display = 'none';
+
+  loadCandidatesList().then(function(list) {
+    candidatesState.list = list;
+    candidatesState.loaded = true;
+    renderCandidatesGrid();
+  });
+}
+
+function renderCandidatesGrid() {
+  var grid = document.getElementById('cand-grid');
+  var counter = document.getElementById('cand-counter');
+  var empty = document.getElementById('cand-empty');
+  if (!grid || !counter) return;
+
+  var list = candidatesState.list.slice();
+
+  // Filtre par catégorie
+  if (candidatesState.filter !== 'all') {
+    list = list.filter(function(c) {
+      var def = BADGES_DEFINITIONS[c.showcase_badge_id];
+      return def && def.category === candidatesState.filter;
+    });
+  }
+
+  // Tri
+  if (candidatesState.sort === 'alpha') {
+    list.sort(function(a, b){ return a.pseudo.toLowerCase().localeCompare(b.pseudo.toLowerCase()); });
+  } else {
+    list.sort(function(a, b){ return new Date(b.created_at) - new Date(a.created_at); });
+  }
+
+  counter.innerHTML = '<strong>' + list.length + '</strong> candidat' + (list.length > 1 ? 's' : '') + ' ' + (candidatesState.filter === 'all' ? 'au total' : 'dans cette catégorie');
+
+  if (list.length === 0) {
+    grid.innerHTML = '';
+    empty.style.display = 'block';
+    return;
+  }
+  empty.style.display = 'none';
+
+  var html = '';
+  list.forEach(function(c) {
+    var def = BADGES_DEFINITIONS[c.showcase_badge_id] || { icon:'🏆', label:'—', rarity:'commun' };
+    var safePseudo = String(c.pseudo).replace(/[<>]/g, '');
+    html += '<div class="cand-card" onclick="goToProfile(\'' + encodeURIComponent(safePseudo) + '\')">';
+    html +=   '<span class="cand-card-rarity ' + def.rarity + '">' + (BADGE_RARITY_LABELS[def.rarity] || '') + '</span>';
+    html +=   '<div class="cand-card-icon">' + def.icon + '</div>';
+    html +=   '<div class="cand-card-pseudo">' + safePseudo + '</div>';
+    html +=   '<div class="cand-card-badge">' + def.label + '</div>';
+    html += '</div>';
+  });
+  grid.innerHTML = html;
+}
+
+// ============================================================
+// PROFIL INDIVIDUEL — /profil?p=pseudo
+// ============================================================
+
+var currentProfilePseudo = null;
+
+function goToProfile(pseudo) {
+  currentProfilePseudo = decodeURIComponent(pseudo);
+  goTo('profil');
+}
+
+function renderProfile() {
+  var loader = document.getElementById('prof-loader');
+  var notFound = document.getElementById('prof-notfound');
+  var content = document.getElementById('prof-content');
+  if (!loader || !content) return;
+
+  loader.style.display = 'block';
+  notFound.style.display = 'none';
+  content.style.display = 'none';
+
+  var pseudo = currentProfilePseudo;
+  if (!pseudo || !window.supabaseClient) {
+    loader.style.display = 'none';
+    notFound.style.display = 'block';
+    return;
+  }
+
+  // 1. Charger le profil par pseudo_lower
+  window.supabaseClient
+    .from('profiles')
+    .select('memberstack_id, pseudo, showcase_badge_id, created_at, is_banned')
+    .eq('pseudo_lower', pseudo.toLowerCase())
+    .maybeSingle()
+    .then(function(res) {
+      if (res.error || !res.data || res.data.is_banned) {
+        loader.style.display = 'none';
+        notFound.style.display = 'block';
+        return;
+      }
+      var profile = res.data;
+      // 2. Charger ses badges
+      return window.supabaseClient
+        .from('badges_earned')
+        .select('badge_id, earned_at')
+        .eq('memberstack_id', profile.memberstack_id)
+        .then(function(badgesRes) {
+          renderProfileContent(profile, badgesRes.data || []);
+          loader.style.display = 'none';
+          content.style.display = 'block';
+        });
+    })
+    .catch(function(e){
+      console.warn('[profile] error', e);
+      loader.style.display = 'none';
+      notFound.style.display = 'block';
+    });
+}
+
+function renderProfileContent(profile, earnedBadges) {
+  var showcaseDef = BADGES_DEFINITIONS[profile.showcase_badge_id];
+  var ownedSet = new Set(earnedBadges.map(function(b){ return b.badge_id; }));
+
+  // Hero — badge vitrine
+  var icon = document.getElementById('prof-showcase-icon');
+  var rarity = document.getElementById('prof-showcase-rarity');
+  var pseudoEl = document.getElementById('prof-pseudo');
+  var name = document.getElementById('prof-showcase-name');
+  var desc = document.getElementById('prof-showcase-desc');
+
+  pseudoEl.textContent = '@' + profile.pseudo;
+  if (showcaseDef) {
+    icon.textContent = showcaseDef.icon;
+    rarity.textContent = 'Badge ' + (BADGE_RARITY_LABELS[showcaseDef.rarity] || '');
+    rarity.className = 'prof-showcase-rarity ' + showcaseDef.rarity;
+    name.textContent = showcaseDef.label;
+    desc.textContent = showcaseDef.desc;
+  } else {
+    icon.textContent = '🏆';
+    rarity.textContent = '';
+    name.textContent = 'Aucun badge vitrine';
+    desc.textContent = '';
+  }
+
+  // Stats
+  document.getElementById('prof-stat-count').textContent = ownedSet.size;
+  document.getElementById('prof-stat-total').textContent = Object.keys(BADGES_DEFINITIONS).length;
+  var since = new Date(profile.created_at);
+  document.getElementById('prof-stat-since').textContent = since.toLocaleDateString('fr-FR', { month:'short', year:'numeric' });
+
+  // Collection
+  var listEl = document.getElementById('prof-badges-list');
+  if (!listEl) return;
+  var html = '';
+  var byCategory = {};
+  BADGE_CATEGORIES_ORDER.forEach(function(cat){ byCategory[cat] = []; });
+  Object.keys(BADGES_DEFINITIONS).forEach(function(id) {
+    var def = BADGES_DEFINITIONS[id];
+    if (!byCategory[def.category]) byCategory[def.category] = [];
+    byCategory[def.category].push({ id: id, def: def });
+  });
+
+  BADGE_CATEGORIES_ORDER.forEach(function(cat) {
+    var badges = byCategory[cat] || [];
+    if (badges.length === 0) return;
+    var earned = badges.filter(function(b){ return ownedSet.has(b.id); }).length;
+    var total = badges.length;
+    html += '<div class="esp-bc-section open" data-cat="' + cat + '">';
+    html +=   '<div class="esp-bc-section-head">';
+    html +=     '<div class="esp-bc-cat">' + BADGE_CATEGORY_LABELS[cat] + '</div>';
+    html +=     '<div class="esp-bc-count"><strong>' + earned + '</strong> / ' + total + '</div>';
+    html +=   '</div>';
+    html +=   '<div class="esp-bc-body">';
+    badges.forEach(function(b) {
+      var isEarned = ownedSet.has(b.id);
+      var isShowcase = (b.id === profile.showcase_badge_id);
+      var cls = 'esp-bc-item' + (isEarned ? '' : ' locked') + (isShowcase ? ' showcase' : '');
+      html += '<div class="' + cls + '">';
+      if (isShowcase) html += '<div class="esp-bc-showcase-tag">Vitrine</div>';
+      html += '<div class="esp-bc-rarity ' + b.def.rarity + '"></div>';
+      html += '<div class="esp-bc-item-icon">' + (isEarned ? b.def.icon : '🔒') + '</div>';
+      html += '<div class="esp-bc-item-name">' + (isEarned ? b.def.label : '???') + '</div>';
+      html += '</div>';
+    });
+    html +=   '</div>';
+    html += '</div>';
+  });
+  listEl.innerHTML = html;
+}
+
+// ============================================================
+// SIGNALEMENT DE PROFIL
+// ============================================================
+function openReportModal() {
+  var m = document.getElementById('report-modal');
+  if (m) m.classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeReportModal() {
+  var m = document.getElementById('report-modal');
+  if (m) m.classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+function submitReport(reason) {
+  if (!window.supabaseClient || !currentProfilePseudo) {
+    closeReportModal();
+    showToast('⚠️ Service indisponible');
+    return;
+  }
+  var reporterId = (currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id))) || null;
+  window.supabaseClient
+    .from('pseudo_reports')
+    .insert({
+      reported_pseudo: currentProfilePseudo,
+      reporter_memberstack_id: reporterId,
+      reason: reason
+    })
+    .then(function(res) {
+      closeReportModal();
+      if (res.error) {
+        console.warn('[report] insert error', res.error);
+        showToast('⚠️ Le signalement n\'a pas pu être envoyé');
+      } else {
+        showToast('✓ Signalement envoyé. Merci.');
+      }
+    })
+    .catch(function(e){
+      console.warn('[report] exception', e);
+      closeReportModal();
+      showToast('⚠️ Erreur réseau');
+    });
+}
+
+// ============================================================
 // ONGLETS ESPACE CANDIDAT — bascule + rendu conditionnel
 // ============================================================
 
@@ -5173,6 +5649,8 @@ function goTo(id) {
   if (id === 'prepa') { checkAccessGate('prepa'); renderPrepa(); }
   if (id === 'espace') { renderEspace(); }
   if (id === 'demo-espace') { renderDemoEspace(); }
+  if (id === 'candidats') { if (typeof renderCandidatesList === 'function') renderCandidatesList(); }
+  if (id === 'profil') { if (typeof renderProfile === 'function') renderProfile(); }
 }
 
 // Mobile nav
