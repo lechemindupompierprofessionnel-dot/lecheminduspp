@@ -1243,6 +1243,37 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 .pseudo-submit{width:100%;justify-content:center;font-size:.95rem;padding:14px 18px}
 .pseudo-submit:disabled{opacity:.5;cursor:not-allowed;transform:none !important}
 .pseudo-footnote{font-size:.74rem;color:var(--gray-light);text-align:center;margin-top:16px;line-height:1.5}
+
+/* ===== POPUP BADGE GAGNÉ (style Duolingo) ===== */
+#badge-popup{position:fixed;left:50%;top:40px;transform:translateX(-50%) translateY(-200%);z-index:10000;background:white;border:2px solid var(--red);padding:18px 24px;display:flex;align-items:center;gap:18px;min-width:340px;max-width:92vw;box-shadow:0 12px 48px rgba(28,18,12,0.25);transition:transform .55s cubic-bezier(.2,1.4,.4,1),opacity .35s;opacity:0;pointer-events:none}
+#badge-popup.visible{transform:translateX(-50%) translateY(0);opacity:1;pointer-events:all}
+.badge-popup-icon{font-size:2.4rem;flex-shrink:0;line-height:1;animation:none}
+#badge-popup.visible .badge-popup-icon{animation:badgeBounce 1.2s cubic-bezier(.2,1.4,.4,1)}
+@keyframes badgeBounce{
+  0%{transform:scale(0.5) rotate(-20deg)}
+  50%{transform:scale(1.35) rotate(8deg)}
+  75%{transform:scale(0.95) rotate(-4deg)}
+  100%{transform:scale(1) rotate(0)}
+}
+.badge-popup-content{flex:1;min-width:0}
+.badge-popup-label{font-size:.72rem;color:var(--red);font-weight:700;letter-spacing:1.2px;text-transform:uppercase;margin-bottom:2px}
+.badge-popup-label.rare{color:#4a7bd1}
+.badge-popup-label.epique{color:#9240c9}
+.badge-popup-label.legendaire{color:#c08413}
+.badge-popup-name{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--charcoal);line-height:1.25;margin-bottom:4px}
+.badge-popup-desc{font-size:.78rem;color:var(--gray);line-height:1.4}
+.badge-popup-close{background:none;border:none;color:var(--gray-light);font-size:1.2rem;cursor:pointer;padding:4px 8px;flex-shrink:0;line-height:1}
+.badge-popup-close:hover{color:var(--charcoal)}
+.badge-popup-sparkle{position:absolute;top:-8px;right:-8px;font-size:1rem;opacity:0;animation:none}
+#badge-popup.visible .badge-popup-sparkle{animation:sparkle 1.8s ease-out}
+@keyframes sparkle{
+  0%,100%{opacity:0;transform:scale(0.5) rotate(0)}
+  30%,70%{opacity:1;transform:scale(1) rotate(15deg)}
+}
+@media(max-width:600px){
+  #badge-popup{min-width:0;left:10px;right:10px;transform:translateY(-200%);max-width:none}
+  #badge-popup.visible{transform:translateY(0)}
+}
 </style>
 </head>
 <body>
@@ -3208,6 +3239,18 @@ if(window.location.search.indexOf('success') !== -1) {
   </div>
 </div>
 
+<!-- ===== POPUP BADGE GAGNÉ (style Duolingo) ===== -->
+<div id="badge-popup" role="alert" aria-live="polite">
+  <span class="badge-popup-sparkle">✨</span>
+  <div class="badge-popup-icon" id="badge-popup-icon">🏆</div>
+  <div class="badge-popup-content">
+    <div class="badge-popup-label" id="badge-popup-label">Badge débloqué</div>
+    <div class="badge-popup-name" id="badge-popup-name">—</div>
+    <div class="badge-popup-desc" id="badge-popup-desc">—</div>
+  </div>
+  <button class="badge-popup-close" id="badge-popup-close" aria-label="Fermer">✕</button>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-top">
@@ -3663,6 +3706,12 @@ function submitPseudo() {
       syncPseudoToMemberstack(pseudo);
       closePseudoModal();
       showToast('🎉 Bienvenue ' + pseudo + ' !');
+      // Chargement initial des badges + évaluation "login" (statut abonnement notamment)
+      if (typeof loadEarnedBadges === 'function') {
+        loadEarnedBadges().then(function() {
+          if (typeof evaluateBadges === 'function') evaluateBadges('login');
+        });
+      }
     } else {
       btn.disabled = false;
       btn.textContent = 'Valider mon pseudo';
@@ -3710,6 +3759,12 @@ function ensurePseudoForMember(member) {
     } else {
       // Profil existant → on stocke localement pour y accéder ailleurs
       currentMember._profile = profile;
+      // Chargement des badges + évaluation "login" (pour attribuer les badges de statut)
+      if (typeof loadEarnedBadges === 'function') {
+        loadEarnedBadges().then(function() {
+          if (typeof evaluateBadges === 'function') evaluateBadges('login');
+        });
+      }
     }
   });
 }
@@ -3729,6 +3784,354 @@ document.addEventListener('DOMContentLoaded', function() {
   }
   if (btn) {
     btn.addEventListener('click', submitPseudo);
+  }
+});
+
+// ============================================================
+// MODULE BADGES — catalogue, moteur d'évaluation, attribution
+// ============================================================
+// Philosophie : évaluation en temps réel uniquement (pas de rétroactif).
+// Source de vérité : table Supabase badges_earned.
+// Popup Duolingo au déblocage + son Web Audio.
+
+// Catalogue complet des 40 badges + 3 badges de statut abonnement.
+// Chaque badge a : id, label, icon, desc, category, rarity, tier_required
+var BADGES_DEFINITIONS = {
+  // ---------- PARCOURS (8) ----------
+  'parc_premier_pas':   { label: 'Premier pas',        icon: '🌱', desc: 'Tu as fait ton tout premier QCM.',                    category: 'parcours',   rarity: 'commun' },
+  'parc_studieux':      { label: 'Studieux',           icon: '📘', desc: 'Tu as complété 50 QCM.',                                category: 'parcours',   rarity: 'commun' },
+  'parc_centenaire':    { label: 'Centenaire',         icon: '💯', desc: 'Tu as complété 100 QCM.',                               category: 'parcours',   rarity: 'commun' },
+  'parc_tour_complet':  { label: 'Tour complet',       icon: '📚', desc: 'Tu as fait au moins un QCM dans chaque thème.',        category: 'parcours',   rarity: 'commun' },
+  'parc_500_club':      { label: '500 Club',           icon: '🎯', desc: 'Tu as complété 500 QCM.',                               category: 'parcours',   rarity: 'rare' },
+  'parc_millenaire':    { label: 'Millénaire',         icon: '🏛️', desc: 'Tu as complété 1000 QCM.',                              category: 'parcours',   rarity: 'rare' },
+  'parc_explorateur':   { label: 'Explorateur',        icon: '🗺️', desc: 'Tu as tenté les 7 annales officielles.',                category: 'parcours',   rarity: 'rare' },
+  'parc_titan':         { label: 'Titan',              icon: '👑', desc: 'Tu as complété 2500 QCM.',                              category: 'parcours',   rarity: 'epique' },
+
+  // ---------- RÉGULARITÉ — QUOTIDIEN (6) ----------
+  'reg_3_jours':        { label: '3 jours de suite',   icon: '🔥', desc: 'Tu as été actif 3 jours consécutifs.',                 category: 'regularite', rarity: 'commun' },
+  'reg_semaine_pleine': { label: 'Semaine pleine',     icon: '📅', desc: 'Tu as été actif 7 jours consécutifs.',                 category: 'regularite', rarity: 'commun' },
+  'reg_mois_complet':   { label: 'Mois complet',       icon: '🗓️', desc: 'Tu as été actif 30 jours consécutifs.',                category: 'regularite', rarity: 'rare' },
+  'reg_100_jours':      { label: 'Centenaire du streak', icon: '⏳', desc: 'Tu as été actif 100 jours consécutifs.',             category: 'regularite', rarity: 'epique' },
+  'reg_inebranlable':   { label: 'Inébranlable',       icon: '🧱', desc: 'Tu es revenu après une pause et as enchaîné 7 jours.', category: 'regularite', rarity: 'rare' },
+  'reg_marathonien':    { label: 'Marathonien',        icon: '🌅', desc: '6 mois d\'utilisation active.',                         category: 'regularite', rarity: 'epique' },
+
+  // ---------- RÉGULARITÉ — ANCIENNETÉ (5) ----------
+  'anc_1_mois':         { label: '1 mois d\'abonnement',  icon: '📍', desc: 'Tu es abonné continu depuis 1 mois.',               category: 'anciennete', rarity: 'commun' },
+  'anc_3_mois':         { label: '3 mois d\'abonnement',  icon: '🏁', desc: 'Tu es abonné continu depuis 3 mois.',               category: 'anciennete', rarity: 'rare' },
+  'anc_6_mois':         { label: '6 mois d\'abonnement',  icon: '🎖️', desc: 'Tu es abonné continu depuis 6 mois.',              category: 'anciennete', rarity: 'rare' },
+  'anc_12_mois':        { label: '1 an d\'abonnement',    icon: '🏆', desc: 'Tu es abonné continu depuis 12 mois.',              category: 'anciennete', rarity: 'epique' },
+  'anc_24_mois':        { label: '2 ans d\'abonnement',   icon: '💎', desc: 'Tu es abonné continu depuis 24 mois.',              category: 'anciennete', rarity: 'legendaire' },
+
+  // ---------- PERFORMANCE (7) ----------
+  'perf_sans_faute':    { label: 'Sans faute',         icon: '✨', desc: '100% à un QCM de 10 questions ou plus.',                category: 'performance', rarity: 'commun' },
+  'perf_triple':        { label: 'Triple sans faute',  icon: '🎖️', desc: 'Tu as enchaîné 3 sans-faute consécutifs.',             category: 'performance', rarity: 'rare' },
+  'perf_maitre_theme':  { label: 'Maître du thème',    icon: '📊', desc: '3 QCM consécutifs à +90% sur le même thème.',          category: 'performance', rarity: 'rare' },
+  'perf_record_ll':     { label: 'Record Luc Léger',   icon: '🏃', desc: 'Tu as battu ton record personnel de palier.',          category: 'performance', rarity: 'commun' },
+  'perf_ll_palier11':   { label: 'Palier 11',          icon: '💪', desc: 'Tu as atteint le palier 11 au Luc Léger.',             category: 'performance', rarity: 'epique' },
+  'perf_ll_palier9':    { label: 'Palier 9',           icon: '💪', desc: 'Tu as atteint le palier 9 au Luc Léger.',              category: 'performance', rarity: 'epique' },
+  'perf_expert_5':      { label: 'Expert des 5 thèmes', icon: '🏆', desc: 'Badge Maître obtenu sur les 5 thèmes.',                category: 'performance', rarity: 'legendaire' },
+
+  // ---------- INSOLITES (7) ----------
+  'ins_oiseau_nuit':    { label: 'Oiseau de nuit',     icon: '🦉', desc: 'QCM fait entre 23h et 3h.',                             category: 'insolites', rarity: 'commun' },
+  'ins_leve_tot':       { label: 'Lève-tôt',           icon: '🐓', desc: 'QCM fait avant 6h du matin.',                           category: 'insolites', rarity: 'rare' },
+  'ins_weekend':        { label: 'Guerrier du week-end', icon: '🏝️', desc: '4 sessions consécutives en week-end.',                category: 'insolites', rarity: 'commun' },
+  'ins_ferie':          { label: 'Esprit pompier',     icon: '🎄', desc: 'Tu as fait un QCM un jour férié.',                      category: 'insolites', rarity: 'rare' },
+  'ins_pluie':          { label: 'Ça mouille pas',     icon: '🌧️', desc: 'Session 3 jours de suite par temps de pluie.',         category: 'insolites', rarity: 'rare' },
+  'ins_anniversaire':   { label: 'Joyeux anniversaire', icon: '🎂', desc: 'Session le jour de ton anniversaire.',                 category: 'insolites', rarity: 'rare' },
+  'ins_marathon_48h':   { label: 'Marathon 48h',       icon: '🌙', desc: '2 sessions ≥ 30 min en 48h, une tardive et une matinale.', category: 'insolites', rarity: 'epique' },
+
+  // ---------- CONCOURS (4) ----------
+  'con_pret_j':         { label: 'Prêt pour le J',     icon: '🎯', desc: '80%+ de moyenne sur chaque thème (30 QCM min par thème).', category: 'concours', rarity: 'rare' },
+  'con_finaliste':      { label: 'Finaliste',          icon: '⏱️', desc: '3 annales terminées en mode examen chronométré.',     category: 'concours', rarity: 'epique' },
+  'con_admissible':     { label: 'Admissible',         icon: '🏅', desc: 'Tu es admissible au concours SPP.',                    category: 'concours', rarity: 'legendaire', manual: true },
+  'con_laureat':        { label: 'Lauréat SPP',        icon: '🚒', desc: 'Tu as réussi le concours SPP.',                         category: 'concours', rarity: 'legendaire', manual: true },
+
+  // ---------- STATUT ABONNEMENT (3, auto-attribués sur paiement) ----------
+  'statut_2a':          { label: 'Abonné Plateforme',  icon: '📘', desc: 'Tu es abonné à la formule Plateforme.',                category: 'statut', rarity: 'commun', tier_required: '2a' },
+  'statut_2b':          { label: 'Pack Complet',       icon: '🔥', desc: 'Tu es abonné au Pack Complet.',                         category: 'statut', rarity: 'rare', tier_required: '2b' },
+  'statut_3':           { label: 'Premium',            icon: '💎', desc: 'Tu es abonné à l\'Accompagnement Premium.',             category: 'statut', rarity: 'epique', tier_required: '3' }
+};
+
+// Ordre d'affichage des catégories
+var BADGE_CATEGORIES_ORDER = ['parcours','regularite','anciennete','performance','insolites','concours','statut'];
+var BADGE_CATEGORY_LABELS = {
+  parcours:    'Parcours',
+  regularite:  'Régularité',
+  anciennete:  'Ancienneté',
+  performance: 'Performance',
+  insolites:   'Insolites',
+  concours:    'Concours',
+  statut:      'Abonnement'
+};
+var BADGE_RARITY_LABELS = {
+  commun:     'Commun',
+  rare:       'Rare',
+  epique:     'Épique',
+  legendaire: 'Légendaire'
+};
+
+// État local : set des badges déjà obtenus par l'utilisateur courant (pour détection nouveaux)
+var earnedBadgeIds = new Set();
+var earnedBadgesLoaded = false;
+
+// Récupère les badges déjà obtenus depuis Supabase
+function loadEarnedBadges() {
+  if (!window.supabaseClient || !currentMember) return Promise.resolve([]);
+  var memberstackId = currentMember.id || (currentMember.auth && currentMember.auth.id);
+  if (!memberstackId) return Promise.resolve([]);
+  return window.supabaseClient
+    .from('badges_earned')
+    .select('badge_id, earned_at, metadata')
+    .eq('memberstack_id', memberstackId)
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[badges] loadEarnedBadges error', res.error);
+        return [];
+      }
+      earnedBadgeIds = new Set((res.data || []).map(function(b){ return b.badge_id; }));
+      earnedBadgesLoaded = true;
+      return res.data || [];
+    })
+    .catch(function(e){ console.warn('[badges] loadEarnedBadges exception', e); return []; });
+}
+
+// Attribue un badge via RPC Supabase + déclenche la popup
+function awardBadge(badgeId, metadata) {
+  if (!window.supabaseClient || !currentMember) return Promise.resolve(false);
+  if (earnedBadgeIds.has(badgeId)) return Promise.resolve(false); // déjà obtenu
+  var def = BADGES_DEFINITIONS[badgeId];
+  if (!def) { console.warn('[badges] unknown badge_id', badgeId); return Promise.resolve(false); }
+
+  var memberstackId = currentMember.id || (currentMember.auth && currentMember.auth.id);
+  if (!memberstackId) return Promise.resolve(false);
+
+  // Optimistic : on marque comme obtenu localement tout de suite pour éviter double popup
+  earnedBadgeIds.add(badgeId);
+
+  return window.supabaseClient
+    .rpc('award_badge', {
+      p_memberstack_id: memberstackId,
+      p_badge_id: badgeId,
+      p_metadata: metadata || null
+    })
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[badges] award_badge error', res.error);
+        earnedBadgeIds.delete(badgeId); // rollback local
+        return false;
+      }
+      // Popup avec animation + son
+      showBadgePopup(badgeId);
+      return true;
+    })
+    .catch(function(e){
+      console.warn('[badges] award_badge exception', e);
+      earnedBadgeIds.delete(badgeId);
+      return false;
+    });
+}
+
+// Popup Duolingo-style avec son Web Audio
+var badgePopupQueue = [];
+var badgePopupShowing = false;
+
+function showBadgePopup(badgeId) {
+  var def = BADGES_DEFINITIONS[badgeId];
+  if (!def) return;
+  badgePopupQueue.push(def);
+  if (!badgePopupShowing) processBadgePopupQueue();
+}
+
+function processBadgePopupQueue() {
+  if (badgePopupQueue.length === 0) {
+    badgePopupShowing = false;
+    return;
+  }
+  badgePopupShowing = true;
+  var def = badgePopupQueue.shift();
+  var popup = document.getElementById('badge-popup');
+  var iconEl = document.getElementById('badge-popup-icon');
+  var labelEl = document.getElementById('badge-popup-label');
+  var nameEl = document.getElementById('badge-popup-name');
+  var descEl = document.getElementById('badge-popup-desc');
+  if (!popup) { badgePopupShowing = false; return; }
+
+  iconEl.textContent = def.icon || '🏆';
+  labelEl.textContent = 'Badge ' + (BADGE_RARITY_LABELS[def.rarity] || 'débloqué');
+  labelEl.className = 'badge-popup-label ' + (def.rarity || '');
+  nameEl.textContent = def.label || '—';
+  descEl.textContent = def.desc || '';
+
+  popup.classList.add('visible');
+  playBadgeSound(def.rarity);
+
+  // Auto-hide après 4.5s (ou clic sur close)
+  var autoHide = setTimeout(hideBadgePopup, 4500);
+  var closeBtn = document.getElementById('badge-popup-close');
+  if (closeBtn) {
+    closeBtn.onclick = function() { clearTimeout(autoHide); hideBadgePopup(); };
+  }
+}
+
+function hideBadgePopup() {
+  var popup = document.getElementById('badge-popup');
+  if (!popup) return;
+  popup.classList.remove('visible');
+  // Laisse le temps à l'animation de finir, puis enchaîne si queue
+  setTimeout(function() {
+    if (badgePopupQueue.length > 0) {
+      processBadgePopupQueue();
+    } else {
+      badgePopupShowing = false;
+    }
+  }, 600);
+}
+
+// ============================================================
+// SON WEB AUDIO — carillon court à 2 notes selon la rareté
+// ============================================================
+var badgeAudioCtx = null;
+function getBadgeAudioCtx() {
+  if (!badgeAudioCtx) {
+    try { badgeAudioCtx = new (window.AudioContext || window.webkitAudioContext)(); }
+    catch(e) { return null; }
+  }
+  return badgeAudioCtx;
+}
+
+function playBadgeSound(rarity) {
+  var ctx = getBadgeAudioCtx();
+  if (!ctx) return;
+  try { if (ctx.state === 'suspended') ctx.resume(); } catch(e){}
+
+  // Fréquences par rareté : plus l'événement est rare, plus l'accord est "élevé"
+  var freqs;
+  switch (rarity) {
+    case 'legendaire': freqs = [784, 1047, 1319]; break; // Sol - Do - Mi aigu (triolet majeur)
+    case 'epique':     freqs = [659, 988];         break; // Mi - Si (quinte)
+    case 'rare':       freqs = [587, 880];         break; // Ré - La
+    default:           freqs = [523, 784];         break; // Do - Sol (commun)
+  }
+
+  var now = ctx.currentTime;
+  freqs.forEach(function(f, i) {
+    var osc = ctx.createOscillator();
+    var gain = ctx.createGain();
+    osc.type = 'sine';
+    osc.frequency.value = f;
+    var start = now + i * 0.11;
+    var dur = 0.28;
+    // Enveloppe douce (attack rapide, release court)
+    gain.gain.setValueAtTime(0, start);
+    gain.gain.linearRampToValueAtTime(0.22, start + 0.015);
+    gain.gain.exponentialRampToValueAtTime(0.0001, start + dur);
+    osc.connect(gain);
+    gain.connect(ctx.destination);
+    osc.start(start);
+    osc.stop(start + dur + 0.05);
+  });
+}
+
+// ============================================================
+// ÉVALUATEURS DE BADGES
+// ============================================================
+// Chaque evaluator est une fonction qui prend un contexte et attribue
+// les badges correspondants. Appelés par evaluateBadges(trigger, ctx).
+
+// Compte les QCM répondus (source Supabase, fallback local)
+function countTotalAnswers() {
+  // On regarde d'abord le cache local si dispo
+  if (typeof espLoadLocal === 'function') {
+    try {
+      var local = espLoadLocal();
+      if (local && typeof local.totalAnswered === 'number') return Promise.resolve(local.totalAnswered);
+    } catch(e){}
+  }
+  if (!window.supabaseClient || !currentMember) return Promise.resolve(0);
+  var memberstackId = currentMember.id || (currentMember.auth && currentMember.auth.id);
+  return window.supabaseClient
+    .from('qcm_answers')
+    .select('id', { count: 'exact', head: true })
+    .eq('member_id', memberstackId)
+    .then(function(res){ return res.count || 0; })
+    .catch(function(){ return 0; });
+}
+
+// Évalue les badges de Parcours (volume de QCM, thèmes visités)
+function evaluateParcoursBadges(ctx) {
+  countTotalAnswers().then(function(total) {
+    if (total >= 1    && !earnedBadgeIds.has('parc_premier_pas'))  awardBadge('parc_premier_pas',  {at: total});
+    if (total >= 50   && !earnedBadgeIds.has('parc_studieux'))     awardBadge('parc_studieux',     {at: total});
+    if (total >= 100  && !earnedBadgeIds.has('parc_centenaire'))   awardBadge('parc_centenaire',   {at: total});
+    if (total >= 500  && !earnedBadgeIds.has('parc_500_club'))     awardBadge('parc_500_club',     {at: total});
+    if (total >= 1000 && !earnedBadgeIds.has('parc_millenaire'))   awardBadge('parc_millenaire',   {at: total});
+    if (total >= 2500 && !earnedBadgeIds.has('parc_titan'))        awardBadge('parc_titan',        {at: total});
+  });
+  // Tour complet : 5 thèmes distincts touchés au moins une fois
+  if (ctx && ctx.categories && Array.isArray(ctx.categories) && ctx.categories.length >= 5) {
+    if (!earnedBadgeIds.has('parc_tour_complet')) {
+      awardBadge('parc_tour_complet', { themes: ctx.categories });
+    }
+  }
+}
+
+// Évalue les badges de Performance (score sur la session qui vient de finir)
+function evaluatePerformanceBadges(ctx) {
+  if (!ctx || typeof ctx.score !== 'number' || typeof ctx.total !== 'number') return;
+  var pct = ctx.total > 0 ? (ctx.score / ctx.total * 100) : 0;
+  // Sans faute : 100% sur un QCM de 10 questions ou +
+  if (pct === 100 && ctx.total >= 10 && !earnedBadgeIds.has('perf_sans_faute')) {
+    awardBadge('perf_sans_faute', { score: ctx.score, total: ctx.total });
+  }
+}
+
+// Évalue les badges Insolites (basés sur l'heure/date courante)
+function evaluateInsolitesBadges(ctx) {
+  var now = new Date();
+  var hour = now.getHours();
+  // Oiseau de nuit : 23h-3h
+  if ((hour >= 23 || hour < 3) && !earnedBadgeIds.has('ins_oiseau_nuit')) {
+    awardBadge('ins_oiseau_nuit', { hour: hour });
+  }
+  // Lève-tôt : avant 6h
+  if (hour < 6 && !earnedBadgeIds.has('ins_leve_tot')) {
+    awardBadge('ins_leve_tot', { hour: hour });
+  }
+  // Anniversaire : date à comparer avec member birth date si on l'a — skip pour l'instant
+  // (on ajoutera un champ "birthdate" plus tard dans le profil si besoin)
+}
+
+// Évalue les badges Statut en fonction du memberTier courant
+function evaluateStatutBadges() {
+  if (memberTier === '2a' && !earnedBadgeIds.has('statut_2a')) awardBadge('statut_2a');
+  if (memberTier === '2b' && !earnedBadgeIds.has('statut_2b')) awardBadge('statut_2b');
+  if (memberTier === '3'  && !earnedBadgeIds.has('statut_3'))  awardBadge('statut_3');
+}
+
+// Point d'entrée principal : appelé lors d'événements clés.
+// trigger peut être : 'session_end', 'login', 'tier_change'
+function evaluateBadges(trigger, ctx) {
+  if (!currentMember || !earnedBadgesLoaded) return;
+  try {
+    if (trigger === 'session_end') {
+      evaluateParcoursBadges(ctx);
+      evaluatePerformanceBadges(ctx);
+      evaluateInsolitesBadges(ctx);
+    }
+    if (trigger === 'login' || trigger === 'tier_change') {
+      evaluateStatutBadges();
+    }
+  } catch(e) {
+    console.warn('[badges] evaluateBadges exception', e);
+  }
+}
+
+// Listener global pour fermer la popup badge au clic
+document.addEventListener('DOMContentLoaded', function() {
+  var closeBtn = document.getElementById('badge-popup-close');
+  if (closeBtn) {
+    // Le onclick est réassigné à chaque popup, ce listener est là pour sécurité
+    closeBtn.addEventListener('click', function() { hideBadgePopup(); });
   }
 });
 
@@ -4999,6 +5402,13 @@ function espTrackSession(title, cats, sessScore, sessTotal) {
       pct: pct
     }).then(function(res){
       if (res && res.error) console.warn('Supabase insert session :', res.error.message);
+    });
+  }
+  // Évaluation badges de fin de session (Parcours + Performance + Insolites)
+  if (typeof evaluateBadges === 'function') {
+    evaluateBadges('session_end', {
+      title: title, categories: cats || [],
+      score: sessScore, total: sessTotal, pct: pct
     });
   }
 }
