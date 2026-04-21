@@ -5145,15 +5145,11 @@ function renderShareCanvas() {
   var W = canvas.width, H = canvas.height;  // 1080 x 1920 (format story)
   var s = _espShareStats;
 
-  // Choisit une phrase d'accroche selon le profil (priorité forte sur le score)
-  function pickTagline() {
-    if (s.score >= 80 && s.questions >= 100) return { kicker:'OBJECTIF CONCOURS', tag:'Je suis sur la bonne voie.' };
-    if (s.streak >= 7) return { kicker:'DISCIPLINE QUOTIDIENNE', tag:'Chaque jour, je me rapproche.' };
-    if (s.score >= 70) return { kicker:'PROGRESSION SOLIDE', tag:'Le concours n\'attend plus que moi.' };
-    if (s.questions >= 50) return { kicker:'EN ROUTE', tag:'Mon avenir de SPP se construit ici.' };
-    return { kicker:'EN PRÉPARATION', tag:'Je me prépare pour devenir SPP.' };
-  }
-  var tagline = pickTagline();
+  // Phrase d'accroche fixe (plus de variation — cohérence de marque)
+  var tagline = {
+    kicker: 'EN PRÉPARATION',
+    tag: 'Je me prépare pour devenir\nSapeur-Pompier Professionnel'
+  };
 
   // Helper centrage de texte
   function drawCenter(text, y, size, color, weight, font) {
@@ -5163,8 +5159,7 @@ function renderShareCanvas() {
     ctx.fillText(text, W/2, y);
   }
 
-  // === ① FOND : dégradé crème → crème plus chaud (sans couture visible) ===
-  // On garde un style "flat" cohérent avec le site : crème doux uniforme + accent rouge
+  // === ① FOND : crème uniforme, parfaitement lisse ===
   ctx.fillStyle = '#F5F0E8';
   ctx.fillRect(0, 0, W, H);
 
@@ -5172,10 +5167,6 @@ function renderShareCanvas() {
   ctx.fillStyle = '#CC2229';
   ctx.fillRect(0, 0, 14, H);
   ctx.fillRect(W - 14, 0, 14, H);
-
-  // Bande noire tout en haut (casque/flamme stylisé)
-  ctx.fillStyle = '#1C1C1C';
-  ctx.fillRect(14, 0, W - 28, 24);
 
   // === ② LOGO DU SITE (logo.png) en haut centré ===
   // Si le logo est chargé, on l'utilise. Sinon, fallback sur le bouclier vectoriel.
@@ -5203,17 +5194,24 @@ function renderShareCanvas() {
   ctx.textAlign = 'center';
   // Simule le letter-spacing en espaçant les lettres du kicker
   var kickerSpaced = tagline.kicker.split('').join(' ');
-  ctx.fillText(kickerSpaced, W/2, 370);
+  ctx.fillText(kickerSpaced, W/2, 355);
 
-  // Phrase d'accroche (Playfair, italique pour l'émotion)
-  drawCenter(tagline.tag, 460, 78, '#1C1C1C', '900', 'italic "Playfair Display", Georgia, serif');
+  // Phrase d'accroche (Playfair, italique pour l'émotion) — affichée sur 2 lignes
+  // On sépare par \n et on dessine chaque ligne centrée
+  var tagLines = tagline.tag.split('\n');
+  var tagStartY = 430;
+  var tagLineHeight = 70;
+  tagLines.forEach(function(line, i){
+    drawCenter(line, tagStartY + i * tagLineHeight, 56, '#1C1C1C', '900', 'italic "Playfair Display", Georgia, serif');
+  });
 
-  // Trait rouge décoratif sous l'accroche
+  // Trait rouge décoratif sous l'accroche (position ajustée selon nb de lignes)
+  var underY = tagStartY + tagLines.length * tagLineHeight + 15;
   ctx.fillStyle = '#CC2229';
-  ctx.fillRect(W/2 - 80, 500, 160, 4);
+  ctx.fillRect(W/2 - 80, underY, 160, 4);
 
   // === ④ 4 GRANDES STATS EN 2×2 ===
-  var gridTop = 590;
+  var gridTop = underY + 55;
   var gridRowHeight = 210;
   var col1X = W/4;
   var col2X = W * 3/4;
@@ -5259,9 +5257,9 @@ function renderShareCanvas() {
   ctx.fillStyle = barColor;
   ctx.fillRect(barX, barY, fillW, barH);
 
-  // === ⑥ MINI-RADAR (5 axes) — agrandi et placé plus bas ===
+  // === ⑥ MINI-RADAR (5 axes) — dimensionné pour s'harmoniser avec l'accroche 2 lignes ===
   var radarY = barY + 90;
-  var radarR = 185;  // rayon agrandi (était 130) pour meilleure visibilité sans déborder
+  var radarR = 150;  // rayon équilibré, laisse de la place aux labels et à la zone branding
   var radarCx = W/2;
   var radarCy = radarY + radarR;
 
@@ -5291,9 +5289,7 @@ function renderShareCanvas() {
   ctx.fillStyle = '#CC2229';
   ctx.fillRect(W/2 - 280, H - 90, 560, 4);
 
-  // Bande noire tout en bas (symétrie avec le haut)
-  ctx.fillStyle = '#1C1C1C';
-  ctx.fillRect(14, H - 24, W - 28, 24);
+  // Fond uniforme conservé jusqu'en bas — pas de bande interruptive
 }
 
 // === HELPER : Logo SPP stylé (bouclier + flamme) ===
@@ -5401,7 +5397,7 @@ function drawMiniRadar(ctx, cx, cy, R, scores) {
   ctx.fill();
   ctx.stroke();
 
-  // Points aux sommets (plus visibles sur le radar agrandi)
+  // Points aux sommets
   axes.forEach(function(a, i){
     if (scores[a] == null) return;
     var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
@@ -5410,21 +5406,21 @@ function drawMiniRadar(ctx, cx, cy, R, scores) {
     var y = cy + r * Math.sin(angle);
     ctx.fillStyle = '#CC2229';
     ctx.beginPath();
-    ctx.arc(x, y, 10, 0, Math.PI * 2);
+    ctx.arc(x, y, 8, 0, Math.PI * 2);
     ctx.fill();
     ctx.strokeStyle = 'white';
-    ctx.lineWidth = 3;
+    ctx.lineWidth = 2.5;
     ctx.stroke();
   });
 
-  // Labels autour du radar (plus grands pour accompagner le radar agrandi)
+  // Labels autour du radar
   ctx.fillStyle = '#1C1C1C';
-  ctx.font = '600 28px "DM Sans", Arial, sans-serif';
+  ctx.font = '600 26px "DM Sans", Arial, sans-serif';
   axes.forEach(function(a, i){
     var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
-    var labelR = R + 38;
+    var labelR = R + 35;
     var x = cx + labelR * Math.cos(angle);
-    var y = cy + labelR * Math.sin(angle) + 9;
+    var y = cy + labelR * Math.sin(angle) + 8;
     // Alignement selon position horizontale
     if (x < cx - 10) ctx.textAlign = 'right';
     else if (x > cx + 10) ctx.textAlign = 'left';
