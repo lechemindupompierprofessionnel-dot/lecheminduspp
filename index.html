@@ -790,13 +790,38 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 .esp-locked-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:10px}
 .esp-locked-text{font-size:.92rem;color:var(--gray);line-height:1.7;margin-bottom:28px}
 
-/* ===== Onglets sticky de navigation ===== */
-.esp-tabs{position:sticky;top:60px;z-index:50;background:var(--cream);border-bottom:1px solid var(--border);margin:0 -5% 24px;padding:0 5%;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-.esp-tabs::-webkit-scrollbar{display:none}
-.esp-tab{background:none;border:none;padding:16px 18px;font-size:.82rem;font-weight:600;color:var(--gray);cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:.3px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s}
-.esp-tab:hover{color:var(--charcoal)}
-.esp-tab.active{color:var(--red);border-bottom-color:var(--red)}
-.esp-tab-section{scroll-margin-top:120px}
+/* ===== Carrousel de sections ===== */
+.esp-carousel{position:relative;margin:0 0 24px;overflow:hidden}
+.esp-carousel-viewport{overflow:hidden;position:relative}
+.esp-carousel-track{display:flex;transition:transform .35s cubic-bezier(.22,1,.36,1);will-change:transform}
+.esp-carousel-slide{flex:0 0 100%;min-width:100%;padding:0 2px}
+.esp-carousel-slide.is-inactive{pointer-events:none}
+
+/* Barre de navigation sticky du carrousel */
+.esp-car-nav{position:sticky;top:60px;z-index:50;background:var(--cream);border-bottom:1px solid var(--border);margin:0 -5% 20px;padding:14px 5%;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.esp-car-labels{display:flex;align-items:center;gap:4px;overflow-x:auto;flex:1;min-width:0;-webkit-overflow-scrolling:touch}
+.esp-car-labels::-webkit-scrollbar{display:none}
+.esp-car-label{background:none;border:none;padding:8px 14px;font-size:.8rem;font-weight:600;color:var(--gray);cursor:pointer;font-family:'DM Sans',sans-serif;white-space:nowrap;border-radius:0;border-bottom:2px solid transparent;transition:color .15s,border-color .15s}
+.esp-car-label:hover{color:var(--charcoal)}
+.esp-car-label.active{color:var(--red);border-bottom-color:var(--red)}
+.esp-car-arrows{display:flex;gap:8px;flex-shrink:0}
+.esp-car-arrow{background:white;border:1px solid var(--border);width:36px;height:36px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--charcoal);transition:all .15s;padding:0}
+.esp-car-arrow:hover:not(:disabled){border-color:var(--red);color:var(--red)}
+.esp-car-arrow:disabled{opacity:.3;cursor:not-allowed}
+.esp-car-arrow svg{width:18px;height:18px;display:block}
+
+/* Indicateur en bas : dots + compteur */
+.esp-car-footer{display:flex;justify-content:center;align-items:center;gap:16px;margin-top:24px;padding:14px 0}
+.esp-car-dots{display:flex;gap:8px}
+.esp-car-dot{width:8px;height:8px;border-radius:50%;background:var(--border);border:none;padding:0;cursor:pointer;transition:all .15s}
+.esp-car-dot.active{background:var(--red);width:22px;border-radius:4px}
+.esp-car-dot:hover{background:var(--gray-light)}
+.esp-car-counter{font-size:.78rem;color:var(--gray);font-weight:500;letter-spacing:.5px}
+
+/* Indicateur de swipe (uniquement mobile, disparaît après 1er swipe) */
+.esp-swipe-hint{display:none;text-align:center;font-size:.75rem;color:var(--gray-light);margin-top:10px;font-style:italic}
+.esp-swipe-hint.show{display:block;animation:fadeIn .4s}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
 
 /* ===== Message contextualisé (en-tête) ===== */
 .esp-ctx-msg{background:var(--cream2);border:1px solid var(--border);border-left:3px solid var(--red);padding:14px 20px;margin-bottom:24px;font-size:.92rem;color:var(--charcoal);line-height:1.5;display:flex;align-items:center;gap:12px}
@@ -835,6 +860,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .esp-sess-item{grid-template-columns:1fr auto;gap:6px}
   .esp-sess-date{grid-column:1/-1;order:-1}
   .esp-tabs{top:58px}
+  .esp-car-nav{top:58px}
 }
 @media(max-width:560px){
   .esp-stats{grid-template-columns:1fr 1fr}
@@ -844,6 +870,10 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .esp-cat-row{grid-template-columns:1fr}
   .esp-cat-pct{text-align:left}
   .esp-tab{padding:14px 12px;font-size:.78rem}
+  .esp-car-nav{top:58px;padding:10px 5%;gap:8px}
+  .esp-car-label{padding:6px 10px;font-size:.72rem}
+  .esp-car-arrow{width:32px;height:32px}
+  .esp-swipe-hint{display:block}
 }
 
 /* ===== VIEWER PDF PROTÉGÉ ===== */
@@ -2261,16 +2291,32 @@ if(window.location.search.indexOf('success') !== -1) {
         <div class="esp-ctx-msg-text" id="esp-ctx-msg-text"></div>
       </div>
 
-      <!-- ONGLETS DE NAVIGATION STICKY -->
-      <div class="esp-tabs" id="esp-tabs">
-        <button class="esp-tab active" data-tab="overview" onclick="espGoToTab('overview')">Vue d'ensemble</button>
-        <button class="esp-tab" data-tab="radar" onclick="espGoToTab('radar')">Radar</button>
-        <button class="esp-tab" data-tab="evolution" onclick="espGoToTab('evolution')">Évolution</button>
-        <button class="esp-tab" data-tab="categories" onclick="espGoToTab('categories')">Par catégorie</button>
-        <button class="esp-tab" data-tab="history" onclick="espGoToTab('history')">Historique</button>
+      <!-- NAVIGATION CARROUSEL STICKY (remplace les onglets) -->
+      <div class="esp-car-nav" id="esp-car-nav">
+        <div class="esp-car-labels" id="esp-car-labels">
+          <button class="esp-car-label active" data-slide="0" onclick="espCarGoTo(0)">Vue d'ensemble</button>
+          <button class="esp-car-label" data-slide="1" onclick="espCarGoTo(1)">Radar</button>
+          <button class="esp-car-label" data-slide="2" onclick="espCarGoTo(2)">Évolution</button>
+          <button class="esp-car-label" data-slide="3" onclick="espCarGoTo(3)">Par catégorie</button>
+          <button class="esp-car-label" data-slide="4" onclick="espCarGoTo(4)">Historique</button>
+        </div>
+        <div class="esp-car-arrows">
+          <button class="esp-car-arrow" id="esp-car-prev" onclick="espCarPrev()" aria-label="Précédent" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <button class="esp-car-arrow" id="esp-car-next" onclick="espCarNext()" aria-label="Suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div>
       </div>
 
-      <!-- VUE D'ENSEMBLE (#overview) -->
+      <!-- CARROUSEL : une seule section visible à la fois, swipeable -->
+      <div class="esp-carousel" id="esp-carousel">
+        <div class="esp-carousel-viewport" id="esp-car-viewport">
+          <div class="esp-carousel-track" id="esp-car-track">
+
+      <!-- VUE D'ENSEMBLE (#overview — slide 0) -->
+      <div class="esp-carousel-slide" data-slide-index="0">
       <div class="esp-tab-section" id="esp-sec-overview">
       <div class="esp-stats">
         <div class="esp-stat">
@@ -2304,9 +2350,14 @@ if(window.location.search.indexOf('success') !== -1) {
       </div>
 
       </div><!-- /esp-sec-overview -->
+      </div><!-- /slide 0 -->
 
-      <!-- PRIORITÉ DE RÉVISION -->
-      <div class="esp-priority" id="esp-priority" style="display:none;margin-top:36px">
+      <!-- RADAR HEBDOMADAIRE (#radar — slide 1) -->
+      <div class="esp-carousel-slide" data-slide-index="1">
+      <div class="esp-tab-section" id="esp-sec-radar">
+
+      <!-- PRIORITÉ DE RÉVISION (en tête du slide radar) -->
+      <div class="esp-priority" id="esp-priority" style="display:none;margin-bottom:28px">
         <div style="flex:1;min-width:240px">
           <div class="esp-priority-lbl">⚠️ À travailler en priorité</div>
           <div class="esp-priority-cat" id="esp-priority-cat">—</div>
@@ -2315,8 +2366,6 @@ if(window.location.search.indexOf('success') !== -1) {
         <button class="esp-priority-btn" onclick="reviseWeakestCategory()">Réviser ce thème →</button>
       </div>
 
-      <!-- RADAR HEBDOMADAIRE (#radar) -->
-      <div class="esp-tab-section" id="esp-sec-radar">
       <div id="esp-radar-wrap" style="margin-bottom:36px">
         <div style="margin-bottom:8px">
           <div class="esp-eyebrow">🕸️ Ta semaine</div>
@@ -2345,8 +2394,10 @@ if(window.location.search.indexOf('success') !== -1) {
         </div>
       </div>
       </div><!-- /esp-sec-radar -->
+      </div><!-- /slide 1 -->
 
-      <!-- ÉVOLUTION DANS LE TEMPS (#evolution) -->
+      <!-- ÉVOLUTION DANS LE TEMPS (#evolution — slide 2) -->
+      <div class="esp-carousel-slide" data-slide-index="2">
       <div class="esp-tab-section" id="esp-sec-evolution">
       <div style="margin-bottom:8px">
         <div class="esp-eyebrow">📈 Progression</div>
@@ -2362,8 +2413,10 @@ if(window.location.search.indexOf('success') !== -1) {
         </div>
       </div>
       </div><!-- /esp-sec-evolution -->
+      </div><!-- /slide 2 -->
 
-      <!-- PAR CATÉGORIE (#categories) -->
+      <!-- PAR CATÉGORIE (#categories — slide 3) -->
+      <div class="esp-carousel-slide" data-slide-index="3">
       <div class="esp-tab-section" id="esp-sec-categories">
       <!-- PERFORMANCES PAR CATÉGORIE -->
       <div style="margin-bottom:8px">
@@ -2375,8 +2428,10 @@ if(window.location.search.indexOf('success') !== -1) {
         <!-- Rempli dynamiquement -->
       </div>
       </div><!-- /esp-sec-categories -->
+      </div><!-- /slide 3 -->
 
-      <!-- HISTORIQUE (#history) -->
+      <!-- HISTORIQUE (#history — slide 4) -->
+      <div class="esp-carousel-slide" data-slide-index="4">
       <div class="esp-tab-section" id="esp-sec-history">
       <!-- COACHINGS À VENIR -->
       <div id="esp-bookings-wrap" style="display:none;margin-bottom:32px">
@@ -2436,6 +2491,24 @@ if(window.location.search.indexOf('success') !== -1) {
 
       <!-- RESET -->
       </div><!-- /esp-sec-history -->
+      </div><!-- /slide 4 -->
+
+          </div><!-- /esp-car-track -->
+        </div><!-- /esp-car-viewport -->
+
+        <!-- PIED DE PAGE DU CARROUSEL : dots + compteur + hint swipe mobile -->
+        <div class="esp-car-footer">
+          <div class="esp-car-dots" id="esp-car-dots">
+            <button class="esp-car-dot active" data-slide="0" onclick="espCarGoTo(0)" aria-label="Slide 1"></button>
+            <button class="esp-car-dot" data-slide="1" onclick="espCarGoTo(1)" aria-label="Slide 2"></button>
+            <button class="esp-car-dot" data-slide="2" onclick="espCarGoTo(2)" aria-label="Slide 3"></button>
+            <button class="esp-car-dot" data-slide="3" onclick="espCarGoTo(3)" aria-label="Slide 4"></button>
+            <button class="esp-car-dot" data-slide="4" onclick="espCarGoTo(4)" aria-label="Slide 5"></button>
+          </div>
+          <div class="esp-car-counter"><span id="esp-car-current">1</span> / 5</div>
+        </div>
+        <div class="esp-swipe-hint" id="esp-swipe-hint">← Balaie pour naviguer →</div>
+      </div><!-- /esp-carousel -->
 
       <!-- RESET -->
       <div class="esp-reset">
@@ -4392,42 +4465,120 @@ function resetEspaceStats() {
 }
 
 // ================================================================
-// ONGLETS STICKY — Navigation dans l'espace candidat
+// CARROUSEL DE SECTIONS — Remplace les onglets
 // ================================================================
-function espGoToTab(tabName) {
-  // Bascule visuelle de l'onglet actif
-  var tabs = document.querySelectorAll('#esp-tabs .esp-tab');
-  tabs.forEach(function(t){
-    t.classList.toggle('active', t.getAttribute('data-tab') === tabName);
+// 5 slides : 0=Vue d'ensemble  1=Radar  2=Évolution  3=Par catégorie  4=Historique
+var ESP_CAR_TOTAL = 5;
+var _espCarIndex = 0;
+var _espCarInitialized = false;
+var _espSwipeHintShown = false;
+
+function espCarGoTo(index) {
+  if (index < 0 || index >= ESP_CAR_TOTAL) return;
+  _espCarIndex = index;
+  var track = document.getElementById('esp-car-track');
+  if (!track) return;
+  track.style.transform = 'translateX(-' + (index * 100) + '%)';
+
+  // MAJ labels actifs (barre du haut)
+  document.querySelectorAll('.esp-car-label').forEach(function(el){
+    el.classList.toggle('active', parseInt(el.getAttribute('data-slide'), 10) === index);
   });
-  // Scroll smooth vers la section cible
-  var target = document.getElementById('esp-sec-' + tabName);
-  if (target) {
-    var y = target.getBoundingClientRect().top + window.pageYOffset - 110;
-    window.scrollTo({ top: y, behavior: 'smooth' });
+  // MAJ dots (pied de page)
+  document.querySelectorAll('.esp-car-dot').forEach(function(el){
+    el.classList.toggle('active', parseInt(el.getAttribute('data-slide'), 10) === index);
+  });
+  // MAJ compteur
+  var counter = document.getElementById('esp-car-current');
+  if (counter) counter.textContent = (index + 1);
+  // MAJ flèches (enabled/disabled)
+  var prev = document.getElementById('esp-car-prev');
+  var next = document.getElementById('esp-car-next');
+  if (prev) prev.disabled = (index === 0);
+  if (next) next.disabled = (index === ESP_CAR_TOTAL - 1);
+
+  // Désactive les slides inactifs (accessibilité : pas de tab sur contenus cachés)
+  document.querySelectorAll('.esp-carousel-slide').forEach(function(s, i){
+    s.classList.toggle('is-inactive', i !== index);
+    s.setAttribute('aria-hidden', i !== index ? 'true' : 'false');
+  });
+
+  // Scroll doux vers le haut du carrousel si le slide est grand
+  // (seulement si on est déjà en dessous de la barre nav)
+  var nav = document.getElementById('esp-car-nav');
+  if (nav) {
+    var rect = nav.getBoundingClientRect();
+    if (rect.top < 0) {
+      window.scrollTo({ top: nav.offsetTop - 20, behavior: 'smooth' });
+    }
+  }
+
+  // Masque le hint swipe après la première interaction
+  if (!_espSwipeHintShown) {
+    _espSwipeHintShown = true;
+    var hint = document.getElementById('esp-swipe-hint');
+    if (hint) hint.style.display = 'none';
   }
 }
 
-// Synchronisation automatique de l'onglet actif pendant le scroll
-function espSetupTabScrollSync() {
-  if (window._espTabSyncInstalled) return;
-  window._espTabSyncInstalled = true;
-  var sections = ['overview','radar','evolution','categories','history'];
-  window.addEventListener('scroll', function(){
-    // Ne fait rien si on n'est pas sur la page espace
+function espCarNext() { espCarGoTo(Math.min(_espCarIndex + 1, ESP_CAR_TOTAL - 1)); }
+function espCarPrev() { espCarGoTo(Math.max(_espCarIndex - 1, 0)); }
+
+// Initialisation : gestes tactiles, clavier, hint mobile
+function espCarSetup() {
+  if (_espCarInitialized) return;
+  _espCarInitialized = true;
+
+  var viewport = document.getElementById('esp-car-viewport');
+  if (!viewport) return;
+
+  // Swipe tactile (seuil de 50px pour éviter les faux positifs)
+  var touchStartX = 0, touchStartY = 0, touchEndX = 0, touchEndY = 0;
+  var touching = false;
+  viewport.addEventListener('touchstart', function(e){
+    if (!e.touches || e.touches.length !== 1) return;
+    touchStartX = e.touches[0].clientX;
+    touchStartY = e.touches[0].clientY;
+    touching = true;
+  }, { passive: true });
+  viewport.addEventListener('touchmove', function(e){
+    if (!touching || !e.touches || e.touches.length !== 1) return;
+    touchEndX = e.touches[0].clientX;
+    touchEndY = e.touches[0].clientY;
+  }, { passive: true });
+  viewport.addEventListener('touchend', function(){
+    if (!touching) return;
+    touching = false;
+    var dx = touchEndX - touchStartX;
+    var dy = touchEndY - touchStartY;
+    // Uniquement si geste horizontal franc (et pas un scroll vertical)
+    if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
+      if (dx < 0) espCarNext(); else espCarPrev();
+    }
+  }, { passive: true });
+
+  // Navigation clavier
+  document.addEventListener('keydown', function(e){
     var pageEsp = document.getElementById('page-espace');
     if (!pageEsp || !pageEsp.classList.contains('active')) return;
-    var scrollY = window.pageYOffset + 150;
-    var activeSection = sections[0];
-    sections.forEach(function(s){
-      var el = document.getElementById('esp-sec-' + s);
-      if (el && el.offsetTop <= scrollY) activeSection = s;
-    });
-    var tabs = document.querySelectorAll('#esp-tabs .esp-tab');
-    tabs.forEach(function(t){
-      t.classList.toggle('active', t.getAttribute('data-tab') === activeSection);
-    });
-  }, { passive: true });
+    // Évite de déclencher si l'utilisateur tape dans un champ
+    var tag = (e.target && e.target.tagName) || '';
+    if (tag === 'INPUT' || tag === 'TEXTAREA') return;
+    if (e.key === 'ArrowLeft') { espCarPrev(); }
+    else if (e.key === 'ArrowRight') { espCarNext(); }
+  });
+
+  // Affiche le hint swipe sur mobile au premier chargement
+  if (window.innerWidth <= 900) {
+    var hint = document.getElementById('esp-swipe-hint');
+    if (hint && !_espSwipeHintShown) {
+      hint.classList.add('show');
+      // Retire le hint au bout de 4 secondes s'il n'a pas été déclenché
+      setTimeout(function(){
+        if (!_espSwipeHintShown && hint) hint.classList.remove('show');
+      }, 4000);
+    }
+  }
 }
 
 // ================================================================
@@ -4736,13 +4887,22 @@ function openShareModal() {
     var globalPct = totalAnswered > 0 ? Math.round(totalCorrect / totalAnswered * 100) : 0;
     var nbDocs = data.docs.length;
 
+    // Scores du radar (5 axes) pour le mini-radar sur l'image
+    var radarScores = null;
+    try {
+      if (typeof espComputeRadarScores === 'function') {
+        radarScores = espComputeRadarScores(data);
+      }
+    } catch(e) { radarScores = null; }
+
     _espShareStats = {
       firstName: (document.getElementById('esp-name') || {}).textContent || 'Candidat',
       streak: streak,
       sessions: totalSessions,
       questions: totalAnswered,
       score: globalPct,
-      docs: nbDocs
+      docs: nbDocs,
+      radarScores: radarScores
     };
     renderShareCanvas();
     document.getElementById('esp-share-overlay').classList.add('visible');
@@ -4757,19 +4917,20 @@ function renderShareCanvas() {
   var canvas = document.getElementById('esp-share-canvas');
   if (!canvas || !_espShareStats) return;
   var ctx = canvas.getContext('2d');
-  var W = canvas.width, H = canvas.height;
+  var W = canvas.width, H = canvas.height;  // 1080 x 1920 (format story)
   var s = _espShareStats;
 
-  // === Fond crème (identité du site) ===
-  ctx.fillStyle = '#F5F0E8';
-  ctx.fillRect(0, 0, W, H);
+  // Choisit une phrase d'accroche selon le profil (priorité forte sur le score)
+  function pickTagline() {
+    if (s.score >= 80 && s.questions >= 100) return { kicker:'OBJECTIF CONCOURS', tag:'Je suis sur la bonne voie.' };
+    if (s.streak >= 7) return { kicker:'DISCIPLINE QUOTIDIENNE', tag:'Chaque jour, je me rapproche.' };
+    if (s.score >= 70) return { kicker:'PROGRESSION SOLIDE', tag:'Le concours n\'attend plus que moi.' };
+    if (s.questions >= 50) return { kicker:'EN ROUTE', tag:'Mon avenir de SPP se construit ici.' };
+    return { kicker:'EN PRÉPARATION', tag:'Je me prépare pour devenir SPP.' };
+  }
+  var tagline = pickTagline();
 
-  // Bande verticale rouge sur le côté gauche (accent design)
-  ctx.fillStyle = '#CC2229';
-  ctx.fillRect(0, 0, 16, H);
-
-  // === Éléments texte ===
-  // Helper pour centrer du texte
+  // Helper centrage de texte
   function drawCenter(text, y, size, color, weight, font) {
     ctx.fillStyle = color || '#1C1C1C';
     ctx.font = (weight || '400') + ' ' + size + 'px ' + (font || '"DM Sans", Arial, sans-serif');
@@ -4777,63 +4938,259 @@ function renderShareCanvas() {
     ctx.fillText(text, W/2, y);
   }
 
-  // Éyebrow (rouge, uppercase, letter-spacing simulé)
+  // === ① FOND : dégradé crème → crème plus chaud (sans couture visible) ===
+  // On garde un style "flat" cohérent avec le site : crème doux uniforme + accent rouge
+  ctx.fillStyle = '#F5F0E8';
+  ctx.fillRect(0, 0, W, H);
+
+  // Bande rouge verticale à gauche + à droite (cadre subtil, identité forte)
   ctx.fillStyle = '#CC2229';
-  ctx.font = '700 36px "DM Sans", Arial, sans-serif';
+  ctx.fillRect(0, 0, 14, H);
+  ctx.fillRect(W - 14, 0, 14, H);
+
+  // Bande noire tout en haut (casque/flamme stylisé)
+  ctx.fillStyle = '#1C1C1C';
+  ctx.fillRect(14, 0, W - 28, 24);
+
+  // === ② LOGO SPP STYLISÉ (casque + flamme, en haut centré) ===
+  // On dessine un logo vectoriel minimaliste : bouclier rouge avec une flamme centrale
+  drawShieldLogo(ctx, W/2, 160, 100); // cx, cy, taille
+
+  // === ③ KICKER + PHRASE D'ACCROCHE ÉMOTIONNELLE ===
+  ctx.fillStyle = '#CC2229';
+  ctx.font = '700 32px "DM Sans", Arial, sans-serif';
   ctx.textAlign = 'center';
-  ctx.fillText('M A   P R É P A   S P P', W/2, 180);
+  // Simule le letter-spacing en espaçant les lettres du kicker
+  var kickerSpaced = tagline.kicker.split('').join(' ');
+  ctx.fillText(kickerSpaced, W/2, 290);
 
-  // Titre principal (serif)
-  drawCenter('Mes statistiques', 320, 88, '#1C1C1C', '900', '"Playfair Display", Georgia, serif');
-  drawCenter('de préparation', 420, 88, '#1C1C1C', '900', '"Playfair Display", Georgia, serif');
+  // Phrase d'accroche (Playfair, italique pour l'émotion)
+  drawCenter(tagline.tag, 400, 78, '#1C1C1C', '900', 'italic "Playfair Display", Georgia, serif');
 
-  // Petit trait rouge sous le titre
+  // Trait rouge décoratif sous l'accroche
   ctx.fillStyle = '#CC2229';
-  ctx.fillRect(W/2 - 60, 470, 120, 5);
+  ctx.fillRect(W/2 - 80, 440, 160, 4);
 
-  // === 4 grands chiffres en 2x2 ===
-  // Position de la grille
-  var gridTop = 620;
-  var gridRowHeight = 280;
+  // === ④ 4 GRANDES STATS EN 2×2 ===
+  var gridTop = 540;
+  var gridRowHeight = 230;
   var col1X = W/4;
   var col2X = W * 3/4;
 
   function drawStat(x, y, bigText, label) {
-    // Big number (playfair, red)
     ctx.fillStyle = '#CC2229';
-    ctx.font = '900 130px "Playfair Display", Georgia, serif';
+    ctx.font = '900 110px "Playfair Display", Georgia, serif';
     ctx.textAlign = 'center';
     ctx.fillText(bigText, x, y);
-    // Label (DM Sans, gray, uppercase)
     ctx.fillStyle = '#6B6560';
-    ctx.font = '600 28px "DM Sans", Arial, sans-serif';
-    ctx.fillText(label, x, y + 70);
+    ctx.font = '600 26px "DM Sans", Arial, sans-serif';
+    ctx.fillText(label, x, y + 58);
   }
 
-  drawStat(col1X, gridTop + 100, s.streak + '', s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF');
-  drawStat(col2X, gridTop + 100, s.sessions + '', s.sessions > 1 ? 'SESSIONS QCM' : 'SESSION QCM');
-  drawStat(col1X, gridTop + gridRowHeight + 100, s.questions + '', 'QUESTIONS');
-  drawStat(col2X, gridTop + gridRowHeight + 100, (s.score > 0 ? s.score + '%' : '—'), 'SCORE GLOBAL');
+  drawStat(col1X, gridTop + 90, s.streak + '', s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF');
+  drawStat(col2X, gridTop + 90, s.sessions + '', s.sessions > 1 ? 'SESSIONS QCM' : 'SESSION QCM');
+  drawStat(col1X, gridTop + gridRowHeight + 90, s.questions + '', 'QUESTIONS');
+  drawStat(col2X, gridTop + gridRowHeight + 90, (s.score > 0 ? s.score + '%' : '—'), 'SCORE GLOBAL');
 
-  // Stat bonus : documents lus (plus petit, sous la grille)
-  if (s.docs > 0) {
-    ctx.fillStyle = '#1C1C1C';
-    ctx.font = '400 34px "DM Sans", Arial, sans-serif';
+  // === ⑤ BARRE DE PROGRESSION VISUELLE (score global) ===
+  var barY = gridTop + 2*gridRowHeight + 70;
+  var barX = 120;
+  var barW = W - 240;
+  var barH = 18;
+  // Label au-dessus de la barre
+  ctx.fillStyle = '#6B6560';
+  ctx.font = '600 22px "DM Sans", Arial, sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('MON NIVEAU GLOBAL', barX, barY - 20);
+  ctx.textAlign = 'right';
+  ctx.fillStyle = '#1C1C1C';
+  ctx.font = '700 26px "DM Sans", Arial, sans-serif';
+  ctx.fillText((s.score > 0 ? s.score + '%' : '—'), barX + barW, barY - 18);
+  // Fond de la barre
+  ctx.fillStyle = 'rgba(28,28,28,0.08)';
+  ctx.fillRect(barX, barY, barW, barH);
+  // Remplissage coloré selon le score
+  var barColor = '#CC2229';
+  if (s.score >= 85) barColor = '#2F7D3A';
+  else if (s.score >= 70) barColor = '#5DA862';
+  else if (s.score >= 50) barColor = '#E89005';
+  var fillW = Math.max(8, (s.score/100) * barW);
+  ctx.fillStyle = barColor;
+  ctx.fillRect(barX, barY, fillW, barH);
+
+  // === ⑥ MINI-RADAR (5 axes) si données dispo ===
+  var radarY = barY + 90;
+  var radarR = 130;  // rayon du mini-radar
+  var radarCx = W/2;
+  var radarCy = radarY + radarR;
+
+  if (s.radarScores && typeof s.radarScores === 'object') {
+    drawMiniRadar(ctx, radarCx, radarCy, radarR, s.radarScores);
+  } else {
+    // Fallback : une ligne de texte pour combler l'espace si pas de données
+    ctx.fillStyle = '#a8a196';
+    ctx.font = '400 26px "DM Sans", Arial, sans-serif';
     ctx.textAlign = 'center';
-    ctx.fillText('+ ' + s.docs + ' document' + (s.docs > 1 ? 's' : '') + ' consulté' + (s.docs > 1 ? 's' : ''), W/2, gridTop + 2*gridRowHeight + 110);
+    ctx.fillText('Mon suivi détaillé par thème', W/2, radarY + 40);
   }
 
-  // === Zone basse : branding ===
+  // === ⑦ ZONE BASSE : BRANDING FORT ===
   // Séparateur
   ctx.fillStyle = 'rgba(28,28,28,0.1)';
   ctx.fillRect(W/4, H - 310, W/2, 1);
 
-  // Tagline
-  drawCenter('Je prépare le concours', H - 230, 38, '#6B6560', '400', '"DM Sans", Arial, sans-serif');
-  drawCenter('Caporal Sapeur-Pompier Professionnel', H - 185, 38, '#6B6560', '400', '"DM Sans", Arial, sans-serif');
+  // Tagline avant le site
+  drawCenter('Ma plateforme de préparation au concours', H - 230, 32, '#6B6560', '400', '"DM Sans", Arial, sans-serif');
+  drawCenter('Caporal Sapeur-Pompier Professionnel', H - 190, 32, '#6B6560', '400', '"DM Sans", Arial, sans-serif');
 
-  // Site (gros, charcoal)
-  drawCenter('lecheminduspp.fr', H - 100, 60, '#1C1C1C', '700', '"DM Sans", Arial, sans-serif');
+  // NOM DU SITE (très visible, gros, rouge) — c'est la partie "pub gratuite"
+  drawCenter('lecheminduspp.fr', H - 110, 78, '#CC2229', '900', '"DM Sans", Arial, sans-serif');
+
+  // Soulignement épais sous le site pour le faire ressortir
+  ctx.fillStyle = '#CC2229';
+  ctx.fillRect(W/2 - 280, H - 90, 560, 4);
+
+  // Bande noire tout en bas (symétrie avec le haut)
+  ctx.fillStyle = '#1C1C1C';
+  ctx.fillRect(14, H - 24, W - 28, 24);
+}
+
+// === HELPER : Logo SPP stylé (bouclier + flamme) ===
+function drawShieldLogo(ctx, cx, cy, size) {
+  // Bouclier rouge
+  ctx.fillStyle = '#CC2229';
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - size * 0.9);
+  ctx.bezierCurveTo(cx + size * 0.85, cy - size * 0.85, cx + size * 0.85, cy - size * 0.3, cx + size * 0.7, cy + size * 0.2);
+  ctx.bezierCurveTo(cx + size * 0.45, cy + size * 0.75, cx, cy + size * 0.95, cx, cy + size * 0.95);
+  ctx.bezierCurveTo(cx, cy + size * 0.95, cx - size * 0.45, cy + size * 0.75, cx - size * 0.7, cy + size * 0.2);
+  ctx.bezierCurveTo(cx - size * 0.85, cy - size * 0.3, cx - size * 0.85, cy - size * 0.85, cx, cy - size * 0.9);
+  ctx.closePath();
+  ctx.fill();
+
+  // Bordure cream à l'intérieur (effet double)
+  ctx.strokeStyle = '#F5F0E8';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(cx, cy - size * 0.75);
+  ctx.bezierCurveTo(cx + size * 0.7, cy - size * 0.7, cx + size * 0.7, cy - size * 0.2, cx + size * 0.58, cy + size * 0.2);
+  ctx.bezierCurveTo(cx + size * 0.37, cy + size * 0.62, cx, cy + size * 0.78, cx, cy + size * 0.78);
+  ctx.bezierCurveTo(cx, cy + size * 0.78, cx - size * 0.37, cy + size * 0.62, cx - size * 0.58, cy + size * 0.2);
+  ctx.bezierCurveTo(cx - size * 0.7, cy - size * 0.2, cx - size * 0.7, cy - size * 0.7, cx, cy - size * 0.75);
+  ctx.closePath();
+  ctx.stroke();
+
+  // Flamme blanche au centre (stylisée)
+  ctx.fillStyle = '#F5F0E8';
+  ctx.beginPath();
+  // Base de la flamme
+  ctx.moveTo(cx, cy + size * 0.35);
+  // Côté droit qui monte en ondulant
+  ctx.bezierCurveTo(cx + size * 0.28, cy + size * 0.15, cx + size * 0.2, cy - size * 0.05, cx + size * 0.12, cy - size * 0.25);
+  ctx.bezierCurveTo(cx + size * 0.08, cy - size * 0.35, cx + size * 0.18, cy - size * 0.4, cx + size * 0.1, cy - size * 0.5);
+  // Pointe
+  ctx.bezierCurveTo(cx + size * 0.05, cy - size * 0.55, cx, cy - size * 0.45, cx, cy - size * 0.35);
+  ctx.bezierCurveTo(cx - size * 0.05, cy - size * 0.45, cx - size * 0.1, cy - size * 0.55, cx - size * 0.1, cy - size * 0.5);
+  // Côté gauche en redescendant
+  ctx.bezierCurveTo(cx - size * 0.18, cy - size * 0.4, cx - size * 0.08, cy - size * 0.35, cx - size * 0.12, cy - size * 0.25);
+  ctx.bezierCurveTo(cx - size * 0.2, cy - size * 0.05, cx - size * 0.28, cy + size * 0.15, cx, cy + size * 0.35);
+  ctx.closePath();
+  ctx.fill();
+
+  // Petite flamme intérieure rouge (détail)
+  ctx.fillStyle = '#CC2229';
+  ctx.beginPath();
+  ctx.moveTo(cx, cy + size * 0.25);
+  ctx.bezierCurveTo(cx + size * 0.12, cy + size * 0.1, cx + size * 0.1, cy - size * 0.1, cx + size * 0.05, cy - size * 0.25);
+  ctx.bezierCurveTo(cx + size * 0.02, cy - size * 0.32, cx, cy - size * 0.2, cx, cy - size * 0.15);
+  ctx.bezierCurveTo(cx, cy - size * 0.2, cx - size * 0.02, cy - size * 0.32, cx - size * 0.05, cy - size * 0.25);
+  ctx.bezierCurveTo(cx - size * 0.1, cy - size * 0.1, cx - size * 0.12, cy + size * 0.1, cx, cy + size * 0.25);
+  ctx.closePath();
+  ctx.fill();
+}
+
+// === HELPER : Mini-radar sur l'image de partage ===
+function drawMiniRadar(ctx, cx, cy, R, scores) {
+  var axes = ['statut', 'sis', 'doctrines', 'secourisme', 'textes'];
+  var labels = {
+    statut: 'Statut', sis: 'SIS', doctrines: 'Doctrines',
+    secourisme: 'Secourisme', textes: 'Textes'
+  };
+  var n = axes.length;
+
+  // Vérifie qu'on a au moins un score
+  var hasData = axes.some(function(a){ return scores[a] != null; });
+  if (!hasData) return;
+
+  // Anneaux de graduation (25, 50, 75, 100%)
+  [25, 50, 75, 100].forEach(function(pct){
+    var r = (pct/100) * R;
+    ctx.strokeStyle = pct === 100 ? 'rgba(28,28,28,0.3)' : 'rgba(28,28,28,0.12)';
+    ctx.lineWidth = pct === 100 ? 1.5 : 1;
+    ctx.beginPath();
+    ctx.arc(cx, cy, r, 0, Math.PI * 2);
+    ctx.stroke();
+  });
+
+  // Axes radiaux
+  ctx.strokeStyle = 'rgba(28,28,28,0.15)';
+  ctx.lineWidth = 1;
+  axes.forEach(function(a, i){
+    var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
+    ctx.beginPath();
+    ctx.moveTo(cx, cy);
+    ctx.lineTo(cx + R * Math.cos(angle), cy + R * Math.sin(angle));
+    ctx.stroke();
+  });
+
+  // Polygone des scores (rouge transparent + contour rouge plein)
+  ctx.fillStyle = 'rgba(204, 34, 41, 0.22)';
+  ctx.strokeStyle = '#CC2229';
+  ctx.lineWidth = 2.5;
+  ctx.beginPath();
+  axes.forEach(function(a, i){
+    var score = scores[a] != null ? scores[a] : 0;
+    var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
+    var r = (score/100) * R;
+    var x = cx + r * Math.cos(angle);
+    var y = cy + r * Math.sin(angle);
+    if (i === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+  });
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  // Points aux sommets
+  axes.forEach(function(a, i){
+    if (scores[a] == null) return;
+    var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
+    var r = (scores[a]/100) * R;
+    var x = cx + r * Math.cos(angle);
+    var y = cy + r * Math.sin(angle);
+    ctx.fillStyle = '#CC2229';
+    ctx.beginPath();
+    ctx.arc(x, y, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.strokeStyle = 'white';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  });
+
+  // Labels autour du radar
+  ctx.fillStyle = '#1C1C1C';
+  ctx.font = '600 22px "DM Sans", Arial, sans-serif';
+  axes.forEach(function(a, i){
+    var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
+    var labelR = R + 32;
+    var x = cx + labelR * Math.cos(angle);
+    var y = cy + labelR * Math.sin(angle) + 7;
+    // Alignement selon position horizontale
+    if (x < cx - 10) ctx.textAlign = 'right';
+    else if (x > cx + 10) ctx.textAlign = 'left';
+    else ctx.textAlign = 'center';
+    ctx.fillText(labels[a], x, y);
+  });
+  ctx.textAlign = 'center'; // reset
 }
 
 function downloadShareImage() {
@@ -4996,8 +5353,8 @@ function renderEspace() {
   locked.style.display = 'none';
   content.style.display = 'block';
 
-  // Active la synchro scroll → onglets (une seule fois par session)
-  espSetupTabScrollSync();
+  // Active le carrousel (swipe, clavier, etc. — une seule fois par session)
+  espCarSetup();
 
   // Affiche déjà la version locale immédiatement (rapide)
   _renderEspaceWith(espLoadLocal());
