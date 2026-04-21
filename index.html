@@ -134,6 +134,21 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .cd-num{font-family:'Playfair Display',serif;font-size:1.8rem;line-height:1;color:white}
 .cd-unit{font-size:.65rem;color:var(--cream4);letter-spacing:2px;text-transform:uppercase;margin-top:3px}
 
+/* ===== BANDEAU EBOOK GRATUIT (page d'accueil uniquement) ===== */
+.ebook-banner{background:var(--red-pale);border-top:1px solid var(--red-pale2);border-bottom:1px solid var(--red-pale2);padding:14px 5%;display:flex;align-items:center;justify-content:center;gap:18px;flex-wrap:wrap;cursor:pointer;transition:background .18s}
+.ebook-banner:hover{background:var(--red-pale2)}
+.ebook-banner-badge{background:var(--red);color:white;font-size:.68rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 10px}
+.ebook-banner-text{font-size:.92rem;color:var(--charcoal);line-height:1.4}
+.ebook-banner-text strong{color:var(--red-dark);font-weight:700}
+.ebook-banner-cta{font-size:.82rem;font-weight:700;color:var(--red);letter-spacing:.5px}
+.ebook-banner-cta::after{content:' →';transition:transform .18s;display:inline-block}
+.ebook-banner:hover .ebook-banner-cta::after{transform:translateX(4px)}
+@media(max-width:700px){
+  .ebook-banner{padding:12px 5%;gap:10px}
+  .ebook-banner-text{font-size:.82rem;text-align:center}
+  .ebook-banner-badge{font-size:.62rem;padding:3px 8px}
+}
+
 /* ===== HERO ===== */
 .hero{min-height:calc(100vh - 68px);margin-top:68px;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:60px 5%;gap:60px;background:var(--cream);position:relative;overflow:hidden}
 .hero::before{content:'';position:absolute;top:0;right:0;bottom:0;width:48%;background:var(--cream2);clip-path:polygon(10% 0,100% 0,100% 100%,0 100%);z-index:0}
@@ -1269,7 +1284,6 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
     </div>
   </div>
   <div class="nav-right">
-    <button class="nav-ebook" onclick="openPopup()">Ebook gratuit</button>
     <!-- Bouton affiché si non connecté -->
     <button class="member-btn" id="nav-login-btn" onclick="goTo('connexion')">Mon espace →</button>
     <!-- Affiché si connecté -->
@@ -1298,6 +1312,12 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 
 <!-- ============================= PAGE: HOME ============================= -->
 <div class="page active" id="page-home">
+  <!-- Bandeau ebook gratuit (page d'accueil uniquement, masqué si déjà reçu ou payé) -->
+  <div class="ebook-banner" id="ebook-banner-home" onclick="openPopup()">
+    <span class="ebook-banner-badge">Gratuit</span>
+    <span class="ebook-banner-text">Reçois mon <strong>ebook gratuit</strong> de préparation au concours SPP</span>
+    <span class="ebook-banner-cta">Le recevoir</span>
+  </div>
   <div class="hero" style="margin-top:0">
     <div class="hero-left">
       <div class="hero-tag"><span>🔥 Préparation complète au concours SPP</span></div>
@@ -6415,6 +6435,10 @@ function updateNavMember(member) {
     // 'is-logged' = simplement connecté (avec ou sans paiement)
     document.body.classList.add('is-logged');
     document.body.classList.toggle('is-member', isPaidMember);
+    // Masque le bandeau ebook sur la home si l'utilisateur est un membre payant
+    if (typeof window.syncEbookBannerVisibility === 'function') {
+      window.syncEbookBannerVisibility();
+    }
     loginBtn.style.display  = 'none';
     logoutBtn.style.display = 'inline-flex';
     // L'espace candidat contient des stats personnelles réservées aux payants
@@ -8014,9 +8038,37 @@ var EBOOK_DOWNLOAD_LINK = 'https://lecheminduspp.fr/ebook-gratuit.pdf';
 (function() {
   try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch(e) {}
 
-  var STORAGE_KEY = 'spp_popup_done';
+  // Deux clés persistantes (localStorage — survit aux sessions) :
+  // - spp_ebook_received : true = l'utilisateur a déjà reçu l'ebook → plus jamais de popup
+  // - spp_popup_dismissed_date : date ISO du dernier dismiss → pas de popup sur la même journée
+  var KEY_RECEIVED = 'spp_ebook_received';
+  var KEY_DISMISSED = 'spp_popup_dismissed_date';
+
+  // Un utilisateur ne doit JAMAIS voir le popup si :
+  //  1. Il a déjà reçu l'ebook (formulaire soumis avec succès)
+  //  2. Il est membre payant (a acheté un produit du site)
+  function shouldSkipPopupForever() {
+    if (localStorage.getItem(KEY_RECEIVED) === '1') return true;
+    if (typeof isPaidMember !== 'undefined' && isPaidMember === true) return true;
+    return false;
+  }
+
+  // Masque aussi le bandeau ebook sur la page d'accueil si l'utilisateur n'a plus à le voir
+  function syncEbookBannerVisibility() {
+    var banner = document.getElementById('ebook-banner-home');
+    if (!banner) return;
+    banner.style.display = shouldSkipPopupForever() ? 'none' : '';
+  }
 
   window.openPopup = function() {
+    // Même depuis le bandeau ou un autre bouton, on respecte le "jamais plus" si déjà reçu/payé
+    if (shouldSkipPopupForever()) {
+      if (typeof showToast === 'function') {
+        showToast('Tu as déjà reçu l\'ebook !');
+      }
+      syncEbookBannerVisibility();
+      return;
+    }
     var formArea = document.getElementById('popup-form-area');
     var success  = document.getElementById('popup-success');
     if (formArea) formArea.style.display = '';
@@ -8030,7 +8082,9 @@ var EBOOK_DOWNLOAD_LINK = 'https://lecheminduspp.fr/ebook-gratuit.pdf';
 
   window.closePopup = function() {
     document.getElementById('popup-overlay').classList.remove('visible');
-    sessionStorage.setItem(STORAGE_KEY, '1');
+    // On enregistre juste la date du dismiss (pas pour toujours — il peut rouvrir le popup
+    // depuis le bandeau plus tard s'il change d'avis)
+    localStorage.setItem(KEY_DISMISSED, new Date().toISOString().slice(0, 10));
   };
 
   // Boutons popup liés proprement — pas d'attributs inline
@@ -8054,7 +8108,9 @@ var EBOOK_DOWNLOAD_LINK = 'https://lecheminduspp.fr/ebook-gratuit.pdf';
     function onSuccess() {
       document.getElementById('popup-form-area').style.display = 'none';
       document.getElementById('popup-success').classList.add('show');
-      sessionStorage.setItem(STORAGE_KEY, '1');
+      // Marqueur persistant : cet utilisateur ne reverra plus jamais le popup ebook
+      localStorage.setItem(KEY_RECEIVED, '1');
+      syncEbookBannerVisibility();
     }
     function onError() {
       btn.disabled = false;
@@ -8076,10 +8132,20 @@ var EBOOK_DOWNLOAD_LINK = 'https://lecheminduspp.fr/ebook-gratuit.pdf';
     }).then(onSuccess).catch(onError);
   });
 
-  // Affichage automatique après 3 secondes (une seule fois par session)
+  // Auto-ouverture : on attend 3s puis on vérifie si on doit afficher le popup.
+  // - Jamais si : ebook déjà reçu OU membre payant
+  // - Jamais non plus si l'utilisateur a déjà fermé le popup aujourd'hui
   setTimeout(function() {
-    if (!sessionStorage.getItem(STORAGE_KEY)) window.openPopup();
+    syncEbookBannerVisibility();
+    if (shouldSkipPopupForever()) return;
+    var todayDismissed = localStorage.getItem(KEY_DISMISSED) === new Date().toISOString().slice(0, 10);
+    if (todayDismissed) return;
+    window.openPopup();
   }, 3000);
+
+  // Re-sync la visibilité du bandeau à chaque changement de page (au cas où isPaidMember
+  // change suite à un paiement dans la session courante)
+  window.syncEbookBannerVisibility = syncEbookBannerVisibility;
 })();
 </script>
 </body>
