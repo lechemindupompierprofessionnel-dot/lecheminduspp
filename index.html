@@ -6526,7 +6526,7 @@ async function loginMember() {
     var result = await ms.loginMemberEmailPassword({ email: email, password: password });
     updateNavMember(result.data.member);
     showToast('✅ Connecté ! Bienvenue.');
-    goTo('qcm');
+    goTo('espace');
   } catch(e) {
     err.classList.add('show');
     btn.disabled = false;
