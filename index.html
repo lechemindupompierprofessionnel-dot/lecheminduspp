@@ -912,8 +912,19 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 @media(max-width:700px){
   #pdf-viewer-box{height:96vh;max-width:100%}
   .pdf-viewer-title{font-size:.9rem}
-  #esp-radar-card{padding:20px 18px}
+  /* Radar : prend toute la largeur dispo, padding minimal pour maximiser le dessin */
+  #esp-radar-card{padding:16px 10px}
+  #esp-radar-canvas{max-width:100% !important;margin:0 auto 8px !important}
   #esp-radar-bottom{grid-template-columns:1fr !important;gap:20px !important}
+  /* Graphique d'évolution : padding réduit + canvas pleine largeur */
+  .esp-evolution{padding:18px 10px}
+  #esp-evolution-canvas svg{max-width:100% !important}
+  .esp-evo-legend{gap:8px 14px !important;font-size:.78rem}
+  /* Priorité à travailler : plus d'espace pour le texte + empilement vertical */
+  .esp-priority{padding:20px 18px;flex-direction:column;align-items:stretch;gap:14px}
+  .esp-priority-cat{font-size:1.25rem;line-height:1.3}
+  .esp-priority-desc{font-size:.85rem;max-width:100%}
+  .esp-priority-btn{width:100%;padding:14px 20px}
 }
 
 /* ===== MODAL VERROU (unique) ===== */
@@ -2313,14 +2324,6 @@ if(window.location.search.indexOf('success') !== -1) {
           <button class="esp-car-label" data-slide="2" onclick="espCarGoTo(2)">Évolution</button>
           <button class="esp-car-label" data-slide="3" onclick="espCarGoTo(3)">Par catégorie</button>
           <button class="esp-car-label" data-slide="4" onclick="espCarGoTo(4)">Historique</button>
-        </div>
-        <div class="esp-car-arrows">
-          <button class="esp-car-arrow" id="esp-car-prev" onclick="espCarPrev()" aria-label="Précédent" disabled>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-          </button>
-          <button class="esp-car-arrow" id="esp-car-next" onclick="espCarNext()" aria-label="Suivant">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-          </button>
         </div>
       </div>
 
@@ -4532,14 +4535,12 @@ function espCarGoTo(index) {
     s.setAttribute('aria-hidden', i !== index ? 'true' : 'false');
   });
 
-  // Scroll doux vers le haut du carrousel si le slide est grand
-  // (seulement si on est déjà en dessous de la barre nav)
+  // Scroll systématique vers le haut du carrousel à chaque changement de slide
+  // (pour que l'utilisateur voie bien le début du nouveau contenu)
   var nav = document.getElementById('esp-car-nav');
   if (nav) {
-    var rect = nav.getBoundingClientRect();
-    if (rect.top < 0) {
-      window.scrollTo({ top: nav.offsetTop - 20, behavior: 'smooth' });
-    }
+    var navTop = nav.offsetTop - 20;
+    window.scrollTo({ top: Math.max(0, navTop), behavior: 'smooth' });
   }
 
   // Masque le hint swipe après la première interaction
