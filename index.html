@@ -790,6 +790,43 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 .esp-locked-title{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:10px}
 .esp-locked-text{font-size:.92rem;color:var(--gray);line-height:1.7;margin-bottom:28px}
 
+/* ===== Onglets sticky de navigation ===== */
+.esp-tabs{position:sticky;top:60px;z-index:50;background:var(--cream);border-bottom:1px solid var(--border);margin:0 -5% 24px;padding:0 5%;display:flex;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.esp-tabs::-webkit-scrollbar{display:none}
+.esp-tab{background:none;border:none;padding:16px 18px;font-size:.82rem;font-weight:600;color:var(--gray);cursor:pointer;font-family:'DM Sans',sans-serif;letter-spacing:.3px;white-space:nowrap;border-bottom:2px solid transparent;transition:all .15s}
+.esp-tab:hover{color:var(--charcoal)}
+.esp-tab.active{color:var(--red);border-bottom-color:var(--red)}
+.esp-tab-section{scroll-margin-top:120px}
+
+/* ===== Message contextualisé (en-tête) ===== */
+.esp-ctx-msg{background:var(--cream2);border:1px solid var(--border);border-left:3px solid var(--red);padding:14px 20px;margin-bottom:24px;font-size:.92rem;color:var(--charcoal);line-height:1.5;display:flex;align-items:center;gap:12px}
+.esp-ctx-msg-icon{font-size:1.3rem;flex-shrink:0}
+.esp-ctx-msg-text strong{color:var(--red)}
+
+/* ===== Graphique d'évolution ===== */
+.esp-evolution{background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:36px}
+.esp-evo-legend{display:flex;flex-wrap:wrap;gap:10px 18px;margin-top:16px;padding-top:16px;border-top:1px solid var(--border-light)}
+.esp-evo-leg{display:flex;align-items:center;gap:6px;font-size:.78rem;color:var(--gray);cursor:pointer;user-select:none;transition:opacity .15s}
+.esp-evo-leg.off{opacity:.35}
+.esp-evo-leg-swatch{width:14px;height:3px;border-radius:2px}
+.esp-evo-empty{text-align:center;padding:40px 20px;color:var(--gray);font-size:.9rem}
+
+/* ===== Bouton partage ===== */
+.esp-share-wrap{display:flex;justify-content:center;margin:18px 0 0}
+.esp-share-btn{background:white;border:1px solid var(--border);color:var(--charcoal);padding:12px 24px;font-size:.82rem;font-weight:600;letter-spacing:.5px;cursor:pointer;font-family:'DM Sans',sans-serif;display:inline-flex;align-items:center;gap:10px;transition:all .15s}
+.esp-share-btn:hover{border-color:var(--red);color:var(--red)}
+.esp-share-ico{width:16px;height:16px;flex-shrink:0}
+
+/* ===== Modal de partage (story) ===== */
+#esp-share-overlay{position:fixed;inset:0;z-index:9999;background:rgba(28,18,12,.75);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+#esp-share-overlay.visible{display:flex}
+.esp-share-box{background:white;max-width:420px;width:100%;padding:32px 28px;text-align:center;max-height:92vh;overflow-y:auto}
+.esp-share-close{position:absolute;top:16px;right:20px;background:none;border:none;font-size:1.5rem;color:white;cursor:pointer;line-height:1}
+.esp-share-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px}
+.esp-share-sub{font-size:.85rem;color:var(--gray);line-height:1.6;margin-bottom:22px}
+#esp-share-canvas{width:100%;max-width:320px;margin:0 auto 22px;display:block;border:1px solid var(--border)}
+.esp-share-actions{display:flex;flex-direction:column;gap:10px}
+
 /* Responsive */
 @media(max-width:900px){
   .esp-stats{grid-template-columns:repeat(2,1fr)}
@@ -797,14 +834,16 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .esp-priority{flex-direction:column;align-items:flex-start}
   .esp-sess-item{grid-template-columns:1fr auto;gap:6px}
   .esp-sess-date{grid-column:1/-1;order:-1}
+  .esp-tabs{top:58px}
 }
 @media(max-width:560px){
   .esp-stats{grid-template-columns:1fr 1fr}
   .esp-stat-num{font-size:1.7rem}
   .esp-header{padding:24px 20px}
-  .esp-cats,.esp-docs,.esp-sessions{padding:20px}
+  .esp-cats,.esp-docs,.esp-sessions,.esp-evolution{padding:20px}
   .esp-cat-row{grid-template-columns:1fr}
   .esp-cat-pct{text-align:left}
+  .esp-tab{padding:14px 12px;font-size:.78rem}
 }
 
 /* ===== VIEWER PDF PROTÉGÉ ===== */
@@ -2216,7 +2255,23 @@ if(window.location.search.indexOf('success') !== -1) {
         </div>
       </div>
 
-      <!-- VUE D'ENSEMBLE -->
+      <!-- MESSAGE CONTEXTUALISÉ (remplace "Bienvenue" quand une règle s'active) -->
+      <div class="esp-ctx-msg" id="esp-ctx-msg" style="display:none">
+        <div class="esp-ctx-msg-icon" id="esp-ctx-msg-icon">💡</div>
+        <div class="esp-ctx-msg-text" id="esp-ctx-msg-text"></div>
+      </div>
+
+      <!-- ONGLETS DE NAVIGATION STICKY -->
+      <div class="esp-tabs" id="esp-tabs">
+        <button class="esp-tab active" data-tab="overview" onclick="espGoToTab('overview')">Vue d'ensemble</button>
+        <button class="esp-tab" data-tab="radar" onclick="espGoToTab('radar')">Radar</button>
+        <button class="esp-tab" data-tab="evolution" onclick="espGoToTab('evolution')">Évolution</button>
+        <button class="esp-tab" data-tab="categories" onclick="espGoToTab('categories')">Par catégorie</button>
+        <button class="esp-tab" data-tab="history" onclick="espGoToTab('history')">Historique</button>
+      </div>
+
+      <!-- VUE D'ENSEMBLE (#overview) -->
+      <div class="esp-tab-section" id="esp-sec-overview">
       <div class="esp-stats">
         <div class="esp-stat">
           <div class="esp-stat-num" id="esp-st-sessions">0</div>
@@ -2240,8 +2295,18 @@ if(window.location.search.indexOf('success') !== -1) {
         </div>
       </div>
 
+      <!-- BOUTON PARTAGE RÉSEAUX SOCIAUX -->
+      <div class="esp-share-wrap">
+        <button class="esp-share-btn" onclick="openShareModal()">
+          <svg class="esp-share-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"/><polyline points="16 6 12 2 8 6"/><line x1="12" y1="2" x2="12" y2="15"/></svg>
+          Partager mes stats sur les réseaux
+        </button>
+      </div>
+
+      </div><!-- /esp-sec-overview -->
+
       <!-- PRIORITÉ DE RÉVISION -->
-      <div class="esp-priority" id="esp-priority" style="display:none">
+      <div class="esp-priority" id="esp-priority" style="display:none;margin-top:36px">
         <div style="flex:1;min-width:240px">
           <div class="esp-priority-lbl">⚠️ À travailler en priorité</div>
           <div class="esp-priority-cat" id="esp-priority-cat">—</div>
@@ -2250,7 +2315,8 @@ if(window.location.search.indexOf('success') !== -1) {
         <button class="esp-priority-btn" onclick="reviseWeakestCategory()">Réviser ce thème →</button>
       </div>
 
-      <!-- RADAR HEBDOMADAIRE -->
+      <!-- RADAR HEBDOMADAIRE (#radar) -->
+      <div class="esp-tab-section" id="esp-sec-radar">
       <div id="esp-radar-wrap" style="margin-bottom:36px">
         <div style="margin-bottom:8px">
           <div class="esp-eyebrow">🕸️ Ta semaine</div>
@@ -2278,7 +2344,27 @@ if(window.location.search.indexOf('success') !== -1) {
           <button class="btn btn-red" onclick="goTo('qcm')">Démarrer un QCM →</button>
         </div>
       </div>
+      </div><!-- /esp-sec-radar -->
 
+      <!-- ÉVOLUTION DANS LE TEMPS (#evolution) -->
+      <div class="esp-tab-section" id="esp-sec-evolution">
+      <div style="margin-bottom:8px">
+        <div class="esp-eyebrow">📈 Progression</div>
+        <div class="esp-section-title">Évolution sur 8 semaines</div>
+        <div class="esp-section-sub">Ton score hebdomadaire par catégorie. Clique sur une catégorie dans la légende pour l'afficher ou la masquer.</div>
+      </div>
+      <div class="esp-evolution" id="esp-evolution-wrap">
+        <div id="esp-evolution-canvas">
+          <!-- SVG injecté dynamiquement -->
+        </div>
+        <div class="esp-evo-legend" id="esp-evolution-legend">
+          <!-- Légende injectée dynamiquement -->
+        </div>
+      </div>
+      </div><!-- /esp-sec-evolution -->
+
+      <!-- PAR CATÉGORIE (#categories) -->
+      <div class="esp-tab-section" id="esp-sec-categories">
       <!-- PERFORMANCES PAR CATÉGORIE -->
       <div style="margin-bottom:8px">
         <div class="esp-eyebrow">📊 Performances détaillées</div>
@@ -2288,7 +2374,10 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="esp-cats" id="esp-cats">
         <!-- Rempli dynamiquement -->
       </div>
+      </div><!-- /esp-sec-categories -->
 
+      <!-- HISTORIQUE (#history) -->
+      <div class="esp-tab-section" id="esp-sec-history">
       <!-- COACHINGS À VENIR -->
       <div id="esp-bookings-wrap" style="display:none;margin-bottom:32px">
         <div style="margin-bottom:8px">
@@ -2346,10 +2435,27 @@ if(window.location.search.indexOf('success') !== -1) {
       </div>
 
       <!-- RESET -->
+      </div><!-- /esp-sec-history -->
+
+      <!-- RESET -->
       <div class="esp-reset">
         <button class="esp-reset-btn" onclick="resetEspaceStats()">Réinitialiser mes statistiques</button>
       </div>
 
+    </div>
+  </div>
+</div>
+
+<!-- ============================= MODAL PARTAGE STATS ============================= -->
+<div id="esp-share-overlay" onclick="if(event.target===this)closeShareModal()">
+  <div class="esp-share-box" style="position:relative">
+    <button class="esp-share-close" onclick="closeShareModal()" style="color:var(--charcoal);top:8px;right:12px">×</button>
+    <div class="esp-share-title">Partage ta progression</div>
+    <div class="esp-share-sub">Télécharge ton image et partage-la en story Instagram, sur X, LinkedIn ou par message.</div>
+    <canvas id="esp-share-canvas" width="1080" height="1920"></canvas>
+    <div class="esp-share-actions">
+      <button class="btn btn-red" onclick="downloadShareImage()" style="justify-content:center">Télécharger l'image</button>
+      <button class="btn btn-outline-red" onclick="closeShareModal()" style="justify-content:center">Fermer</button>
     </div>
   </div>
 </div>
@@ -4247,7 +4353,12 @@ function espFetchStats(cb) {
       sessions: sessList,
       docs: docList,
       activeDays: activeDays,
-      firstActivity: localData.firstActivity
+      firstActivity: localData.firstActivity,
+      // Toutes les réponses brutes avec leur date & catégorie — nécessaire
+      // pour le graphique d'évolution par catégorie sur 8 semaines
+      rawAnswers: answers.map(function(a){
+        return { category: a.category, is_correct: a.is_correct, created_at: a.created_at };
+      })
     });
   }).catch(function(err){
     console.warn('Supabase fetch échec :', err);
@@ -4277,6 +4388,468 @@ function resetEspaceStats() {
   } else {
     showToast('Statistiques réinitialisées.');
     renderEspace();
+  }
+}
+
+// ================================================================
+// ONGLETS STICKY — Navigation dans l'espace candidat
+// ================================================================
+function espGoToTab(tabName) {
+  // Bascule visuelle de l'onglet actif
+  var tabs = document.querySelectorAll('#esp-tabs .esp-tab');
+  tabs.forEach(function(t){
+    t.classList.toggle('active', t.getAttribute('data-tab') === tabName);
+  });
+  // Scroll smooth vers la section cible
+  var target = document.getElementById('esp-sec-' + tabName);
+  if (target) {
+    var y = target.getBoundingClientRect().top + window.pageYOffset - 110;
+    window.scrollTo({ top: y, behavior: 'smooth' });
+  }
+}
+
+// Synchronisation automatique de l'onglet actif pendant le scroll
+function espSetupTabScrollSync() {
+  if (window._espTabSyncInstalled) return;
+  window._espTabSyncInstalled = true;
+  var sections = ['overview','radar','evolution','categories','history'];
+  window.addEventListener('scroll', function(){
+    // Ne fait rien si on n'est pas sur la page espace
+    var pageEsp = document.getElementById('page-espace');
+    if (!pageEsp || !pageEsp.classList.contains('active')) return;
+    var scrollY = window.pageYOffset + 150;
+    var activeSection = sections[0];
+    sections.forEach(function(s){
+      var el = document.getElementById('esp-sec-' + s);
+      if (el && el.offsetTop <= scrollY) activeSection = s;
+    });
+    var tabs = document.querySelectorAll('#esp-tabs .esp-tab');
+    tabs.forEach(function(t){
+      t.classList.toggle('active', t.getAttribute('data-tab') === activeSection);
+    });
+  }, { passive: true });
+}
+
+// ================================================================
+// MESSAGE CONTEXTUALISÉ — Affiche un message adapté à l'activité
+// ================================================================
+// Cascade de priorités :
+//  1. Streak actif (>= 3 jours)   → 🔥 Série continue !
+//  2. Progression récente (+X%)    → 📈 Tu as progressé
+//  3. Inactivité (>= 3 jours sans activité) → 👋 On s'y remet
+//  4. Priorité révision (catégorie faible) → 🎯 Ta priorité
+//  5. Fallback (nouveau / rien)    → Caché (on laisse le sous-titre par défaut)
+function espRenderCtxMsg(data) {
+  var wrap = document.getElementById('esp-ctx-msg');
+  var icon = document.getElementById('esp-ctx-msg-icon');
+  var text = document.getElementById('esp-ctx-msg-text');
+  if (!wrap || !icon || !text) return;
+
+  // 1. STREAK actif ≥ 3 jours
+  var streak = espCalcStreak(data.activeDays);
+  if (streak >= 3) {
+    icon.textContent = '🔥';
+    text.innerHTML = 'Ta série de <strong>' + streak + ' jours</strong> continue — continue comme ça !';
+    wrap.style.display = 'flex';
+    return;
+  }
+
+  // 2. PROGRESSION RÉCENTE : on compare le score des 7 derniers jours vs les 7 jours précédents
+  var progression = espCalcRecentProgression(data);
+  if (progression && progression.delta >= 5) {
+    icon.textContent = '📈';
+    text.innerHTML = 'Belle progression ! <strong>+' + progression.delta + '%</strong> en <strong>' + progression.label + '</strong> cette semaine.';
+    wrap.style.display = 'flex';
+    return;
+  }
+
+  // 3. INACTIVITÉ : aucune activité depuis ≥ 3 jours (mais historique existant)
+  var daysSince = espDaysSinceLastActivity(data.activeDays);
+  if (daysSince !== null && daysSince >= 3 && data.sessions.length > 0) {
+    icon.textContent = '👋';
+    text.innerHTML = '<strong>' + daysSince + ' jours</strong> sans QCM — on s\'y remet ? Même 10 minutes suffisent.';
+    wrap.style.display = 'flex';
+    return;
+  }
+
+  // 4. PRIORITÉ : on a une catégorie faible identifiable
+  var weakest = espFindWeakestCategory(data);
+  if (weakest) {
+    icon.textContent = '🎯';
+    text.innerHTML = 'Ta priorité du moment : <strong>' + weakest.label + '</strong> (' + weakest.pct + '%). Un petit QCM ciblé ?';
+    wrap.style.display = 'flex';
+    return;
+  }
+
+  // 5. FALLBACK : pas de message contextualisé, on masque
+  wrap.style.display = 'none';
+}
+
+function espCalcRecentProgression(data) {
+  if (!data.rawAnswers || data.rawAnswers.length < 10) return null;
+  var now = Date.now();
+  var d7 = now - 7 * 86400000;
+  var d14 = now - 14 * 86400000;
+  // Regroupe par catégorie : score des 7 derniers jours vs les 7 jours d'avant
+  var recent = {}; // { cat: { seen, correct } }
+  var prev = {};
+  data.rawAnswers.forEach(function(a){
+    var ts = new Date(a.created_at).getTime();
+    var bucket = null;
+    if (ts >= d7) bucket = recent;
+    else if (ts >= d14) bucket = prev;
+    if (!bucket) return;
+    if (!bucket[a.category]) bucket[a.category] = { seen: 0, correct: 0 };
+    bucket[a.category].seen++;
+    if (a.is_correct) bucket[a.category].correct++;
+  });
+  // Cherche la catégorie avec la plus grosse progression positive (min. 5 questions dans chaque période)
+  var best = null;
+  Object.keys(recent).forEach(function(c){
+    var r = recent[c];
+    var p = prev[c];
+    if (!p || r.seen < 5 || p.seen < 5) return;
+    var rPct = Math.round(r.correct / r.seen * 100);
+    var pPct = Math.round(p.correct / p.seen * 100);
+    var delta = rPct - pPct;
+    if (delta > 0 && (!best || delta > best.delta)) {
+      best = { cat: c, delta: delta, label: espGetCategoryLabel(c) };
+    }
+  });
+  return best;
+}
+
+function espDaysSinceLastActivity(activeDays) {
+  if (!activeDays || activeDays.length === 0) return null;
+  var sorted = activeDays.slice().sort().reverse();
+  var last = new Date(sorted[0]);
+  var now = new Date();
+  return Math.floor((now - last) / 86400000);
+}
+
+function espFindWeakestCategory(data) {
+  if (!data.perCat) return null;
+  var candidates = [];
+  Object.keys(data.perCat).forEach(function(c){
+    var p = data.perCat[c];
+    if (p.seen >= 5) { // minimum 5 questions pour être significatif
+      candidates.push({ cat: c, pct: Math.round(p.correct / p.seen * 100), seen: p.seen });
+    }
+  });
+  if (candidates.length === 0) return null;
+  candidates.sort(function(a,b){ return a.pct - b.pct; });
+  var worst = candidates[0];
+  if (worst.pct >= 70) return null; // Pas vraiment un problème
+  return { cat: worst.cat, pct: worst.pct, label: espGetCategoryLabel(worst.cat) };
+}
+
+function espGetCategoryLabel(catKey) {
+  // Labels lisibles des catégories (même logique que renderEspRadar)
+  var labels = {
+    'statut': 'Statut SPP',
+    'sis': 'Organisation SIS',
+    'divers': 'Textes épars',
+    'textes': 'Textes épars'
+  };
+  if (labels[catKey]) return labels[catKey];
+  // Catégories doctrinales ou secourisme : on prend le nom tel quel en capitalisant
+  if (/^gdo-/.test(catKey) || /^gto-/.test(catKey)) {
+    var short = catKey.replace(/^(gdo-|gto-)/, '').replace(/-/g, ' ');
+    return short.charAt(0).toUpperCase() + short.slice(1);
+  }
+  return catKey;
+}
+
+// ================================================================
+// GRAPHIQUE D'ÉVOLUTION — Courbes par catégorie sur 8 semaines
+// ================================================================
+// Utilise data.rawAnswers (réponses brutes avec created_at + category + is_correct)
+// pour reconstituer le score hebdomadaire de chaque grande catégorie.
+
+// Regroupement des catégories fines (gdo-xxx, gto-xxx) en 4 grandes familles
+// pour avoir des courbes lisibles. "Statut SPP" / "SIS" / "Doctrines" / "Secourisme"
+function espEvolutionGroup(cat) {
+  if (cat === 'statut') return 'statut';
+  if (cat === 'sis') return 'sis';
+  if (cat === 'divers' || cat === 'textes') return 'textes';
+  if (/^gto-/.test(cat)) return 'secourisme';
+  if (/^gdo-/.test(cat)) return 'doctrines';
+  return null;
+}
+
+var EVOLUTION_GROUPS = [
+  { key: 'statut',     label: 'Statut SPP',  color: '#CC2229' },
+  { key: 'sis',        label: 'Org. SIS',    color: '#1E6091' },
+  { key: 'doctrines',  label: 'Doctrines',   color: '#E89005' },
+  { key: 'secourisme', label: 'Secourisme',  color: '#5DA862' },
+  { key: 'textes',     label: 'Textes épars',color: '#7B4B94' }
+];
+
+// État UI : quelles courbes sont visibles (toggle via clic sur la légende)
+var _espEvoVisible = { statut:true, sis:true, doctrines:true, secourisme:true, textes:true };
+
+function renderEspEvolution(data) {
+  var canvas = document.getElementById('esp-evolution-canvas');
+  var legend = document.getElementById('esp-evolution-legend');
+  if (!canvas || !legend) return;
+
+  var answers = data.rawAnswers || [];
+  if (answers.length === 0) {
+    canvas.innerHTML = '<div class="esp-evo-empty">📊 Pas encore assez de données pour afficher une courbe. Lance quelques sessions QCM et reviens voir ta progression.</div>';
+    legend.innerHTML = '';
+    return;
+  }
+
+  // Génère les 8 derniers buckets hebdomadaires (du plus ancien au plus récent)
+  var now = new Date();
+  var weeks = []; // [{ start, end, label }]
+  for (var i = 7; i >= 0; i--) {
+    var end = new Date(now);
+    end.setDate(end.getDate() - 7 * i);
+    end.setHours(23,59,59,999);
+    var start = new Date(end);
+    start.setDate(start.getDate() - 6);
+    start.setHours(0,0,0,0);
+    var dd = String(start.getDate()).padStart(2,'0');
+    var mm = String(start.getMonth()+1).padStart(2,'0');
+    weeks.push({ start: start.getTime(), end: end.getTime(), label: dd+'/'+mm });
+  }
+
+  // Compte bonnes/total par (groupe, semaine)
+  var buckets = {}; // { group: [ {seen, correct} x 8 ] }
+  EVOLUTION_GROUPS.forEach(function(g){
+    buckets[g.key] = weeks.map(function(){ return { seen: 0, correct: 0 }; });
+  });
+  answers.forEach(function(a){
+    var g = espEvolutionGroup(a.category);
+    if (!g) return;
+    var ts = new Date(a.created_at).getTime();
+    for (var i = 0; i < weeks.length; i++) {
+      if (ts >= weeks[i].start && ts <= weeks[i].end) {
+        buckets[g][i].seen++;
+        if (a.is_correct) buckets[g][i].correct++;
+        break;
+      }
+    }
+  });
+
+  // Calcule les scores (en %) par semaine, null si aucune question cette semaine
+  var series = {}; // { group: [pct or null x 8] }
+  var hasAnyData = false;
+  EVOLUTION_GROUPS.forEach(function(g){
+    series[g.key] = buckets[g.key].map(function(b){
+      if (b.seen === 0) return null;
+      hasAnyData = true;
+      return Math.round(b.correct / b.seen * 100);
+    });
+  });
+
+  if (!hasAnyData) {
+    canvas.innerHTML = '<div class="esp-evo-empty">📊 Pas encore de données sur les 8 dernières semaines. Continue à faire des QCM pour voir apparaître ta courbe.</div>';
+    legend.innerHTML = '';
+    return;
+  }
+
+  // === Construction du SVG ===
+  var W = 700, H = 320;
+  var padL = 40, padR = 20, padT = 20, padB = 50;
+  var chartW = W - padL - padR;
+  var chartH = H - padT - padB;
+
+  var svg = '<svg viewBox="0 0 ' + W + ' ' + H + '" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;max-width:' + W + 'px;display:block;margin:0 auto">';
+
+  // Grille horizontale (0, 25, 50, 75, 100%)
+  [0, 25, 50, 75, 100].forEach(function(pct){
+    var y = padT + chartH - (pct/100) * chartH;
+    svg += '<line x1="' + padL + '" y1="' + y.toFixed(1) + '" x2="' + (W-padR) + '" y2="' + y.toFixed(1) + '" stroke="#e8e3d8" stroke-width="1"/>';
+    svg += '<text x="' + (padL - 8) + '" y="' + (y + 4).toFixed(1) + '" font-family="DM Sans, sans-serif" font-size="10" fill="#a8a196" text-anchor="end">' + pct + '%</text>';
+  });
+
+  // Labels semaines (axe X)
+  weeks.forEach(function(w, i){
+    var x = padL + (chartW / (weeks.length - 1)) * i;
+    svg += '<text x="' + x.toFixed(1) + '" y="' + (H - padB + 18) + '" font-family="DM Sans, sans-serif" font-size="10" fill="#6B6560" text-anchor="middle">' + w.label + '</text>';
+  });
+  // Label X: "Semaine du"
+  svg += '<text x="' + (W/2) + '" y="' + (H - 10) + '" font-family="DM Sans, sans-serif" font-size="10" fill="#a8a196" text-anchor="middle">Semaine du (lundi)</text>';
+
+  // Dessine chaque courbe
+  EVOLUTION_GROUPS.forEach(function(g){
+    if (!_espEvoVisible[g.key]) return;
+    var points = series[g.key];
+    // Construit le chemin en sautant les null (pas de données)
+    var d = '';
+    var drawnPts = [];
+    points.forEach(function(pct, i){
+      if (pct === null) return;
+      var x = padL + (chartW / (weeks.length - 1)) * i;
+      var y = padT + chartH - (pct/100) * chartH;
+      d += (d === '' ? 'M ' : ' L ') + x.toFixed(1) + ' ' + y.toFixed(1);
+      drawnPts.push({ x: x, y: y, pct: pct });
+    });
+    if (d) {
+      svg += '<path d="' + d + '" fill="none" stroke="' + g.color + '" stroke-width="2.2" stroke-linejoin="round" stroke-linecap="round"/>';
+      // Points aux positions avec données
+      drawnPts.forEach(function(p){
+        svg += '<circle cx="' + p.x.toFixed(1) + '" cy="' + p.y.toFixed(1) + '" r="4" fill="' + g.color + '" stroke="white" stroke-width="2"/>';
+      });
+    }
+  });
+
+  svg += '</svg>';
+  canvas.innerHTML = svg;
+
+  // Légende cliquable (toggle visibilité des courbes)
+  var legendHtml = '';
+  EVOLUTION_GROUPS.forEach(function(g){
+    var off = _espEvoVisible[g.key] ? '' : 'off';
+    legendHtml += '<div class="esp-evo-leg ' + off + '" onclick="espToggleEvolutionSerie(\'' + g.key + '\')">';
+    legendHtml += '<span class="esp-evo-leg-swatch" style="background:' + g.color + '"></span>';
+    legendHtml += '<span>' + g.label + '</span>';
+    legendHtml += '</div>';
+  });
+  legend.innerHTML = legendHtml;
+}
+
+function espToggleEvolutionSerie(key) {
+  _espEvoVisible[key] = !_espEvoVisible[key];
+  // Redessine (on récupère les dernières data via le fetch)
+  espFetchStats(function(data){ renderEspEvolution(data); });
+}
+
+// ================================================================
+// PARTAGE RÉSEAUX SOCIAUX — Génère une image story Instagram (1080×1920)
+// ================================================================
+var _espShareStats = null; // stocke les stats au moment de l'ouverture du modal
+
+function openShareModal() {
+  // Récupère les stats actuellement affichées
+  espFetchStats(function(data){
+    // Calcule les chiffres à afficher
+    var streak = espCalcStreak(data.activeDays);
+    var totalSessions = data.sessions.length;
+    var totalAnswered = 0, totalCorrect = 0;
+    Object.keys(data.perCat).forEach(function(c){
+      totalAnswered += data.perCat[c].seen;
+      totalCorrect += data.perCat[c].correct;
+    });
+    var globalPct = totalAnswered > 0 ? Math.round(totalCorrect / totalAnswered * 100) : 0;
+    var nbDocs = data.docs.length;
+
+    _espShareStats = {
+      firstName: (document.getElementById('esp-name') || {}).textContent || 'Candidat',
+      streak: streak,
+      sessions: totalSessions,
+      questions: totalAnswered,
+      score: globalPct,
+      docs: nbDocs
+    };
+    renderShareCanvas();
+    document.getElementById('esp-share-overlay').classList.add('visible');
+  });
+}
+
+function closeShareModal() {
+  document.getElementById('esp-share-overlay').classList.remove('visible');
+}
+
+function renderShareCanvas() {
+  var canvas = document.getElementById('esp-share-canvas');
+  if (!canvas || !_espShareStats) return;
+  var ctx = canvas.getContext('2d');
+  var W = canvas.width, H = canvas.height;
+  var s = _espShareStats;
+
+  // === Fond crème (identité du site) ===
+  ctx.fillStyle = '#F5F0E8';
+  ctx.fillRect(0, 0, W, H);
+
+  // Bande verticale rouge sur le côté gauche (accent design)
+  ctx.fillStyle = '#CC2229';
+  ctx.fillRect(0, 0, 16, H);
+
+  // === Éléments texte ===
+  // Helper pour centrer du texte
+  function drawCenter(text, y, size, color, weight, font) {
+    ctx.fillStyle = color || '#1C1C1C';
+    ctx.font = (weight || '400') + ' ' + size + 'px ' + (font || '"DM Sans", Arial, sans-serif');
+    ctx.textAlign = 'center';
+    ctx.fillText(text, W/2, y);
+  }
+
+  // Éyebrow (rouge, uppercase, letter-spacing simulé)
+  ctx.fillStyle = '#CC2229';
+  ctx.font = '700 36px "DM Sans", Arial, sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('M A   P R É P A   S P P', W/2, 180);
+
+  // Titre principal (serif)
+  drawCenter('Mes statistiques', 320, 88, '#1C1C1C', '900', '"Playfair Display", Georgia, serif');
+  drawCenter('de préparation', 420, 88, '#1C1C1C', '900', '"Playfair Display", Georgia, serif');
+
+  // Petit trait rouge sous le titre
+  ctx.fillStyle = '#CC2229';
+  ctx.fillRect(W/2 - 60, 470, 120, 5);
+
+  // === 4 grands chiffres en 2x2 ===
+  // Position de la grille
+  var gridTop = 620;
+  var gridRowHeight = 280;
+  var col1X = W/4;
+  var col2X = W * 3/4;
+
+  function drawStat(x, y, bigText, label) {
+    // Big number (playfair, red)
+    ctx.fillStyle = '#CC2229';
+    ctx.font = '900 130px "Playfair Display", Georgia, serif';
+    ctx.textAlign = 'center';
+    ctx.fillText(bigText, x, y);
+    // Label (DM Sans, gray, uppercase)
+    ctx.fillStyle = '#6B6560';
+    ctx.font = '600 28px "DM Sans", Arial, sans-serif';
+    ctx.fillText(label, x, y + 70);
+  }
+
+  drawStat(col1X, gridTop + 100, s.streak + '', s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF');
+  drawStat(col2X, gridTop + 100, s.sessions + '', s.sessions > 1 ? 'SESSIONS QCM' : 'SESSION QCM');
+  drawStat(col1X, gridTop + gridRowHeight + 100, s.questions + '', 'QUESTIONS');
+  drawStat(col2X, gridTop + gridRowHeight + 100, (s.score > 0 ? s.score + '%' : '—'), 'SCORE GLOBAL');
+
+  // Stat bonus : documents lus (plus petit, sous la grille)
+  if (s.docs > 0) {
+    ctx.fillStyle = '#1C1C1C';
+    ctx.font = '400 34px "DM Sans", Arial, sans-serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('+ ' + s.docs + ' document' + (s.docs > 1 ? 's' : '') + ' consulté' + (s.docs > 1 ? 's' : ''), W/2, gridTop + 2*gridRowHeight + 110);
+  }
+
+  // === Zone basse : branding ===
+  // Séparateur
+  ctx.fillStyle = 'rgba(28,28,28,0.1)';
+  ctx.fillRect(W/4, H - 310, W/2, 1);
+
+  // Tagline
+  drawCenter('Je prépare le concours', H - 230, 38, '#6B6560', '400', '"DM Sans", Arial, sans-serif');
+  drawCenter('Caporal Sapeur-Pompier Professionnel', H - 185, 38, '#6B6560', '400', '"DM Sans", Arial, sans-serif');
+
+  // Site (gros, charcoal)
+  drawCenter('lecheminduspp.fr', H - 100, 60, '#1C1C1C', '700', '"DM Sans", Arial, sans-serif');
+}
+
+function downloadShareImage() {
+  var canvas = document.getElementById('esp-share-canvas');
+  if (!canvas) return;
+  try {
+    var link = document.createElement('a');
+    link.download = 'mes-stats-spp-' + Date.now() + '.png';
+    link.href = canvas.toDataURL('image/png');
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    showToast('📥 Image téléchargée !');
+  } catch(e) {
+    console.warn('Erreur téléchargement :', e);
+    showToast('Erreur lors du téléchargement.');
   }
 }
 
@@ -4423,6 +4996,9 @@ function renderEspace() {
   locked.style.display = 'none';
   content.style.display = 'block';
 
+  // Active la synchro scroll → onglets (une seule fois par session)
+  espSetupTabScrollSync();
+
   // Affiche déjà la version locale immédiatement (rapide)
   _renderEspaceWith(espLoadLocal());
 
@@ -4478,8 +5054,14 @@ function _renderEspaceWith(data) {
   // --- Priorité de révision (catégorie la plus faible parmi celles vues) ---
   renderEspPriority(data);
 
+  // --- Message contextualisé en en-tête (streak, progression, inactivité, priorité) ---
+  espRenderCtxMsg(data);
+
   // --- Radar hebdomadaire (vue synthétique par domaine) ---
   renderEspRadar(data);
+
+  // --- Graphique d'évolution sur 8 semaines (courbes par catégorie) ---
+  renderEspEvolution(data);
 
   // --- Coachings à venir (affiché en haut si présents — information temporelle) ---
   renderEspBookings();
