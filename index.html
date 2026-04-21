@@ -212,6 +212,18 @@ body.is-logged .hide-when-logged{display:none !important}
 .btn-outline:hover{background:var(--charcoal);color:var(--cream)}
 .btn-outline-red{background:transparent;border:1.5px solid var(--red);color:var(--red)}
 .btn-outline-red:hover{background:var(--red);color:white}
+.btn-link-hero{background:transparent;border:none;color:var(--gray);font-size:.85rem;font-family:'DM Sans',sans-serif;cursor:pointer;padding:8px 4px;letter-spacing:.3px;text-decoration:underline;text-decoration-color:var(--border);text-underline-offset:4px;transition:color .2s,text-decoration-color .2s}
+.btn-link-hero:hover{color:var(--red);text-decoration-color:var(--red)}
+
+/* ===== INDICATEUR SCROLL (flèche + label) ===== */
+.scroll-hint{display:flex;flex-direction:column;align-items:center;gap:10px;color:var(--red);font-size:.72rem;font-weight:600;letter-spacing:1.5px;text-transform:uppercase;cursor:pointer;background:none;border:none;font-family:'DM Sans',sans-serif;padding:16px 8px;margin:24px auto 0;animation:scrollBounce 2.2s ease-in-out infinite;transition:opacity .3s}
+.scroll-hint:hover{opacity:.65}
+.scroll-hint-line{width:1.5px;height:32px;background:var(--red);position:relative}
+.scroll-hint-line::after{content:'';position:absolute;bottom:-2px;left:50%;transform:translateX(-50%) rotate(45deg);width:8px;height:8px;border-right:1.5px solid var(--red);border-bottom:1.5px solid var(--red)}
+@keyframes scrollBounce{0%,100%{transform:translateY(0);opacity:1}50%{transform:translateY(6px);opacity:.7}}
+/* Version compacte pour intégration dans une section */
+.scroll-hint.compact{margin:16px auto 0;padding:12px 8px}
+.scroll-hint.compact .scroll-hint-line{height:24px}
 .btn-outline-white{background:transparent;border:1.5px solid rgba(255,255,255,0.5);color:white}
 .btn-outline-white:hover{background:white;color:var(--charcoal)}
 
@@ -1773,8 +1785,9 @@ body:not(.is-logged) .mobile-nav-member{display:none}
       </h1>
       <p class="hero-sub">En <strong>2020, je ne connaissais rien</strong> au monde des pompiers. En <strong>2022, j'ai décroché mon concours</strong>, été recruté dans mon département de cœur, et rejoint le centre de secours que je visais. Aujourd'hui, je t'ouvre le chemin.</p>
       <div class="hero-ctas">
-        <button class="btn btn-red" onclick="goTo('formation')">Découvrir la formation</button>
-        <button class="btn btn-outline" onclick="goTo('parcours')">Mon parcours</button>
+        <button class="btn btn-red hide-when-logged" onclick="msSignupFree()">Commencer gratuitement</button>
+        <button class="btn btn-outline-red" onclick="goTo('formation')">Découvrir la formation</button>
+        <button class="btn-link-hero" onclick="goTo('parcours')">Mon parcours →</button>
       </div>
       <div class="hero-stats">
         <div class="stat"><div class="stat-n">4 ans</div><div class="stat-l">d'expérience en préparation</div></div>
@@ -1812,6 +1825,12 @@ body:not(.is-logged) .mobile-nav-member{display:none}
       </div>
     </div>
   </div>
+
+  <!-- Indicateur de scroll (invite à explorer le reste de la page) -->
+  <button class="scroll-hint" onclick="scrollToNextSection(this)" aria-label="Scroller pour voir plus">
+    <span>Scroller pour voir plus</span>
+    <span class="scroll-hint-line"></span>
+  </button>
 
   <div class="section section-alt">
     <div class="s-eyebrow">La plateforme</div>
@@ -2014,6 +2033,12 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <button class="btn btn-outline-red" onclick="event.stopPropagation();msSignupFree()">Créer mon compte →</button>
       </div>
     </div>
+
+    <!-- Indicateur de scroll (invite à consulter le tableau comparatif) -->
+    <button class="scroll-hint compact" onclick="scrollToNextSection(this)" aria-label="Voir le tableau comparatif">
+      <span>Découvre le comparatif complet</span>
+      <span class="scroll-hint-line"></span>
+    </button>
 
     <!-- TABLEAU COMPARATIF -->
     <div class="compare-wrap">
@@ -6109,6 +6134,19 @@ function goTo(id) {
       bEl.textContent = pseudo;
     }
   }
+}
+
+// Fait scroller vers la section suivante à partir de l'élément cliqué.
+// Trouve le prochain élément parent "majeur" et scroll juste au-dessous.
+function scrollToNextSection(el) {
+  if (!el) return;
+  // Trouve la hauteur du header fixe pour l'offset
+  var header = document.querySelector('nav');
+  var headerHeight = (header && header.offsetHeight) || 80;
+  // Position actuelle de l'élément + sa hauteur + un peu de marge
+  var rect = el.getBoundingClientRect();
+  var scrollTarget = window.pageYOffset + rect.bottom - headerHeight + 20;
+  window.scrollTo({ top: scrollTarget, behavior: 'smooth' });
 }
 
 // Mobile nav
