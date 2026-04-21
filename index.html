@@ -2748,31 +2748,31 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         </div>
       </div>
       <div>
+        <!-- Bloc de paiement : mis en valeur dans la colonne droite, à hauteur du format -->
+        <div id="booking-prepay-block" style="background:white;border:1px solid var(--border);padding:28px 32px;text-align:center;margin-bottom:20px;position:sticky;top:90px">
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:14px">R&eacute;server ma s&eacute;ance</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.35rem;color:var(--charcoal);margin-bottom:10px;line-height:1.2">Une s&eacute;ance individuelle<br><em style="color:var(--red);font-size:1.6rem">120€</em></div>
+          <div style="font-size:.85rem;color:var(--gray);line-height:1.55;margin-bottom:22px">Tu paies ta s&eacute;ance, puis tu choisis ton cr&eacute;neau dans le calendrier.</div>
+          <button class="btn btn-red" style="width:100%;justify-content:center;font-size:.95rem;padding:14px 28px" onclick="coachingStartPayment()">Payer ma s&eacute;ance &mdash; 120€ &rarr;</button>
+          <div style="font-size:.72rem;color:var(--gray-light);margin-top:12px;line-height:1.5">Paiement s&eacute;curis&eacute; via Stripe<br>Annulation possible 48h avant</div>
+        </div>
 
         <div class="ch-limited"><div class="ch-limited-title">&#128197; Places limit&eacute;es</div><div class="ch-limited-text">Maximum <strong>2 s&eacute;ances par semaine</strong> pour garantir la qualit&eacute; de chaque accompagnement.</div></div>
       </div>
     </div>
   </div>
 
+  <!-- Section Réservation : n'apparaît QU'APRÈS paiement (quand calendrier visible) -->
   <div class="section" id="booking-section">
-    <div class="s-eyebrow">R&eacute;servation</div>
-    <div class="s-title">Choisis ton <em>cr&eacute;neau</em></div>
-    <!-- Texte pour utilisateurs PAS encore payés (avant paiement) -->
-    <p id="booking-intro-prepay" style="font-size:.95rem;color:var(--gray);line-height:1.7;margin-bottom:40px;max-width:560px">Paiement s&eacute;curis&eacute; via Stripe, puis choisis ton cr&eacute;neau. Je te confirme par email sous 24h.</p>
-    <!-- Texte pour utilisateurs QUI VIENNENT DE PAYER (post-paiement) -->
-    <p id="booking-intro-postpay" style="display:none;font-size:.95rem;color:var(--charcoal);line-height:1.7;margin-bottom:40px;max-width:560px;padding:14px 18px;background:var(--cream2);border-left:3px solid var(--red)">
-      <strong>✓ Paiement bien reçu — merci !</strong><br>
-      <span style="color:var(--gray)">Choisis maintenant le créneau qui te convient le mieux ci-dessous. Je te confirme ton rendez-vous par email sous 24h.</span>
-    </p>
-
-    <!-- Bloc pré-paiement : bouton pour payer d'abord -->
-    <div id="booking-prepay-block" style="margin-bottom:32px">
-      <div style="background:white;border:1px solid var(--border);padding:28px 32px;text-align:center;max-width:560px">
-        <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:8px">Une séance individuelle <em style="color:var(--red)">— 120€</em></div>
-        <div style="font-size:.88rem;color:var(--gray);line-height:1.6;margin-bottom:22px">Séance de coaching en visio de 60 à 90 min, adaptée à ton niveau et ton calendrier. Tu paies d'abord, puis tu choisis ton créneau dans le calendrier ci-dessous.</div>
-        <button class="btn btn-red" style="font-size:.95rem;padding:14px 28px" onclick="coachingStartPayment()">Payer ma séance — 120€ →</button>
-        <div style="font-size:.75rem;color:var(--gray-light);margin-top:12px">Paiement sécurisé via Stripe · Annulation possible 48h avant</div>
-      </div>
+    <!-- Header "Choisis ton créneau" : affiché uniquement après paiement -->
+    <div id="booking-section-header" style="display:none">
+      <div class="s-eyebrow">R&eacute;servation</div>
+      <div class="s-title">Choisis ton <em>cr&eacute;neau</em></div>
+      <!-- Bandeau post-paiement : confirmation + prochaine étape -->
+      <p id="booking-intro-postpay" style="font-size:.95rem;color:var(--charcoal);line-height:1.7;margin-bottom:40px;max-width:560px;padding:14px 18px;background:var(--cream2);border-left:3px solid var(--red)">
+        <strong>✓ Paiement bien re&ccedil;u &mdash; merci !</strong><br>
+        <span style="color:var(--gray)">Choisis maintenant le cr&eacute;neau qui te convient le mieux ci-dessous. Je te confirme ton rendez-vous par email sous 24h.</span>
+      </p>
     </div>
 
     <!-- Bloc post-paiement : le calendrier (affiché automatiquement après retour Stripe) -->
@@ -10034,12 +10034,10 @@ function coachingStartPayment() {
 function coachingShowCalendar() {
   var prepayBlock = document.getElementById('booking-prepay-block');
   var calendarBlock = document.getElementById('booking-calendar-block');
-  var introPre = document.getElementById('booking-intro-prepay');
-  var introPost = document.getElementById('booking-intro-postpay');
+  var sectionHeader = document.getElementById('booking-section-header');
   if (prepayBlock) prepayBlock.style.display = 'none';
   if (calendarBlock) calendarBlock.style.display = '';
-  if (introPre) introPre.style.display = 'none';
-  if (introPost) introPost.style.display = 'block';
+  if (sectionHeader) sectionHeader.style.display = '';
 
   // Marquer le paiement comme effectué (utile pour le flow + persistance)
   try {
