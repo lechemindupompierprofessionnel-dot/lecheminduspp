@@ -9663,33 +9663,42 @@ function msPay(priceId) {
   function onCheckoutSuccess() {
     return refreshMemberAccess().then(function() { goTo('merci'); });
   }
-  ms.getCurrentMember().then(function(res) {
-    if (res && res.data && res.data.member) {
-      // Membre connecté → checkout direct
-      ms.purchasePlansWithCheckout({ priceId: priceId })
-        .then(function(result) { if (result && result.data) onCheckoutSuccess(); })
-        .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
-    } else {
-      // Non connecté → inscription puis checkout
-      ms.openModal('signup').then(function(result) {
+  function launchCheckout() {
+    ms.purchasePlansWithCheckout({ priceId: priceId }).then(
+      function(result) { if (result && result.data) onCheckoutSuccess(); },
+      function(e) { showToast('Erreur paiement : ' + (e && e.message || '')); }
+    );
+  }
+  function launchSignupThenCheckout() {
+    ms.openModal('signup').then(
+      function(result) {
         if (result && result.data && result.data.member) {
-          updateNavMember(result.data.member); // encore non payant à ce stade
-          ms.purchasePlansWithCheckout({ priceId: priceId })
-            .then(function() { onCheckoutSuccess(); })
-            .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
+          updateNavMember(result.data.member);
+          launchCheckout();
         }
-      }).catch(function(e) { console.error('msPay openModal error:', e); });
-    }
-  }).catch(function() {
-    ms.openModal('signup').then(function(result) {
-      if (result && result.data && result.data.member) {
-        updateNavMember(result.data.member);
-        ms.purchasePlansWithCheckout({ priceId: priceId })
-          .then(function() { onCheckoutSuccess(); })
-          .catch(function(e) { showToast('Erreur paiement : ' + (e.message || '')); });
+      },
+      function(e) { console.error('msPay openModal error:', e); }
+    );
+  }
+  // Si on a déjà currentMember en mémoire, inutile de re-fetch : on checkout direct
+  if (currentMember) {
+    launchCheckout();
+    return;
+  }
+  // Sinon on tente un getCurrentMember pour savoir où on en est
+  ms.getCurrentMember().then(
+    function(res) {
+      if (res && res.data && res.data.member) {
+        launchCheckout();
+      } else {
+        launchSignupThenCheckout();
       }
-    }).catch(function(e) { console.error('msPay fallback error:', e); });
-  });
+    },
+    function(e) {
+      console.warn('[msPay] getCurrentMember failed, fallback to signup', e);
+      launchSignupThenCheckout();
+    }
+  );
 }
 
 // ============================================================
@@ -9706,37 +9715,37 @@ function msSignupFree() {
     setTimeout(msSignupFree, 1500);
     return;
   }
-  // Vérifier si déjà connecté : dans ce cas on va directement à /bienvenue
-  ms.getCurrentMember().then(function(res) {
-    if (res && res.data && res.data.member) {
-      // Déjà connecté → on redirige quand même vers bienvenue
-      updateNavMember(res.data.member);
-      goTo('bienvenue');
-      return;
+  // Court-circuit : si déjà en mémoire qu'on est connecté, on va direct à /bienvenue
+  if (currentMember) {
+    goTo('bienvenue');
+    return;
+  }
+  function launchSignupAndWait() {
+    ms.openModal('signup').then(
+      function(result) {
+        if (result && result.data && result.data.member) {
+          updateNavMember(result.data.member);
+          waitForPseudoAndGoTo('bienvenue');
+        }
+      },
+      function(e) { console.log('[signup-free] modal closed or failed', e); }
+    );
+  }
+  // Vérifier l'état courant de la session Memberstack
+  ms.getCurrentMember().then(
+    function(res) {
+      if (res && res.data && res.data.member) {
+        updateNavMember(res.data.member);
+        goTo('bienvenue');
+      } else {
+        launchSignupAndWait();
+      }
+    },
+    function(e) {
+      console.warn('[signup-free] getCurrentMember failed, fallback to signup', e);
+      launchSignupAndWait();
     }
-    // Non connecté → ouvrir la modale signup Memberstack
-    ms.openModal('signup').then(function(result) {
-      if (result && result.data && result.data.member) {
-        var newMember = result.data.member;
-        updateNavMember(newMember);
-        // La modale pseudo va s'ouvrir automatiquement via ensurePseudoForMember.
-        // Une fois fermée (après création du pseudo), on redirige vers /bienvenue.
-        // On attend que le pseudo soit validé avant de rediriger.
-        waitForPseudoAndGoTo('bienvenue');
-      }
-    }).catch(function(e) {
-      // L'utilisateur a fermé la modale sans s'inscrire — on ne fait rien
-      console.log('[signup-free] modal closed', e);
-    });
-  }).catch(function(){
-    // Fallback en cas d'erreur : on ouvre quand même la modale
-    ms.openModal('signup').then(function(result) {
-      if (result && result.data && result.data.member) {
-        updateNavMember(result.data.member);
-        waitForPseudoAndGoTo('bienvenue');
-      }
-    });
-  });
+  );
 }
 
 // Attend que la modale pseudo soit fermée (donc pseudo créé) avant d'appeler goTo
