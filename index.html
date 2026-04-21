@@ -1218,6 +1218,31 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .popup-top{padding:28px 24px 24px}
   .popup-body{padding:24px 24px 28px}
 }
+
+/* ===== MODALE PSEUDO OBLIGATOIRE (bloquante) ===== */
+#pseudo-modal{position:fixed;inset:0;z-index:9999;background:rgba(28,18,12,0.85);backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;pointer-events:none;transition:opacity .3s}
+#pseudo-modal.visible{opacity:1;pointer-events:all}
+#pseudo-modal-box{background:white;max-width:480px;width:100%;padding:44px 38px 36px;position:relative;transform:translateY(20px);transition:transform .3s}
+#pseudo-modal.visible #pseudo-modal-box{transform:translateY(0)}
+.pseudo-modal-icon{font-size:2.4rem;margin-bottom:18px;text-align:center}
+.pseudo-modal-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:700;color:var(--charcoal);text-align:center;margin-bottom:10px;line-height:1.25}
+.pseudo-modal-sub{font-size:.92rem;color:var(--gray);line-height:1.6;text-align:center;margin-bottom:28px}
+.pseudo-input-wrap{position:relative;margin-bottom:8px}
+.pseudo-input{width:100%;padding:14px 44px 14px 16px;font-family:'DM Sans',sans-serif;font-size:1rem;border:2px solid var(--border);background:var(--cream);color:var(--charcoal);outline:none;transition:border-color .2s}
+.pseudo-input:focus{border-color:var(--red)}
+.pseudo-input-status{position:absolute;right:14px;top:50%;transform:translateY(-50%);font-size:1.1rem;line-height:1;opacity:0;transition:opacity .2s}
+.pseudo-input-status.visible{opacity:1}
+.pseudo-input-status.ok{color:#2d7a3d}
+.pseudo-input-status.ko{color:var(--red)}
+.pseudo-feedback{font-size:.82rem;line-height:1.45;min-height:38px;margin-bottom:18px}
+.pseudo-feedback.ok{color:#2d7a3d}
+.pseudo-feedback.ko{color:var(--red)}
+.pseudo-feedback.info{color:var(--gray)}
+.pseudo-rules{background:var(--cream2);padding:14px 16px;margin-bottom:20px;font-size:.78rem;color:var(--gray);line-height:1.65}
+.pseudo-rules-title{font-weight:600;color:var(--charcoal);margin-bottom:4px}
+.pseudo-submit{width:100%;justify-content:center;font-size:.95rem;padding:14px 18px}
+.pseudo-submit:disabled{opacity:.5;cursor:not-allowed;transform:none !important}
+.pseudo-footnote{font-size:.74rem;color:var(--gray-light);text-align:center;margin-top:16px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -3145,6 +3170,44 @@ if(window.location.search.indexOf('success') !== -1) {
   </div>
 </div>
 
+<!-- ===== MODALE PSEUDO OBLIGATOIRE (bloquante à la 1re connexion) ===== -->
+<div id="pseudo-modal" role="dialog" aria-modal="true" aria-labelledby="pseudo-modal-title">
+  <div id="pseudo-modal-box">
+    <div class="pseudo-modal-icon">👋</div>
+    <div class="pseudo-modal-title" id="pseudo-modal-title">Bienvenue !<br>Choisis ton pseudo public</div>
+    <div class="pseudo-modal-sub">Ton pseudo te représentera sur la plateforme et te permettra de porter tes badges fièrement.</div>
+
+    <div class="pseudo-input-wrap">
+      <input
+        type="text"
+        id="pseudo-input"
+        class="pseudo-input"
+        placeholder="ex: FireFighter42"
+        autocomplete="off"
+        autocapitalize="off"
+        spellcheck="false"
+        maxlength="24"
+      >
+      <span class="pseudo-input-status" id="pseudo-input-status"></span>
+    </div>
+    <div class="pseudo-feedback info" id="pseudo-feedback">
+      Entre ton pseudo (3 à 24 caractères).
+    </div>
+
+    <div class="pseudo-rules">
+      <div class="pseudo-rules-title">Règles</div>
+      <div>• Lettres, chiffres, tirets (-) et underscores (_) uniquement</div>
+      <div>• Entre 3 et 24 caractères</div>
+      <div>• Modifiable une fois dans les 30 jours suivant la création</div>
+    </div>
+
+    <button class="btn btn-red pseudo-submit" id="pseudo-submit-btn" disabled>
+      Valider mon pseudo
+    </button>
+    <div class="pseudo-footnote">Ton pseudo sera visible publiquement sur l'annuaire des candidats.</div>
+  </div>
+</div>
+
 <!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-top">
@@ -3349,6 +3412,325 @@ function hasTierAccess(requiredTier) {
   var neededRank = rank[requiredTier] || 0;
   return userRank >= neededRank;
 }
+
+// ============================================================
+// MODULE PSEUDO — profil public et modale bloquante
+// ============================================================
+// Logique :
+//  - À chaque connexion, on vérifie si le membre a un profil Supabase.
+//  - S'il n'en a pas → modale bloquante "Choisis ton pseudo" jusqu'à création.
+//  - Le pseudo est stocké dans Supabase (profiles.pseudo) ET synchronisé
+//    vers Memberstack (customFields.pseudo) pour cohérence inter-outils.
+
+// Liste noire de pseudos interdits (casse-insensible, recherche "contient").
+// Le pseudo est d'abord passé en lowercase + sans accents avant comparaison.
+var PSEUDO_BLACKLIST = [
+  // Insultes / obscénités françaises
+  'con','conne','connard','connasse','salope','pute','putain','merde','chiotte',
+  'encule','enculer','fdp','ntm','tg','ftg','bite','couille','couilles',
+  // Termes racistes / haineux
+  'negre','bougnoul','bougnoule','youpin','feuj','pede','tapette',
+  'salejuif','salearabe','salenoir','saleblanc','salepede',
+  // Extrémisme
+  'hitler','nazi','fuhrer','1488',
+  // Noms réservés à l'équipe (sauf quentin, autorisé)
+  'admin','moderateur','lecheminduspp','support','staff','officiel','bot'
+];
+
+// Retire les accents et passe en lowercase pour comparer contre la blacklist
+function normalizePseudo(s) {
+  return (s || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, ''); // retire diacritiques
+}
+
+// État interne de la modale pseudo
+var pseudoState = {
+  modalOpen: false,
+  lastChecked: '',
+  checkTimer: null,
+  checking: false,
+  available: false
+};
+
+// Valide un pseudo localement (format, longueur, blacklist).
+// Renvoie { ok: boolean, error: string|null, level: 'info'|'ok'|'ko' }
+function validatePseudoLocal(raw) {
+  var trimmed = (raw || '').trim();
+  if (!trimmed) {
+    return { ok: false, error: 'Entre ton pseudo (3 à 24 caractères).', level: 'info' };
+  }
+  if (trimmed.length < 3) {
+    return { ok: false, error: 'Trop court : il faut au moins 3 caractères.', level: 'ko' };
+  }
+  if (trimmed.length > 24) {
+    return { ok: false, error: 'Trop long : 24 caractères maximum.', level: 'ko' };
+  }
+  if (!/^[A-Za-z0-9_\-]+$/.test(trimmed)) {
+    return { ok: false, error: 'Caractères autorisés : lettres, chiffres, tirets et underscores.', level: 'ko' };
+  }
+  // Blacklist (mode "contient")
+  var norm = normalizePseudo(trimmed);
+  for (var i = 0; i < PSEUDO_BLACKLIST.length; i++) {
+    if (norm.indexOf(PSEUDO_BLACKLIST[i]) !== -1) {
+      return { ok: false, error: 'Ce pseudo contient un terme non autorisé.', level: 'ko' };
+    }
+  }
+  return { ok: true, error: null, level: 'info' };
+}
+
+// Vérifie si un pseudo est disponible côté Supabase (unicité case-insensitive).
+// Retourne une Promise résolvant { available: boolean, error: string|null }
+function checkPseudoAvailable(pseudo) {
+  if (!window.supabaseClient) {
+    return Promise.resolve({ available: true, error: null }); // fallback si Supabase pas chargé
+  }
+  var lower = (pseudo || '').trim().toLowerCase();
+  return window.supabaseClient
+    .from('profiles')
+    .select('id', { count: 'exact', head: true })
+    .eq('pseudo_lower', lower)
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[pseudo] check availability error', res.error);
+        return { available: true, error: null }; // en cas d'erreur réseau, on laisse passer — RPC tranchera
+      }
+      return { available: (res.count === 0), error: null };
+    })
+    .catch(function(e) {
+      console.warn('[pseudo] check availability exception', e);
+      return { available: true, error: null };
+    });
+}
+
+// Recherche le profil Supabase d'un membre Memberstack (par memberstack_id).
+// Renvoie Promise<profile|null>
+function getProfileForMember(memberstackId) {
+  if (!window.supabaseClient || !memberstackId) return Promise.resolve(null);
+  return window.supabaseClient
+    .from('profiles')
+    .select('id, pseudo, showcase_badge_id, pseudo_changed_at, created_at')
+    .eq('memberstack_id', memberstackId)
+    .maybeSingle()
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[pseudo] getProfileForMember error', res.error);
+        return null;
+      }
+      return res.data || null;
+    })
+    .catch(function(e) {
+      console.warn('[pseudo] getProfileForMember exception', e);
+      return null;
+    });
+}
+
+// Crée le profil via RPC Supabase. Renvoie Promise<{ok, error?, pseudo?}>
+function createProfileRPC(memberstackId, pseudo) {
+  if (!window.supabaseClient) return Promise.resolve({ ok: false, error: 'Service indisponible, réessaie dans un instant.' });
+  return window.supabaseClient
+    .rpc('create_profile', { p_memberstack_id: memberstackId, p_pseudo: pseudo })
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[pseudo] create_profile error', res.error);
+        return { ok: false, error: 'Erreur serveur. Réessaie.' };
+      }
+      return res.data || { ok: false, error: 'Réponse inattendue du serveur.' };
+    })
+    .catch(function(e) {
+      console.warn('[pseudo] create_profile exception', e);
+      return { ok: false, error: 'Erreur de connexion. Vérifie ta connexion internet.' };
+    });
+}
+
+// Synchronise le pseudo vers Memberstack (custom field 'pseudo')
+// Cela sert surtout de redondance : la source de vérité reste Supabase.
+function syncPseudoToMemberstack(pseudo) {
+  var ms = getMemberstack();
+  if (!ms || !ms.updateMember) return Promise.resolve();
+  return ms.updateMember({
+    customFields: { 'pseudo': pseudo }
+  }).catch(function(e) {
+    console.warn('[pseudo] sync Memberstack error (non bloquant)', e);
+  });
+}
+
+// Met à jour l'UI de la modale en fonction de l'état (feedback + bouton)
+function updatePseudoUI(validation, availability) {
+  var fb = document.getElementById('pseudo-feedback');
+  var status = document.getElementById('pseudo-input-status');
+  var btn = document.getElementById('pseudo-submit-btn');
+  if (!fb || !status || !btn) return;
+
+  // Reset classes
+  fb.className = 'pseudo-feedback';
+  status.className = 'pseudo-input-status';
+
+  if (!validation.ok) {
+    fb.classList.add(validation.level === 'info' ? 'info' : 'ko');
+    fb.textContent = validation.error;
+    if (validation.level === 'ko') {
+      status.classList.add('visible', 'ko');
+      status.textContent = '✕';
+    }
+    btn.disabled = true;
+    return;
+  }
+
+  // Validation locale OK, on regarde l'availability
+  if (pseudoState.checking) {
+    fb.classList.add('info');
+    fb.textContent = 'Vérification de la disponibilité…';
+    btn.disabled = true;
+    return;
+  }
+
+  if (availability === true) {
+    fb.classList.add('ok');
+    fb.textContent = '✓ Pseudo disponible. Tu peux le valider.';
+    status.classList.add('visible', 'ok');
+    status.textContent = '✓';
+    btn.disabled = false;
+  } else if (availability === false) {
+    fb.classList.add('ko');
+    fb.textContent = 'Ce pseudo est déjà pris. Essaie-en un autre.';
+    status.classList.add('visible', 'ko');
+    status.textContent = '✕';
+    btn.disabled = true;
+  } else {
+    // availability === null ou undefined : en attente
+    fb.classList.add('info');
+    fb.textContent = 'Validation en cours…';
+    btn.disabled = true;
+  }
+}
+
+// Gestionnaire d'input (debounced check d'availability)
+function onPseudoInputChange() {
+  var input = document.getElementById('pseudo-input');
+  if (!input) return;
+  var value = input.value;
+
+  // Validation locale instantanée
+  var validation = validatePseudoLocal(value);
+  pseudoState.available = false;
+
+  if (!validation.ok) {
+    updatePseudoUI(validation, null);
+    return;
+  }
+
+  // Debounce de 400ms pour le check Supabase
+  if (pseudoState.checkTimer) clearTimeout(pseudoState.checkTimer);
+  pseudoState.checking = true;
+  updatePseudoUI(validation, null);
+
+  pseudoState.checkTimer = setTimeout(function() {
+    var currentVal = document.getElementById('pseudo-input').value;
+    if (currentVal !== value) return; // utilisateur a tapé d'autre chose depuis
+    checkPseudoAvailable(value).then(function(res) {
+      if (document.getElementById('pseudo-input').value !== value) return; // utilisateur a encore tapé
+      pseudoState.checking = false;
+      pseudoState.available = res.available;
+      pseudoState.lastChecked = value;
+      updatePseudoUI(validation, res.available);
+    });
+  }, 400);
+}
+
+// Soumission finale du pseudo
+function submitPseudo() {
+  var input = document.getElementById('pseudo-input');
+  var btn = document.getElementById('pseudo-submit-btn');
+  if (!input || !btn || !currentMember) return;
+
+  var pseudo = input.value.trim();
+  var validation = validatePseudoLocal(pseudo);
+  if (!validation.ok) {
+    updatePseudoUI(validation, null);
+    return;
+  }
+
+  btn.disabled = true;
+  btn.textContent = 'Création en cours…';
+
+  var memberstackId = currentMember.id || (currentMember.auth && currentMember.auth.id);
+
+  createProfileRPC(memberstackId, pseudo).then(function(result) {
+    if (result && result.ok) {
+      // Succès → sync Memberstack en arrière-plan puis ferme la modale
+      syncPseudoToMemberstack(pseudo);
+      closePseudoModal();
+      showToast('🎉 Bienvenue ' + pseudo + ' !');
+    } else {
+      btn.disabled = false;
+      btn.textContent = 'Valider mon pseudo';
+      var fb = document.getElementById('pseudo-feedback');
+      if (fb) {
+        fb.className = 'pseudo-feedback ko';
+        fb.textContent = (result && result.error) || 'Une erreur est survenue. Réessaie.';
+      }
+    }
+  });
+}
+
+// Ouverture / fermeture de la modale
+function openPseudoModal() {
+  var modal = document.getElementById('pseudo-modal');
+  if (!modal) return;
+  modal.classList.add('visible');
+  pseudoState.modalOpen = true;
+  document.body.style.overflow = 'hidden';
+  // Focus sur l'input après animation
+  setTimeout(function() {
+    var input = document.getElementById('pseudo-input');
+    if (input) input.focus();
+  }, 320);
+}
+
+function closePseudoModal() {
+  var modal = document.getElementById('pseudo-modal');
+  if (!modal) return;
+  modal.classList.remove('visible');
+  pseudoState.modalOpen = false;
+  document.body.style.overflow = '';
+}
+
+// Point d'entrée principal : appelé après updateNavMember pour vérifier
+// si le membre a besoin de créer son pseudo.
+function ensurePseudoForMember(member) {
+  if (!member) return;
+  var memberstackId = member.id || (member.auth && member.auth.id);
+  if (!memberstackId) return;
+  getProfileForMember(memberstackId).then(function(profile) {
+    if (!profile) {
+      // Pas de profil → modale bloquante
+      openPseudoModal();
+    } else {
+      // Profil existant → on stocke localement pour y accéder ailleurs
+      currentMember._profile = profile;
+    }
+  });
+}
+
+// Listeners initialisés au chargement
+document.addEventListener('DOMContentLoaded', function() {
+  var input = document.getElementById('pseudo-input');
+  var btn = document.getElementById('pseudo-submit-btn');
+  if (input) {
+    input.addEventListener('input', onPseudoInputChange);
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        if (!btn.disabled) submitPseudo();
+      }
+    });
+  }
+  if (btn) {
+    btn.addEventListener('click', submitPseudo);
+  }
+});
 
 // Re-fetch du membre depuis Memberstack pour récupérer les plans à jour
 // (à appeler après un paiement, car le "member" retourné par openModal('signup')
@@ -7135,6 +7517,10 @@ function updateNavMember(member) {
     currentMember = member;
     isPaidMember  = hasPaidAccess(member);
     memberTier    = getMemberTier(member);
+    // Vérification pseudo : si pas de profil Supabase, on ouvre la modale bloquante
+    if (typeof ensurePseudoForMember === 'function') {
+      ensurePseudoForMember(member);
+    }
     // 'is-member' = utilisateur payant (débloque les verrous CSS de la biblio, etc.)
     // 'is-logged' = simplement connecté (avec ou sans paiement)
     document.body.classList.add('is-logged');
