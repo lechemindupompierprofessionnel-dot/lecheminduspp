@@ -5154,31 +5154,43 @@ function renderShareCanvas() {
   var W = canvas.width, H = canvas.height;  // 1080 x 1350
   var s = _espShareStats;
 
-  // Police unique pour toute l'image : DM Sans (simple, moderne, lisible).
-  // On varie les graisses (400, 600, 700, 900) pour la hiérarchie visuelle.
   var FONT = '"DM Sans", Arial, sans-serif';
 
-  // === FOND crème uniforme + cadre rouge ===
-  ctx.fillStyle = '#F5F0E8';
+  // Palette "immersive métier"
+  var COL_BG = '#1A1410';       // fond sombre, terre cuite profonde
+  var COL_RED = '#CC2229';      // rouge SPP (accent identité)
+  var COL_AMBER = '#E8A82A';    // doré/flamme (accent chaleur)
+  var COL_TEXT = '#FFFFFF';     // titre principal
+  var COL_MUTED = '#999999';    // labels secondaires
+
+  // === FOND sombre + halos colorés pour donner de la profondeur ===
+  ctx.fillStyle = COL_BG;
   ctx.fillRect(0, 0, W, H);
-  ctx.strokeStyle = '#CC2229';
-  ctx.lineWidth = 8;
-  ctx.strokeRect(4, 4, W - 8, H - 8);
 
-  // ┌──────────────────────────────────────────────────────────────┐
-  // │ LAYOUT VERTICAL (1080×1350)                                  │
-  // │  60  → 340 : Logo (hauteur max 280)                           │
-  // │  390 → 475 : Titre 2 lignes                                   │
-  // │  540       : Trait rouge décoratif                            │
-  // │  590 → 850 : Grille 2×2 des stats                             │
-  // │  870 → 1260 : Radar (R=170, espace pour labels)               │
-  // │  1295      : Lien du site en bas                              │
-  // └──────────────────────────────────────────────────────────────┘
+  // Halos lumineux (simulent des lueurs de caserne la nuit)
+  var grd1 = ctx.createRadialGradient(-100, -100, 0, -100, -100, 600);
+  grd1.addColorStop(0, 'rgba(204, 34, 41, 0.28)');
+  grd1.addColorStop(1, 'rgba(204, 34, 41, 0)');
+  ctx.fillStyle = grd1;
+  ctx.fillRect(0, 0, W, H);
 
-  // === 1. LOGO ===
-  var logoAreaTop = 60;
-  var logoMaxH = 280;     // agrandi (était 200)
-  var logoMaxW = 440;     // largeur max plus généreuse
+  var grd2 = ctx.createRadialGradient(W + 100, H + 100, 0, W + 100, H + 100, 560);
+  grd2.addColorStop(0, 'rgba(232, 168, 42, 0.18)');
+  grd2.addColorStop(1, 'rgba(232, 168, 42, 0)');
+  ctx.fillStyle = grd2;
+  ctx.fillRect(0, 0, W, H);
+
+  // Cadre rouge en pointillés (style cinématique)
+  ctx.strokeStyle = COL_RED;
+  ctx.lineWidth = 4;
+  ctx.setLineDash([16, 8]);
+  ctx.strokeRect(12, 12, W - 24, H - 24);
+  ctx.setLineDash([]);
+
+  // === 1. LOGO avec halo doré ===
+  var logoAreaTop = 70;
+  var logoMaxH = 260;
+  var logoMaxW = 420;
   if (_espShareLogoImg && _espShareLogoLoaded) {
     var iw = _espShareLogoImg.naturalWidth || _espShareLogoImg.width;
     var ih = _espShareLogoImg.naturalHeight || _espShareLogoImg.height;
@@ -5186,51 +5198,59 @@ function renderShareCanvas() {
       var ratio = Math.min(logoMaxW / iw, logoMaxH / ih);
       var drawW = iw * ratio;
       var drawH = ih * ratio;
-      // Centre horizontalement, et verticalement dans la zone 60→340
-      ctx.drawImage(
-        _espShareLogoImg,
-        W/2 - drawW/2,
-        logoAreaTop + (logoMaxH - drawH) / 2,
-        drawW, drawH
+      var logoX = W/2 - drawW/2;
+      var logoY = logoAreaTop + (logoMaxH - drawH) / 2;
+
+      // Halo doré derrière le logo
+      var halo = ctx.createRadialGradient(
+        W/2, logoY + drawH/2, 0,
+        W/2, logoY + drawH/2, drawW * 0.75
       );
+      halo.addColorStop(0, 'rgba(232, 168, 42, 0.25)');
+      halo.addColorStop(1, 'rgba(232, 168, 42, 0)');
+      ctx.fillStyle = halo;
+      ctx.fillRect(0, logoY - 50, W, drawH + 100);
+
+      ctx.drawImage(_espShareLogoImg, logoX, logoY, drawW, drawH);
     }
   }
 
-  // === 2. TITRE (2 lignes, DM Sans) ===
-  ctx.fillStyle = '#1C1C1C';
+  // === 2. EYEBROW + TITRE ===
   ctx.textAlign = 'center';
   ctx.textBaseline = 'alphabetic';
 
-  // Ligne 1 : léger, italique
-  ctx.font = '400 italic 38px ' + FONT;
-  ctx.fillText('Je me prépare pour devenir', W/2, 415);
+  // Eyebrow en doré : "MON OBJECTIF"
+  ctx.fillStyle = COL_AMBER;
+  ctx.font = '700 italic 30px ' + FONT;
+  ctx.fillText('Mon objectif', W/2, 405);
 
-  // Ligne 2 : bold, plus grand
-  ctx.font = '700 54px ' + FONT;
-  ctx.fillText('Sapeur-Pompier Professionnel', W/2, 478);
+  // Titre principal : "Sapeur-Pompier" + "Professionnel"
+  ctx.fillStyle = COL_TEXT;
+  ctx.font = '900 60px ' + FONT;
+  ctx.fillText('Sapeur-Pompier', W/2, 478);
+  ctx.fillText('Professionnel', W/2, 548);
 
-  // Trait rouge décoratif
-  ctx.fillStyle = '#CC2229';
-  ctx.fillRect(W/2 - 50, 510, 100, 4);
+  // Séparateur doré
+  ctx.fillStyle = COL_AMBER;
+  ctx.fillRect(W/2 - 60, 578, 120, 4);
 
   // === 3. GRILLE 2×2 DES STATS ===
-  // Zone : Y 590 → 850 (260px pour 2 rangées)
   var col1X = W * 0.28;
   var col2X = W * 0.72;
-  var row1Y = 660;   // milieu rangée 1
-  var row2Y = 800;   // milieu rangée 2
+  var row1Y = 680;
+  var row2Y = 820;
 
   function drawStat(x, y, bigValue, label) {
-    // Grand chiffre rouge (baseline alignée)
-    ctx.fillStyle = '#CC2229';
+    // Chiffre en doré
+    ctx.fillStyle = COL_AMBER;
     ctx.font = '900 82px ' + FONT;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText(bigValue, x, y);
-    // Label gris uppercase
-    ctx.fillStyle = '#6B6560';
-    ctx.font = '600 22px ' + FONT;
-    ctx.fillText(label, x, y + 42);
+    // Label gris
+    ctx.fillStyle = COL_MUTED;
+    ctx.font = '600 20px ' + FONT;
+    ctx.fillText(label, x, y + 40);
   }
 
   drawStat(col1X, row1Y, String(s.streak), s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF');
@@ -5239,29 +5259,26 @@ function renderShareCanvas() {
   var scoreText = s.score > 0 ? (s.score + '%') : '—';
   drawStat(col2X, row2Y, scoreText, 'SCORE GLOBAL');
 
-  // === 4. RADAR AGRANDI ===
-  // Rayon 170 (était 130) = +30% de surface
-  // Centre positionné pour que labels externes tiennent dans la zone 870→1260
-  // Labels à R+38 du centre, donc il faut au moins R+38+taille_label ≈ 230px de marge verticale autour du centre
+  // === 4. RADAR avec accents dorés ===
   var radarR = 170;
   var radarCx = W / 2;
-  var radarCy = 1060;  // centre : laisse 190 de marge au-dessus et 200 en-dessous
+  var radarCy = 1080;
   _espDrawShareRadar(ctx, radarCx, radarCy, radarR, s.radarScores);
 
-  // === 5. LIEN DU SITE (en bas) ===
-  // Position : Y 1305 (centre du texte) = 1350 - 45 de marge bas
+  // === 5. LIEN DU SITE en bas — en rouge SPP ===
   var siteY = 1305;
-  ctx.fillStyle = '#CC2229';
-  ctx.font = '900 56px ' + FONT;
+  ctx.fillStyle = COL_RED;
+  ctx.font = '900 54px ' + FONT;
   ctx.textAlign = 'center';
   ctx.textBaseline = 'alphabetic';
   ctx.fillText('lecheminduspp.fr', W/2, siteY);
-  // Soulignement épais
+  // Soulignement doré
   var textW = ctx.measureText('lecheminduspp.fr').width;
-  ctx.fillRect(W/2 - textW/2, siteY + 12, textW, 4);
+  ctx.fillStyle = COL_AMBER;
+  ctx.fillRect(W/2 - textW/2, siteY + 13, textW, 3);
 }
 
-// Dessine le radar à 5 axes (Statut, SIS, Doctrines, Secourisme, Textes)
+// Radar pour style "immersif" : grille grise foncée, polygone doré
 function _espDrawShareRadar(ctx, cx, cy, R, scores) {
   var FONT = '"DM Sans", Arial, sans-serif';
   var axes = ['statut', 'sis', 'doctrines', 'secourisme', 'textes'];
@@ -5271,8 +5288,13 @@ function _espDrawShareRadar(ctx, cx, cy, R, scores) {
   };
   var n = axes.length;
 
-  // Grille : 4 cercles concentriques
-  ctx.strokeStyle = '#d6cdb5';
+  var COL_GRID = '#4A3E36';       // gris foncé chaud pour la grille
+  var COL_POLY_FILL = 'rgba(232, 168, 42, 0.25)';  // doré transparent
+  var COL_POLY_STROKE = '#E8A82A';  // doré plein
+  var COL_LABEL = '#E8E3D8';      // crème clair pour les labels
+
+  // Grille : 4 cercles concentriques en gris foncé
+  ctx.strokeStyle = COL_GRID;
   ctx.lineWidth = 1.5;
   [0.25, 0.5, 0.75, 1].forEach(function(frac){
     ctx.beginPath();
@@ -5292,8 +5314,8 @@ function _espDrawShareRadar(ctx, cx, cy, R, scores) {
   // Polygone des scores si dispo
   var hasScores = scores && typeof scores === 'object' && axes.some(function(a){ return scores[a] != null; });
   if (hasScores) {
-    ctx.fillStyle = 'rgba(204, 34, 41, 0.22)';
-    ctx.strokeStyle = '#CC2229';
+    ctx.fillStyle = COL_POLY_FILL;
+    ctx.strokeStyle = COL_POLY_STROKE;
     ctx.lineWidth = 3.5;
     ctx.lineJoin = 'round';
     ctx.beginPath();
@@ -5309,25 +5331,25 @@ function _espDrawShareRadar(ctx, cx, cy, R, scores) {
     ctx.fill();
     ctx.stroke();
 
-    // Points aux sommets (seulement pour axes avec données)
+    // Points dorés aux sommets (avec bordure sombre pour contraste)
     axes.forEach(function(a, i){
       if (scores[a] == null) return;
       var angle = -Math.PI/2 + (i * 2 * Math.PI / n);
       var r = (scores[a] / 100) * R;
       var x = cx + r * Math.cos(angle);
       var y = cy + r * Math.sin(angle);
-      ctx.fillStyle = '#CC2229';
+      ctx.fillStyle = COL_POLY_STROKE;
       ctx.beginPath();
       ctx.arc(x, y, 10, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = 'white';
+      ctx.strokeStyle = '#1A1410';
       ctx.lineWidth = 3;
       ctx.stroke();
     });
   }
 
-  // Labels autour du radar
-  ctx.fillStyle = '#1C1C1C';
+  // Labels autour du radar (crème clair sur fond sombre)
+  ctx.fillStyle = COL_LABEL;
   ctx.font = '600 26px ' + FONT;
   ctx.textBaseline = 'middle';
   axes.forEach(function(a, i){
