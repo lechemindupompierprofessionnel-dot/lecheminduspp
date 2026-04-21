@@ -9695,22 +9695,51 @@ function checkAccessGate(page) {
 }
 
 // PAIEMENT via Memberstack V2
+var _msPayInProgress = false;
 function msPay(priceId) {
+  // Verrou : empêche le spam si l'utilisateur re-clique pendant que le checkout se lance
+  if (_msPayInProgress) {
+    showToast('Requête en cours, patiente un instant…');
+    return;
+  }
   var ms = getMemberstack();
   if (!ms) {
     showToast('Chargement en cours, réessaie dans 2 secondes.');
     setTimeout(function() { msPay(priceId); }, 1500);
     return;
   }
+  _msPayInProgress = true;
+  // Reset du verrou après 10s maximum dans tous les cas, pour ne pas bloquer
+  setTimeout(function(){ _msPayInProgress = false; }, 10000);
+
   // Helper : après paiement réussi, on re-fetch le membre pour que planConnections
   // soit à jour et que isPaidMember passe à true avant la redirection merci.
   function onCheckoutSuccess() {
+    _msPayInProgress = false;
     return refreshMemberAccess().then(function() { goTo('merci'); });
   }
   function launchCheckout() {
     ms.purchasePlansWithCheckout({ priceId: priceId }).then(
-      function(result) { if (result && result.data) onCheckoutSuccess(); },
-      function(e) { showToast('Erreur paiement : ' + (e && e.message || '')); }
+      function(result) {
+        if (result && result.data) {
+          onCheckoutSuccess();
+        } else {
+          _msPayInProgress = false;
+        }
+      },
+      function(e) {
+        _msPayInProgress = false;
+        console.error('[msPay] purchasePlansWithCheckout error', e);
+        var msg = (e && e.message) ? e.message : 'Une erreur est survenue.';
+        // Message user-friendly selon le code d'erreur
+        if (msg.indexOf('already') > -1 || msg.indexOf('subscribed') > -1) {
+          showToast('⚠️ Tu as déjà ce plan. Contacte le support si besoin.');
+        } else if (msg.indexOf('429') > -1 || msg.indexOf('too many') > -1) {
+          showToast('⏳ Trop de requêtes. Patiente 30 secondes et réessaie.');
+        } else {
+          showToast('Erreur : ' + msg);
+        }
+      }
     );
   }
   function launchSignupThenCheckout() {
@@ -9719,9 +9748,14 @@ function msPay(priceId) {
         if (result && result.data && result.data.member) {
           updateNavMember(result.data.member);
           launchCheckout();
+        } else {
+          _msPayInProgress = false;
         }
       },
-      function(e) { console.error('msPay openModal error:', e); }
+      function(e) {
+        _msPayInProgress = false;
+        console.error('msPay openModal error:', e);
+      }
     );
   }
   // Si on a déjà currentMember en mémoire, inutile de re-fetch : on checkout direct
