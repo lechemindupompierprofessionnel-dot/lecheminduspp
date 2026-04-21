@@ -1517,7 +1517,7 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   <div class="mobile-nav-link" onclick="goTo('prepa');closeMobileNav()">Préparation physique</div>
   <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()">Bibliothèque</div>
   <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()">Actualités</div>
-  <div class="mobile-nav-link" onclick="goTo('candidats');closeMobileNav()">👥 Les candidats</div>
+  <div class="mobile-nav-link" onclick="goTo('candidats');closeMobileNav()">Les candidats</div>
   <div class="mobile-nav-link" id="mobile-espace-link" style="display:none" onclick="goTo('espace');closeMobileNav()">📊 Mon espace candidat</div>
   <button class="btn btn-red" onclick="openPopup()">Ebook Gratuit</button>
 </div>
@@ -1556,9 +1556,12 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
         <button class="nav-dropdown-item" data-page="prepa" onclick="goTo('prepa')">Préparation physique</button>
         <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')">Bibliothèque</button>
         <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')">Actualités</button>
-        <button class="nav-dropdown-item" data-page="candidats" onclick="goTo('candidats')">👥 Les candidats</button>
         <button class="nav-dropdown-item" data-page="espace" id="nav-espace-item" onclick="goTo('espace')" style="display:none">📊 Mon espace candidat</button>
       </div>
+    </div>
+    <div class="nav-group" id="navg-candidats">
+      <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Les candidats</button>
+      <div class="nav-group-bar"></div>
     </div>
   </div>
   <div class="nav-right">
@@ -5609,7 +5612,7 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace','prepa','demo-espace'];
+var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace','prepa','demo-espace','candidats','profil'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -5625,7 +5628,7 @@ function goTo(id) {
     home:'navg-home', parcours:'navg-parcours',
     formation:'navg-difference', coaching:'navg-difference',
     concours:'navg-plateforme', qcm:'navg-plateforme', biblio:'navg-plateforme', actu:'navg-plateforme',
-    prepa:'navg-plateforme'
+    prepa:'navg-plateforme', candidats:'navg-plateforme', profil:'navg-plateforme'
   };
   document.querySelectorAll('.nav-group').forEach(function(g) { g.classList.remove('active'); });
   if (groupMap[id]) document.getElementById(groupMap[id]).classList.add('active');
