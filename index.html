@@ -40,8 +40,17 @@ document.addEventListener('DOMContentLoaded', function(){
       clearInterval(interval);
       console.log('MEMBERSTACK: initialisé avec succès');
       window.$memberstackDom.getCurrentMember().then(function(res){
-        if(res && res.data && res.data.member) updateNavMember(res.data.member);
-      }).catch(function(){});
+        if (!res || !res.data) return;
+        // Memberstack peut retourner soit { data: { member: {...} } } (ancien format)
+        // soit { data: {...} } directement avec les infos du membre (nouveau format).
+        // On gère les deux cas pour rester compatible.
+        var member = res.data.member || res.data;
+        if (member && member.id) {
+          updateNavMember(member);
+        }
+      }).catch(function(e){
+        console.warn('MEMBERSTACK getCurrentMember :', e);
+      });
     }
   }, 200);
 });
