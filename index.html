@@ -9928,6 +9928,8 @@ function msPay(priceId) {
     ms.openModal('signup').then(
       function(result) {
         if (result && result.data && result.data.member) {
+          // Ferme manuellement la modale Memberstack (elle ne se ferme pas toute seule)
+          try { ms.hideModal(); } catch(e) { console.warn('[msPay] hideModal failed', e); }
           updateNavMember(result.data.member);
           launchCheckout();
         } else {
@@ -9984,6 +9986,8 @@ function msSignupFree() {
     ms.openModal('signup').then(
       function(result) {
         if (result && result.data && result.data.member) {
+          // Memberstack ne ferme pas la modale automatiquement après signup — on le fait nous-même
+          try { ms.hideModal(); } catch(e) { console.warn('[signup-free] hideModal failed', e); }
           updateNavMember(result.data.member);
           waitForPseudoAndGoTo('bienvenue');
         }
