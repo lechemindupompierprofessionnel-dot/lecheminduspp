@@ -798,12 +798,13 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
 .esp-carousel-slide.is-inactive{pointer-events:none}
 
 /* ===== Flèches latérales flottantes (grandes, visibles) ===== */
-.esp-car-side{position:absolute;top:50%;transform:translateY(-50%);z-index:30;width:54px;height:54px;background:white;border:2px solid var(--red);color:var(--red);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.14);transition:all .2s;font-family:inherit}
-.esp-car-side:hover:not(:disabled){background:var(--red);color:white;transform:translateY(-50%) scale(1.08)}
-.esp-car-side:disabled{opacity:0;pointer-events:none;transform:translateY(-50%) scale(.85)}
+.esp-car-side{position:sticky;top:110px;z-index:30;width:54px;height:54px;background:white;border:2px solid var(--red);color:var(--red);display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0;border-radius:50%;box-shadow:0 4px 14px rgba(0,0,0,.14);transition:all .2s;font-family:inherit;flex-shrink:0}
+.esp-car-side:hover:not(:disabled){background:var(--red);color:white;transform:scale(1.08)}
+.esp-car-side:disabled{opacity:0;pointer-events:none;transform:scale(.85)}
 .esp-car-side svg{width:26px;height:26px;display:block}
-.esp-car-side.left{left:-18px}
-.esp-car-side.right{right:-18px}
+/* Conteneur flex qui accueille les flèches autour du viewport */
+.esp-car-row{display:flex;align-items:flex-start;gap:8px}
+.esp-car-row .esp-carousel-viewport{flex:1;min-width:0}
 /* Animation d'attention au chargement (pulsation 3 fois pour signaler que c'est cliquable) */
 @keyframes carArrowPulse{0%,100%{box-shadow:0 4px 14px rgba(0,0,0,.14)}50%{box-shadow:0 0 0 12px rgba(204,34,41,0.18),0 4px 14px rgba(0,0,0,.14)}}
 .esp-car-side.pulse{animation:carArrowPulse 1.4s ease-in-out 3}
@@ -885,10 +886,8 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   .esp-car-label{padding:6px 10px;font-size:.72rem}
   .esp-car-arrow{width:32px;height:32px}
   .esp-swipe-hint{display:block}
-  .esp-car-side{width:44px;height:44px}
+  .esp-car-side{width:44px;height:44px;top:100px}
   .esp-car-side svg{width:22px;height:22px}
-  .esp-car-side.left{left:-8px}
-  .esp-car-side.right{right:-8px}
 }
 
 /* ===== VIEWER PDF PROTÉGÉ ===== */
@@ -2327,14 +2326,12 @@ if(window.location.search.indexOf('success') !== -1) {
 
       <!-- CARROUSEL : une seule section visible à la fois, swipeable -->
       <div class="esp-carousel" id="esp-carousel">
-        <!-- Flèches latérales flottantes (très visibles) -->
-        <button class="esp-car-side left pulse" id="esp-car-side-prev" onclick="espCarPrev()" aria-label="Précédent" disabled>
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
-        </button>
-        <button class="esp-car-side right pulse" id="esp-car-side-next" onclick="espCarNext()" aria-label="Suivant">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
-        </button>
-        <div class="esp-carousel-viewport" id="esp-car-viewport">
+        <div class="esp-car-row">
+          <!-- Flèche latérale gauche (sticky — reste visible au scroll) -->
+          <button class="esp-car-side pulse" id="esp-car-side-prev" onclick="espCarPrev()" aria-label="Précédent" disabled>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+          </button>
+          <div class="esp-carousel-viewport" id="esp-car-viewport">
           <div class="esp-carousel-track" id="esp-car-track">
 
       <!-- VUE D'ENSEMBLE (#overview — slide 0) -->
@@ -2517,6 +2514,11 @@ if(window.location.search.indexOf('success') !== -1) {
 
           </div><!-- /esp-car-track -->
         </div><!-- /esp-car-viewport -->
+          <!-- Flèche latérale droite (sticky — reste visible au scroll) -->
+          <button class="esp-car-side pulse" id="esp-car-side-next" onclick="espCarNext()" aria-label="Suivant">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+          </button>
+        </div><!-- /esp-car-row -->
 
         <!-- PIED DE PAGE DU CARROUSEL : dots + compteur + hint swipe mobile -->
         <div class="esp-car-footer">
