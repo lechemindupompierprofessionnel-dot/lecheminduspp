@@ -2877,6 +2877,17 @@ function goTo(id) {
   document.querySelectorAll('.nav-group').forEach(function(g) { g.classList.remove('active'); });
   if (groupMap[id]) document.getElementById(groupMap[id]).classList.add('active');
 
+  // Masque la countdown-bar sur les pages "QCM" et "Mode concours" où elle distrait
+  // de l'exercice en cours. Visible partout ailleurs.
+  var cdBar = document.getElementById('cdBar');
+  if (cdBar) {
+    if (id === 'qcm' || id === 'concours') {
+      cdBar.style.display = 'none';
+    } else {
+      cdBar.style.display = '';
+    }
+  }
+
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
   if (id === 'qcm') { initQcm(); checkAccessGate('qcm'); }
