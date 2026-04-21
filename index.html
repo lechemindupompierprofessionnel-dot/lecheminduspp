@@ -2240,7 +2240,7 @@ if(window.location.search.indexOf('success') !== -1) {
           <div class="esp-section-title">Vue radar hebdomadaire</div>
           <div class="esp-section-sub">Tes scores par domaine sur les <strong>7 derniers jours</strong>. Les axes verts sont tes points forts, les rouges tes points à travailler en priorité.</div>
         </div>
-        <div style="background:white;border:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
+        <div id="esp-radar-card" style="background:white;border:1px solid var(--border);padding:28px 32px;display:flex;align-items:center;gap:32px;flex-wrap:wrap">
           <div id="esp-radar-canvas" style="flex:1;min-width:320px;max-width:480px;margin:0 auto">
             <!-- SVG injecté dynamiquement -->
           </div>
@@ -4616,17 +4616,24 @@ function renderEspRadar(data) {
     textes: 'Textes épars'
   };
 
+  // Résolution robuste de la "carte blanche" du radar : d'abord via ID dédié,
+  // sinon fallback sur plusieurs variantes du sélecteur d'attribut style.
+  var card = document.getElementById('esp-radar-card')
+          || wrap.querySelector('div[style*="background:white"]')
+          || wrap.querySelector('div[style*="background: white"]')
+          || wrap.querySelector('div[style*="background:#fff"]');
+
   // Vérifie s'il y a au moins un score non nul
   var hasAnyScore = axesOrder.some(function(a){ return scores[a] != null; });
   if (!hasAnyScore) {
     canvas.innerHTML = '';
-    legend.innerHTML = '';
-    wrap.querySelector('div[style*="background:white"]').style.display = 'none';
-    emptyEl.style.display = 'block';
+    if (legend) legend.innerHTML = '';
+    if (card) card.style.display = 'none';
+    if (emptyEl) emptyEl.style.display = 'block';
     return;
   }
-  emptyEl.style.display = 'none';
-  wrap.querySelector('div[style*="background:white"]').style.display = '';
+  if (emptyEl) emptyEl.style.display = 'none';
+  if (card) card.style.display = '';
 
   // Paramètres SVG
   var R = 150;               // rayon max du radar
@@ -4703,6 +4710,8 @@ function renderEspRadar(data) {
 
   svg += '</svg>';
   canvas.innerHTML = svg;
+
+  if (!legend) return;
 
   // Légende : niveaux avec couleurs + analyse
   var sortedScores = axesOrder
