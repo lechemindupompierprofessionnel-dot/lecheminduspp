@@ -5137,6 +5137,15 @@ function openShareModal() {
       }
     } catch(e) { radarScores = null; }
 
+    // Total des séances de prépa physique (somme des jours cochés sur toutes les semaines)
+    var nbPrepa = 0;
+    try {
+      if (typeof espGetPrepaDone === 'function') {
+        var prepaRows = espGetPrepaDone();
+        prepaRows.forEach(function(r){ nbPrepa += (r.nb || 0); });
+      }
+    } catch(e) { nbPrepa = 0; }
+
     _espShareStats = {
       firstName: (document.getElementById('esp-name') || {}).textContent || 'Candidat',
       streak: streak,
@@ -5144,6 +5153,7 @@ function openShareModal() {
       questions: totalAnswered,
       score: globalPct,
       docs: nbDocs,
+      prepa: nbPrepa,
       radarScores: radarScores
     };
 
@@ -5273,28 +5283,28 @@ function renderShareCanvas() {
   ctx.lineTo(contentR, 330);
   ctx.stroke();
 
-  // === 4. STATS SUR UNE SEULE LIGNE ===
+  // === 4. STATS SUR UNE SEULE LIGNE (5 éléments équidistants) ===
   var statsY = 430;
-  var statLabelY = 475;
 
-  // 4 stats équidistantes entre contentX et contentR
+  // 5 stats équidistantes entre contentX et contentR
   var statPositions = [
-    contentX + contentW * 0.12,
-    contentX + contentW * 0.37,
-    contentX + contentW * 0.62,
-    contentX + contentW * 0.87
+    contentX + contentW * 0.10,
+    contentX + contentW * 0.30,
+    contentX + contentW * 0.50,
+    contentX + contentW * 0.70,
+    contentX + contentW * 0.90
   ];
 
-  function drawStat(x, y, bigValue, label, isScore) {
-    ctx.fillStyle = isScore ? COL_RED : COL_TEXT;
-    ctx.font = '900 82px ' + FONT;
+  function drawStat(x, y, bigValue, label, isAccent) {
+    ctx.fillStyle = isAccent ? COL_RED : COL_TEXT;
+    ctx.font = '900 68px ' + FONT;
     ctx.textAlign = 'center';
     ctx.textBaseline = 'alphabetic';
     ctx.fillText(bigValue, x, y);
 
     ctx.fillStyle = COL_MUTED;
-    ctx.font = '600 18px ' + FONT;
-    ctx.fillText(label, x, y + 45);
+    ctx.font = '600 16px ' + FONT;
+    ctx.fillText(label, x, y + 38);
   }
 
   drawStat(statPositions[0], statsY, String(s.streak), s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF', false);
@@ -5302,6 +5312,7 @@ function renderShareCanvas() {
   drawStat(statPositions[2], statsY, String(s.questions), 'QUESTIONS', false);
   var scoreText = s.score > 0 ? (s.score + '%') : '—';
   drawStat(statPositions[3], statsY, scoreText, 'SCORE', true);
+  drawStat(statPositions[4], statsY, String(s.prepa || 0), 'PRÉPA PHYSIQUE', false);
 
   // === 5. LIGNE SÉPARATRICE INFÉRIEURE ===
   ctx.strokeStyle = COL_TEXT;
