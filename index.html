@@ -1274,6 +1274,63 @@ footer{background:var(--dark);color:var(--cream);padding:60px 5% 32px}
   #badge-popup{min-width:0;left:10px;right:10px;transform:translateY(-200%);max-width:none}
   #badge-popup.visible{transform:translateY(0)}
 }
+
+/* ===== SECTION BADGES DANS ESPACE CANDIDAT ===== */
+.esp-badges-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:24px;flex-wrap:wrap;gap:16px}
+.esp-badges-title{font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:700;color:var(--charcoal);line-height:1.1;margin:0}
+.esp-badges-counter{font-size:.85rem;color:var(--gray);font-weight:500}
+.esp-badges-counter strong{color:var(--red);font-weight:700}
+.esp-bc-section{background:white;border:1px solid var(--border);margin-bottom:8px}
+.esp-bc-section-head{padding:14px 20px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none;border-bottom:1px solid transparent;transition:background .15s}
+.esp-bc-section-head:hover{background:var(--cream2)}
+.esp-bc-section.open .esp-bc-section-head{border-bottom-color:var(--border)}
+.esp-bc-cat{font-size:.85rem;font-weight:600;color:var(--charcoal);letter-spacing:.5px;text-transform:uppercase;display:flex;align-items:center;gap:10px}
+.esp-bc-count{font-size:.8rem;color:var(--gray);display:flex;align-items:center;gap:10px}
+.esp-bc-count strong{color:var(--charcoal)}
+.esp-bc-chevron{width:10px;height:10px;border-right:2px solid var(--gray);border-bottom:2px solid var(--gray);transform:rotate(45deg);transition:transform .2s;margin-left:4px}
+.esp-bc-section.open .esp-bc-chevron{transform:rotate(-135deg);margin-top:4px}
+.esp-bc-body{display:none;padding:20px 20px 24px;background:var(--cream2);border-top:1px solid var(--border-light)}
+.esp-bc-section.open .esp-bc-body{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.esp-bc-item{background:white;border:1px solid var(--border);padding:12px 8px 10px;text-align:center;cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s;position:relative}
+.esp-bc-item:hover{transform:translateY(-2px);border-color:var(--red);box-shadow:0 4px 14px rgba(0,0,0,.06)}
+.esp-bc-item.locked{background:var(--cream);border-style:dashed;cursor:default}
+.esp-bc-item.locked:hover{transform:none;border-color:var(--border);box-shadow:none}
+.esp-bc-item.showcase{border-color:var(--red);border-width:2px;padding:11px 7px 9px}
+.esp-bc-item-icon{font-size:1.8rem;line-height:1;margin-bottom:6px}
+.esp-bc-item.locked .esp-bc-item-icon{opacity:.28;filter:grayscale(1)}
+.esp-bc-item-name{font-size:.78rem;color:var(--charcoal);font-weight:500;line-height:1.2;min-height:28px;display:flex;align-items:center;justify-content:center}
+.esp-bc-item.locked .esp-bc-item-name{color:var(--gray-light)}
+.esp-bc-showcase-tag{position:absolute;top:-8px;left:50%;transform:translateX(-50%);background:var(--red);color:white;font-size:.62rem;font-weight:700;letter-spacing:.8px;padding:2px 8px;text-transform:uppercase;white-space:nowrap}
+.esp-bc-rarity{position:absolute;top:4px;right:4px;width:6px;height:6px;border-radius:50%}
+.esp-bc-rarity.commun{background:#b0b0b0}
+.esp-bc-rarity.rare{background:#4a7bd1}
+.esp-bc-rarity.epique{background:#9240c9}
+.esp-bc-rarity.legendaire{background:#c08413}
+@media(max-width:900px){
+  .esp-bc-section.open .esp-bc-body{grid-template-columns:repeat(4,1fr)}
+}
+@media(max-width:640px){
+  .esp-bc-section.open .esp-bc-body{grid-template-columns:repeat(3,1fr);gap:10px}
+  .esp-bc-item-icon{font-size:1.5rem}
+  .esp-bc-item-name{font-size:.72rem}
+}
+
+/* ===== MODAL BADGE DETAIL ===== */
+#badge-detail-modal{position:fixed;inset:0;z-index:9998;background:rgba(28,18,12,0.82);backdrop-filter:blur(4px);display:none;align-items:center;justify-content:center;padding:20px}
+#badge-detail-modal.visible{display:flex}
+.bd-box{background:white;max-width:420px;width:100%;padding:40px 32px 28px;position:relative;text-align:center}
+.bd-close{position:absolute;top:12px;right:12px;background:none;border:none;font-size:1.3rem;color:var(--gray);cursor:pointer;padding:4px 10px}
+.bd-icon{font-size:3.4rem;line-height:1;margin-bottom:16px}
+.bd-rarity{font-size:.72rem;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.bd-rarity.commun{color:#888}
+.bd-rarity.rare{color:#4a7bd1}
+.bd-rarity.epique{color:#9240c9}
+.bd-rarity.legendaire{color:#c08413}
+.bd-name{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--charcoal);margin-bottom:10px;line-height:1.2}
+.bd-desc{font-size:.9rem;color:var(--gray);line-height:1.55;margin-bottom:20px}
+.bd-date{font-size:.78rem;color:var(--gray-light);margin-bottom:22px}
+.bd-actions{display:flex;flex-direction:column;gap:10px}
+.bd-showcase-current{font-size:.82rem;color:var(--red);font-weight:600;padding:10px;background:var(--red-pale);margin-bottom:10px}
 </style>
 </head>
 <body>
@@ -2906,6 +2963,18 @@ if(window.location.search.indexOf('success') !== -1) {
         <div class="esp-swipe-hint" id="esp-swipe-hint">← Balaie pour naviguer →</div>
       </div><!-- /esp-carousel -->
 
+      <!-- ============================= SECTION BADGES ============================= -->
+      <div class="esp-badges" id="esp-badges-section" style="margin-top:48px">
+        <div class="esp-badges-header">
+          <div>
+            <div class="s-eyebrow" style="color:var(--red);margin-bottom:8px">Ma collection</div>
+            <h2 class="esp-badges-title">Mes badges</h2>
+          </div>
+          <div class="esp-badges-counter" id="esp-badges-counter">0 / 40 badges obtenus</div>
+        </div>
+        <div id="esp-badges-list"></div>
+      </div>
+
       <!-- RESET -->
       <div class="esp-reset">
         <button class="esp-reset-btn" onclick="resetEspaceStats()">Réinitialiser mes statistiques</button>
@@ -3232,6 +3301,21 @@ if(window.location.search.indexOf('success') !== -1) {
       <div>• Modifiable une fois dans les 30 jours suivant la création</div>
     </div>
 
+    <div style="margin-bottom:18px">
+      <label for="pseudo-birthdate" style="display:block;font-size:.82rem;font-weight:600;color:var(--charcoal);margin-bottom:6px">
+        Ta date de naissance <span style="font-weight:400;color:var(--gray);font-size:.78rem">(optionnel)</span>
+      </label>
+      <input
+        type="date"
+        id="pseudo-birthdate"
+        class="pseudo-input"
+        style="padding:12px 16px"
+      >
+      <div style="font-size:.74rem;color:var(--gray-light);margin-top:6px;line-height:1.4">
+        Sert uniquement à te donner un badge surprise le jour J 🎂. Non affichée publiquement.
+      </div>
+    </div>
+
     <button class="btn btn-red pseudo-submit" id="pseudo-submit-btn" disabled>
       Valider mon pseudo
     </button>
@@ -3249,6 +3333,20 @@ if(window.location.search.indexOf('success') !== -1) {
     <div class="badge-popup-desc" id="badge-popup-desc">—</div>
   </div>
   <button class="badge-popup-close" id="badge-popup-close" aria-label="Fermer">✕</button>
+</div>
+
+<!-- ===== MODAL DÉTAIL BADGE (clic sur un badge dans la collection) ===== -->
+<div id="badge-detail-modal" role="dialog" aria-modal="true" onclick="if(event.target===this)closeBadgeDetail()">
+  <div class="bd-box">
+    <button class="bd-close" onclick="closeBadgeDetail()" aria-label="Fermer">✕</button>
+    <div class="bd-icon" id="bd-icon">🏆</div>
+    <div class="bd-rarity" id="bd-rarity">—</div>
+    <div class="bd-name" id="bd-name">—</div>
+    <div class="bd-desc" id="bd-desc">—</div>
+    <div class="bd-date" id="bd-date"></div>
+    <div id="bd-showcase-current" class="bd-showcase-current" style="display:none">★ Badge vitrine actuel</div>
+    <div class="bd-actions" id="bd-actions"></div>
+  </div>
 </div>
 
 <!-- ===== FOOTER ===== -->
@@ -3553,7 +3651,7 @@ function getProfileForMember(memberstackId) {
   if (!window.supabaseClient || !memberstackId) return Promise.resolve(null);
   return window.supabaseClient
     .from('profiles')
-    .select('id, pseudo, showcase_badge_id, pseudo_changed_at, created_at')
+    .select('id, pseudo, showcase_badge_id, pseudo_changed_at, created_at, birthdate')
     .eq('memberstack_id', memberstackId)
     .maybeSingle()
     .then(function(res) {
@@ -3704,6 +3802,14 @@ function submitPseudo() {
     if (result && result.ok) {
       // Succès → sync Memberstack en arrière-plan puis ferme la modale
       syncPseudoToMemberstack(pseudo);
+      // Sauvegarde optionnelle de la date d'anniversaire
+      var birthInput = document.getElementById('pseudo-birthdate');
+      if (birthInput && birthInput.value && window.supabaseClient) {
+        window.supabaseClient.rpc('update_birthdate', {
+          p_memberstack_id: memberstackId,
+          p_birthdate: birthInput.value
+        }).catch(function(e){ console.warn('[pseudo] birthdate save failed', e); });
+      }
       closePseudoModal();
       showToast('🎉 Bienvenue ' + pseudo + ' !');
       // Chargement initial des badges + évaluation "login" (statut abonnement notamment)
@@ -4108,6 +4214,241 @@ function evaluateStatutBadges() {
   if (memberTier === '3'  && !earnedBadgeIds.has('statut_3'))  awardBadge('statut_3');
 }
 
+// ============================================================
+// STREAK QUOTIDIEN — tracking localStorage + badges
+// ============================================================
+// On stocke dans localStorage les dates de session (YYYY-MM-DD).
+// À chaque login ou session_end, on met à jour le streak courant.
+
+function streakStorageKey() {
+  var id = currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id));
+  return 'streakData_' + (id || 'anon');
+}
+
+function loadStreakData() {
+  try {
+    var raw = localStorage.getItem(streakStorageKey());
+    return raw ? JSON.parse(raw) : { lastDate: null, current: 0, longest: 0, had_break: false };
+  } catch(e) { return { lastDate: null, current: 0, longest: 0, had_break: false }; }
+}
+
+function saveStreakData(data) {
+  try { localStorage.setItem(streakStorageKey(), JSON.stringify(data)); } catch(e){}
+}
+
+function todayISO() {
+  var d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth()+1).padStart(2,'0') + '-' + String(d.getDate()).padStart(2,'0');
+}
+
+// Calcule la différence en jours entre deux dates YYYY-MM-DD
+function daysBetween(a, b) {
+  var da = new Date(a + 'T00:00:00');
+  var db = new Date(b + 'T00:00:00');
+  return Math.round((db - da) / 86400000);
+}
+
+// Appelée à chaque activité (session_end ou login)
+function updateStreak() {
+  var data = loadStreakData();
+  var today = todayISO();
+  if (data.lastDate === today) return data; // déjà compté aujourd'hui
+  if (!data.lastDate) {
+    data.current = 1;
+  } else {
+    var diff = daysBetween(data.lastDate, today);
+    if (diff === 1) {
+      data.current += 1;
+    } else if (diff > 1) {
+      // Interruption
+      if (diff > 7) data.had_break = true; // pour badge Inébranlable
+      data.current = 1;
+    }
+  }
+  data.lastDate = today;
+  if (data.current > data.longest) data.longest = data.current;
+  saveStreakData(data);
+
+  // Attribution des badges streak
+  if (data.current >= 3   && !earnedBadgeIds.has('reg_3_jours'))        awardBadge('reg_3_jours',        { streak: data.current });
+  if (data.current >= 7   && !earnedBadgeIds.has('reg_semaine_pleine')) awardBadge('reg_semaine_pleine', { streak: data.current });
+  if (data.current >= 30  && !earnedBadgeIds.has('reg_mois_complet'))   awardBadge('reg_mois_complet',   { streak: data.current });
+  if (data.current >= 100 && !earnedBadgeIds.has('reg_100_jours'))      awardBadge('reg_100_jours',      { streak: data.current });
+  // Inébranlable : avait pris break >7j, et repart sur 7j consécutifs
+  if (data.had_break && data.current >= 7 && !earnedBadgeIds.has('reg_inebranlable')) {
+    awardBadge('reg_inebranlable', { streak: data.current });
+  }
+  return data;
+}
+
+// ============================================================
+// ANCIENNETÉ — check date de première souscription payante
+// ============================================================
+// On stocke localement la date de premier accès payant, puis on compare.
+// Si le membre passe en non-payant à un moment, on reset le compteur.
+
+function seniorityStorageKey() {
+  var id = currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id));
+  return 'seniorityStart_' + (id || 'anon');
+}
+
+function updateSeniorityBadges() {
+  if (!isPaidMember) {
+    // Non payant : on reset le point de départ pour la prochaine fois
+    try { localStorage.removeItem(seniorityStorageKey()); } catch(e){}
+    return;
+  }
+  var key = seniorityStorageKey();
+  var startISO = null;
+  try { startISO = localStorage.getItem(key); } catch(e){}
+  if (!startISO) {
+    // Premier constat payant → on enregistre la date maintenant
+    startISO = todayISO();
+    try { localStorage.setItem(key, startISO); } catch(e){}
+  }
+  var now = new Date();
+  var start = new Date(startISO + 'T00:00:00');
+  var months = (now.getFullYear() - start.getFullYear()) * 12 + (now.getMonth() - start.getMonth());
+  if (now.getDate() < start.getDate()) months -= 1; // mois partiel non compté
+
+  if (months >= 1  && !earnedBadgeIds.has('anc_1_mois'))  awardBadge('anc_1_mois',  { months: months });
+  if (months >= 3  && !earnedBadgeIds.has('anc_3_mois'))  awardBadge('anc_3_mois',  { months: months });
+  if (months >= 6  && !earnedBadgeIds.has('anc_6_mois'))  awardBadge('anc_6_mois',  { months: months });
+  if (months >= 12 && !earnedBadgeIds.has('anc_12_mois')) awardBadge('anc_12_mois', { months: months });
+  if (months >= 24 && !earnedBadgeIds.has('anc_24_mois')) awardBadge('anc_24_mois', { months: months });
+}
+
+// ============================================================
+// PERFORMANCE AVANCÉE — tracking des 3 dernières perf par thème
+// ============================================================
+function perfHistoryKey() {
+  var id = currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id));
+  return 'perfHistory_' + (id || 'anon');
+}
+
+function loadPerfHistory() {
+  try {
+    var raw = localStorage.getItem(perfHistoryKey());
+    return raw ? JSON.parse(raw) : { lastSansFautes: 0, themes: {} };
+  } catch(e) { return { lastSansFautes: 0, themes: {} }; }
+}
+
+function savePerfHistory(h) {
+  try { localStorage.setItem(perfHistoryKey(), JSON.stringify(h)); } catch(e){}
+}
+
+function evaluatePerfAdvanced(ctx) {
+  if (!ctx || typeof ctx.score !== 'number' || typeof ctx.total !== 'number') return;
+  var history = loadPerfHistory();
+  var pct = ctx.total > 0 ? (ctx.score / ctx.total * 100) : 0;
+
+  // Triple sans faute : 3 sans-faute consécutifs
+  if (pct === 100 && ctx.total >= 10) {
+    history.lastSansFautes = (history.lastSansFautes || 0) + 1;
+    if (history.lastSansFautes >= 3 && !earnedBadgeIds.has('perf_triple')) {
+      awardBadge('perf_triple', { streak: history.lastSansFautes });
+    }
+  } else {
+    history.lastSansFautes = 0;
+  }
+
+  // Maître du thème : 3 QCM consécutifs à +90% sur le même thème
+  if (ctx.categories && ctx.categories.length === 1) {
+    var theme = ctx.categories[0];
+    if (!history.themes) history.themes = {};
+    if (!history.themes[theme]) history.themes[theme] = { streak90: 0, masterEarned: false };
+    if (pct >= 90) {
+      history.themes[theme].streak90 += 1;
+    } else {
+      history.themes[theme].streak90 = 0;
+    }
+    if (history.themes[theme].streak90 >= 3 && !earnedBadgeIds.has('perf_maitre_theme')) {
+      awardBadge('perf_maitre_theme', { theme: theme });
+      history.themes[theme].masterEarned = true;
+    }
+    // Expert des 5 thèmes : avoir obtenu le mastery sur 5 thèmes distincts
+    var mastered = Object.keys(history.themes).filter(function(t){ return history.themes[t].masterEarned; }).length;
+    if (mastered >= 5 && !earnedBadgeIds.has('perf_expert_5')) {
+      awardBadge('perf_expert_5', { themes_count: mastered });
+    }
+  }
+  savePerfHistory(history);
+}
+
+// ============================================================
+// INSOLITES AVANCÉS — week-end, jours fériés, anniversaire
+// ============================================================
+
+// Jours fériés français fixes (les mobiles comme Pâques ne sont pas inclus — rare à tomber en session)
+function isFrenchHoliday(date) {
+  var m = date.getMonth() + 1, d = date.getDate();
+  var fixed = [
+    [1,1],   // Jour de l'an
+    [5,1],   // Fête du travail
+    [5,8],   // Victoire 1945
+    [7,14],  // Fête nationale
+    [8,15],  // Assomption
+    [11,1],  // Toussaint
+    [11,11], // Armistice
+    [12,25]  // Noël
+  ];
+  return fixed.some(function(f){ return f[0]===m && f[1]===d; });
+}
+
+function weekendHistoryKey() {
+  var id = currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id));
+  return 'weekendHistory_' + (id || 'anon');
+}
+
+function evaluateInsolitesAdvanced(ctx) {
+  var now = new Date();
+  var day = now.getDay(); // 0 dim, 6 sam
+  var isWeekend = (day === 0 || day === 6);
+
+  // Guerrier du week-end : 4 sessions consécutives pendant des jours de week-end
+  if (isWeekend) {
+    try {
+      var data = JSON.parse(localStorage.getItem(weekendHistoryKey()) || '{"last":null,"count":0}');
+      var today = todayISO();
+      if (data.last !== today) {
+        // Nouvelle session de week-end aujourd'hui
+        if (data.last) {
+          var diff = daysBetween(data.last, today);
+          // Si le précédent était samedi et aujourd'hui dimanche, ou week-end suivant (≤8 jours)
+          if (diff <= 8) data.count += 1; else data.count = 1;
+        } else {
+          data.count = 1;
+        }
+        data.last = today;
+        localStorage.setItem(weekendHistoryKey(), JSON.stringify(data));
+        if (data.count >= 4 && !earnedBadgeIds.has('ins_weekend')) {
+          awardBadge('ins_weekend', { count: data.count });
+        }
+      }
+    } catch(e){}
+  }
+
+  // Jour férié
+  if (isFrenchHoliday(now) && !earnedBadgeIds.has('ins_ferie')) {
+    awardBadge('ins_ferie', { date: todayISO() });
+  }
+
+  // Anniversaire : nécessite birthdate dans le profil
+  if (currentMember && currentMember._profile && currentMember._profile.birthdate) {
+    var bd = currentMember._profile.birthdate; // format YYYY-MM-DD
+    var parts = bd.split('-');
+    if (parts.length === 3) {
+      var bMonth = parseInt(parts[1], 10);
+      var bDay = parseInt(parts[2], 10);
+      if (bMonth === (now.getMonth() + 1) && bDay === now.getDate()) {
+        if (!earnedBadgeIds.has('ins_anniversaire')) {
+          awardBadge('ins_anniversaire', { date: todayISO() });
+        }
+      }
+    }
+  }
+}
+
 // Point d'entrée principal : appelé lors d'événements clés.
 // trigger peut être : 'session_end', 'login', 'tier_change'
 function evaluateBadges(trigger, ctx) {
@@ -4116,10 +4457,16 @@ function evaluateBadges(trigger, ctx) {
     if (trigger === 'session_end') {
       evaluateParcoursBadges(ctx);
       evaluatePerformanceBadges(ctx);
+      evaluatePerfAdvanced(ctx);
       evaluateInsolitesBadges(ctx);
+      evaluateInsolitesAdvanced(ctx);
+      updateStreak();
     }
     if (trigger === 'login' || trigger === 'tier_change') {
       evaluateStatutBadges();
+      updateStreak();
+      updateSeniorityBadges();
+      evaluateInsolitesAdvanced(ctx); // check jour férié / anniv même sans session
     }
   } catch(e) {
     console.warn('[badges] evaluateBadges exception', e);
@@ -4134,6 +4481,285 @@ document.addEventListener('DOMContentLoaded', function() {
     closeBtn.addEventListener('click', function() { hideBadgePopup(); });
   }
 });
+
+// ============================================================
+// UI COLLECTION — rendu de la section "Mes badges" par catégorie
+// ============================================================
+
+// État d'ouverture des sections (mémoire courte session)
+var badgeSectionsOpen = { parcours: true, regularite: false, anciennete: false, performance: false, insolites: false, concours: false, statut: false };
+
+// Stocke les earned_at par badge_id pour affichage détaillé
+var earnedBadgesDetail = {};
+
+function loadEarnedBadgesDetail() {
+  if (!window.supabaseClient || !currentMember) return Promise.resolve({});
+  var memberstackId = currentMember.id || (currentMember.auth && currentMember.auth.id);
+  if (!memberstackId) return Promise.resolve({});
+  return window.supabaseClient
+    .from('badges_earned')
+    .select('badge_id, earned_at, metadata')
+    .eq('memberstack_id', memberstackId)
+    .then(function(res) {
+      var map = {};
+      (res.data || []).forEach(function(b) { map[b.badge_id] = b; });
+      earnedBadgesDetail = map;
+      return map;
+    })
+    .catch(function(){ return {}; });
+}
+
+// Récupère le badge vitrine actuel depuis le profil stocké
+function getCurrentShowcaseBadgeId() {
+  if (currentMember && currentMember._profile) return currentMember._profile.showcase_badge_id || null;
+  return null;
+}
+
+// Rend toute la collection dans #esp-badges-list
+function renderBadgesCollection() {
+  var container = document.getElementById('esp-badges-list');
+  var counter = document.getElementById('esp-badges-counter');
+  if (!container) return;
+
+  var totalEarnable = 0;
+  var totalEarned = 0;
+  // Séparer badges par catégorie
+  var byCategory = {};
+  BADGE_CATEGORIES_ORDER.forEach(function(cat){ byCategory[cat] = []; });
+  Object.keys(BADGES_DEFINITIONS).forEach(function(id) {
+    var def = BADGES_DEFINITIONS[id];
+    if (!byCategory[def.category]) byCategory[def.category] = [];
+    byCategory[def.category].push({ id: id, def: def });
+    totalEarnable++;
+    if (earnedBadgeIds.has(id)) totalEarned++;
+  });
+
+  if (counter) counter.innerHTML = '<strong>' + totalEarned + '</strong> / ' + totalEarnable + ' badges obtenus';
+
+  var showcaseId = getCurrentShowcaseBadgeId();
+  var html = '';
+
+  BADGE_CATEGORIES_ORDER.forEach(function(cat) {
+    var badges = byCategory[cat] || [];
+    if (badges.length === 0) return;
+    var earned = badges.filter(function(b){ return earnedBadgeIds.has(b.id); }).length;
+    var total = badges.length;
+    var openClass = badgeSectionsOpen[cat] ? 'open' : '';
+
+    html += '<div class="esp-bc-section ' + openClass + '" data-cat="' + cat + '">';
+    html +=   '<div class="esp-bc-section-head" onclick="toggleBadgeSection(\'' + cat + '\')">';
+    html +=     '<div class="esp-bc-cat">' + BADGE_CATEGORY_LABELS[cat] + '</div>';
+    html +=     '<div class="esp-bc-count"><strong>' + earned + '</strong> / ' + total + ' obtenu' + (total > 1 ? 's' : '') + '<span class="esp-bc-chevron"></span></div>';
+    html +=   '</div>';
+    html +=   '<div class="esp-bc-body">';
+    badges.forEach(function(b) {
+      var isEarned = earnedBadgeIds.has(b.id);
+      var isShowcase = (b.id === showcaseId);
+      var classes = 'esp-bc-item' + (isEarned ? '' : ' locked') + (isShowcase ? ' showcase' : '');
+      html += '<div class="' + classes + '" onclick="openBadgeDetail(\'' + b.id + '\')">';
+      if (isShowcase) html += '<div class="esp-bc-showcase-tag">Vitrine</div>';
+      html += '<div class="esp-bc-rarity ' + b.def.rarity + '"></div>';
+      html += '<div class="esp-bc-item-icon">' + (isEarned ? b.def.icon : '🔒') + '</div>';
+      html += '<div class="esp-bc-item-name">' + (isEarned ? b.def.label : '???') + '</div>';
+      html += '</div>';
+    });
+    html +=   '</div>';
+    html += '</div>';
+  });
+
+  container.innerHTML = html;
+}
+
+function toggleBadgeSection(cat) {
+  badgeSectionsOpen[cat] = !badgeSectionsOpen[cat];
+  var el = document.querySelector('.esp-bc-section[data-cat="' + cat + '"]');
+  if (el) el.classList.toggle('open', badgeSectionsOpen[cat]);
+}
+
+function openBadgeDetail(badgeId) {
+  var def = BADGES_DEFINITIONS[badgeId];
+  if (!def) return;
+  var isEarned = earnedBadgeIds.has(badgeId);
+  var showcaseId = getCurrentShowcaseBadgeId();
+  var isShowcase = (badgeId === showcaseId);
+
+  document.getElementById('bd-icon').textContent = isEarned ? def.icon : '🔒';
+  document.getElementById('bd-icon').style.opacity = isEarned ? '1' : '.35';
+  var rarityEl = document.getElementById('bd-rarity');
+  rarityEl.textContent = BADGE_RARITY_LABELS[def.rarity] || '';
+  rarityEl.className = 'bd-rarity ' + def.rarity;
+  document.getElementById('bd-name').textContent = isEarned ? def.label : 'Badge verrouillé';
+  document.getElementById('bd-desc').textContent = isEarned ? def.desc : 'Ce badge se révèle dès que tu remplis ses conditions — à toi de jouer !';
+
+  var dateEl = document.getElementById('bd-date');
+  if (isEarned && earnedBadgesDetail[badgeId] && earnedBadgesDetail[badgeId].earned_at) {
+    var d = new Date(earnedBadgesDetail[badgeId].earned_at);
+    dateEl.textContent = 'Obtenu le ' + d.toLocaleDateString('fr-FR', { day:'numeric', month:'long', year:'numeric' });
+  } else {
+    dateEl.textContent = '';
+  }
+
+  var currentTag = document.getElementById('bd-showcase-current');
+  currentTag.style.display = isShowcase ? 'block' : 'none';
+
+  var actions = document.getElementById('bd-actions');
+  actions.innerHTML = '';
+  if (isEarned && !isShowcase) {
+    var btnSet = document.createElement('button');
+    btnSet.className = 'btn btn-red';
+    btnSet.style.cssText = 'width:100%;justify-content:center';
+    btnSet.textContent = '★ Porter ce badge';
+    btnSet.onclick = function() { setShowcaseBadge(badgeId); };
+    actions.appendChild(btnSet);
+  }
+  if (isEarned) {
+    var btnShare = document.createElement('button');
+    btnShare.className = 'btn btn-outline-red';
+    btnShare.style.cssText = 'width:100%;justify-content:center';
+    btnShare.textContent = '📤 Partager sur les réseaux';
+    btnShare.onclick = function() { generateBadgeShareImage(badgeId); };
+    actions.appendChild(btnShare);
+  }
+  var btnClose = document.createElement('button');
+  btnClose.className = 'btn btn-outline';
+  btnClose.style.cssText = 'width:100%;justify-content:center';
+  btnClose.textContent = 'Fermer';
+  btnClose.onclick = closeBadgeDetail;
+  actions.appendChild(btnClose);
+
+  document.getElementById('badge-detail-modal').classList.add('visible');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeBadgeDetail() {
+  document.getElementById('badge-detail-modal').classList.remove('visible');
+  document.body.style.overflow = '';
+}
+
+// Définit un badge comme vitrine (RPC Supabase)
+function setShowcaseBadge(badgeId) {
+  if (!window.supabaseClient || !currentMember) return;
+  var memberstackId = currentMember.id || (currentMember.auth && currentMember.auth.id);
+  window.supabaseClient.rpc('set_showcase_badge', {
+    p_memberstack_id: memberstackId,
+    p_badge_id: badgeId
+  }).then(function(res) {
+    if (res.error || (res.data && !res.data.ok)) {
+      showToast('⚠️ Erreur lors du changement de badge vitrine');
+      return;
+    }
+    if (currentMember._profile) currentMember._profile.showcase_badge_id = badgeId;
+    showToast('★ Badge vitrine mis à jour');
+    closeBadgeDetail();
+    renderBadgesCollection();
+  }).catch(function(e){
+    console.warn('[badges] setShowcase error', e);
+    showToast('⚠️ Erreur réseau');
+  });
+}
+
+// ============================================================
+// GÉNÉRATION IMAGE DE PARTAGE (1080x1080) — réutilise canvas API
+// ============================================================
+function generateBadgeShareImage(badgeId) {
+  var def = BADGES_DEFINITIONS[badgeId];
+  if (!def) return;
+  var pseudo = (currentMember && currentMember._profile && currentMember._profile.pseudo) || 'Candidat';
+
+  var canvas = document.createElement('canvas');
+  canvas.width = 1080; canvas.height = 1080;
+  var ctx = canvas.getContext('2d');
+
+  // Fond crème
+  ctx.fillStyle = '#F5F0E8';
+  ctx.fillRect(0, 0, 1080, 1080);
+
+  // Bande rouge verticale à gauche (120px)
+  ctx.fillStyle = '#CC2229';
+  ctx.fillRect(0, 0, 120, 1080);
+
+  // Texte rotaté dans la bande rouge
+  ctx.save();
+  ctx.translate(60, 540);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillStyle = 'rgba(255,255,255,0.92)';
+  ctx.font = 'bold 26px "DM Sans", sans-serif';
+  ctx.textAlign = 'center';
+  ctx.fillText('LE CHEMIN DU SPP · BADGE ' + (BADGE_RARITY_LABELS[def.rarity] || '').toUpperCase(), 0, 0);
+  ctx.restore();
+
+  // Titre site
+  ctx.fillStyle = '#1C1C1C';
+  ctx.font = '28px "DM Sans", sans-serif';
+  ctx.textAlign = 'left';
+  ctx.fillText('lecheminduspp.fr', 180, 100);
+
+  // Icône du badge (gros emoji)
+  ctx.font = '280px serif';
+  ctx.textAlign = 'center';
+  ctx.fillText(def.icon, 540, 500);
+
+  // Rareté (couleur selon)
+  var rarityColor = { commun:'#888', rare:'#4a7bd1', epique:'#9240c9', legendaire:'#c08413' }[def.rarity] || '#888';
+  ctx.fillStyle = rarityColor;
+  ctx.font = 'bold 26px "DM Sans", sans-serif';
+  ctx.fillText((BADGE_RARITY_LABELS[def.rarity] || '').toUpperCase(), 540, 580);
+
+  // Nom du badge
+  ctx.fillStyle = '#1C1C1C';
+  ctx.font = 'italic 62px "Playfair Display", Georgia, serif';
+  ctx.fillText(def.label, 540, 680);
+
+  // Description
+  ctx.fillStyle = '#555';
+  ctx.font = '28px "DM Sans", sans-serif';
+  wrapText(ctx, def.desc, 540, 740, 820, 38);
+
+  // Pseudo en bas
+  ctx.fillStyle = '#CC2229';
+  ctx.font = 'bold 32px "DM Sans", sans-serif';
+  ctx.fillText('Obtenu par @' + pseudo, 540, 920);
+
+  // Footer
+  ctx.fillStyle = '#888';
+  ctx.font = '22px "DM Sans", sans-serif';
+  ctx.fillText('Rejoins-moi sur lecheminduspp.fr', 540, 990);
+
+  // Télécharge
+  canvas.toBlob(function(blob) {
+    if (navigator.share && navigator.canShare && navigator.canShare({ files: [new File([blob], 'badge.png', {type:'image/png'})] })) {
+      navigator.share({
+        title: 'Badge débloqué : ' + def.label,
+        text: 'Je viens de débloquer le badge "' + def.label + '" sur lecheminduspp.fr !',
+        files: [new File([blob], 'badge-' + badgeId + '.png', {type:'image/png'})]
+      }).catch(function(){});
+    } else {
+      var link = document.createElement('a');
+      link.download = 'badge-' + badgeId + '.png';
+      link.href = URL.createObjectURL(blob);
+      link.click();
+      showToast('📥 Image téléchargée, partage-la sur tes réseaux !');
+    }
+  }, 'image/png');
+}
+
+// Utilitaire wrap texte sur canvas
+function wrapText(ctx, text, x, y, maxWidth, lineHeight) {
+  var words = text.split(' ');
+  var line = '';
+  for (var n = 0; n < words.length; n++) {
+    var testLine = line + words[n] + ' ';
+    var metrics = ctx.measureText(testLine);
+    if (metrics.width > maxWidth && n > 0) {
+      ctx.fillText(line.trim(), x, y);
+      line = words[n] + ' ';
+      y += lineHeight;
+    } else {
+      line = testLine;
+    }
+  }
+  ctx.fillText(line.trim(), x, y);
+}
 
 // Re-fetch du membre depuis Memberstack pour récupérer les plans à jour
 // (à appeler après un paiement, car le "member" retourné par openModal('signup')
@@ -7040,6 +7666,11 @@ function renderEspace() {
 
   // Puis récupère la version serveur (source de vérité) et re-rend
   espFetchStats(function(data) { _renderEspaceWith(data); });
+
+  // Section badges : charger detail + rendre collection
+  if (typeof loadEarnedBadgesDetail === 'function' && typeof renderBadgesCollection === 'function') {
+    loadEarnedBadgesDetail().then(function(){ renderBadgesCollection(); });
+  }
 }
 
 // ================================================================
