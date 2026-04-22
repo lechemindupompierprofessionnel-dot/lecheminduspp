@@ -554,15 +554,34 @@ body.is-member .biblio-overlay::before{content:'Ouvrir le document';font-size:.8
 .biblio-overlay p{font-size:.76rem;color:var(--gray);margin-bottom:10px;text-align:center;padding:0 12px}
 
 /* Fiche de synthèse mise en avant */
-.biblio-card.is-synthese{border-left:3px solid var(--red);background:#FDFAF4}
-.biblio-card.is-synthese .biblio-type-tag{color:var(--red)}
-.biblio-card .biblio-badge{position:absolute;top:8px;left:8px;font-size:.56rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;background:var(--red);color:white;padding:3px 7px}
+.biblio-card.is-synthese{border-left:3px solid var(--red);background:#FDFAF4;padding-top:22px}
+.biblio-card.is-synthese .biblio-type-tag{color:var(--red);margin-top:4px}
+/* Badge "FICHE" repositionné en bandeau horizontal en haut, pour ne plus cacher le titre */
+.biblio-card .biblio-badge{position:absolute;top:0;left:0;font-size:.56rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;background:var(--red);color:white;padding:3px 10px 3px 8px;border-bottom-right-radius:2px}
 
-/* Section "Sources" dépliée sous la fiche de synthèse */
-.biblio-sources-section{grid-column:1/-1;margin-top:4px;margin-bottom:4px;padding:16px 18px;background:white;border:1px solid var(--border-light);border-left:3px solid var(--charcoal)}
-.biblio-sources-title{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--charcoal);margin-bottom:4px}
+/* Badge "NOUVEAU" (en haut à droite de la carte, distinct du lock) */
+.biblio-new-badge{position:absolute;top:0;right:0;font-size:.54rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;background:#2d6a4f;color:white;padding:3px 8px;border-bottom-left-radius:2px;z-index:2}
+/* Sur les fiches avec badge "Fiche", décale le lock pour ne pas chevaucher le NEW badge */
+.biblio-card.is-synthese .biblio-lock{top:26px}
+/* Masque le tag "GRATUIT" (::after) quand un badge NEW est présent sur la carte — évite collision visuelle */
+.biblio-card:has(.biblio-new-badge)[data-access="free"]:not(.biblio-gift)::after,
+.biblio-card:has(.biblio-new-badge)[data-access="public"]:not(.biblio-gift)::after{display:none}
+
+/* Section "Sources" — repliée par défaut, bouton toggle pour afficher */
+.biblio-sources-section{grid-column:1/-1;margin-top:4px;margin-bottom:4px;background:white;border:1px solid var(--border-light);border-left:3px solid var(--charcoal)}
+.biblio-sources-header{display:flex;align-items:center;gap:10px;padding:12px 18px;cursor:pointer;user-select:none;transition:background .15s}
+.biblio-sources-header:hover{background:#FAF6EF}
+.biblio-sources-title{font-size:.68rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--charcoal);flex:1}
+.biblio-sources-count{font-size:.66rem;color:var(--gray-light);font-weight:600;letter-spacing:.5px}
+.biblio-sources-chevron{font-size:.8rem;color:var(--gray);transition:transform .2s}
+.biblio-sources-section.open .biblio-sources-chevron{transform:rotate(180deg)}
+.biblio-sources-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 18px}
+.biblio-sources-section.open .biblio-sources-body{max-height:2000px;padding:4px 18px 16px}
 .biblio-sources-sub{font-size:.76rem;color:var(--gray);margin-bottom:14px;font-style:italic}
 .biblio-sources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:10px}
+/* En mode recherche, on force l'ouverture des sources pour que les résultats soient visibles */
+body.biblio-searching .biblio-sources-body{max-height:none;padding:4px 18px 16px}
+body.biblio-searching .biblio-sources-chevron{display:none}
 .biblio-source-card{background:#FAF6EF;border:1px solid var(--border);padding:12px 14px;cursor:pointer;transition:all .2s;position:relative;font-size:.76rem}
 .biblio-source-card:hover{border-color:var(--red);background:white}
 .biblio-source-card .biblio-name{font-size:.78rem;line-height:1.3;margin-bottom:3px}
@@ -2720,9 +2739,14 @@ body:not(.is-logged) .mobile-nav-member{display:none}
           </div>
           <div class="biblio-grid">
             <!-- Organisation SIS -->
-            <div class="biblio-card is-synthese" data-cat="culture" data-sub="sis" data-access="paid" onclick="openDoc('fiche-sis','Organisation et fonctionnement du SDIS','Fiche de synthèse','docs/culture-admin/organisation-sis/fiche-synthese.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Organisation SIS</div><div class="biblio-name">Organisation et fonctionnement du SDIS</div><div class="biblio-meta">PDF · 19 pages · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="culture" data-sub="sis" data-access="paid" onclick="openDoc('fiche-sis','Organisation et fonctionnement du SDIS','Fiche de synthèse','docs/culture-admin/organisation-sis/fiche-synthese.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-new-badge">Nouveau</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Organisation SIS</div><div class="biblio-name">Organisation et fonctionnement du SDIS</div><div class="biblio-meta">PDF · 19 pages · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-sources-section" data-cat="culture" data-sub="sis">
-              <div class="biblio-sources-title">📚 Textes sources — Organisation SIS</div>
+              <div class="biblio-sources-header" onclick="toggleBiblioSources(this)">
+                <div class="biblio-sources-title">📚 Textes sources — Organisation SIS</div>
+                <span class="biblio-sources-count">6 textes</span>
+                <span class="biblio-sources-chevron">▾</span>
+              </div>
+              <div class="biblio-sources-body">
               <div class="biblio-sources-sub">Lire les textes officiels en complément de la fiche de synthèse.</div>
               <div class="biblio-sources-grid">
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-96-369','Loi n°96-369 du 3 mai 1996','Source','docs/culture-admin/organisation-sis/sources/loi-96-369.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°96-369 du 3 mai 1996</div><div class="biblio-meta">Départementalisation des SIS</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
@@ -2732,14 +2756,20 @@ body:not(.is-logged) .mobile-nav-member{display:none}
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-cgct-l1424-2','Article L.1424-2 du CGCT','Source','docs/culture-admin/organisation-sis/sources/cgct-article-l1424-2.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">Article L.1424-2 du CGCT</div><div class="biblio-meta">Missions des SIS</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-cgct-chapitre-iv','CGCT Chapitre IV','Source','docs/culture-admin/organisation-sis/sources/cgct-chapitre-iv.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">CGCT — Chapitre IV</div><div class="biblio-meta">Services d'incendie et de secours</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
               </div>
+              </div>
             </div>
             <!-- Fonction Publique -->
-            <div class="biblio-card is-synthese" data-cat="culture" data-sub="fp" data-access="paid" onclick="openDoc('fiche-fp','Les 3 versants de la Fonction Publique','Fiche de synthèse','docs/culture-admin/fonction-publique/fiche-synthese.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fonction Publique</div><div class="biblio-name">Les 3 versants de la Fonction Publique</div><div class="biblio-meta">PDF · 18 pages · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="culture" data-sub="fp" data-access="free" onclick="openDoc('fp-pouvoirs-publics','Organisation des pouvoirs publics','Fonction Publique','docs/culture-admin/fonction-publique/organisation-pouvoirs-publics.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fonction Publique</div><div class="biblio-name">Organisation des pouvoirs publics</div><div class="biblio-meta">PDF · Référentiel</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="culture" data-sub="fp" data-access="paid" onclick="openDoc('fiche-fp','Les 3 versants de la Fonction Publique','Fiche de synthèse','docs/culture-admin/fonction-publique/fiche-synthese.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-new-badge">Nouveau</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fonction Publique</div><div class="biblio-name">Les 3 versants de la Fonction Publique</div><div class="biblio-meta">PDF · 18 pages · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="culture" data-sub="fp" data-access="paid" onclick="openDoc('fp-pouvoirs-publics','Organisation des pouvoirs publics','Fiche de synthèse','docs/culture-admin/fonction-publique/organisation-pouvoirs-publics.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-new-badge">Nouveau</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Fonction Publique</div><div class="biblio-name">Organisation des pouvoirs publics</div><div class="biblio-meta">PDF · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- Statut SPP -->
-            <div class="biblio-card is-synthese" data-cat="culture" data-sub="spp" data-access="paid" onclick="openDoc('fiche-statut-spp','Le Statut du Sapeur-Pompier Professionnel','Fiche de synthèse','docs/culture-admin/statut-spp/fiche-synthese.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut SPP</div><div class="biblio-name">Le Statut du Sapeur-Pompier Professionnel</div><div class="biblio-meta">PDF · 17 pages · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="culture" data-sub="spp" data-access="paid" onclick="openDoc('fiche-statut-spp','Le Statut du Sapeur-Pompier Professionnel','Fiche de synthèse','docs/culture-admin/statut-spp/fiche-synthese.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-new-badge">Nouveau</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Statut SPP</div><div class="biblio-name">Le Statut du Sapeur-Pompier Professionnel</div><div class="biblio-meta">PDF · 17 pages · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-sources-section" data-cat="culture" data-sub="spp">
-              <div class="biblio-sources-title">📚 Textes sources — Statut SPP</div>
+              <div class="biblio-sources-header" onclick="toggleBiblioSources(this)">
+                <div class="biblio-sources-title">📚 Textes sources — Statut SPP</div>
+                <span class="biblio-sources-count">11 textes</span>
+                <span class="biblio-sources-chevron">▾</span>
+              </div>
+              <div class="biblio-sources-body">
               <div class="biblio-sources-sub">Lire les textes officiels en complément de la fiche de synthèse.</div>
               <div class="biblio-sources-grid">
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-83-634','Loi n°83-634 du 13 juillet 1983','Source','docs/culture-admin/statut-spp/sources/loi-83-634-droits-obligations.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°83-634 (Le Pors)</div><div class="biblio-meta">Droits et obligations des fonctionnaires</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
@@ -2753,6 +2783,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-2024-1038','Décret n°2024-1038 du 6 novembre 2024','Source','docs/culture-admin/statut-spp/sources/decret-2024-1038.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2024-1038</div><div class="biblio-meta">Dispositions statutaires</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-2025-330','Décret n°2025-330 du 10 avril 2025','Source','docs/culture-admin/statut-spp/sources/decret-2025-330-medecine-prevention.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2025-330</div><div class="biblio-meta">Médecine de prévention</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
                 <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-cgct-spp','Code général des collectivités territoriales','Source','docs/culture-admin/statut-spp/sources/cgct-extrait.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">CGCT — Extrait</div><div class="biblio-meta">Dispositions applicables</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+              </div>
               </div>
             </div>
           </div>
@@ -10220,6 +10251,13 @@ function toggleBiblioAcc(headerEl) {
   // Si on est en mode recherche, on ne gère pas les clics sur header
   if (document.body.classList.contains('biblio-searching')) return;
   var section = headerEl.closest('.biblio-acc-section');
+  if (!section) return;
+  section.classList.toggle('open');
+}
+
+// Déplie/replie la section "Textes sources" sous une fiche de synthèse
+function toggleBiblioSources(headerEl) {
+  var section = headerEl.closest('.biblio-sources-section');
   if (!section) return;
   section.classList.toggle('open');
 }
