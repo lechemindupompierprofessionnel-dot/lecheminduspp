@@ -174,10 +174,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .nav-item-ico{display:inline-block;width:22px;margin-right:8px;font-size:.95rem;text-align:center}
 .nav-new-badge{display:inline-block;background:var(--red);color:white;font-size:.52rem;font-weight:700;letter-spacing:.8px;padding:1px 5px;margin-left:5px;vertical-align:super;line-height:1.2}
 .nav-cta{font-size:.78rem;padding:8px 16px;letter-spacing:.3px;white-space:nowrap}
-/* Sur mobile, la version compacte remplace le texte complet par un raccourci */
+/* Sur écrans intermédiaires, la version compacte remplace le texte complet par un raccourci */
 .nav-cta .nav-cta-full{display:inline}
 .nav-cta .nav-cta-short{display:none}
-@media(max-width:900px){
+@media(max-width:1250px){
   .nav-cta{font-size:.72rem;padding:7px 12px;letter-spacing:.2px}
   .nav-cta .nav-cta-full{display:none}
   .nav-cta .nav-cta-short{display:inline}
@@ -1440,17 +1440,22 @@ body:not(.is-logged) .mobile-nav-member{display:none}
   .footer-top{grid-template-columns:1fr 1fr}
   .testi-grid{grid-template-columns:1fr}
 }
-/* Navigation progressive :
-   - Entre 900px et 1100px : on masque les onglets les moins critiques (Accueil, Mon histoire)
-     car accessibles via le logo et la section Parcours. Le menu reste desktop.
-   - En dessous de 900px : bascule complète sur le menu burger. */
-@media(max-width:1100px){
+/* Navigation progressive en 3 paliers pour éviter le débordement des onglets :
+   - > 1250px : menu complet
+   - 1000-1250px : menu allégé (Accueil et Mon histoire masqués, CTA compacté)
+   - < 1000px : bascule burger */
+@media(max-width:1400px){
+  nav{padding:0 3%}
+}
+@media(max-width:1250px){
+  nav{padding:0 2.5%}
+  .nav-right{gap:8px}
   #navg-home, #navg-parcours{display:none}
 }
-@media(max-width:900px){
+@media(max-width:1000px){
+  nav{padding:0 4%}
   .nav-center{display:none}
   .nav-mobile-btn{display:flex}
-  /* On rétablit l'affichage par défaut des nav-group pour qu'aucun résidu ne subsiste si display:flex est réactivé */
   #navg-home, #navg-parcours{display:revert}
 }
 @media(max-width:600px){
