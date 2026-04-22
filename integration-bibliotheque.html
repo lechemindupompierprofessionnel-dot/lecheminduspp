@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>Intégration Bibliothèque — Le Chemin du SPP</title>
+<style>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Arial,sans-serif;max-width:1100px;margin:0 auto;padding:32px;background:#fafafa;color:#2B2B2B;line-height:1.6}
+h1{font-family:Georgia,serif;color:#2B2B2B;border-bottom:3px solid #CC2229;padding-bottom:10px}
+h2{font-family:Georgia,serif;color:#CC2229;margin-top:48px}
+h3{color:#2B2B2B;margin-top:32px;font-size:1.1rem}
+.step{background:#fff;padding:24px;border-left:4px solid #CC2229;margin-bottom:24px;box-shadow:0 1px 3px rgba(0,0,0,0.06)}
+.step-num{display:inline-block;background:#CC2229;color:#fff;padding:3px 12px;font-size:.75rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:10px}
+.location{background:#F5F0E8;padding:10px 16px;border-left:3px solid #2B2B2B;font-family:monospace;font-size:.88rem;margin-bottom:12px;color:#2B2B2B}
+pre{background:#1e1e1e;color:#d4d4d4;padding:20px;overflow-x:auto;font-size:.85rem;border-radius:4px;font-family:'Menlo','Consolas',monospace;line-height:1.5}
+pre.small{max-height:500px;overflow-y:auto}
+.tip{background:#fff9e6;border-left:3px solid #c49a3e;padding:12px 16px;margin:16px 0;font-size:.92rem}
+.warning{background:#ffebee;border-left:3px solid #c62828;padding:12px 16px;margin:16px 0;font-size:.92rem}
+code{background:#f0ece3;padding:2px 6px;border-radius:3px;font-family:monospace;font-size:.88rem;color:#CC2229}
+.toc{background:#fff;padding:20px;border:1px solid #E5E0D6;margin-bottom:32px}
+.toc ol{margin:0;padding-left:20px}
+.toc li{padding:4px 0}
+</style>
+</head>
+<body>
+
+<h1>Intégration de la bibliothèque</h1>
+<p><em>Le Chemin du SPP — Option B : filtres hiérarchiques à 2 niveaux avec sources dépliées</em></p>
+
+<div class="toc">
+<strong>Étapes à suivre, dans l'ordre :</strong>
+<ol>
+  <li>Uploader le dossier <code>docs/</code> sur GitHub</li>
+  <li>Remplacer le bloc CSS de la bibliothèque (lignes 311-333)</li>
+  <li>Remplacer le bloc HTML de la page bibliothèque (lignes 1516-1550)</li>
+  <li>Remplacer la fonction <code>filterBiblio</code> (lignes 3952-3958)</li>
+  <li>Tester en local, commit + push</li>
+</ol>
+</div>
+
+<!-- ========================================================= -->
+<div class="step">
+<span class="step-num">Étape 1</span>
+<h2>Uploader le dossier docs/ sur GitHub</h2>
+
+<p>Une fois le script <code>.bat</code> exécuté et ton dossier <code>docs/</code> généré sur ton ordinateur, il faut le pousser sur ton dépôt GitHub.</p>
+
+<h3>Option A — Via GitHub Desktop (le plus simple)</h3>
+<ol>
+  <li>Copie ton dossier <code>docs/</code> dans le dossier local de ton dépôt GitHub (là où se trouve <code>index.html</code>)</li>
+  <li>Ouvre GitHub Desktop, tu vas voir apparaître tous les nouveaux fichiers</li>
+  <li>Écris un message de commit du type : <em>"Ajout bibliothèque documentaire (43 PDF)"</em></li>
+  <li>Clique sur <strong>Commit to main</strong>, puis <strong>Push origin</strong></li>
+</ol>
+
+<h3>Option B — Via git en ligne de commande</h3>
+<pre>cd chemin/vers/ton/depot
+git add docs/
+git commit -m "Ajout bibliothèque documentaire"
+git push</pre>
+
+<div class="tip"><strong>Astuce :</strong> GitHub Pages a une limite de 1 Go par dépôt et 100 Mo par fichier. Tes PDF font entre 84 Ko et 50 Mo, donc on est tranquilles, mais vérifie que le total tient dans les 1 Go.</div>
+</div>
+
+<!-- ========================================================= -->
+<div class="step">
+<span class="step-num">Étape 2</span>
+<h2>Remplacer le CSS de la bibliothèque</h2>
+
+<div class="location">Fichier : <strong>index.html</strong> · Lignes : <strong>311 à 333</strong></div>
+
+<p>Repère le bloc <code>/* ===== BIBLIOTHEQUE ===== */</code> dans <code>index.html</code>. Supprime-le entièrement (de <code>.annales-grid</code> ligne 312 jusqu'à la fermeture de <code>.biblio-overlay p</code> ligne 333) et remplace-le par ce nouveau bloc :</p>
+
+<pre class="small">/* ===== BIBLIOTHEQUE ===== */
+.annales-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;margin-top:40px}
+.annale-card{background:white;border:1px solid var(--border);padding:28px;transition:all .2s;position:relative;overflow:hidden}
+.annale-card:hover{box-shadow:0 4px 24px rgba(0,0,0,0.07)}
+.annale-year{font-family:'Playfair Display',serif;font-size:2rem;color:var(--red);line-height:1;margin-bottom:6px}
+.annale-title{font-size:.9rem;font-weight:600;color:var(--charcoal);margin-bottom:6px}
+.annale-meta{font-size:.8rem;color:var(--gray-light);margin-bottom:16px}
+
+/* Filtres catégories mères (niveau 1) */
+.biblio-cats{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px}
+.biblio-cat-btn{padding:8px 18px;border:1px solid var(--border);background:white;font-size:.82rem;color:var(--gray);cursor:pointer;transition:all .2s;font-family:inherit}
+.biblio-cat-btn.active,.biblio-cat-btn:hover{background:var(--red);color:white;border-color:var(--red)}
+
+/* Filtres sous-catégories (niveau 2) — masqués par défaut */
+.biblio-subcats{display:none;gap:8px;flex-wrap:wrap;margin-bottom:28px;padding-left:20px;border-left:2px solid var(--red)}
+.biblio-subcats.visible{display:flex}
+.biblio-subcat-btn{padding:6px 14px;background:none;border:1px solid transparent;font-size:.78rem;color:var(--gray);cursor:pointer;font-family:inherit;transition:all .2s}
+.biblio-subcat-btn.active{background:var(--charcoal);color:white}
+.biblio-subcat-btn:hover:not(.active){color:var(--red)}
+
+/* Grille des cartes */
+.biblio-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.biblio-card{background:white;border:1px solid var(--border);padding:20px;transition:all .2s;position:relative;cursor:pointer}
+.biblio-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.07);border-color:var(--red)}
+.biblio-type-tag{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.biblio-name{font-size:.9rem;font-weight:600;color:var(--charcoal);line-height:1.4;margin-bottom:6px}
+.biblio-meta{font-size:.78rem;color:var(--gray-light)}
+.biblio-lock{position:absolute;top:10px;right:10px;font-size:.9rem}
+body.is-member .biblio-lock{display:none}
+body.is-member .biblio-overlay p{content:'';display:none}
+body.is-member .biblio-overlay::before{content:'Ouvrir le document';font-size:.85rem;color:var(--charcoal);font-weight:600;margin-bottom:12px;text-align:center}
+.biblio-overlay{position:absolute;inset:0;background:rgba(245,240,232,0.92);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .2s}
+.biblio-card:hover .biblio-overlay{opacity:1}
+.biblio-overlay p{font-size:.8rem;color:var(--gray);margin-bottom:12px;text-align:center;padding:0 16px}
+
+/* Carte "fiche de synthèse" : mise en avant */
+.biblio-card.is-synthese{border-left:3px solid var(--red);background:#FDFAF4}
+.biblio-card.is-synthese .biblio-type-tag{color:var(--red)}
+.biblio-card .biblio-badge{position:absolute;top:10px;left:10px;font-size:.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;background:var(--red);color:white;padding:3px 8px}
+
+/* Sous-section "Sources" dépliée sous la fiche de synthèse */
+.biblio-sources-section{grid-column:1/-1;margin-top:8px;margin-bottom:8px;padding:20px 24px;background:#FAF6EF;border:1px solid var(--border-light);border-left:3px solid var(--charcoal)}
+.biblio-sources-title{font-size:.72rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--charcoal);margin-bottom:4px}
+.biblio-sources-sub{font-size:.82rem;color:var(--gray);margin-bottom:16px;font-style:italic}
+.biblio-sources-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px}
+.biblio-source-card{background:white;border:1px solid var(--border);padding:14px 16px;cursor:pointer;transition:all .2s;position:relative;font-size:.82rem}
+.biblio-source-card:hover{border-color:var(--red);box-shadow:0 2px 10px rgba(0,0,0,0.05)}
+.biblio-source-card .biblio-name{font-size:.82rem;line-height:1.3;margin-bottom:4px}
+.biblio-source-card .biblio-meta{font-size:.72rem}
+.biblio-source-card .biblio-lock{top:6px;right:6px;font-size:.7rem}</pre>
+</div>
+
+<!-- ========================================================= -->
+<div class="step">
+<span class="step-num">Étape 3</span>
+<h2>Remplacer le HTML de la page bibliothèque</h2>
+
+<div class="location">Fichier : <strong>index.html</strong> · Lignes : <strong>1516 à 1550</strong></div>
+
+<p>Repère le bloc qui commence par <code>&lt;!-- ============================= PAGE: BIBLIOTHEQUE ============================= --&gt;</code>. Supprime tout le bloc <code>&lt;div class="page" id="page-biblio"&gt;...&lt;/div&gt;</code> (jusqu'à sa fermeture) et remplace-le par ce bloc complet :</p>
+
+<pre class="small">&lt;!-- ============================= PAGE: BIBLIOTHEQUE ============================= --&gt;
+&lt;div class="page" id="page-biblio"&gt;
+  &lt;div class="page-header"&gt;
+    &lt;div class="page-header-inner"&gt;
+      &lt;div class="s-eyebrow"&gt;Bibliothèque documentaire&lt;/div&gt;
+      &lt;div class="s-title"&gt;Toute la documentation&lt;br&gt;en &lt;em&gt;un seul endroit&lt;/em&gt;&lt;/div&gt;
+      &lt;div class="s-lead"&gt;Textes réglementaires, GDO, GTO, fiches de synthèse — compilés et organisés pour ta préparation.&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="section"&gt;
+
+    &lt;!-- ===== FILTRES CATEGORIES MERES ===== --&gt;
+    &lt;div class="biblio-cats"&gt;
+      &lt;button class="biblio-cat-btn active" onclick="filterBiblio(this,'all')"&gt;Tout&lt;/button&gt;
+      &lt;button class="biblio-cat-btn" onclick="filterBiblio(this,'doctrines')"&gt;Doctrines Opérationnelles&lt;/button&gt;
+      &lt;button class="biblio-cat-btn" onclick="filterBiblio(this,'culture')"&gt;Culture Administrative&lt;/button&gt;
+      &lt;button class="biblio-cat-btn" onclick="filterBiblio(this,'divers')"&gt;Divers&lt;/button&gt;
+      &lt;button class="biblio-cat-btn" onclick="filterBiblio(this,'concours')"&gt;Textes du concours&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;!-- ===== FILTRES SOUS-CATEGORIES (affichage dynamique) ===== --&gt;
+    &lt;div class="biblio-subcats" id="biblio-subcats"&gt;&lt;/div&gt;
+
+    &lt;!-- ===== GRILLE DES DOCUMENTS ===== --&gt;
+    &lt;div class="biblio-grid" id="biblio-grid"&gt;
+
+      &lt;!-- ========== DOCTRINES OPERATIONNELLES - GDO ========== --&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-incendies-structures','GDO Interventions incendies structures','GDO','docs/doctrines/gdo/incendies-structures.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Interventions incendies structures&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Feu de forêt et espace naturel&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Interventions milieu agricole&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-gaz','GDO Interventions présence de gaz','GDO','docs/doctrines/gdo/presence-gaz.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Interventions présence de gaz&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Interventions silos&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Interventions ULM&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-routier','GDO Opérations secours milieu routier','GDO','docs/doctrines/gdo/milieu-routier.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Opérations secours milieu routier&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Opérations secours présence électricité&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-toxicite','GDO Prévention risques toxicité des fumées','GDO','docs/doctrines/gdo/toxicite-fumees.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Prévention risques toxicité des fumées&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gdo" onclick="openDoc('gdo-ssuap','GDO Secours et soins d&amp;#39;urgence aux personnes','GDO','docs/doctrines/gdo/secours-soins-urgences-personnes.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GDO&lt;/div&gt;&lt;div class="biblio-name"&gt;Secours et soins d'urgence aux personnes&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Doctrine officielle&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+
+      &lt;!-- ========== DOCTRINES OPERATIONNELLES - GTO ========== --&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gto" onclick="openDoc('gto-ventilation','GTO Ventilation opérationnelle','GTO','docs/doctrines/gto/ventilation-operationnelle.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GTO&lt;/div&gt;&lt;div class="biblio-name"&gt;Ventilation opérationnelle&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Guide technique&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gto" onclick="openDoc('gto-extinction','GTO Établissement techniques d&amp;#39;extinction','GTO','docs/doctrines/gto/techniques-extinction.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GTO&lt;/div&gt;&lt;div class="biblio-name"&gt;Établissement techniques d'extinction&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Guide technique&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gto" onclick="openDoc('gto-vicies','GTO Engagement en milieux viciés','GTO','docs/doctrines/gto/engagement-milieux-vicies.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GTO&lt;/div&gt;&lt;div class="biblio-name"&gt;Engagement en milieux viciés&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Guide technique&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gto" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GTO&lt;/div&gt;&lt;div class="biblio-name"&gt;Lutte feux forêts espaces naturels&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Guide technique&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gto" onclick="openDoc('gto-sauvegarde','GTO Sauvegarde opérationnelle','GTO','docs/doctrines/gto/sauvegarde-operationnelle.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GTO&lt;/div&gt;&lt;div class="biblio-name"&gt;Sauvegarde opérationnelle&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Guide technique&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="gto" onclick="openDoc('gto-sauvetage','GTO Sauvetage et mises en sécurité','GTO','docs/doctrines/gto/sauvetage-mises-securite.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;GTO&lt;/div&gt;&lt;div class="biblio-name"&gt;Sauvetage et mises en sécurité&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Guide technique&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+
+      &lt;!-- ========== DOCTRINES OPERATIONNELLES - SSUAP ========== --&gt;
+      &lt;div class="biblio-card" data-cat="doctrines" data-sub="ssuap" onclick="openDoc('ssuap-recommandations','Recommandations premiers secours','SSUAP','docs/doctrines/ssuap/recommandations-premiers-secours.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;SSUAP&lt;/div&gt;&lt;div class="biblio-name"&gt;Recommandations premiers secours&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Référentiel&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+
+      &lt;!-- ========== CULTURE ADMIN - ORGANISATION SIS ========== --&gt;
+      &lt;div class="biblio-card is-synthese" data-cat="culture" data-sub="sis" onclick="openDoc('fiche-sis','Organisation et fonctionnement du SDIS','Fiche de synthèse','docs/culture-admin/organisation-sis/fiche-synthese.pdf')"&gt;&lt;div class="biblio-badge"&gt;Fiche&lt;/div&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Organisation SIS&lt;/div&gt;&lt;div class="biblio-name"&gt;Organisation et fonctionnement du SDIS&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · 19 pages · Synthèse&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;!-- Sources dépliées sous la fiche SIS --&gt;
+      &lt;div class="biblio-sources-section" data-cat="culture" data-sub="sis"&gt;
+        &lt;div class="biblio-sources-title"&gt;📚 Textes sources — Organisation SIS&lt;/div&gt;
+        &lt;div class="biblio-sources-sub"&gt;Lire les textes officiels en complément de la fiche de synthèse.&lt;/div&gt;
+        &lt;div class="biblio-sources-grid"&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-96-369','Loi n°96-369 du 3 mai 1996','Source','docs/culture-admin/organisation-sis/sources/loi-96-369.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°96-369 du 3 mai 1996&lt;/div&gt;&lt;div class="biblio-meta"&gt;Départementalisation des SIS&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-2004-811','Loi n°2004-811 du 13 août 2004','Source','docs/culture-admin/organisation-sis/sources/loi-2004-811.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°2004-811 du 13 août 2004&lt;/div&gt;&lt;div class="biblio-meta"&gt;Modernisation sécurité civile&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-2021-1520','Loi n°2021-1520 (MATRAS)','Source','docs/culture-admin/organisation-sis/sources/loi-2021-1520-matras.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°2021-1520 MATRAS&lt;/div&gt;&lt;div class="biblio-meta"&gt;25 novembre 2021&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-97-1225','Décret n°97-1225 du 26 décembre 1997','Source','docs/culture-admin/organisation-sis/sources/decret-97-1225.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°97-1225&lt;/div&gt;&lt;div class="biblio-meta"&gt;Organisation des SDIS&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-cgct-l1424-2','Article L.1424-2 du CGCT','Source','docs/culture-admin/organisation-sis/sources/cgct-article-l1424-2.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;CGCT&lt;/div&gt;&lt;div class="biblio-name"&gt;Article L.1424-2 du CGCT&lt;/div&gt;&lt;div class="biblio-meta"&gt;Missions des SIS&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-cgct-chapitre-iv','CGCT Chapitre IV','Source','docs/culture-admin/organisation-sis/sources/cgct-chapitre-iv.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;CGCT&lt;/div&gt;&lt;div class="biblio-name"&gt;CGCT — Chapitre IV&lt;/div&gt;&lt;div class="biblio-meta"&gt;Services d'incendie et de secours&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- ========== CULTURE ADMIN - FONCTION PUBLIQUE ========== --&gt;
+      &lt;div class="biblio-card is-synthese" data-cat="culture" data-sub="fp" onclick="openDoc('fiche-fp','Les 3 versants de la Fonction Publique','Fiche de synthèse','docs/culture-admin/fonction-publique/fiche-synthese.pdf')"&gt;&lt;div class="biblio-badge"&gt;Fiche&lt;/div&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Fonction Publique&lt;/div&gt;&lt;div class="biblio-name"&gt;Les 3 versants de la Fonction Publique&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · 18 pages · Synthèse&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="culture" data-sub="fp" onclick="openDoc('fp-pouvoirs-publics','Organisation des pouvoirs publics','Fonction Publique','docs/culture-admin/fonction-publique/organisation-pouvoirs-publics.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Fonction Publique&lt;/div&gt;&lt;div class="biblio-name"&gt;Organisation des pouvoirs publics&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · Référentiel&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+
+      &lt;!-- ========== CULTURE ADMIN - STATUT SPP ========== --&gt;
+      &lt;div class="biblio-card is-synthese" data-cat="culture" data-sub="spp" onclick="openDoc('fiche-statut-spp','Le Statut du Sapeur-Pompier Professionnel','Fiche de synthèse','docs/culture-admin/statut-spp/fiche-synthese.pdf')"&gt;&lt;div class="biblio-badge"&gt;Fiche&lt;/div&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Statut SPP&lt;/div&gt;&lt;div class="biblio-name"&gt;Le Statut du Sapeur-Pompier Professionnel&lt;/div&gt;&lt;div class="biblio-meta"&gt;PDF · 17 pages · Synthèse&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;!-- Sources dépliées sous la fiche Statut SPP --&gt;
+      &lt;div class="biblio-sources-section" data-cat="culture" data-sub="spp"&gt;
+        &lt;div class="biblio-sources-title"&gt;📚 Textes sources — Statut SPP&lt;/div&gt;
+        &lt;div class="biblio-sources-sub"&gt;Lire les textes officiels en complément de la fiche de synthèse.&lt;/div&gt;
+        &lt;div class="biblio-sources-grid"&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-83-634','Loi n°83-634 du 13 juillet 1983','Source','docs/culture-admin/statut-spp/sources/loi-83-634-droits-obligations.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°83-634 (Le Pors)&lt;/div&gt;&lt;div class="biblio-meta"&gt;Droits et obligations des fonctionnaires&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-84-53','Loi n°84-53 du 26 janvier 1984','Source','docs/culture-admin/statut-spp/sources/loi-84-53-fpt.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°84-53&lt;/div&gt;&lt;div class="biblio-meta"&gt;Dispositions statutaires FPT&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-2016-483','Loi n°2016-483 du 20 avril 2016','Source','docs/culture-admin/statut-spp/sources/loi-2016-483-deontologie.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°2016-483&lt;/div&gt;&lt;div class="biblio-meta"&gt;Déontologie, droits et obligations&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-loi-2019-828','Loi n°2019-828 du 6 août 2019','Source','docs/culture-admin/statut-spp/sources/loi-2019-828-transformation-fp.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Loi&lt;/div&gt;&lt;div class="biblio-name"&gt;Loi n°2019-828&lt;/div&gt;&lt;div class="biblio-meta"&gt;Transformation de la FP&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-89-677','Décret n°89-677 du 18 septembre 1989','Source','docs/culture-admin/statut-spp/sources/decret-89-677-procedure-disciplinaire.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°89-677&lt;/div&gt;&lt;div class="biblio-meta"&gt;Procédure disciplinaire&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-90-850','Décret n°90-850 du 25 septembre 1990','Source','docs/culture-admin/statut-spp/sources/decret-90-850-dispositions-communes-spp.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°90-850&lt;/div&gt;&lt;div class="biblio-meta"&gt;Dispositions communes SPP&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-2016-596','Décret n°2016-596 du 12 mai 2016','Source','docs/culture-admin/statut-spp/sources/decret-2016-596-carrieres-c.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2016-596&lt;/div&gt;&lt;div class="biblio-meta"&gt;Organisation carrières catégorie C&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-2023-543','Décret n°2023-543 du 30 juin 2023','Source','docs/culture-admin/statut-spp/sources/decret-2023-543.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2023-543&lt;/div&gt;&lt;div class="biblio-meta"&gt;Modifications diverses&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-2024-1038','Décret n°2024-1038 du 6 novembre 2024','Source','docs/culture-admin/statut-spp/sources/decret-2024-1038.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2024-1038&lt;/div&gt;&lt;div class="biblio-meta"&gt;Dispositions statutaires&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-decret-2025-330','Décret n°2025-330 du 10 avril 2025','Source','docs/culture-admin/statut-spp/sources/decret-2025-330-medecine-prevention.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Décret&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2025-330&lt;/div&gt;&lt;div class="biblio-meta"&gt;Médecine de prévention&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+          &lt;div class="biblio-source-card biblio-card" onclick="openDoc('src-cgct-spp','Code général des collectivités territoriales','Source','docs/culture-admin/statut-spp/sources/cgct-extrait.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;CGCT&lt;/div&gt;&lt;div class="biblio-name"&gt;CGCT — Extrait&lt;/div&gt;&lt;div class="biblio-meta"&gt;Dispositions applicables&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+
+      &lt;!-- ========== DIVERS ========== --&gt;
+      &lt;div class="biblio-card" data-cat="divers" onclick="openDoc('div-pcs-2005','Décret n°2005-1156 — Plan Communal de Sauvegarde','Divers','docs/divers/decret-2005-1156-pcs.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Divers&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2005-1156 — PCS&lt;/div&gt;&lt;div class="biblio-meta"&gt;Plan communal de sauvegarde&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="divers" onclick="openDoc('div-erp-classement','Classement des ERP — Articles R143-18 à R143-21','Divers','docs/divers/erp-classement-r143-18-21.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Divers&lt;/div&gt;&lt;div class="biblio-name"&gt;Classement des ERP&lt;/div&gt;&lt;div class="biblio-meta"&gt;Articles R143-18 à R143-21&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+
+      &lt;!-- ========== TEXTES DU CONCOURS ========== --&gt;
+      &lt;div class="biblio-card" data-cat="concours" onclick="openDoc('cc-decret-2012-520','Décret n°2012-520 — Statut sapeurs et caporaux','Texte concours','docs/concours/decret-2012-520-statut-sapeurs-caporaux.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Concours&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2012-520&lt;/div&gt;&lt;div class="biblio-meta"&gt;Statut sapeurs et caporaux SPP&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="concours" onclick="openDoc('cc-decret-2013-593','Décret n°2013-593 — Recrutement et avancement','Texte concours','docs/concours/decret-2013-593-recrutement-avancement.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Concours&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2013-593&lt;/div&gt;&lt;div class="biblio-meta"&gt;Recrutement et avancement FPT&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="concours" onclick="openDoc('cc-decret-2020-1474','Décret n°2020-1474 — Modalités des concours','Texte concours','docs/concours/decret-2020-1474-modalites-concours.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Concours&lt;/div&gt;&lt;div class="biblio-name"&gt;Décret n°2020-1474&lt;/div&gt;&lt;div class="biblio-meta"&gt;Modalités des concours SPP&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+      &lt;div class="biblio-card" data-cat="concours" onclick="openDoc('cc-arrete-2020','Arrêté du 30 novembre 2020 — Programmes','Texte concours','docs/concours/arrete-30-novembre-2020-programmes.pdf')"&gt;&lt;div class="biblio-lock"&gt;🔒&lt;/div&gt;&lt;div class="biblio-type-tag"&gt;Concours&lt;/div&gt;&lt;div class="biblio-name"&gt;Arrêté du 30 novembre 2020&lt;/div&gt;&lt;div class="biblio-meta"&gt;Programmes des concours SPP&lt;/div&gt;&lt;div class="biblio-overlay"&gt;&lt;p&gt;Accès membres&lt;/p&gt;&lt;span class="btn btn-red" style="font-size:.8rem;padding:8px 16px"&gt;Consulter →&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;
+
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</pre>
+</div>
+
+<!-- ========================================================= -->
+<div class="step">
+<span class="step-num">Étape 4</span>
+<h2>Remplacer la fonction filterBiblio</h2>
+
+<div class="location">Fichier : <strong>index.html</strong> · Lignes : <strong>3952 à 3958</strong></div>
+
+<p>Remplace l'ancienne fonction <code>filterBiblio</code> (6 lignes) par cette nouvelle version qui gère les 2 niveaux de filtres :</p>
+
+<pre class="small">// ================================================================
+// BIBLIOTHÈQUE - FILTRES HIÉRARCHIQUES (2 niveaux)
+// ================================================================
+// Mapping des sous-catégories par catégorie mère
+var BIBLIO_SUBCATS = {
+  doctrines: [
+    { key: 'gdo',   label: 'GDO' },
+    { key: 'gto',   label: 'GTO' },
+    { key: 'ssuap', label: 'SSUAP' }
+  ],
+  culture: [
+    { key: 'sis', label: 'Organisation SIS' },
+    { key: 'fp',  label: 'Fonction Publique' },
+    { key: 'spp', label: 'Statut SPP' }
+  ]
+  // 'divers' et 'concours' n'ont pas de sous-catégories
+};
+
+var currentBiblioCat = 'all';
+var currentBiblioSub = 'all';
+
+function filterBiblio(btn, cat) {
+  // Met à jour l'état actif des boutons principaux
+  document.querySelectorAll('.biblio-cat-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+
+  currentBiblioCat = cat;
+  currentBiblioSub = 'all';
+
+  // Affiche/masque la barre de sous-catégories
+  var subcatsBar = document.getElementById('biblio-subcats');
+  var subs = BIBLIO_SUBCATS[cat];
+
+  if (subs && subs.length) {
+    // Génère les boutons de sous-catégories
+    var html = '&lt;button class="biblio-subcat-btn active" onclick="filterBiblioSub(this,\'all\')"&gt;Toutes&lt;/button&gt;';
+    subs.forEach(function(s) {
+      html += '&lt;button class="biblio-subcat-btn" onclick="filterBiblioSub(this,\'' + s.key + '\')"&gt;' + s.label + '&lt;/button&gt;';
+    });
+    subcatsBar.innerHTML = html;
+    subcatsBar.classList.add('visible');
+  } else {
+    subcatsBar.innerHTML = '';
+    subcatsBar.classList.remove('visible');
+  }
+
+  applyBiblioFilters();
+}
+
+function filterBiblioSub(btn, sub) {
+  document.querySelectorAll('.biblio-subcat-btn').forEach(function(b) { b.classList.remove('active'); });
+  if (btn) btn.classList.add('active');
+  currentBiblioSub = sub;
+  applyBiblioFilters();
+}
+
+function applyBiblioFilters() {
+  // Filtre les cartes principales
+  document.querySelectorAll('#biblio-grid &gt; .biblio-card').forEach(function(c) {
+    var catMatch = (currentBiblioCat === 'all' || c.dataset.cat === currentBiblioCat);
+    var subMatch = (currentBiblioSub === 'all' || c.dataset.sub === currentBiblioSub);
+    c.style.display = (catMatch &amp;&amp; subMatch) ? '' : 'none';
+  });
+  // Filtre les sections "sources" dépliées
+  document.querySelectorAll('#biblio-grid &gt; .biblio-sources-section').forEach(function(s) {
+    var catMatch = (currentBiblioCat === 'all' || s.dataset.cat === currentBiblioCat);
+    var subMatch = (currentBiblioSub === 'all' || s.dataset.sub === currentBiblioSub);
+    s.style.display = (catMatch &amp;&amp; subMatch) ? '' : 'none';
+  });
+}</pre>
+</div>
+
+<!-- ========================================================= -->
+<div class="step">
+<span class="step-num">Étape 5</span>
+<h2>Tester et déployer</h2>
+
+<h3>Test en local</h3>
+<ol>
+  <li>Ouvre <code>index.html</code> dans ton navigateur</li>
+  <li>Va sur la page Bibliothèque (menu principal)</li>
+  <li>Clique sur chaque filtre : "Tout", "Doctrines Opérationnelles", "Culture Administrative", "Divers", "Textes du concours"</li>
+  <li>Pour "Doctrines Op." et "Culture Admin.", vérifie que la deuxième ligne de filtres apparaît bien</li>
+  <li>Clique sur une carte "Fiche de synthèse" pour vérifier qu'elle ouvre le bon PDF</li>
+  <li>Clique sur une carte "Source" dans la section dépliée</li>
+  <li>Si tu es connecté avec un compte payant : le PDF doit s'ouvrir dans le viewer protégé. Sinon : la modale de verrou doit apparaître.</li>
+</ol>
+
+<div class="warning"><strong>Si un PDF ne s'ouvre pas :</strong> c'est probablement que le chemin dans le <code>onclick</code> ne correspond pas au chemin réel du fichier sur ton serveur. Ouvre la console du navigateur (F12) et vérifie l'URL demandée. Cela peut venir d'un nom de fichier incorrect dans le script <code>.bat</code> : dans ce cas, soit tu renommes le fichier sur ton disque, soit tu modifies le chemin dans le HTML.</div>
+
+<h3>Déploiement</h3>
+<pre>git add .
+git commit -m "Bibliothèque documentaire : Option B filtres hiérarchiques + 43 documents"
+git push</pre>
+
+<p>Après 1-2 minutes, tes changements seront visibles sur <strong>lecheminduspp.fr</strong>.</p>
+</div>
+
+<!-- ========================================================= -->
+<div class="step">
+<span class="step-num">Bonus</span>
+<h2>Récap de ce que tu viens de mettre en place</h2>
+
+<ul>
+  <li><strong>4 catégories mères</strong> : Doctrines Opérationnelles, Culture Administrative, Divers, Textes du concours</li>
+  <li><strong>6 sous-catégories</strong> : GDO, GTO, SSUAP (pour Doctrines Op.) + Organisation SIS, Fonction Publique, Statut SPP (pour Culture Admin.)</li>
+  <li><strong>43 documents</strong> (17 GDO/GTO/SSUAP + 3 fiches de synthèse + 17 sources + 2 divers + 4 textes concours)</li>
+  <li><strong>3 fiches de synthèse mises en avant</strong> (bordure rouge + badge "Fiche")</li>
+  <li><strong>Sections "sources" dépliées</strong> sous les fiches SIS et Statut SPP</li>
+  <li><strong>Verrouillage membres</strong> inchangé : non-payants voient la modale verrou, payants ouvrent le viewer protégé</li>
+  <li><strong>Tracking espace candidat</strong> fonctionnel (chaque document a son <code>id</code> unique)</li>
+</ul>
+</div>
+
+</body>
+</html>
