@@ -44,7 +44,6 @@
               "type": "exercice",
               "exercice": "trac",
               "series": 4,
-              "repetitions": 4,
               "intensite_pct": 46.0,
               "recup": "2 min"
             },
@@ -67,13 +66,8 @@
               "texte": "16 kg (H) / 12 kg (F) — focus technique. Travail technique : poussée des hanches, pas un balancement des bras."
             },
             {
-              "type": "exercice",
-              "nom": "Prévention blessure",
-              "exercice": "autre",
-              "series": 4,
-              "repetitions": 1,
-              "recup": "30 s",
-              "texte": "4 tours enchaînés, 1 min de travail par exercice / 30 s de repos entre chaque exercice :\n• Heel raises (montées sur pointes)\n• Hip bridge (pont fessier)\n• Arch hold (extension dorsale au sol)\n• Hollow hold (gainage creux)"
+              "type": "circuit",
+              "texte": "Circuit prévention blessure — 4 tours : 1 min ON / 30 s OFF — Heel raise, Chaise statique, Gainage planche, Gainage Superman"
             },
             {
               "type": "recup",
@@ -107,7 +101,8 @@
           "jour": "jeudi",
           "titre": "Repos actif — Natation optionnelle",
           "type": "repos",
-          "note": "Jour de récupération. Séance de natation facile (30-45 min) recommandée SI tu ne te sens pas à l'aise avec les 50 m de natation du concours — cela te permet de te familiariser avec l'eau et de progresser techniquement sans impact articulaire. Si la natation n'est pas un point faible pour toi, privilégie du repos total, une marche tranquille ou de la mobilité."
+          "note": "Jour de récupération. Séance de natation facile (30-45 min) recommandée SI tu ne te sens pas à l'aise avec les 50 m de natation du concours — cela te permet de te familiariser avec l'eau et de progresser techniquement sans impact articulaire. Si la natation n'est pas un point faible pour toi, privilégie du repos total, une marche tranquille ou de la mobilité.",
+          "blocs": []
         },
         {
           "jour": "vendredi",
@@ -155,13 +150,8 @@
               "texte": "Au sol, mains écart épaules. Pompes inclinées sur banc si 15 reps impossibles."
             },
             {
-              "type": "exercice",
-              "nom": "Prévention blessure",
-              "exercice": "autre",
-              "series": 4,
-              "repetitions": 1,
-              "recup": "30 s",
-              "texte": "4 tours enchaînés, 1 min de travail par exercice / 30 s de repos entre chaque exercice :\n• Heel raises (montées sur pointes)\n• Hip bridge (pont fessier)\n• Arch hold (extension dorsale au sol)\n• Hollow hold (gainage creux)"
+              "type": "circuit",
+              "texte": "Circuit prévention blessure — 4 tours : 1 min ON / 30 s OFF — Heel raise, Chaise statique, Gainage planche, Gainage Superman"
             },
             {
               "type": "recup",
@@ -188,7 +178,8 @@
           "jour": "dimanche",
           "titre": "Repos complet",
           "type": "repos",
-          "note": "Journée de repos — c'est là que les adaptations se construisent, ne la saute pas. Alimentation soignée, hydratation, sommeil. Il est également recommandé d'effectuer des étirements et exercices de mobilité en douceur, surtout sur les zones tendues (ischio-jambiers, hanches, dorsaux, mollets selon tes ressentis de la semaine). 15 à 25 minutes suffisent — reste dans le confort, pas de tension forcée."
+          "note": "Journée de repos — c'est là que les adaptations se construisent, ne la saute pas. Alimentation soignée, hydratation, sommeil. Il est également recommandé d'effectuer des étirements et exercices de mobilité en douceur, surtout sur les zones tendues (ischio-jambiers, hanches, dorsaux, mollets selon tes ressentis de la semaine). 15 à 25 minutes suffisent — reste dans le confort, pas de tension forcée.",
+          "blocs": []
         }
       ]
     },
@@ -232,7 +223,6 @@
               "type": "exercice",
               "exercice": "trac",
               "series": 4,
-              "repetitions": 4,
               "intensite_pct": 55.0,
               "recup": "2 min"
             },
@@ -255,13 +245,8 @@
               "texte": "20-24 kg (H) / 16 kg (F). Travail technique : poussée des hanches, pas un balancement des bras."
             },
             {
-              "type": "exercice",
-              "nom": "Prévention blessure",
-              "exercice": "autre",
-              "series": 4,
-              "repetitions": 1,
-              "recup": "30 s",
-              "texte": "4 tours enchaînés, 1 min de travail par exercice / 30 s de repos entre chaque exercice :\n• Heel raises (montées sur pointes)\n• Hip bridge (pont fessier)\n• Arch hold (extension dorsale au sol)\n• Hollow hold (gainage creux)"
+              "type": "circuit",
+              "texte": "Circuit prévention blessure — 4 tours : 1 min ON / 30 s OFF — Heel raise, Chaise statique, Gainage planche, Gainage Superman"
             },
             {
               "type": "recup",
@@ -272,40 +257,35 @@
         },
         {
           "jour": "mercredi",
-          "titre": "VMA — Bloc seuil + rappels VMA",
+          "titre": "VMA — Bloc seuil",
           "type": "course",
-          "duree_min": 47,
+          "duree_min": 45,
           "blocs": [
             {
               "type": "echauffement",
               "texte": "15 min footing allure progressive + 3 min de gammes + 3 accélérations de 20 s."
             },
             {
-              "type": "course_tempo",
-              "duree_min": 2,
-              "intensite_pct": 85,
-              "texte": "4 × bloc suivant, enchaînés : 2 min seuil + 30 s VMA, récup 1 min footing lent entre chaque bloc."
-            },
-            {
               "type": "serie",
-              "repetitions": 4,
+              "repetitions": 5,
               "distance_m": 600,
               "intensite_pct": 85,
               "recup": "1 min footing lent",
-              "texte": "Format à appliquer pour chaque bloc : 2 min à 85% VMA → 30 s à 95% VMA → 1 min footing lent."
+              "texte": "5 × 600 m à 85 % VMA — récup 1 min footing lent entre chaque répétition."
             },
             {
               "type": "recup",
-              "texte": "10 min footing lent + étirements mollets et ischio-jambiers."
+              "texte": "10 min footing lent."
             }
           ],
-          "notes": "Séance à double sollicitation : le bloc seuil (allure soutenue tenable) développe la capacité aérobie, les 30 secondes VMA qui suivent poussent la puissance. Respecte les allures affichées, ne pars pas trop vite sur les premières répétitions."
+          "notes": "Séance seuil : l'allure soutenue tenable développe la capacité aérobie. Respecte les allures affichées, ne pars pas trop vite sur les premières répétitions — l'objectif est de tenir les 5 × 600 m à la même allure, pas d'exploser dès la deuxième."
         },
         {
           "jour": "jeudi",
           "titre": "Repos actif — Natation optionnelle",
           "type": "repos",
-          "note": "Jour de récupération. Séance de natation facile (30-45 min) recommandée SI tu ne te sens pas à l'aise avec les 50 m de natation du concours — cela te permet de te familiariser avec l'eau et de progresser techniquement sans impact articulaire. Si la natation n'est pas un point faible pour toi, privilégie du repos total, une marche tranquille ou de la mobilité."
+          "note": "Jour de récupération. Séance de natation facile (30-45 min) recommandée SI tu ne te sens pas à l'aise avec les 50 m de natation du concours — cela te permet de te familiariser avec l'eau et de progresser techniquement sans impact articulaire. Si la natation n'est pas un point faible pour toi, privilégie du repos total, une marche tranquille ou de la mobilité.",
+          "blocs": []
         },
         {
           "jour": "vendredi",
@@ -353,13 +333,8 @@
               "texte": "Au sol, mains écart épaules. Lest 5-10 kg si 15 reps faciles."
             },
             {
-              "type": "exercice",
-              "nom": "Prévention blessure",
-              "exercice": "autre",
-              "series": 4,
-              "repetitions": 1,
-              "recup": "30 s",
-              "texte": "4 tours enchaînés, 1 min de travail par exercice / 30 s de repos entre chaque exercice :\n• Heel raises (montées sur pointes)\n• Hip bridge (pont fessier)\n• Arch hold (extension dorsale au sol)\n• Hollow hold (gainage creux)"
+              "type": "circuit",
+              "texte": "Circuit prévention blessure — 4 tours : 1 min ON / 30 s OFF — Heel raise, Chaise statique, Gainage planche, Gainage Superman"
             },
             {
               "type": "recup",
@@ -372,11 +347,11 @@
           "jour": "samedi",
           "titre": "Sortie longue — Zone 2",
           "type": "course",
-          "duree_min": 65,
+          "duree_min": 60,
           "blocs": [
             {
               "type": "footing",
-              "duree_min": 65,
+              "duree_min": 60,
               "intensite_pct": 68
             }
           ],
@@ -386,7 +361,8 @@
           "jour": "dimanche",
           "titre": "Repos complet",
           "type": "repos",
-          "note": "Journée de repos — c'est là que les adaptations se construisent, ne la saute pas. Alimentation soignée, hydratation, sommeil. Il est également recommandé d'effectuer des étirements et exercices de mobilité en douceur, surtout sur les zones tendues (ischio-jambiers, hanches, dorsaux, mollets selon tes ressentis de la semaine). 15 à 25 minutes suffisent — reste dans le confort, pas de tension forcée."
+          "note": "Journée de repos — c'est là que les adaptations se construisent, ne la saute pas. Alimentation soignée, hydratation, sommeil. Il est également recommandé d'effectuer des étirements et exercices de mobilité en douceur, surtout sur les zones tendues (ischio-jambiers, hanches, dorsaux, mollets selon tes ressentis de la semaine). 15 à 25 minutes suffisent — reste dans le confort, pas de tension forcée.",
+          "blocs": []
         }
       ]
     },
@@ -430,7 +406,6 @@
               "type": "exercice",
               "exercice": "trac",
               "series": 4,
-              "repetitions": 4,
               "intensite_pct": 64.5,
               "recup": "2 min"
             },
@@ -453,13 +428,8 @@
               "texte": "24-32 kg (H) / 20-24 kg (F). Travail technique : poussée des hanches, pas un balancement des bras."
             },
             {
-              "type": "exercice",
-              "nom": "Prévention blessure",
-              "exercice": "autre",
-              "series": 4,
-              "repetitions": 1,
-              "recup": "30 s",
-              "texte": "4 tours enchaînés, 1 min de travail par exercice / 30 s de repos entre chaque exercice :\n• Heel raises (montées sur pointes)\n• Hip bridge (pont fessier)\n• Arch hold (extension dorsale au sol)\n• Hollow hold (gainage creux)"
+              "type": "circuit",
+              "texte": "Circuit prévention blessure — 4 tours : 1 min ON / 30 s OFF — Heel raise, Chaise statique, Gainage planche, Gainage Superman"
             },
             {
               "type": "recup",
@@ -472,7 +442,7 @@
           "jour": "mercredi",
           "titre": "VMA — Pyramide d'allures",
           "type": "course",
-          "duree_min": 55,
+          "duree_min": 61,
           "blocs": [
             {
               "type": "echauffement",
@@ -480,11 +450,11 @@
             },
             {
               "type": "circuit",
-              "texte": "Pyramide à enchaîner sans récup longue, 1 min facile entre chaque bloc :\n• 5 min à 80 % VMA\n• 4 min à 85 %\n• 3 min à 90 %\n• 2 min à 95 %\n• 1 min à 100 % (point haut)\n• 2 min à 95 %\n• 3 min à 90 %\n• 4 min à 85 %"
+              "texte": "Pyramide à enchaîner sans récup longue, 1 min facile entre chaque bloc :\n• 5 min à 80 % VMA\n• 4 min à 85 %\n• 3 min à 90 %\n• 2 min à 95 %\n• 1 min à 100 % (point haut)\n• 2 min à 95 %\n• 3 min à 90 %\n• 4 min à 85 %\n• 5 min à 80 %"
             },
             {
               "type": "recup",
-              "texte": "10 min footing très lent + étirements complets."
+              "texte": "10 min footing très lent."
             }
           ],
           "notes": "Séance exigeante qui sollicite toutes les zones aérobies dans une même sortie. Sur la minute à 100 % VMA, tu dois tenir l'allure juste, pas accélérer. Si tu t'effondres sur ce bloc, c'est que tu es parti trop vite sur la montée. Fréquence max : 1 fois toutes les 10-14 jours."
@@ -493,7 +463,8 @@
           "jour": "jeudi",
           "titre": "Repos actif — Natation optionnelle",
           "type": "repos",
-          "note": "Jour de récupération. Séance de natation facile (30-45 min) recommandée SI tu ne te sens pas à l'aise avec les 50 m de natation du concours — cela te permet de te familiariser avec l'eau et de progresser techniquement sans impact articulaire. Si la natation n'est pas un point faible pour toi, privilégie du repos total, une marche tranquille ou de la mobilité."
+          "note": "Jour de récupération. Séance de natation facile (30-45 min) recommandée SI tu ne te sens pas à l'aise avec les 50 m de natation du concours — cela te permet de te familiariser avec l'eau et de progresser techniquement sans impact articulaire. Si la natation n'est pas un point faible pour toi, privilégie du repos total, une marche tranquille ou de la mobilité.",
+          "blocs": []
         },
         {
           "jour": "vendredi",
@@ -541,13 +512,8 @@
               "texte": "Pompes lestées 10-20 kg, ou pompes déclinées si pas de lest."
             },
             {
-              "type": "exercice",
-              "nom": "Prévention blessure",
-              "exercice": "autre",
-              "series": 4,
-              "repetitions": 1,
-              "recup": "30 s",
-              "texte": "4 tours enchaînés, 1 min de travail par exercice / 30 s de repos entre chaque exercice :\n• Heel raises (montées sur pointes)\n• Hip bridge (pont fessier)\n• Arch hold (extension dorsale au sol)\n• Hollow hold (gainage creux)"
+              "type": "circuit",
+              "texte": "Circuit prévention blessure — 4 tours : 1 min ON / 30 s OFF — Heel raise, Chaise statique, Gainage planche, Gainage Superman"
             },
             {
               "type": "recup",
@@ -560,11 +526,11 @@
           "jour": "samedi",
           "titre": "Sortie longue — Zone 2",
           "type": "course",
-          "duree_min": 85,
+          "duree_min": 75,
           "blocs": [
             {
               "type": "footing",
-              "duree_min": 85,
+              "duree_min": 75,
               "intensite_pct": 68
             }
           ],
@@ -574,7 +540,8 @@
           "jour": "dimanche",
           "titre": "Repos complet",
           "type": "repos",
-          "note": "Journée de repos — c'est là que les adaptations se construisent, ne la saute pas. Alimentation soignée, hydratation, sommeil. Il est également recommandé d'effectuer des étirements et exercices de mobilité en douceur, surtout sur les zones tendues (ischio-jambiers, hanches, dorsaux, mollets selon tes ressentis de la semaine). 15 à 25 minutes suffisent — reste dans le confort, pas de tension forcée."
+          "note": "Journée de repos — c'est là que les adaptations se construisent, ne la saute pas. Alimentation soignée, hydratation, sommeil. Il est également recommandé d'effectuer des étirements et exercices de mobilité en douceur, surtout sur les zones tendues (ischio-jambiers, hanches, dorsaux, mollets selon tes ressentis de la semaine). 15 à 25 minutes suffisent — reste dans le confort, pas de tension forcée.",
+          "blocs": []
         }
       ]
     }

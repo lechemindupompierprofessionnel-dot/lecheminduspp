@@ -11914,10 +11914,17 @@ function renderBloc(bloc, profile) {
     var exKey = bloc.exercice || 'autre';
     var exLabel = exerciceLabels[exKey] || (bloc.nom || exKey);
     var s = bloc.series || 1;
-    var r = bloc.repetitions || 1;
+    var r = bloc.repetitions; // peut être absent (ex : tractions pilotées uniquement par %1RM)
     var pct = bloc.intensite_pct || null;
-    var descEx = '<b>' + exLabel + '</b> — ' + s + ' × ' + r;
-    if (pct) descEx += ' à <span class="prepa-bloc-val">' + pct + '% 1RM</span>';
+    // Si pas de repetitions : on affiche "N séries à X% 1RM" (plus cohérent pour les tractions)
+    var descEx;
+    if (r) {
+      descEx = '<b>' + exLabel + '</b> — ' + s + ' × ' + r;
+      if (pct) descEx += ' à <span class="prepa-bloc-val">' + pct + '% 1RM</span>';
+    } else {
+      descEx = '<b>' + exLabel + '</b> — ' + s + ' série' + (s > 1 ? 's' : '');
+      if (pct) descEx += ' à <span class="prepa-bloc-val">' + pct + '% 1RM</span>';
+    }
     if (bloc.recup) descEx += ' &middot; récup ' + escapeHtml(bloc.recup);
     html = '<div class="prepa-bloc-desc">' + descEx + '</div>';
     if (profile && exKey !== 'autre' && profile[exKey] && pct) {
