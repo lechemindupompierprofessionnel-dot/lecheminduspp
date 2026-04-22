@@ -1033,9 +1033,17 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 /* ===== ESPACE CANDIDAT ===== */
 .esp-wrap{max-width:1180px;margin:0 auto;padding:40px 5% 80px}
 .esp-header{background:white;border:1px solid var(--border);padding:32px 36px;margin-bottom:28px;display:flex;justify-content:space-between;align-items:flex-start;gap:24px;flex-wrap:wrap}
-.esp-greet{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal);line-height:1.2;margin-bottom:6px}
+.esp-greet{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal);line-height:1.2;margin-bottom:6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .esp-greet em{color:var(--red);font-style:italic}
 .esp-subgreet{font-size:.9rem;color:var(--gray);line-height:1.6}
+/* Badge vitrine affiché à côté du pseudo dans l'espace candidat */
+.esp-greet-badge{display:inline-flex;align-items:center;gap:6px;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;color:var(--charcoal);background:var(--cream2);border:1px solid var(--border);padding:5px 11px 5px 8px;border-radius:2px;cursor:pointer;transition:all .15s;line-height:1.2;white-space:nowrap}
+.esp-greet-badge:hover{border-color:var(--red);background:var(--red-pale)}
+.esp-greet-badge-ico{font-size:1.05rem;line-height:1}
+.esp-greet-badge-label{letter-spacing:.2px}
+.esp-greet-badge.legendaire{border-color:#c08413;color:#8a5d0c}
+.esp-greet-badge.epique{border-color:#9240c9;color:#6b2d9a}
+.esp-greet-badge.rare{border-color:#4a7bd1;color:#2f5aa8}
 .esp-streak{background:var(--cream2);border:1px solid var(--border);padding:14px 18px;display:flex;align-items:center;gap:12px}
 .esp-streak-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:900;color:var(--red);line-height:1}
 .esp-streak-lbl{font-size:.72rem;color:var(--gray);letter-spacing:1.5px;text-transform:uppercase;font-weight:600}
@@ -3292,7 +3300,7 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="esp-header">
         <div>
           <div class="s-eyebrow">Espace candidat</div>
-          <div class="esp-greet">Salut <em id="esp-name">candidat</em></div>
+          <div class="esp-greet">Salut <em id="esp-name">candidat</em><span id="esp-greet-badge-wrap"></span></div>
           <div class="esp-subgreet" id="esp-subgreet">Bienvenue dans ton tableau de bord. Retrouve ici tes performances détaillées et tes ressources récentes.</div>
         </div>
         <div class="esp-streak" id="esp-streak-box">
@@ -8822,6 +8830,16 @@ function openShareModal() {
       }
     } catch(e) { nbPrepa = 0; }
 
+    // Badge vitrine pour l'affichage dans l'image de partage
+    var scBadge = null;
+    try {
+      var scId = getCurrentShowcaseBadgeId();
+      if (scId && earnedBadgeIds.has(scId) && BADGES_DEFINITIONS[scId]) {
+        var scDef = BADGES_DEFINITIONS[scId];
+        scBadge = { id: scId, icon: scDef.icon, label: scDef.label, rarity: scDef.rarity || 'commun' };
+      }
+    } catch(e) { scBadge = null; }
+
     _espShareStats = {
       firstName: (document.getElementById('esp-name') || {}).textContent || 'Candidat',
       streak: streak,
@@ -8830,7 +8848,8 @@ function openShareModal() {
       score: globalPct,
       docs: nbDocs,
       prepa: nbPrepa,
-      radarScores: radarScores
+      radarScores: radarScores,
+      badge: scBadge
     };
 
     // Ouvre le modal d'abord
@@ -8950,6 +8969,41 @@ function renderShareCanvas() {
   // "Professionnel." en rouge
   ctx.fillStyle = COL_RED;
   ctx.fillText('Professionnel.', contentX + logoSize + 30, logoY + 150);
+
+  // === 2.bis. PSEUDO + BADGE VITRINE ===
+  // Affichés sous le titre, avant la ligne séparatrice
+  var identityY = 295;
+  var identityX = contentX;
+  // Pseudo : préfixé d'un @ pour signaler qu'il s'agit de l'identifiant public
+  ctx.fillStyle = COL_TEXT;
+  ctx.font = '700 26px ' + FONT;
+  ctx.textAlign = 'left';
+  ctx.textBaseline = 'alphabetic';
+  var pseudoText = '@' + (s.firstName || 'candidat');
+  ctx.fillText(pseudoText, identityX, identityY);
+  var pseudoW = ctx.measureText(pseudoText).width;
+
+  // Badge vitrine à droite du pseudo (si présent)
+  if (s.badge) {
+    var sepX = identityX + pseudoW + 14;
+    // Petit séparateur "·"
+    ctx.fillStyle = COL_MUTED;
+    ctx.font = '400 26px ' + FONT;
+    ctx.fillText('·', sepX, identityY);
+    // Icône du badge (emoji) + label
+    var bIconX = sepX + 18;
+    ctx.font = '400 26px "Apple Color Emoji","Segoe UI Emoji","Noto Color Emoji",' + FONT;
+    ctx.fillText(s.badge.icon, bIconX, identityY);
+    var iconW = ctx.measureText(s.badge.icon).width;
+    // Label du badge — couleur modulée par rareté
+    var badgeColor = COL_TEXT;
+    if (s.badge.rarity === 'rare') badgeColor = '#2f5aa8';
+    else if (s.badge.rarity === 'epique') badgeColor = '#6b2d9a';
+    else if (s.badge.rarity === 'legendaire') badgeColor = '#8a5d0c';
+    ctx.fillStyle = badgeColor;
+    ctx.font = '700 22px ' + FONT;
+    ctx.fillText(s.badge.label, bIconX + iconW + 10, identityY);
+  }
 
   // === 3. LIGNE SÉPARATRICE ===
   ctx.strokeStyle = COL_TEXT;
@@ -9622,6 +9676,23 @@ function _renderEspaceWith(data) {
   else if (cf.firstname) firstName = cf.firstname;
   else if (currentMember.firstName) firstName = currentMember.firstName;
   document.getElementById('esp-name').textContent = firstName;
+
+  // --- Badge vitrine à côté du nom ---
+  var greetBadgeWrap = document.getElementById('esp-greet-badge-wrap');
+  if (greetBadgeWrap) {
+    var showcaseId = getCurrentShowcaseBadgeId();
+    // On n'affiche le badge que s'il est défini ET qu'il a bien été gagné
+    if (showcaseId && earnedBadgeIds.has(showcaseId) && BADGES_DEFINITIONS[showcaseId]) {
+      var def = BADGES_DEFINITIONS[showcaseId];
+      var rarityClass = def.rarity || 'commun';
+      greetBadgeWrap.innerHTML = '<span class="esp-greet-badge ' + rarityClass + '" onclick="openBadgeDetail(\'' + showcaseId + '\')" title="' + def.label + ' — clique pour voir le détail">' +
+        '<span class="esp-greet-badge-ico">' + def.icon + '</span>' +
+        '<span class="esp-greet-badge-label">' + def.label + '</span>' +
+        '</span>';
+    } else {
+      greetBadgeWrap.innerHTML = '';
+    }
+  }
 
   // --- Streak ---
   var streak = espCalcStreak(data.activeDays);
