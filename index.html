@@ -1219,6 +1219,14 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 .esp-share-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px}
 .esp-share-sub{font-size:.85rem;color:var(--gray);line-height:1.6;margin-bottom:22px}
 #esp-share-canvas{width:100%;max-width:320px;margin:0 auto 22px;display:block;border:1px solid var(--border)}
+/* Zone de personnalisation des éléments partagés */
+.esp-share-customize{background:var(--cream2);border:1px solid var(--border);padding:14px 16px;margin:0 0 18px;text-align:left}
+.esp-share-customize-title{font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--charcoal);margin-bottom:10px;display:flex;align-items:center;gap:6px}
+.esp-share-customize-grid{display:grid;grid-template-columns:1fr 1fr;gap:6px 14px}
+.esp-share-check{display:flex;align-items:center;gap:8px;font-size:.82rem;color:var(--charcoal);cursor:pointer;padding:3px 0;user-select:none}
+.esp-share-check input{margin:0;cursor:pointer;accent-color:var(--red);width:15px;height:15px;flex-shrink:0}
+.esp-share-check:hover{color:var(--red)}
+.esp-share-check-ico{font-size:.92rem;line-height:1}
 .esp-share-actions{display:flex;flex-direction:column;gap:10px}
 
 /* Bouton "Partage tes progrès" (mobile) : toujours visible sur mobile,
@@ -3669,6 +3677,20 @@ if(window.location.search.indexOf('success') !== -1) {
     <button class="esp-share-close" onclick="closeShareModal()" style="color:var(--charcoal);top:8px;right:12px">×</button>
     <div class="esp-share-title">Partage ta progression</div>
     <div class="esp-share-sub">Partage directement sur ton réseau préféré ou télécharge l'image pour la publier où tu veux.</div>
+
+    <!-- Personnalisation : le candidat choisit ce qu'il veut afficher -->
+    <div class="esp-share-customize">
+      <div class="esp-share-customize-title">⚙️ Personnaliser ma fiche</div>
+      <div class="esp-share-customize-grid">
+        <label class="esp-share-check"><input type="checkbox" data-share-opt="streak" checked onchange="onShareOptionChange()"><span class="esp-share-check-ico">🔥</span>Streak</label>
+        <label class="esp-share-check"><input type="checkbox" data-share-opt="sessions" checked onchange="onShareOptionChange()"><span class="esp-share-check-ico">🎯</span>Sessions</label>
+        <label class="esp-share-check"><input type="checkbox" data-share-opt="questions" checked onchange="onShareOptionChange()"><span class="esp-share-check-ico">📝</span>Questions</label>
+        <label class="esp-share-check"><input type="checkbox" data-share-opt="score" checked onchange="onShareOptionChange()"><span class="esp-share-check-ico">📊</span>Score</label>
+        <label class="esp-share-check"><input type="checkbox" data-share-opt="prepa" checked onchange="onShareOptionChange()"><span class="esp-share-check-ico">💪</span>Séances sport</label>
+        <label class="esp-share-check"><input type="checkbox" data-share-opt="radar" checked onchange="onShareOptionChange()"><span class="esp-share-check-ico">📡</span>Radar compétences</label>
+      </div>
+    </div>
+
     <canvas id="esp-share-canvas" width="1080" height="1350"></canvas>
 
     <!-- Bouton "Partage tes progrès" — principal sur mobile (ouvre le partage natif du téléphone) -->
@@ -8856,6 +8878,14 @@ function openShareModal() {
     document.getElementById('esp-share-overlay').classList.add('visible');
     _espCheckNativeShareSupport();
 
+    // Réinitialise les options de personnalisation à "tout coché" à chaque ouverture,
+    // et synchronise les checkboxes du DOM pour qu'elles reflètent cet état par défaut.
+    _espShareOptions = _defaultShareOptions();
+    var optInputs = document.querySelectorAll('.esp-share-customize input[data-share-opt]');
+    optInputs.forEach(function(input) {
+      input.checked = true;
+    });
+
     // Charge le logo si pas déjà fait, puis dessine
     if (_espShareLogoLoaded) {
       renderShareCanvas();
@@ -8894,12 +8924,42 @@ function closeShareModal() {
 //   - Grille 2×2 des 4 stats (jours actifs, sessions, questions, score)
 //   - Radar des 5 domaines
 //   - Lien du site en gros en bas
+
+// Options de personnalisation — le candidat peut masquer stats et radar
+// (pseudo, logo, badge vitrine restent toujours visibles)
+var _espShareOptions = null;
+function _defaultShareOptions() {
+  return { streak: true, sessions: true, questions: true, score: true, prepa: true, radar: true };
+}
+// Appelé sur changement d'une checkbox dans la modale de partage
+function onShareOptionChange() {
+  if (!_espShareOptions) _espShareOptions = _defaultShareOptions();
+  var inputs = document.querySelectorAll('.esp-share-customize input[data-share-opt]');
+  inputs.forEach(function(input) {
+    _espShareOptions[input.getAttribute('data-share-opt')] = input.checked;
+  });
+  renderShareCanvas();
+}
+
 function renderShareCanvas() {
   var canvas = document.getElementById('esp-share-canvas');
   if (!canvas || !_espShareStats) return;
   var ctx = canvas.getContext('2d');
   var W = canvas.width, H = canvas.height;  // 1080 x 1350
   var s = _espShareStats;
+  // Options de personnalisation (pseudo/logo/badge toujours visibles, stats et radar optionnels)
+  var opts = _espShareOptions || _defaultShareOptions();
+  // Liste des stats à afficher dans l'ordre d'origine
+  var allStats = [
+    { key: 'streak',    emoji: '🔥', value: String(s.streak), label: (s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF'), accent: false },
+    { key: 'sessions',  emoji: '🎯', value: String(s.sessions), label: (s.sessions > 1 ? 'SESSIONS' : 'SESSION'), accent: false },
+    { key: 'questions', emoji: '📝', value: String(s.questions), label: 'QUESTIONS', accent: false },
+    { key: 'score',     emoji: '📊', value: (s.score > 0 ? (s.score + '%') : '—'), label: 'SCORE', accent: true },
+    { key: 'prepa',     emoji: '💪', value: String(s.prepa || 0), label: 'SÉANCE DE SPORT', accent: false }
+  ];
+  var visibleStats = allStats.filter(function(st){ return opts[st.key]; });
+  var showRadar = !!opts.radar;
+  var showStatsBlock = visibleStats.length > 0;
 
   var FONT = '"DM Sans", Arial, sans-serif';
 
@@ -9013,18 +9073,8 @@ function renderShareCanvas() {
   ctx.lineTo(contentR, 330);
   ctx.stroke();
 
-  // === 4. STATS SUR UNE SEULE LIGNE (5 éléments équidistants) ===
-  // statsY = ligne de base des chiffres. Emoji au-dessus (y-70), label en-dessous (y+38)
-  var statsY = 470;
-
-  // 5 stats équidistantes entre contentX et contentR
-  var statPositions = [
-    contentX + contentW * 0.10,
-    contentX + contentW * 0.30,
-    contentX + contentW * 0.50,
-    contentX + contentW * 0.70,
-    contentX + contentW * 0.90
-  ];
+  // === 4. ZONE CENTRALE (stats + radar, layout adaptatif selon les options) ===
+  // Le layout change en fonction de ce que le candidat a coché dans la modale.
 
   function drawStat(x, y, emoji, bigValue, label, isAccent) {
     // Emoji au-dessus (plus petit, dans la teinte neutre — ne doit pas voler la vedette au chiffre)
@@ -9046,32 +9096,58 @@ function renderShareCanvas() {
     ctx.fillText(label, x, y + 38);
   }
 
-  drawStat(statPositions[0], statsY, '🔥', String(s.streak), s.streak > 1 ? 'JOURS ACTIFS' : 'JOUR ACTIF', false);
-  drawStat(statPositions[1], statsY, '🎯', String(s.sessions), s.sessions > 1 ? 'SESSIONS' : 'SESSION', false);
-  drawStat(statPositions[2], statsY, '📝', String(s.questions), 'QUESTIONS', false);
-  var scoreText = s.score > 0 ? (s.score + '%') : '—';
-  drawStat(statPositions[3], statsY, '📊', scoreText, 'SCORE', true);
-  drawStat(statPositions[4], statsY, '💪', String(s.prepa || 0), 'SÉANCE DE SPORT', false);
+  // === LAYOUT ADAPTATIF : on positionne stats et radar selon ce qui est visible ===
+  // Zone disponible entre y=360 (sous la 1ère ligne séparatrice) et y=1215 (avant le footer rouge)
+  var zoneTop = 360;
+  var zoneBot = 1215;
 
-  // === 5. LIGNE SÉPARATRICE INFÉRIEURE ===
-  ctx.strokeStyle = COL_TEXT;
-  ctx.lineWidth = 1.5;
-  ctx.beginPath();
-  ctx.moveTo(contentX, 550);
-  ctx.lineTo(contentR, 550);
-  ctx.stroke();
-
-  // === 6. LIBELLÉ "MES COMPÉTENCES" ===
-  ctx.fillStyle = COL_RED;
-  ctx.font = '700 20px ' + FONT;
-  ctx.textAlign = 'left';
-  ctx.fillText('MES COMPÉTENCES PAR DOMAINE', contentX, 605);
-
-  // === 7. RADAR — centré dans la zone de contenu ===
-  var radarR = 200;
-  var radarCx = contentX + contentW / 2;
-  var radarCy = 900;
-  _espDrawShareRadar(ctx, radarCx, radarCy, radarR, s.radarScores);
+  if (showStatsBlock && showRadar) {
+    // === CAS 1 : stats + radar (layout d'origine) ===
+    // Stats à y=470
+    var statsY1 = 470;
+    var nbStats = visibleStats.length;
+    // Positions équidistantes adaptées au nombre de stats visibles
+    for (var i = 0; i < nbStats; i++) {
+      var xFrac = (i + 0.5) / nbStats; // centre de chaque colonne
+      var sx = contentX + contentW * xFrac;
+      var st = visibleStats[i];
+      drawStat(sx, statsY1, st.emoji, st.value, st.label, st.accent);
+    }
+    // Ligne séparatrice entre stats et radar
+    ctx.strokeStyle = COL_TEXT; ctx.lineWidth = 1.5;
+    ctx.beginPath(); ctx.moveTo(contentX, 550); ctx.lineTo(contentR, 550); ctx.stroke();
+    // Libellé compétences
+    ctx.fillStyle = COL_RED;
+    ctx.font = '700 20px ' + FONT;
+    ctx.textAlign = 'left';
+    ctx.fillText('MES COMPÉTENCES PAR DOMAINE', contentX, 605);
+    // Radar centré
+    _espDrawShareRadar(ctx, contentX + contentW / 2, 900, 200, s.radarScores);
+  }
+  else if (showStatsBlock && !showRadar) {
+    // === CAS 2 : stats seules — centrées verticalement dans la grande zone ===
+    var statsY2 = (zoneTop + zoneBot) / 2 + 15; // +15 pour compenser le visuel (emoji au-dessus)
+    var nbStats2 = visibleStats.length;
+    // Chiffres plus gros quand il y a peu de stats ? Non, on garde une taille cohérente pour ne pas créer de surprise
+    for (var j = 0; j < nbStats2; j++) {
+      var xFrac2 = (j + 0.5) / nbStats2;
+      var sx2 = contentX + contentW * xFrac2;
+      var st2 = visibleStats[j];
+      drawStat(sx2, statsY2, st2.emoji, st2.value, st2.label, st2.accent);
+    }
+  }
+  else if (!showStatsBlock && showRadar) {
+    // === CAS 3 : radar seul — remonté et agrandi, centré dans la zone libérée ===
+    ctx.fillStyle = COL_RED;
+    ctx.font = '700 22px ' + FONT;
+    ctx.textAlign = 'left';
+    ctx.fillText('MES COMPÉTENCES PAR DOMAINE', contentX, zoneTop + 50);
+    // Radar centré verticalement dans la zone restante
+    var radarCyAlone = zoneTop + 90 + (zoneBot - zoneTop - 90) / 2;
+    _espDrawShareRadar(ctx, contentX + contentW / 2, radarCyAlone, 240, s.radarScores);
+  }
+  // Si rien n'est coché (ni stats ni radar), on laisse la zone centrale vide —
+  // le pseudo + badge + logo restent le point focal, ce qui est OK visuellement.
 
   // === 8. LIGNE SÉPARATRICE BAS ===
   ctx.strokeStyle = COL_RED;
