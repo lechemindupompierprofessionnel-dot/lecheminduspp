@@ -1440,11 +1440,18 @@ body:not(.is-logged) .mobile-nav-member{display:none}
   .footer-top{grid-template-columns:1fr 1fr}
   .testi-grid{grid-template-columns:1fr}
 }
-/* Breakpoint dédié à la navigation : bascule sur le menu burger avant que les onglets ne se tronquent.
-   À ~1100px, les 6 onglets du menu central ne tiennent plus (logo + 6 items + CTA + bouton connexion). */
+/* Navigation progressive :
+   - Entre 900px et 1100px : on masque les onglets les moins critiques (Accueil, Mon histoire)
+     car accessibles via le logo et la section Parcours. Le menu reste desktop.
+   - En dessous de 900px : bascule complète sur le menu burger. */
 @media(max-width:1100px){
+  #navg-home, #navg-parcours{display:none}
+}
+@media(max-width:900px){
   .nav-center{display:none}
   .nav-mobile-btn{display:flex}
+  /* On rétablit l'affichage par défaut des nav-group pour qu'aucun résidu ne subsiste si display:flex est réactivé */
+  #navg-home, #navg-parcours{display:revert}
 }
 @media(max-width:600px){
   .footer-top{grid-template-columns:1fr}
