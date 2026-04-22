@@ -2,62 +2,26 @@
   "id": "equipier-demo",
   "theme": "equipier",
   "year": 2025,
-  "title": "Démo — Équipier SPV (10 questions)",
-  "duration_min": 30,
+  "title": "Session 2025 — Équipier (exemple)",
+  "duration_min": 60,
   "pdf_sujet": "annales/equipier/equipier-demo-sujet.pdf",
-  "pdf_corrige": "",
-  "is_demo": true,
-  "instructions": "Lis attentivement chaque question du PDF à gauche. Coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses — aucune indication n'est donnée sur le nombre attendu. Durée indicative : 30 min.",
+  "pdf_corrige": "annales/equipier/equipier-demo-corrige.pdf",
+  "instructions": "Lis attentivement chaque question du PDF à gauche. Coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses. Durée : 1 heure.",
   "questions": [
     {
       "num": 1,
       "correct": [1],
-      "expl": "Bonne réponse : B. Le SDIS est un établissement public administratif, doté de la personnalité juridique et de l'autonomie financière (article L1424-1 du CGCT). Ce statut lui confère un budget propre et une gouvernance distincte du département, même s'il en reste proche."
+      "expl": "La réponse correcte est B. La loi n°96-369 du 3 mai 1996 est le texte fondateur des SDIS en France. Voir le sujet PDF, question 1."
     },
     {
       "num": 2,
       "correct": [0, 2, 3],
-      "expl": "Bonnes réponses : A, C et D. L'article L1424-2 du CGCT confie aux SDIS quatre missions : la prévention et l'évaluation des risques de sécurité civile, la préparation des mesures de sauvegarde et l'organisation des moyens de secours, la protection des personnes, des biens et de l'environnement, et les secours d'urgence. Le contrôle technique des véhicules (B) ne relève pas des SDIS."
+      "expl": "Trois bonnes réponses : A, C et D. Les missions des SDIS sont définies par l'article L1424-2 du CGCT (prévention, secours, protection des biens). L'organisation des élections n'en fait pas partie."
     },
     {
       "num": 3,
       "correct": [2],
-      "expl": "Bonne réponse : C. Le cadre d'emplois des sapeurs et caporaux de sapeurs-pompiers professionnels appartient à la catégorie C de la fonction publique territoriale (décret n° 2012-520 du 16 avril 2012). Les sous-officiers relèvent de la catégorie B, les officiers de la catégorie A."
-    },
-    {
-      "num": 4,
-      "correct": [0, 1, 3],
-      "expl": "Bonnes réponses : A, B et D. Le triangle du feu est constitué du combustible, du comburant (généralement l'oxygène de l'air) et d'une énergie d'activation (source de chaleur). La température ambiante (C) n'est pas un élément du triangle : c'est l'énergie d'activation qui initie la combustion, indépendamment de la température de l'environnement."
-    },
-    {
-      "num": 5,
-      "correct": [1],
-      "expl": "Bonne réponse : B. Le CO₂ agit essentiellement par étouffement : il déplace l'oxygène autour du foyer et raréfie le comburant. Son effet de refroidissement (A) est marginal, et il n'agit pas par inhibition chimique (C) ni par soufflage (D). C'est pour cette raison qu'il est efficace notamment sur les feux électriques et dans les locaux fermés."
-    },
-    {
-      "num": 6,
-      "correct": [1],
-      "expl": "Bonne réponse : B. Face à une hémorragie externe, la conduite à tenir en priorité est la compression manuelle directe au point qui saigne. Le garrot (A) n'est envisagé qu'en cas d'échec de la compression ou d'impossibilité de l'appliquer (amputation, victime inaccessible). L'oxygène (C) et la PLS (D) peuvent venir ensuite mais ne sont pas l'action prioritaire."
-    },
-    {
-      "num": 7,
-      "correct": [1],
-      "expl": "Bonne réponse : B. La PLS est indiquée chez une victime inconsciente qui respire normalement — elle permet de maintenir les voies aériennes libres et d'éviter l'inhalation en cas de vomissement. Chez une victime consciente (A), elle n'est pas nécessaire. Chez une victime en arrêt respiratoire ou cardio-respiratoire (C, D), on engage une réanimation cardio-pulmonaire, pas une PLS."
-    },
-    {
-      "num": 8,
-      "correct": [0, 1, 3],
-      "expl": "Bonnes réponses : A, B et D. Une LDT a un débit de l'ordre de 250 L/min (A) ✓. Le jet diffusé d'attaque protège le porte-lance par un effet d'écran d'eau (B) ✓. Le jet droit offre la plus grande portée (D) ✓. En revanche, une lance de 70 mm (C) n'est PAS utilisée pour les feux d'appartement : elle est réservée aux feux de grande ampleur (industriels, entrepôts, feux urbains importants). On utilise plutôt des lances de 45 mm en appartement."
-    },
-    {
-      "num": 9,
-      "correct": [0, 2],
-      "expl": "Bonnes réponses : A et C. Le casque F1 ou F2 est obligatoire (A) ✓. Les gants textiles anti-feu sont obligatoires (C) ✓. La tenue de feu (B) est AU CONTRAIRE multicouche (couche externe, barrière thermique, doublure), ce qui est au cœur de sa fonction protectrice. La cagoule de feu (D) n'est PAS facultative : elle est obligatoire pour l'intervention feu."
-    },
-    {
-      "num": 10,
-      "correct": [3],
-      "expl": "Bonne réponse : D. Le 112 est le numéro d'appel d'urgence européen unique, accessible gratuitement dans toute l'Union européenne. Le 15 est le SAMU, le 17 la police/gendarmerie, le 18 les sapeurs-pompiers : ce sont des numéros nationaux français spécialisés, pas le numéro européen unique."
+      "expl": "La réponse est C. Le cadre d'emplois des sapeurs et caporaux SPP appartient à la catégorie C de la fonction publique territoriale (décret n° 2012-520)."
     }
   ]
 }
