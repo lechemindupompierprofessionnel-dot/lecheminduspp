@@ -2657,6 +2657,14 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <button class="btn btn-red" onclick="openPrepaProfile()">Configurer mon profil →</button>
       </div>
 
+      <!-- Avertissement médical (discret, affiché uniquement à la première visite si possible) -->
+      <details id="prepa-medical-notice" style="background:var(--cream2);border-left:3px solid var(--border);padding:10px 14px;margin-bottom:16px;font-size:.82rem;color:var(--gray);line-height:1.55">
+        <summary style="cursor:pointer;font-weight:600;color:var(--charcoal);font-size:.84rem">⚕️ Avertissement — à lire avant de commencer</summary>
+        <div style="margin-top:8px;padding-top:8px;border-top:1px solid var(--border)">
+          Les séances proposées comportent des exercices d'intensité variable, parfois élevée. Si tu n'as jamais pratiqué, si tu reprends après une longue pause, ou en cas d'antécédents cardiaques, respiratoires, articulaires ou musculaires, <strong>consulte un médecin avant de démarrer</strong>. Tu pratiques sous ta seule responsabilité — écoute ton corps, échauffe-toi sérieusement, et réduis l'intensité en cas de douleur ou de gêne.
+        </div>
+      </details>
+
       <!-- En-tête semaine + bouton profil -->
       <div class="prepa-top">
         <div class="prepa-week-info">
@@ -4567,7 +4575,7 @@ if(window.location.search.indexOf('success') !== -1) {
   </div>
 </div>
 
-<!-- ============================= PAGES LÉGALES (placeholders) ============================= -->
+<!-- ============================= PAGES LÉGALES ============================= -->
 <div class="page" id="page-mentions">
   <div class="page-header">
     <div class="page-header-inner">
@@ -4575,11 +4583,51 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="s-title">Mentions <em>légales</em></div>
     </div>
   </div>
-  <div class="section" style="max-width:720px;margin:0 auto;padding:20px 5% 80px">
-    <div style="background:var(--cream2);border-left:3px solid var(--red);padding:24px 28px;margin-bottom:28px">
-      <div style="font-weight:700;color:var(--red);margin-bottom:8px;font-size:.95rem">📝 Page en cours de rédaction</div>
-      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">Cette page est en cours de finalisation. Les informations légales complètes (éditeur, hébergeur, directeur de publication) seront publiées très prochainement. En attendant, pour toute question administrative ou juridique, tu peux me contacter directement via la page <button onclick="goTo('coaching')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Coaching</button>.</div>
+  <div class="section" style="max-width:760px;margin:0 auto;padding:20px 5% 80px">
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:14px">Éditeur du site</div>
+      <div style="font-size:.92rem;color:var(--charcoal);line-height:1.8">
+        <strong>Quentin Nicolle</strong> — Entrepreneur individuel (micro-entreprise)<br>
+        18 avenue du Garreau, 14540 Grentheville, France<br>
+        SIRET : 978 136 729 00016<br>
+        Courriel : <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a><br>
+        Directeur de la publication : Quentin Nicolle
+      </div>
     </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:14px">Hébergement</div>
+      <div style="font-size:.92rem;color:var(--charcoal);line-height:1.8">
+        Le site est hébergé par <strong>GitHub, Inc.</strong><br>
+        88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis<br>
+        Site : <a href="https://github.com" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline">github.com</a>
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:14px">Prestataires techniques</div>
+      <div style="font-size:.92rem;color:var(--charcoal);line-height:1.8">
+        <strong>Authentification et gestion des comptes :</strong> Memberstack (Memberstack, Inc., États-Unis)<br>
+        <strong>Base de données :</strong> Supabase (Supabase Inc., États-Unis)<br>
+        <strong>Paiements :</strong> Stripe (Stripe Payments Europe Ltd, Irlande)
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:14px">Propriété intellectuelle</div>
+      <div style="font-size:.92rem;color:var(--charcoal);line-height:1.7">
+        L'ensemble du contenu du site (textes, QCM, fiches, annales commentées, programmes d'entraînement, illustrations, code source) est la propriété exclusive de Quentin Nicolle, sauf mention contraire. Toute reproduction, représentation, modification, publication ou adaptation, totale ou partielle, par quelque procédé que ce soit et sur quelque support que ce soit, est interdite sans l'autorisation écrite préalable de l'éditeur.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal);margin-bottom:14px">Loi applicable</div>
+      <div style="font-size:.92rem;color:var(--charcoal);line-height:1.7">
+        Les présentes mentions légales sont régies par le droit français. Tout litige relatif à leur interprétation ou à leur exécution relève de la compétence des tribunaux français.
+      </div>
+    </div>
+
     <div style="text-align:center;margin-top:32px">
       <button class="btn btn-outline" onclick="goTo('home')">← Retour à l'accueil</button>
     </div>
@@ -4593,17 +4641,104 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="s-title">Conditions générales <em>de vente</em></div>
     </div>
   </div>
-  <div class="section" style="max-width:720px;margin:0 auto;padding:20px 5% 80px">
-    <div style="background:var(--cream2);border-left:3px solid var(--red);padding:24px 28px;margin-bottom:28px">
-      <div style="font-weight:700;color:var(--red);margin-bottom:8px;font-size:.95rem">📝 Page en cours de rédaction</div>
-      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">Les conditions générales de vente détaillées seront publiées très prochainement. En attendant, voici les points principaux :</div>
-      <ul style="font-size:.88rem;color:var(--charcoal);line-height:1.8;margin-top:16px;padding-left:20px">
-        <li>Abonnements <strong>sans engagement</strong>, résiliables à tout moment depuis l'espace candidat.</li>
-        <li><strong>Satisfait ou remboursé sous 30 jours</strong> à compter du premier paiement.</li>
-        <li>Paiement sécurisé via Stripe.</li>
-        <li>Pour toute question ou réclamation, contacte-moi via la page <button onclick="goTo('coaching')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Coaching</button>.</li>
-      </ul>
+  <div class="section" style="max-width:760px;margin:0 auto;padding:20px 5% 80px">
+
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:24px;font-style:italic">Dernière mise à jour : 23 avril 2026</div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 1 — Objet</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les présentes Conditions Générales de Vente (CGV) régissent les relations contractuelles entre <strong>Quentin Nicolle</strong>, micro-entrepreneur (SIRET 978 136 729 00016), ci-après « le Vendeur », et toute personne physique majeure souscrivant à l'un des abonnements ou services proposés sur le site <strong>lecheminduspp.fr</strong>, ci-après « le Client ».
+      </div>
     </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 2 — Services proposés</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le Vendeur propose une plateforme en ligne de préparation au concours de Sapeur-Pompier Professionnel, comprenant notamment :
+        <ul style="margin:10px 0 0 18px;line-height:1.8">
+          <li>Un compte Découverte gratuit (accès limité aux QCM, annales et ressources)</li>
+          <li>Un abonnement <strong>Plateforme</strong> (19 €/mois ou 149 €/an)</li>
+          <li>Un abonnement <strong>Pack Complet</strong> (49 €/mois ou 399 €/an) incluant la préparation physique</li>
+          <li>Un abonnement <strong>Accompagnement Premium</strong> (149 €/mois, engagement 6 mois) incluant un suivi individuel</li>
+          <li>Des <strong>séances de coaching à l'unité</strong> (120 € la séance)</li>
+        </ul>
+        Les caractéristiques détaillées de chaque formule sont disponibles sur la page <button onclick="goTo('formation')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Formation</button> du site.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 3 — Prix et paiement</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les prix sont indiqués en euros, toutes taxes comprises. En tant que micro-entrepreneur bénéficiant de la franchise en base de TVA (art. 293 B du CGI), <strong>la TVA n'est pas applicable</strong>.<br><br>
+        Le paiement est effectué en ligne par carte bancaire via le prestataire <strong>Stripe</strong>. Aucune donnée bancaire n'est stockée par le Vendeur. Les abonnements mensuels et annuels font l'objet d'un prélèvement récurrent automatique à la date anniversaire de la souscription.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 4 — Durée et résiliation</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les abonnements Plateforme et Pack Complet sont <strong>sans engagement de durée</strong>. Le Client peut les résilier à tout moment depuis son espace candidat (section Profil) ou par email à <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a>. La résiliation prend effet à la fin de la période en cours ; aucun remboursement au prorata n'est effectué.<br><br>
+        L'abonnement <strong>Accompagnement Premium</strong> comporte un engagement minimum de 6 mois. Au-delà de cette période, il est résiliable au mois le mois dans les mêmes conditions que les autres abonnements.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 5 — Droit de rétractation</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Conformément aux articles L221-18 et suivants du Code de la consommation, le Client dispose d'un <strong>délai de 14 jours</strong> à compter de la souscription pour exercer son droit de rétractation, sans avoir à justifier de motifs ni à payer de pénalités.<br><br>
+        Pour exercer ce droit, le Client peut envoyer sa demande à <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a>. Le remboursement intégral sera effectué dans un délai maximum de 14 jours suivant la réception de la demande, par le même moyen de paiement que celui utilisé lors de l'achat.<br><br>
+        <em style="color:var(--gray);font-size:.88rem">À noter : le Vendeur propose une garantie commerciale étendue de 30 jours, plus généreuse que le droit légal de rétractation (voir la page <button onclick="goTo('remboursement')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Remboursement</button>).</em>
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 6 — Séances de coaching à l'unité</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les séances de coaching individuel doivent être réalisées dans un <strong>délai maximum d'un mois</strong> à compter de leur achat. Passé ce délai sans réservation du Client, la séance est considérée comme due.<br><br>
+        Une séance réservée peut être <strong>reportée sans frais si le Client prévient le Vendeur au moins 24 heures avant</strong> l'horaire convenu. En cas d'annulation à moins de 24 heures ou d'absence du Client à l'heure convenue, la séance est due et ne fait l'objet d'aucun remboursement ni report.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 7 — Préparation physique — avertissement</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les programmes de préparation physique proposés (course, musculation, renforcement) comportent des exercices d'intensité variable, y compris à haute intensité. Il est <strong>fortement recommandé au Client de consulter un médecin avant de débuter un programme</strong>, en particulier en cas d'antécédents cardiovasculaires, respiratoires, articulaires ou musculosquelettiques.<br><br>
+        Le Client reconnaît pratiquer les exercices sous sa seule responsabilité. Le Vendeur ne saurait être tenu responsable des blessures, malaises ou pathologies survenant à l'occasion de la pratique des programmes proposés.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 8 — Obligations du Client</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le Client s'engage à fournir des informations exactes lors de sa souscription et à maintenir ses identifiants de connexion confidentiels. L'abonnement est strictement personnel et ne peut être partagé. Le partage de compte, la reproduction ou la diffusion des contenus de la plateforme (QCM, annales, fiches, programmes) sont strictement interdits et peuvent entraîner la résiliation immédiate du compte sans remboursement.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 9 — Responsabilité</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le Vendeur s'engage à fournir un contenu pédagogique de qualité, régulièrement mis à jour. Toutefois, <strong>aucune garantie de réussite au concours</strong> ne peut être donnée, la réussite dépendant notamment de l'investissement personnel du Client et des critères propres à chaque session de concours.<br><br>
+        Le Vendeur ne peut être tenu responsable des interruptions de service dues à des cas de force majeure, des opérations de maintenance ou à des dysfonctionnements des prestataires techniques (Memberstack, Supabase, Stripe, GitHub Pages).
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 10 — Protection des données</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le traitement des données personnelles du Client est détaillé dans la <button onclick="goTo('confidentialite')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Politique de confidentialité</button>.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Article 11 — Médiation et litiges</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        En cas de litige, le Client est invité à contacter en priorité le Vendeur à l'adresse <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a> afin de trouver une solution amiable.<br><br>
+        À défaut d'accord amiable, le Client peut recourir gratuitement à un <strong>médiateur de la consommation</strong> conformément aux articles L611-1 et suivants du Code de la consommation, ou à la plateforme européenne de règlement des litiges en ligne : <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline">ec.europa.eu/consumers/odr</a>.<br><br>
+        Les présentes CGV sont régies par le droit français. En cas de litige, les tribunaux français sont seuls compétents.
+      </div>
+    </div>
+
     <div style="text-align:center;margin-top:32px">
       <button class="btn btn-outline" onclick="goTo('home')">← Retour à l'accueil</button>
     </div>
@@ -4617,17 +4752,105 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="s-title">Politique de <em>confidentialité</em></div>
     </div>
   </div>
-  <div class="section" style="max-width:720px;margin:0 auto;padding:20px 5% 80px">
-    <div style="background:var(--cream2);border-left:3px solid var(--red);padding:24px 28px;margin-bottom:28px">
-      <div style="font-weight:700;color:var(--red);margin-bottom:8px;font-size:.95rem">📝 Page en cours de rédaction</div>
-      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">La politique de confidentialité détaillée sera publiée très prochainement. En attendant, voici les points essentiels :</div>
-      <ul style="font-size:.88rem;color:var(--charcoal);line-height:1.8;margin-top:16px;padding-left:20px">
-        <li>Tes données (email, statistiques, profil) sont stockées de manière sécurisée via <strong>Memberstack</strong> (authentification et paiement) et <strong>Supabase</strong> (données d'entraînement).</li>
-        <li>Aucune donnée n'est revendue à des tiers.</li>
-        <li>Tu peux demander l'export ou la suppression de tes données à tout moment via la page <button onclick="goTo('coaching')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Coaching</button>.</li>
-        <li>Les paiements sont gérés par <strong>Stripe</strong> — aucune donnée bancaire n'est stockée sur le site.</li>
-      </ul>
+  <div class="section" style="max-width:760px;margin:0 auto;padding:20px 5% 80px">
+
+    <div style="font-size:.82rem;color:var(--gray);margin-bottom:24px;font-style:italic">Dernière mise à jour : 23 avril 2026</div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Responsable du traitement</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le responsable du traitement des données personnelles collectées sur <strong>lecheminduspp.fr</strong> est :<br><br>
+        <strong>Quentin Nicolle</strong> — micro-entrepreneur<br>
+        18 avenue du Garreau, 14540 Grentheville<br>
+        SIRET : 978 136 729 00016<br>
+        Contact : <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a>
+      </div>
     </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Données collectées</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les données personnelles collectées sur le site sont les suivantes :
+        <ul style="margin:10px 0 0 18px;line-height:1.8">
+          <li><strong>À la création du compte</strong> : adresse email, pseudo, mot de passe chiffré</li>
+          <li><strong>Au moment du paiement</strong> : données de paiement traitées directement par Stripe (le Vendeur ne stocke aucune donnée bancaire)</li>
+          <li><strong>Pendant l'usage</strong> : réponses aux QCM, sessions d'entraînement, progression, badges, données de préparation physique (VMA, poids, 1RM renseignés par le Client lui-même)</li>
+          <li><strong>Techniques</strong> : adresse IP, logs de connexion, informations de navigation (cookies techniques uniquement)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Finalités et bases légales</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les données sont collectées et traitées pour les finalités suivantes :
+        <ul style="margin:10px 0 0 18px;line-height:1.8">
+          <li><strong>Exécution du contrat</strong> (art. 6.1.b RGPD) : gestion du compte, fourniture des services, facturation, support technique</li>
+          <li><strong>Obligations légales</strong> (art. 6.1.c RGPD) : conservation des factures et obligations comptables</li>
+          <li><strong>Intérêt légitime</strong> (art. 6.1.f RGPD) : amélioration du site, sécurité, lutte contre la fraude</li>
+          <li><strong>Consentement</strong> (art. 6.1.a RGPD) : envoi occasionnel d'informations sur les nouveautés (désabonnement possible à tout moment)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Destinataires et sous-traitants</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les données sont traitées par les sous-traitants suivants, qui agissent pour le compte du Vendeur dans le cadre de leurs prestations techniques :
+        <ul style="margin:10px 0 0 18px;line-height:1.8">
+          <li><strong>Memberstack</strong> (authentification et gestion des abonnements) — hébergement États-Unis</li>
+          <li><strong>Supabase</strong> (base de données d'entraînement) — hébergement Union européenne</li>
+          <li><strong>Stripe</strong> (paiements) — hébergement Union européenne</li>
+          <li><strong>GitHub Pages</strong> (hébergement des fichiers du site) — hébergement États-Unis</li>
+        </ul>
+        <br>
+        Les transferts de données vers les États-Unis sont encadrés par les clauses contractuelles types de la Commission européenne et/ou la certification <em>Data Privacy Framework</em> des prestataires concernés.<br><br>
+        <strong>Aucune donnée n'est revendue, cédée ou communiquée à des tiers à des fins commerciales.</strong>
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Durée de conservation</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Les données de compte sont conservées pendant toute la durée d'abonnement actif, puis pendant <strong>3 ans</strong> après la dernière activité du Client, à des fins de prospection éventuelle et conformément aux recommandations de la CNIL.<br><br>
+        Les données comptables et de facturation sont conservées <strong>10 ans</strong> conformément aux obligations légales (art. L123-22 du Code de commerce).<br><br>
+        Le Client peut demander la suppression anticipée de ses données à tout moment (voir « Droits du Client » ci-dessous).
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Droits du Client</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Conformément au Règlement Général sur la Protection des Données (RGPD) et à la loi Informatique et Libertés, le Client dispose des droits suivants :
+        <ul style="margin:10px 0 0 18px;line-height:1.8">
+          <li><strong>Droit d'accès</strong> : obtenir une copie des données détenues</li>
+          <li><strong>Droit de rectification</strong> : corriger des données inexactes</li>
+          <li><strong>Droit à l'effacement</strong> (« droit à l'oubli ») : demander la suppression des données</li>
+          <li><strong>Droit d'opposition</strong> : s'opposer au traitement pour motif légitime</li>
+          <li><strong>Droit à la limitation</strong> : geler temporairement le traitement</li>
+          <li><strong>Droit à la portabilité</strong> : récupérer ses données dans un format structuré</li>
+          <li><strong>Droit de définir des directives post-mortem</strong> relatives à la conservation ou à la suppression des données après le décès</li>
+        </ul>
+        <br>
+        Pour exercer ces droits, le Client peut adresser sa demande à <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a> en précisant sa demande et en joignant une copie d'une pièce d'identité. Une réponse sera apportée dans un délai maximum d'un mois.<br><br>
+        Le Client dispose également du droit d'introduire une réclamation auprès de la <strong>CNIL</strong> (Commission Nationale de l'Informatique et des Libertés) : <a href="https://www.cnil.fr" target="_blank" rel="noopener" style="color:var(--red);text-decoration:underline">www.cnil.fr</a>.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Cookies</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le site utilise uniquement des <strong>cookies techniques</strong> strictement nécessaires à son bon fonctionnement (authentification, maintien de la session, préférences d'affichage). Ces cookies ne nécessitent pas de consentement préalable. Aucun cookie publicitaire, traceur tiers ou outil de suivi comportemental n'est utilisé.
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Sécurité</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Le Vendeur met en œuvre des mesures techniques et organisationnelles adaptées pour assurer la sécurité des données : chiffrement des mots de passe, connexion HTTPS, authentification des accès administrateur, sauvegardes régulières, choix de prestataires reconnus et certifiés.
+      </div>
+    </div>
+
     <div style="text-align:center;margin-top:32px">
       <button class="btn btn-outline" onclick="goTo('home')">← Retour à l'accueil</button>
     </div>
@@ -4641,18 +4864,54 @@ if(window.location.search.indexOf('success') !== -1) {
       <div class="s-title">Politique de <em>remboursement</em></div>
     </div>
   </div>
-  <div class="section" style="max-width:720px;margin:0 auto;padding:20px 5% 80px">
-    <div style="text-align:center;margin-bottom:28px">
-      <div style="font-size:2.5rem;margin-bottom:12px">🛡️</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal)">Satisfait ou remboursé sous 30 jours</div>
+  <div class="section" style="max-width:760px;margin:0 auto;padding:20px 5% 80px">
+
+    <div style="text-align:center;margin-bottom:32px">
+      <div style="font-size:2.8rem;margin-bottom:12px">🛡️</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--charcoal);line-height:1.3">Satisfait ou remboursé<br>sous 30 jours</div>
+      <div style="font-size:.88rem;color:var(--gray);line-height:1.7;max-width:480px;margin:14px auto 0">Parce que je crois en ce que je propose, je m'engage au-delà de l'obligation légale.</div>
     </div>
-    <div style="background:var(--cream2);border-left:3px solid var(--red);padding:24px 28px;margin-bottom:28px">
-      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7;margin-bottom:14px">
-        Si tu ne trouves pas la plateforme à la hauteur de tes attentes dans les <strong>30 jours suivant ton premier paiement</strong>, je te rembourse intégralement. Sans question, sans délai.
+
+    <div style="background:white;border:2px solid var(--red);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Mon engagement</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Si tu souscris un abonnement (Plateforme, Pack Complet ou Accompagnement Premium) et qu'il ne te convient pas, tu peux demander le <strong>remboursement intégral</strong> de ton premier paiement dans les <strong>30 jours</strong> qui suivent, sans avoir à te justifier.<br><br>
+        C'est plus large que le droit légal de rétractation de 14 jours : c'est une garantie commerciale que je t'offre en plus. Tu as vraiment le temps de te faire ton opinion.
       </div>
-      <div style="font-weight:700;color:var(--red);margin-bottom:8px;font-size:.95rem;margin-top:20px">📝 Page en cours de rédaction</div>
-      <div style="font-size:.88rem;color:var(--charcoal);line-height:1.7">La procédure détaillée (délais de traitement, moyens de contact, cas particuliers des séances de coaching) sera publiée prochainement. Pour toute demande de remboursement, contacte-moi via la page <button onclick="goTo('coaching')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">Coaching</button>.</div>
     </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Comment demander un remboursement</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        Envoie simplement un email à <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline">lechemindupompierprofessionnel@gmail.com</a> depuis l'adresse email associée à ton compte, avec :
+        <ul style="margin:10px 0 0 18px;line-height:1.8">
+          <li>Le nom de l'abonnement concerné</li>
+          <li>La date du premier paiement</li>
+          <li>(Facultatif) Un mot sur ce qui n'a pas fonctionné pour toi — ça m'aide à améliorer la plateforme</li>
+        </ul>
+        <br>
+        Je traite les demandes sous <strong>7 jours ouvrés maximum</strong>. Le remboursement est effectué par virement retour sur le moyen de paiement d'origine (carte bancaire).
+      </div>
+    </div>
+
+    <div style="background:white;border:1px solid var(--border);padding:28px 32px;margin-bottom:20px">
+      <div style="font-family:'Playfair Display',serif;font-size:1.15rem;color:var(--charcoal);margin-bottom:12px">Cas particuliers</div>
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        <strong>Abonnements mensuels au-delà de 30 jours</strong> : tu peux résilier à tout moment depuis ton espace candidat. Aucun remboursement au prorata n'est effectué, mais tu gardes l'accès jusqu'à la fin de la période déjà payée.<br><br>
+        <strong>Abonnements annuels</strong> : la garantie 30 jours s'applique. Au-delà, le remboursement au prorata des mois restants n'est pas prévu.<br><br>
+        <strong>Accompagnement Premium</strong> : cette formule comporte un engagement de 6 mois. La garantie 30 jours permet de te désengager complètement si la formule ne te convient pas. Au-delà, l'engagement court jusqu'au terme convenu.<br><br>
+        <strong>Séances de coaching à l'unité</strong> : une séance peut être reportée sans frais si tu préviens au moins 24h à l'avance. En cas d'annulation à moins de 24h ou d'absence à l'horaire convenu, la séance est due et ne fait pas l'objet d'un remboursement ou d'un report (voir <button onclick="goTo('cgv')" style="background:none;border:none;color:var(--red);text-decoration:underline;cursor:pointer;font:inherit;padding:0">CGV</button>, article 6).
+      </div>
+    </div>
+
+    <div style="background:var(--cream2);border:1px solid var(--border);padding:24px 28px;margin-bottom:20px;text-align:center">
+      <div style="font-size:.9rem;color:var(--charcoal);line-height:1.7">
+        <strong>Une question, un doute ?</strong><br>
+        Écris-moi, je réponds personnellement :<br>
+        <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--red);text-decoration:underline;font-weight:500">lechemindupompierprofessionnel@gmail.com</a>
+      </div>
+    </div>
+
     <div style="text-align:center;margin-top:32px">
       <button class="btn btn-outline" onclick="goTo('home')">← Retour à l'accueil</button>
     </div>
