@@ -4493,7 +4493,7 @@ if(window.location.search.indexOf('success') !== -1) {
           <span style="background:#edf7ee;color:#1a5c25;font-size:.6rem;font-weight:700;letter-spacing:1.2px;padding:3px 8px;border:1px solid #2d7a3a">AUTO-AJUSTÉ</span>
         </div>
       </div>
-      <div style="font-size:.76rem;color:var(--gray);margin-bottom:18px;line-height:1.5">💡 Glisse-dépose une séance pour changer son jour · Clique sur l'heure pour la modifier</div>
+      <div style="font-size:.76rem;color:var(--gray);margin-bottom:18px;line-height:1.5" id="prog-hint">💡 Chaque séance sport et révision se déplace indépendamment · Clique sur l'heure pour la modifier</div>
 
       <div id="prog-week" style="display:grid;gap:8px"></div>
 
@@ -5785,69 +5785,199 @@ function makeRevSession(type, dayKey, duration) {
 }
 
 // ---------- Rendu du planning hebdomadaire ----------
-// Affichage : une seule ligne par jour, avec sport et révision combinés si les deux sont présents.
+// Deux vues adaptatives :
+//   Desktop (≥900px) : grille 7 colonnes avec drag & drop entre colonnes
+//   Mobile  (<900px) : liste verticale avec bouton "⇄ Déplacer" qui ouvre un menu de jours
+// Sport et révision sont rendues comme 2 cartes indépendantes (déplaçables séparément).
 function renderProgWeek() {
   var container = document.getElementById('prog-week');
   if (!container) return;
+  var isDesktop = window.innerWidth >= 900;
+  container.innerHTML = isDesktop ? renderProgWeekDesktop() : renderProgWeekMobile();
+}
 
-  var html = '';
+// ==== VUE DESKTOP : grille 7 colonnes ====
+function renderProgWeekDesktop() {
+  var html = '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">';
+  PROG_DAYS.forEach(function(d) {
+    var daySessions = progSessions.filter(function(s) { return s.day === d.key; });
+    var isEmpty = daySessions.length === 0;
+    var colTotal = 0;
+    daySessions.forEach(function(s) { colTotal += s.duration; });
+
+    html += '<div class="prog-col" data-day="' + d.key + '" ondragover="onProgDragOver(event)" ondragleave="onProgDragLeave(event)" ondrop="onProgDrop(event,\'' + d.key + '\')" style="background:' + (isEmpty?'#f7f2ea':'white') + ';border:' + (isEmpty?'1px dashed var(--border)':'1px solid var(--border)') + ';padding:10px 8px;min-height:180px;display:flex;flex-direction:column">';
+    html += '<div style="text-align:center;padding-bottom:8px;border-bottom:1px solid #F0EAE0;margin-bottom:8px">';
+    html += '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.68rem;letter-spacing:1.5px;color:' + (isEmpty?'var(--gray-light)':'var(--charcoal)') + '">' + d.short + '</div>';
+    if (!isEmpty) html += '<div style="font-size:.62rem;color:var(--gray);margin-top:2px">' + formatDuration(colTotal) + '</div>';
+    html += '</div>';
+
+    if (isEmpty) {
+      html += '<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:10px;font-size:.65rem;color:var(--gray-light);text-align:center;font-style:italic;line-height:1.3">Repos<br><span style="font-size:.55rem">(glisse ici)</span></div>';
+    } else {
+      daySessions.forEach(function(s) {
+        html += renderSessionCompact(s);
+      });
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+// Carte compacte pour la vue desktop — petite, draggable
+function renderSessionCompact(s) {
+  var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
+  var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actu' : '📚 Révision');
+  var timeStr = s.hour + ':' + s.minute;
+  var gcalUrl = buildGoogleCalUrlForSession(s);
+  // Titre court (tronqué après le premier "—" ou premier 20 car.)
+  var shortTitle = s.title.split(' — ')[0];
+  if (shortTitle.length > 22) shortTitle = shortTitle.substr(0, 22) + '…';
+
+  return '<div class="prog-session" draggable="true" data-id="' + s.id + '" ondragstart="onProgDragStart(event,\'' + s.id + '\')" ondragend="onProgDragEnd(event)" style="background:var(--cream2);border-left:2px solid ' + catColor + ';padding:6px 8px;margin-bottom:4px;cursor:grab;font-size:.7rem">' +
+    '<div style="font-size:.6rem;font-weight:700;color:' + catColor + ';letter-spacing:.5px;margin-bottom:2px">' + catLabel + ' · ' + formatDuration(s.duration) + '</div>' +
+    '<div style="font-size:.7rem;color:var(--charcoal);font-weight:500;line-height:1.2;margin-bottom:4px">' + s.icon + ' ' + shortTitle + '</div>' +
+    '<div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">' +
+      '<button onclick="editProgTime(\'' + s.id + '\')" style="background:white;border:1px solid var(--border);padding:1px 4px;font-size:.58rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐' + timeStr + '</button>' +
+      '<a href="' + gcalUrl + '" target="_blank" rel="noopener" style="font-size:.58rem;color:var(--red);text-decoration:underline;font-weight:500">+ GCal</a>' +
+    '</div>' +
+  '</div>';
+}
+
+// ==== VUE MOBILE : liste verticale ====
+function renderProgWeekMobile() {
+  var html = '<div style="display:grid;gap:8px">';
   PROG_DAYS.forEach(function(d) {
     var daySessions = progSessions.filter(function(s) { return s.day === d.key; });
     if (daySessions.length === 0) {
-      // Jour libre — reste un drop target
-      html += '<div class="prog-day-empty" data-day="' + d.key + '" ondragover="onProgDragOver(event)" ondragleave="onProgDragLeave(event)" ondrop="onProgDrop(event,\'' + d.key + '\')" style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:14px 18px;background:#f7f2ea;border:1px dashed var(--border);color:var(--gray-light)">' +
+      html += '<div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:14px 18px;background:#f7f2ea;border:1px dashed var(--border);color:var(--gray-light)">' +
         '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.72rem;letter-spacing:1.5px">' + d.short + '</div>' +
-        '<div style="font-size:.78rem;font-style:italic">Jour de repos (glisse une séance ici pour l\'y déplacer)</div>' +
+        '<div style="font-size:.78rem;font-style:italic">Jour de repos</div>' +
       '</div>';
     } else {
-      html += renderDayBlock(d, daySessions);
+      html += renderDayBlockMobile(d, daySessions);
     }
   });
-  container.innerHTML = html;
+  html += '</div>';
+  return html;
 }
 
-// Bloc d'un jour combinant les N sessions (typiquement 1 sport + 1 révision)
-function renderDayBlock(d, daySessions) {
+// Bloc d'un jour en mode mobile — liste verticale avec sport + révision en cartes séparées
+function renderDayBlockMobile(d, daySessions) {
   var hasSport = daySessions.some(function(s) { return s.cat === 'sport'; });
-  var hasRev = daySessions.some(function(s) { return s.cat === 'revision'; });
-  var borderColor = hasSport ? 'var(--red)' : '#877E72';
   var bgColor = hasSport ? 'var(--cream2)' : '#ECE4D3';
+  var borderColor = hasSport ? 'var(--red)' : '#877E72';
 
   var totalDuration = 0;
   daySessions.forEach(function(s) { totalDuration += s.duration; });
 
   var inner = '';
   daySessions.forEach(function(s) {
-    inner += renderSessionInline(s, d);
+    inner += renderSessionMobile(s);
   });
 
-  return '<div class="prog-day-block" data-day="' + d.key + '" ondragover="onProgDragOver(event)" ondragleave="onProgDragLeave(event)" ondrop="onProgDrop(event,\'' + d.key + '\')" style="display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:flex-start;padding:14px 18px;background:' + bgColor + ';border-left:3px solid ' + borderColor + '">' +
+  return '<div style="display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:flex-start;padding:14px 18px;background:' + bgColor + ';border-left:3px solid ' + borderColor + '">' +
     '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.72rem;letter-spacing:1.5px;color:var(--charcoal);padding-top:4px">' + d.short + '</div>' +
     '<div style="display:flex;flex-direction:column;gap:10px">' + inner + '</div>' +
-    '<div style="font-size:.72rem;color:var(--gray);white-space:nowrap;padding-top:4px;font-weight:600">Total ' + formatDuration(totalDuration) + '</div>' +
+    '<div style="font-size:.72rem;color:var(--gray);white-space:nowrap;padding-top:4px;font-weight:600">' + formatDuration(totalDuration) + '</div>' +
   '</div>';
 }
 
-// Une ligne "mini" dans le bloc du jour (session draggable)
-function renderSessionInline(s, d) {
-  var durationLabel = formatDuration(s.duration);
-  var timeStr = s.hour + ':' + s.minute;
-  var gcalUrl = buildGoogleCalUrl(s, d);
-  var catLabel = s.cat === 'sport' ? '💪 Sport' : '📚 Révision';
+// Carte session en mode mobile — avec bouton "⇄ Déplacer"
+function renderSessionMobile(s) {
   var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
+  var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actualités' : '📚 Révision');
+  var timeStr = s.hour + ':' + s.minute;
+  var gcalUrl = buildGoogleCalUrlForSession(s);
 
-  return '<div class="prog-session" draggable="true" data-id="' + s.id + '" ondragstart="onProgDragStart(event,\'' + s.id + '\')" ondragend="onProgDragEnd(event)" style="background:white;border:1px solid var(--border);padding:10px 14px;cursor:grab;position:relative">' +
-    '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;flex-wrap:wrap;gap:6px">' +
-      '<div style="font-size:.66rem;font-weight:700;letter-spacing:1.5px;color:' + catColor + ';text-transform:uppercase">' + catLabel + ' · ' + durationLabel + '</div>' +
-      '<div style="font-size:.6rem;color:var(--gray-light);letter-spacing:1px">⋮⋮ glisser</div>' +
-    '</div>' +
+  return '<div class="prog-session-mobile" data-id="' + s.id + '" style="background:white;border:1px solid var(--border);padding:10px 14px;position:relative">' +
+    '<div style="font-size:.65rem;font-weight:700;letter-spacing:1.2px;color:' + catColor + ';text-transform:uppercase;margin-bottom:3px">' + catLabel + ' · ' + formatDuration(s.duration) + '</div>' +
     '<div style="font-size:.85rem;color:var(--charcoal);font-weight:500;line-height:1.3;margin-bottom:2px">' + s.icon + ' ' + s.title + '</div>' +
     '<div style="font-size:.72rem;color:var(--gray);line-height:1.45;margin-bottom:6px">' + s.desc + '</div>' +
-    '<div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">' +
-      '<button onclick="editProgTime(\'' + s.id + '\')" style="background:var(--cream2);border:1px solid var(--border);padding:2px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐 ' + timeStr + '</button>' +
+    '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">' +
+      '<button onclick="editProgTime(\'' + s.id + '\')" style="background:var(--cream2);border:1px solid var(--border);padding:3px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐 ' + timeStr + '</button>' +
+      '<button onclick="openMoveMenu(\'' + s.id + '\', event)" style="background:var(--cream2);border:1px solid var(--border);padding:3px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">⇄ Déplacer</button>' +
       '<a href="' + gcalUrl + '" target="_blank" rel="noopener" style="font-size:.7rem;color:var(--red);text-decoration:underline;font-weight:500">+ Google Agenda</a>' +
     '</div>' +
   '</div>';
+}
+
+// ---------- Menu "Déplacer vers" (mobile uniquement) ----------
+function openMoveMenu(sessionId, evt) {
+  if (evt && evt.stopPropagation) evt.stopPropagation();
+  // Retirer tout menu existant
+  closeMoveMenu();
+  var s = progSessions.find(function(x) { return x.id === sessionId; });
+  if (!s) return;
+
+  var menu = document.createElement('div');
+  menu.id = 'prog-move-menu';
+  menu.style.cssText = 'position:fixed;z-index:9999;background:white;border:1px solid var(--border);box-shadow:0 8px 24px rgba(0,0,0,0.15);min-width:200px';
+
+  var html = '<div style="padding:10px 14px;border-bottom:1px solid var(--border);font-size:.68rem;font-weight:700;letter-spacing:1.5px;color:var(--gray);text-transform:uppercase">Déplacer vers</div>';
+  PROG_DAYS.forEach(function(d) {
+    var isCurrent = d.key === s.day;
+    var color = isCurrent ? 'var(--gray-light)' : 'var(--charcoal)';
+    var cursor = isCurrent ? 'not-allowed' : 'pointer';
+    var suffix = isCurrent ? ' (actuel)' : '';
+    html += '<button ' + (isCurrent ? 'disabled' : 'onclick="moveSessionToDay(\'' + sessionId + '\',\'' + d.key + '\')"') + ' style="display:block;width:100%;text-align:left;background:none;border:none;padding:10px 14px;font-size:.85rem;color:' + color + ';cursor:' + cursor + ';font-family:\'DM Sans\',sans-serif;border-bottom:1px solid #F0EAE0">' + d.label + suffix + '</button>';
+  });
+  html += '<button onclick="closeMoveMenu()" style="display:block;width:100%;text-align:center;background:var(--cream2);border:none;padding:10px;font-size:.78rem;color:var(--gray);cursor:pointer;font-family:\'DM Sans\',sans-serif">Annuler</button>';
+  menu.innerHTML = html;
+
+  // Positionnement au-dessus du bouton cliqué
+  var rect = evt && evt.currentTarget ? evt.currentTarget.getBoundingClientRect() : null;
+  if (rect) {
+    var top = rect.bottom + 6;
+    var left = rect.left;
+    // Clamp dans l'écran
+    var menuWidth = 200;
+    if (left + menuWidth > window.innerWidth - 10) left = window.innerWidth - menuWidth - 10;
+    if (top + 350 > window.innerHeight) top = rect.top - 350;
+    menu.style.top = top + 'px';
+    menu.style.left = Math.max(10, left) + 'px';
+  } else {
+    menu.style.top = '50%';
+    menu.style.left = '50%';
+    menu.style.transform = 'translate(-50%,-50%)';
+  }
+
+  document.body.appendChild(menu);
+
+  // Fermeture au clic extérieur
+  setTimeout(function() {
+    document.addEventListener('click', closeMoveMenuOnClickOutside, { once: true });
+  }, 0);
+}
+
+function closeMoveMenu() {
+  var m = document.getElementById('prog-move-menu');
+  if (m) m.remove();
+}
+
+function closeMoveMenuOnClickOutside(e) {
+  var m = document.getElementById('prog-move-menu');
+  if (m && !m.contains(e.target)) closeMoveMenu();
+}
+
+function moveSessionToDay(sessionId, targetDay) {
+  var s = progSessions.find(function(x) { return x.id === sessionId; });
+  if (s) s.day = targetDay;
+  closeMoveMenu();
+  renderProgWeek();
+}
+
+// Ré-rendre quand la taille d'écran change (desktop ↔ mobile)
+window.addEventListener('resize', function() {
+  var page = document.getElementById('page-programme');
+  if (page && page.classList.contains('active')) {
+    renderProgWeek();
+  }
+});
+
+// Alias pour conserver l'appel interne
+function buildGoogleCalUrlForSession(s) {
+  return buildGoogleCalUrl(s, { key: s.day });
 }
 
 function formatDuration(min) {
