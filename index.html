@@ -157,6 +157,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);letter-spacing:0.3px;line-height:1.2}
 .logo-text span{display:block;font-size:.65rem;font-family:'DM Sans',sans-serif;font-weight:500;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
 .nav-center{display:flex;gap:0;align-items:center}
+/* Séparation découvrir / apprendre */
+.nav-zone{display:flex;align-items:flex-end;position:relative}
+.nav-zone-learn{background:#FBEAE8;padding:0 8px;border-left:1px solid #E8C8C4;border-right:1px solid #E8C8C4}
+.nav-zone-learn .nav-group-btn{color:#7A3537}
+.nav-zone-label{position:absolute;top:8px;left:14px;font-size:.55rem;font-weight:700;letter-spacing:2px;color:#b8ada0;text-transform:uppercase;pointer-events:none}
+.nav-zone-learn .nav-zone-label{color:var(--red);left:22px}
+.nav-zone .nav-group-btn{padding-top:22px;padding-bottom:10px}
+@media(max-width:1100px){
+  .nav-zone-label{display:none}
+  .nav-zone .nav-group-btn{padding-top:8px;padding-bottom:8px}
+  .nav-zone-learn{padding:0}
+}
 .nav-group{position:relative}
 .nav-group-btn{padding:8px 14px;font-size:.78rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--gray);border:none;background:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px;white-space:nowrap;font-family:'DM Sans',sans-serif}
 .nav-group-btn::after{content:'';display:inline-block;width:5px;height:5px;border-right:1.5px solid var(--gray);border-bottom:1.5px solid var(--gray);transform:rotate(45deg) translateY(-2px);transition:all .2s;margin-left:2px}
@@ -1080,6 +1092,9 @@ body.is-logged .mobile-nav-member{display:block}
 /* Catégories */
 .mobile-nav-category{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gray-light);margin:22px 0 6px;padding:0 4px}
 .mobile-nav-category:first-child{margin-top:0}
+.mobile-nav-section{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin:26px 0 10px;padding:6px 4px 4px;border-top:1px solid var(--border)}
+.mobile-nav-section.first{border-top:none;margin-top:10px}
+.mobile-nav-section-sub{color:var(--gray-light)}
 /* Liens individuels */
 .mobile-nav-link{display:flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--charcoal);padding:13px 4px;cursor:pointer;transition:color .15s;border-bottom:1px solid var(--border-light);font-weight:500}
 .mobile-nav-link:last-child{border-bottom:none}
@@ -1836,17 +1851,21 @@ body:not(.is-logged) .mobile-nav-member{display:none}
       <div class="mobile-nav-member-status" id="mobile-member-status">Candidat</div>
     </div>
 
-    <!-- Accueil -->
+    <!-- ========== SECTION DÉCOUVRIR ========== -->
+    <div class="mobile-nav-section mobile-nav-section-sub first">Découvrir</div>
     <div class="mobile-nav-link" onclick="goTo('home');closeMobileNav()"><span class="mn-ico">🏠</span>Accueil<span class="mn-arrow">›</span></div>
     <div class="mobile-nav-link" onclick="goTo('parcours');closeMobileNav()"><span class="mn-ico">📖</span>Mon histoire<span class="mn-arrow">›</span></div>
-
-    <!-- Espace candidat (visible uniquement si membre payant) -->
-    <div class="mobile-nav-link" id="mobile-espace-link" onclick="goToEspace();closeMobileNav()"><span class="mn-ico">📊</span>Mon espace<span class="mn-arrow">›</span></div>
 
     <!-- Comment je t'aide -->
     <div class="mobile-nav-category">Comment je t'aide</div>
     <div class="mobile-nav-link" onclick="goTo('formation');closeMobileNav()"><span class="mn-ico">📋</span>Plans d'actions<span class="mn-arrow">›</span></div>
     <div class="mobile-nav-link" onclick="goTo('coaching');closeMobileNav()"><span class="mn-ico">💬</span>Coaching<span class="mn-arrow">›</span></div>
+
+    <!-- ========== SECTION APPRENDRE ========== -->
+    <div class="mobile-nav-section">Apprendre</div>
+
+    <!-- Espace candidat -->
+    <div class="mobile-nav-link" id="mobile-espace-link" onclick="goToEspace();closeMobileNav()"><span class="mn-ico">📊</span>Mon espace<span class="mn-arrow">›</span></div>
 
     <!-- Outils d'entraînement -->
     <div class="mobile-nav-category">Outils d'entraînement</div>
@@ -1883,44 +1902,55 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     <div class="logo-text">Le Chemin du SPP<span>Coaching Concours</span></div>
   </div>
   <div class="nav-center">
-    <div class="nav-group" id="navg-home">
-      <button class="nav-group-btn" data-page="home" onclick="goTo('home')">Accueil</button>
-      <div class="nav-group-bar"></div>
-    </div>
-    <div class="nav-group" id="navg-parcours">
-      <button class="nav-group-btn" data-page="parcours" onclick="goTo('parcours')">Mon histoire</button>
-      <div class="nav-group-bar"></div>
-    </div>
-    <div class="nav-group" id="navg-difference">
-      <button class="nav-group-btn">Comment je t'aide</button>
-      <div class="nav-group-bar"></div>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-item" data-page="formation" onclick="goTo('formation')"><span class="nav-item-ico">📋</span>Plans d'actions</button>
-        <button class="nav-dropdown-item" data-page="coaching" onclick="goTo('coaching')"><span class="nav-item-ico">💬</span>Coaching</button>
+
+    <!-- ========== ZONE DÉCOUVRIR ========== -->
+    <div class="nav-zone nav-zone-discover">
+      <span class="nav-zone-label">Découvrir</span>
+      <div class="nav-group" id="navg-home">
+        <button class="nav-group-btn" data-page="home" onclick="goTo('home')">Accueil</button>
+        <div class="nav-group-bar"></div>
+      </div>
+      <div class="nav-group" id="navg-parcours">
+        <button class="nav-group-btn" data-page="parcours" onclick="goTo('parcours')">Mon histoire</button>
+        <div class="nav-group-bar"></div>
+      </div>
+      <div class="nav-group" id="navg-difference">
+        <button class="nav-group-btn">Comment je t'aide</button>
+        <div class="nav-group-bar"></div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-item" data-page="formation" onclick="goTo('formation')"><span class="nav-item-ico">📋</span>Plans d'actions</button>
+          <button class="nav-dropdown-item" data-page="coaching" onclick="goTo('coaching')"><span class="nav-item-ico">💬</span>Coaching</button>
+        </div>
       </div>
     </div>
-    <div class="nav-group" id="navg-plateforme">
-      <button class="nav-group-btn">Outils d'entraînement</button>
-      <div class="nav-group-bar"></div>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-item" data-page="qcm" onclick="goTo('qcm')"><span class="nav-item-ico">🎯</span>QCM</button>
-        <button class="nav-dropdown-item" data-page="concours" onclick="goTo('concours')"><span class="nav-item-ico">⏱️</span>Mode concours</button>
-        <button class="nav-dropdown-item" data-page="prepa" onclick="goToPrepa()"><span class="nav-item-ico">💪</span>Préparation physique</button>
-        <button class="nav-dropdown-item" data-page="espace" id="nav-espace-item" onclick="goToEspace()"><span class="nav-item-ico">📊</span>Mon espace candidat</button>
+
+    <!-- ========== ZONE APPRENDRE ========== -->
+    <div class="nav-zone nav-zone-learn">
+      <span class="nav-zone-label">Apprendre</span>
+      <div class="nav-group" id="navg-plateforme">
+        <button class="nav-group-btn">Outils d'entraînement</button>
+        <div class="nav-group-bar"></div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-item" data-page="qcm" onclick="goTo('qcm')"><span class="nav-item-ico">🎯</span>QCM</button>
+          <button class="nav-dropdown-item" data-page="concours" onclick="goTo('concours')"><span class="nav-item-ico">⏱️</span>Mode concours</button>
+          <button class="nav-dropdown-item" data-page="prepa" onclick="goToPrepa()"><span class="nav-item-ico">💪</span>Préparation physique</button>
+          <button class="nav-dropdown-item" data-page="espace" id="nav-espace-item" onclick="goToEspace()"><span class="nav-item-ico">📊</span>Mon espace candidat</button>
+        </div>
+      </div>
+      <div class="nav-group" id="navg-ressources">
+        <button class="nav-group-btn">Ressources</button>
+        <div class="nav-group-bar"></div>
+        <div class="nav-dropdown">
+          <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')"><span class="nav-item-ico">📚</span>Bibliothèque</button>
+          <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
+        </div>
+      </div>
+      <div class="nav-group" id="navg-candidats">
+        <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté<sup class="nav-new-badge">NEW</sup></button>
+        <div class="nav-group-bar"></div>
       </div>
     </div>
-    <div class="nav-group" id="navg-ressources">
-      <button class="nav-group-btn">Ressources</button>
-      <div class="nav-group-bar"></div>
-      <div class="nav-dropdown">
-        <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')"><span class="nav-item-ico">📚</span>Bibliothèque</button>
-        <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
-      </div>
-    </div>
-    <div class="nav-group" id="navg-candidats">
-      <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté<sup class="nav-new-badge">NEW</sup></button>
-      <div class="nav-group-bar"></div>
-    </div>
+
   </div>
   <div class="nav-right">
     <!-- CTA rouge visible uniquement aux non-inscrits -->
