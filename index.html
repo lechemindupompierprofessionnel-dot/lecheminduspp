@@ -921,12 +921,62 @@ body.biblio-searching .biblio-acc-section.empty{display:none}
 .correction-q-expl{font-size:.85rem;color:var(--charcoal);line-height:1.65;background:var(--cream2);padding:12px 14px;margin-top:10px;border-left:3px solid var(--charcoal)}
 
 @media(max-width:900px){
-  .exam-layout{grid-template-columns:1fr}
-  .exam-pdf-pane{position:static;height:auto;max-height:50vh}
-  .exam-pdf-frame{min-height:400px}
-  .exam-answers-pane{height:auto}
+  /* Mode examen split sur mobile : PDF en haut, réponses en bas, chacun scrollable indépendamment */
+  /* Le parent .exam-layout devient une colonne avec hauteur = hauteur viewport, les enfants partagent 50/50 */
+  .exam-layout{
+    display:flex;
+    flex-direction:column;
+    height:100vh;
+    height:100dvh; /* dvh : prend en compte la barre d'adresse mobile */
+    min-height:100vh;
+    min-height:100dvh;
+    margin-top:0;
+    overflow:hidden; /* empêche le scroll du body, seuls les panneaux scrollent */
+  }
+  .exam-pdf-pane{
+    position:relative;
+    top:auto;
+    height:50vh;
+    height:50dvh;
+    max-height:50vh;
+    max-height:50dvh;
+    border-right:none;
+    border-bottom:2px solid var(--border);
+    flex-shrink:0;
+    overflow:hidden; /* le scroll est géré par l'iframe interne */
+  }
+  .exam-pdf-header{padding:10px 14px;font-size:.85rem}
+  .exam-pdf-title{font-size:.9rem}
+  .exam-pdf-open-btn{padding:5px 10px;font-size:.72rem}
+  .exam-pdf-frame{flex:1;width:100%;height:100%;min-height:0;border:none;background:white}
+
+  .exam-answers-pane{
+    height:50vh;
+    height:50dvh;
+    flex:1;
+    min-height:0;
+    overflow:hidden;
+  }
+  .exam-timer-bar{padding:12px 16px;position:sticky;top:0;z-index:5}
+  .exam-timer-value{font-size:1.4rem}
+  .exam-answers-scroll{padding:14px;overflow-y:auto;overscroll-behavior:contain;-webkit-overflow-scrolling:touch}
+  .exam-actions-bar{padding:10px 14px;gap:6px}
+  .exam-abandon-btn{padding:8px 12px;font-size:.75rem}
+  .exam-submit-btn{padding:10px 16px;font-size:.82rem}
+  .exam-summary-text{font-size:.75rem;width:100%;order:-1;text-align:center}
+
   .annales-theme-grid{grid-template-columns:1fr}
   .correction-stats{grid-template-columns:repeat(2,1fr)}
+}
+
+/* Très petits écrans : le timer + les infos doivent rester lisibles */
+@media(max-width:420px){
+  .exam-timer-label{font-size:.62rem;letter-spacing:1.2px}
+  .exam-timer-value{font-size:1.2rem}
+  .exam-progress-count{font-size:.75rem}
+  .exam-progress-sub{font-size:.62rem}
+  .exam-q-num{min-width:28px;font-size:.9rem}
+  .exam-q-opt{width:34px;height:34px;font-size:.88rem}
 }
 
 /* ===== ACTUALITES ===== */
@@ -14275,17 +14325,28 @@ function startExam(annaleId) {
     document.getElementById('exam-pdf-title').textContent = annale.title || 'Sujet';
     var pdfLink = document.getElementById('exam-pdf-link');
     var pdfFrame = document.getElementById('exam-pdf-frame');
+    // Sur mobile (≤900 px), les iframes PDF ne fonctionnent pas de façon fiable (iOS Safari notamment).
+    var isMobile = window.innerWidth <= 900;
     if (annale.pdf_sujet) {
+      // URL absolue nécessaire pour Google Docs Viewer (convertit les URL relatives)
+      var pdfAbsoluteUrl = new URL(annale.pdf_sujet, window.location.href).href;
       pdfLink.href = annale.pdf_sujet;
       pdfLink.style.display = '';
-      pdfFrame.src = annale.pdf_sujet + '#toolbar=1&navpanes=0';
+      // On utilise Google Docs Viewer qui rend le PDF en HTML/canvas et permet le scroll natif sur mobile.
+      if (isMobile) {
+        pdfFrame.src = 'https://docs.google.com/gview?url=' + encodeURIComponent(pdfAbsoluteUrl) + '&embedded=true';
+      } else {
+        pdfFrame.src = annale.pdf_sujet + '#toolbar=1&navpanes=0';
+      }
     } else {
       pdfLink.style.display = 'none';
       // Page d'attente si pas de PDF (questions auto-suffisantes)
       pdfFrame.srcdoc = '<div style="font-family:sans-serif;padding:40px;text-align:center;color:#666"><div style="font-size:2rem;margin-bottom:12px">📝</div><div style="font-size:1.1rem;color:#333;margin-bottom:8px">Sujet consultable à droite</div><div style="font-size:.9rem;line-height:1.6">Cette annale ne comporte pas de PDF sujet séparé.<br>Les questions sont autonomes — réponds directement dans la grille.</div></div>';
     }
     document.getElementById('exam-instructions').textContent = annale.instructions ||
-      'Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.';
+      (isMobile
+        ? 'Consulte le sujet en haut, réponds dans la grille ci-dessous. Tu peux revenir sur une question à tout moment.'
+        : 'Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.');
     renderExamQuestions();
     updateExamProgress();
     startExamTimer();
