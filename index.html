@@ -873,6 +873,7 @@ body.biblio-searching .biblio-acc-section.empty{display:none}
 }
 
 /* ===== ACTUALITES ===== */
+.actu-featured{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:48px}
 .actu-main-card{background:white;border:1px solid var(--border);overflow:hidden}
 .actu-img-placeholder{height:220px;background:linear-gradient(135deg,var(--red-pale),var(--cream2));display:flex;align-items:center;justify-content:center;font-size:2.5rem}
 .actu-body{padding:28px}
@@ -886,60 +887,11 @@ body.biblio-searching .biblio-acc-section.empty{display:none}
 .actu-link{display:inline-flex;align-items:center;gap:6px;margin-top:16px;font-size:.82rem;font-weight:600;color:var(--red);letter-spacing:.5px;cursor:pointer}
 .actu-link:hover{gap:10px}
 .actu-secondary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.actu-small-card{background:white;border:1px solid var(--border);padding:22px;transition:all .2s;cursor:pointer;display:flex;flex-direction:column}
-.actu-small-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06);transform:translateY(-2px)}
+.actu-small-card{background:white;border:1px solid var(--border);padding:22px;transition:all .2s}
+.actu-small-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.06)}
 .actu-small-meta{font-size:.78rem;color:var(--gray-light);margin:8px 0 6px}
 .actu-small-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--charcoal);margin-bottom:8px;line-height:1.3}
 .actu-small-excerpt{font-size:.82rem;color:var(--gray);line-height:1.6}
-
-/* Catégories supplémentaires */
-.cat-decryptage{background:#2A2320;color:#F5F0E8}
-.cat-breve{background:var(--cream3);color:var(--dark);border:1px solid var(--border)}
-
-/* États de chargement */
-.actu-loading{padding:40px;text-align:center;color:var(--gray);font-size:.9rem;grid-column:1/-1;background:var(--cream2);border:1px dashed var(--border)}
-.actu-empty{padding:40px;text-align:center;color:var(--gray-light);font-size:.9rem;grid-column:1/-1;font-style:italic}
-
-/* Featured single (décryptage hero rouge) */
-.actu-featured{display:grid;grid-template-columns:1fr;gap:32px;margin-bottom:48px}
-.actu-featured-single{grid-column:1/-1;display:grid;grid-template-columns:1.3fr 1fr;gap:0;background:white;border:1px solid var(--border);box-shadow:0 4px 40px rgba(0,0,0,0.06)}
-.actu-featured-visual{background:linear-gradient(135deg,var(--red),var(--red-dark));padding:48px;display:flex;flex-direction:column;justify-content:space-between;color:white;min-height:320px}
-.actu-featured-kicker{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;opacity:.85;margin-bottom:20px}
-.actu-featured-visual h2{font-family:'Playfair Display',serif;font-size:2rem;line-height:1.15;font-weight:900}
-.actu-featured-visual-author{display:flex;align-items:center;gap:12px;margin-top:24px;font-size:.82rem;opacity:.9}
-.actu-featured-visual-author::before{content:'';width:36px;height:1.5px;background:white;opacity:.4}
-.actu-featured-body{padding:48px;display:flex;flex-direction:column;justify-content:center}
-.actu-featured-date{font-size:.78rem;color:var(--gray-light);letter-spacing:1px;text-transform:uppercase;margin-bottom:14px}
-.actu-featured-excerpt{font-size:.98rem;color:var(--gray);line-height:1.75;margin-bottom:24px}
-.actu-featured-body .btn{align-self:flex-start}
-
-/* Modal actualité */
-.actu-modal-overlay{position:fixed;inset:0;background:rgba(28,28,28,0.82);backdrop-filter:blur(6px);z-index:9999;display:none;align-items:flex-start;justify-content:center;padding:40px 20px;overflow-y:auto}
-.actu-modal-overlay.visible{display:flex}
-.actu-modal{background:var(--cream);max-width:780px;width:100%;padding:56px 56px 48px;position:relative;border:1px solid var(--border);box-shadow:0 24px 80px rgba(0,0,0,0.4)}
-.actu-modal-close{position:absolute;top:18px;right:18px;width:36px;height:36px;border:1px solid var(--border);background:white;font-size:1rem;cursor:pointer;color:var(--gray);font-family:'DM Sans',sans-serif;transition:all .2s}
-.actu-modal-close:hover{background:var(--red);color:white;border-color:var(--red)}
-.actu-modal-kicker{font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin-bottom:14px}
-.actu-modal h1{font-family:'Playfair Display',serif;font-size:2rem;line-height:1.15;color:var(--charcoal);margin-bottom:18px;font-weight:900}
-.actu-modal-meta{font-size:.82rem;color:var(--gray);margin-bottom:32px;padding-bottom:20px;border-bottom:1px solid var(--border)}
-.actu-modal-content{font-size:1rem;line-height:1.8;color:var(--dark)}
-.actu-modal-content h3{font-family:'Playfair Display',serif;font-size:1.3rem;margin:28px 0 12px;color:var(--charcoal)}
-.actu-modal-content p{margin-bottom:16px}
-.actu-modal-content a{color:var(--red);text-decoration:underline}
-.actu-modal-source{margin-top:32px;padding-top:20px;border-top:1px solid var(--border);font-size:.82rem;color:var(--gray)}
-
-@media(max-width:900px){
-  #actu-sources-grid{grid-template-columns:1fr 1fr !important}
-}
-@media(max-width:800px){
-  .actu-featured-single{grid-template-columns:1fr}
-  .actu-featured-visual{padding:36px;min-height:auto}
-  .actu-featured-visual h2{font-size:1.6rem}
-  .actu-featured-body{padding:36px}
-  #actu-sources-grid{grid-template-columns:1fr !important}
-  .actu-modal{padding:40px 24px 32px}
-  .actu-modal h1{font-size:1.5rem}
-}
 
 /* ===== TEMOIGNAGES ===== */
 .testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:48px}
@@ -1790,9 +1742,198 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 .report-box{background:white;max-width:420px;width:100%;padding:36px 30px 28px;position:relative}
 .report-reason{background:var(--cream2);border:1px solid var(--border);padding:14px 18px;font-family:inherit;font-size:.86rem;color:var(--charcoal);cursor:pointer;text-align:left;transition:all .15s}
 .report-reason:hover{border-color:var(--red);background:var(--red-pale);color:var(--red)}
+
+/* ============================================================
+   BETA TEST — Verrouillage d'accès + Module feedback
+   À retirer entièrement lors du passage en production.
+   ============================================================ */
+
+/* ----- Écran de verrouillage ----- */
+#beta-lock-overlay{position:fixed;inset:0;background:var(--cream);z-index:999999;display:flex;align-items:center;justify-content:center;padding:20px}
+#beta-lock-box{max-width:460px;width:100%;background:white;border:1px solid var(--border);padding:44px 36px;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.08)}
+#beta-lock-box .beta-lock-eyebrow{font-family:'DM Sans',sans-serif;font-size:.72rem;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:18px}
+#beta-lock-box .beta-lock-title{font-family:'Playfair Display',serif;font-size:1.9rem;color:var(--charcoal);font-weight:700;line-height:1.2;margin-bottom:12px}
+#beta-lock-box .beta-lock-title em{font-style:italic;color:var(--red);font-weight:400}
+#beta-lock-box .beta-lock-sub{font-size:.92rem;color:var(--gray);line-height:1.6;margin-bottom:26px}
+#beta-lock-box input{width:100%;padding:14px 16px;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--charcoal);background:var(--cream2);outline:none;transition:border-color .15s;text-align:center;letter-spacing:2px;font-weight:600}
+#beta-lock-box input:focus{border-color:var(--red);background:white}
+#beta-lock-box button{width:100%;padding:14px;background:var(--red);color:white;border:none;font-family:'DM Sans',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;margin-top:14px;letter-spacing:.5px;transition:background .2s}
+#beta-lock-box button:hover{background:var(--red-dark)}
+#beta-lock-err{color:var(--red);font-size:.82rem;margin-top:12px;min-height:18px;font-weight:500}
+
+/* ----- Bouton flottant feedback ----- */
+#beta-fb-btn{position:fixed;bottom:20px;right:20px;z-index:99998;background:var(--red);color:white;border:none;border-radius:50px;padding:12px 18px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;cursor:pointer;box-shadow:0 6px 20px rgba(204,34,41,.35);transition:all .2s;display:flex;align-items:center;gap:8px;letter-spacing:.3px}
+#beta-fb-btn:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(204,34,41,.45)}
+#beta-fb-btn .beta-fb-ico{font-size:1.1rem;line-height:1}
+@media(max-width:640px){
+  #beta-fb-btn{bottom:14px;right:14px;padding:10px 14px;font-size:.76rem}
+  #beta-fb-btn .beta-fb-label{display:none}
+  #beta-fb-btn .beta-fb-ico{font-size:1.25rem}
+}
+
+/* ----- Modale feedback ----- */
+#beta-fb-overlay{position:fixed;inset:0;background:rgba(0,0,0,.55);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;overflow-y:auto}
+#beta-fb-overlay.open{display:flex}
+#beta-fb-modal{background:var(--cream);max-width:540px;width:100%;max-height:92vh;overflow-y:auto;border:1px solid var(--border);box-shadow:0 30px 80px rgba(0,0,0,.25)}
+.beta-fb-head{padding:28px 30px 20px;border-bottom:1px solid var(--border);position:relative}
+.beta-fb-head .beta-fb-eyebrow{font-family:'DM Sans',sans-serif;font-size:.68rem;letter-spacing:2px;text-transform:uppercase;color:var(--red);font-weight:600;margin-bottom:8px}
+.beta-fb-head .beta-fb-title{font-family:'Playfair Display',serif;font-size:1.5rem;color:var(--charcoal);font-weight:700;line-height:1.25}
+.beta-fb-head .beta-fb-title em{font-style:italic;color:var(--red);font-weight:400}
+.beta-fb-close{position:absolute;top:18px;right:18px;background:none;border:none;width:32px;height:32px;font-size:1.3rem;color:var(--gray);cursor:pointer;transition:color .15s}
+.beta-fb-close:hover{color:var(--red)}
+.beta-fb-body{padding:24px 30px 30px}
+.beta-fb-ctx{background:var(--cream2);padding:10px 14px;font-size:.72rem;color:var(--gray);margin-bottom:20px;font-family:'DM Sans',sans-serif;line-height:1.5;word-break:break-all}
+.beta-fb-field{margin-bottom:18px}
+.beta-fb-label{display:block;font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;color:var(--charcoal);margin-bottom:8px;letter-spacing:.3px;text-transform:uppercase}
+.beta-fb-cats{display:flex;gap:8px;flex-wrap:wrap}
+.beta-fb-cat{padding:9px 14px;border:1.5px solid var(--border);background:white;font-family:'DM Sans',sans-serif;font-size:.82rem;color:var(--charcoal);cursor:pointer;transition:all .15s;font-weight:500}
+.beta-fb-cat:hover{border-color:var(--red);color:var(--red)}
+.beta-fb-cat.active{background:var(--red);color:white;border-color:var(--red)}
+.beta-fb-rating{display:flex;gap:6px}
+.beta-fb-star{background:none;border:none;font-size:1.7rem;color:var(--border);cursor:pointer;padding:0 4px;transition:all .12s;line-height:1}
+.beta-fb-star:hover,.beta-fb-star.active{color:#F5B301}
+.beta-fb-textarea{width:100%;padding:12px 14px;border:1.5px solid var(--border);font-family:'DM Sans',sans-serif;font-size:.9rem;color:var(--charcoal);background:white;outline:none;resize:vertical;min-height:110px;line-height:1.5;transition:border-color .15s}
+.beta-fb-textarea:focus{border-color:var(--red)}
+.beta-fb-submit{width:100%;padding:14px;background:var(--red);color:white;border:none;font-family:'DM Sans',sans-serif;font-size:.92rem;font-weight:700;cursor:pointer;letter-spacing:.4px;transition:background .2s;margin-top:6px}
+.beta-fb-submit:hover{background:var(--red-dark)}
+.beta-fb-submit:disabled{background:var(--gray-light);cursor:not-allowed}
+.beta-fb-hint{font-size:.72rem;color:var(--gray);margin-top:10px;text-align:center;line-height:1.4}
+.beta-fb-success{text-align:center;padding:10px 0}
+.beta-fb-success-ico{font-size:3rem;margin-bottom:14px}
+.beta-fb-success-title{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);font-weight:700;margin-bottom:10px}
+.beta-fb-success-sub{font-size:.9rem;color:var(--gray);line-height:1.6}
+
+/* ----- Bulle de parcours testeur (checklist persistante) ----- */
+#beta-guide{position:fixed;bottom:20px;left:20px;z-index:99997;width:340px;max-width:calc(100vw - 40px);background:white;border:1px solid var(--border);box-shadow:0 10px 40px rgba(0,0,0,.15);font-family:'DM Sans',sans-serif;display:none;flex-direction:column;transition:all .25s ease}
+#beta-guide.open{display:flex}
+#beta-guide.collapsed{width:auto}
+#beta-guide.collapsed .beta-guide-body{display:none}
+.beta-guide-head{padding:12px 16px;background:var(--charcoal);color:white;cursor:pointer;display:flex;align-items:center;gap:10px;user-select:none}
+.beta-guide-head .beta-guide-ico{font-size:1.1rem;line-height:1}
+.beta-guide-head .beta-guide-title{flex:1;font-size:.82rem;font-weight:600;letter-spacing:.3px}
+.beta-guide-head .beta-guide-count{font-size:.72rem;color:rgba(255,255,255,.7);font-variant-numeric:tabular-nums}
+.beta-guide-head .beta-guide-toggle{font-size:.9rem;color:rgba(255,255,255,.7);margin-left:4px;transition:transform .2s}
+#beta-guide.collapsed .beta-guide-toggle{transform:rotate(180deg)}
+.beta-guide-prog{height:3px;background:var(--border);overflow:hidden}
+.beta-guide-prog-fill{height:100%;background:var(--red);width:0%;transition:width .3s}
+.beta-guide-body{max-height:420px;overflow-y:auto;padding:6px 0}
+.beta-guide-step{display:flex;gap:10px;padding:11px 16px;cursor:pointer;align-items:flex-start;transition:background .12s;border-bottom:1px solid var(--border)}
+.beta-guide-step:last-child{border-bottom:none}
+.beta-guide-step:hover{background:var(--cream2)}
+.beta-guide-step.done{opacity:.55}
+.beta-guide-step.done .beta-guide-step-lbl{text-decoration:line-through;color:var(--gray)}
+.beta-guide-check{flex-shrink:0;width:18px;height:18px;border:1.5px solid var(--border);background:white;margin-top:2px;display:flex;align-items:center;justify-content:center;transition:all .15s;border-radius:2px}
+.beta-guide-step.done .beta-guide-check{background:var(--red);border-color:var(--red);color:white}
+.beta-guide-check svg{display:none;width:12px;height:12px}
+.beta-guide-step.done .beta-guide-check svg{display:block}
+.beta-guide-step-body{flex:1;min-width:0}
+.beta-guide-step-lbl{font-size:.84rem;color:var(--charcoal);font-weight:500;line-height:1.4}
+.beta-guide-step-hint{font-size:.72rem;color:var(--gray);margin-top:3px;line-height:1.4}
+.beta-guide-foot{padding:10px 16px;background:var(--cream2);border-top:1px solid var(--border);text-align:center}
+.beta-guide-foot button{background:none;border:none;color:var(--red);font-family:inherit;font-size:.72rem;font-weight:600;cursor:pointer;text-transform:uppercase;letter-spacing:.5px}
+.beta-guide-foot button:hover{text-decoration:underline}
+.beta-guide-done-msg{padding:18px 16px;text-align:center;font-size:.82rem;color:var(--charcoal);line-height:1.5;background:var(--red-pale)}
+.beta-guide-done-msg strong{color:var(--red)}
+@media(max-width:640px){
+  #beta-guide{left:10px;right:10px;width:auto;bottom:80px;max-width:none}
+  #beta-guide.collapsed{right:auto;width:auto}
+  .beta-guide-body{max-height:300px}
+}
+
 </style>
 </head>
 <body>
+
+<!-- ============================================================
+     BETA TEST — Écran de verrouillage (affiché avant tout le reste)
+     ============================================================ -->
+<div id="beta-lock-overlay">
+  <div id="beta-lock-box">
+    <div class="beta-lock-eyebrow">Accès privé · Bêta</div>
+    <div class="beta-lock-title">Le site est en phase<br><em>de test fermé</em></div>
+    <div class="beta-lock-sub">Entre le code qui t'a été communiqué pour accéder à la plateforme.</div>
+    <input type="password" id="beta-lock-input" placeholder="Code d'accès" autocomplete="off" autocapitalize="off" spellcheck="false">
+    <div id="beta-lock-err"></div>
+    <button id="beta-lock-submit">Entrer →</button>
+  </div>
+</div>
+
+<!-- ============================================================
+     BETA TEST — Bouton flottant + modale feedback
+     ============================================================ -->
+<button id="beta-fb-btn" style="display:none" onclick="openBetaFeedback()" aria-label="Donner mon avis">
+  <span class="beta-fb-ico">💬</span>
+  <span class="beta-fb-label">Mon retour</span>
+</button>
+
+<div id="beta-fb-overlay" onclick="if(event.target===this)closeBetaFeedback()">
+  <div id="beta-fb-modal">
+    <div class="beta-fb-head">
+      <div class="beta-fb-eyebrow">Bêta · Ton retour compte</div>
+      <div class="beta-fb-title">Qu'est-ce qui<br><em>t'a marqué ?</em></div>
+      <button class="beta-fb-close" onclick="closeBetaFeedback()" aria-label="Fermer">✕</button>
+    </div>
+    <div class="beta-fb-body" id="beta-fb-body-form">
+      <div class="beta-fb-ctx" id="beta-fb-ctx">Page en cours · chargement…</div>
+
+      <div class="beta-fb-field">
+        <label class="beta-fb-label">Type de retour</label>
+        <div class="beta-fb-cats" id="beta-fb-cats">
+          <button type="button" class="beta-fb-cat" data-cat="bug">🐛 Bug</button>
+          <button type="button" class="beta-fb-cat" data-cat="ux">🤔 UX confuse</button>
+          <button type="button" class="beta-fb-cat" data-cat="suggestion">💡 Suggestion</button>
+          <button type="button" class="beta-fb-cat" data-cat="aime">❤️ J'adore</button>
+          <button type="button" class="beta-fb-cat" data-cat="autre">✍️ Autre</button>
+        </div>
+      </div>
+
+      <div class="beta-fb-field">
+        <label class="beta-fb-label">Note globale (optionnel)</label>
+        <div class="beta-fb-rating" id="beta-fb-rating">
+          <button type="button" class="beta-fb-star" data-val="1">★</button>
+          <button type="button" class="beta-fb-star" data-val="2">★</button>
+          <button type="button" class="beta-fb-star" data-val="3">★</button>
+          <button type="button" class="beta-fb-star" data-val="4">★</button>
+          <button type="button" class="beta-fb-star" data-val="5">★</button>
+        </div>
+      </div>
+
+      <div class="beta-fb-field">
+        <label class="beta-fb-label">Ton message</label>
+        <textarea class="beta-fb-textarea" id="beta-fb-message" placeholder="Décris ce que tu as vu, ce qui t'a bloqué, ce qui t'a plu…"></textarea>
+      </div>
+
+      <button class="beta-fb-submit" id="beta-fb-submit" onclick="submitBetaFeedback()">Envoyer mon retour</button>
+      <div class="beta-fb-hint">La page, ton pseudo et ton navigateur sont captés automatiquement.</div>
+    </div>
+    <div class="beta-fb-body" id="beta-fb-body-success" style="display:none">
+      <div class="beta-fb-success">
+        <div class="beta-fb-success-ico">🙏</div>
+        <div class="beta-fb-success-title">Merci beaucoup !</div>
+        <div class="beta-fb-success-sub">Ton retour a bien été enregistré. Continue à tester, et reviens ici dès que tu repères autre chose.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     BETA TEST — Bulle de parcours testeur (checklist persistante)
+     ============================================================ -->
+<div id="beta-guide">
+  <div class="beta-guide-head" onclick="toggleBetaGuide()">
+    <span class="beta-guide-ico">🎯</span>
+    <span class="beta-guide-title">Parcours testeur</span>
+    <span class="beta-guide-count" id="beta-guide-count">0/9</span>
+    <span class="beta-guide-toggle">▾</span>
+  </div>
+  <div class="beta-guide-prog"><div class="beta-guide-prog-fill" id="beta-guide-prog-fill"></div></div>
+  <div class="beta-guide-body" id="beta-guide-body">
+    <!-- Rempli dynamiquement par renderBetaGuide() -->
+  </div>
+  <div class="beta-guide-foot">
+    <button onclick="resetBetaGuide()">Réinitialiser la progression</button>
+  </div>
+</div>
 
 <!-- ===== TOAST ===== -->
 <div class="toast" id="toast"></div>
@@ -3095,44 +3236,52 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     </div>
   </div>
   <div class="section">
-    <div style="max-width:1200px;margin:0 auto">
-
-      <!-- ARTICLE FEATURED (décryptage de la semaine) -->
-      <div id="actu-featured-slot" class="actu-featured">
-        <div class="actu-loading">Chargement des actualités…</div>
-      </div>
-
-      <!-- FILTRES + GRILLE -->
-      <div style="border-top:1px solid var(--border);padding-top:40px">
-        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px" id="actu-filters">
-          <button class="biblio-cat-btn active" data-filter="all" onclick="filterActu(this,'all')">Tous</button>
-          <button class="biblio-cat-btn" data-filter="breve" onclick="filterActu(this,'breve')">Actus de la semaine</button>
-          <button class="biblio-cat-btn" data-filter="decryptage" onclick="filterActu(this,'decryptage')">Décryptages</button>
-          <button class="biblio-cat-btn" data-filter="concours" onclick="filterActu(this,'concours')">Concours</button>
-          <button class="biblio-cat-btn" data-filter="spp" onclick="filterActu(this,'spp')">Sapeur-Pompier</button>
-          <button class="biblio-cat-btn" data-filter="fpt" onclick="filterActu(this,'fpt')">Fonction Publique</button>
-        </div>
-        <div class="actu-secondary-grid" id="actu-grid">
-          <div class="actu-loading">Chargement…</div>
+    <div class="actu-featured">
+      <div class="actu-main-card">
+        <div class="actu-img-placeholder">🚒</div>
+        <div class="actu-body">
+          <span class="actu-cat-tag cat-pompier">Sapeur-Pompier</span>
+          <div class="actu-date">12 avril 2025</div>
+          <div class="actu-title">Concours SPP 2025 : nouvelles modalités des épreuves écrites</div>
+          <div class="actu-excerpt">Les épreuves du concours de Sapeur-Pompier Professionnel évoluent pour la session 2025. Le CNFPT a publié les nouvelles modalités concernant la durée et le contenu des épreuves de culture générale.</div>
+          <span class="actu-link" onclick="openLockModal()">Lire la suite →</span>
         </div>
       </div>
-
-      <!-- SOURCES OFFICIELLES -->
-      <div id="actu-sources-section" style="margin-top:64px;border-top:1px solid var(--border);padding-top:40px;display:none">
-        <div class="s-eyebrow">Sources officielles</div>
-        <div class="s-title" style="font-size:1.6rem;margin-bottom:24px">Aller directement <em>à la source</em></div>
-        <div id="actu-sources-grid" style="display:grid;grid-template-columns:repeat(3,1fr);gap:16px"></div>
+      <div>
+        <div class="actu-main-card" style="margin-bottom:16px">
+          <div class="actu-body">
+            <span class="actu-cat-tag cat-fonct">Fonction Publique</span>
+            <div class="actu-date">28 mars 2025</div>
+            <div class="actu-title">Revalorisation des grilles indiciaires catégorie C</div>
+            <div class="actu-excerpt">La réforme des grilles de rémunération touche directement les SPP en début de carrière.</div>
+            <span class="actu-link" onclick="openLockModal()">Lire →</span>
+          </div>
+        </div>
+        <div class="actu-main-card">
+          <div class="actu-body">
+            <span class="actu-cat-tag cat-concours">Concours</span>
+            <div class="actu-date">15 mars 2025</div>
+            <div class="actu-title">Calendrier des inscriptions concours SPP 2025</div>
+            <div class="actu-excerpt">Le calendrier complet des inscriptions et épreuves pour les concours SPP de la session 2025.</div>
+            <span class="actu-link" onclick="openLockModal()">Lire →</span>
+          </div>
+        </div>
       </div>
-
     </div>
-  </div>
-</div>
-
-<!-- MODAL ARTICLE ACTUALITÉ -->
-<div class="actu-modal-overlay" id="actu-modal-overlay">
-  <div class="actu-modal">
-    <button class="actu-modal-close" onclick="closeActuModal()" aria-label="Fermer">✕</button>
-    <div id="actu-modal-content"></div>
+    <div style="border-top:1px solid var(--border);padding-top:40px">
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-bottom:28px">
+        <button class="biblio-cat-btn active">Tous</button>
+        <button class="biblio-cat-btn">Concours</button>
+        <button class="biblio-cat-btn">Réglementation</button>
+        <button class="biblio-cat-btn">Sapeur-Pompier</button>
+        <button class="biblio-cat-btn">Fonction Publique</button>
+      </div>
+      <div class="actu-secondary-grid">
+        <div class="actu-small-card"><span class="actu-cat-tag cat-pompier">SPP</span><div class="actu-small-meta">Fév. 2025</div><div class="actu-small-title">Classement des SDIS 2024 : quels départements recrutent le plus ?</div><div class="actu-small-excerpt">Analyse des 97 SDIS de France métropolitaine.</div><span class="actu-link" onclick="openLockModal()">Lire →</span></div>
+        <div class="actu-small-card"><span class="actu-cat-tag cat-fonct">Fonction Publique</span><div class="actu-small-meta">Jan. 2025</div><div class="actu-small-title">Réforme de la protection sociale complémentaire dans la FP</div><div class="actu-small-excerpt">Ce qui change pour les fonctionnaires territoriaux en 2025.</div><span class="actu-link" onclick="openLockModal()">Lire →</span></div>
+        <div class="actu-small-card"><span class="actu-cat-tag cat-concours">Concours</span><div class="actu-small-meta">Jan. 2025</div><div class="actu-small-title">Épreuve physique SPP : évolution des épreuves à partir de 2025</div><div class="actu-small-excerpt">Le Gaier et la Navette 25 : ce qu'il faut savoir.</div><span class="actu-link" onclick="openLockModal()">Lire →</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -11926,208 +12075,7 @@ goTo = function(id) {
       }
     }
   }
-  if (id === 'actu') {
-    if (typeof initActualites === 'function') initActualites();
-  }
 };
-
-// ================================================================
-// ACTUALITÉS — Chargement depuis actualites.json
-// ================================================================
-// Source unique : actualites.json à la racine du site.
-// Accès libre (pas de hasPaidAccess).
-// L'édito hebdomadaire se fait uniquement en modifiant ce JSON.
-// ================================================================
-
-var ACTU_URL = 'actualites.json';
-var _actuLoaded = false;
-var _actuState = { articles: [], externalLinks: [], currentFilter: 'all' };
-
-var ACTU_CAT_LABELS = {
-  'decryptage': { label: 'Décryptage',          cls: 'cat-decryptage' },
-  'breve':      { label: 'Actus de la semaine', cls: 'cat-breve' },
-  'concours':   { label: 'Concours',            cls: 'cat-concours' },
-  'spp':        { label: 'Sapeur-Pompier',      cls: 'cat-pompier' },
-  'fpt':        { label: 'Fonction Publique',   cls: 'cat-fonct' }
-};
-
-function _actuFmtDate(iso) {
-  try {
-    var d = new Date(iso);
-    if (isNaN(d.getTime())) return '';
-    var mois = ['janv.','févr.','mars','avr.','mai','juin','juil.','août','sept.','oct.','nov.','déc.'];
-    return d.getDate() + ' ' + mois[d.getMonth()] + ' ' + d.getFullYear();
-  } catch (e) { return ''; }
-}
-function _actuEscape(s) {
-  return !s ? '' : String(s)
-    .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
-}
-function _actuTruncate(s, n) {
-  s = s || '';
-  return s.length <= n ? s : s.slice(0, n).replace(/\s+\S*$/, '') + '…';
-}
-
-function _actuRenderFeatured(article) {
-  var slot = document.getElementById('actu-featured-slot');
-  if (!slot) return;
-  if (!article) { slot.innerHTML = '<div class="actu-empty">Aucun décryptage mis en avant cette semaine.</div>'; return; }
-  slot.innerHTML =
-    '<div class="actu-featured-single">' +
-      '<div class="actu-featured-visual">' +
-        '<div>' +
-          '<div class="actu-featured-kicker">Décryptage de la semaine</div>' +
-          '<h2>' + _actuEscape(article.title) + '</h2>' +
-        '</div>' +
-        '<div class="actu-featured-visual-author">Par ' + _actuEscape(article.author || 'Quentin') + '</div>' +
-      '</div>' +
-      '<div class="actu-featured-body">' +
-        '<div class="actu-featured-date">' + _actuFmtDate(article.date) + '</div>' +
-        '<div class="actu-featured-excerpt">' + _actuEscape(article.excerpt || '') + '</div>' +
-        '<button class="btn btn-red" data-id="' + _actuEscape(article.id) + '">Lire l\'article →</button>' +
-      '</div>' +
-    '</div>';
-  var btn = slot.querySelector('button[data-id]');
-  if (btn) btn.addEventListener('click', function() { openActuModal(article.id); });
-}
-
-function _actuRenderGrid() {
-  var grid = document.getElementById('actu-grid');
-  if (!grid) return;
-  var items = _actuState.articles.filter(function(a) { return !a.featured; });
-  if (_actuState.currentFilter !== 'all') {
-    items = items.filter(function(a) { return a.category === _actuState.currentFilter; });
-  }
-  if (!items.length) {
-    grid.innerHTML = '<div class="actu-empty">Aucun article dans cette catégorie pour le moment.</div>';
-    return;
-  }
-  grid.innerHTML = items.map(function(a) {
-    var cat = ACTU_CAT_LABELS[a.category] || ACTU_CAT_LABELS.spp;
-    return '<div class="actu-small-card" data-id="' + _actuEscape(a.id) + '">' +
-      '<span class="actu-cat-tag ' + cat.cls + '">' + cat.label + '</span>' +
-      '<div class="actu-small-meta">' + _actuFmtDate(a.date) + '</div>' +
-      '<div class="actu-small-title">' + _actuEscape(a.title) + '</div>' +
-      '<div class="actu-small-excerpt">' + _actuEscape(_actuTruncate(a.excerpt, 140)) + '</div>' +
-      '<span class="actu-link">Lire →</span>' +
-    '</div>';
-  }).join('');
-  Array.prototype.forEach.call(grid.querySelectorAll('.actu-small-card'), function(card) {
-    card.addEventListener('click', function() { openActuModal(card.getAttribute('data-id')); });
-  });
-}
-
-function _actuRenderSources() {
-  var grid    = document.getElementById('actu-sources-grid');
-  var section = document.getElementById('actu-sources-section');
-  if (!grid || !section) return;
-  var links = _actuState.externalLinks || [];
-  if (!links.length) { section.style.display = 'none'; return; }
-  section.style.display = '';
-  grid.innerHTML = links.map(function(l) {
-    return '<a href="' + _actuEscape(l.url) + '" target="_blank" rel="noopener noreferrer" ' +
-      'style="display:block;background:white;border:1px solid var(--border);padding:18px 20px;transition:all .2s;text-decoration:none;color:inherit" ' +
-      'onmouseover="this.style.borderColor=\'var(--red)\';this.style.transform=\'translateY(-2px)\'" ' +
-      'onmouseout="this.style.borderColor=\'var(--border)\';this.style.transform=\'\'">' +
-      '<div style="font-family:\'Playfair Display\',serif;font-size:.98rem;color:var(--charcoal);margin-bottom:4px;line-height:1.3">' +
-        _actuEscape(l.name) + ' ↗' +
-      '</div>' +
-      '<div style="font-size:.8rem;color:var(--gray);line-height:1.55">' +
-        _actuEscape(l.description || '') +
-      '</div>' +
-    '</a>';
-  }).join('');
-}
-
-window.openActuModal = function(id) {
-  var article = _actuState.articles.find(function(a) { return a.id === id; });
-  if (!article) return;
-  var cat = ACTU_CAT_LABELS[article.category] || ACTU_CAT_LABELS.spp;
-  document.getElementById('actu-modal-content').innerHTML =
-    '<div class="actu-modal-kicker">' + cat.label + '</div>' +
-    '<h1>' + _actuEscape(article.title) + '</h1>' +
-    '<div class="actu-modal-meta">Publié le ' + _actuFmtDate(article.date) +
-      ' · Par ' + _actuEscape(article.author || 'Quentin') + '</div>' +
-    '<div class="actu-modal-content">' +
-      (article.content_html || '<p>' + _actuEscape(article.excerpt) + '</p>') +
-    '</div>' +
-    (article.source_url
-      ? '<div class="actu-modal-source">Source : <a href="' + _actuEscape(article.source_url) +
-        '" target="_blank" rel="noopener">' +
-        _actuEscape(article.source || article.source_url) + '</a></div>'
-      : (article.source ? '<div class="actu-modal-source">Source : ' + _actuEscape(article.source) + '</div>' : ''));
-  document.getElementById('actu-modal-overlay').classList.add('visible');
-  document.body.style.overflow = 'hidden';
-};
-
-window.closeActuModal = function() {
-  var ov = document.getElementById('actu-modal-overlay');
-  if (ov) ov.classList.remove('visible');
-  document.body.style.overflow = '';
-};
-
-window.filterActu = function(btn, filter) {
-  _actuState.currentFilter = filter;
-  Array.prototype.forEach.call(
-    document.querySelectorAll('#actu-filters .biblio-cat-btn'),
-    function(b) { b.classList.remove('active'); }
-  );
-  btn.classList.add('active');
-  _actuRenderGrid();
-  // Cache le featured si filtre ne correspond pas
-  var slot = document.getElementById('actu-featured-slot');
-  var featured = _actuState.articles.find(function(a) { return a.featured; });
-  if (slot && featured) {
-    slot.style.display = (filter === 'all' || filter === featured.category) ? '' : 'none';
-  }
-};
-
-function initActualites() {
-  if (_actuLoaded) {
-    // Déjà chargé → re-rendu simple (au cas où le DOM aurait été touché)
-    _actuRenderGrid();
-    return;
-  }
-  fetch(ACTU_URL, { cache: 'no-cache' })
-    .then(function(r) {
-      if (!r.ok) throw new Error('HTTP ' + r.status);
-      return r.json();
-    })
-    .then(function(data) {
-      var articles = (data && data.articles) ? data.articles.slice() : [];
-      articles.sort(function(a, b) { return new Date(b.date).getTime() - new Date(a.date).getTime(); });
-      _actuState.articles      = articles;
-      _actuState.externalLinks = (data && data.external_links) ? data.external_links : [];
-      var featured = _actuState.articles.find(function(a) { return a.featured; });
-      _actuRenderFeatured(featured);
-      _actuRenderGrid();
-      _actuRenderSources();
-      _actuLoaded = true;
-    })
-    .catch(function(err) {
-      var slot = document.getElementById('actu-featured-slot');
-      var grid = document.getElementById('actu-grid');
-      if (slot) slot.innerHTML = '<div class="actu-empty">Impossible de charger les actualités. Veuillez réessayer plus tard.</div>';
-      if (grid) grid.innerHTML = '';
-      console.error('[actualites]', err);
-    });
-}
-
-// Fermeture modal : clic sur overlay + Échap
-document.addEventListener('DOMContentLoaded', function() {
-  var overlay = document.getElementById('actu-modal-overlay');
-  if (overlay) {
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) closeActuModal();
-    });
-  }
-});
-document.addEventListener('keydown', function(e) {
-  if (e.key === 'Escape') {
-    var ov = document.getElementById('actu-modal-overlay');
-    if (ov && ov.classList.contains('visible')) closeActuModal();
-  }
-});
 
 // ================================================================
 // PREPARATION PHYSIQUE
@@ -13164,6 +13112,457 @@ var EMAILJS_TEMPLATE_ID = 'template_a1suwqk';
 
 (function() {
   try { emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY }); } catch(e) {}
+})();
+</script>
+
+<!-- ============================================================
+     BETA TEST — Logique JS (verrouillage + feedback)
+     À retirer lors du passage en production.
+     ============================================================ -->
+<script>
+// ===== CONFIG BETA =====
+// Code d'accès partagé aux amis testeurs. À modifier ici si besoin.
+var BETA_ACCESS_CODE = 'CHEMIN2026';
+var BETA_STORAGE_KEY = 'beta_access_granted_v1';
+
+// ============================================================
+// VERROUILLAGE D'ACCÈS
+// ============================================================
+(function initBetaLock() {
+  var overlay = document.getElementById('beta-lock-overlay');
+  var input   = document.getElementById('beta-lock-input');
+  var btn     = document.getElementById('beta-lock-submit');
+  var err     = document.getElementById('beta-lock-err');
+  var fbBtn   = document.getElementById('beta-fb-btn');
+
+  // Déjà authentifié sur cette session/navigateur ?
+  var granted = false;
+  try { granted = localStorage.getItem(BETA_STORAGE_KEY) === '1'; } catch(e) {}
+
+  function grantAccess() {
+    try { localStorage.setItem(BETA_STORAGE_KEY, '1'); } catch(e) {}
+    overlay.style.display = 'none';
+    if (fbBtn) fbBtn.style.display = 'flex';
+    document.body.style.overflow = '';
+  }
+
+  if (granted) {
+    grantAccess();
+    return;
+  }
+
+  // Bloque le scroll pendant que la modale est affichée
+  document.body.style.overflow = 'hidden';
+
+  function tryUnlock() {
+    var val = (input.value || '').trim().toUpperCase();
+    if (val === BETA_ACCESS_CODE) {
+      err.textContent = '';
+      grantAccess();
+    } else {
+      err.textContent = 'Code incorrect. Vérifie le message que tu as reçu.';
+      input.value = '';
+      input.focus();
+    }
+  }
+
+  btn.addEventListener('click', tryUnlock);
+  input.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
+  });
+
+  // Focus auto sur le champ
+  setTimeout(function(){ input.focus(); }, 100);
+})();
+
+// ============================================================
+// MODULE FEEDBACK — bouton flottant + modale + envoi Supabase
+// ============================================================
+
+// État courant de la modale
+var betaFbState = {
+  category: null,
+  rating: 0
+};
+
+// Catégorie : clic sur un tag
+document.addEventListener('click', function(e) {
+  var tgt = e.target.closest('.beta-fb-cat');
+  if (!tgt) return;
+  document.querySelectorAll('.beta-fb-cat').forEach(function(b){ b.classList.remove('active'); });
+  tgt.classList.add('active');
+  betaFbState.category = tgt.dataset.cat;
+});
+
+// Notation : clic sur une étoile
+document.addEventListener('click', function(e) {
+  var tgt = e.target.closest('.beta-fb-star');
+  if (!tgt) return;
+  var val = parseInt(tgt.dataset.val, 10);
+  betaFbState.rating = val;
+  document.querySelectorAll('.beta-fb-star').forEach(function(s){
+    var v = parseInt(s.dataset.val, 10);
+    s.classList.toggle('active', v <= val);
+  });
+});
+
+// Survol des étoiles : prévisualisation
+document.addEventListener('mouseover', function(e) {
+  var tgt = e.target.closest('.beta-fb-star');
+  if (!tgt) return;
+  var val = parseInt(tgt.dataset.val, 10);
+  document.querySelectorAll('.beta-fb-star').forEach(function(s){
+    var v = parseInt(s.dataset.val, 10);
+    s.style.color = v <= val ? '#F5B301' : '';
+  });
+});
+document.addEventListener('mouseout', function(e) {
+  var tgt = e.target.closest('.beta-fb-star');
+  if (!tgt) return;
+  document.querySelectorAll('.beta-fb-star').forEach(function(s){ s.style.color = ''; });
+});
+
+// Ouvre la modale — rafraîchit le contexte (page en cours)
+function openBetaFeedback() {
+  var overlay = document.getElementById('beta-fb-overlay');
+  var ctx = document.getElementById('beta-fb-ctx');
+
+  // Détecte la page active (système de navigation SPA du site)
+  var activePage = 'inconnue';
+  var pageEl = document.querySelector('.page.active');
+  if (pageEl && pageEl.id) activePage = pageEl.id.replace('page-', '');
+
+  var pseudo = (typeof currentMember !== 'undefined' && currentMember && currentMember._profile && currentMember._profile.pseudo) || 'anonyme';
+  var memberEmail = (typeof currentMember !== 'undefined' && currentMember && currentMember.auth && currentMember.auth.email) || '—';
+
+  ctx.innerHTML =
+    '<strong>Page :</strong> ' + activePage +
+    ' &nbsp;·&nbsp; <strong>Pseudo :</strong> ' + pseudo +
+    '<br><strong>Écran :</strong> ' + window.innerWidth + '×' + window.innerHeight + 'px';
+
+  // Reset
+  betaFbState = { category: null, rating: 0 };
+  document.querySelectorAll('.beta-fb-cat').forEach(function(b){ b.classList.remove('active'); });
+  document.querySelectorAll('.beta-fb-star').forEach(function(s){ s.classList.remove('active'); });
+  document.getElementById('beta-fb-message').value = '';
+  document.getElementById('beta-fb-body-form').style.display = '';
+  document.getElementById('beta-fb-body-success').style.display = 'none';
+  var submitBtn = document.getElementById('beta-fb-submit');
+  submitBtn.disabled = false;
+  submitBtn.textContent = 'Envoyer mon retour';
+
+  overlay.classList.add('open');
+}
+
+function closeBetaFeedback() {
+  document.getElementById('beta-fb-overlay').classList.remove('open');
+}
+
+// Envoi vers Supabase
+function submitBetaFeedback() {
+  var message = (document.getElementById('beta-fb-message').value || '').trim();
+
+  if (!betaFbState.category) {
+    alert('Choisis un type de retour (bug, UX, suggestion…).');
+    return;
+  }
+  if (!message) {
+    alert('Ajoute un petit message pour que je comprenne.');
+    return;
+  }
+
+  var submitBtn = document.getElementById('beta-fb-submit');
+  submitBtn.disabled = true;
+  submitBtn.textContent = 'Envoi en cours…';
+
+  // Détecte la page active
+  var activePage = 'inconnue';
+  var pageEl = document.querySelector('.page.active');
+  if (pageEl && pageEl.id) activePage = pageEl.id.replace('page-', '');
+
+  var pseudo = (typeof currentMember !== 'undefined' && currentMember && currentMember._profile && currentMember._profile.pseudo) || null;
+  var memberstackId = (typeof currentMember !== 'undefined' && currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id))) || null;
+  var memberEmail = (typeof currentMember !== 'undefined' && currentMember && currentMember.auth && currentMember.auth.email) || null;
+
+  var payload = {
+    memberstack_id: memberstackId,
+    pseudo: pseudo,
+    email: memberEmail,
+    page: activePage,
+    url: window.location.href,
+    user_agent: navigator.userAgent,
+    viewport: window.innerWidth + 'x' + window.innerHeight,
+    category: betaFbState.category,
+    rating: betaFbState.rating || null,
+    message: message
+  };
+
+  if (!window.supabaseClient) {
+    alert('Service indisponible, réessaie dans un instant.');
+    submitBtn.disabled = false;
+    submitBtn.textContent = 'Envoyer mon retour';
+    return;
+  }
+
+  window.supabaseClient
+    .from('beta_feedback')
+    .insert([payload])
+    .then(function(res) {
+      if (res.error) {
+        console.error('[beta_feedback] insert error', res.error);
+        alert('Erreur à l\'envoi : ' + (res.error.message || 'inconnue') + '. Réessaie dans un instant.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Envoyer mon retour';
+        return;
+      }
+      // Succès → écran de remerciement
+      document.getElementById('beta-fb-body-form').style.display = 'none';
+      document.getElementById('beta-fb-body-success').style.display = '';
+      // Auto-ferme après 2.5s
+      setTimeout(closeBetaFeedback, 2500);
+    })
+    .catch(function(e) {
+      console.error('[beta_feedback] exception', e);
+      alert('Erreur réseau. Vérifie ta connexion et réessaie.');
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Envoyer mon retour';
+    });
+}
+
+// ============================================================
+// PARCOURS TESTEUR — Bulle d'aide + checklist persistante
+// ============================================================
+
+// Définition des étapes du parcours. Modifie le tableau pour changer la liste.
+var BETA_GUIDE_STEPS = [
+  { id: 'creer_compte',  lbl: 'Créer mon compte et choisir mon pseudo',           hint: 'Utilise une vraie adresse email' },
+  { id: 'qcm',           lbl: 'Faire une session de 15 QCM',                       hint: 'N\'importe quel thème' },
+  { id: 'biblio',        lbl: 'Ouvrir un document dans la Bibliothèque',           hint: 'GTO, GDO, textes… au choix' },
+  { id: 'espace',        lbl: 'Explorer mon Espace candidat',                      hint: 'Regarde le radar de progression' },
+  { id: 'actu',          lbl: 'Consulter la page Actualités',                      hint: 'Décryptage + brèves' },
+  { id: 'concours',      lbl: 'Tester le Mode concours (annales)',                 hint: 'Lance une épreuve officielle' },
+  { id: 'paiement',      lbl: 'Simuler un paiement (optionnel)',                   hint: 'Carte test 4242 4242 4242 4242' },
+  { id: 'multi_device',  lbl: 'Tester depuis mobile ET ordinateur',                hint: 'Les deux, c\'est mieux' },
+  { id: 'feedback',      lbl: 'Envoyer au moins 3 retours via le bouton 💬',       hint: 'Bug, idée, détail qui t\'a plu…' }
+];
+
+// Clé localStorage pour l'identifiant anonyme
+var BETA_GUIDE_ANON_KEY = 'beta_guide_anon_id';
+// Clé localStorage de secours pour la progression (si Supabase down)
+var BETA_GUIDE_LOCAL_KEY = 'beta_guide_progress_v1';
+// Clé localStorage pour l'état plié/déplié
+var BETA_GUIDE_COLLAPSED_KEY = 'beta_guide_collapsed';
+
+// État de la progression : { step_id: true/false }
+var betaGuideProgress = {};
+// Pour éviter les écritures concurrentes
+var betaGuideSaving = false;
+
+// Génère ou récupère un identifiant anonyme pour les testeurs non connectés
+function getBetaAnonId() {
+  try {
+    var id = localStorage.getItem(BETA_GUIDE_ANON_KEY);
+    if (!id) {
+      id = 'anon_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 10);
+      localStorage.setItem(BETA_GUIDE_ANON_KEY, id);
+    }
+    return id;
+  } catch(e) {
+    return 'anon_fallback_' + Date.now();
+  }
+}
+
+// Identifie le testeur : memberstack_id si connecté, sinon anon_id localStorage
+function getBetaTesterId() {
+  var msId = (typeof currentMember !== 'undefined' && currentMember && (currentMember.id || (currentMember.auth && currentMember.auth.id))) || null;
+  if (msId) return { type: 'memberstack', id: msId };
+  return { type: 'anon', id: getBetaAnonId() };
+}
+
+// Charge la progression depuis Supabase (fallback localStorage)
+function loadBetaGuideProgress() {
+  // Fallback local en premier pour affichage immédiat
+  try {
+    var local = localStorage.getItem(BETA_GUIDE_LOCAL_KEY);
+    if (local) betaGuideProgress = JSON.parse(local) || {};
+  } catch(e) { betaGuideProgress = {}; }
+
+  if (!window.supabaseClient) {
+    renderBetaGuide();
+    return;
+  }
+
+  var tester = getBetaTesterId();
+  window.supabaseClient
+    .from('beta_guide_progress')
+    .select('step_id, done_at')
+    .eq('tester_id', tester.id)
+    .then(function(res) {
+      if (res.error) {
+        console.warn('[beta_guide] load error', res.error);
+        renderBetaGuide();
+        return;
+      }
+      // Fusionne : Supabase fait autorité, mais on garde les locales en cas de doublon
+      var remote = {};
+      (res.data || []).forEach(function(r){ remote[r.step_id] = true; });
+      betaGuideProgress = remote;
+      try { localStorage.setItem(BETA_GUIDE_LOCAL_KEY, JSON.stringify(betaGuideProgress)); } catch(e) {}
+      renderBetaGuide();
+    })
+    .catch(function(e) {
+      console.warn('[beta_guide] load exception', e);
+      renderBetaGuide();
+    });
+}
+
+// Sauvegarde une étape (toggle) dans Supabase + localStorage
+function saveBetaGuideStep(stepId, done) {
+  // Mise à jour locale immédiate (optimiste)
+  if (done) betaGuideProgress[stepId] = true;
+  else delete betaGuideProgress[stepId];
+  try { localStorage.setItem(BETA_GUIDE_LOCAL_KEY, JSON.stringify(betaGuideProgress)); } catch(e) {}
+
+  if (!window.supabaseClient) return;
+
+  var tester = getBetaTesterId();
+  var pseudo = (typeof currentMember !== 'undefined' && currentMember && currentMember._profile && currentMember._profile.pseudo) || null;
+
+  if (done) {
+    // INSERT (on laisse la contrainte unique gérer les doublons au pire)
+    window.supabaseClient
+      .from('beta_guide_progress')
+      .upsert([{
+        tester_id: tester.id,
+        tester_type: tester.type,
+        pseudo: pseudo,
+        step_id: stepId,
+        done_at: new Date().toISOString()
+      }], { onConflict: 'tester_id,step_id' })
+      .then(function(res) {
+        if (res.error) console.warn('[beta_guide] upsert error', res.error);
+      })
+      .catch(function(e){ console.warn('[beta_guide] upsert exception', e); });
+  } else {
+    // DELETE
+    window.supabaseClient
+      .from('beta_guide_progress')
+      .delete()
+      .eq('tester_id', tester.id)
+      .eq('step_id', stepId)
+      .then(function(res) {
+        if (res.error) console.warn('[beta_guide] delete error', res.error);
+      })
+      .catch(function(e){ console.warn('[beta_guide] delete exception', e); });
+  }
+}
+
+// Toggle d'une case
+function toggleBetaGuideStep(stepId) {
+  var wasDone = !!betaGuideProgress[stepId];
+  saveBetaGuideStep(stepId, !wasDone);
+  renderBetaGuide();
+}
+
+// Toggle plié/déplié de la bulle
+function toggleBetaGuide() {
+  var el = document.getElementById('beta-guide');
+  if (!el) return;
+  el.classList.toggle('collapsed');
+  try { localStorage.setItem(BETA_GUIDE_COLLAPSED_KEY, el.classList.contains('collapsed') ? '1' : '0'); } catch(e) {}
+}
+
+// Reset de la progression
+function resetBetaGuide() {
+  if (!confirm('Réinitialiser toute la progression de ton parcours de test ?')) return;
+  var steps = Object.keys(betaGuideProgress);
+  betaGuideProgress = {};
+  try { localStorage.removeItem(BETA_GUIDE_LOCAL_KEY); } catch(e) {}
+
+  if (window.supabaseClient) {
+    var tester = getBetaTesterId();
+    window.supabaseClient
+      .from('beta_guide_progress')
+      .delete()
+      .eq('tester_id', tester.id)
+      .then(function(){ renderBetaGuide(); })
+      .catch(function(e){ console.warn('[beta_guide] reset error', e); renderBetaGuide(); });
+  } else {
+    renderBetaGuide();
+  }
+}
+
+// Rendu de la bulle
+function renderBetaGuide() {
+  var body = document.getElementById('beta-guide-body');
+  var countEl = document.getElementById('beta-guide-count');
+  var fillEl = document.getElementById('beta-guide-prog-fill');
+  if (!body) return;
+
+  var total = BETA_GUIDE_STEPS.length;
+  var done = 0;
+  BETA_GUIDE_STEPS.forEach(function(s){ if (betaGuideProgress[s.id]) done++; });
+
+  // Progression header
+  if (countEl) countEl.textContent = done + '/' + total;
+  if (fillEl) fillEl.style.width = (total > 0 ? Math.round(done / total * 100) : 0) + '%';
+
+  // Étapes
+  var html = BETA_GUIDE_STEPS.map(function(s){
+    var isDone = !!betaGuideProgress[s.id];
+    return '<div class="beta-guide-step' + (isDone ? ' done' : '') + '" onclick="toggleBetaGuideStep(\'' + s.id + '\')">' +
+      '<div class="beta-guide-check">' +
+        '<svg viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2"><polyline points="2,6 5,9 10,3"/></svg>' +
+      '</div>' +
+      '<div class="beta-guide-step-body">' +
+        '<div class="beta-guide-step-lbl">' + s.lbl + '</div>' +
+        (s.hint ? '<div class="beta-guide-step-hint">' + s.hint + '</div>' : '') +
+      '</div>' +
+    '</div>';
+  }).join('');
+
+  // Message de fin si tout coché
+  if (done === total && total > 0) {
+    html += '<div class="beta-guide-done-msg">' +
+      '🎉 <strong>Parcours complet !</strong><br>Merci infiniment pour ton temps. N\'hésite pas à ajouter des retours supplémentaires si tu penses à quelque chose.' +
+    '</div>';
+  }
+
+  body.innerHTML = html;
+}
+
+// Affiche la bulle au même moment que le bouton feedback (après déverrouillage)
+function showBetaGuide() {
+  var guide = document.getElementById('beta-guide');
+  if (!guide) return;
+  guide.classList.add('open');
+
+  // Restaure l'état plié/déplié
+  try {
+    if (localStorage.getItem(BETA_GUIDE_COLLAPSED_KEY) === '1') {
+      guide.classList.add('collapsed');
+    }
+  } catch(e) {}
+
+  loadBetaGuideProgress();
+}
+
+// Hook : dès que l'accès bêta est déverrouillé, afficher la bulle
+// On utilise un petit patch : on observe l'affichage du bouton feedback
+(function hookBetaGuide() {
+  var attempts = 0;
+  var interval = setInterval(function() {
+    attempts++;
+    var fbBtn = document.getElementById('beta-fb-btn');
+    if (fbBtn && fbBtn.style.display === 'flex') {
+      clearInterval(interval);
+      // Attente courte pour que Supabase soit initialisé
+      setTimeout(showBetaGuide, 800);
+    } else if (attempts > 300) {
+      // Après 30 secondes, on abandonne (site probablement non déverrouillé)
+      clearInterval(interval);
+    }
+  }, 100);
 })();
 </script>
 </body>
