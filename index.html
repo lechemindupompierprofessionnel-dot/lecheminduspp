@@ -11358,8 +11358,10 @@ function espGetCategoryLabel(catKey) {
   var labels = {
     'statut': 'Statut SPP',
     'sis': 'Organisation SIS',
-    'divers': 'Textes épars',
-    'textes': 'Textes épars'
+    'divers': 'Divers',
+    'textes': 'Textes structurants',
+    'maths': 'Mathématiques',
+    'pse': 'Secourisme PSE'
   };
   if (labels[catKey]) return labels[catKey];
   // Catégories doctrinales ou secourisme : on prend le nom tel quel en capitalisant
@@ -11443,6 +11445,9 @@ function renderEspEvolution(data) {
   answers.forEach(function(a){
     var g = espEvolutionGroup(a.category);
     if (!g) return;
+    // Ignore les réponses dont le groupe n'est pas affiché dans la voie active
+    // (ex: doctrines/secourisme en voie 1°, maths en voie 2°)
+    if (!buckets[g]) return;
     var ts = new Date(a.created_at).getTime();
     for (var i = 0; i < weeks.length; i++) {
       if (ts >= weeks[i].start && ts <= weeks[i].end) {
