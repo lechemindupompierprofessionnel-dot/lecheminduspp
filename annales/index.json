@@ -24,8 +24,213 @@
       "id": "equipier-demo",
       "theme": "equipier",
       "year": 2025,
-      "title": "Session 2025 — Équipier (exemple)",
+      "title": "Session 2025 — Équipier (démo)",
       "nb_questions": 3,
+      "duration_min": 60,
+      "is_demo": true
+    },
+    {
+      "id": "equipier-cdg69-2025",
+      "theme": "equipier",
+      "year": 2025,
+      "title": "CDG69 — Session 2025",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg35-2023",
+      "theme": "equipier",
+      "year": 2023,
+      "title": "CDG35 — Session 2023",
+      "nb_questions": 49,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg69-2023",
+      "theme": "equipier",
+      "year": 2023,
+      "title": "CDG69 — Session 2023",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg13-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG13 — Session 2021",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg35-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG35 — Session 2021",
+      "nb_questions": 50,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg57-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG57 — Session 2021",
+      "nb_questions": 40,
+      "duration_min": 60
+    },
+    {
+      "id": "equipier-cdg69-2021",
+      "theme": "equipier",
+      "year": 2021,
+      "title": "CDG69 — Session 2021",
+      "nb_questions": 60,
+      "duration_min": 60
+    },
+
+    {
+      "id": "maths-demo",
+      "theme": "maths",
+      "year": 2025,
+      "title": "Session 2025 — Mathématiques (démo)",
+      "nb_questions": 3,
+      "duration_min": 60,
+      "is_demo": true
+    },
+    {
+      "id": "maths-cdg69-2025",
+      "theme": "maths",
+      "year": 2025,
+      "title": "CDG69 — Session 2025",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg13-2023",
+      "theme": "maths",
+      "year": 2023,
+      "title": "CDG13 — Session 2023",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg35-2023",
+      "theme": "maths",
+      "year": 2023,
+      "title": "CDG35 — Session 2023",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg69-2023",
+      "theme": "maths",
+      "year": 2023,
+      "title": "CDG69 — Session 2023",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg13-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG13 — Session 2021",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg35-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG35 — Session 2021",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg57-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG57 — Session 2021",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+    {
+      "id": "maths-cdg69-2021",
+      "theme": "maths",
+      "year": 2021,
+      "title": "CDG69 — Session 2021",
+      "nb_questions": 15,
+      "duration_min": 60
+    },
+
+    {
+      "id": "etude-texte-demo",
+      "theme": "etude-texte",
+      "year": 2025,
+      "title": "Session 2025 — Étude de texte (démo)",
+      "nb_questions": 3,
+      "duration_min": 60,
+      "is_demo": true
+    },
+    {
+      "id": "etudedetexte-cdg69-2025",
+      "theme": "etude-texte",
+      "year": 2025,
+      "title": "CDG69 — Session 2025",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte1-cdg35-2023",
+      "theme": "etude-texte",
+      "year": 2023,
+      "title": "CDG35 — Session 2023 — Sujet 1",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte2-cdg35-2023",
+      "theme": "etude-texte",
+      "year": 2023,
+      "title": "CDG35 — Session 2023 — Sujet 2",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte1-cdg13-2021",
+      "theme": "etude-texte",
+      "year": 2021,
+      "title": "CDG13 — Session 2021 — Sujet 1",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte2-cdg13-2021",
+      "theme": "etude-texte",
+      "year": 2021,
+      "title": "CDG13 — Session 2021 — Sujet 2",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte1-cdg35-2021",
+      "theme": "etude-texte",
+      "year": 2021,
+      "title": "CDG35 — Session 2021 — Sujet 1",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte2-cdg35-2021",
+      "theme": "etude-texte",
+      "year": 2021,
+      "title": "CDG35 — Session 2021 — Sujet 2",
+      "nb_questions": 20,
+      "duration_min": 60
+    },
+    {
+      "id": "etudedetexte1-cdg69-2021",
+      "theme": "etude-texte",
+      "year": 2021,
+      "title": "CDG69 — Session 2021 — Sujet 1",
+      "nb_questions": 20,
       "duration_min": 60
     }
   ]
