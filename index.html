@@ -1163,9 +1163,18 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 .login-error.show{display:block}
 .member-btn{padding:8px 16px;border:1.5px solid var(--red);color:var(--red);font-size:.78rem;font-weight:600;letter-spacing:.5px;background:none;transition:all .2s;cursor:pointer;font-family:'DM Sans',sans-serif}
 .member-btn:hover{background:var(--red);color:white}
-/* Sur mobile, le "Se connecter" et "Mon espace" disparaissent (accessibles via menu burger) */
+/* Sur mobile, le "Se connecter" et les autres disparaissent (accessibles via menu burger)
+   — SAUF "Mon espace" qui reste visible en permanence pour accès rapide au planning */
 @media(max-width:900px){
-  #nav-login-btn,#nav-space-btn,#nav-logout-btn,#nav-member-name{display:none !important}
+  #nav-login-btn,#nav-logout-btn,#nav-member-name{display:none !important}
+  /* Bouton Mon espace : version compacte sur mobile, visible uniquement si connecté */
+  #nav-space-btn{padding:7px 10px;font-size:.72rem;letter-spacing:.3px;margin-right:6px}
+  #nav-space-btn .nav-space-full{display:none}
+  #nav-space-btn .nav-space-short{display:inline}
+}
+@media(min-width:901px){
+  #nav-space-btn .nav-space-full{display:inline}
+  #nav-space-btn .nav-space-short{display:none}
 }
 .member-logout{padding:8px 16px;border:1.5px solid var(--gray-light);color:var(--gray);font-size:.78rem;font-weight:600;background:none;transition:all .2s;cursor:pointer;font-family:'DM Sans',sans-serif}
 .member-logout:hover{border-color:var(--charcoal);color:var(--charcoal)}
@@ -2331,7 +2340,10 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     <!-- Bouton affiché si non connecté -->
     <button class="member-btn" id="nav-login-btn" onclick="goTo('connexion')">Se connecter →</button>
     <!-- Affiché si connecté -->
-    <button class="member-btn" id="nav-space-btn" style="display:none" onclick="goTo('espace')">📊 Mon espace</button>
+    <button class="member-btn" id="nav-space-btn" style="display:none" onclick="goTo('espace')">
+      <span class="nav-space-full">📊 Mon espace</span>
+      <span class="nav-space-short">📊 Espace</span>
+    </button>
     <span class="member-name" id="nav-member-name" style="display:none"></span>
     <button class="member-logout" id="nav-logout-btn" style="display:none" onclick="logoutMember()">Déconnexion</button>
     <button class="nav-mobile-btn" onclick="toggleMobileNav()" id="mobileBtn" aria-label="Menu">
@@ -4848,22 +4860,52 @@ if(window.location.search.indexOf('success') !== -1) {
 
   <div class="section" style="max-width:880px;margin:0 auto;padding:40px 5% 80px">
 
-    <!-- ===== Aperçu visuel : exemple de semaine (statique, en bandeau) ===== -->
-    <div style="background:white;border:1px solid var(--border);padding:26px 28px;margin-bottom:28px">
-      <div style="font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Un aperçu</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:18px;line-height:1.25">À quoi ressemble une semaine type<br><em>d'un candidat engagé</em></div>
-      <div style="display:grid;gap:8px">
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal)">LUN</div><div style="font-size:.82rem;color:var(--charcoal)">💪 Séance sport (45 min) &middot; 📚 20 QCM statut SPP (20 min)</div></div>
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal)">MAR</div><div style="font-size:.82rem;color:var(--charcoal)">📚 Lecture GTO Ventilation (30 min)</div></div>
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal)">MER</div><div style="font-size:.82rem;color:var(--charcoal)">💪 Séance sport (45 min) &middot; 📚 15 QCM doctrine (15 min)</div></div>
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal);opacity:.5">JEU</div><div style="font-size:.82rem;color:var(--gray);font-style:italic">Repos</div></div>
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal)">VEN</div><div style="font-size:.82rem;color:var(--charcoal)">📚 Annale texte (45 min)</div></div>
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal)">SAM</div><div style="font-size:.82rem;color:var(--charcoal)">💪 Séance sport longue (60 min)</div></div>
-        <div style="display:grid;grid-template-columns:72px 1fr;gap:14px;padding:10px 14px;background:var(--cream2);align-items:center"><div style="font-weight:700;font-size:.78rem;color:var(--charcoal)">DIM</div><div style="font-size:.82rem;color:var(--charcoal)">📚 Lecture actualités (15 min)</div></div>
+    <!-- ===== Explication + bandeau démo ===== -->
+    <div style="background:var(--cream2);border-left:3px solid var(--red);padding:16px 20px;margin-bottom:28px">
+      <div style="font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px">Mode démo · Essaie sans créer de compte</div>
+      <div style="font-size:.88rem;color:var(--charcoal);line-height:1.55">Indique tes disponibilités ci-dessous. Le planning se génère automatiquement — ce sera exactement le même outil dans ton espace candidat une fois inscrit.</div>
+    </div>
+
+    <!-- ===== Bloc disponibilités (pliable, version démo) ===== -->
+    <div style="background:white;border:1px solid var(--border);padding:22px 26px;margin-bottom:24px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px">
+        <div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--charcoal);line-height:1.2">Tes disponibilités</div>
+          <div style="font-size:.78rem;color:var(--gray);margin-top:3px" id="demo-prog-dispo-summary">—</div>
+        </div>
+        <button onclick="toggleDemoProgDispo()" id="demo-prog-dispo-toggle" style="background:var(--cream2);border:1px solid var(--border);padding:8px 14px;font-size:.8rem;font-weight:600;color:var(--charcoal);cursor:pointer;font-family:'DM Sans',sans-serif">Changer mes disponibilités</button>
       </div>
-      <div style="margin-top:18px;padding-top:14px;border-top:1px solid var(--border);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
-        <div style="font-size:.8rem;color:var(--gray)">Total hebdo : <strong style="color:var(--charcoal)">~5h de sport + 2h30 de révision</strong></div>
-        <div style="background:#edf7ee;color:#1a5c25;font-size:.6rem;font-weight:700;letter-spacing:1.2px;padding:3px 8px;border:1px solid #2d7a3a">EXEMPLE</div>
+
+      <div id="demo-prog-dispo-panel" style="display:block">
+        <div style="display:grid;grid-template-columns:56px 1fr 1fr;gap:10px;padding-bottom:8px;border-bottom:1px solid var(--border);margin-bottom:10px;align-items:center">
+          <div></div>
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:1.5px;color:var(--gray);text-transform:uppercase;text-align:center">💪 Sport</div>
+          <div style="font-size:.68rem;font-weight:700;letter-spacing:1.5px;color:var(--gray);text-transform:uppercase;text-align:center">📚 Révision</div>
+        </div>
+        <div id="demo-prog-dispo-rows"></div>
+        <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:.78rem;color:var(--gray);line-height:1.5">💡 Coche <strong>Oui</strong> ou <strong>Non</strong> pour chaque jour. Côté sport : les séances sont progressives (1 à 5 par semaine) et reprennent la logique du programme physique du site.</div>
+      </div>
+    </div>
+
+    <!-- ===== Planning démo généré ===== -->
+    <div style="background:white;border:1px solid var(--border);padding:24px 28px;margin-bottom:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:6px">
+        <div style="font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--charcoal)">Ton planning généré</div>
+        <div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">
+          <span style="background:#edf7ee;color:#1a5c25;font-size:.6rem;font-weight:700;letter-spacing:1.2px;padding:3px 8px;border:1px solid #2d7a3a">AUTO-AJUSTÉ</span>
+        </div>
+      </div>
+      <div style="font-size:.76rem;color:var(--gray);margin-bottom:18px;line-height:1.5">💡 Coche tes dispos ci-dessus pour voir ton planning s'adapter</div>
+
+      <div id="demo-prog-week" style="display:grid;gap:8px"></div>
+
+      <!-- Total -->
+      <div style="background:var(--dark);color:white;padding:14px 18px;margin-top:20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px">
+        <div>
+          <div style="font-size:.68rem;color:#D5CCBB;letter-spacing:1px">TON TOTAL HEBDO</div>
+          <div style="font-size:1rem;font-weight:600" id="demo-prog-total">—</div>
+        </div>
+        <div style="background:rgba(240,149,128,.2);color:#F09580;padding:5px 11px;font-size:.68rem;font-weight:700;letter-spacing:1.2px" id="demo-prog-intensity">—</div>
       </div>
     </div>
 
@@ -4895,9 +4937,9 @@ if(window.location.search.indexOf('success') !== -1) {
     <!-- ===== CTA différencié : connecté vs prospect ===== -->
     <!-- Prospects (non connectés) : invitation à l'inscription -->
     <div class="hide-when-logged" style="background:var(--dark);color:var(--cream);padding:28px 26px;border:2px solid var(--red);text-align:center">
-      <div style="font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#F09580;margin-bottom:8px">Prêt à commencer ?</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.35rem;color:white;line-height:1.3;margin-bottom:8px">Génère ton propre planning personnalisé</div>
-      <div style="font-size:.84rem;color:#D5CCBB;line-height:1.6;margin-bottom:18px;max-width:540px;margin-left:auto;margin-right:auto">Indique tes disponibilités, on calcule un planning équilibré. Tu le retrouves ensuite dans ton espace candidat, avec la possibilité de l'exporter vers ton agenda.</div>
+      <div style="font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#F09580;margin-bottom:8px">Ça te plaît ?</div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.35rem;color:white;line-height:1.3;margin-bottom:8px">Sauvegarde ton planning et suis ta progression</div>
+      <div style="font-size:.84rem;color:#D5CCBB;line-height:1.6;margin-bottom:18px;max-width:540px;margin-left:auto;margin-right:auto">Crée ton compte en 30 secondes. Ton planning, tes stats, ton radar de compétences et ta bibliothèque — tout au même endroit, accessible depuis n'importe quel appareil.</div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
         <button class="btn btn-outline" onclick="goTo('connexion')" style="padding:10px 18px;border-color:var(--cream);color:var(--cream)">J'ai déjà un compte</button>
         <button class="btn btn-red" onclick="msSignupFree()" style="padding:10px 20px">Commencer gratuitement →</button>
@@ -6572,6 +6614,236 @@ function exportProgIcs() {
   URL.revokeObjectURL(url);
   showToast('📥 Planning téléchargé — ouvre le fichier pour l\'ajouter à ton agenda');
 }
+
+// ============================================================
+// PLANNING DÉMO — version autonome pour la page programme publique
+// ============================================================
+// Utilise des IDs préfixés "demo-" et ses propres variables d'état pour
+// éviter toute collision avec le planning de l'espace candidat (onglet Mon planning).
+// Le prospect peut cocher ses dispos et voir le planning généré en temps réel,
+// sans compte ni sauvegarde.
+
+var demoProgDispo = JSON.parse(JSON.stringify(PROG_PROFILS_DISPO.engage));
+var demoProgSessions = [];
+
+// Rendu des sélecteurs de disponibilités (version démo)
+function renderDemoProgDispoRows() {
+  var rows = document.getElementById('demo-prog-dispo-rows');
+  if (!rows) return;
+  var html = '';
+  PROG_DAYS.forEach(function(d) {
+    html += '<div style="display:grid;grid-template-columns:56px 1fr 1fr;gap:10px;align-items:center;padding:8px 0;border-bottom:1px solid #F0EAE0">' +
+      '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.74rem;letter-spacing:1.5px;color:var(--charcoal)">' + d.short + '</div>' +
+      '<div style="display:flex;gap:4px;justify-content:center">' +
+        demoYesNoButton(d.key, 0, true, demoProgDispo[d.key][0] === true) +
+        demoYesNoButton(d.key, 0, false, demoProgDispo[d.key][0] === false) +
+      '</div>' +
+      '<div style="display:flex;gap:4px;justify-content:center">' +
+        demoYesNoButton(d.key, 1, true, demoProgDispo[d.key][1] === true) +
+        demoYesNoButton(d.key, 1, false, demoProgDispo[d.key][1] === false) +
+      '</div>' +
+    '</div>';
+  });
+  rows.innerHTML = html;
+}
+
+function demoYesNoButton(dayKey, idx, value, selected) {
+  var label = value ? 'Oui' : 'Non';
+  return '<button onclick="setDemoProgDispo(\'' + dayKey + '\',' + idx + ',' + value + ')" style="padding:6px 16px;font-size:.76rem;font-weight:600;font-family:\'DM Sans\',sans-serif;border:1px solid ' + (selected?'var(--red)':'var(--border)') + ';background:' + (selected?'var(--red)':'white') + ';color:' + (selected?'white':'var(--gray)') + ';cursor:pointer;min-width:52px">' + label + '</button>';
+}
+
+function setDemoProgDispo(dayKey, idx, value) {
+  demoProgDispo[dayKey][idx] = value;
+  renderDemoProgDispoRows();
+  rebuildDemoProgPlanning();
+}
+
+function toggleDemoProgDispo() {
+  var panel = document.getElementById('demo-prog-dispo-panel');
+  var btn = document.getElementById('demo-prog-dispo-toggle');
+  if (!panel) return;
+  var isOpen = panel.style.display !== 'none';
+  panel.style.display = isOpen ? 'none' : 'block';
+  if (btn) btn.textContent = isOpen ? 'Changer mes disponibilités' : 'Fermer';
+}
+
+// Génère le planning démo à partir des dispos
+function rebuildDemoProgPlanning() {
+  demoProgSessions = [];
+
+  // Sport
+  var sportDays = PROG_DAYS.filter(function(d) {
+    return demoProgDispo[d.key][0] === true;
+  }).map(function(d) { return d.key; });
+  var sportPlan = generateSportPlan(sportDays);
+
+  // Révision
+  var revDaysList = PROG_DAYS.filter(function(d) {
+    return d.key !== 'dim' && demoProgDispo[d.key][1] === true;
+  });
+  var qcmCount = 0, biblioCount = 0;
+  var revPlan = {};
+  revDaysList.forEach(function(d) {
+    var useQcm = (qcmCount <= biblioCount);
+    if (useQcm) { revPlan[d.key] = makeRevSession('qcm', d.key); qcmCount++; }
+    else        { revPlan[d.key] = makeRevSession('biblio', d.key); biblioCount++; }
+  });
+  if (demoProgDispo.dim[1] === true) {
+    revPlan.dim = makeRevSession('actus', 'dim');
+  }
+
+  // Construction finale
+  PROG_DAYS.forEach(function(d) {
+    if (sportPlan[d.key]) demoProgSessions.push(sportPlan[d.key]);
+    if (revPlan[d.key])   demoProgSessions.push(revPlan[d.key]);
+  });
+
+  renderDemoProgWeek();
+  renderDemoProgSummary();
+}
+
+// Rendu du planning démo (version simplifiée : pas de drag&drop, pas d'édition d'horaire)
+function renderDemoProgWeek() {
+  var container = document.getElementById('demo-prog-week');
+  if (!container) return;
+  var isMobile = window.innerWidth <= 700;
+  container.innerHTML = isMobile ? renderDemoProgWeekMobile() : renderDemoProgWeekDesktop();
+}
+
+function renderDemoProgWeekDesktop() {
+  var html = '<div style="display:grid;grid-template-columns:repeat(7,1fr);gap:6px">';
+  PROG_DAYS.forEach(function(d) {
+    var daySessions = demoProgSessions.filter(function(s) { return s.day === d.key; });
+    var isEmpty = daySessions.length === 0;
+    var colTotal = 0;
+    daySessions.forEach(function(s) { colTotal += s.duration; });
+
+    html += '<div style="background:' + (isEmpty?'#f7f2ea':'white') + ';border:' + (isEmpty?'1px dashed var(--border)':'1px solid var(--border)') + ';padding:10px 8px;min-height:160px;display:flex;flex-direction:column">';
+    html += '<div style="text-align:center;padding-bottom:8px;border-bottom:1px solid #F0EAE0;margin-bottom:8px">';
+    html += '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.68rem;letter-spacing:1.5px;color:' + (isEmpty?'var(--gray-light)':'var(--charcoal)') + '">' + d.short + '</div>';
+    if (!isEmpty) html += '<div style="font-size:.62rem;color:var(--gray);margin-top:2px">' + formatDuration(colTotal) + '</div>';
+    html += '</div>';
+
+    if (isEmpty) {
+      html += '<div style="flex:1;display:flex;align-items:center;justify-content:center;padding:10px;font-size:.65rem;color:var(--gray-light);text-align:center;font-style:italic">Repos</div>';
+    } else {
+      daySessions.forEach(function(s) {
+        var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
+        var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actu' : '📚 Révision');
+        var shortTitle = s.title.split(' — ')[0];
+        if (shortTitle.length > 22) shortTitle = shortTitle.substr(0, 22) + '…';
+        html += '<div style="background:var(--cream2);border-left:2px solid ' + catColor + ';padding:6px 8px;margin-bottom:4px;font-size:.7rem">' +
+          '<div style="font-size:.6rem;font-weight:700;color:' + catColor + ';letter-spacing:.5px;margin-bottom:2px">' + catLabel + ' · ' + formatDuration(s.duration) + '</div>' +
+          '<div style="font-size:.7rem;color:var(--charcoal);font-weight:500;line-height:1.2">' + s.icon + ' ' + shortTitle + '</div>' +
+        '</div>';
+      });
+    }
+    html += '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+function renderDemoProgWeekMobile() {
+  var html = '<div style="display:grid;gap:8px">';
+  PROG_DAYS.forEach(function(d) {
+    var daySessions = demoProgSessions.filter(function(s) { return s.day === d.key; });
+    if (daySessions.length === 0) {
+      html += '<div style="display:grid;grid-template-columns:56px 1fr;gap:14px;align-items:center;padding:14px 18px;background:#f7f2ea;border:1px dashed var(--border);color:var(--gray-light)">' +
+        '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.72rem;letter-spacing:1.5px">' + d.short + '</div>' +
+        '<div style="font-size:.8rem;font-style:italic">Repos</div>' +
+      '</div>';
+      return;
+    }
+    var hasSport = daySessions.some(function(s) { return s.cat === 'sport'; });
+    var bgColor = 'white';
+    var borderColor = hasSport ? 'var(--red)' : '#877E72';
+    var totalDuration = 0;
+    daySessions.forEach(function(s) { totalDuration += s.duration; });
+    var inner = '';
+    daySessions.forEach(function(s) {
+      var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
+      var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actualités' : '📚 Révision');
+      inner += '<div style="background:white;border:1px solid var(--border);padding:10px 14px">' +
+        '<div style="font-size:.65rem;font-weight:700;letter-spacing:1.2px;color:' + catColor + ';text-transform:uppercase;margin-bottom:3px">' + catLabel + ' · ' + formatDuration(s.duration) + '</div>' +
+        '<div style="font-size:.85rem;color:var(--charcoal);font-weight:500;line-height:1.3">' + s.icon + ' ' + s.title + '</div>' +
+      '</div>';
+    });
+    html += '<div style="display:grid;grid-template-columns:56px 1fr auto;gap:14px;align-items:flex-start;padding:14px 18px;background:' + bgColor + ';border-left:3px solid ' + borderColor + '">' +
+      '<div style="font-family:\'Playfair Display\',serif;font-weight:700;font-size:.72rem;letter-spacing:1.5px;color:var(--charcoal);padding-top:4px">' + d.short + '</div>' +
+      '<div style="display:flex;flex-direction:column;gap:10px">' + inner + '</div>' +
+      '<div style="font-size:.72rem;color:var(--gray);white-space:nowrap;padding-top:4px;font-weight:600">' + formatDuration(totalDuration) + '</div>' +
+    '</div>';
+  });
+  html += '</div>';
+  return html;
+}
+
+// Résumé (total hebdo + intensité)
+function renderDemoProgSummary() {
+  var total = 0;
+  demoProgSessions.forEach(function(s) { total += s.duration; });
+  var totalEl = document.getElementById('demo-prog-total');
+  var intensityEl = document.getElementById('demo-prog-intensity');
+  var summaryEl = document.getElementById('demo-prog-dispo-summary');
+
+  if (totalEl) totalEl.textContent = formatDuration(total) + ' cette semaine';
+
+  // Intensité
+  if (intensityEl) {
+    var lbl = 'LÉGER';
+    if (total >= 180 && total < 360) lbl = 'ENGAGÉ';
+    else if (total >= 360 && total < 540) lbl = 'SOUTENU';
+    else if (total >= 540) lbl = 'INTENSIF';
+    intensityEl.textContent = lbl;
+  }
+
+  // Summary court (nb séances)
+  if (summaryEl) {
+    var nbSport = demoProgSessions.filter(function(s){ return s.cat === 'sport'; }).length;
+    var nbRev = demoProgSessions.filter(function(s){ return s.cat === 'revision'; }).length;
+    summaryEl.textContent = nbSport + ' séance' + (nbSport>1?'s':'') + ' sport · ' + nbRev + ' séance' + (nbRev>1?'s':'') + ' révision';
+  }
+}
+
+// Initialisation quand la page programme devient active
+(function hookDemoProg() {
+  document.addEventListener('DOMContentLoaded', function() {
+    var pageProg = document.getElementById('page-programme');
+    if (!pageProg) return;
+    var loaded = false;
+    function checkAndInit() {
+      if (loaded || !pageProg.classList.contains('active')) return;
+      if (!document.getElementById('demo-prog-dispo-rows')) return;
+      loaded = true;
+      renderDemoProgDispoRows();
+      rebuildDemoProgPlanning();
+    }
+    // Check au chargement
+    checkAndInit();
+    // Hook sur goTo pour déclencher à chaque visite
+    var origGoTo = window.goTo;
+    if (typeof origGoTo === 'function') {
+      window.goTo = function(page) {
+        var r = origGoTo.apply(this, arguments);
+        if (page === 'programme') {
+          // Laisse le DOM se mettre à jour avant de tenter le rendu
+          setTimeout(checkAndInit, 50);
+        }
+        return r;
+      };
+    }
+    // Re-render en cas de resize (desktop → mobile et inverse)
+    var resizeTimer = null;
+    window.addEventListener('resize', function() {
+      if (!loaded) return;
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(function() {
+        if (document.getElementById('demo-prog-week')) renderDemoProgWeek();
+      }, 200);
+    });
+  });
+})();
 
 // ============================================================
 // CARROUSEL QCM DÉMO (sur la home)
@@ -12994,8 +13266,10 @@ function updateNavMember(member) {
     var ctaSignup = document.getElementById('nav-cta-signup');
     if (ctaSignup) ctaSignup.style.display = 'none';
     // L'espace candidat : lien toujours visible dans le menu (routage conditionnel via goToEspace).
-    // Le bouton compact "📊 Mon espace" dans la nav reste réservé aux payants.
-    if (spaceBtn)    spaceBtn.style.display    = isPaidMember ? 'inline-flex' : 'none';
+    // Le bouton compact "📊 Mon espace" reste visible pour tout connecté : il accède à son
+    // espace personnel (stats, planning, badges). Les non-payants y verront l'écran
+    // verrouillé avec CTA d'abonnement — c'est le parcours voulu.
+    if (spaceBtn)    spaceBtn.style.display    = 'inline-flex';
     if (espaceItem)  espaceItem.style.display  = 'block';
     if (mobileEspace) mobileEspace.style.display = 'block';
     // Affichage du nom dans la nav : on commence par l'email (fallback),
@@ -13399,7 +13673,11 @@ async function loginMember() {
     var result = await ms.loginMemberEmailPassword({ email: email, password: password });
     updateNavMember(result.data.member);
     showToast('✅ Connecté ! Bienvenue.');
+    // Redirection vers l'Espace candidat, onglet Planning (le cœur de la préparation)
     goTo('espace');
+    setTimeout(function() {
+      if (typeof espSwitchTab === 'function') espSwitchTab('planning');
+    }, 150);
   } catch(e) {
     err.classList.add('show');
     btn.disabled = false;
