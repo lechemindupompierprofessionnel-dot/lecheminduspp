@@ -560,11 +560,6 @@ body.is-logged .show-when-logged{display:block !important}
 .biblio-acc-body{max-height:0;overflow:hidden;transition:max-height .35s ease, padding .35s ease;background:#FAF6EF;padding:0 16px}
 .biblio-acc-section.open .biblio-acc-body{max-height:none;padding:20px 16px}
 
-/* Section "cadeau" : mise en avant immédiate */
-.biblio-acc-section.is-gift{background:linear-gradient(135deg,#FFF8F6 0%,#FFFFFF 100%);border:2px solid var(--red)}
-.biblio-acc-section.is-gift .biblio-acc-title{color:var(--red-dark);font-weight:700}
-.biblio-acc-section.is-gift.open .biblio-acc-header{background:var(--red);border-color:var(--red)}
-
 /* Filtres sous-categories à l'intérieur de l'accordéon */
 .biblio-subcats{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:18px;padding-left:12px;border-left:2px solid var(--red)}
 .biblio-subcat-btn{padding:5px 12px;background:white;border:1px solid var(--border);font-size:.74rem;color:var(--gray);cursor:pointer;font-family:inherit;transition:all .2s;border-radius:14px}
@@ -596,10 +591,10 @@ body.is-free-member .biblio-source-card[data-access="public"] .biblio-lock{displ
 .biblio-source-card[data-access="paid"] .biblio-lock::before{content:'👑 ';font-size:.6rem}
 
 /* Badge discret "Gratuit" sur les cartes en accès 'free' */
-.biblio-card[data-access="free"]:not(.biblio-gift)::after,
-.biblio-card[data-access="public"]:not(.biblio-gift)::after{content:'GRATUIT';position:absolute;bottom:10px;right:10px;font-size:.56rem;font-weight:700;letter-spacing:1.2px;color:#4a7c59;background:#e8f3ec;padding:2px 6px;border-radius:3px}
-body.is-member .biblio-card[data-access="free"]:not(.biblio-gift)::after,
-body.is-member .biblio-card[data-access="public"]:not(.biblio-gift)::after{display:none}
+.biblio-card[data-access="free"]::after,
+.biblio-card[data-access="public"]::after{content:'GRATUIT';position:absolute;bottom:10px;right:10px;font-size:.56rem;font-weight:700;letter-spacing:1.2px;color:#4a7c59;background:#e8f3ec;padding:2px 6px;border-radius:3px}
+body.is-member .biblio-card[data-access="free"]::after,
+body.is-member .biblio-card[data-access="public"]::after{display:none}
 
 /* Overlay texte contextualisé selon le niveau d'accès */
 .biblio-card[data-access="paid"] .biblio-overlay p::before{content:'🔐 '}
@@ -643,9 +638,6 @@ body.is-member .biblio-overlay::before{content:'Ouvrir le document';font-size:.8
 /* Cache case et badges si l'utilisateur n'est pas connecté (feature réservée aux membres) */
 body:not(.is-member) .biblio-read-status,
 body:not(.is-member) .biblio-seen-check{display:none}
-/* Cadeau de bienvenue exclu (pas de statut de lecture là-dessus) */
-.biblio-card.biblio-gift .biblio-read-status,
-.biblio-card.biblio-gift .biblio-seen-check{display:none}
 /* Les sources (culture admin / divers / concours) ne sont pas couvertes par la feature */
 .biblio-source-card .biblio-read-status,
 .biblio-source-card .biblio-seen-check{display:none}
@@ -659,8 +651,8 @@ body:not(.is-member) .biblio-seen-check{display:none}
 /* Sur les fiches avec badge "Fiche", décale le lock pour ne pas chevaucher le NEW badge */
 .biblio-card.is-synthese .biblio-lock{top:26px}
 /* Masque le tag "GRATUIT" (::after) quand un badge NEW est présent sur la carte — évite collision visuelle */
-.biblio-card:has(.biblio-new-badge)[data-access="free"]:not(.biblio-gift)::after,
-.biblio-card:has(.biblio-new-badge)[data-access="public"]:not(.biblio-gift)::after{display:none}
+.biblio-card:has(.biblio-new-badge)[data-access="free"]::after,
+.biblio-card:has(.biblio-new-badge)[data-access="public"]::after{display:none}
 
 /* Section "Sources" — repliée par défaut, bouton toggle pour afficher */
 .biblio-sources-section{grid-column:1/-1;margin-top:4px;margin-bottom:4px;background:white;border:1px solid var(--border-light);border-left:3px solid var(--charcoal)}
@@ -695,13 +687,6 @@ body.biblio-searching .biblio-sources-chevron{display:none}
 .biblio-source-card .biblio-name{font-size:.78rem;line-height:1.3;margin-bottom:3px}
 .biblio-source-card .biblio-meta{font-size:.68rem}
 .biblio-source-card .biblio-lock{top:5px;right:5px;font-size:.66rem}
-
-/* Carte ebook "cadeau de bienvenue" — dans l'accordéon, le ::before de la carte est masqué car la section parent est déjà "is-gift" */
-.biblio-card.biblio-gift{background:linear-gradient(135deg,#FFF8F6 0%,#FFFFFF 100%);border:2px solid var(--red)}
-.biblio-card.biblio-gift::before{display:none}
-.biblio-card.biblio-gift .biblio-type-tag{color:var(--red-dark)}
-.biblio-card.biblio-gift .biblio-name{color:var(--charcoal);font-weight:700}
-.biblio-card.biblio-gift .biblio-lock{color:var(--red)}
 
 /* État "aucun résultat de recherche" */
 .biblio-empty{text-align:center;padding:60px 20px;color:var(--gray-light);font-size:.9rem}
@@ -3370,23 +3355,8 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     <!-- ===== ACCORDÉON DES CATÉGORIES ===== -->
     <div class="biblio-accordion" id="biblio-accordion">
 
-      <!-- ========== 🎁 CADEAU ========== -->
-      <div class="biblio-acc-section is-gift" data-acc="cadeau">
-        <div class="biblio-acc-header" onclick="toggleBiblioAcc(this)">
-          <span class="biblio-acc-icon">🎁</span>
-          <span class="biblio-acc-title">Cadeau de bienvenue</span>
-          <span class="biblio-acc-count">1 doc</span>
-          <span class="biblio-acc-chevron">▾</span>
-        </div>
-        <div class="biblio-acc-body">
-          <div class="biblio-grid">
-            <div class="biblio-card biblio-gift" data-cat="cadeau" data-access="public" onclick="openDoc('ebook-v2','Les 5 erreurs qui éliminent les bons candidats','Guide offert','ebook_V2_pdf.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Guide offert</div><div class="biblio-name">Les 5 erreurs qui éliminent les bons candidats</div><div class="biblio-meta">PDF · ~50 pages · Offert à l'inscription</div><div class="biblio-overlay"><p>Accès inscrits (gratuit)</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-          </div>
-        </div>
-      </div>
-
       <!-- ========== 📘 DOCTRINES OPÉRATIONNELLES ========== -->
-      <div class="biblio-acc-section open" data-acc="doctrines">
+      <div class="biblio-acc-section" data-acc="doctrines">
         <div class="biblio-acc-header" onclick="toggleBiblioAcc(this)">
           <span class="biblio-acc-icon">📘</span>
           <span class="biblio-acc-title">Doctrines Opérationnelles</span>
@@ -3528,10 +3498,10 @@ body:not(.is-logged) .mobile-nav-member{display:none}
               </div>
               <div class="biblio-sources-sub">Lire les textes officiels en complément de la fiche de synthèse.</div>
               <div class="biblio-sources-grid">
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2012-520','Décret n°2012-520 — Statut sapeurs et caporaux','Source','docs/concours/sources/decret-2012-520-statut-sapeurs-caporaux.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2012-520</div><div class="biblio-meta">Statut sapeurs et caporaux SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2013-593','Décret n°2013-593 — Recrutement et avancement','Source','docs/concours/sources/decret-2013-593-recrutement-avancement.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2013-593</div><div class="biblio-meta">Recrutement et avancement FPT</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2020-1474','Décret n°2020-1474 — Modalités des concours','Source','docs/concours/sources/decret-2020-1474-modalites-concours.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2020-1474</div><div class="biblio-meta">Modalités des concours SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-arrete-2020','Arrêté du 30 novembre 2020 — Programmes','Source','docs/concours/sources/arrete-30-novembre-2020-programmes.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Arrêté</div><div class="biblio-name">Arrêté du 30 novembre 2020</div><div class="biblio-meta">Programmes des concours SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2012-520','Décret n°2012-520 — Statut sapeurs et caporaux','Source','docs/concours/Sources/decret-2012-520-statut-sapeurs-caporaux.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2012-520</div><div class="biblio-meta">Statut sapeurs et caporaux SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2013-593','Décret n°2013-593 — Recrutement et avancement','Source','docs/concours/Sources/decret-2013-593-recrutement-avancement.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2013-593</div><div class="biblio-meta">Recrutement et avancement FPT</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2020-1474','Décret n°2020-1474 — Modalités des concours','Source','docs/concours/Sources/decret-2020-1474-modalites-concours.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2020-1474</div><div class="biblio-meta">Modalités des concours SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-arrete-2020','Arrêté du 30 novembre 2020 — Programmes','Source','docs/concours/Sources/arrete-30-novembre-2020-programmes.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Arrêté</div><div class="biblio-name">Arrêté du 30 novembre 2020</div><div class="biblio-meta">Programmes des concours SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
               </div>
               </div>
             </div>
@@ -7715,13 +7685,6 @@ function toggleDocSeen(docId, cardEl) {
           renderBiblioReadStatus();
           _updateViewerMarkSeenButton();
         }
-      } else {
-        // Proposer le partage dans la communauté (uniquement à la 1ère lecture, pas 23505)
-        if (typeof proposeCommShare === 'function' && docName) {
-          setTimeout(function() {
-            proposeCommShare('biblio', { name: docName, type: docType || 'Document' });
-          }, 800);
-        }
       }
     });
   } else {
@@ -10672,13 +10635,6 @@ function espTrackDoc(id, name, type, cat) {
     }).then(function(res){
       if (res && res.error) console.warn('Supabase insert doc :', res.error.message);
     });
-  }
-  // Proposer le partage dans la communauté (biblio)
-  // Petit délai pour laisser le toast "document marqué comme vu" s'afficher d'abord.
-  if (typeof proposeCommShare === 'function') {
-    setTimeout(function() {
-      proposeCommShare('biblio', { id: id, name: name, type: type || 'Document', cat: cat || '' });
-    }, 1500);
   }
 }
 
