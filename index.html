@@ -192,6 +192,136 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 body.is-logged .hide-when-logged{display:none !important}
 body.is-logged .show-when-logged{display:block !important}
 
+/* ============================================================================
+   TUTORIEL ONBOARDING — Tour guidé contextuel pour le premier login membre
+   ============================================================================
+   Système d'overlay sombre + spotlight sur l'élément ciblé + bulle d'info.
+   Activé via la classe body.tour-active.
+   La cible reçoit la classe .tour-target qui la fait apparaître au-dessus
+   de l'overlay grâce à un z-index élevé et un position:relative.
+   ============================================================================ */
+
+/* Overlay plein écran semi-transparent. Le clic dessus est bloqué pour
+   éviter qu'on quitte le tour par accident, mais le bouton "Quitter" reste
+   accessible dans la bulle. */
+.tour-overlay{
+  position:fixed;top:0;left:0;width:100%;height:100%;
+  background:rgba(28,28,28,0.78);
+  z-index:9990;
+  display:none;
+  pointer-events:auto;
+}
+body.tour-active .tour-overlay{display:block}
+
+/* La cible du tour est mise en avant : elle remonte au-dessus de l'overlay
+   grâce au z-index, on lui ajoute un halo lumineux et un fond opaque
+   pour qu'elle se détache nettement du fond sombre. */
+.tour-target{
+  position:relative;
+  z-index:9995 !important;
+  box-shadow:0 0 0 4px var(--red),0 0 32px 8px rgba(204,34,41,0.45),0 0 60px 20px rgba(0,0,0,0.5) !important;
+  border-radius:6px;
+  background:white !important;
+  transition:box-shadow .25s ease;
+}
+/* Cas particulier : si la cible n'a pas de fond, on force un fond clair
+   pour éviter qu'elle apparaisse fantôme sur l'overlay sombre. */
+.tour-target.tour-target-padded{padding:8px 12px}
+
+/* Bulle d'instruction qui suit la cible. Position calculée en JS.
+   Largeur fixe sur desktop, full-width sur mobile. */
+.tour-bubble{
+  position:fixed;
+  z-index:9996;
+  background:white;
+  padding:24px 26px 20px;
+  width:380px;
+  max-width:calc(100vw - 32px);
+  box-shadow:0 18px 50px rgba(0,0,0,0.35);
+  border-top:4px solid var(--red);
+  display:none;
+  animation:tourBubbleIn .25s ease;
+}
+body.tour-active .tour-bubble{display:block}
+@keyframes tourBubbleIn{
+  from{opacity:0;transform:translateY(8px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+.tour-bubble-step{
+  font-size:.66rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+  color:var(--red);margin-bottom:8px;
+}
+.tour-bubble-title{
+  font-family:'Playfair Display',serif;
+  font-size:1.2rem;font-weight:700;color:var(--charcoal);
+  line-height:1.25;margin-bottom:12px;
+}
+.tour-bubble-text{
+  font-size:.88rem;color:var(--gray);line-height:1.6;margin-bottom:18px;
+}
+.tour-bubble-controls{
+  display:flex;justify-content:space-between;align-items:center;
+  border-top:1px solid var(--border);padding-top:14px;gap:10px;
+}
+.tour-bubble-progress{
+  font-size:.72rem;font-weight:600;color:var(--gray-light);
+  letter-spacing:1px;
+}
+.tour-bubble-buttons{display:flex;gap:8px}
+.tour-btn-prev,.tour-btn-next,.tour-btn-finish{
+  font-family:'DM Sans',sans-serif;font-size:.78rem;font-weight:600;
+  letter-spacing:.5px;text-transform:uppercase;
+  padding:8px 14px;cursor:pointer;border:none;
+  transition:all .15s;
+}
+.tour-btn-prev{background:white;color:var(--charcoal);border:1px solid var(--border)}
+.tour-btn-prev:hover{border-color:var(--charcoal)}
+.tour-btn-prev:disabled{opacity:.4;cursor:not-allowed}
+.tour-btn-next,.tour-btn-finish{background:var(--red);color:white}
+.tour-btn-next:hover,.tour-btn-finish:hover{background:var(--red-dark,#A81D24)}
+
+/* Bouton "Quitter le tour" en haut à droite — porte de sortie discrète */
+.tour-exit{
+  position:fixed;top:14px;right:14px;z-index:9997;
+  background:rgba(255,255,255,0.95);
+  color:var(--gray);
+  border:1px solid var(--border);
+  padding:6px 12px;
+  font-size:.7rem;font-weight:600;letter-spacing:.5px;
+  cursor:pointer;
+  font-family:'DM Sans',sans-serif;
+  display:none;
+}
+body.tour-active .tour-exit{display:block}
+.tour-exit:hover{color:var(--charcoal);border-color:var(--charcoal)}
+
+/* Variante centrée : pour les étapes "welcome" et "final" sans cible précise.
+   La bulle est centrée à l'écran et l'overlay couvre tout. */
+.tour-bubble.tour-bubble-centered{
+  position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);
+  width:480px;max-width:calc(100vw - 40px);
+  padding:36px 38px 28px;
+  border-top-width:5px;
+}
+.tour-bubble-centered .tour-bubble-title{font-size:1.7rem;text-align:center;margin-bottom:16px}
+.tour-bubble-centered .tour-bubble-step{text-align:center;font-size:.7rem}
+.tour-bubble-centered .tour-bubble-text{text-align:center;font-size:.95rem}
+
+/* Responsive : sur mobile, la bulle prend toute la largeur en bas d'écran */
+@media(max-width:700px){
+  .tour-bubble:not(.tour-bubble-centered){
+    position:fixed !important;
+    bottom:16px !important;
+    left:16px !important;
+    right:16px !important;
+    top:auto !important;
+    width:auto !important;
+    max-width:none;
+  }
+  .tour-bubble-centered{width:auto;left:16px;right:16px;transform:translate(0,-50%);max-width:none}
+}
+
 /* ===== NAV ADAPTATIVE : visiteur vs membre =====
    Par défaut, la nav membre est masquée. Quand body.is-logged est actif,
    on bascule : la nav visiteur disparaît et la nav membre apparaît. */
@@ -2336,6 +2466,30 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 </style>
 </head>
 <body>
+
+<!-- ============================================================================
+     TUTORIEL ONBOARDING — Conteneurs du tour guidé
+     ============================================================================
+     Ces éléments restent dans le DOM en permanence mais sont masqués
+     tant que body.tour-active n'est pas active. Ils sont positionnés
+     en fixed pour rester accessibles peu importe la page affichée.
+     ============================================================================ -->
+<div class="tour-overlay" id="tour-overlay" aria-hidden="true"></div>
+<button class="tour-exit" id="tour-exit-btn" onclick="tourExit()">Quitter le tour ✕</button>
+<div class="tour-bubble" id="tour-bubble" role="dialog" aria-live="polite">
+  <div class="tour-bubble-step" id="tour-bubble-step"></div>
+  <div class="tour-bubble-title" id="tour-bubble-title"></div>
+  <div class="tour-bubble-text" id="tour-bubble-text"></div>
+  <div class="tour-bubble-controls">
+    <span class="tour-bubble-progress" id="tour-bubble-progress"></span>
+    <div class="tour-bubble-buttons">
+      <button class="tour-btn-prev" id="tour-btn-prev" onclick="tourPrev()">← Précédent</button>
+      <button class="tour-btn-next" id="tour-btn-next" onclick="tourNext()">Suivant →</button>
+      <button class="tour-btn-finish" id="tour-btn-finish" onclick="tourFinish()" style="display:none">Terminer ✓</button>
+    </div>
+  </div>
+</div>
+
 
 <!-- ============================================================
      BETA TEST — Écran de verrouillage (affiché avant tout le reste)
@@ -11291,9 +11445,373 @@ function setQcmCat() {}
 function setQcmSubcat() {}
 function toggleSubcats() {}
 
-// ================================================================
+// ============================================================================
+//  TUTORIEL ONBOARDING — Moteur du tour guidé contextuel
+// ============================================================================
+//  Tour guidé qui défile à travers les pages du site pour présenter
+//  les fonctionnalités à un nouveau membre payant lors de son premier login.
+//
+//  Architecture :
+//   - tourSteps : tableau d'étapes, chacune décrivant ce qu'on montre et où
+//   - tourCurrentStep : index de l'étape en cours
+//   - tourActive : booléen indicateur d'état
+//   - Chaque étape peut comporter :
+//      * page          : la page sur laquelle se positionner (goTo)
+//      * targetSelector: sélecteur CSS de l'élément à mettre en avant
+//      * centered      : si true, bulle centrée sans cible (welcome/final)
+//      * title, text   : contenu de la bulle
+//      * stepLabel     : label affiché en haut de la bulle
+//      * onEnter       : callback exécuté avant l'affichage (ex. switch d'onglet)
+//
+//  Persistance : la complétion est marquée dans le localStorage du navigateur
+//  (clé spp_tutorial_done_<email>). Pas de persistance serveur volontairement
+//  pour éviter une table dédiée à un seul boolean.
+// ============================================================================
+
+var tourCurrentStep = 0;
+var tourActive = false;
+var tourResizeHandler = null;
+
+// Définition des 12 étapes du tour
+var tourSteps = [
+  {
+    centered: true,
+    stepLabel: 'Étape 1 / 12',
+    title: 'Bienvenue parmi nous 👋',
+    text: "Tu viens de rejoindre Le Chemin du SPP. Avant de te lancer, laisse-moi te faire visiter en deux minutes pour que tu saches où trouver ce dont tu as besoin. Ce tour ne se relance pas automatiquement — autant le faire maintenant."
+  },
+  {
+    page: 'espace',
+    targetSelector: '#esp-tab-btn-planning',
+    stepLabel: 'Étape 2 / 12',
+    title: 'Mon planning, ta page d\'accueil',
+    text: "C'est par ici que tu commences chaque session. Tu y vois ta semaine de travail, ce qui t'attend aujourd'hui et ce qui t'attend demain. Pas besoin de réfléchir, tu suis.",
+    onEnter: function(){ if (typeof espSwitchTab === 'function') espSwitchTab('planning'); }
+  },
+  {
+    page: 'espace',
+    targetSelector: '#esp-tab-btn-stats',
+    stepLabel: 'Étape 3 / 12',
+    title: 'Tes statistiques',
+    text: "Tout ton historique de travail est ici : tes sessions de QCM, ton score par catégorie, ton évolution dans le temps, tes badges. C'est ton miroir de progression.",
+    onEnter: function(){ if (typeof espSwitchTab === 'function') espSwitchTab('stats'); }
+  },
+  {
+    page: 'espace',
+    targetSelector: '.esp-coach-block',
+    stepLabel: 'Étape 4 / 12',
+    title: 'Le coaching individuel',
+    text: "Si tu as besoin d'un avis extérieur sur ton plan, ou d'une simulation d'oral, tu peux réserver une heure en visio avec moi. Pas obligatoire, mais accessible quand tu en as besoin.",
+    onEnter: function(){ if (typeof espSwitchTab === 'function') espSwitchTab('planning'); }
+  },
+  {
+    page: 'qcm',
+    targetSelector: '.qcm-launch-screen, #qcm-launch-screen',
+    stepLabel: 'Étape 5 / 12',
+    title: 'Les QCM thématiques',
+    text: "Le cœur de ta préparation théorique. Choisis un thème, lance une session, chaque réponse est sourcée. Plus tu en fais, plus l'algorithme te connaît."
+  },
+  {
+    page: 'qcm',
+    targetSelector: '.qcm-mode-card[data-mode="review"], #qcm-mode-review',
+    stepLabel: 'Étape 6 / 12',
+    title: 'La Révision Intelligente',
+    text: "Une fois que tu auras fait quelques sessions, ce mode utilise tes erreurs pour te proposer en priorité les questions sur lesquelles tu dois revenir. C'est l'IA qui cible tes faiblesses pour toi."
+  },
+  {
+    page: 'concours',
+    targetSelector: '.concours-list, #concours-grid, .annales-grid',
+    stepLabel: 'Étape 7 / 12',
+    title: 'Mode concours',
+    text: "Quand tu te sens prêt, tu passes en conditions réelles. Annales officielles avec timer, correction sourcée à la fin. C'est l'épreuve d'entraînement qui ressemble le plus au jour J."
+  },
+  {
+    page: 'prepa',
+    targetSelector: '.page-header, .prepa-hero',
+    stepLabel: 'Étape 8 / 12',
+    title: 'La préparation physique',
+    text: "Tu rentres ta VMA et ton niveau de force, le programme s'adapte à toi. Plus de \"séances au feeling\" : tu sais à quelle allure courir et avec quelle charge soulever."
+  },
+  {
+    page: 'biblio',
+    targetSelector: '.biblio-search, .biblio-grid, .page-header',
+    stepLabel: 'Étape 9 / 12',
+    title: 'La bibliothèque',
+    text: "Tous les textes officiels classés et synthétisés : GNR, GTO, GDO, statut. Plus besoin de chasser l'info ailleurs, tout est ici, à jour."
+  },
+  {
+    page: 'actu',
+    targetSelector: '.actu-list, .actu-grid, .page-header',
+    stepLabel: 'Étape 10 / 12',
+    title: 'Les actualités',
+    text: "Chaque semaine, je décrypte les actus du métier qui peuvent tomber au concours ou à l'oral. Tu t'évites de surveiller dix sites en parallèle."
+  },
+  {
+    page: 'candidats',
+    targetSelector: '.candidats-grid, .candidats-list, .page-header',
+    stepLabel: 'Étape 11 / 12',
+    title: 'La communauté',
+    text: "Tu n'es pas seul. Ici tu vois les autres candidats qui préparent comme toi. C'est une rampe d'émulation, pas une compétition."
+  },
+  {
+    centered: true,
+    stepLabel: 'Étape 12 / 12',
+    title: 'Tu es prêt 🚀',
+    text: "Tu connais maintenant l'essentiel. Le reste, tu le découvriras en pratiquant. La meilleure chose que tu puisses faire maintenant : lancer ta première session de QCM. Bonne préparation."
+  }
+];
+
+// Démarre le tour à partir de la première étape
+function tourStart() {
+  if (tourActive) return;
+  tourCurrentStep = 0;
+  tourActive = true;
+  document.body.classList.add('tour-active');
+  // Bloquer le scroll du body pour éviter les déplacements pendant le tour
+  document.body.style.overflow = 'hidden';
+  // Réagir au resize/scroll pour repositionner la bulle si la page change
+  tourResizeHandler = function(){ tourPositionBubble(); };
+  window.addEventListener('resize', tourResizeHandler);
+  tourShowStep();
+}
+
+// Affiche l'étape courante
+function tourShowStep() {
+  var step = tourSteps[tourCurrentStep];
+  if (!step) { tourFinish(); return; }
+
+  // Si l'étape est sur une autre page, on navigue d'abord puis on affiche
+  if (step.page) {
+    var current = document.querySelector('.page.active');
+    var currentId = current ? current.id.replace('page-','') : null;
+    if (currentId !== step.page) {
+      // Navigation puis attente du rendu
+      goTo(step.page);
+      setTimeout(function(){ tourRenderStepContent(step); }, 220);
+      return;
+    }
+  }
+  tourRenderStepContent(step);
+}
+
+// Rend le contenu de la bulle pour l'étape donnée et positionne le spotlight
+function tourRenderStepContent(step) {
+  // Nettoyer le spotlight précédent
+  document.querySelectorAll('.tour-target').forEach(function(el){
+    el.classList.remove('tour-target', 'tour-target-padded');
+  });
+
+  // Callback éventuel (ex. switch d'onglet dans Mon espace)
+  if (typeof step.onEnter === 'function') {
+    try { step.onEnter(); } catch(e) { console.warn('tour onEnter error', e); }
+  }
+
+  // Petite attente pour laisser le DOM se mettre à jour après onEnter
+  setTimeout(function(){
+    // Remplir la bulle
+    document.getElementById('tour-bubble-step').textContent = step.stepLabel || '';
+    document.getElementById('tour-bubble-title').textContent = step.title || '';
+    document.getElementById('tour-bubble-text').textContent = step.text || '';
+    document.getElementById('tour-bubble-progress').textContent = (tourCurrentStep + 1) + ' / ' + tourSteps.length;
+
+    // Boutons : précédent désactivé sur la 1re étape, "Terminer" sur la dernière
+    var btnPrev = document.getElementById('tour-btn-prev');
+    var btnNext = document.getElementById('tour-btn-next');
+    var btnFinish = document.getElementById('tour-btn-finish');
+    btnPrev.disabled = (tourCurrentStep === 0);
+    if (tourCurrentStep === tourSteps.length - 1) {
+      btnNext.style.display = 'none';
+      btnFinish.style.display = '';
+    } else {
+      btnNext.style.display = '';
+      btnFinish.style.display = 'none';
+    }
+
+    // Variante centrée (pas de cible)
+    var bubble = document.getElementById('tour-bubble');
+    if (step.centered) {
+      bubble.classList.add('tour-bubble-centered');
+      bubble.style.top = '';
+      bubble.style.left = '';
+      return;
+    }
+    bubble.classList.remove('tour-bubble-centered');
+
+    // Trouver la cible
+    var target = null;
+    if (step.targetSelector) {
+      // On accepte plusieurs sélecteurs séparés par virgule, on prend le 1er trouvé
+      var selectors = step.targetSelector.split(',').map(function(s){ return s.trim(); });
+      for (var i = 0; i < selectors.length; i++) {
+        target = document.querySelector(selectors[i]);
+        if (target && target.offsetParent !== null) break;
+        target = null;
+      }
+    }
+
+    if (!target) {
+      // Cible introuvable → on bascule en mode centré pour cette étape
+      console.warn('Tour : cible introuvable pour étape', tourCurrentStep, step.targetSelector);
+      bubble.classList.add('tour-bubble-centered');
+      bubble.style.top = '';
+      bubble.style.left = '';
+      return;
+    }
+
+    // Marquer la cible
+    target.classList.add('tour-target');
+    // Si la cible est très petite ou un texte, on lui donne du padding
+    var rect = target.getBoundingClientRect();
+    if (rect.height < 40) target.classList.add('tour-target-padded');
+
+    // Faire défiler la cible dans la vue
+    target.scrollIntoView({ behavior: 'smooth', block: 'center', inline: 'center' });
+
+    // Positionner la bulle
+    setTimeout(tourPositionBubble, 350);
+  }, 60);
+}
+
+// Calcule la position optimale de la bulle par rapport à la cible.
+// Stratégie : on essaie en bas de la cible, sinon en haut, sinon à droite,
+// sinon à gauche. On reste toujours dans les limites du viewport.
+function tourPositionBubble() {
+  var bubble = document.getElementById('tour-bubble');
+  if (!bubble || bubble.classList.contains('tour-bubble-centered')) return;
+  var target = document.querySelector('.tour-target');
+  if (!target) return;
+  var tRect = target.getBoundingClientRect();
+  var bRect = bubble.getBoundingClientRect();
+  var bw = bRect.width || 380;
+  var bh = bRect.height || 200;
+  var vw = window.innerWidth;
+  var vh = window.innerHeight;
+  var margin = 16;
+
+  var top, left;
+
+  // Position 1 : sous la cible
+  if (tRect.bottom + margin + bh < vh) {
+    top = tRect.bottom + margin;
+    left = tRect.left + tRect.width/2 - bw/2;
+  // Position 2 : au-dessus de la cible
+  } else if (tRect.top - margin - bh > 0) {
+    top = tRect.top - margin - bh;
+    left = tRect.left + tRect.width/2 - bw/2;
+  // Position 3 : à droite de la cible
+  } else if (tRect.right + margin + bw < vw) {
+    top = tRect.top + tRect.height/2 - bh/2;
+    left = tRect.right + margin;
+  // Position 4 : à gauche de la cible
+  } else {
+    top = tRect.top + tRect.height/2 - bh/2;
+    left = tRect.left - margin - bw;
+  }
+
+  // Clamp dans le viewport
+  if (left < margin) left = margin;
+  if (left + bw > vw - margin) left = vw - margin - bw;
+  if (top < margin) top = margin;
+  if (top + bh > vh - margin) top = vh - margin - bh;
+
+  bubble.style.top = top + 'px';
+  bubble.style.left = left + 'px';
+}
+
+function tourNext() {
+  if (tourCurrentStep < tourSteps.length - 1) {
+    tourCurrentStep++;
+    tourShowStep();
+  }
+}
+
+function tourPrev() {
+  if (tourCurrentStep > 0) {
+    tourCurrentStep--;
+    tourShowStep();
+  }
+}
+
+// Sortie volontaire via le bouton "Quitter le tour" : on demande confirmation
+// car tu as choisi un tour imposé, donc la sortie doit rester un acte conscient.
+function tourExit() {
+  if (!confirm("Quitter le tour ? Tu pourras explorer le site librement.")) return;
+  tourTeardown();
+  // On marque quand même comme complété pour que ça ne se relance pas
+  tourMarkCompleted();
+}
+
+// Fin du tour atteinte au bout des 12 étapes
+function tourFinish() {
+  tourTeardown();
+  tourMarkCompleted();
+  showToast("Tu es paré. Bonne préparation !");
+}
+
+// Démontage propre : retire l'overlay, déverrouille le scroll, nettoie les classes
+function tourTeardown() {
+  tourActive = false;
+  document.body.classList.remove('tour-active');
+  document.body.style.overflow = '';
+  document.querySelectorAll('.tour-target').forEach(function(el){
+    el.classList.remove('tour-target', 'tour-target-padded');
+  });
+  if (tourResizeHandler) {
+    window.removeEventListener('resize', tourResizeHandler);
+    tourResizeHandler = null;
+  }
+}
+
+// Marque le tutoriel comme complété (localStorage uniquement).
+// Note : on ne sauvegarde pas côté Supabase pour éviter la dette technique
+// d'une table dédiée juste pour un boolean. Conséquence : si le membre se
+// connecte depuis un nouveau navigateur ou device, le tour pourra se relancer
+// — c'est un comportement acceptable pour un onboarding de 2 minutes.
+function tourMarkCompleted() {
+  var email = (typeof espMemberEmail === 'function') ? espMemberEmail() : null;
+  if (email) {
+    try { localStorage.setItem('spp_tutorial_done_' + email.toLowerCase(), '1'); }
+    catch(e){}
+  }
+}
+
+// Vérifie si le tour guidé doit se déclencher pour ce membre.
+// Conditions cumulatives :
+//  - Membre connecté ET payant (sinon pas d'intérêt)
+//  - Pas de flag local "spp_tutorial_done_<email>" en localStorage
+//  - Pas déjà actif
+// Si toutes les conditions sont réunies, on lance le tour après un petit délai
+// pour laisser le DOM se stabiliser (Memberstack peut basculer is-logged tardivement).
+function tourCheckFirstLogin() {
+  if (tourActive) return;
+  if (typeof isPaidMember === 'undefined' || !isPaidMember) return;
+  var email = (typeof espMemberEmail === 'function') ? espMemberEmail() : null;
+  if (!email) return;
+
+  var localDone = false;
+  try { localDone = localStorage.getItem('spp_tutorial_done_' + email.toLowerCase()) === '1'; }
+  catch(e){}
+  if (localDone) return;
+
+  tourLaunchAfterDelay();
+}
+
+function tourLaunchAfterDelay() {
+  // Délai pour que la page soit bien rendue avant qu'on commence à manipuler
+  setTimeout(function(){
+    if (!tourActive) tourStart();
+  }, 1200);
+}
+
+// Bouton public pour relancer le tour manuellement (sera réutilisable ailleurs)
+function tourRestart() {
+  if (tourActive) return;
+  tourStart();
+}
+
+// ============================================================================
 // ESPACE CANDIDAT — Statistiques (Supabase + fallback localStorage)
-// ================================================================
+// ============================================================================
 // Source de vérité : Supabase (3 tables : qcm_answers, qcm_sessions, doc_reads)
 // Fallback : localStorage si Supabase est indisponible
 // Les stats d'affichage (perCat, sessions, docs, activeDays) sont
@@ -14558,6 +15076,9 @@ function updateNavMember(member) {
     // Migration localStorage → Supabase en arrière-plan (payants uniquement)
     if (isPaidMember) {
       setTimeout(function(){ try { espMigrateLocalToSupabase(); } catch(e){} }, 1200);
+      // Vérifie si le tour guidé doit se déclencher (premier login)
+      // Délai pour laisser tous les autres setups se faire d'abord.
+      setTimeout(function(){ try { tourCheckFirstLogin(); } catch(e){ console.warn(e); } }, 2000);
       // Synchronise le profil prépa physique depuis Supabase
       // (pour que le candidat retrouve ses valeurs sur tous ses appareils)
       setTimeout(function(){
