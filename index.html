@@ -152,23 +152,13 @@ img{max-width:100%}
 
 /* ===== NAV ===== */
 nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,0.97);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);height:68px;display:flex;align-items:center;justify-content:space-between;padding:0 5%}
-.logo{display:flex;align-items:center;gap:10px;cursor:pointer}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;transition:opacity .15s}
+.logo:hover{opacity:.75}
+.logo:hover .logo-text{color:var(--red)}
 .logo-icon{width:48px;height:48px;background:transparent;display:flex;align-items:center;justify-content:center}
 .logo-text{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);letter-spacing:0.3px;line-height:1.2}
 .logo-text span{display:block;font-size:.65rem;font-family:'DM Sans',sans-serif;font-weight:500;color:var(--gray);letter-spacing:2px;text-transform:uppercase}
 .nav-center{display:flex;gap:0;align-items:center}
-/* Séparation découvrir / apprendre */
-.nav-zone{display:flex;align-items:flex-end;position:relative}
-.nav-zone-learn{background:#FBEAE8;padding:0 8px;border-left:1px solid #E8C8C4;border-right:1px solid #E8C8C4}
-.nav-zone-learn .nav-group-btn{color:#7A3537}
-.nav-zone-label{position:absolute;top:8px;left:14px;font-size:.55rem;font-weight:700;letter-spacing:2px;color:#b8ada0;text-transform:uppercase;pointer-events:none}
-.nav-zone-learn .nav-zone-label{color:var(--red);left:22px}
-.nav-zone .nav-group-btn{padding-top:22px;padding-bottom:10px}
-@media(max-width:1100px){
-  .nav-zone-label{display:none}
-  .nav-zone .nav-group-btn{padding-top:8px;padding-bottom:8px}
-  .nav-zone-learn{padding:0}
-}
 .nav-group{position:relative}
 .nav-group-btn{padding:8px 14px;font-size:.78rem;font-weight:600;letter-spacing:.6px;text-transform:uppercase;color:var(--gray);border:none;background:none;cursor:pointer;transition:all .2s;display:flex;align-items:center;gap:5px;white-space:nowrap;font-family:'DM Sans',sans-serif}
 .nav-group-btn::after{content:'';display:inline-block;width:5px;height:5px;border-right:1.5px solid var(--gray);border-bottom:1.5px solid var(--gray);transform:rotate(45deg) translateY(-2px);transition:all .2s;margin-left:2px}
@@ -201,6 +191,13 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 /* ===== UTILITAIRE : masquer les CTAs d'inscription aux membres connectés ===== */
 body.is-logged .hide-when-logged{display:none !important}
 body.is-logged .show-when-logged{display:block !important}
+
+/* ===== NAV ADAPTATIVE : visiteur vs membre =====
+   Par défaut, la nav membre est masquée. Quand body.is-logged est actif,
+   on bascule : la nav visiteur disparaît et la nav membre apparaît. */
+.nav-member-only{display:none}
+body.is-logged .nav-visitor-only{display:none}
+body.is-logged .nav-member-only{display:revert}
 
 /* ===== CTA d'onboarding sur page-merci ===== */
 .merci-cta{background:white;border:1px solid var(--border);padding:22px 18px;cursor:pointer;transition:all .2s;font-family:inherit;text-align:center;display:flex;flex-direction:column;align-items:center;gap:8px}
@@ -1290,6 +1287,10 @@ body.is-logged .mobile-nav-member{display:block}
 .mobile-nav-section{font-size:.7rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red);margin:26px 0 10px;padding:6px 4px 4px;border-top:1px solid var(--border)}
 .mobile-nav-section.first{border-top:none;margin-top:10px}
 .mobile-nav-section-sub{color:var(--gray-light)}
+/* Sections visiteur vs membre — mêmes règles que la nav desktop */
+.mobile-nav-member-only{display:none}
+body.is-logged .mobile-nav-visitor{display:none}
+body.is-logged .mobile-nav-member-only{display:block}
 /* Liens individuels */
 .mobile-nav-link{display:flex;align-items:center;gap:10px;font-family:'DM Sans',sans-serif;font-size:1rem;color:var(--charcoal);padding:13px 4px;cursor:pointer;transition:color .15s;border-bottom:1px solid var(--border-light);font-weight:500}
 .mobile-nav-link:last-child{border-bottom:none}
@@ -1772,8 +1773,9 @@ body:not(.is-logged) .mobile-nav-member{display:none}
   .testi-grid{grid-template-columns:1fr}
 }
 /* Navigation progressive en 3 paliers pour éviter le débordement des onglets :
-   - > 1250px : menu complet
-   - 1000-1250px : menu allégé (Accueil et Mon histoire masqués, CTA compacté)
+   - > 1250px : menu complet (5 entrées visibles, identique côté visiteur et membre)
+   - 1000-1250px : menu membre allégé (Mon espace masqué — accessible via le logo)
+                   La nav visiteur tient sans rien masquer (5 entrées suffisamment compactes)
    - < 1000px : bascule burger */
 @media(max-width:1400px){
   nav{padding:0 3%}
@@ -1781,13 +1783,13 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 @media(max-width:1250px){
   nav{padding:0 2.5%}
   .nav-right{gap:8px}
-  #navg-home, #navg-parcours{display:none}
+  body.is-logged #navg-espace{display:none}
 }
 @media(max-width:1000px){
   nav{padding:0 4%}
   .nav-center{display:none}
   .nav-mobile-btn{display:flex}
-  #navg-home, #navg-parcours{display:revert}
+  body.is-logged #navg-espace{display:revert}
 }
 @media(max-width:600px){
   .footer-top{grid-template-columns:1fr}
@@ -1922,6 +1924,68 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 .esp-tab-ic{font-size:1.05rem;display:block;margin-bottom:4px;line-height:1}
 .esp-tab-pane{display:none}
 .esp-tab-pane.active{display:block}
+
+/* ===== BLOC COACHING dans l'onglet Planning de Mon espace =====
+   Mis en avant comme un service personnel pour le membre. */
+.esp-coach-block{background:var(--charcoal);color:white;padding:32px 30px;margin-bottom:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
+.esp-coach-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:2px;color:var(--red-light);text-transform:uppercase;margin-bottom:10px}
+.esp-coach-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:600;line-height:1.25;margin-bottom:8px}
+.esp-coach-desc{font-size:.88rem;color:#D5CCBB;line-height:1.55;max-width:480px}
+.esp-coach-cta-wrap{display:flex;flex-direction:column;gap:8px;min-width:160px}
+.esp-coach-btn{padding:12px 22px;font-size:.85rem;white-space:nowrap}
+.esp-coach-price{font-size:.7rem;color:#9B9590;text-align:center}
+@media(max-width:640px){
+  .esp-coach-block{grid-template-columns:1fr;padding:26px 22px;gap:18px}
+  .esp-coach-cta-wrap{min-width:0}
+  .esp-coach-btn{width:100%}
+}
+
+/* ===== PAGE COMMENT JE T'AIDE — vitrine produit pour visiteurs =====
+   Page qui présente les outils de la plateforme avec une grille de cartes.
+   Distincte de la page Tarifs (#formation). */
+.comment-section-intro{text-align:center;margin-bottom:48px;max-width:680px;margin-left:auto;margin-right:auto}
+.comment-section-title{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--charcoal);line-height:1.2;margin-top:8px}
+.comment-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.comment-card{background:white;border:1px solid var(--border);padding:32px 30px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s}
+.comment-card:hover{border-color:var(--red);transform:translateY(-3px)}
+.comment-card-icon{font-size:2rem;line-height:1;margin-bottom:16px}
+.comment-card-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--red);margin-bottom:10px}
+.comment-card-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--charcoal);line-height:1.3;margin-bottom:14px}
+.comment-card-text{font-size:.88rem;color:var(--gray);line-height:1.65;margin-bottom:18px;flex:1}
+.comment-card-features{list-style:none;padding:0;margin:0 0 22px;border-top:1px solid var(--border-light);padding-top:14px}
+.comment-card-features li{font-size:.83rem;color:var(--charcoal);padding:5px 0;padding-left:22px;position:relative;line-height:1.5}
+.comment-card-features li::before{content:'✓';position:absolute;left:0;top:5px;color:var(--red);font-weight:700;font-size:.85rem}
+.comment-card-cta{background:none;border:none;padding:0;color:var(--red);font-size:.88rem;font-weight:600;font-family:'DM Sans',sans-serif;cursor:pointer;text-align:left;letter-spacing:.2px;align-self:flex-start;transition:color .15s}
+.comment-card-cta:hover{color:var(--red-dark)}
+
+/* Section "journée type" */
+.comment-day-section{background:var(--cream2);padding-top:60px;padding-bottom:60px;margin-top:30px}
+.comment-day-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.comment-day-block{background:white;border:1px solid var(--border);padding:28px 26px;border-top:3px solid var(--red)}
+.comment-day-time{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;color:var(--red);line-height:1;margin-bottom:6px}
+.comment-day-title{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray-light);margin-bottom:14px}
+.comment-day-text{font-size:.86rem;color:var(--charcoal);line-height:1.65}
+
+/* Bloc coaching dédié */
+.comment-coach-block{background:var(--charcoal);color:white;padding:42px 40px;display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;max-width:1100px;margin:0 auto}
+.comment-coach-title{font-family:'Playfair Display',serif;font-size:1.6rem;font-weight:600;line-height:1.25;margin-top:8px;margin-bottom:14px}
+.comment-coach-text{font-size:.92rem;color:#D5CCBB;line-height:1.65;max-width:560px}
+.comment-coach-cta-wrap{flex-shrink:0}
+
+/* CTA final */
+.comment-final-cta{text-align:center;background:white;border:1px solid var(--border);padding:50px 40px;max-width:880px;margin:0 auto}
+
+/* Responsive : grilles en colonne unique sur mobile */
+@media(max-width:880px){
+  .comment-grid{grid-template-columns:1fr}
+  .comment-day-grid{grid-template-columns:1fr}
+  .comment-coach-block{grid-template-columns:1fr;padding:32px 28px;gap:20px}
+  .comment-section-title{font-size:1.6rem}
+}
+@media(max-width:600px){
+  .comment-card{padding:26px 22px}
+  .comment-final-cta{padding:36px 24px}
+}
 
 /* Onglet "Upgrade" — styles spécifiques */
 .esp-upgrade-wrap{background:white;border:1px solid var(--border);padding:36px 32px}
@@ -2531,37 +2595,49 @@ body:not(.is-logged) .mobile-nav-member{display:none}
       <div class="mobile-nav-member-status" id="mobile-member-status">Candidat</div>
     </div>
 
-    <!-- ========== SECTION DÉCOUVRIR ========== -->
-    <div class="mobile-nav-section mobile-nav-section-sub first">Découvrir</div>
-    <div class="mobile-nav-link" onclick="goTo('home');closeMobileNav()"><span class="mn-ico">🏠</span>Accueil<span class="mn-arrow">›</span></div>
-    <div class="mobile-nav-link" onclick="goTo('parcours');closeMobileNav()"><span class="mn-ico">📖</span>Mon histoire<span class="mn-arrow">›</span></div>
+    <!-- ============================================================
+         NAV MOBILE — VISITEUR (5 sections)
+         Masquée pour les membres connectés
+         Le retour à l'Accueil se fait via le logo en header (convention web).
+         ============================================================ -->
+    <div class="mobile-nav-visitor">
+      <div class="mobile-nav-section first">Découvrir</div>
+      <div class="mobile-nav-link" onclick="goTo('parcours');closeMobileNav()"><span class="mn-ico">📖</span>Mon histoire<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-link" onclick="goTo('comment');closeMobileNav()"><span class="mn-ico">💡</span>Comment je t'aide<span class="mn-arrow">›</span></div>
 
-    <!-- Comment je t'aide -->
-    <div class="mobile-nav-category">Comment je t'aide</div>
-    <div class="mobile-nav-link" onclick="goTo('formation');closeMobileNav()"><span class="mn-ico">📋</span>Plans d'actions<span class="mn-arrow">›</span></div>
-    <div class="mobile-nav-link" onclick="goTo('coaching');closeMobileNav()"><span class="mn-ico">💬</span>Coaching<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-section">S'inscrire</div>
+      <div class="mobile-nav-link" onclick="goTo('formation');closeMobileNav()"><span class="mn-ico">📋</span>Tarifs<span class="mn-arrow">›</span></div>
 
-    <!-- ========== SECTION APPRENDRE ========== -->
-    <div class="mobile-nav-section">Apprendre</div>
+      <div class="mobile-nav-section">Ressources gratuites</div>
+      <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()"><span class="mn-ico">📚</span>Bibliothèque<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()"><span class="mn-ico">📰</span>Actualités<span class="mn-arrow">›</span></div>
 
-    <!-- Espace candidat -->
-    <div class="mobile-nav-link" id="mobile-espace-link" onclick="goToEspace();closeMobileNav()"><span class="mn-ico">📊</span>Mon espace<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-section">Communauté</div>
+      <div class="mobile-nav-link" onclick="goTo('candidats');closeMobileNav()"><span class="mn-ico">👥</span>Les candidats<sup>NEW</sup><span class="mn-arrow">›</span></div>
+    </div>
 
-    <!-- Outils d'entraînement -->
-    <div class="mobile-nav-category">Outils d'entraînement</div>
-    <div class="mobile-nav-link" onclick="goTo('qcm');closeMobileNav()"><span class="mn-ico">🎯</span>QCM<span class="mn-arrow">›</span></div>
-    <div class="mobile-nav-link" onclick="goTo('concours');closeMobileNav()"><span class="mn-ico">⏱️</span>Mode concours<span class="mn-arrow">›</span></div>
-    <div class="mobile-nav-link" onclick="goToPrepa();closeMobileNav()"><span class="mn-ico">💪</span>Préparation physique<span class="mn-arrow">›</span></div>
-    <div class="mobile-nav-link hide-when-logged" onclick="goTo('programme');closeMobileNav()"><span class="mn-ico">📅</span>Planning intelligent<span class="mn-arrow">›</span></div>
+    <!-- ============================================================
+         NAV MOBILE — MEMBRE (5 sections)
+         Visible uniquement pour les membres connectés
+         ============================================================ -->
+    <div class="mobile-nav-member-only">
+      <div class="mobile-nav-section first">Mon espace</div>
+      <div class="mobile-nav-link" id="mobile-espace-link" onclick="goToEspace();closeMobileNav()"><span class="mn-ico">📊</span>Tableau de bord<span class="mn-arrow">›</span></div>
 
-    <!-- Ressources -->
-    <div class="mobile-nav-category">Ressources</div>
-    <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()"><span class="mn-ico">📚</span>Bibliothèque<span class="mn-arrow">›</span></div>
-    <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()"><span class="mn-ico">📰</span>Actualités<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-section">Préparation écrite</div>
+      <div class="mobile-nav-link" onclick="goTo('qcm');closeMobileNav()"><span class="mn-ico">🎯</span>QCM<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-link" onclick="goTo('concours');closeMobileNav()"><span class="mn-ico">⏱️</span>Mode concours<span class="mn-arrow">›</span></div>
 
-    <!-- Communauté -->
-    <div class="mobile-nav-category">Communauté</div>
-    <div class="mobile-nav-link" onclick="goTo('candidats');closeMobileNav()"><span class="mn-ico">👥</span>Les candidats<sup>NEW</sup><span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-section">Préparation physique</div>
+      <div class="mobile-nav-link" onclick="goToPrepa();closeMobileNav()"><span class="mn-ico">💪</span>Préparation physique<span class="mn-arrow">›</span></div>
+
+      <div class="mobile-nav-section">Ressources</div>
+      <div class="mobile-nav-link" onclick="goTo('biblio');closeMobileNav()"><span class="mn-ico">📚</span>Bibliothèque<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-link" onclick="goTo('actu');closeMobileNav()"><span class="mn-ico">📰</span>Actualités<span class="mn-arrow">›</span></div>
+
+      <div class="mobile-nav-section">Communauté</div>
+      <div class="mobile-nav-link" onclick="goTo('candidats');closeMobileNav()"><span class="mn-ico">👥</span>Les candidats<span class="mn-arrow">›</span></div>
+    </div>
   </div>
 
   <!-- Footer : CTAs contextuels -->
@@ -2576,7 +2652,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 
 <!-- ===== NAV ===== -->
 <nav>
-  <div class="logo" onclick="goTo('home')">
+  <div class="logo" onclick="logoClick()">
     <div class="logo-icon">
       <img class="logo-img" src="logo.png" alt="Logo" style="width:48px;height:48px;object-fit:contain">
     </div>
@@ -2584,53 +2660,67 @@ body:not(.is-logged) .mobile-nav-member{display:none}
   </div>
   <div class="nav-center">
 
-    <!-- ========== ZONE DÉCOUVRIR ========== -->
-    <div class="nav-zone nav-zone-discover">
-      <span class="nav-zone-label">Découvrir</span>
-      <div class="nav-group" id="navg-home">
-        <button class="nav-group-btn" data-page="home" onclick="goTo('home')">Accueil</button>
-        <div class="nav-group-bar"></div>
-      </div>
-      <div class="nav-group" id="navg-parcours">
-        <button class="nav-group-btn" data-page="parcours" onclick="goTo('parcours')">Mon histoire</button>
-        <div class="nav-group-bar"></div>
-      </div>
-      <div class="nav-group" id="navg-difference">
-        <button class="nav-group-btn">Comment je t'aide</button>
-        <div class="nav-group-bar"></div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-item" data-page="formation" onclick="goTo('formation')"><span class="nav-item-ico">📋</span>Plans d'actions</button>
-          <button class="nav-dropdown-item" data-page="coaching" onclick="goTo('coaching')"><span class="nav-item-ico">💬</span>Coaching</button>
-        </div>
+    <!-- ===================================================================
+         NAV VISITEUR (5 entrées directes) — masquée pour les membres connectés
+         Le retour à l'Accueil se fait via le clic sur le logo (convention web).
+         Parcours commercial : Mon histoire → Comment je t'aide (vitrine produit)
+         → Tarifs → Ressources gratuites → Communauté
+         ================================================================== -->
+    <div class="nav-group nav-visitor-only" id="navg-parcours-visitor">
+      <button class="nav-group-btn" data-page="parcours" onclick="goTo('parcours')">Mon histoire</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-visitor-only" id="navg-comment">
+      <button class="nav-group-btn" data-page="comment" onclick="goTo('comment')">Comment je t'aide</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-visitor-only" id="navg-tarifs">
+      <button class="nav-group-btn" data-page="formation" onclick="goTo('formation')">Tarifs</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-visitor-only" id="navg-ressources-visitor">
+      <button class="nav-group-btn">Ressources gratuites</button>
+      <div class="nav-group-bar"></div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')"><span class="nav-item-ico">📚</span>Bibliothèque</button>
+        <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
       </div>
     </div>
+    <div class="nav-group nav-visitor-only" id="navg-candidats-visitor">
+      <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté<sup class="nav-new-badge">NEW</sup></button>
+      <div class="nav-group-bar"></div>
+    </div>
 
-    <!-- ========== ZONE APPRENDRE ========== -->
-    <div class="nav-zone nav-zone-learn">
-      <span class="nav-zone-label">Apprendre</span>
-      <div class="nav-group" id="navg-plateforme">
-        <button class="nav-group-btn">Outils d'entraînement</button>
-        <div class="nav-group-bar"></div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-item" data-page="qcm" onclick="goTo('qcm')"><span class="nav-item-ico">🎯</span>QCM</button>
-          <button class="nav-dropdown-item" data-page="concours" onclick="goTo('concours')"><span class="nav-item-ico">⏱️</span>Mode concours</button>
-          <button class="nav-dropdown-item" data-page="prepa" onclick="goToPrepa()"><span class="nav-item-ico">💪</span>Préparation physique</button>
-          <button class="nav-dropdown-item hide-when-logged" data-page="programme" onclick="goTo('programme')"><span class="nav-item-ico">📅</span>Planning intelligent</button>
-          <button class="nav-dropdown-item" data-page="espace" id="nav-espace-item" onclick="goToEspace()"><span class="nav-item-ico">📊</span>Mon espace candidat</button>
-        </div>
+    <!-- ===================================================================
+         NAV MEMBRE (5 entrées) — visible uniquement pour les membres connectés
+         ================================================================== -->
+    <div class="nav-group nav-member-only" id="navg-espace">
+      <button class="nav-group-btn" data-page="espace" onclick="goToEspace()">Mon espace</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-member-only" id="navg-prepa-ecrite">
+      <button class="nav-group-btn">Préparation écrite</button>
+      <div class="nav-group-bar"></div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-item" data-page="qcm" onclick="goTo('qcm')"><span class="nav-item-ico">🎯</span>QCM</button>
+        <button class="nav-dropdown-item" data-page="concours" onclick="goTo('concours')"><span class="nav-item-ico">⏱️</span>Mode concours</button>
       </div>
-      <div class="nav-group" id="navg-ressources">
-        <button class="nav-group-btn">Ressources</button>
-        <div class="nav-group-bar"></div>
-        <div class="nav-dropdown">
-          <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')"><span class="nav-item-ico">📚</span>Bibliothèque</button>
-          <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
-        </div>
+    </div>
+    <div class="nav-group nav-member-only" id="navg-prepa-physique">
+      <button class="nav-group-btn" data-page="prepa" onclick="goToPrepa()">Préparation physique</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-member-only" id="navg-ressources-member">
+      <button class="nav-group-btn">Ressources</button>
+      <div class="nav-group-bar"></div>
+      <div class="nav-dropdown">
+        <button class="nav-dropdown-item" data-page="biblio" onclick="goTo('biblio')"><span class="nav-item-ico">📚</span>Bibliothèque</button>
+        <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
       </div>
-      <div class="nav-group" id="navg-candidats">
-        <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté<sup class="nav-new-badge">NEW</sup></button>
-        <div class="nav-group-bar"></div>
-      </div>
+    </div>
+    <div class="nav-group nav-member-only" id="navg-candidats-member">
+      <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté</button>
+      <div class="nav-group-bar"></div>
     </div>
 
   </div>
@@ -3018,6 +3108,177 @@ body:not(.is-logged) .mobile-nav-member{display:none}
       <div style="font-size:.9rem;color:var(--gray);line-height:1.7">Si tu ne trouves pas la plateforme à la hauteur de tes attentes dans les 30 jours suivant ton premier paiement, je te rembourse intégralement. Sans question, sans délai. Un geste normal quand on croit en ce qu'on fait.</div>
     </div>
   </div>
+</div>
+
+<!-- ============================= PAGE: COMMENT JE T'AIDE =============================
+     Vitrine produit. Cette page n'est PAS la page tarifs (qui reste sur #formation).
+     Son rôle : montrer concrètement à un visiteur ce qu'il va trouver dans la plateforme,
+     pour combler le trou entre "qui je suis" (parcours) et "combien ça coûte" (formation).
+     Chaque section met en avant une fonctionnalité avec un CTA vers la page de démo correspondante.
+     ============================================================================== -->
+<div class="page" id="page-comment">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="s-eyebrow">Visite guidée</div>
+      <div class="s-title">Voici ce que<br>tu vas <em>trouver</em></div>
+      <div class="s-lead">[PLACEHOLDER ÉDITORIAL — 2 à 3 phrases d'introduction. Idée : expliquer brièvement la philosophie de la plateforme, sa structure, et inviter à explorer chaque fonctionnalité ci-dessous.]</div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION : LES 6 OUTILS DE LA PLATEFORME ==========
+       Grille de 6 cartes, une par fonctionnalité. Style cohérent avec le site
+       (rouge #CC2229, Playfair Display titres, DM Sans corps). Chaque carte a un CTA
+       qui mène vers la page démo correspondante (ou la page directe si pas de démo). -->
+  <div class="section">
+
+    <div class="comment-section-intro">
+      <div class="s-eyebrow" style="color:var(--red)">Les 6 outils de la plateforme</div>
+      <h2 class="comment-section-title">Tout ce dont tu as besoin,<br>au même endroit</h2>
+    </div>
+
+    <div class="comment-grid">
+
+      <!-- 1. QCM thématiques -->
+      <div class="comment-card">
+        <div class="comment-card-icon">🎯</div>
+        <div class="comment-card-eyebrow">QCM thématiques</div>
+        <h3 class="comment-card-title">Des centaines de questions classées par domaine</h3>
+        <div class="comment-card-text">[PLACEHOLDER — décrire : les thèmes couverts (incendie, secours, statut, hiérarchie...), la difficulté progressive, les corrections justifiées avec source, les sessions personnalisables.]</div>
+        <ul class="comment-card-features">
+          <li>1000+ QCM corrigés et sourcés</li>
+          <li>3 niveaux de difficulté</li>
+          <li>Sessions personnalisables</li>
+        </ul>
+        <button class="comment-card-cta" onclick="goTo('qcm')">Essayer les QCM →</button>
+      </div>
+
+      <!-- 2. Mode concours (annales) -->
+      <div class="comment-card">
+        <div class="comment-card-icon">⏱️</div>
+        <div class="comment-card-eyebrow">Mode concours</div>
+        <h3 class="comment-card-title">Les annales officielles, en conditions réelles</h3>
+        <div class="comment-card-text">[PLACEHOLDER — décrire : la collection d'annales (CDG-AURA, CDG35, CDG13, CDG57, CDG69), le timer en temps réel, la correction immédiate, l'analyse de tes points faibles.]</div>
+        <ul class="comment-card-features">
+          <li>Annales 2021 à 2025 de plusieurs zones</li>
+          <li>Timer & conditions du concours</li>
+          <li>Correction par question avec source</li>
+        </ul>
+        <button class="comment-card-cta" onclick="goTo('concours')">Voir les annales →</button>
+      </div>
+
+      <!-- 3. Préparation physique -->
+      <div class="comment-card">
+        <div class="comment-card-icon">💪</div>
+        <div class="comment-card-eyebrow">Préparation physique</div>
+        <h3 class="comment-card-title">Un programme adapté à ton niveau</h3>
+        <div class="comment-card-text">[PLACEHOLDER — décrire : le calcul de VMA et 1RM, les programmes hebdomadaires (1 à 5 séances), les calculateurs d'allure et de charge, le suivi des séances faites.]</div>
+        <ul class="comment-card-features">
+          <li>Programmes 1 à 5 séances/semaine</li>
+          <li>Calculateurs VMA & 1RM intégrés</li>
+          <li>Suivi des séances réalisées</li>
+        </ul>
+        <button class="comment-card-cta" onclick="goTo('demo-prepa')">Tester un calculateur →</button>
+      </div>
+
+      <!-- 4. Mon espace candidat -->
+      <div class="comment-card">
+        <div class="comment-card-icon">📊</div>
+        <div class="comment-card-eyebrow">Mon espace candidat</div>
+        <h3 class="comment-card-title">Ton tableau de bord personnalisé</h3>
+        <div class="comment-card-text">[PLACEHOLDER — décrire : les statistiques de progression, le radar des compétences, l'évolution dans le temps, l'historique des sessions, les badges, la série de jours actifs (streak).]</div>
+        <ul class="comment-card-features">
+          <li>Radar de compétences par thème</li>
+          <li>Streak quotidien & badges</li>
+          <li>Historique complet de tes sessions</li>
+        </ul>
+        <button class="comment-card-cta" onclick="goTo('demo-espace')">Voir une démo →</button>
+      </div>
+
+      <!-- 5. Planning intelligent -->
+      <div class="comment-card">
+        <div class="comment-card-icon">📅</div>
+        <div class="comment-card-eyebrow">Planning intelligent</div>
+        <h3 class="comment-card-title">Un planning sur-mesure à partir de tes disponibilités</h3>
+        <div class="comment-card-text">[PLACEHOLDER — décrire : tu indiques tes créneaux de sport et de révision, l'algorithme génère ta semaine, tu peux glisser-déposer pour réorganiser, exporter vers Google Calendar / Apple / Outlook.]</div>
+        <ul class="comment-card-features">
+          <li>Génération auto selon tes dispos</li>
+          <li>Sport + révision équilibrés</li>
+          <li>Export agenda (.ics)</li>
+        </ul>
+        <button class="comment-card-cta" onclick="goTo('programme')">Tester le planning →</button>
+      </div>
+
+      <!-- 6. Bibliothèque & Actualités -->
+      <div class="comment-card">
+        <div class="comment-card-icon">📚</div>
+        <div class="comment-card-eyebrow">Documents & actus</div>
+        <h3 class="comment-card-title">Tous les textes à jour, expliqués</h3>
+        <div class="comment-card-text">[PLACEHOLDER — décrire : la bibliothèque de textes officiels (GNR, GTO, GDO, statut...), les fiches synthèse, mes décryptages hebdo des actualités du métier, l'ebook de bienvenue offert.]</div>
+        <ul class="comment-card-features">
+          <li>GNR, GTO, GDO, textes statutaires</li>
+          <li>Fiches de synthèse condensées</li>
+          <li>Décryptages d'actualité hebdo</li>
+        </ul>
+        <button class="comment-card-cta" onclick="goTo('biblio')">Parcourir la biblio →</button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ========== SECTION : UNE JOURNÉE TYPE ==========
+       Bloc narratif optionnel pour rendre concret l'usage. À remplir éditorialement
+       quand tu auras le temps. Peut être supprimé si tu préfères. -->
+  <div class="section comment-day-section">
+    <div class="comment-section-intro">
+      <div class="s-eyebrow" style="color:var(--red)">Concrètement</div>
+      <h2 class="comment-section-title">Une journée type<br>avec la plateforme</h2>
+    </div>
+    <div class="comment-day-grid">
+      <div class="comment-day-block">
+        <div class="comment-day-time">07h00</div>
+        <div class="comment-day-title">[Matin]</div>
+        <div class="comment-day-text">[PLACEHOLDER — décrire un usage matinal type. Ex : 30 min de QCM thématique sur une catégorie ciblée par le radar, ou lecture d'une fiche synthèse pendant le café.]</div>
+      </div>
+      <div class="comment-day-block">
+        <div class="comment-day-time">12h30</div>
+        <div class="comment-day-title">[Midi]</div>
+        <div class="comment-day-text">[PLACEHOLDER — décrire un usage de pause déjeuner. Ex : lecture d'une actu décryptée, validation d'une séance prépa physique du matin sur Mon espace.]</div>
+      </div>
+      <div class="comment-day-block">
+        <div class="comment-day-time">19h00</div>
+        <div class="comment-day-title">[Soir]</div>
+        <div class="comment-day-text">[PLACEHOLDER — décrire un usage du soir. Ex : annale complète en mode concours pour s'entraîner en conditions réelles, debrief avec la correction sourcée.]</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== SECTION : COACHING INDIVIDUEL ==========
+       Bloc dédié pour expliquer le coaching, sans redondance avec la page tarifs. -->
+  <div class="section">
+    <div class="comment-coach-block">
+      <div class="comment-coach-content">
+        <div class="s-eyebrow" style="color:var(--red-light)">Pour aller plus loin</div>
+        <h3 class="comment-coach-title">Un coaching individuel<br>quand tu en as besoin</h3>
+        <div class="comment-coach-text">[PLACEHOLDER — décrire : le format (visio 1h), les usages typiques (relecture de plan, simulation orale, déblocage technique), la souplesse de réservation, la valeur ajoutée par rapport à un parcours autonome.]</div>
+      </div>
+      <div class="comment-coach-cta-wrap">
+        <button class="btn btn-red" onclick="goTo('coaching')" style="padding:13px 24px;font-size:.9rem">Découvrir le coaching →</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CTA FINAL ========== -->
+  <div class="section">
+    <div class="comment-final-cta hide-when-logged">
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);line-height:1.25;margin-bottom:14px">Prêt à voir tout ça <em style="color:var(--red)">par toi-même</em> ?</div>
+      <div style="font-size:.95rem;color:var(--gray);line-height:1.6;max-width:580px;margin:0 auto 26px">[PLACEHOLDER — phrase de conclusion qui invite à passer à l'action. Idée : rappeler que l'essai gratuit donne accès à un échantillon représentatif sans engagement.]</div>
+      <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+        <button class="btn btn-red" onclick="msSignupFree()" style="padding:14px 28px">Créer mon compte gratuit</button>
+        <button class="btn btn-outline" onclick="goTo('formation')" style="padding:14px 28px">Voir les tarifs →</button>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <!-- ============================= PAGE: CONNEXION ============================= -->
@@ -4003,7 +4264,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 <script>
 if(window.location.search.indexOf('success') !== -1) {
   document.addEventListener('DOMContentLoaded', function(){
-    var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','demo-espace','demo-prepa','bienvenue','candidats','profil','mentions','cgv','confidentialite','remboursement','programme'];
+    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','demo-espace','demo-prepa','bienvenue','candidats','profil','mentions','cgv','confidentialite','remboursement','programme'];
     pages.forEach(function(p){
       var el = document.getElementById('page-'+p);
       if(el) el.classList.toggle('active', p === 'merci');
@@ -4093,15 +4354,17 @@ if(window.location.search.indexOf('success') !== -1) {
       </div>
 
       <!-- ============ BARRE D'ONGLETS ============ -->
+      <!-- Mon planning en premier : c'est la page d'accueil de l'espace candidat,
+           pour que le membre voie d'abord sa semaine de travail à son arrivée. -->
       <div class="esp-tabs" role="tablist" aria-label="Sections de l'espace candidat">
         <button class="esp-tab" id="esp-tab-btn-upgrade" role="tab" aria-selected="false" onclick="espSwitchTab('upgrade')">
           <span class="esp-tab-ic">⬆</span>Upgrade
         </button>
-        <button class="esp-tab active" id="esp-tab-btn-stats" role="tab" aria-selected="true" onclick="espSwitchTab('stats')">
-          <span class="esp-tab-ic">📊</span>Statistiques
-        </button>
-        <button class="esp-tab" id="esp-tab-btn-planning" role="tab" aria-selected="false" onclick="espSwitchTab('planning')">
+        <button class="esp-tab active" id="esp-tab-btn-planning" role="tab" aria-selected="true" onclick="espSwitchTab('planning')">
           <span class="esp-tab-ic">📅</span>Mon planning
+        </button>
+        <button class="esp-tab" id="esp-tab-btn-stats" role="tab" aria-selected="false" onclick="espSwitchTab('stats')">
+          <span class="esp-tab-ic">📊</span>Statistiques
         </button>
         <button class="esp-tab" id="esp-tab-btn-badges" role="tab" aria-selected="false" onclick="espSwitchTab('badges')">
           <span class="esp-tab-ic">🏆</span>Badges
@@ -4111,8 +4374,8 @@ if(window.location.search.indexOf('success') !== -1) {
         </button>
       </div>
 
-      <!-- ============ ONGLET : STATISTIQUES (par défaut actif) ============ -->
-      <div class="esp-tab-pane active" id="esp-tab-stats" role="tabpanel">
+      <!-- ============ ONGLET : STATISTIQUES ============ -->
+      <div class="esp-tab-pane" id="esp-tab-stats" role="tabpanel">
 
       <!-- Ancre invisible utilisée pour calculer la position cible du scroll
            (car la barre nav elle-même est sticky et son rect.top n'est donc pas fiable) -->
@@ -4379,7 +4642,7 @@ if(window.location.search.indexOf('success') !== -1) {
       </div><!-- /esp-tab-upgrade -->
 
       <!-- ============ ONGLET : MON PLANNING ============ -->
-      <div class="esp-tab-pane" id="esp-tab-planning" role="tabpanel">
+      <div class="esp-tab-pane active" id="esp-tab-planning" role="tabpanel">
         <div style="max-width:880px;margin:0 auto;padding:0 4px">
 
           <!-- Intro compacte -->
@@ -4449,6 +4712,21 @@ if(window.location.search.indexOf('success') !== -1) {
           <div style="background:var(--cream2);border-left:3px solid var(--red);padding:16px 20px;margin-bottom:28px">
             <div style="font-size:.84rem;font-weight:700;color:var(--charcoal);margin-bottom:4px">⚠️ Un mot d'honnêteté</div>
             <div style="font-size:.8rem;color:var(--charcoal);line-height:1.6">Ce planning est un cadre, pas une règle. Certaines semaines tu n'auras que 2h, d'autres tu abattras 15h. L'important : <strong>ne pas décrocher plus de 3 jours d'affilée</strong> et faire au moins <strong>une annale complète par quinzaine</strong> dans les 3 mois avant l'épreuve.</div>
+          </div>
+
+          <!-- ===== Bloc Coaching individuel =====
+               Mis en avant ici comme un service personnel disponible pour le membre,
+               et non comme un produit à vendre dans la nav. -->
+          <div class="esp-coach-block">
+            <div class="esp-coach-content">
+              <div class="esp-coach-eyebrow">Coaching individuel</div>
+              <div class="esp-coach-title">Bloque une séance avec moi</div>
+              <div class="esp-coach-desc">Une heure en visio, en tête-à-tête, pour reprendre ton plan, débloquer ce qui coince, simuler ton oral. Quand tu en as besoin, pas selon un calendrier imposé.</div>
+            </div>
+            <div class="esp-coach-cta-wrap">
+              <button onclick="goTo('coaching')" class="btn btn-red esp-coach-btn">Réserver ma séance →</button>
+              <div class="esp-coach-price">À partir de 60€</div>
+            </div>
           </div>
 
         </div>
@@ -6083,6 +6361,19 @@ function goToEspace() {
     goTo('espace');
   } else {
     goTo('demo-espace');
+  }
+}
+
+// Clic sur le logo : un membre connecté arrive sur son tableau de bord,
+// un visiteur arrive sur la home publique.
+function logoClick() {
+  if (typeof isPaidMember !== 'undefined' && isPaidMember) {
+    goTo('espace');
+  } else if (document.body.classList.contains('is-logged')) {
+    // Compte gratuit (loggé mais non payant) → démo espace
+    goTo('demo-espace');
+  } else {
+    goTo('home');
   }
 }
 
@@ -9409,10 +9700,10 @@ function submitReport(reason) {
 // ONGLETS ESPACE CANDIDAT — bascule + rendu conditionnel
 // ============================================================
 
-var espActiveTab = 'stats';
+var espActiveTab = 'planning';
 
 function espSwitchTab(tabName) {
-  if (!tabName) tabName = 'stats';
+  if (!tabName) tabName = 'planning';
   espActiveTab = tabName;
   // Boutons
   ['upgrade','stats','planning','badges','infos'].forEach(function(t){
@@ -9599,7 +9890,7 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace','prepa','demo-espace','demo-prepa','candidats','profil','mentions','cgv','confidentialite','remboursement','programme'];
+var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace','prepa','demo-espace','demo-prepa','candidats','profil','mentions','cgv','confidentialite','remboursement','programme'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -9610,15 +9901,35 @@ function goTo(id) {
   document.querySelectorAll('.nav-dropdown-item').forEach(function(l) {
     l.classList.toggle('active', l.dataset.page === id);
   });
-  // Highlight groupe actif
+  // Highlight groupe actif — mapping vers les nouveaux IDs.
+  // Certaines pages (ex. biblio, actu, candidats) existent dans les deux navs,
+  // on utilise un sélecteur multiple ; CSS gère la visibilité, ça ne pose pas de problème.
   var groupMap = {
-    home:'navg-home', parcours:'navg-parcours',
-    formation:'navg-difference', coaching:'navg-difference',
-    concours:'navg-plateforme', qcm:'navg-plateforme', biblio:'navg-plateforme', actu:'navg-plateforme',
-    prepa:'navg-plateforme', candidats:'navg-plateforme', profil:'navg-plateforme'
+    // Pages purement visiteur
+    parcours:    ['navg-parcours-visitor'],
+    comment:     ['navg-comment'],
+    formation:   ['navg-tarifs'],
+    coaching:    ['navg-tarifs'],
+    // Pages qui ont un sens des deux côtés
+    biblio:      ['navg-ressources-visitor', 'navg-ressources-member'],
+    actu:        ['navg-ressources-visitor', 'navg-ressources-member'],
+    candidats:   ['navg-candidats-visitor', 'navg-candidats-member'],
+    // Pages purement membre
+    espace:      ['navg-espace'],
+    'demo-espace': ['navg-espace'],
+    qcm:         ['navg-prepa-ecrite'],
+    concours:    ['navg-prepa-ecrite'],
+    prepa:       ['navg-prepa-physique'],
+    'demo-prepa': ['navg-prepa-physique'],
+    profil:      ['navg-espace']
   };
   document.querySelectorAll('.nav-group').forEach(function(g) { g.classList.remove('active'); });
-  if (groupMap[id]) document.getElementById(groupMap[id]).classList.add('active');
+  if (groupMap[id]) {
+    groupMap[id].forEach(function(gid) {
+      var el = document.getElementById(gid);
+      if (el) el.classList.add('active');
+    });
+  }
 
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
@@ -12888,7 +13199,7 @@ function renderEspace() {
 
   // Onglet actif par défaut : Statistiques
   if (typeof espSwitchTab === 'function') {
-    espSwitchTab(espActiveTab || 'stats');
+    espSwitchTab(espActiveTab || 'planning');
   }
 
   // Active le carrousel (swipe, clavier, etc. — une seule fois par session)
