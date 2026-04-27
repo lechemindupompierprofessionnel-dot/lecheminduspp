@@ -6733,7 +6733,7 @@ var PROG_SPORT_SEQUENCE = [
   { type:'vma',           title:'Course — fractionné VMA', desc:'10 × 200 m à 105% VMA · travail de vitesse', prefDay:'mer', family:'course' }
 ];
 
-var PROG_REV_DURATION = 30; // 30 min par séance de révision
+var PROG_REV_DURATION = 45; // 45 min par séance de révision (lecture en Phase 1, QCM en Phase 2/3)
 
 var PROG_DAYS = [
   { key:'lun', label:'Lundi', short:'LUN', dayOffset:0 },
@@ -6846,20 +6846,72 @@ function rebuildProgPlanning() {
 
   var sportPlan = generateSportPlan(sportDays);
 
-  // ===== RÉVISION =====
+  // ===== RÉVISION (phase-aware) =====
   // Jours révision activés (hors dimanche, traité à part)
   var revDaysList = PROG_DAYS.filter(function(d) {
     return d.key !== 'dim' && progDispo[d.key][1] === true;
   });
-  var qcmCount = 0, biblioCount = 0;
+
+  // Détermine la phase active du candidat (1, 2 ou 3) pour orienter le contenu.
+  // Si la fonction n'est pas disponible (chargement précoce) on retombe sur Phase 2
+  // (le mix QCM + biblio historique, comportement legacy).
+  var phase = (typeof getCurrentPhase === 'function') ? getCurrentPhase() : 2;
+
   var revPlan = {};
-  revDaysList.forEach(function(d) {
-    var useQcm = (qcmCount <= biblioCount);
-    if (useQcm) { revPlan[d.key] = makeRevSession('qcm', d.key); qcmCount++; }
-    else        { revPlan[d.key] = makeRevSession('biblio', d.key); biblioCount++; }
-  });
-  // Dimanche : actus 15 min UNIQUEMENT si révision Oui ce jour-là (c'est la valeur par défaut
-  // mais le candidat peut désactiver pour un repos mental complet).
+
+  if (phase === 1) {
+    // ----- PHASE 1 — ACQUISITION : que de la lecture, prescrite doc par doc -----
+    // On affecte chaque jour de révision au prochain doc non-lu du parcours.
+    // Si le parcours est terminé, on retombe sur des QCM (le candidat a tout lu,
+    // il peut commencer à s'entraîner même si l'algo le maintient en P1).
+    var nextDocs = (typeof getNextDocsToRead === 'function')
+      ? getNextDocsToRead(revDaysList.length) : [];
+
+    revDaysList.forEach(function(d, idx) {
+      if (nextDocs[idx]) {
+        revPlan[d.key] = makeRevSession('lecture', d.key, { docInfo: nextDocs[idx] });
+      } else {
+        // Plus de doc à lire : on place un QCM aléatoire de validation
+        revPlan[d.key] = makeRevSession('qcm-random', d.key);
+      }
+    });
+  }
+  else if (phase === 3) {
+    // ----- PHASE 3 — CIBLAGE : QCM ciblés sur points faibles + annale samedi -----
+    var weakest = (typeof getWeakestCategories === 'function') ? getWeakestCategories(3) : [];
+
+    revDaysList.forEach(function(d, idx) {
+      // Samedi → annale chronométrée
+      if (d.key === 'sam') {
+        revPlan[d.key] = makeRevSession('annale', d.key);
+      }
+      else if (weakest.length > 0) {
+        // Cycle sur les 3 points faibles : lun=P1, mar=P2, mer=P3, jeu=P1, ven=P2…
+        var weakIdx = idx % weakest.length;
+        revPlan[d.key] = makeRevSession('qcm-target', d.key, {
+          targetCat: weakest[weakIdx].cat,
+          rank: weakIdx + 1
+        });
+      } else {
+        // Pas encore assez de données → QCM aléatoires
+        revPlan[d.key] = makeRevSession('qcm-random', d.key);
+      }
+    });
+  }
+  else {
+    // ----- PHASE 2 — ENTRAÎNEMENT : QCM aléatoire + révision intelligente -----
+    // 70% QCM aléatoire, 30% révision intelligente.
+    // En pratique : sur 5 jours, 4 aléatoires + 1 révision intelligente le jeudi.
+    revDaysList.forEach(function(d, idx) {
+      if (d.key === 'jeu' || (d.key === 'dim' && false)) {
+        revPlan[d.key] = makeRevSession('qcm-review', d.key);
+      } else {
+        revPlan[d.key] = makeRevSession('qcm-random', d.key);
+      }
+    });
+  }
+
+  // Dimanche : actus 15 min UNIQUEMENT si révision Oui ce jour-là (toutes phases confondues)
   if (progDispo.dim[1] === true) {
     revPlan.dim = makeRevSession('actus', 'dim');
   }
@@ -6959,26 +7011,117 @@ function makeSportSession(type, dayKey) {
   };
 }
 
-// Fabrique une séance révision — durée standard 30 min sauf actus du dimanche (15 min).
-function makeRevSession(type, dayKey) {
-  var types = {
-    qcm:    { icon:'🎯', title:'QCM thématique', desc:'Questions corrigées sur un thème SPP · révision active', duration: PROG_REV_DURATION },
-    biblio: { icon:'📚', title:'Bibliothèque — fiche synthèse', desc:'Lecture active d\'un texte officiel ou d\'une fiche', duration: PROG_REV_DURATION },
-    actus:  { icon:'📰', title:'Lecture des actualités SPP', desc:'Faits marquants, jurisprudence, évolutions — rester à jour', duration: 15 }
-  };
-  var t = types[type] || types.qcm;
-  return {
+// Fabrique une séance révision phase-aware.
+// Types reconnus :
+//   - 'lecture'    → Phase 1, lecture d'un doc précis (extras.docInfo requis)
+//   - 'qcm-random' → QCM aléatoire (toutes catégories, ~20 questions)
+//   - 'qcm-review' → Révision intelligente (questions ratées)
+//   - 'qcm-target' → QCM ciblé sur une catégorie faible (extras.targetCat requis)
+//   - 'annale'     → Annale chronométrée (mode concours)
+//   - 'actus'      → Lecture des actualités SPP (15 min)
+//   - 'qcm','biblio' → alias legacy (mappés sur qcm-random / lecture)
+function makeRevSession(type, dayKey, extras) {
+  extras = extras || {};
+
+  // Mapping legacy → nouveaux types (rétrocompat code historique)
+  if (type === 'qcm')    type = 'qcm-random';
+  if (type === 'biblio') type = 'lecture-libre'; // ancien comportement bibliothèque générique
+
+  var spec;
+  switch (type) {
+    case 'lecture': {
+      var doc = extras.docInfo || {};
+      var shortTitle = (typeof getDocTitle === 'function') ? getDocTitle(doc.docId) : doc.docId;
+      spec = {
+        icon:     '📚',
+        title:    'Lecture · ' + shortTitle,
+        desc:     'Lis le document et marque-le comme « Vu » quand tu as fini. Bloc en cours : ' + (doc.blocLabel || ''),
+        duration: PROG_REV_DURATION,
+        targetDocId: doc.docId,
+        targetBlocKey: doc.blocKey
+      };
+      break;
+    }
+    case 'qcm-random':
+      spec = {
+        icon:     '🎯',
+        title:    'QCM aléatoire',
+        desc:     'Questions corrigées tirées dans tous les thèmes — couverture large',
+        duration: PROG_REV_DURATION
+      };
+      break;
+    case 'qcm-review':
+      spec = {
+        icon:     '🧠',
+        title:    'Révision intelligente',
+        desc:     'L\'algo te ressort tes questions ratées en priorité',
+        duration: PROG_REV_DURATION
+      };
+      break;
+    case 'qcm-target': {
+      var catLabel = (typeof CAT_LABELS !== 'undefined' && CAT_LABELS[extras.targetCat])
+                      ? CAT_LABELS[extras.targetCat] : extras.targetCat;
+      spec = {
+        icon:     '🎯',
+        title:    'QCM ciblé · ' + catLabel,
+        desc:     'Point faible n°' + (extras.rank || 1) + ' identifié par tes stats — à travailler en priorité',
+        duration: PROG_REV_DURATION,
+        targetCat: extras.targetCat
+      };
+      break;
+    }
+    case 'annale':
+      spec = {
+        icon:     '📜',
+        title:    'Annale chronométrée',
+        desc:     '1h en conditions réelles — mode concours',
+        duration: 60
+      };
+      break;
+    case 'actus':
+      spec = {
+        icon:     '📰',
+        title:    'Lecture des actualités SPP',
+        desc:     'Faits marquants, jurisprudence, évolutions — rester à jour',
+        duration: 15
+      };
+      break;
+    case 'lecture-libre':
+      // Ancien type "biblio" = lecture libre dans la bibliothèque, sans doc prescrit.
+      spec = {
+        icon:     '📚',
+        title:    'Bibliothèque',
+        desc:     'Choisis un texte officiel ou une fiche à lire',
+        duration: PROG_REV_DURATION
+      };
+      break;
+    default:
+      // Fallback sécurité : QCM aléatoire
+      spec = {
+        icon:     '🎯',
+        title:    'QCM',
+        desc:     'Session de QCM',
+        duration: PROG_REV_DURATION
+      };
+  }
+
+  var session = {
     id: 'rev-' + dayKey + '-' + Date.now() + '-' + Math.random().toString(36).substr(2,5),
     day: dayKey,
     type: type,
     cat: 'revision',
-    icon: t.icon,
-    title: t.title,
-    desc: t.desc,
-    duration: t.duration,
+    icon: spec.icon,
+    title: spec.title,
+    desc: spec.desc,
+    duration: spec.duration,
     hour: '20',
     minute: '30'
   };
+  // Champs conditionnels (lus par goToSessionPage)
+  if (spec.targetDocId)   session.targetDocId = spec.targetDocId;
+  if (spec.targetBlocKey) session.targetBlocKey = spec.targetBlocKey;
+  if (spec.targetCat)     session.targetCat = spec.targetCat;
+  return session;
 }
 
 // ---------- Rendu du planning hebdomadaire ----------
@@ -7024,10 +7167,19 @@ function renderProgWeekDesktop() {
 // Carte compacte pour la vue desktop — petite, draggable
 function renderSessionCompact(s) {
   var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
-  var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actu' : '📚 Révision');
+  // Label catégorie compact desktop
+  var catLabel;
+  if (s.cat === 'sport')               catLabel = '💪 Sport';
+  else if (s.type === 'actus')         catLabel = '📰 Actu';
+  else if (s.type === 'lecture')       catLabel = '📚 Lecture';
+  else if (s.type === 'lecture-libre') catLabel = '📚 Biblio';
+  else if (s.type === 'qcm-review')    catLabel = '🧠 Révision';
+  else if (s.type === 'qcm-target')    catLabel = '🎯 Ciblé';
+  else if (s.type === 'annale')        catLabel = '📜 Annale';
+  else                                  catLabel = '🎯 QCM';
   var timeStr = s.hour + ':' + s.minute;
   var gcalUrl = buildGoogleCalUrlForSession(s);
-  // Titre court (tronqué après le premier "—" ou premier 20 car.)
+  // Titre court (tronqué après le premier "—" ou premier 22 car.)
   var shortTitle = s.title.split(' — ')[0];
   if (shortTitle.length > 22) shortTitle = shortTitle.substr(0, 22) + '…';
 
@@ -7036,7 +7188,7 @@ function renderSessionCompact(s) {
     '<div style="font-size:.7rem;color:var(--charcoal);font-weight:500;line-height:1.2;margin-bottom:4px">' + s.icon + ' ' + shortTitle + '</div>' +
     '<div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">' +
       '<button onclick="editProgTime(\'' + s.id + '\')" style="background:white;border:1px solid var(--border);padding:1px 4px;font-size:.58rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐' + timeStr + '</button>' +
-      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\')" style="background:' + catColor + ';color:white;border:none;padding:1px 6px;font-size:.58rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
+      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\',\'' + s.id + '\')" style="background:' + catColor + ';color:white;border:none;padding:1px 6px;font-size:.58rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
       '<a href="' + gcalUrl + '" target="_blank" rel="noopener" style="font-size:.58rem;color:var(--red);text-decoration:underline;font-weight:500">+ GCal</a>' +
     '</div>' +
   '</div>';
@@ -7084,7 +7236,16 @@ function renderDayBlockMobile(d, daySessions) {
 // Carte session en mode mobile — avec bouton "⇄ Déplacer"
 function renderSessionMobile(s) {
   var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
-  var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actualités' : '📚 Révision');
+  // Label catégorie : plus précis qu'avant pour refléter le type Phase-aware
+  var catLabel;
+  if (s.cat === 'sport')               catLabel = '💪 Sport';
+  else if (s.type === 'actus')         catLabel = '📰 Actualités';
+  else if (s.type === 'lecture')       catLabel = '📚 Lecture';
+  else if (s.type === 'lecture-libre') catLabel = '📚 Bibliothèque';
+  else if (s.type === 'qcm-review')    catLabel = '🧠 Révision intelligente';
+  else if (s.type === 'qcm-target')    catLabel = '🎯 QCM ciblé';
+  else if (s.type === 'annale')        catLabel = '📜 Annale';
+  else                                  catLabel = '🎯 QCM';
   var timeStr = s.hour + ':' + s.minute;
   var gcalUrl = buildGoogleCalUrlForSession(s);
 
@@ -7093,7 +7254,7 @@ function renderSessionMobile(s) {
     '<div style="font-size:.85rem;color:var(--charcoal);font-weight:500;line-height:1.3;margin-bottom:2px">' + s.icon + ' ' + s.title + '</div>' +
     '<div style="font-size:.72rem;color:var(--gray);line-height:1.45;margin-bottom:6px">' + s.desc + '</div>' +
     '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">' +
-      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\')" style="background:' + catColor + ';color:white;border:none;padding:4px 10px;font-size:.72rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
+      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\',\'' + s.id + '\')" style="background:' + catColor + ';color:white;border:none;padding:4px 10px;font-size:.72rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
       '<button onclick="editProgTime(\'' + s.id + '\')" style="background:var(--cream2);border:1px solid var(--border);padding:3px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐 ' + timeStr + '</button>' +
       '<button onclick="openMoveMenu(\'' + s.id + '\', event)" style="background:var(--cream2);border:1px solid var(--border);padding:3px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">⇄ Déplacer</button>' +
       '<a href="' + gcalUrl + '" target="_blank" rel="noopener" style="font-size:.7rem;color:var(--red);text-decoration:underline;font-weight:500">+ Google Agenda</a>' +
@@ -7190,15 +7351,92 @@ function formatDuration(min) {
 // Mappe chaque séance vers la page du site correspondante.
 // sport → page prepa (préparation physique)
 // qcm → page qcm · biblio → page biblio · actus → page actu
-function goToSessionPage(sessionType, sessionCat) {
+// Navigue depuis une carte de séance du planning vers la bonne page/contenu.
+// La signature accepte 3 paramètres pour rester compatible avec les rendus
+// historiques (sessionType, sessionCat) — le 3e (sessionId) permet d'aller
+// chercher les champs target* de la séance pour ouvrir le bon doc/thème/annale.
+function goToSessionPage(sessionType, sessionCat, sessionId) {
+  // Sport → page prépa physique
   if (sessionCat === 'sport') {
     if (typeof goToPrepa === 'function') goToPrepa();
     else goTo('prepa');
     return;
   }
-  if (sessionType === 'qcm')    { goTo('qcm');    return; }
-  if (sessionType === 'biblio') { goTo('biblio'); return; }
+
+  // Si on a l'id, on retrouve la session pour lire ses champs target*
+  var session = null;
+  if (sessionId && typeof progSessions !== 'undefined') {
+    session = progSessions.find(function(x) { return x.id === sessionId; });
+  }
+
+  // ---------- LECTURE PHASE 1 ----------
+  // Séance "lecture · GTO Sauvetage" → ouvre le PDF directement
+  if (sessionType === 'lecture' && session && session.targetDocId) {
+    if (typeof openParcoursDoc === 'function') openParcoursDoc(session.targetDocId);
+    else goTo('biblio');
+    return;
+  }
+
+  // ---------- QCM CIBLÉ PHASE 3 ----------
+  // Séance "qcm-target · doctrines" → page QCM avec catégorie pré-cochée + lancement
+  if (sessionType === 'qcm-target' && session && session.targetCat) {
+    goTo('qcm');
+    setTimeout(function() {
+      if (typeof selectedCats !== 'undefined' && typeof updateCheckbox === 'function') {
+        // Reset puis sélectionne uniquement la cat ciblée
+        if (typeof espAllCats === 'function') {
+          espAllCats().forEach(function(c){ selectedCats[c] = false; updateCheckbox(c); });
+        }
+        selectedCats[session.targetCat] = true;
+        updateCheckbox(session.targetCat);
+        // Ouvrir le panneau parent si sous-cat (doctrine ou culture)
+        if (typeof DOCTRINES_SUBCATS !== 'undefined' && DOCTRINES_SUBCATS.indexOf(session.targetCat) !== -1) {
+          var sub = document.getElementById('doctrines-sub');
+          var parent = document.getElementById('parent-doctrines');
+          if (sub) sub.classList.add('open');
+          if (parent) parent.classList.add('open');
+          var arrow = document.getElementById('arrow-doctrines');
+          if (arrow) arrow.textContent = '▾';
+        }
+        if (typeof CULTURE_SUBCATS !== 'undefined' && CULTURE_SUBCATS.indexOf(session.targetCat) !== -1) {
+          var csub = document.getElementById('culture-sub');
+          var cparent = document.getElementById('parent-culture');
+          if (csub) csub.classList.add('open');
+          if (cparent) cparent.classList.add('open');
+          var carrow = document.getElementById('arrow-culture');
+          if (carrow) carrow.textContent = '▾';
+        }
+        if (typeof switchQcmMode === 'function') switchQcmMode('select');
+        if (typeof updateSummary === 'function') updateSummary();
+      }
+    }, 200);
+    return;
+  }
+
+  // ---------- RÉVISION INTELLIGENTE PHASE 2 ----------
+  // Séance "qcm-review" → page QCM avec onglet review actif
+  if (sessionType === 'qcm-review') {
+    goTo('qcm');
+    setTimeout(function() {
+      // Bascule vers le mode "review" si l'onglet existe
+      var reviewTab = document.getElementById('tab-review');
+      if (reviewTab && typeof reviewTab.click === 'function') reviewTab.click();
+    }, 200);
+    return;
+  }
+
+  // ---------- ANNALE PHASE 3 ----------
+  // Séance "annale" → page Mode concours
+  if (sessionType === 'annale') {
+    goTo('concours');
+    return;
+  }
+
+  // ---------- TYPES HISTORIQUES + FALLBACKS ----------
+  if (sessionType === 'qcm' || sessionType === 'qcm-random') { goTo('qcm');    return; }
+  if (sessionType === 'biblio' || sessionType === 'lecture-libre') { goTo('biblio'); return; }
   if (sessionType === 'actus')  { goTo('actu');   return; }
+
   // Fallback : espace candidat
   goTo('espace');
 }
@@ -8352,6 +8590,11 @@ function toggleDocSeen(docId, cardEl) {
   else _biblioSeenIds.delete(docId);
   renderBiblioReadStatus();                 // refresh tous les statuts (cartes)
   _updateViewerMarkSeenButton();            // refresh le bouton du viewer si ouvert
+  // Rafraîchir le parcours du candidat (compteurs des blocs, état "actif/terminé")
+  if (typeof renderParcours === 'function') renderParcours();
+  // Rebuild le planning hebdo : en Phase 1, le prochain doc à lire change
+  // donc les séances "📚 Lecture" doivent être ré-affectées.
+  if (typeof rebuildProgPlanning === 'function') rebuildProgPlanning();
 
   if (willBeSeen) {
     // Récupère name/type depuis la carte si présente, sinon depuis l'état du viewer
@@ -8376,6 +8619,7 @@ function toggleDocSeen(docId, cardEl) {
           _biblioSeenIds.delete(docId);  // rollback
           renderBiblioReadStatus();
           _updateViewerMarkSeenButton();
+          if (typeof renderParcours === 'function') renderParcours();
         }
       }
     });
@@ -8393,6 +8637,7 @@ function toggleDocSeen(docId, cardEl) {
           _biblioSeenIds.add(docId);  // rollback
           renderBiblioReadStatus();
           _updateViewerMarkSeenButton();
+          if (typeof renderParcours === 'function') renderParcours();
         }
       });
   }
@@ -16523,15 +16768,29 @@ var PARCOURS_BLOCS = {
       label: 'Doctrines',
       sub:   'GTO + GDO + SSUAP',
       docs:  [
-        // GTO (6)
-        'gto-ventilation', 'gto-extinction', 'gto-vicies',
-        'gto-forets', 'gto-sauvegarde', 'gto-sauvetage',
-        // GDO (10)
-        'gdo-incendies-structures', 'gdo-feu-foret', 'gdo-agricole',
-        'gdo-gaz', 'gdo-silos', 'gdo-ulm',
-        'gdo-routier', 'gdo-electricite', 'gdo-toxicite', 'gdo-ssuap',
-        // SSUAP (1) — PSE 1/2 ajoutés ici quand publiés
-        'ssuap-recommandations'
+        // Ordre pédagogique défini par Quentin :
+        // 1) Fondamentaux opérationnels (engagement, sauvetage, sauvegarde)
+        'gto-vicies',                  // Engagement en milieux viciés
+        'gto-sauvetage',               // Sauvetage et mises en sécurité
+        'gto-sauvegarde',              // Sauvegarde opérationnelle
+        // 2) Incendie : structures puis techniques d'extinction et ventilation
+        'gdo-incendies-structures',    // Interventions incendies structures
+        'gto-extinction',              // Établissement techniques d'extinction
+        'gto-ventilation',             // Ventilation opérationnelle
+        // 3) Risques et environnements
+        'gdo-toxicite',                // Prévention toxicité des fumées
+        'gdo-routier',                 // Opérations secours milieu routier
+        // 4) Le reste (ordre arbitraire — situations spécifiques)
+        'gto-forets',                  // Lutte feux forêts
+        'gdo-feu-foret',               // Feu de forêt et espace naturel
+        'gdo-agricole',                // Interventions milieu agricole
+        'gdo-gaz',                     // Interventions présence de gaz
+        'gdo-silos',                   // Interventions silos
+        'gdo-ulm',                     // Interventions ULM
+        'gdo-electricite',             // Opérations secours présence électricité
+        // 5) Secourisme en dernier
+        'ssuap-recommandations',       // Recommandations premiers secours
+        'gdo-ssuap'                    // GDO Secours et soins d'urgence aux personnes
       ]
     },
     {
@@ -16662,11 +16921,13 @@ function setParcoursField(field, value) {
 }
 
 // ---------- PROGRESSION DE LECTURE ----------
-// Renvoie un Set des doc_id ouverts par le candidat (depuis _biblioOpenedIds chargé en biblio).
-// Si la biblio n'a jamais été ouverte dans la session, renvoie un Set vide (le sync au login
-// charge déjà cette donnée).
+// Renvoie un Set des doc_id que le candidat a explicitement marqués comme "vus"
+// via la case à cocher de la bibliothèque (table Supabase : doc_completions).
+// IMPORTANT : on n'utilise PAS _biblioOpenedIds (= docs juste ouverts) parce
+// qu'ouvrir un PDF 3 secondes pour le survoler ne signifie pas l'avoir lu.
+// Le marquage manuel "Vu" est le seul vrai signal d'engagement du candidat.
 function getReadDocIds() {
-  if (typeof _biblioOpenedIds !== 'undefined' && _biblioOpenedIds) return _biblioOpenedIds;
+  if (typeof _biblioSeenIds !== 'undefined' && _biblioSeenIds) return _biblioSeenIds;
   return new Set();
 }
 
@@ -16707,6 +16968,149 @@ function getParcoursGlobalProgress() {
     total += p.total;
   });
   return { read: read, total: total, pct: total > 0 ? Math.round(read / total * 100) : 0 };
+}
+
+// ---------- LIBELLÉS DES DOCUMENTS DU PARCOURS ----------
+// Titres courts pour l'affichage dans les cartes de séance.
+// Faute d'API biblio universelle, on les déclare ici. Si un doc n'est pas
+// dans cette table, on retombe sur le doc_id formaté.
+var DOC_TITLES = {
+  // Doctrines GTO
+  'gto-vicies':      { short: 'GTO Engagement milieux viciés',  full: 'GTO Engagement en milieux viciés' },
+  'gto-sauvetage':   { short: 'GTO Sauvetage',                  full: 'GTO Sauvetage et mises en sécurité' },
+  'gto-sauvegarde':  { short: 'GTO Sauvegarde opérationnelle',  full: 'GTO Sauvegarde opérationnelle' },
+  'gto-extinction':  { short: 'GTO Techniques d\'extinction',    full: 'GTO Établissement techniques d\'extinction' },
+  'gto-ventilation': { short: 'GTO Ventilation opérationnelle', full: 'GTO Ventilation opérationnelle' },
+  'gto-forets':      { short: 'GTO Feux de forêts',             full: 'GTO Lutte feux forêts espaces naturels' },
+  // Doctrines GDO
+  'gdo-incendies-structures': { short: 'GDO Incendies structures',  full: 'GDO Interventions incendies structures' },
+  'gdo-toxicite':             { short: 'GDO Toxicité des fumées',   full: 'GDO Prévention risques toxicité des fumées' },
+  'gdo-routier':              { short: 'GDO Milieu routier',        full: 'GDO Opérations secours milieu routier' },
+  'gdo-feu-foret':            { short: 'GDO Feu de forêt',          full: 'GDO Feu de forêt et espace naturel' },
+  'gdo-agricole':             { short: 'GDO Milieu agricole',       full: 'GDO Interventions milieu agricole' },
+  'gdo-gaz':                  { short: 'GDO Présence de gaz',       full: 'GDO Interventions présence de gaz' },
+  'gdo-silos':                { short: 'GDO Silos',                 full: 'GDO Interventions silos' },
+  'gdo-ulm':                  { short: 'GDO ULM',                   full: 'GDO Interventions ULM' },
+  'gdo-electricite':          { short: 'GDO Présence électricité',  full: 'GDO Opérations secours présence électricité' },
+  'gdo-ssuap':                { short: 'GDO Secours d\'urgence',     full: 'GDO Secours et soins d\'urgence aux personnes' },
+  // Secourisme
+  'ssuap-recommandations':    { short: 'Premiers secours',          full: 'Recommandations premiers secours' },
+  // Fiches culture admin
+  'fiche-sis':                { short: 'Fiche · Organisation SIS',  full: 'Organisation et fonctionnement du SDIS' },
+  'fiche-fp':                 { short: 'Fiche · Fonction publique', full: 'Les 3 versants de la Fonction Publique' },
+  'fp-pouvoirs-publics':      { short: 'Fiche · Pouvoirs publics',  full: 'Organisation des pouvoirs publics' },
+  'fiche-statut-spp':         { short: 'Fiche · Statut SPP',        full: 'Le Statut du Sapeur-Pompier Professionnel' },
+  // Fiches divers
+  'fiche-erp':                { short: 'Fiche · ERP',               full: 'Établissements recevant du public (ERP)' },
+  'fiche-pcs':                { short: 'Fiche · PCS',               full: 'Plan Communal de Sauvegarde (PCS)' }
+};
+
+function getDocTitle(docId, useFull) {
+  var entry = DOC_TITLES[docId];
+  if (entry) return useFull ? entry.full : entry.short;
+  // Fallback : formater le doc_id de façon lisible
+  return (docId || '?').replace(/-/g, ' ').replace(/^./, function(c){ return c.toUpperCase(); });
+}
+
+// ---------- METADATA POUR OUVRIR UN DOC DEPUIS UNE SÉANCE ----------
+// Pour chaque doc du parcours, on a besoin des infos pour appeler openDoc()
+// (type + url + niveau d'accès). On les dérive d'un mapping unique.
+var DOC_OPEN_META = {
+  // GTO
+  'gto-vicies':      { type: 'GTO', url: 'docs/doctrines/gto/engagement-milieux-vicies.pdf',   access: 'free' },
+  'gto-sauvetage':   { type: 'GTO', url: 'docs/doctrines/gto/sauvetage-mises-securite.pdf',    access: 'free' },
+  'gto-sauvegarde':  { type: 'GTO', url: 'docs/doctrines/gto/sauvegarde-operationnelle.pdf',   access: 'free' },
+  'gto-extinction':  { type: 'GTO', url: 'docs/doctrines/gto/techniques-extinction.pdf',       access: 'free' },
+  'gto-ventilation': { type: 'GTO', url: 'docs/doctrines/gto/ventilation-operationnelle.pdf',  access: 'free' },
+  'gto-forets':      { type: 'GTO', url: 'docs/doctrines/gto/feux-forets-espaces-naturels.pdf', access: 'free' },
+  // GDO
+  'gdo-incendies-structures': { type: 'GDO', url: 'docs/doctrines/gdo/incendies-structures.pdf',         access: 'free' },
+  'gdo-toxicite':             { type: 'GDO', url: 'docs/doctrines/gdo/toxicite-fumees.pdf',              access: 'free' },
+  'gdo-routier':              { type: 'GDO', url: 'docs/doctrines/gdo/milieu-routier.pdf',               access: 'free' },
+  'gdo-feu-foret':            { type: 'GDO', url: 'docs/doctrines/gdo/feu-foret-espace-naturel.pdf',     access: 'free' },
+  'gdo-agricole':             { type: 'GDO', url: 'docs/doctrines/gdo/milieu-agricole.pdf',              access: 'free' },
+  'gdo-gaz':                  { type: 'GDO', url: 'docs/doctrines/gdo/presence-gaz.pdf',                 access: 'free' },
+  'gdo-silos':                { type: 'GDO', url: 'docs/doctrines/gdo/silos.pdf',                        access: 'free' },
+  'gdo-ulm':                  { type: 'GDO', url: 'docs/doctrines/gdo/ulm.pdf',                          access: 'free' },
+  'gdo-electricite':          { type: 'GDO', url: 'docs/doctrines/gdo/presence-electricite.pdf',         access: 'free' },
+  'gdo-ssuap':                { type: 'GDO', url: 'docs/doctrines/gdo/secours-soins-urgences-personnes.pdf', access: 'free' },
+  'ssuap-recommandations':    { type: 'SSUAP', url: 'docs/doctrines/ssuap/recommandations-premiers-secours.pdf', access: 'free' },
+  // Fiches culture admin
+  'fiche-sis':                { type: 'Fiche de synthèse', url: 'docs/culture-admin/organisation-sis/fiche-synthese.pdf',     access: 'paid' },
+  'fiche-fp':                 { type: 'Fiche de synthèse', url: 'docs/culture-admin/fonction-publique/fiche-synthese.pdf',    access: 'paid' },
+  'fp-pouvoirs-publics':      { type: 'Fiche de synthèse', url: 'docs/culture-admin/fonction-publique/organisation-pouvoirs-publics.pdf', access: 'paid' },
+  'fiche-statut-spp':         { type: 'Fiche de synthèse', url: 'docs/culture-admin/statut-spp/fiche-synthese.pdf',          access: 'paid' },
+  // Fiches divers
+  'fiche-erp':                { type: 'Fiche de synthèse', url: 'docs/divers/fiche-erp.pdf', access: 'paid' },
+  'fiche-pcs':                { type: 'Fiche de synthèse', url: 'docs/divers/fiche-pcs.pdf', access: 'paid' }
+};
+
+// Ouvre un doc du parcours dans le viewer biblio (proxy vers openDoc).
+function openParcoursDoc(docId) {
+  var meta = DOC_OPEN_META[docId];
+  if (!meta) {
+    console.warn('Pas de metadata pour le doc', docId);
+    if (typeof goTo === 'function') goTo('biblio');
+    return;
+  }
+  var fullTitle = getDocTitle(docId, true);
+  if (typeof openDoc === 'function') {
+    openDoc(docId, fullTitle, meta.type, meta.url, meta.access);
+  }
+}
+
+// ---------- PROCHAIN DOC À LIRE DANS LE PARCOURS ----------
+// Parcourt tous les blocs dans l'ordre, retourne le premier doc_id non vu.
+// Renvoie null si tout est lu (le parcours est terminé).
+function getNextDocToRead() {
+  var blocs = getParcoursBlocs();
+  var read = getReadDocIds();
+  for (var i = 0; i < blocs.length; i++) {
+    var docs = blocs[i].docs || [];
+    for (var j = 0; j < docs.length; j++) {
+      if (!read.has(docs[j])) return { docId: docs[j], blocKey: blocs[i].key, blocLabel: blocs[i].label };
+    }
+  }
+  return null;
+}
+
+// Renvoie les N prochains docs à lire, en suivant l'ordre du parcours.
+// Utile pour pré-affecter chaque séance de la semaine à un doc différent.
+function getNextDocsToRead(count) {
+  var blocs = getParcoursBlocs();
+  var read = getReadDocIds();
+  var queue = [];
+  for (var i = 0; i < blocs.length && queue.length < count; i++) {
+    var docs = blocs[i].docs || [];
+    for (var j = 0; j < docs.length && queue.length < count; j++) {
+      if (!read.has(docs[j])) {
+        queue.push({ docId: docs[j], blocKey: blocs[i].key, blocLabel: blocs[i].label });
+      }
+    }
+  }
+  return queue;
+}
+
+// ---------- CIBLAGE POINTS FAIBLES (Phase 3) ----------
+// Renvoie les N catégories les plus faibles depuis les stats QCM
+// (basé sur perCat de window._espLastData chargé par renderEspace).
+// Renvoie [] si pas assez de données.
+function getWeakestCategories(count) {
+  count = count || 3;
+  var data = window._espLastData;
+  if (!data || !data.perCat) return [];
+
+  var rows = [];
+  Object.keys(data.perCat).forEach(function(c) {
+    var s = data.perCat[c];
+    if (!s || s.seen < 5) return; // au moins 5 questions vues pour être significatif
+    rows.push({ cat: c, pct: s.correct / s.seen, seen: s.seen });
+  });
+  // Tri croissant par % de réussite
+  rows.sort(function(a, b) { return a.pct - b.pct; });
+  // Garde uniquement les < 75%
+  rows = rows.filter(function(r) { return r.pct < 0.75; });
+  return rows.slice(0, count);
 }
 
 // ---------- RENDU DU PARCOURS ----------
@@ -16979,6 +17383,9 @@ function saveParcoursModal() {
 
   closeParcoursModal();
   renderParcours();
+  // Rebuild le planning hebdo : la phase a peut-être changé,
+  // donc le contenu des séances révision doit s'adapter.
+  if (typeof rebuildProgPlanning === 'function') rebuildProgPlanning();
   if (typeof showToast === 'function') {
     showToast('✓ Parcours mis à jour');
   }
