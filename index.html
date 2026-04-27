@@ -559,6 +559,13 @@ body.is-logged .nav-member-only{display:revert}
 .qcm-check-item.checked{background:var(--red-pale);border-color:var(--red-pale2);color:var(--charcoal)}
 .qcm-check-parent{font-weight:600;color:var(--charcoal)}
 .qcm-check-parent.open{border-color:var(--red-pale2);background:var(--cream)}
+/* Carte "Pour aller plus loin" : visuellement séparée par un wash beige neutre */
+.qcm-check-hors-programme{background:#faf8f3;border-color:#d8cdb6}
+.qcm-check-hors-programme:hover{background:#f3eedf;border-color:#c9bfae}
+.qcm-check-hors-programme.open{background:#f3eedf;border-color:#c9bfae}
+.qcm-hors-programme-tag{display:inline-block;background:#c9bfae;color:#3a3528;font-size:.55rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:2px 6px;margin-left:6px;vertical-align:middle;line-height:1.4}
+/* Eyebrow dans le panneau dépliable hors programme */
+.qcm-subcat-eyebrow{grid-column:1/-1;font-size:.7rem;color:var(--gray);font-style:italic;padding-bottom:4px;border-bottom:1px dashed var(--border);margin-bottom:4px;line-height:1.4}
 .qcm-checkbox{font-size:1.1rem;color:var(--gray-light);flex-shrink:0;line-height:1}
 .qcm-check-item.checked .qcm-checkbox{color:var(--red)}
 .qcm-check-label{flex:1;line-height:1.35}
@@ -702,6 +709,7 @@ body.is-logged .nav-member-only{display:revert}
 .biblio-card{background:white;border:1px solid var(--border);padding:16px;transition:all .2s;position:relative;cursor:pointer}
 .biblio-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.07);border-color:var(--red)}
 .biblio-type-tag{font-size:.66rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.biblio-out-of-scope-badge{display:inline-block;background:#f0eee9;border:1px solid #c9bfae;color:#6e6149;font-size:.58rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:2px 7px;margin-left:6px;vertical-align:middle;line-height:1.4}
 .biblio-name{font-size:.86rem;font-weight:600;color:var(--charcoal);line-height:1.35;margin-bottom:4px}
 .biblio-meta{font-size:.72rem;color:var(--gray-light)}
 /* Niveaux d'accès : visuel différencié pour cadenas */
@@ -3680,6 +3688,13 @@ body:not(.is-logged) .mobile-nav-member{display:none}
                 <span class="qcm-cat-count" id="count-maths">150</span>
               </div>
 
+              <!-- Carte 5 : Pour aller plus loin (hors programme — parent repliable) -->
+              <div class="qcm-check-item qcm-check-parent qcm-check-hors-programme" id="parent-hors-programme" onclick="toggleHorsProgrammePanel(event)">
+                <span class="qcm-checkbox" id="chk-hors-programme" onclick="event.stopPropagation();toggleCat('hors-programme')" style="cursor:pointer">☐</span>
+                <span class="qcm-check-label">Pour aller plus loin <span class="qcm-hors-programme-tag">hors programme</span></span>
+                <span style="display:flex;align-items:center;gap:6px"><span class="qcm-cat-count" id="count-hors-programme">68</span><span class="qcm-subcat-arrow" id="arrow-hors-programme">▸</span></span>
+              </div>
+
               <!-- Panneau sous-catégories Culture administrative (pleine largeur, déplié au clic) -->
               <div class="qcm-subcats" id="culture-sub">
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('statut',event)"><span class="qcm-checkbox" id="chk-statut">☐</span><span class="qcm-check-label">Statut SPP &amp; Fonctionnaire</span><span class="qcm-cat-count" id="count-statut">105</span></div>
@@ -3692,20 +3707,25 @@ body:not(.is-logged) .mobile-nav-member{display:none}
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-ventilation',event)"><span class="qcm-checkbox" id="chk-gto-ventilation">☐</span><span class="qcm-check-label">GTO Ventilation Opérationnelle</span><span class="qcm-cat-count" id="count-gto-ventilation">12</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvetage',event)"><span class="qcm-checkbox" id="chk-gto-sauvetage">☐</span><span class="qcm-check-label">GTO Sauvetage &amp; Mise en Sécurité</span><span class="qcm-cat-count" id="count-gto-sauvetage">49</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvegarde',event)"><span class="qcm-checkbox" id="chk-gto-sauvegarde">☐</span><span class="qcm-check-label">GTO Sauvegarde Opérationnelle</span><span class="qcm-cat-count" id="count-gto-sauvegarde">73</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-extinctions',event)"><span class="qcm-checkbox" id="chk-gto-extinctions">☐</span><span class="qcm-check-label">GTO Établissements &amp; Extinctions</span><span class="qcm-cat-count" id="count-gto-extinctions">73</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-vicie',event)"><span class="qcm-checkbox" id="chk-gto-vicie">☐</span><span class="qcm-check-label">GTO Engagement Milieu Vicié</span><span class="qcm-cat-count" id="count-gto-vicie">100</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ssuap',event)"><span class="qcm-checkbox" id="chk-gdo-ssuap">☐</span><span class="qcm-check-label">GDO SSUAP</span><span class="qcm-cat-count" id="count-gdo-ssuap">14</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-fumees',event)"><span class="qcm-checkbox" id="chk-gdo-fumees">☐</span><span class="qcm-check-label">GDO Toxicité des Fumées</span><span class="qcm-cat-count" id="count-gdo-fumees">11</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-gaz',event)"><span class="qcm-checkbox" id="chk-gdo-gaz">☐</span><span class="qcm-check-label">GDO Présence Gaz</span><span class="qcm-cat-count" id="count-gdo-gaz">12</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-incendie',event)"><span class="qcm-checkbox" id="chk-gdo-incendie">☐</span><span class="qcm-check-label">GDO Incendie Structure</span><span class="qcm-cat-count" id="count-gdo-incendie">60</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-routier',event)"><span class="qcm-checkbox" id="chk-gdo-routier">☐</span><span class="qcm-check-label">GDO Milieu Routier</span><span class="qcm-cat-count" id="count-gdo-routier">62</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">254</span></div>
+              </div>
+
+              <!-- Panneau sous-catégories "Pour aller plus loin" (hors programme) -->
+              <div class="qcm-subcats" id="hors-programme-sub">
+                <div class="qcm-subcat-eyebrow">Doctrines hors programme — pour ta culture personnelle</div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
               </div>
             </div>
           </div>
@@ -4054,20 +4074,20 @@ body:not(.is-logged) .mobile-nav-member{display:none}
           <div class="biblio-grid">
             <!-- GDO -->
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-incendies-structures','GDO Interventions incendies structures','GDO','docs/doctrines/gdo/incendies-structures.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions incendies structures</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Feu de forêt et espace naturel</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions milieu agricole</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Feu de forêt et espace naturel</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions milieu agricole</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-gaz','GDO Interventions présence de gaz','GDO','docs/doctrines/gdo/presence-gaz.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions présence de gaz</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-routier','GDO Opérations secours milieu routier','GDO','docs/doctrines/gdo/milieu-routier.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Opérations secours milieu routier</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-toxicite','GDO Prévention risques toxicité des fumées','GDO','docs/doctrines/gdo/toxicite-fumees.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Prévention risques toxicité des fumées</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ssuap','GDO Secours et soins d&#39;urgence aux personnes','GDO','docs/doctrines/gdo/secours-soins-urgences-personnes.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Secours et soins d'urgence aux personnes</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- GTO -->
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-ventilation','GTO Ventilation opérationnelle','GTO','docs/doctrines/gto/ventilation-operationnelle.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Ventilation opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-extinction','GTO Établissement techniques d&#39;extinction','GTO','docs/doctrines/gto/techniques-extinction.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Établissement techniques d'extinction</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-vicies','GTO Engagement en milieux viciés','GTO','docs/doctrines/gto/engagement-milieux-vicies.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Engagement en milieux viciés</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Lutte feux forêts espaces naturels</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Lutte feux forêts espaces naturels</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-sauvegarde','GTO Sauvegarde opérationnelle','GTO','docs/doctrines/gto/sauvegarde-operationnelle.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvegarde opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-sauvetage','GTO Sauvetage et mises en sécurité','GTO','docs/doctrines/gto/sauvetage-mises-securite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvetage et mises en sécurité</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- SSUAP -->
@@ -7099,10 +7119,27 @@ function makeRevSession(type, dayKey, extras) {
     case 'lecture': {
       var doc = extras.docInfo || {};
       var shortTitle = (typeof getDocTitle === 'function') ? getDocTitle(doc.docId) : doc.docId;
+      // Construction du libellé selon découpage : "GTO Sauvegarde · partie 2/3"
+      var titleSuffix = '';
+      var descPart = '';
+      if (doc.partTotal && doc.partTotal > 1) {
+        titleSuffix = ' · partie ' + doc.partNum + '/' + doc.partTotal;
+        if (doc.partRange) {
+          descPart = ' (' + doc.partRange.label + ')';
+        }
+      }
+      // Description adaptée : si dernière partie ou doc en 1 séance, on rappelle de cocher "Vu"
+      var isLastPart = !doc.partTotal || doc.partNum === doc.partTotal;
+      var descMain;
+      if (isLastPart) {
+        descMain = 'Lis' + descPart + ' et marque le doc comme « Vu » quand tu as fini.';
+      } else {
+        descMain = 'Lis' + descPart + ' — la suite est sur la séance suivante.';
+      }
       spec = {
         icon:     '📚',
-        title:    'Lecture · ' + shortTitle,
-        desc:     'Lis le document et marque-le comme « Vu » quand tu as fini. Bloc en cours : ' + (doc.blocLabel || ''),
+        title:    'Lecture · ' + shortTitle + titleSuffix,
+        desc:     descMain + ' Bloc en cours : ' + (doc.blocLabel || ''),
         duration: PROG_REV_DURATION,
         targetDocId: doc.docId,
         targetBlocKey: doc.blocKey
@@ -7472,6 +7509,14 @@ function goToSessionPage(sessionType, sessionCat, sessionId) {
           if (cparent) cparent.classList.add('open');
           var carrow = document.getElementById('arrow-culture');
           if (carrow) carrow.textContent = '▾';
+        }
+        if (typeof HORS_PROGRAMME_SUBCATS !== 'undefined' && HORS_PROGRAMME_SUBCATS.indexOf(session.targetCat) !== -1) {
+          var hpsub = document.getElementById('hors-programme-sub');
+          var hpparent = document.getElementById('parent-hors-programme');
+          if (hpsub) hpsub.classList.add('open');
+          if (hpparent) hpparent.classList.add('open');
+          var hparrow = document.getElementById('arrow-hors-programme');
+          if (hparrow) hparrow.textContent = '▾';
         }
         if (typeof switchQcmMode === 'function') switchQcmMode('select');
         if (typeof updateSummary === 'function') updateSummary();
@@ -10794,7 +10839,14 @@ function showToast(msg) {
 // Les fichiers doivent être hébergés dans un dossier /qcm/ à côté de index.html
 // Les doctrines sont dans un sous-dossier /qcm/doctrines/
 var QCM_BASE_PATH = 'qcm/';
-var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto-forets','gto-extinctions','gto-vicie','gdo-ssuap','gdo-fumees','gdo-elec','gdo-silos','gdo-gaz','gdo-agricole','gdo-incendie','gdo-ulm','gdo-routier','gdo-foret','pse'];
+// Sous-catégories Doctrines AU PROGRAMME OFFICIEL (arrêté 30 nov. 2020 voie 2°)
+// Les doctrines hors programme sont listées dans HORS_PROGRAMME_SUBCATS et
+// affichées dans le panneau "Pour aller plus loin" de la page QCM.
+var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto-extinctions','gto-vicie','gdo-ssuap','gdo-fumees','gdo-gaz','gdo-incendie','gdo-routier','pse'];
+// Sous-catégories HORS PROGRAMME — accessibles via "Pour aller plus loin" mais
+// jamais piochées en QCM aléatoire/intelligent ni ciblage Phase 3.
+// (cohérent avec OUT_OF_SCOPE_QCM_CATS dans le module parcours)
+var HORS_PROGRAMME_SUBCATS = ['gto-forets','gdo-elec','gdo-silos','gdo-agricole','gdo-ulm','gdo-foret'];
 var CULTURE_SUBCATS = ['statut','sis','divers'];
 
 // Labels humains des thèmes (pour l'affichage)
@@ -10977,6 +11029,22 @@ function toggleCat(cat) {
       if (carrow) carrow.textContent = '▾';
     }
   }
+
+  // Si c'est "hors-programme" (parent), on toggle toutes ses sous-cats
+  if (cat === 'hors-programme') {
+    HORS_PROGRAMME_SUBCATS.forEach(function(sc) {
+      selectedCats[sc] = selectedCats['hors-programme'];
+      updateCheckbox(sc);
+    });
+    if (selectedCats['hors-programme']) {
+      var hpsub = document.getElementById('hors-programme-sub');
+      var hpparent = document.getElementById('parent-hors-programme');
+      var hparrow = document.getElementById('arrow-hors-programme');
+      if (hpsub) hpsub.classList.add('open');
+      if (hpparent) hpparent.classList.add('open');
+      if (hparrow) hparrow.textContent = '▾';
+    }
+  }
   updateSummary();
 }
 
@@ -11010,6 +11078,19 @@ function toggleSubCat(cat, evt) {
       if (cParentItem) cParentItem.classList.toggle('checked', anyCultureChecked);
     }
   }
+
+  // Met à jour la checkbox parent "hors-programme" si c'est une sous-cat hors programme
+  if (HORS_PROGRAMME_SUBCATS.indexOf(cat) !== -1) {
+    var anyHpChecked = HORS_PROGRAMME_SUBCATS.some(function(sc){ return selectedCats[sc]; });
+    var allHpChecked = HORS_PROGRAMME_SUBCATS.every(function(sc){ return selectedCats[sc]; });
+    selectedCats['hors-programme'] = allHpChecked;
+    var hpParentEl = document.getElementById('chk-hors-programme');
+    if (hpParentEl) {
+      hpParentEl.textContent = allHpChecked ? '☑' : (anyHpChecked ? '▪' : '☐');
+      var hpParentItem = document.getElementById('parent-hors-programme');
+      if (hpParentItem) hpParentItem.classList.toggle('checked', anyHpChecked);
+    }
+  }
   updateSummary();
 }
 
@@ -11027,6 +11108,16 @@ function toggleCulturePanel(evt) {
   var sub = document.getElementById('culture-sub');
   var arrow = document.getElementById('arrow-culture');
   var parent = document.getElementById('parent-culture');
+  var isOpen = sub.classList.contains('open');
+  sub.classList.toggle('open', !isOpen);
+  if (parent) parent.classList.toggle('open', !isOpen);
+  if (arrow) arrow.textContent = isOpen ? '▸' : '▾';
+}
+
+function toggleHorsProgrammePanel(evt) {
+  var sub = document.getElementById('hors-programme-sub');
+  var arrow = document.getElementById('arrow-hors-programme');
+  var parent = document.getElementById('parent-hors-programme');
   var isOpen = sub.classList.contains('open');
   sub.classList.toggle('open', !isOpen);
   if (parent) parent.classList.toggle('open', !isOpen);
@@ -11085,28 +11176,33 @@ function updateCheckbox(cat) {
 }
 
 function updateSummary() {
+  // 'cats' = thèmes au programme officiel (utilisé pour le compteur "tout sélectionner")
   var cats = ['textes','maths'].concat(CULTURE_SUBCATS).concat(DOCTRINES_SUBCATS);
-  var selected = cats.filter(function(c){ return selectedCats[c]; });
+  // 'allSelectableCats' = thèmes au programme + hors programme (toutes les cases cochables)
+  var allSelectableCats = cats.concat(HORS_PROGRAMME_SUBCATS);
+  var selected = allSelectableCats.filter(function(c){ return selectedCats[c]; });
   var btn = document.getElementById('qcm-launch-btn');
   var summary = document.getElementById('qcm-launch-summary');
   var selAllCount = document.getElementById('select-all-count');
 
-  // Compteur "tout sélectionner"
+  // Compteur "tout sélectionner" (compte tout le sélectionné, y compris hors programme)
   if (selAllCount) {
     selAllCount.textContent = selected.length === 0
       ? 'Aucun thème sélectionné'
       : selected.length + ' thème' + (selected.length > 1 ? 's' : '') + ' sélectionné' + (selected.length > 1 ? 's' : '');
   }
 
-  // Icône + label du bouton "tout sélectionner"
+  // Icône + label du bouton "tout sélectionner" (basé uniquement sur les cats au programme,
+  // pour que "Tout désélectionner" apparaisse même si des hors-programme sont cochés)
   var selAllIcon = document.getElementById('select-all-icon');
   var selAllLabel = document.getElementById('select-all-label');
   if (selAllIcon && selAllLabel) {
+    var programSelected = cats.filter(function(c){ return selectedCats[c]; }).length;
     var allCount = cats.length;
-    if (selected.length === allCount) {
+    if (programSelected === allCount) {
       selAllIcon.textContent = '☑';
       selAllLabel.textContent = 'Tout désélectionner';
-    } else if (selected.length === 0) {
+    } else if (programSelected === 0) {
       selAllIcon.textContent = '☐';
       selAllLabel.textContent = 'Tout sélectionner';
     } else {
@@ -11183,6 +11279,11 @@ function updateSummary() {
     else if (doctrinesSub.length > 0) catNames.push('Doctrines (' + doctrinesSub.length + ')');
     if (selectedCats['textes']) catNames.push('Textes structurants');
     if (selectedCats['maths']) catNames.push('Mathématiques');
+    // Hors programme (s'il y en a de coché)
+    var horsProgSub = HORS_PROGRAMME_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+    if (horsProgSub.length > 0) {
+      catNames.push('Hors programme (' + horsProgSub.length + ')');
+    }
     var footer;
     if (!isPaidMember) {
       footer = '<strong>' + effectiveNb + ' question' + (effectiveNb > 1 ? 's' : '') + '</strong> <span class="dim">(démo · ' + remainingDemo + ' restante' + (remainingDemo > 1 ? 's' : '') + ' aujourd\'hui) — tirées aléatoirement dans&nbsp;:</span> ' + catNames.join(', ');
@@ -11223,7 +11324,8 @@ function loadCat(cat) {
     return Promise.resolve(loadedQuestions[cat]);
   }
   var path = QCM_BASE_PATH;
-  if (DOCTRINES_SUBCATS.indexOf(cat) !== -1) {
+  // Doctrines au programme + doctrines hors programme : les deux sont dans /doctrines/
+  if (DOCTRINES_SUBCATS.indexOf(cat) !== -1 || HORS_PROGRAMME_SUBCATS.indexOf(cat) !== -1) {
     path += 'doctrines/' + cat + '.json';
   } else {
     path += cat + '.json';
@@ -11273,7 +11375,9 @@ function launchQcmSession() {
 }
 
 function launchQcm() {
-  var cats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  // Toutes les cats sélectionnables : programme officiel + sous-cats hors programme
+  // (un candidat peut volontairement cocher une cat hors programme dans le mode "sélection thématique")
+  var cats = ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
   var selected = cats.filter(function(c){ return selectedCats[c]; });
   if (selected.length === 0) return;
 
@@ -11318,10 +11422,16 @@ function launchQcm() {
 }
 
 function launchRandomQcm() {
-  // Non payant : pioche dans les démos uniquement
+  // Pool de toutes les catégories au programme officiel.
+  // On retire systématiquement les sous-catégories hors programme (forets, agricole,
+  // silos, ulm, electricite, feu-foret) pour ne pas faire perdre de temps au candidat
+  // sur des thèmes qui ne tomberont pas au QCM.
   var allCats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  if (typeof isQcmCatOutOfScope === 'function') {
+    allCats = allCats.filter(function(c){ return !isQcmCatOutOfScope(c); });
+  }
 
-  // Non payant : pioche dans le pool COMPLET (tous thèmes) mais limité à 10 questions/jour
+  // Non payant : pioche dans le pool COMPLET (tous thèmes au programme) mais limité à 10 questions/jour
   if (!isPaidMember) {
     var remaining = demoRemainingToday();
     if (remaining === 0) {
@@ -11377,6 +11487,8 @@ function buildSessionTitle(selected) {
   else if (ds.length > 0) names.push('Doctrines (' + ds.length + ' sous-thèmes)');
   if (selectedCats['textes']) names.push('Textes structurants');
   if (selectedCats['maths']) names.push('Mathématiques');
+  var hps = HORS_PROGRAMME_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+  if (hps.length > 0) names.push('Hors programme (' + hps.length + ')');
   return names.join(' · ');
 }
 
@@ -11602,18 +11714,23 @@ var _qcmCountsPreloaded = false;
 function preloadAllCategoriesForCounts() {
   if (_qcmCountsPreloaded) return;
   _qcmCountsPreloaded = true;
-  var mainCats = ['statut', 'sis', 'divers', 'textes'];
-  var allCats = mainCats.concat(DOCTRINES_SUBCATS);
+  var mainCats = ['statut', 'sis', 'divers', 'textes', 'maths'];
+  var allCats = mainCats.concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
   var loaded = 0;
   allCats.forEach(function(cat) {
     loadCat(cat).then(function(){
       loaded++;
-      // Quand toutes les doctrines sont chargées, met à jour le sous-total du groupe doctrines
-      if (loaded === allCats.length) refreshDoctrinesTotal();
+      if (loaded === allCats.length) {
+        refreshDoctrinesTotal();
+        refreshHorsProgrammeTotal();
+      }
     }).catch(function(err){
       console.warn('Préchargement ' + cat + ' échoué :', err.message);
       loaded++;
-      if (loaded === allCats.length) refreshDoctrinesTotal();
+      if (loaded === allCats.length) {
+        refreshDoctrinesTotal();
+        refreshHorsProgrammeTotal();
+      }
     });
   });
 }
@@ -11625,6 +11742,16 @@ function refreshDoctrinesTotal() {
     total += CAT_TOTALS[sub] || 0;
   });
   var el = document.getElementById('count-doctrines');
+  if (el) el.textContent = total;
+}
+
+// Recalcule le sous-total « Pour aller plus loin » (hors programme)
+function refreshHorsProgrammeTotal() {
+  var total = 0;
+  HORS_PROGRAMME_SUBCATS.forEach(function(sub) {
+    total += CAT_TOTALS[sub] || 0;
+  });
+  var el = document.getElementById('count-hors-programme');
   if (el) el.textContent = total;
 }
 
@@ -12893,6 +13020,11 @@ function launchReviewSession() {
   var seenTarget = wanted - freshTarget;
 
   var picks = pickWeightedReviewQuestions(seenTarget);
+  // Filtrer les questions des catégories hors programme : un candidat n'a pas à
+  // revoir des questions sur des thèmes qui ne tomberont pas au QCM officiel.
+  if (typeof isQcmCatOutOfScope === 'function') {
+    picks = picks.filter(function(p){ return !isQcmCatOutOfScope(p.cat); });
+  }
   if (picks.length === 0 && freshTarget === 0) {
     showToast('Aucune question à réviser trouvée. Fais quelques sessions d\'abord !');
     return;
@@ -14293,7 +14425,7 @@ function espMigrateLocalToSupabase() {
 
 // ----- Liste de référence des catégories (pour afficher même celles non vues) -----
 function espAllCats() {
-  return ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS);
+  return ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
 }
 
 // Nombre total de questions par catégorie (hérité de l'UI sidebar)
@@ -14726,6 +14858,15 @@ function reviseWeakestCategory() {
     if (cparent) cparent.classList.add('open');
     var carrow = document.getElementById('arrow-culture');
     if (carrow) carrow.textContent = '▾';
+  }
+  // Si c'est une sous-cat hors-programme, ouvre le panneau "Pour aller plus loin"
+  if (HORS_PROGRAMME_SUBCATS.indexOf(cat) !== -1) {
+    var hpsub = document.getElementById('hors-programme-sub');
+    var hpparent = document.getElementById('parent-hors-programme');
+    if (hpsub) hpsub.classList.add('open');
+    if (hpparent) hpparent.classList.add('open');
+    var hparrow = document.getElementById('arrow-hors-programme');
+    if (hparrow) hparrow.textContent = '▾';
   }
   // Force le mode par thème (au cas où le dernier mode utilisé était "aléatoire")
   if (typeof switchQcmMode === 'function') switchQcmMode('select');
@@ -16835,29 +16976,26 @@ var PARCOURS_BLOCS = {
       label: 'Doctrines',
       sub:   'GTO + GDO + SSUAP',
       docs:  [
-        // Ordre pédagogique défini par Quentin :
+        // Ordre pédagogique défini par Quentin, restreint au PROGRAMME OFFICIEL
+        // (arrêté du 30 nov. 2020 - voie 2°). Les doctrines hors programme sont
+        // listées dans OUT_OF_SCOPE_DOCS et accessibles dans la biblio + section
+        // "Pour aller plus loin" du QCM, mais pas dans le parcours imposé.
+        //
         // 1) Fondamentaux opérationnels (engagement, sauvetage, sauvegarde)
-        'gto-vicies',                  // Engagement en milieux viciés
-        'gto-sauvetage',               // Sauvetage et mises en sécurité
-        'gto-sauvegarde',              // Sauvegarde opérationnelle
+        'gto-vicies',                  // Engagement en milieux viciés [Pt 4 EPI ARI]
+        'gto-sauvetage',               // Sauvetage et mises en sécurité [Pt 4 LSPCC + Pt 1 Sauvetage]
+        'gto-sauvegarde',              // Sauvegarde opérationnelle [Pt 4 Règles de sécurité]
         // 2) Incendie : structures puis techniques d'extinction et ventilation
-        'gdo-incendies-structures',    // Interventions incendies structures
-        'gto-extinction',              // Établissement techniques d'extinction
-        'gto-ventilation',             // Ventilation opérationnelle
+        'gdo-incendies-structures',    // [Pt 1 Reconnaissance + Attaques]
+        'gto-extinction',              // [Pt 1 Établissements + Techniques d'attaque/extinction]
+        'gto-ventilation',             // [Pt 1 Techniques d'attaques]
         // 3) Risques et environnements
-        'gdo-toxicite',                // Prévention toxicité des fumées
-        'gdo-routier',                 // Opérations secours milieu routier
-        // 4) Le reste (ordre arbitraire — situations spécifiques)
-        'gto-forets',                  // Lutte feux forêts
-        'gdo-feu-foret',               // Feu de forêt et espace naturel
-        'gdo-agricole',                // Interventions milieu agricole
-        'gdo-gaz',                     // Interventions présence de gaz
-        'gdo-silos',                   // Interventions silos
-        'gdo-ulm',                     // Interventions ULM
-        'gdo-electricite',             // Opérations secours présence électricité
-        // 5) Secourisme en dernier
-        'ssuap-recommandations',       // Recommandations premiers secours
-        'gdo-ssuap'                    // GDO Secours et soins d'urgence aux personnes
+        'gdo-toxicite',                // [Pt 4 EPI ARI complément]
+        'gdo-routier',                 // [Pt 2 Secours sur accident de la route]
+        'gdo-gaz',                     // [Pt 3 Fuite de gaz]
+        // 4) Secourisme en dernier
+        'ssuap-recommandations',       // [Pt 2 SUAP - référentiel détaillé]
+        'gdo-ssuap'                    // [Pt 2 SUAP entier]
       ]
     },
     {
@@ -16906,6 +17044,46 @@ var PARCOURS_BLOCS = {
     }
   ]
 };
+
+// ----------------------------------------------------------------
+// DOCS HORS PROGRAMME OFFICIEL
+// ----------------------------------------------------------------
+// Documents qui ne figurent pas dans le programme officiel du QCM voie 2°
+// (arrêté du 30 nov. 2020). Ils restent accessibles dans la biblio (avec un
+// badge "Hors programme") et dans une section "Pour aller plus loin" sur la
+// page QCM. Mais ils ne sont JAMAIS prescrits dans le parcours principal,
+// ni piochés en QCM aléatoire/intelligent/ciblé.
+//
+// L'idée : un candidat peut consulter par curiosité ou pour mieux comprendre
+// un thème, mais le parcours imposé ne lui fait pas perdre de temps dessus.
+var OUT_OF_SCOPE_DOCS = [
+  'gto-forets',          // Lutte feux forêts
+  'gdo-feu-foret',       // Feu de forêt et espace naturel
+  'gdo-agricole',        // Interventions milieu agricole
+  'gdo-silos',           // Interventions silos
+  'gdo-ulm',             // Interventions ULM
+  'gdo-electricite'      // Opérations secours présence électricité
+];
+
+// Sous-catégories QCM correspondantes (clés des fichiers JSON / CAT_LABELS).
+// On les utilise pour : (a) basculer ces panneaux QCM dans "Pour aller plus loin",
+// (b) les exclure du QCM aléatoire/intelligent et du ciblage Phase 3.
+var OUT_OF_SCOPE_QCM_CATS = [
+  'gto-forets',
+  'gdo-foret',           // Note : la cat QCM s'appelle "gdo-foret" (singulier)
+  'gdo-agricole',
+  'gdo-silos',
+  'gdo-ulm',
+  'gdo-elec'             // Note : la cat QCM s'appelle "gdo-elec"
+];
+
+// Helpers
+function isDocOutOfScope(docId) {
+  return OUT_OF_SCOPE_DOCS.indexOf(docId) !== -1;
+}
+function isQcmCatOutOfScope(catKey) {
+  return OUT_OF_SCOPE_QCM_CATS.indexOf(catKey) !== -1;
+}
 
 // Renvoie les blocs pour la voie active du candidat (default v2).
 function getParcoursBlocs() {
@@ -17112,6 +17290,99 @@ var DOC_OPEN_META = {
   'fiche-pcs':                { type: 'Fiche de synthèse', url: 'docs/divers/fiche-pcs.pdf', access: 'paid' }
 };
 
+// ---------- DÉCOUPAGE EN SÉANCES DE 45 MIN ----------
+// Règle pédagogique : 50 pages = 1 séance de 45 min (lecture + fichage).
+// Source des paginations : comptes manuels effectués sur les PDF officiels DGSCGC.
+// À mettre à jour si une nouvelle version d'un guide modifie sa pagination.
+var DOC_PAGES = {
+  // Doctrines GTO
+  'gto-vicies':      68,
+  'gto-sauvetage':   80,
+  'gto-sauvegarde':  52,
+  'gto-extinction':  112,
+  'gto-ventilation': 106,
+  'gto-forets':      124,
+  // Doctrines GDO
+  'gdo-incendies-structures': 162,
+  'gdo-toxicite':             56,
+  'gdo-routier':              180,
+  'gdo-feu-foret':            188,
+  'gdo-agricole':             88,
+  'gdo-gaz':                  168,
+  'gdo-silos':                68,
+  'gdo-ulm':                  40,
+  'gdo-electricite':          120,
+  'gdo-ssuap':                76,
+  'ssuap-recommandations':    396,  // PSE complet — traité à part (10 séances forfaitaires)
+  // Fiches culture admin
+  'fiche-sis':                19,
+  'fiche-fp':                 18,
+  'fp-pouvoirs-publics':      20,
+  'fiche-statut-spp':         17,
+  // Fiches divers
+  'fiche-erp':                10,
+  'fiche-pcs':                10
+};
+
+// Pages par séance de 45 min (paramètre central, modifiable d'un seul coup).
+var PAGES_PER_SESSION = 50;
+
+// Cas particuliers : certains docs sont découpés en un nombre fixe de séances
+// indépendamment de la règle 50 pages. Utile pour les docs très longs où le
+// découpage mécanique donnerait trop de parties (PSE = 8 parties par règle,
+// mais Quentin a décidé 10 séances pour avoir un rythme de fichage plus serré).
+var DOC_FORCED_PARTS = {
+  'ssuap-recommandations': 10  // PSE : 10 séances forfaitaires (~40 pages chacune)
+};
+
+// Calcule le nombre de parties d'un doc (= nombre de séances de 45 min nécessaires).
+// Renvoie au minimum 1, même pour un doc très court.
+function getDocPartsCount(docId) {
+  if (DOC_FORCED_PARTS[docId]) return DOC_FORCED_PARTS[docId];
+  var pages = DOC_PAGES[docId];
+  if (!pages) return 1; // Inconnu → 1 séance par défaut (sécurité)
+  return Math.max(1, Math.ceil(pages / PAGES_PER_SESSION));
+}
+
+// Génère la plage de pages pour la partie n (1-indexée) d'un doc découpé.
+// Renvoie un objet { from, to, label } ou null si le doc n'est pas découpé.
+// Exemple : GTO Sauvegarde 52 pages, 2 parties → partie 1 = p.1-26, partie 2 = p.27-52
+function getDocPartRange(docId, partNum) {
+  var totalParts = getDocPartsCount(docId);
+  if (totalParts <= 1) return null; // Pas de découpage utile
+  var pages = DOC_PAGES[docId] || 0;
+  if (pages === 0) return null;
+  // Découpage uniforme : pagesPerPart = ceil(total / parts)
+  var pagesPerPart = Math.ceil(pages / totalParts);
+  var from = (partNum - 1) * pagesPerPart + 1;
+  var to = Math.min(partNum * pagesPerPart, pages);
+  return {
+    from:  from,
+    to:    to,
+    label: 'p. ' + from + '-' + to
+  };
+}
+
+// À partir d'un doc non-vu, génère la liste de ses séances "Lecture · doc · partie X/N".
+// Utilisé par rebuildProgPlanning pour préparer la queue des séances de la semaine.
+// Si le doc n'est découpé qu'en 1 partie, on retourne une seule entrée sans suffixe.
+function getDocSessionsToRead(docId, blocLabel, blocKey) {
+  var totalParts = getDocPartsCount(docId);
+  var sessions = [];
+  for (var i = 1; i <= totalParts; i++) {
+    var range = (totalParts > 1) ? getDocPartRange(docId, i) : null;
+    sessions.push({
+      docId:      docId,
+      blocKey:    blocKey,
+      blocLabel:  blocLabel,
+      partNum:    i,
+      partTotal:  totalParts,
+      partRange:  range  // null si doc en 1 seule séance
+    });
+  }
+  return sessions;
+}
+
 // Ouvre un doc du parcours dans le viewer biblio (proxy vers openDoc).
 function openParcoursDoc(docId) {
   var meta = DOC_OPEN_META[docId];
@@ -17141,8 +17412,10 @@ function getNextDocToRead() {
   return null;
 }
 
-// Renvoie les N prochains docs à lire, en suivant l'ordre du parcours.
-// Utile pour pré-affecter chaque séance de la semaine à un doc différent.
+// Renvoie les N prochaines SÉANCES de lecture (pas docs) en suivant l'ordre du parcours.
+// Chaque doc non-vu est éclaté en N parties (cf. getDocPartsCount). On accumule jusqu'à
+// avoir 'count' séances. Le doc n'est marqué "vu" qu'à la complétion de toutes ses parties
+// (en pratique : c'est le candidat qui coche "Vu" sur la carte biblio quand il a fini).
 function getNextDocsToRead(count) {
   var blocs = getParcoursBlocs();
   var read = getReadDocIds();
@@ -17150,8 +17423,14 @@ function getNextDocsToRead(count) {
   for (var i = 0; i < blocs.length && queue.length < count; i++) {
     var docs = blocs[i].docs || [];
     for (var j = 0; j < docs.length && queue.length < count; j++) {
-      if (!read.has(docs[j])) {
-        queue.push({ docId: docs[j], blocKey: blocs[i].key, blocLabel: blocs[i].label });
+      var docId = docs[j];
+      if (read.has(docId)) continue;
+      // Génère toutes les parties de ce doc et les ajoute à la queue
+      var sessions = (typeof getDocSessionsToRead === 'function')
+        ? getDocSessionsToRead(docId, blocs[i].label, blocs[i].key)
+        : [{ docId: docId, blocKey: blocs[i].key, blocLabel: blocs[i].label }];
+      for (var k = 0; k < sessions.length && queue.length < count; k++) {
+        queue.push(sessions[k]);
       }
     }
   }
@@ -17171,6 +17450,9 @@ function getWeakestCategories(count) {
   Object.keys(data.perCat).forEach(function(c) {
     var s = data.perCat[c];
     if (!s || s.seen < 5) return; // au moins 5 questions vues pour être significatif
+    // Exclure les thèmes hors programme officiel (le candidat ne doit pas perdre
+    // de temps sur des catégories qui ne tomberont pas au QCM).
+    if (typeof isQcmCatOutOfScope === 'function' && isQcmCatOutOfScope(c)) return;
     rows.push({ cat: c, pct: s.correct / s.seen, seen: s.seen });
   });
   // Tri croissant par % de réussite
@@ -17299,12 +17581,23 @@ function renderParcours() {
     var nextDoc = (typeof getNextDocToRead === 'function') ? getNextDocToRead() : null;
     if (nextDoc) {
       var nextTitle = (typeof getDocTitle === 'function') ? getDocTitle(nextDoc.docId, true) : nextDoc.docId;
+      // Info pagination/découpage : "162 pages · prévois ~4 séances de 45 min"
+      var pagesInfo = '';
+      var totalParts = (typeof getDocPartsCount === 'function') ? getDocPartsCount(nextDoc.docId) : 1;
+      var pages = (typeof DOC_PAGES !== 'undefined') ? DOC_PAGES[nextDoc.docId] : null;
+      if (pages && totalParts > 1) {
+        pagesInfo = pages + ' pages · ' + totalParts + ' séances de 45 min à prévoir';
+      } else if (pages) {
+        pagesInfo = pages + ' pages · ~45 min de lecture/fichage';
+      }
       html += '' +
         '<div class="parcours-next-doc">' +
           '<div class="parcours-next-doc-left">' +
             '<div class="parcours-next-doc-eyebrow">📚 Prochain doc à lire</div>' +
             '<div class="parcours-next-doc-title">' + nextTitle + '</div>' +
-            '<div class="parcours-next-doc-bloc">Bloc en cours : ' + nextDoc.blocLabel + '</div>' +
+            '<div class="parcours-next-doc-bloc">Bloc en cours : ' + nextDoc.blocLabel +
+              (pagesInfo ? ' · <span style="color:var(--charcoal)">' + pagesInfo + '</span>' : '') +
+            '</div>' +
           '</div>' +
           '<div class="parcours-next-doc-actions">' +
             '<button class="btn-parcours-next-doc" onclick="openParcoursDoc(\'' + nextDoc.docId + '\')">Ouvrir →</button>' +
