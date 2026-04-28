@@ -298,9 +298,11 @@ body.tour-active .tour-exit{display:block}
 
 /* Bouton "?" flottant pour relancer le tutoriel contextuel de la page courante.
    Affiché uniquement aux membres payants, et seulement sur les pages qui ont
-   un tutoriel défini dans CONTEXT_TOURS. Caché pendant qu'un tour est actif. */
+   un tutoriel défini dans CONTEXT_TOURS. Caché pendant qu'un tour est actif.
+   Positionné en bas à droite au-dessus du bouton "Mon retour" pour ne pas
+   entrer en conflit avec la bulle "Parcours testeur" en bas à gauche. */
 .ctx-help-btn{
-  position:fixed;bottom:20px;left:20px;z-index:9990;
+  position:fixed;bottom:78px;right:20px;z-index:99996;
   width:42px;height:42px;border-radius:50%;
   background:white;color:var(--gray);
   border:1px solid var(--border);
@@ -314,7 +316,7 @@ body.tour-active .tour-exit{display:block}
 .ctx-help-btn[data-visible="1"]:not(.tour-active-hidden){display:flex}
 body.tour-active .ctx-help-btn{display:none !important}
 @media (max-width:600px){
-  .ctx-help-btn{width:38px;height:38px;bottom:16px;left:16px;font-size:1rem}
+  .ctx-help-btn{width:38px;height:38px;bottom:68px;right:16px;font-size:1rem}
 }
 
 /* Variante centrée : pour les étapes "welcome" et "final" sans cible précise.
@@ -12227,18 +12229,33 @@ function ctxHelpClick() {
 
 // Appelle ctxHelpUpdate() à chaque changement de page.
 // On hooke goTo() sans le réécrire (wrapping pattern).
-if (typeof goTo === 'function') {
-  var _goToOriginal = goTo;
-  goTo = function(pageId) {
+// Important : on enrobe via window.goTo pour que tous les onclick="goTo(...)"
+// du HTML utilisent la version enrobée (sinon le navigateur pourrait
+// conserver une référence à la déclaration originale).
+if (typeof window.goTo === 'function') {
+  var _goToOriginal = window.goTo;
+  window.goTo = function(pageId) {
     var ret = _goToOriginal.apply(this, arguments);
     setTimeout(ctxHelpUpdate, 30);
     return ret;
   };
 }
 
-// Mise à jour initiale au chargement et après login Memberstack
+// Mise à jour initiale au chargement et après login Memberstack.
+// On retente plusieurs fois car Memberstack peut prendre du temps à
+// initialiser isPaidMember (jusqu'à 2-3 secondes).
 document.addEventListener('DOMContentLoaded', function() {
-  setTimeout(ctxHelpUpdate, 500);
+  var attempts = 0;
+  var pollInit = setInterval(function() {
+    attempts++;
+    ctxHelpUpdate();
+    // Stop dès qu'on est connecté payant et qu'une page de tuto est active,
+    // ou après 20 tentatives (10 secondes max)
+    var btn = document.getElementById('ctx-help-btn');
+    if ((btn && btn.getAttribute('data-visible') === '1') || attempts >= 20) {
+      clearInterval(pollInit);
+    }
+  }, 500);
 });
 
 // ============================================================================
