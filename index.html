@@ -9055,13 +9055,17 @@ function updateStreak() {
   return data;
 }
 
-// Appelle la RPC update_streak() de Supabase pour persister current_streak et longest_streak
-// dans la table profiles. Lecture et écriture : seule la ligne de l'utilisateur connecté
-// est affectée (SECURITY DEFINER + auth.uid() côté DB).
+// Appelle la RPC update_streak(p_memberstack_id) de Supabase pour persister
+// current_streak et longest_streak dans la table profiles. La RPC met à jour
+// uniquement la ligne du membre passé en paramètre.
 function syncStreakToSupabase() {
   if (!window.supabaseClient) return;
+  // On a besoin du memberstack_id pour identifier le membre côté DB
+  // (le site n'établit pas de session Supabase, le rôle utilisé est 'anon')
+  var mid = (typeof espMemberId === 'function') ? espMemberId() : null;
+  if (!mid) return; // pas connecté → pas de streak à synchroniser
   try {
-    window.supabaseClient.rpc('update_streak').then(
+    window.supabaseClient.rpc('update_streak', { p_memberstack_id: mid }).then(
       function(res) {
         if (res && res.error) {
           console.warn('[streak] update_streak RPC error:', res.error.message);
