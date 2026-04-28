@@ -1977,13 +1977,11 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 @media(max-width:1250px){
   nav{padding:0 2.5%}
   .nav-right{gap:8px}
-  body.is-logged #navg-espace{display:none}
 }
 @media(max-width:1000px){
   nav{padding:0 4%}
   .nav-center{display:none}
   .nav-mobile-btn{display:flex}
-  body.is-logged #navg-espace{display:revert}
 }
 @media(max-width:600px){
   .footer-top{grid-template-columns:1fr}
@@ -2796,14 +2794,13 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     </div>
 
     <!-- ============================================================
-         NAV MOBILE — MEMBRE (5 sections)
-         Visible uniquement pour les membres connectés
+         NAV MOBILE — MEMBRE
+         Visible uniquement pour les membres connectés.
+         L'entrée "Mon espace" a été retirée du menu : on y accède via
+         le bouton avec le pseudo en haut à droite (toujours visible).
          ============================================================ -->
     <div class="mobile-nav-member-only">
-      <div class="mobile-nav-section first">Mon espace</div>
-      <div class="mobile-nav-link" id="mobile-espace-link" onclick="goToEspace();closeMobileNav()"><span class="mn-ico">📊</span>Tableau de bord<span class="mn-arrow">›</span></div>
-
-      <div class="mobile-nav-section">Préparation écrite</div>
+      <div class="mobile-nav-section first">Préparation écrite</div>
       <div class="mobile-nav-link" onclick="goTo('qcm');closeMobileNav()"><span class="mn-ico">🎯</span>QCM<span class="mn-arrow">›</span></div>
       <div class="mobile-nav-link" onclick="goTo('concours');closeMobileNav()"><span class="mn-ico">⏱️</span>Mode concours<span class="mn-arrow">›</span></div>
 
@@ -2871,12 +2868,10 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     </div>
 
     <!-- ===================================================================
-         NAV MEMBRE (5 entrées) — visible uniquement pour les membres connectés
+         NAV MEMBRE — visible uniquement pour les membres connectés
+         L'entrée "Mon espace" du menu a été fusionnée avec le bouton du
+         pseudo en haut à droite (cf. nav-space-btn dans .nav-right).
          ================================================================== -->
-    <div class="nav-group nav-member-only" id="navg-espace">
-      <button class="nav-group-btn" data-page="espace" onclick="goToEspace()">Mon espace</button>
-      <div class="nav-group-bar"></div>
-    </div>
     <div class="nav-group nav-member-only" id="navg-prepa-ecrite">
       <button class="nav-group-btn">Préparation écrite</button>
       <div class="nav-group-bar"></div>
@@ -2911,8 +2906,9 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     </button>
     <!-- Bouton affiché si non connecté -->
     <button class="member-btn" id="nav-login-btn" onclick="goTo('connexion')">Se connecter →</button>
-    <!-- Affiché si connecté : combine l'accès à l'espace + l'identité (icône badge ou 📊 + pseudo) -->
-    <button class="member-btn" id="nav-space-btn" style="display:none" onclick="goTo('espace')" title="Mon espace candidat">
+    <!-- Affiché si connecté : combine l'accès à l'espace + l'identité (icône badge ou 📊 + pseudo).
+         Cliquer renvoie directement sur Mon espace candidat → onglet "Mon planning". -->
+    <button class="member-btn" id="nav-space-btn" style="display:none" onclick="goToEspace('planning')" title="Mon espace candidat — Mon planning">
       <span id="nav-space-ico">📊</span>
       <span id="nav-space-label">Mon espace</span>
     </button>
@@ -6547,9 +6543,15 @@ function goToPrepa() {
 // Routage intelligent pour l'onglet "Mon espace candidat" du menu.
 // - Membre payant (2a/2b/3) → accède à son vrai espace
 // - Tout autre cas (pas connecté, compte gratuit) → démo espace
-function goToEspace() {
+// Paramètre optionnel `defaultTab` : si fourni et que le membre est payant,
+// switch immédiatement sur cet onglet (ex. 'planning').
+function goToEspace(defaultTab) {
   if (isPaidMember) {
     goTo('espace');
+    if (defaultTab && typeof espSwitchTab === 'function') {
+      // Petit délai pour laisser la page se rendre avant de basculer l'onglet
+      setTimeout(function(){ espSwitchTab(defaultTab); }, 80);
+    }
   } else {
     goTo('demo-espace');
   }
@@ -10411,13 +10413,11 @@ function goTo(id) {
     actu:        ['navg-ressources-visitor', 'navg-ressources-member'],
     candidats:   ['navg-candidats-visitor', 'navg-candidats-member'],
     // Pages purement membre
-    espace:      ['navg-espace'],
-    'demo-espace': ['navg-espace'],
+    // (espace/demo-espace/profil → pas d'entrée nav dédiée, accès via le bouton du pseudo)
     qcm:         ['navg-prepa-ecrite'],
     concours:    ['navg-prepa-ecrite'],
     prepa:       ['navg-prepa-physique'],
-    'demo-prepa': ['navg-prepa-physique'],
-    profil:      ['navg-espace']
+    'demo-prepa': ['navg-prepa-physique']
   };
   document.querySelectorAll('.nav-group').forEach(function(g) { g.classList.remove('active'); });
   if (groupMap[id]) {
