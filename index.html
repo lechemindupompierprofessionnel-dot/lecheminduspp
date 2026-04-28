@@ -12132,6 +12132,11 @@ function tourStart() {
   // Réagir au resize/scroll pour repositionner la bulle si la page change
   tourResizeHandler = function(){ tourPositionBubble(); };
   window.addEventListener('resize', tourResizeHandler);
+  // IMPORTANT : on marque le tour comme "vu" dès le démarrage, pas seulement à la fin.
+  // Ainsi, même si le candidat ferme l'onglet ou navigue ailleurs au milieu, le tour
+  // ne se relancera pas automatiquement au prochain login. Il pourra toujours le
+  // relancer manuellement via le bouton "Tutoriel" en bas à droite.
+  tourMarkCompleted();
   tourShowStep();
 }
 
@@ -12606,7 +12611,9 @@ function _ctxCurrentPageId() {
   return active.id.replace(/^page-/, '');
 }
 
-// Met à jour la visibilité du bouton "?" en fonction de la page et du statut
+// Met à jour la visibilité du bouton "Tutoriel" en fonction de la page et du statut.
+// Le bouton reste TOUJOURS accessible aux candidats payants — il sert à relancer
+// le tour de la page courante à la demande (utile quand on revient après quelque temps).
 function ctxHelpUpdate() {
   var btn = document.getElementById('ctx-help-btn');
   if (!btn) return;
@@ -17684,7 +17691,10 @@ function renderParcours() {
   var meta = PHASE_META[phase] || PHASE_META[1];
   var weeks = getWeeksUntilConcours();
   var globalProg = getParcoursGlobalProgress();
-  var preambleRead = !!p.preamble_read_at;
+  // Le préambule est considéré "lu" si :
+  // - le profil a un preamble_read_at (Supabase ou localStorage profil)
+  // - OU le flag local existe (au cas où Supabase n'a pas encore la colonne)
+  var preambleRead = !!p.preamble_read_at || _isPreambleReadLocally();
 
   var html = '';
 
@@ -17908,7 +17918,26 @@ function openParcoursPreambleDoc() {
 }
 
 // Marque le préambule comme lu et rafraîchit l'affichage.
+// Helper : clé localStorage pour le flag "préambule lu"
+function _preambleReadKey() {
+  var email = (typeof espMemberEmail === 'function') ? espMemberEmail() : null;
+  if (!email) return 'spp_preamble_read_anon';
+  return 'spp_preamble_read_' + email.toLowerCase();
+}
+
+function _isPreambleReadLocally() {
+  try { return localStorage.getItem(_preambleReadKey()) === '1'; } catch(e) { return false; }
+}
+
+function _markPreambleReadLocally() {
+  try { localStorage.setItem(_preambleReadKey(), '1'); } catch(e) {}
+}
+
 function markPreambleRead() {
+  // Double persistance pour être robuste :
+  //  1. Le flag local : disparaît immédiatement, fonctionne sans Supabase
+  //  2. Le champ profil + Supabase : pour synchro entre devices (si la colonne existe)
+  _markPreambleReadLocally();
   setParcoursField('preamble_read_at', new Date().toISOString());
   renderParcours();
   if (typeof showToast === 'function') {
