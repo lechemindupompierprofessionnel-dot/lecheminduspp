@@ -581,6 +581,13 @@ body.is-logged .nav-member-only{display:revert}
 .qcm-check-item.checked{background:var(--red-pale);border-color:var(--red-pale2);color:var(--charcoal)}
 .qcm-check-parent{font-weight:600;color:var(--charcoal)}
 .qcm-check-parent.open{border-color:var(--red-pale2);background:var(--cream)}
+/* Carte "Pour aller plus loin" : visuellement séparée par un wash beige neutre */
+.qcm-check-hors-programme{background:#faf8f3;border-color:#d8cdb6}
+.qcm-check-hors-programme:hover{background:#f3eedf;border-color:#c9bfae}
+.qcm-check-hors-programme.open{background:#f3eedf;border-color:#c9bfae}
+.qcm-hors-programme-tag{display:inline-block;background:#c9bfae;color:#3a3528;font-size:.55rem;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:2px 6px;margin-left:6px;vertical-align:middle;line-height:1.4}
+/* Eyebrow dans le panneau dépliable hors programme */
+.qcm-subcat-eyebrow{grid-column:1/-1;font-size:.7rem;color:var(--gray);font-style:italic;padding-bottom:4px;border-bottom:1px dashed var(--border);margin-bottom:4px;line-height:1.4}
 .qcm-checkbox{font-size:1.1rem;color:var(--gray-light);flex-shrink:0;line-height:1}
 .qcm-check-item.checked .qcm-checkbox{color:var(--red)}
 .qcm-check-label{flex:1;line-height:1.35}
@@ -729,6 +736,7 @@ body.is-logged .nav-member-only{display:revert}
 .biblio-card{background:white;border:1px solid var(--border);padding:16px;transition:all .2s;position:relative;cursor:pointer}
 .biblio-card:hover{box-shadow:0 4px 20px rgba(0,0,0,0.07);border-color:var(--red)}
 .biblio-type-tag{font-size:.66rem;font-weight:700;letter-spacing:1.8px;text-transform:uppercase;color:var(--red);margin-bottom:8px}
+.biblio-out-of-scope-badge{display:inline-block;background:#f0eee9;border:1px solid #c9bfae;color:#6e6149;font-size:.58rem;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;padding:2px 7px;margin-left:6px;vertical-align:middle;line-height:1.4}
 .biblio-name{font-size:.86rem;font-weight:600;color:var(--charcoal);line-height:1.35;margin-bottom:4px}
 .biblio-meta{font-size:.72rem;color:var(--gray-light)}
 /* Niveaux d'accès : visuel différencié pour cadenas */
@@ -2111,6 +2119,150 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 .esp-tab-pane{display:none}
 .esp-tab-pane.active{display:block}
 
+
+/* --- Préambule (encart "À lire avant tout") --- */
+.parcours-preamble{background:white;border:1px solid var(--border);padding:20px 24px;margin-bottom:22px;display:flex;align-items:center;gap:20px;flex-wrap:wrap}
+.parcours-preamble-left{flex:1;min-width:260px}
+.parcours-preamble-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#E89005;margin-bottom:5px}
+.parcours-preamble-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);margin-bottom:5px;line-height:1.25}
+.parcours-preamble-text{font-size:.85rem;color:var(--gray);line-height:1.55}
+.parcours-preamble-text strong{color:var(--charcoal)}
+.parcours-preamble-actions{display:flex;gap:10px;flex-shrink:0}
+.btn-parcours-preamble{padding:9px 16px;font-family:'DM Sans',sans-serif;font-size:.8rem;font-weight:700;border:1px solid var(--charcoal);background:white;color:var(--charcoal);cursor:pointer;text-decoration:none;display:inline-block;line-height:1.2}
+.btn-parcours-preamble.primary{background:var(--charcoal);color:white;border-color:var(--charcoal)}
+.btn-parcours-preamble.primary:hover{background:var(--red);border-color:var(--red)}
+.btn-parcours-preamble:hover{background:var(--cream2)}
+@media(max-width:640px){
+  .parcours-preamble{flex-direction:column;align-items:flex-start;padding:18px 20px}
+  .parcours-preamble-actions{width:100%;flex-direction:column}
+  .btn-parcours-preamble{width:100%;text-align:center}
+}
+
+/* --- Bandeau de phase principal --- */
+.parcours-banner{background:linear-gradient(135deg,#1f1f1f 0%,#2d2418 100%);color:var(--cream);padding:28px 32px;margin-bottom:24px;position:relative;overflow:hidden}
+.parcours-banner::before{content:'';position:absolute;top:0;left:0;bottom:0;width:5px;background:var(--red)}
+.parcours-banner-row{display:flex;justify-content:space-between;align-items:flex-start;gap:28px;flex-wrap:wrap}
+.parcours-banner-left{flex:1;min-width:240px}
+.parcours-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--red-light);margin-bottom:8px}
+.parcours-title{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:900;margin-bottom:6px;line-height:1.15;color:white}
+.parcours-title em{color:#f5c66b;font-style:italic}
+.parcours-subtitle{font-size:.88rem;color:#d6cdb5;line-height:1.55;max-width:520px;margin-bottom:16px}
+.parcours-progress{height:5px;background:rgba(255,255,255,0.1);margin-bottom:7px;max-width:420px}
+.parcours-progress-fill{height:100%;background:var(--red-light);transition:width .3s}
+.parcours-progress-text{font-size:.76rem;color:#9B9590;font-weight:500}
+.parcours-banner-right{text-align:right;min-width:190px;display:flex;flex-direction:column;align-items:flex-end;gap:10px}
+.parcours-stepper{display:flex;gap:5px}
+.parcours-step{padding:7px 12px;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:#9B9590;font-family:'DM Sans',sans-serif;cursor:pointer;transition:all .15s}
+.parcours-step:hover{background:rgba(255,255,255,0.1);color:white}
+.parcours-step.active{background:var(--red);border-color:var(--red);color:white;cursor:default}
+.parcours-step.done{background:rgba(245,198,107,0.12);border-color:#f5c66b;color:#f5c66b}
+.parcours-step.done:hover{background:rgba(245,198,107,0.2)}
+.parcours-override-link{font-size:.74rem;color:#9B9590;text-decoration:underline;cursor:pointer;background:none;border:none;font-family:inherit;padding:0}
+.parcours-override-link:hover{color:white}
+@media(max-width:640px){
+  .parcours-banner{padding:22px 22px}
+  .parcours-title{font-size:1.5rem}
+  .parcours-banner-right{align-items:flex-start;width:100%}
+  .parcours-stepper{justify-content:flex-start}
+}
+
+/* --- Parcours 4 blocs (version allégée) --- */
+.parcours-blocs{margin-bottom:28px}
+.parcours-blocs-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:12px;padding-bottom:8px;border-bottom:1px solid var(--cream3)}
+.parcours-blocs-title{font-size:.7rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gray)}
+.parcours-blocs-counter{font-size:.8rem;color:var(--charcoal);font-weight:500}
+.parcours-blocs-counter strong{color:var(--red);font-weight:700}
+.parcours-blocs-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.parcours-bloc{padding:10px 12px;background:transparent;border-bottom:2px solid var(--cream3);transition:border-color .2s;cursor:pointer}
+.parcours-bloc:hover{background:var(--cream2)}
+.parcours-bloc.active{border-bottom-color:var(--red)}
+.parcours-bloc.done{border-bottom-color:#2d7a3a}
+.parcours-bloc-num{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gray-light);margin-bottom:3px}
+.parcours-bloc.active .parcours-bloc-num{color:var(--red)}
+.parcours-bloc.done .parcours-bloc-num{color:#2d7a3a}
+.parcours-bloc-name{font-weight:700;font-size:.82rem;color:var(--charcoal);margin-bottom:2px;line-height:1.3}
+.parcours-bloc-status{font-size:.7rem;color:var(--gray)}
+.parcours-bloc.active .parcours-bloc-status{color:var(--red);font-weight:600}
+.parcours-bloc.done .parcours-bloc-status{color:#2d7a3a;font-weight:600}
+@media(max-width:640px){
+  .parcours-blocs-grid{grid-template-columns:repeat(2,1fr)}
+}
+
+/* --- Modale de configuration parcours (date + override) --- */
+.parcours-modal-backdrop{position:fixed;inset:0;background:rgba(28,28,28,.6);z-index:9000;display:none;align-items:center;justify-content:center;padding:20px}
+.parcours-modal-backdrop.open{display:flex}
+.parcours-modal{background:white;max-width:520px;width:100%;padding:30px 32px;position:relative;max-height:90vh;overflow-y:auto}
+.parcours-modal-close{position:absolute;top:14px;right:14px;background:none;border:none;font-size:1.4rem;cursor:pointer;color:var(--gray);font-family:inherit;line-height:1}
+.parcours-modal-close:hover{color:var(--red)}
+.parcours-modal-eyebrow{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:6px}
+.parcours-modal-title{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:700;color:var(--charcoal);line-height:1.2;margin-bottom:14px}
+.parcours-modal-desc{font-size:.86rem;color:var(--gray);line-height:1.6;margin-bottom:20px}
+.parcours-field{margin-bottom:18px}
+.parcours-field-label{display:block;font-size:.78rem;font-weight:600;color:var(--charcoal);margin-bottom:6px}
+.parcours-field-input{width:100%;padding:10px 12px;border:1px solid var(--border);font-family:'DM Sans',sans-serif;font-size:.92rem;background:var(--cream2)}
+.parcours-field-input:focus{outline:none;border-color:var(--red);background:white}
+.parcours-field-help{font-size:.74rem;color:var(--gray);margin-top:5px;line-height:1.5}
+.parcours-radio-group{display:grid;gap:8px}
+.parcours-radio-item{display:flex;gap:10px;padding:12px 14px;border:1px solid var(--border);background:var(--cream2);cursor:pointer;transition:all .15s}
+.parcours-radio-item:hover{border-color:var(--red);background:white}
+.parcours-radio-item.selected{border-color:var(--red);background:var(--red-pale)}
+.parcours-radio-item.recommended{border-color:#2d7a3a}
+.parcours-radio-item.recommended.selected{background:#edf7ee}
+.parcours-radio-input{margin-top:2px}
+.parcours-radio-content{flex:1}
+.parcours-radio-title{font-weight:700;font-size:.88rem;color:var(--charcoal);margin-bottom:2px}
+.parcours-radio-tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1.2px;color:#2d7a3a;margin-left:8px;text-transform:uppercase}
+.parcours-radio-desc{font-size:.76rem;color:var(--gray);line-height:1.5}
+.parcours-modal-actions{display:flex;gap:10px;justify-content:flex-end;margin-top:24px;padding-top:18px;border-top:1px solid var(--cream3)}
+
+/* --- Suggestion de bascule P1 → P2 (parcours terminé) --- */
+.parcours-suggestion{background:#edf7ee;border:1px solid #2d7a3a;border-left-width:4px;padding:18px 22px;margin-bottom:22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.parcours-suggestion-left{flex:1;min-width:240px}
+.parcours-suggestion-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#2d7a3a;margin-bottom:4px}
+.parcours-suggestion-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);margin-bottom:4px;line-height:1.3}
+.parcours-suggestion-text{font-size:.85rem;color:var(--charcoal);line-height:1.55}
+.parcours-suggestion-actions{flex-shrink:0;display:flex;gap:8px}
+.btn-parcours-suggestion{padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;background:#2d7a3a;color:white;border:none;cursor:pointer;line-height:1.2}
+.btn-parcours-suggestion:hover{background:#1f5c28}
+.btn-parcours-suggestion-secondary{padding:10px 14px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:600;background:transparent;color:var(--gray);border:1px solid var(--border);cursor:pointer}
+.btn-parcours-suggestion-secondary:hover{background:white;color:var(--charcoal)}
+@media(max-width:640px){
+  .parcours-suggestion{flex-direction:column;align-items:flex-start}
+  .parcours-suggestion-actions{width:100%;flex-direction:column}
+  .btn-parcours-suggestion,.btn-parcours-suggestion-secondary{width:100%;text-align:center}
+}
+
+/* --- Encart "Prochain doc à lire" en Phase 1 (sous le bandeau) --- */
+.parcours-next-doc{background:white;border:1px solid var(--border);border-left:4px solid var(--red);padding:16px 20px;margin-bottom:22px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.parcours-next-doc-left{flex:1;min-width:240px}
+.parcours-next-doc-eyebrow{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--red);margin-bottom:3px}
+.parcours-next-doc-title{font-family:'Playfair Display',serif;font-size:1.05rem;font-weight:700;color:var(--charcoal);line-height:1.25;margin-bottom:3px}
+.parcours-next-doc-bloc{font-size:.78rem;color:var(--gray)}
+.parcours-next-doc-actions{flex-shrink:0}
+.btn-parcours-next-doc{padding:10px 18px;font-family:'DM Sans',sans-serif;font-size:.82rem;font-weight:700;background:var(--red);color:white;border:none;cursor:pointer;line-height:1.2}
+.btn-parcours-next-doc:hover{background:var(--red-dark)}
+@media(max-width:640px){
+  .parcours-next-doc{flex-direction:column;align-items:flex-start}
+  .parcours-next-doc-actions{width:100%}
+  .btn-parcours-next-doc{width:100%}
+}
+
+/* --- Bloc "Tes 3 points faibles" en Phase 3 (sous le bandeau) --- */
+.parcours-weak{background:white;border:1px solid var(--border);padding:22px 26px;margin-bottom:22px}
+.parcours-weak-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:6px;flex-wrap:wrap;gap:8px}
+.parcours-weak-title{font-family:'Playfair Display',serif;font-size:1.1rem;font-weight:700;color:var(--charcoal)}
+.parcours-weak-sub{font-size:.78rem;color:var(--gray)}
+.parcours-weak-list{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:14px}
+.parcours-weak-item{border:1px solid var(--red);background:var(--red-pale);padding:12px 14px}
+.parcours-weak-item-rank{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:4px}
+.parcours-weak-item-name{font-weight:700;font-size:.92rem;color:var(--charcoal);margin-bottom:3px;line-height:1.3}
+.parcours-weak-item-score{font-size:.74rem;color:var(--charcoal)}
+.parcours-weak-item-score strong{color:var(--red);font-weight:700}
+.parcours-weak-empty{padding:14px 16px;background:var(--cream2);border:1px dashed var(--border);font-size:.82rem;color:var(--gray);line-height:1.55;margin-top:10px}
+@media(max-width:640px){
+  .parcours-weak-list{grid-template-columns:1fr}
+}
+
 /* ===== BLOC COACHING dans l'onglet Planning de Mon espace =====
    Mis en avant comme un service personnel pour le membre. */
 .esp-coach-block{background:var(--charcoal);color:white;padding:32px 30px;margin-bottom:28px;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:center}
@@ -3411,6 +3563,13 @@ body:not(.is-logged) .mobile-nav-member{display:none}
                 <span class="qcm-cat-count" id="count-maths">150</span>
               </div>
 
+              <!-- Carte 5 : Pour aller plus loin (hors programme — parent repliable) -->
+              <div class="qcm-check-item qcm-check-parent qcm-check-hors-programme" id="parent-hors-programme" onclick="toggleHorsProgrammePanel(event)">
+                <span class="qcm-checkbox" id="chk-hors-programme" onclick="event.stopPropagation();toggleCat('hors-programme')" style="cursor:pointer">☐</span>
+                <span class="qcm-check-label">Pour aller plus loin <span class="qcm-hors-programme-tag">hors programme</span></span>
+                <span style="display:flex;align-items:center;gap:6px"><span class="qcm-cat-count" id="count-hors-programme">68</span><span class="qcm-subcat-arrow" id="arrow-hors-programme">▸</span></span>
+              </div>
+
               <!-- Panneau sous-catégories Culture administrative (pleine largeur, déplié au clic) -->
               <div class="qcm-subcats" id="culture-sub">
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('statut',event)"><span class="qcm-checkbox" id="chk-statut">☐</span><span class="qcm-check-label">Statut SPP &amp; Fonctionnaire</span><span class="qcm-cat-count" id="count-statut">105</span></div>
@@ -3418,25 +3577,30 @@ body:not(.is-logged) .mobile-nav-member{display:none}
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('divers',event)"><span class="qcm-checkbox" id="chk-divers">☐</span><span class="qcm-check-label">Divers</span><span class="qcm-cat-count" id="count-divers">18</span></div>
               </div>
 
-              <!-- Panneau sous-catégories Doctrines (pleine largeur, déplié au clic) -->
+              <!-- Panneau sous-catégories Doctrines (pleine largeur, déplié au clic) — programme officiel -->
               <div class="qcm-subcats" id="doctrines-sub">
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-ventilation',event)"><span class="qcm-checkbox" id="chk-gto-ventilation">☐</span><span class="qcm-check-label">GTO Ventilation Opérationnelle</span><span class="qcm-cat-count" id="count-gto-ventilation">12</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvetage',event)"><span class="qcm-checkbox" id="chk-gto-sauvetage">☐</span><span class="qcm-check-label">GTO Sauvetage &amp; Mise en Sécurité</span><span class="qcm-cat-count" id="count-gto-sauvetage">49</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-sauvegarde',event)"><span class="qcm-checkbox" id="chk-gto-sauvegarde">☐</span><span class="qcm-check-label">GTO Sauvegarde Opérationnelle</span><span class="qcm-cat-count" id="count-gto-sauvegarde">73</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-extinctions',event)"><span class="qcm-checkbox" id="chk-gto-extinctions">☐</span><span class="qcm-check-label">GTO Établissements &amp; Extinctions</span><span class="qcm-cat-count" id="count-gto-extinctions">73</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-vicie',event)"><span class="qcm-checkbox" id="chk-gto-vicie">☐</span><span class="qcm-check-label">GTO Engagement Milieu Vicié</span><span class="qcm-cat-count" id="count-gto-vicie">100</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ssuap',event)"><span class="qcm-checkbox" id="chk-gdo-ssuap">☐</span><span class="qcm-check-label">GDO SSUAP</span><span class="qcm-cat-count" id="count-gdo-ssuap">14</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-fumees',event)"><span class="qcm-checkbox" id="chk-gdo-fumees">☐</span><span class="qcm-check-label">GDO Toxicité des Fumées</span><span class="qcm-cat-count" id="count-gdo-fumees">11</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-gaz',event)"><span class="qcm-checkbox" id="chk-gdo-gaz">☐</span><span class="qcm-check-label">GDO Présence Gaz</span><span class="qcm-cat-count" id="count-gdo-gaz">12</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-incendie',event)"><span class="qcm-checkbox" id="chk-gdo-incendie">☐</span><span class="qcm-check-label">GDO Incendie Structure</span><span class="qcm-cat-count" id="count-gdo-incendie">60</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-routier',event)"><span class="qcm-checkbox" id="chk-gdo-routier">☐</span><span class="qcm-check-label">GDO Milieu Routier</span><span class="qcm-cat-count" id="count-gdo-routier">62</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">254</span></div>
+              </div>
+
+              <!-- Panneau sous-catégories "Pour aller plus loin" (hors programme) -->
+              <div class="qcm-subcats" id="hors-programme-sub">
+                <div class="qcm-subcat-eyebrow">Doctrines hors programme — pour ta culture personnelle</div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
+                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
               </div>
             </div>
           </div>
@@ -3802,20 +3966,20 @@ body:not(.is-logged) .mobile-nav-member{display:none}
           <div class="biblio-grid">
             <!-- GDO -->
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-incendies-structures','GDO Interventions incendies structures','GDO','docs/doctrines/gdo/incendies-structures.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions incendies structures</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Feu de forêt et espace naturel</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions milieu agricole</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Feu de forêt et espace naturel</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions milieu agricole</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-gaz','GDO Interventions présence de gaz','GDO','docs/doctrines/gdo/presence-gaz.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions présence de gaz</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-routier','GDO Opérations secours milieu routier','GDO','docs/doctrines/gdo/milieu-routier.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Opérations secours milieu routier</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-toxicite','GDO Prévention risques toxicité des fumées','GDO','docs/doctrines/gdo/toxicite-fumees.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Prévention risques toxicité des fumées</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ssuap','GDO Secours et soins d\u2019urgence aux personnes','GDO','docs/doctrines/gdo/secours-soins-urgences-personnes.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Secours et soins d'urgence aux personnes</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- GTO -->
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-ventilation','GTO Ventilation opérationnelle','GTO','docs/doctrines/gto/ventilation-operationnelle.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Ventilation opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-extinction','GTO Établissement techniques d\u2019extinction','GTO','docs/doctrines/gto/techniques-extinction.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Établissement techniques d'extinction</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-vicies','GTO Engagement en milieux viciés','GTO','docs/doctrines/gto/engagement-milieux-vicies.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Engagement en milieux viciés</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Lutte feux forêts espaces naturels</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Lutte feux forêts espaces naturels</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-sauvegarde','GTO Sauvegarde opérationnelle','GTO','docs/doctrines/gto/sauvegarde-operationnelle.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvegarde opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-sauvetage','GTO Sauvetage et mises en sécurité','GTO','docs/doctrines/gto/sauvetage-mises-securite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvetage et mises en sécurité</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- SSUAP -->
@@ -3952,7 +4116,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         </div>
         <div class="biblio-acc-body">
           <div class="biblio-grid">
-            <div class="biblio-card is-synthese" data-cat="concours" data-access="paid" onclick="openDoc('fiche-deroulement-concours','Déroulement du concours','Fiche de synthèse','docs/concours/fiche-deroulement-concours.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-new-badge">Nouveau</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Concours</div><div class="biblio-name">Déroulement du concours</div><div class="biblio-meta">PDF · Synthèse</div><div class="biblio-overlay"><p>Abonné premium</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="concours" data-access="free" onclick="openDoc('fiche-deroulement-concours','Déroulement du concours','Fiche de synthèse','docs/concours/fiche-deroulement-concours.pdf','free')"><div class="biblio-badge">Fiche</div><div class="biblio-new-badge">Nouveau</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Concours</div><div class="biblio-name">Déroulement du concours</div><div class="biblio-meta">PDF · Synthèse</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-sources-section" data-cat="concours">
               <div class="biblio-sources-header" onclick="toggleBiblioSources(this)">
                 <div class="biblio-sources-title">📚 Textes sources — Concours</div>
@@ -4695,6 +4859,9 @@ if(window.location.search.indexOf('success') !== -1) {
               <div style="margin-top:14px;padding-top:12px;border-top:1px solid var(--border);font-size:.78rem;color:var(--gray);line-height:1.5">💡 Coche <strong>Oui</strong> ou <strong>Non</strong> pour chaque jour. Le dimanche est activé par défaut côté révision (<strong>15 min d'actus</strong>) mais rien n'est figé — tu peux tout désactiver ou ajouter du sport. Côté sport : max <strong>5 séances</strong> réparties selon ton programme physique — 1 = LUN · 2 = LUN+SAM · 3 = LUN+MER+SAM · 4 = LUN+MAR+JEU+VEN · 5 = semaine complète LUN+MAR+MER+VEN+SAM. On s'adapte si tes jours ne collent pas exactement.</div>
             </div>
           </div>
+
+          <!-- ===== Parcours du candidat (3 phases) ===== -->
+          <div id="parcours-wrap"></div>
 
           <!-- ===== Planning généré ===== -->
           <div style="background:white;border:1px solid var(--border);padding:24px 28px;margin-bottom:20px">
@@ -6531,7 +6698,7 @@ var PROG_SPORT_SEQUENCE = [
   { type:'vma',           title:'Course — fractionné VMA', desc:'10 × 200 m à 105% VMA · travail de vitesse', prefDay:'mer', family:'course' }
 ];
 
-var PROG_REV_DURATION = 30; // 30 min par séance de révision
+var PROG_REV_DURATION = 45; // 45 min par séance de révision (lecture en Phase 1, QCM en Phase 2/3)
 
 var PROG_DAYS = [
   { key:'lun', label:'Lundi', short:'LUN', dayOffset:0 },
@@ -6644,20 +6811,91 @@ function rebuildProgPlanning() {
 
   var sportPlan = generateSportPlan(sportDays);
 
-  // ===== RÉVISION =====
+  // ===== RÉVISION (phase-aware) =====
   // Jours révision activés (hors dimanche, traité à part)
   var revDaysList = PROG_DAYS.filter(function(d) {
     return d.key !== 'dim' && progDispo[d.key][1] === true;
   });
-  var qcmCount = 0, biblioCount = 0;
+
+  // Détermine la phase active du candidat (1, 2 ou 3) pour orienter le contenu.
+  // Si la fonction n'est pas disponible (chargement précoce) on retombe sur Phase 2
+  // (le mix QCM + biblio historique, comportement legacy).
+  var phase = (typeof getCurrentPhase === 'function') ? getCurrentPhase() : 2;
+
   var revPlan = {};
-  revDaysList.forEach(function(d) {
-    var useQcm = (qcmCount <= biblioCount);
-    if (useQcm) { revPlan[d.key] = makeRevSession('qcm', d.key); qcmCount++; }
-    else        { revPlan[d.key] = makeRevSession('biblio', d.key); biblioCount++; }
-  });
-  // Dimanche : actus 15 min UNIQUEMENT si révision Oui ce jour-là (c'est la valeur par défaut
-  // mais le candidat peut désactiver pour un repos mental complet).
+
+  if (phase === 1) {
+    // ----- PHASE 1 — ACQUISITION : que de la lecture, prescrite doc par doc -----
+    // On affecte chaque jour de révision au prochain doc non-lu du parcours.
+    // Si le parcours est terminé OU si le bloc 1 est vide (V1 sans matériel maths
+    // par exemple), on retombe sur des QCM appropriés.
+    var nextDocs = (typeof getNextDocsToRead === 'function')
+      ? getNextDocsToRead(revDaysList.length) : [];
+
+    var globalProg = (typeof getParcoursGlobalProgress === 'function')
+      ? getParcoursGlobalProgress() : { total: 0, read: 0 };
+    var voie = (typeof _voieConcours !== 'undefined' && _voieConcours) ? _voieConcours : 'v2';
+
+    // V1 (externe non-SPV) : la priorité c'est les MATHS. Tant que le matériel
+    // maths n'est pas dans la biblio, on intercale 1 QCM Maths sur 2 séances
+    // (sinon le candidat ne fait que de la culture admin et oublie les maths).
+    // Détection : V1 + bloc 1 (Mathématiques) sans aucun doc.
+    var blocs = (typeof getParcoursBlocs === 'function') ? getParcoursBlocs() : [];
+    var v1MathsManquant = (voie === 'v1' && blocs[0] && blocs[0].docs && blocs[0].docs.length === 0);
+
+    revDaysList.forEach(function(d, idx) {
+      // V1 sans maths + slot pair → QCM Maths ciblé en priorité
+      if (v1MathsManquant && idx % 2 === 0) {
+        revPlan[d.key] = makeRevSession('qcm-target', d.key, {
+          targetCat: 'maths',
+          rank: 1
+        });
+      }
+      else if (nextDocs[idx]) {
+        revPlan[d.key] = makeRevSession('lecture', d.key, { docInfo: nextDocs[idx] });
+      }
+      else {
+        // Plus de doc à lire : QCM aléatoire (parcours terminé ou cas dégénéré)
+        revPlan[d.key] = makeRevSession('qcm-random', d.key);
+      }
+    });
+  }
+  else if (phase === 3) {
+    // ----- PHASE 3 — CIBLAGE : QCM ciblés sur points faibles + annale samedi -----
+    var weakest = (typeof getWeakestCategories === 'function') ? getWeakestCategories(3) : [];
+
+    revDaysList.forEach(function(d, idx) {
+      // Samedi → annale chronométrée
+      if (d.key === 'sam') {
+        revPlan[d.key] = makeRevSession('annale', d.key);
+      }
+      else if (weakest.length > 0) {
+        // Cycle sur les 3 points faibles : lun=P1, mar=P2, mer=P3, jeu=P1, ven=P2…
+        var weakIdx = idx % weakest.length;
+        revPlan[d.key] = makeRevSession('qcm-target', d.key, {
+          targetCat: weakest[weakIdx].cat,
+          rank: weakIdx + 1
+        });
+      } else {
+        // Pas encore assez de données → QCM aléatoires
+        revPlan[d.key] = makeRevSession('qcm-random', d.key);
+      }
+    });
+  }
+  else {
+    // ----- PHASE 2 — ENTRAÎNEMENT : QCM aléatoire + révision intelligente -----
+    // 70% QCM aléatoire, 30% révision intelligente.
+    // En pratique : sur 5 jours, 4 aléatoires + 1 révision intelligente le jeudi.
+    revDaysList.forEach(function(d, idx) {
+      if (d.key === 'jeu' || (d.key === 'dim' && false)) {
+        revPlan[d.key] = makeRevSession('qcm-review', d.key);
+      } else {
+        revPlan[d.key] = makeRevSession('qcm-random', d.key);
+      }
+    });
+  }
+
+  // Dimanche : actus 15 min UNIQUEMENT si révision Oui ce jour-là (toutes phases confondues)
   if (progDispo.dim[1] === true) {
     revPlan.dim = makeRevSession('actus', 'dim');
   }
@@ -6757,26 +6995,132 @@ function makeSportSession(type, dayKey) {
   };
 }
 
-// Fabrique une séance révision — durée standard 30 min sauf actus du dimanche (15 min).
-function makeRevSession(type, dayKey) {
-  var types = {
-    qcm:    { icon:'🎯', title:'QCM thématique', desc:'Questions corrigées sur un thème SPP · révision active', duration: PROG_REV_DURATION },
-    biblio: { icon:'📚', title:'Bibliothèque — fiche synthèse', desc:'Lecture active d\'un texte officiel ou d\'une fiche', duration: PROG_REV_DURATION },
-    actus:  { icon:'📰', title:'Lecture des actualités SPP', desc:'Faits marquants, jurisprudence, évolutions — rester à jour', duration: 15 }
-  };
-  var t = types[type] || types.qcm;
-  return {
+// Fabrique une séance révision phase-aware.
+// Types reconnus :
+//   - 'lecture'    → Phase 1, lecture d'un doc précis (extras.docInfo requis)
+//   - 'qcm-random' → QCM aléatoire (toutes catégories, ~20 questions)
+//   - 'qcm-review' → Révision intelligente (questions ratées)
+//   - 'qcm-target' → QCM ciblé sur une catégorie faible (extras.targetCat requis)
+//   - 'annale'     → Annale chronométrée (mode concours)
+//   - 'actus'      → Lecture des actualités SPP (15 min)
+//   - 'qcm','biblio' → alias legacy (mappés sur qcm-random / lecture-libre)
+function makeRevSession(type, dayKey, extras) {
+  extras = extras || {};
+
+  // Mapping legacy → nouveaux types (rétrocompat code historique)
+  if (type === 'qcm')    type = 'qcm-random';
+  if (type === 'biblio') type = 'lecture-libre';
+
+  var spec;
+  switch (type) {
+    case 'lecture': {
+      var doc = extras.docInfo || {};
+      var shortTitle = (typeof getDocTitle === 'function') ? getDocTitle(doc.docId) : doc.docId;
+      // Construction du libellé selon découpage : "GTO Sauvegarde · partie 2/3"
+      var titleSuffix = '';
+      var descPart = '';
+      if (doc.partTotal && doc.partTotal > 1) {
+        titleSuffix = ' · partie ' + doc.partNum + '/' + doc.partTotal;
+        if (doc.partRange) {
+          descPart = ' (' + doc.partRange.label + ')';
+        }
+      }
+      // Description adaptée : si dernière partie ou doc en 1 séance, on rappelle de cocher "Vu"
+      var isLastPart = !doc.partTotal || doc.partNum === doc.partTotal;
+      var descMain;
+      if (isLastPart) {
+        descMain = 'Lis' + descPart + ' et marque le doc comme « Vu » quand tu as fini.';
+      } else {
+        descMain = 'Lis' + descPart + ' — la suite est sur la séance suivante.';
+      }
+      spec = {
+        icon:     '📚',
+        title:    'Lecture · ' + shortTitle + titleSuffix,
+        desc:     descMain + ' Bloc en cours : ' + (doc.blocLabel || ''),
+        duration: PROG_REV_DURATION,
+        targetDocId: doc.docId,
+        targetBlocKey: doc.blocKey
+      };
+      break;
+    }
+    case 'qcm-random':
+      spec = {
+        icon:     '🎯',
+        title:    'QCM aléatoire',
+        desc:     'Questions corrigées tirées dans tous les thèmes — couverture large',
+        duration: PROG_REV_DURATION
+      };
+      break;
+    case 'qcm-review':
+      spec = {
+        icon:     '🧠',
+        title:    'Révision intelligente',
+        desc:     'L\'algo te ressort tes questions ratées en priorité',
+        duration: PROG_REV_DURATION
+      };
+      break;
+    case 'qcm-target': {
+      var catLabel = (typeof CAT_LABELS !== 'undefined' && CAT_LABELS[extras.targetCat])
+                      ? CAT_LABELS[extras.targetCat] : extras.targetCat;
+      spec = {
+        icon:     '🎯',
+        title:    'QCM ciblé · ' + catLabel,
+        desc:     'Point faible n°' + (extras.rank || 1) + ' identifié par tes stats — à travailler en priorité',
+        duration: PROG_REV_DURATION,
+        targetCat: extras.targetCat
+      };
+      break;
+    }
+    case 'annale':
+      spec = {
+        icon:     '📜',
+        title:    'Annale chronométrée',
+        desc:     '1h en conditions réelles — mode concours',
+        duration: 60
+      };
+      break;
+    case 'actus':
+      spec = {
+        icon:     '📰',
+        title:    'Lecture des actualités SPP',
+        desc:     'Faits marquants, jurisprudence, évolutions — rester à jour',
+        duration: 15
+      };
+      break;
+    case 'lecture-libre':
+      spec = {
+        icon:     '📚',
+        title:    'Bibliothèque',
+        desc:     'Choisis un texte officiel ou une fiche à lire',
+        duration: PROG_REV_DURATION
+      };
+      break;
+    default:
+      spec = {
+        icon:     '🎯',
+        title:    'QCM',
+        desc:     'Session de QCM',
+        duration: PROG_REV_DURATION
+      };
+  }
+
+  var session = {
     id: 'rev-' + dayKey + '-' + Date.now() + '-' + Math.random().toString(36).substr(2,5),
     day: dayKey,
     type: type,
     cat: 'revision',
-    icon: t.icon,
-    title: t.title,
-    desc: t.desc,
-    duration: t.duration,
+    icon: spec.icon,
+    title: spec.title,
+    desc: spec.desc,
+    duration: spec.duration,
     hour: '20',
     minute: '30'
   };
+  // Champs conditionnels (lus par goToSessionPage)
+  if (spec.targetDocId)   session.targetDocId = spec.targetDocId;
+  if (spec.targetBlocKey) session.targetBlocKey = spec.targetBlocKey;
+  if (spec.targetCat)     session.targetCat = spec.targetCat;
+  return session;
 }
 
 // ---------- Rendu du planning hebdomadaire ----------
@@ -6822,7 +7166,15 @@ function renderProgWeekDesktop() {
 // Carte compacte pour la vue desktop — petite, draggable
 function renderSessionCompact(s) {
   var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
-  var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actu' : '📚 Révision');
+  var catLabel;
+  if (s.cat === 'sport')               catLabel = '💪 Sport';
+  else if (s.type === 'actus')         catLabel = '📰 Actu';
+  else if (s.type === 'lecture')       catLabel = '📚 Lecture';
+  else if (s.type === 'lecture-libre') catLabel = '📚 Biblio';
+  else if (s.type === 'qcm-review')    catLabel = '🧠 Révision';
+  else if (s.type === 'qcm-target')    catLabel = '🎯 Ciblé';
+  else if (s.type === 'annale')        catLabel = '📜 Annale';
+  else                                  catLabel = '🎯 QCM';
   var timeStr = s.hour + ':' + s.minute;
   var gcalUrl = buildGoogleCalUrlForSession(s);
   // Titre court (tronqué après le premier "—" ou premier 20 car.)
@@ -6834,7 +7186,7 @@ function renderSessionCompact(s) {
     '<div style="font-size:.7rem;color:var(--charcoal);font-weight:500;line-height:1.2;margin-bottom:4px">' + s.icon + ' ' + shortTitle + '</div>' +
     '<div style="display:flex;gap:4px;align-items:center;flex-wrap:wrap">' +
       '<button onclick="editProgTime(\'' + s.id + '\')" style="background:white;border:1px solid var(--border);padding:1px 4px;font-size:.58rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐' + timeStr + '</button>' +
-      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\')" style="background:' + catColor + ';color:white;border:none;padding:1px 6px;font-size:.58rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
+      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\',\'' + s.id + '\')" style="background:' + catColor + ';color:white;border:none;padding:1px 6px;font-size:.58rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
       '<a href="' + gcalUrl + '" target="_blank" rel="noopener" style="font-size:.58rem;color:var(--red);text-decoration:underline;font-weight:500">+ GCal</a>' +
     '</div>' +
   '</div>';
@@ -6882,7 +7234,15 @@ function renderDayBlockMobile(d, daySessions) {
 // Carte session en mode mobile — avec bouton "⇄ Déplacer"
 function renderSessionMobile(s) {
   var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
-  var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actualités' : '📚 Révision');
+  var catLabel;
+  if (s.cat === 'sport')               catLabel = '💪 Sport';
+  else if (s.type === 'actus')         catLabel = '📰 Actualités';
+  else if (s.type === 'lecture')       catLabel = '📚 Lecture';
+  else if (s.type === 'lecture-libre') catLabel = '📚 Bibliothèque';
+  else if (s.type === 'qcm-review')    catLabel = '🧠 Révision intelligente';
+  else if (s.type === 'qcm-target')    catLabel = '🎯 QCM ciblé';
+  else if (s.type === 'annale')        catLabel = '📜 Annale';
+  else                                  catLabel = '🎯 QCM';
   var timeStr = s.hour + ':' + s.minute;
   var gcalUrl = buildGoogleCalUrlForSession(s);
 
@@ -6891,7 +7251,7 @@ function renderSessionMobile(s) {
     '<div style="font-size:.85rem;color:var(--charcoal);font-weight:500;line-height:1.3;margin-bottom:2px">' + s.icon + ' ' + s.title + '</div>' +
     '<div style="font-size:.72rem;color:var(--gray);line-height:1.45;margin-bottom:6px">' + s.desc + '</div>' +
     '<div style="display:flex;gap:8px;align-items:center;flex-wrap:wrap">' +
-      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\')" style="background:' + catColor + ';color:white;border:none;padding:4px 10px;font-size:.72rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
+      '<button onclick="goToSessionPage(\'' + s.type + '\',\'' + s.cat + '\',\'' + s.id + '\')" style="background:' + catColor + ';color:white;border:none;padding:4px 10px;font-size:.72rem;cursor:pointer;font-family:\'DM Sans\',sans-serif;font-weight:600">Y aller →</button>' +
       '<button onclick="editProgTime(\'' + s.id + '\')" style="background:var(--cream2);border:1px solid var(--border);padding:3px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">🕐 ' + timeStr + '</button>' +
       '<button onclick="openMoveMenu(\'' + s.id + '\', event)" style="background:var(--cream2);border:1px solid var(--border);padding:3px 8px;font-size:.7rem;color:var(--charcoal);cursor:pointer;font-family:\'DM Sans\',sans-serif">⇄ Déplacer</button>' +
       '<a href="' + gcalUrl + '" target="_blank" rel="noopener" style="font-size:.7rem;color:var(--red);text-decoration:underline;font-weight:500">+ Google Agenda</a>' +
@@ -6988,15 +7348,99 @@ function formatDuration(min) {
 // Mappe chaque séance vers la page du site correspondante.
 // sport → page prepa (préparation physique)
 // qcm → page qcm · biblio → page biblio · actus → page actu
-function goToSessionPage(sessionType, sessionCat) {
+// Navigue depuis une carte de séance du planning vers la bonne page/contenu.
+// La signature accepte 3 paramètres pour rester compatible avec les rendus
+// historiques (sessionType, sessionCat) — le 3e (sessionId) permet d'aller
+// chercher les champs target* de la séance pour ouvrir le bon doc/thème/annale.
+function goToSessionPage(sessionType, sessionCat, sessionId) {
+  // Sport → page prépa physique
   if (sessionCat === 'sport') {
     if (typeof goToPrepa === 'function') goToPrepa();
     else goTo('prepa');
     return;
   }
-  if (sessionType === 'qcm')    { goTo('qcm');    return; }
-  if (sessionType === 'biblio') { goTo('biblio'); return; }
+
+  // Si on a l'id, on retrouve la session pour lire ses champs target*
+  var session = null;
+  if (sessionId && typeof progSessions !== 'undefined') {
+    session = progSessions.find(function(x) { return x.id === sessionId; });
+  }
+
+  // ---------- LECTURE PHASE 1 ----------
+  // Séance "lecture · GTO Sauvetage" → ouvre le PDF directement
+  if (sessionType === 'lecture' && session && session.targetDocId) {
+    if (typeof openParcoursDoc === 'function') openParcoursDoc(session.targetDocId);
+    else goTo('biblio');
+    return;
+  }
+
+  // ---------- QCM CIBLÉ PHASE 3 ----------
+  // Séance "qcm-target · doctrines" → page QCM avec catégorie pré-cochée + lancement
+  if (sessionType === 'qcm-target' && session && session.targetCat) {
+    goTo('qcm');
+    setTimeout(function() {
+      if (typeof selectedCats !== 'undefined' && typeof updateCheckbox === 'function') {
+        // Reset puis sélectionne uniquement la cat ciblée
+        if (typeof espAllCats === 'function') {
+          espAllCats().forEach(function(c){ selectedCats[c] = false; updateCheckbox(c); });
+        }
+        selectedCats[session.targetCat] = true;
+        updateCheckbox(session.targetCat);
+        // Ouvrir le panneau parent si sous-cat (doctrine ou culture ou hors-programme)
+        if (typeof DOCTRINES_SUBCATS !== 'undefined' && DOCTRINES_SUBCATS.indexOf(session.targetCat) !== -1) {
+          var sub = document.getElementById('doctrines-sub');
+          var parent = document.getElementById('parent-doctrines');
+          if (sub) sub.classList.add('open');
+          if (parent) parent.classList.add('open');
+          var arrow = document.getElementById('arrow-doctrines');
+          if (arrow) arrow.textContent = '▾';
+        }
+        if (typeof CULTURE_SUBCATS !== 'undefined' && CULTURE_SUBCATS.indexOf(session.targetCat) !== -1) {
+          var csub = document.getElementById('culture-sub');
+          var cparent = document.getElementById('parent-culture');
+          if (csub) csub.classList.add('open');
+          if (cparent) cparent.classList.add('open');
+          var carrow = document.getElementById('arrow-culture');
+          if (carrow) carrow.textContent = '▾';
+        }
+        if (typeof HORS_PROGRAMME_SUBCATS !== 'undefined' && HORS_PROGRAMME_SUBCATS.indexOf(session.targetCat) !== -1) {
+          var hpsub = document.getElementById('hors-programme-sub');
+          var hpparent = document.getElementById('parent-hors-programme');
+          if (hpsub) hpsub.classList.add('open');
+          if (hpparent) hpparent.classList.add('open');
+          var hparrow = document.getElementById('arrow-hors-programme');
+          if (hparrow) hparrow.textContent = '▾';
+        }
+        if (typeof switchQcmMode === 'function') switchQcmMode('select');
+        if (typeof updateSummary === 'function') updateSummary();
+      }
+    }, 200);
+    return;
+  }
+
+  // ---------- RÉVISION INTELLIGENTE PHASE 2 ----------
+  // Séance "qcm-review" → page QCM avec onglet review actif
+  if (sessionType === 'qcm-review') {
+    goTo('qcm');
+    setTimeout(function() {
+      var reviewTab = document.getElementById('tab-review');
+      if (reviewTab && typeof reviewTab.click === 'function') reviewTab.click();
+    }, 200);
+    return;
+  }
+
+  // ---------- ANNALE PHASE 3 ----------
+  // Séance "annale" → page Mode concours
+  if (sessionType === 'annale') {
+    goTo('concours');
+    return;
+  }
+
+  // ---------- TYPES HISTORIQUES + FALLBACKS ----------
+  if (sessionType === 'qcm' || sessionType === 'qcm-random') { goTo('qcm');    return; }
+  if (sessionType === 'biblio' || sessionType === 'lecture-libre') { goTo('biblio'); return; }
   if (sessionType === 'actus')  { goTo('actu');   return; }
+
   // Fallback : espace candidat
   goTo('espace');
 }
@@ -7300,7 +7744,15 @@ function renderDemoProgWeekDesktop() {
     } else {
       daySessions.forEach(function(s) {
         var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
-        var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actu' : '📚 Révision');
+        var catLabel;
+  if (s.cat === 'sport')               catLabel = '💪 Sport';
+  else if (s.type === 'actus')         catLabel = '📰 Actu';
+  else if (s.type === 'lecture')       catLabel = '📚 Lecture';
+  else if (s.type === 'lecture-libre') catLabel = '📚 Biblio';
+  else if (s.type === 'qcm-review')    catLabel = '🧠 Révision';
+  else if (s.type === 'qcm-target')    catLabel = '🎯 Ciblé';
+  else if (s.type === 'annale')        catLabel = '📜 Annale';
+  else                                  catLabel = '🎯 QCM';
         var shortTitle = s.title.split(' — ')[0];
         if (shortTitle.length > 22) shortTitle = shortTitle.substr(0, 22) + '…';
         html += '<div style="background:var(--cream2);border-left:2px solid ' + catColor + ';padding:6px 8px;margin-bottom:4px;font-size:.7rem">' +
@@ -7334,7 +7786,15 @@ function renderDemoProgWeekMobile() {
     var inner = '';
     daySessions.forEach(function(s) {
       var catColor = s.cat === 'sport' ? 'var(--red)' : '#877E72';
-      var catLabel = s.cat === 'sport' ? '💪 Sport' : (s.type === 'actus' ? '📰 Actualités' : '📚 Révision');
+      var catLabel;
+  if (s.cat === 'sport')               catLabel = '💪 Sport';
+  else if (s.type === 'actus')         catLabel = '📰 Actualités';
+  else if (s.type === 'lecture')       catLabel = '📚 Lecture';
+  else if (s.type === 'lecture-libre') catLabel = '📚 Bibliothèque';
+  else if (s.type === 'qcm-review')    catLabel = '🧠 Révision intelligente';
+  else if (s.type === 'qcm-target')    catLabel = '🎯 QCM ciblé';
+  else if (s.type === 'annale')        catLabel = '📜 Annale';
+  else                                  catLabel = '🎯 QCM';
       inner += '<div style="background:white;border:1px solid var(--border);padding:10px 14px">' +
         '<div style="font-size:.65rem;font-weight:700;letter-spacing:1.2px;color:' + catColor + ';text-transform:uppercase;margin-bottom:3px">' + catLabel + ' · ' + formatDuration(s.duration) + '</div>' +
         '<div style="font-size:.85rem;color:var(--charcoal);font-weight:500;line-height:1.3">' + s.icon + ' ' + s.title + '</div>' +
@@ -8147,6 +8607,11 @@ function toggleDocSeen(docId, cardEl) {
   else _biblioSeenIds.delete(docId);
   renderBiblioReadStatus();                 // refresh tous les statuts (cartes)
   _updateViewerMarkSeenButton();            // refresh le bouton du viewer si ouvert
+  // Rafraîchir le parcours du candidat (compteurs des blocs, état "actif/terminé")
+  if (typeof renderParcours === 'function') renderParcours();
+  // Rebuild le planning hebdo : en Phase 1, le prochain doc à lire change
+  // donc les séances "📚 Lecture" doivent être ré-affectées.
+  if (typeof rebuildProgPlanning === 'function') rebuildProgPlanning();
 
   if (willBeSeen) {
     // Récupère name/type depuis la carte si présente, sinon depuis l'état du viewer
@@ -10282,7 +10747,14 @@ function showToast(msg) {
 // Les fichiers doivent être hébergés dans un dossier /qcm/ à côté de index.html
 // Les doctrines sont dans un sous-dossier /qcm/doctrines/
 var QCM_BASE_PATH = 'qcm/';
-var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto-forets','gto-extinctions','gto-vicie','gdo-ssuap','gdo-fumees','gdo-elec','gdo-silos','gdo-gaz','gdo-agricole','gdo-incendie','gdo-ulm','gdo-routier','gdo-foret','pse'];
+// Sous-catégories Doctrines AU PROGRAMME OFFICIEL (arrêté 30 nov. 2020 voie 2°)
+// Les doctrines hors programme sont listées dans HORS_PROGRAMME_SUBCATS et
+// affichées dans le panneau "Pour aller plus loin" de la page QCM.
+var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto-extinctions','gto-vicie','gdo-ssuap','gdo-fumees','gdo-gaz','gdo-incendie','gdo-routier','pse'];
+// Sous-catégories HORS PROGRAMME — accessibles via "Pour aller plus loin" mais
+// jamais piochées en QCM aléatoire/intelligent ni ciblage Phase 3.
+// (cohérent avec OUT_OF_SCOPE_QCM_CATS dans le module parcours)
+var HORS_PROGRAMME_SUBCATS = ['gto-forets','gdo-elec','gdo-silos','gdo-agricole','gdo-ulm','gdo-foret'];
 var CULTURE_SUBCATS = ['statut','sis','divers'];
 
 // Labels humains des thèmes (pour l'affichage)
@@ -10465,6 +10937,22 @@ function toggleCat(cat) {
       if (carrow) carrow.textContent = '▾';
     }
   }
+
+  // Si c'est "hors-programme" (parent), on toggle toutes ses sous-cats
+  if (cat === 'hors-programme') {
+    HORS_PROGRAMME_SUBCATS.forEach(function(sc) {
+      selectedCats[sc] = selectedCats['hors-programme'];
+      updateCheckbox(sc);
+    });
+    if (selectedCats['hors-programme']) {
+      var hpsub = document.getElementById('hors-programme-sub');
+      var hpparent = document.getElementById('parent-hors-programme');
+      var hparrow = document.getElementById('arrow-hors-programme');
+      if (hpsub) hpsub.classList.add('open');
+      if (hpparent) hpparent.classList.add('open');
+      if (hparrow) hparrow.textContent = '▾';
+    }
+  }
   updateSummary();
 }
 
@@ -10498,6 +10986,19 @@ function toggleSubCat(cat, evt) {
       if (cParentItem) cParentItem.classList.toggle('checked', anyCultureChecked);
     }
   }
+
+  // Met à jour la checkbox parent "hors-programme" si c'est une sous-cat hors programme
+  if (HORS_PROGRAMME_SUBCATS.indexOf(cat) !== -1) {
+    var anyHpChecked = HORS_PROGRAMME_SUBCATS.some(function(sc){ return selectedCats[sc]; });
+    var allHpChecked = HORS_PROGRAMME_SUBCATS.every(function(sc){ return selectedCats[sc]; });
+    selectedCats['hors-programme'] = allHpChecked;
+    var hpParentEl = document.getElementById('chk-hors-programme');
+    if (hpParentEl) {
+      hpParentEl.textContent = allHpChecked ? '☑' : (anyHpChecked ? '▪' : '☐');
+      var hpParentItem = document.getElementById('parent-hors-programme');
+      if (hpParentItem) hpParentItem.classList.toggle('checked', anyHpChecked);
+    }
+  }
   updateSummary();
 }
 
@@ -10515,6 +11016,16 @@ function toggleCulturePanel(evt) {
   var sub = document.getElementById('culture-sub');
   var arrow = document.getElementById('arrow-culture');
   var parent = document.getElementById('parent-culture');
+  var isOpen = sub.classList.contains('open');
+  sub.classList.toggle('open', !isOpen);
+  if (parent) parent.classList.toggle('open', !isOpen);
+  if (arrow) arrow.textContent = isOpen ? '▸' : '▾';
+}
+
+function toggleHorsProgrammePanel(evt) {
+  var sub = document.getElementById('hors-programme-sub');
+  var arrow = document.getElementById('arrow-hors-programme');
+  var parent = document.getElementById('parent-hors-programme');
   var isOpen = sub.classList.contains('open');
   sub.classList.toggle('open', !isOpen);
   if (parent) parent.classList.toggle('open', !isOpen);
@@ -10573,28 +11084,33 @@ function updateCheckbox(cat) {
 }
 
 function updateSummary() {
+  // 'cats' = thèmes au programme officiel (utilisé pour le compteur "tout sélectionner")
   var cats = ['textes','maths'].concat(CULTURE_SUBCATS).concat(DOCTRINES_SUBCATS);
-  var selected = cats.filter(function(c){ return selectedCats[c]; });
+  // 'allSelectableCats' = thèmes au programme + hors programme (toutes les cases cochables)
+  var allSelectableCats = cats.concat(HORS_PROGRAMME_SUBCATS);
+  var selected = allSelectableCats.filter(function(c){ return selectedCats[c]; });
   var btn = document.getElementById('qcm-launch-btn');
   var summary = document.getElementById('qcm-launch-summary');
   var selAllCount = document.getElementById('select-all-count');
 
-  // Compteur "tout sélectionner"
+  // Compteur "tout sélectionner" (compte tout le sélectionné, y compris hors programme)
   if (selAllCount) {
     selAllCount.textContent = selected.length === 0
       ? 'Aucun thème sélectionné'
       : selected.length + ' thème' + (selected.length > 1 ? 's' : '') + ' sélectionné' + (selected.length > 1 ? 's' : '');
   }
 
-  // Icône + label du bouton "tout sélectionner"
+  // Icône + label du bouton "tout sélectionner" (basé uniquement sur les cats au programme,
+  // pour que "Tout désélectionner" apparaisse même si des hors-programme sont cochés)
   var selAllIcon = document.getElementById('select-all-icon');
   var selAllLabel = document.getElementById('select-all-label');
   if (selAllIcon && selAllLabel) {
+    var programSelected = cats.filter(function(c){ return selectedCats[c]; }).length;
     var allCount = cats.length;
-    if (selected.length === allCount) {
+    if (programSelected === allCount) {
       selAllIcon.textContent = '☑';
       selAllLabel.textContent = 'Tout désélectionner';
-    } else if (selected.length === 0) {
+    } else if (programSelected === 0) {
       selAllIcon.textContent = '☐';
       selAllLabel.textContent = 'Tout sélectionner';
     } else {
@@ -10671,6 +11187,11 @@ function updateSummary() {
     else if (doctrinesSub.length > 0) catNames.push('Doctrines (' + doctrinesSub.length + ')');
     if (selectedCats['textes']) catNames.push('Textes structurants');
     if (selectedCats['maths']) catNames.push('Mathématiques');
+    // Hors programme (s'il y en a de coché)
+    var horsProgSub = HORS_PROGRAMME_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+    if (horsProgSub.length > 0) {
+      catNames.push('Hors programme (' + horsProgSub.length + ')');
+    }
     var footer;
     if (!isPaidMember) {
       footer = '<strong>' + effectiveNb + ' question' + (effectiveNb > 1 ? 's' : '') + '</strong> <span class="dim">(démo · ' + remainingDemo + ' restante' + (remainingDemo > 1 ? 's' : '') + ' aujourd\'hui) — tirées aléatoirement dans&nbsp;:</span> ' + catNames.join(', ');
@@ -10711,7 +11232,8 @@ function loadCat(cat) {
     return Promise.resolve(loadedQuestions[cat]);
   }
   var path = QCM_BASE_PATH;
-  if (DOCTRINES_SUBCATS.indexOf(cat) !== -1) {
+  // Doctrines au programme + doctrines hors programme : les deux sont dans /doctrines/
+  if (DOCTRINES_SUBCATS.indexOf(cat) !== -1 || HORS_PROGRAMME_SUBCATS.indexOf(cat) !== -1) {
     path += 'doctrines/' + cat + '.json';
   } else {
     path += cat + '.json';
@@ -10761,7 +11283,9 @@ function launchQcmSession() {
 }
 
 function launchQcm() {
-  var cats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  // Toutes les cats sélectionnables : programme officiel + sous-cats hors programme
+  // (un candidat peut volontairement cocher une cat hors programme dans le mode "sélection thématique")
+  var cats = ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
   var selected = cats.filter(function(c){ return selectedCats[c]; });
   if (selected.length === 0) return;
 
@@ -10806,10 +11330,16 @@ function launchQcm() {
 }
 
 function launchRandomQcm() {
-  // Non payant : pioche dans les démos uniquement
+  // Pool de toutes les catégories au programme officiel.
+  // On retire systématiquement les sous-catégories hors programme (forets, agricole,
+  // silos, ulm, electricite, feu-foret) pour ne pas faire perdre de temps au candidat
+  // sur des thèmes qui ne tomberont pas au QCM.
   var allCats = ['statut','sis','divers','textes'].concat(DOCTRINES_SUBCATS);
+  if (typeof isQcmCatOutOfScope === 'function') {
+    allCats = allCats.filter(function(c){ return !isQcmCatOutOfScope(c); });
+  }
 
-  // Non payant : pioche dans le pool COMPLET (tous thèmes) mais limité à 10 questions/jour
+  // Non payant : pioche dans le pool COMPLET (tous thèmes au programme) mais limité à 10 questions/jour
   if (!isPaidMember) {
     var remaining = demoRemainingToday();
     if (remaining === 0) {
@@ -10865,6 +11395,8 @@ function buildSessionTitle(selected) {
   else if (ds.length > 0) names.push('Doctrines (' + ds.length + ' sous-thèmes)');
   if (selectedCats['textes']) names.push('Textes structurants');
   if (selectedCats['maths']) names.push('Mathématiques');
+  var hps = HORS_PROGRAMME_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+  if (hps.length > 0) names.push('Hors programme (' + hps.length + ')');
   return names.join(' · ');
 }
 
@@ -11090,18 +11622,23 @@ var _qcmCountsPreloaded = false;
 function preloadAllCategoriesForCounts() {
   if (_qcmCountsPreloaded) return;
   _qcmCountsPreloaded = true;
-  var mainCats = ['statut', 'sis', 'divers', 'textes'];
-  var allCats = mainCats.concat(DOCTRINES_SUBCATS);
+  var mainCats = ['statut', 'sis', 'divers', 'textes', 'maths'];
+  var allCats = mainCats.concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
   var loaded = 0;
   allCats.forEach(function(cat) {
     loadCat(cat).then(function(){
       loaded++;
-      // Quand toutes les doctrines sont chargées, met à jour le sous-total du groupe doctrines
-      if (loaded === allCats.length) refreshDoctrinesTotal();
+      if (loaded === allCats.length) {
+        refreshDoctrinesTotal();
+        refreshHorsProgrammeTotal();
+      }
     }).catch(function(err){
       console.warn('Préchargement ' + cat + ' échoué :', err.message);
       loaded++;
-      if (loaded === allCats.length) refreshDoctrinesTotal();
+      if (loaded === allCats.length) {
+        refreshDoctrinesTotal();
+        refreshHorsProgrammeTotal();
+      }
     });
   });
 }
@@ -11113,6 +11650,16 @@ function refreshDoctrinesTotal() {
     total += CAT_TOTALS[sub] || 0;
   });
   var el = document.getElementById('count-doctrines');
+  if (el) el.textContent = total;
+}
+
+// Recalcule le sous-total « Pour aller plus loin » (hors programme)
+function refreshHorsProgrammeTotal() {
+  var total = 0;
+  HORS_PROGRAMME_SUBCATS.forEach(function(sub) {
+    total += CAT_TOTALS[sub] || 0;
+  });
+  var el = document.getElementById('count-hors-programme');
   if (el) el.textContent = total;
 }
 
@@ -12670,6 +13217,11 @@ function launchReviewSession() {
   var seenTarget = wanted - freshTarget;
 
   var picks = pickWeightedReviewQuestions(seenTarget);
+  // Filtrer les questions des catégories hors programme : un candidat n'a pas à
+  // revoir des questions sur des thèmes qui ne tomberont pas au QCM officiel.
+  if (typeof isQcmCatOutOfScope === 'function') {
+    picks = picks.filter(function(p){ return !isQcmCatOutOfScope(p.cat); });
+  }
   if (picks.length === 0 && freshTarget === 0) {
     showToast('Aucune question à réviser trouvée. Fais quelques sessions d\'abord !');
     return;
@@ -14070,7 +14622,7 @@ function espMigrateLocalToSupabase() {
 
 // ----- Liste de référence des catégories (pour afficher même celles non vues) -----
 function espAllCats() {
-  return ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS);
+  return ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
 }
 
 // Nombre total de questions par catégorie (hérité de l'UI sidebar)
@@ -14168,6 +14720,11 @@ function renderEspace() {
   if (typeof loadEarnedBadgesDetail === 'function' && typeof renderBadgesCollection === 'function') {
     loadEarnedBadgesDetail().then(function(){ renderBadgesCollection(); });
   }
+
+  // Parcours du candidat (bandeau de phase + parcours 4 blocs + suggestions)
+  // Doit être appelé après que les stats locales sont chargées pour avoir
+  // les bonnes données disponibles (perCat pour les points faibles Phase 3).
+  if (typeof renderParcours === 'function') renderParcours();
 }
 
 // ================================================================
@@ -14427,6 +14984,10 @@ function _renderEspaceWith(data) {
   // Initialise la voie depuis le profil (Supabase via getPrepaProfile, sinon localStorage, sinon défaut v2)
   if (typeof initVoieFromProfile === 'function') initVoieFromProfile();
 
+  // Re-render le parcours maintenant que les données stats sont chargées
+  // (le bloc "points faibles" en Phase 3 a besoin de data.perCat)
+  if (typeof renderParcours === 'function') renderParcours();
+
   // --- Radar hebdomadaire (vue synthétique par domaine) ---
   renderEspRadar(data);
 
@@ -14503,6 +15064,15 @@ function reviseWeakestCategory() {
     if (cparent) cparent.classList.add('open');
     var carrow = document.getElementById('arrow-culture');
     if (carrow) carrow.textContent = '▾';
+  }
+  // Si c'est une sous-cat hors-programme, ouvre le panneau "Pour aller plus loin"
+  if (HORS_PROGRAMME_SUBCATS.indexOf(cat) !== -1) {
+    var hpsub = document.getElementById('hors-programme-sub');
+    var hpparent = document.getElementById('parent-hors-programme');
+    if (hpsub) hpsub.classList.add('open');
+    if (hpparent) hpparent.classList.add('open');
+    var hparrow = document.getElementById('arrow-hors-programme');
+    if (hparrow) hparrow.textContent = '▾';
   }
   // Force le mode par thème (au cas où le dernier mode utilisé était "aléatoire")
   if (typeof switchQcmMode === 'function') switchQcmMode('select');
@@ -16573,6 +17143,927 @@ var PREPA_DONE_KEY     = 'prepa_done_v1';       // { "semaine-id": ["lundi", "me
 var PREPA_FORCED_LEVEL = 'prepa_forced_level_v1'; // 'debutant' | 'confirme' | 'avance' | null
 var PREPA_URL          = 'prepa-physique/semaine-en-cours.json';
 var prepaData = null;
+
+// ================================================================
+// PARCOURS DU CANDIDAT — 3 phases (Acquisition / Entraînement / Ciblage)
+// ================================================================
+// Champs stockés dans prepa_profiles côté Supabase (à ajouter via ALTER TABLE) :
+//   - concours_date    DATE      → date probable de l'écrit
+//   - phase_override   SMALLINT  → 1, 2 ou 3 si le candidat a forcé une phase ; null sinon
+//   - preamble_read_at TIMESTAMP → date à laquelle il a validé le préambule
+//
+// L'état est aussi persisté en localStorage dans le profil prépa pour fonctionner offline.
+//
+// Détection automatique de la phase :
+//   - Sans date concours       → Phase 1 (par défaut, sécurité)
+//   - 8+ semaines avant écrit  → Phase 1 (acquisition)
+//   - 4 à 8 semaines avant     → Phase 2 (entraînement)
+//   - moins de 4 semaines      → Phase 3 (ciblage)
+//   Override manuel possible : phase_override prend priorité.
+//
+// Définition des 4 blocs du parcours de lecture (Phase 1) :
+//   Bloc 1 — Doctrines (GTO + GDO + SSUAP/PSE pour V2, ou Maths pour V1)
+//   Bloc 2 — SIS
+//   Bloc 3 — Statut SPP
+//   Bloc 4 — Divers (ERP, PCS…)
+// ================================================================
+
+// Document du préambule (passe en accès gratuit, point d'entrée du parcours)
+var PARCOURS_PREAMBLE_DOC = {
+  id:    'fiche-deroulement-concours',
+  title: 'Déroulement du concours',
+  type:  'Fiche de synthèse',
+  url:   'docs/concours/fiche-deroulement-concours.pdf',
+  access:'free'
+};
+
+// Définition des blocs par voie de concours.
+// 'docs' = liste des doc_id qui composent le bloc (alignés sur openDoc() de la biblio).
+var PARCOURS_BLOCS = {
+  'v2': [
+    {
+      key:   'doctrines',
+      label: 'Doctrines',
+      sub:   'GTO + GDO + SSUAP',
+      docs:  [
+        // Ordre pédagogique défini par Quentin, restreint au PROGRAMME OFFICIEL
+        // (arrêté du 30 nov. 2020 - voie 2°). Les doctrines hors programme sont
+        // listées dans OUT_OF_SCOPE_DOCS et accessibles dans la biblio + section
+        // "Pour aller plus loin" du QCM, mais pas dans le parcours imposé.
+        //
+        // 1) Fondamentaux opérationnels (engagement, sauvetage, sauvegarde)
+        'gto-vicies',                  // Engagement en milieux viciés [Pt 4 EPI ARI]
+        'gto-sauvetage',               // Sauvetage et mises en sécurité [Pt 4 LSPCC + Pt 1 Sauvetage]
+        'gto-sauvegarde',              // Sauvegarde opérationnelle [Pt 4 Règles de sécurité]
+        // 2) Incendie : structures puis techniques d'extinction et ventilation
+        'gdo-incendies-structures',    // [Pt 1 Reconnaissance + Attaques]
+        'gto-extinction',              // [Pt 1 Établissements + Techniques d'attaque/extinction]
+        'gto-ventilation',             // [Pt 1 Techniques d'attaques]
+        // 3) Risques et environnements
+        'gdo-toxicite',                // [Pt 4 EPI ARI complément]
+        'gdo-routier',                 // [Pt 2 Secours sur accident de la route]
+        'gdo-gaz',                     // [Pt 3 Fuite de gaz]
+        // 4) Secourisme en dernier
+        'ssuap-recommandations',       // [Pt 2 SUAP - référentiel détaillé]
+        'gdo-ssuap'                    // [Pt 2 SUAP entier]
+      ]
+    },
+    {
+      key:   'sis',
+      label: 'Organisation des SIS',
+      sub:   'Fiche de synthèse',
+      docs:  ['fiche-sis']
+    },
+    {
+      key:   'statut',
+      label: 'Statut SPP',
+      sub:   'Fonction publique + statut particulier',
+      docs:  ['fiche-fp', 'fp-pouvoirs-publics', 'fiche-statut-spp']
+    },
+    {
+      key:   'divers',
+      label: 'Divers',
+      sub:   'ERP, PCS, autres',
+      docs:  ['fiche-erp', 'fiche-pcs']
+    }
+  ],
+  'v1': [
+    {
+      key:   'doctrines',
+      label: 'Mathématiques',
+      sub:   'Contenu en préparation',
+      docs:  []  // À remplir quand le matériel maths sera créé
+    },
+    {
+      key:   'sis',
+      label: 'Organisation des SIS',
+      sub:   'Fiche de synthèse',
+      docs:  ['fiche-sis']
+    },
+    {
+      key:   'statut',
+      label: 'Statut SPP',
+      sub:   'Fonction publique + statut particulier',
+      docs:  ['fiche-fp', 'fp-pouvoirs-publics', 'fiche-statut-spp']
+    },
+    {
+      key:   'divers',
+      label: 'Divers',
+      sub:   'ERP, PCS, autres',
+      docs:  ['fiche-erp', 'fiche-pcs']
+    }
+  ]
+};
+
+// ----------------------------------------------------------------
+// DOCS HORS PROGRAMME OFFICIEL
+// ----------------------------------------------------------------
+// Documents qui ne figurent pas dans le programme officiel du QCM voie 2°
+// (arrêté du 30 nov. 2020). Ils restent accessibles dans la biblio (avec un
+// badge "Hors programme") et dans une section "Pour aller plus loin" sur la
+// page QCM. Mais ils ne sont JAMAIS prescrits dans le parcours principal,
+// ni piochés en QCM aléatoire/intelligent/ciblé.
+//
+// L'idée : un candidat peut consulter par curiosité ou pour mieux comprendre
+// un thème, mais le parcours imposé ne lui fait pas perdre de temps dessus.
+var OUT_OF_SCOPE_DOCS = [
+  'gto-forets',          // Lutte feux forêts
+  'gdo-feu-foret',       // Feu de forêt et espace naturel
+  'gdo-agricole',        // Interventions milieu agricole
+  'gdo-silos',           // Interventions silos
+  'gdo-ulm',             // Interventions ULM
+  'gdo-electricite'      // Opérations secours présence électricité
+];
+
+// Sous-catégories QCM correspondantes (clés des fichiers JSON / CAT_LABELS).
+// On les utilise pour : (a) basculer ces panneaux QCM dans "Pour aller plus loin",
+// (b) les exclure du QCM aléatoire/intelligent et du ciblage Phase 3.
+var OUT_OF_SCOPE_QCM_CATS = [
+  'gto-forets',
+  'gdo-foret',           // Note : la cat QCM s'appelle "gdo-foret" (singulier)
+  'gdo-agricole',
+  'gdo-silos',
+  'gdo-ulm',
+  'gdo-elec'             // Note : la cat QCM s'appelle "gdo-elec"
+];
+
+// Helpers
+function isDocOutOfScope(docId) {
+  return OUT_OF_SCOPE_DOCS.indexOf(docId) !== -1;
+}
+function isQcmCatOutOfScope(catKey) {
+  return OUT_OF_SCOPE_QCM_CATS.indexOf(catKey) !== -1;
+}
+
+// Renvoie les blocs pour la voie active du candidat (default v2).
+function getParcoursBlocs() {
+  var voie = (typeof _voieConcours !== 'undefined' && _voieConcours) ? _voieConcours : 'v2';
+  return PARCOURS_BLOCS[voie] || PARCOURS_BLOCS['v2'];
+}
+
+// Calcule le nombre de semaines entre aujourd'hui et la date du concours.
+// Renvoie null si pas de date.
+function getWeeksUntilConcours() {
+  var p = getPrepaProfile();
+  if (!p || !p.concours_date) return null;
+  var target = new Date(p.concours_date);
+  if (isNaN(target.getTime())) return null;
+  var now = new Date();
+  var diffMs = target.getTime() - now.getTime();
+  if (diffMs < 0) return 0;
+  return Math.ceil(diffMs / (7 * 24 * 60 * 60 * 1000));
+}
+
+// Détermine la phase active du candidat.
+// Priorité : override manuel > calcul auto sur date.
+// Renvoie 1, 2 ou 3.
+function getCurrentPhase() {
+  var p = getPrepaProfile();
+  // 1) Override manuel prioritaire
+  if (p && p.phase_override && [1, 2, 3].indexOf(p.phase_override) !== -1) {
+    return p.phase_override;
+  }
+  // 2) Calcul auto basé sur les semaines restantes
+  var weeks = getWeeksUntilConcours();
+  if (weeks == null)  return 1;  // Pas de date → P1 par défaut
+  if (weeks < 4)      return 3;  // < 4 sem → P3 ciblage
+  if (weeks < 8)      return 2;  // 4-8 sem → P2 entraînement
+  return 1;                       // ≥ 8 sem → P1 acquisition
+}
+
+// Renvoie la phase recommandée par l'algo (sans override) — pour afficher
+// dans la modale d'override "L'algo te recommande la phase X".
+function getRecommendedPhase() {
+  var weeks = getWeeksUntilConcours();
+  if (weeks == null) return 1;
+  if (weeks < 4)     return 3;
+  if (weeks < 8)     return 2;
+  return 1;
+}
+
+// Métadonnées d'affichage par phase.
+var PHASE_META = {
+  1: {
+    eyebrow:  'Tu es ici',
+    title:    'Phase 1',
+    titleEm:  'Acquisition',
+    subtitle: 'Tu lis et fiches les textes officiels qui structurent le concours. Pas de QCM thématique cette phase — tu construis tes fondations.'
+  },
+  2: {
+    eyebrow:  'Tu es ici',
+    title:    'Phase 2',
+    titleEm:  'Entraînement',
+    subtitle: 'Tes fondations sont posées. Tu enchaînes maintenant les QCM, en alternant aléatoire (couverture) et révision intelligente (ciblage des erreurs).'
+  },
+  3: {
+    eyebrow:  'Tu es ici',
+    title:    'Phase 3',
+    titleEm:  'Ciblage',
+    subtitle: 'Sprint final. Tu travailles uniquement tes points faibles identifiés par les stats, et tu enchaînes les annales en conditions réelles.'
+  }
+};
+
+// Sauvegarde un champ de parcours (concours_date, phase_override, preamble_read_at)
+// dans le profil prépa local + Supabase.
+function setParcoursField(field, value) {
+  var p = getPrepaProfile() || {};
+  p[field] = value;
+  p.updatedAt = new Date().toISOString();
+  try { localStorage.setItem(PREPA_PROFILE_KEY, JSON.stringify(p)); } catch(e){}
+  if (typeof pushPrepaProfileToSupabase === 'function') {
+    pushPrepaProfileToSupabase(p);
+  }
+}
+
+// ---------- PROGRESSION DE LECTURE ----------
+// Renvoie un Set des doc_id que le candidat a explicitement marqués comme "vus"
+// via la case à cocher de la bibliothèque (table Supabase : doc_completions).
+// IMPORTANT : on n'utilise PAS _biblioOpenedIds (= docs juste ouverts) parce
+// qu'ouvrir un PDF 3 secondes pour le survoler ne signifie pas l'avoir lu.
+// Le marquage manuel "Vu" est le seul vrai signal d'engagement du candidat.
+function getReadDocIds() {
+  if (typeof _biblioSeenIds !== 'undefined' && _biblioSeenIds) return _biblioSeenIds;
+  return new Set();
+}
+
+// Calcule la progression d'un bloc : nb de docs lus / total
+function getBlocProgress(bloc) {
+  var read = getReadDocIds();
+  var total = bloc.docs.length;
+  if (total === 0) return { read: 0, total: 0, pct: 0 };
+  var readCount = 0;
+  bloc.docs.forEach(function(id) {
+    if (read.has(id)) readCount++;
+  });
+  return {
+    read:  readCount,
+    total: total,
+    pct:   total > 0 ? Math.round(readCount / total * 100) : 0
+  };
+}
+
+// Renvoie l'index du bloc en cours (1er bloc non terminé) ou -1 si tout lu / aucun bloc.
+function getActiveBlocIndex() {
+  var blocs = getParcoursBlocs();
+  for (var i = 0; i < blocs.length; i++) {
+    var prog = getBlocProgress(blocs[i]);
+    if (prog.total > 0 && prog.read < prog.total) return i;
+  }
+  // Tous les blocs lus → on garde le dernier comme "en cours" pour l'affichage
+  return blocs.length - 1;
+}
+
+// Total de docs lus / total docs du parcours
+function getParcoursGlobalProgress() {
+  var blocs = getParcoursBlocs();
+  var read = 0, total = 0;
+  blocs.forEach(function(b) {
+    var p = getBlocProgress(b);
+    read += p.read;
+    total += p.total;
+  });
+  return { read: read, total: total, pct: total > 0 ? Math.round(read / total * 100) : 0 };
+}
+
+// ---------- LIBELLÉS DES DOCUMENTS DU PARCOURS ----------
+// Titres courts pour l'affichage dans les cartes de séance.
+// Faute d'API biblio universelle, on les déclare ici. Si un doc n'est pas
+// dans cette table, on retombe sur le doc_id formaté.
+var DOC_TITLES = {
+  // Doctrines GTO
+  'gto-vicies':      { short: 'GTO Engagement milieux viciés',  full: 'GTO Engagement en milieux viciés' },
+  'gto-sauvetage':   { short: 'GTO Sauvetage',                  full: 'GTO Sauvetage et mises en sécurité' },
+  'gto-sauvegarde':  { short: 'GTO Sauvegarde opérationnelle',  full: 'GTO Sauvegarde opérationnelle' },
+  'gto-extinction':  { short: 'GTO Techniques d\'extinction',    full: 'GTO Établissement techniques d\'extinction' },
+  'gto-ventilation': { short: 'GTO Ventilation opérationnelle', full: 'GTO Ventilation opérationnelle' },
+  'gto-forets':      { short: 'GTO Feux de forêts',             full: 'GTO Lutte feux forêts espaces naturels' },
+  // Doctrines GDO
+  'gdo-incendies-structures': { short: 'GDO Incendies structures',  full: 'GDO Interventions incendies structures' },
+  'gdo-toxicite':             { short: 'GDO Toxicité des fumées',   full: 'GDO Prévention risques toxicité des fumées' },
+  'gdo-routier':              { short: 'GDO Milieu routier',        full: 'GDO Opérations secours milieu routier' },
+  'gdo-feu-foret':            { short: 'GDO Feu de forêt',          full: 'GDO Feu de forêt et espace naturel' },
+  'gdo-agricole':             { short: 'GDO Milieu agricole',       full: 'GDO Interventions milieu agricole' },
+  'gdo-gaz':                  { short: 'GDO Présence de gaz',       full: 'GDO Interventions présence de gaz' },
+  'gdo-silos':                { short: 'GDO Silos',                 full: 'GDO Interventions silos' },
+  'gdo-ulm':                  { short: 'GDO ULM',                   full: 'GDO Interventions ULM' },
+  'gdo-electricite':          { short: 'GDO Présence électricité',  full: 'GDO Opérations secours présence électricité' },
+  'gdo-ssuap':                { short: 'GDO Secours d\'urgence',     full: 'GDO Secours et soins d\'urgence aux personnes' },
+  // Secourisme
+  'ssuap-recommandations':    { short: 'Premiers secours',          full: 'Recommandations premiers secours' },
+  // Fiches culture admin
+  'fiche-sis':                { short: 'Fiche · Organisation SIS',  full: 'Organisation et fonctionnement du SDIS' },
+  'fiche-fp':                 { short: 'Fiche · Fonction publique', full: 'Les 3 versants de la Fonction Publique' },
+  'fp-pouvoirs-publics':      { short: 'Fiche · Pouvoirs publics',  full: 'Organisation des pouvoirs publics' },
+  'fiche-statut-spp':         { short: 'Fiche · Statut SPP',        full: 'Le Statut du Sapeur-Pompier Professionnel' },
+  // Fiches divers
+  'fiche-erp':                { short: 'Fiche · ERP',               full: 'Établissements recevant du public (ERP)' },
+  'fiche-pcs':                { short: 'Fiche · PCS',               full: 'Plan Communal de Sauvegarde (PCS)' }
+};
+
+function getDocTitle(docId, useFull) {
+  var entry = DOC_TITLES[docId];
+  if (entry) return useFull ? entry.full : entry.short;
+  // Fallback : formater le doc_id de façon lisible
+  return (docId || '?').replace(/-/g, ' ').replace(/^./, function(c){ return c.toUpperCase(); });
+}
+
+// ---------- METADATA POUR OUVRIR UN DOC DEPUIS UNE SÉANCE ----------
+// Pour chaque doc du parcours, on a besoin des infos pour appeler openDoc()
+// (type + url + niveau d'accès). On les dérive d'un mapping unique.
+var DOC_OPEN_META = {
+  // GTO
+  'gto-vicies':      { type: 'GTO', url: 'docs/doctrines/gto/engagement-milieux-vicies.pdf',   access: 'free' },
+  'gto-sauvetage':   { type: 'GTO', url: 'docs/doctrines/gto/sauvetage-mises-securite.pdf',    access: 'free' },
+  'gto-sauvegarde':  { type: 'GTO', url: 'docs/doctrines/gto/sauvegarde-operationnelle.pdf',   access: 'free' },
+  'gto-extinction':  { type: 'GTO', url: 'docs/doctrines/gto/techniques-extinction.pdf',       access: 'free' },
+  'gto-ventilation': { type: 'GTO', url: 'docs/doctrines/gto/ventilation-operationnelle.pdf',  access: 'free' },
+  'gto-forets':      { type: 'GTO', url: 'docs/doctrines/gto/feux-forets-espaces-naturels.pdf', access: 'free' },
+  // GDO
+  'gdo-incendies-structures': { type: 'GDO', url: 'docs/doctrines/gdo/incendies-structures.pdf',         access: 'free' },
+  'gdo-toxicite':             { type: 'GDO', url: 'docs/doctrines/gdo/toxicite-fumees.pdf',              access: 'free' },
+  'gdo-routier':              { type: 'GDO', url: 'docs/doctrines/gdo/milieu-routier.pdf',               access: 'free' },
+  'gdo-feu-foret':            { type: 'GDO', url: 'docs/doctrines/gdo/feu-foret-espace-naturel.pdf',     access: 'free' },
+  'gdo-agricole':             { type: 'GDO', url: 'docs/doctrines/gdo/milieu-agricole.pdf',              access: 'free' },
+  'gdo-gaz':                  { type: 'GDO', url: 'docs/doctrines/gdo/presence-gaz.pdf',                 access: 'free' },
+  'gdo-silos':                { type: 'GDO', url: 'docs/doctrines/gdo/silos.pdf',                        access: 'free' },
+  'gdo-ulm':                  { type: 'GDO', url: 'docs/doctrines/gdo/ulm.pdf',                          access: 'free' },
+  'gdo-electricite':          { type: 'GDO', url: 'docs/doctrines/gdo/presence-electricite.pdf',         access: 'free' },
+  'gdo-ssuap':                { type: 'GDO', url: 'docs/doctrines/gdo/secours-soins-urgences-personnes.pdf', access: 'free' },
+  'ssuap-recommandations':    { type: 'SSUAP', url: 'docs/doctrines/ssuap/recommandations-premiers-secours.pdf', access: 'free' },
+  // Fiches culture admin
+  'fiche-sis':                { type: 'Fiche de synthèse', url: 'docs/culture-admin/organisation-sis/fiche-synthese.pdf',     access: 'paid' },
+  'fiche-fp':                 { type: 'Fiche de synthèse', url: 'docs/culture-admin/fonction-publique/fiche-synthese.pdf',    access: 'paid' },
+  'fp-pouvoirs-publics':      { type: 'Fiche de synthèse', url: 'docs/culture-admin/fonction-publique/organisation-pouvoirs-publics.pdf', access: 'paid' },
+  'fiche-statut-spp':         { type: 'Fiche de synthèse', url: 'docs/culture-admin/statut-spp/fiche-synthese.pdf',          access: 'paid' },
+  // Fiches divers
+  'fiche-erp':                { type: 'Fiche de synthèse', url: 'docs/divers/fiche-erp.pdf', access: 'paid' },
+  'fiche-pcs':                { type: 'Fiche de synthèse', url: 'docs/divers/fiche-pcs.pdf', access: 'paid' }
+};
+
+// ---------- DÉCOUPAGE EN SÉANCES DE 45 MIN ----------
+// Règle pédagogique : 50 pages = 1 séance de 45 min (lecture + fichage).
+// Source des paginations : comptes manuels effectués sur les PDF officiels DGSCGC.
+// À mettre à jour si une nouvelle version d'un guide modifie sa pagination.
+var DOC_PAGES = {
+  // Doctrines GTO
+  'gto-vicies':      68,
+  'gto-sauvetage':   80,
+  'gto-sauvegarde':  52,
+  'gto-extinction':  112,
+  'gto-ventilation': 106,
+  'gto-forets':      124,
+  // Doctrines GDO
+  'gdo-incendies-structures': 162,
+  'gdo-toxicite':             56,
+  'gdo-routier':              180,
+  'gdo-feu-foret':            188,
+  'gdo-agricole':             88,
+  'gdo-gaz':                  168,
+  'gdo-silos':                68,
+  'gdo-ulm':                  40,
+  'gdo-electricite':          120,
+  'gdo-ssuap':                76,
+  'ssuap-recommandations':    396,  // PSE complet — traité à part (10 séances forfaitaires)
+  // Fiches culture admin
+  'fiche-sis':                19,
+  'fiche-fp':                 18,
+  'fp-pouvoirs-publics':      20,
+  'fiche-statut-spp':         17,
+  // Fiches divers
+  'fiche-erp':                10,
+  'fiche-pcs':                10
+};
+
+// Pages par séance de 45 min (paramètre central, modifiable d'un seul coup).
+var PAGES_PER_SESSION = 50;
+
+// Cas particuliers : certains docs sont découpés en un nombre fixe de séances
+// indépendamment de la règle 50 pages. Utile pour les docs très longs où le
+// découpage mécanique donnerait trop de parties (PSE = 8 parties par règle,
+// mais Quentin a décidé 10 séances pour avoir un rythme de fichage plus serré).
+var DOC_FORCED_PARTS = {
+  'ssuap-recommandations': 10  // PSE : 10 séances forfaitaires (~40 pages chacune)
+};
+
+// Calcule le nombre de parties d'un doc (= nombre de séances de 45 min nécessaires).
+// Renvoie au minimum 1, même pour un doc très court.
+function getDocPartsCount(docId) {
+  if (DOC_FORCED_PARTS[docId]) return DOC_FORCED_PARTS[docId];
+  var pages = DOC_PAGES[docId];
+  if (!pages) return 1; // Inconnu → 1 séance par défaut (sécurité)
+  return Math.max(1, Math.ceil(pages / PAGES_PER_SESSION));
+}
+
+// Génère la plage de pages pour la partie n (1-indexée) d'un doc découpé.
+// Renvoie un objet { from, to, label } ou null si le doc n'est pas découpé.
+// Exemple : GTO Sauvegarde 52 pages, 2 parties → partie 1 = p.1-26, partie 2 = p.27-52
+function getDocPartRange(docId, partNum) {
+  var totalParts = getDocPartsCount(docId);
+  if (totalParts <= 1) return null; // Pas de découpage utile
+  var pages = DOC_PAGES[docId] || 0;
+  if (pages === 0) return null;
+  // Découpage uniforme : pagesPerPart = ceil(total / parts)
+  var pagesPerPart = Math.ceil(pages / totalParts);
+  var from = (partNum - 1) * pagesPerPart + 1;
+  var to = Math.min(partNum * pagesPerPart, pages);
+  return {
+    from:  from,
+    to:    to,
+    label: 'p. ' + from + '-' + to
+  };
+}
+
+// À partir d'un doc non-vu, génère la liste de ses séances "Lecture · doc · partie X/N".
+// Utilisé par rebuildProgPlanning pour préparer la queue des séances de la semaine.
+// Si le doc n'est découpé qu'en 1 partie, on retourne une seule entrée sans suffixe.
+function getDocSessionsToRead(docId, blocLabel, blocKey) {
+  var totalParts = getDocPartsCount(docId);
+  var sessions = [];
+  for (var i = 1; i <= totalParts; i++) {
+    var range = (totalParts > 1) ? getDocPartRange(docId, i) : null;
+    sessions.push({
+      docId:      docId,
+      blocKey:    blocKey,
+      blocLabel:  blocLabel,
+      partNum:    i,
+      partTotal:  totalParts,
+      partRange:  range  // null si doc en 1 seule séance
+    });
+  }
+  return sessions;
+}
+
+// Ouvre un doc du parcours dans le viewer biblio (proxy vers openDoc).
+function openParcoursDoc(docId) {
+  var meta = DOC_OPEN_META[docId];
+  if (!meta) {
+    console.warn('Pas de metadata pour le doc', docId);
+    if (typeof goTo === 'function') goTo('biblio');
+    return;
+  }
+  var fullTitle = getDocTitle(docId, true);
+  if (typeof openDoc === 'function') {
+    openDoc(docId, fullTitle, meta.type, meta.url, meta.access);
+  }
+}
+
+// ---------- PROCHAIN DOC À LIRE DANS LE PARCOURS ----------
+// Parcourt tous les blocs dans l'ordre, retourne le premier doc_id non vu.
+// Renvoie null si tout est lu (le parcours est terminé).
+function getNextDocToRead() {
+  var blocs = getParcoursBlocs();
+  var read = getReadDocIds();
+  for (var i = 0; i < blocs.length; i++) {
+    var docs = blocs[i].docs || [];
+    for (var j = 0; j < docs.length; j++) {
+      if (!read.has(docs[j])) return { docId: docs[j], blocKey: blocs[i].key, blocLabel: blocs[i].label };
+    }
+  }
+  return null;
+}
+
+// Renvoie les N prochaines SÉANCES de lecture (pas docs) en suivant l'ordre du parcours.
+// Chaque doc non-vu est éclaté en N parties (cf. getDocPartsCount). On accumule jusqu'à
+// avoir 'count' séances. Le doc n'est marqué "vu" qu'à la complétion de toutes ses parties
+// (en pratique : c'est le candidat qui coche "Vu" sur la carte biblio quand il a fini).
+function getNextDocsToRead(count) {
+  var blocs = getParcoursBlocs();
+  var read = getReadDocIds();
+  var queue = [];
+  for (var i = 0; i < blocs.length && queue.length < count; i++) {
+    var docs = blocs[i].docs || [];
+    for (var j = 0; j < docs.length && queue.length < count; j++) {
+      var docId = docs[j];
+      if (read.has(docId)) continue;
+      // Génère toutes les parties de ce doc et les ajoute à la queue
+      var sessions = (typeof getDocSessionsToRead === 'function')
+        ? getDocSessionsToRead(docId, blocs[i].label, blocs[i].key)
+        : [{ docId: docId, blocKey: blocs[i].key, blocLabel: blocs[i].label }];
+      for (var k = 0; k < sessions.length && queue.length < count; k++) {
+        queue.push(sessions[k]);
+      }
+    }
+  }
+  return queue;
+}
+
+// ---------- CIBLAGE POINTS FAIBLES (Phase 3) ----------
+// Renvoie les N catégories les plus faibles depuis les stats QCM
+// (basé sur perCat de window._espLastData chargé par renderEspace).
+// Renvoie [] si pas assez de données.
+function getWeakestCategories(count) {
+  count = count || 3;
+  var data = window._espLastData;
+  if (!data || !data.perCat) return [];
+
+  var rows = [];
+  Object.keys(data.perCat).forEach(function(c) {
+    var s = data.perCat[c];
+    if (!s || s.seen < 5) return; // au moins 5 questions vues pour être significatif
+    // Exclure les thèmes hors programme officiel (le candidat ne doit pas perdre
+    // de temps sur des catégories qui ne tomberont pas au QCM).
+    if (typeof isQcmCatOutOfScope === 'function' && isQcmCatOutOfScope(c)) return;
+    rows.push({ cat: c, pct: s.correct / s.seen, seen: s.seen });
+  });
+  // Tri croissant par % de réussite
+  rows.sort(function(a, b) { return a.pct - b.pct; });
+  // Garde uniquement les < 75%
+  rows = rows.filter(function(r) { return r.pct < 0.75; });
+  return rows.slice(0, count);
+}
+
+// ---------- RENDU DU PARCOURS ----------
+// Rend le bloc complet (préambule + bandeau de phase + 4 blocs) dans #parcours-wrap.
+// Appelé à chaque ouverture de l'onglet Planning et après chaque modification.
+function renderParcours() {
+  var wrap = document.getElementById('parcours-wrap');
+  if (!wrap) return;
+
+  var p = getPrepaProfile() || {};
+  var phase = getCurrentPhase();
+  var meta = PHASE_META[phase] || PHASE_META[1];
+  var weeks = getWeeksUntilConcours();
+  var globalProg = getParcoursGlobalProgress();
+  var preambleRead = !!p.preamble_read_at;
+
+  var html = '';
+
+  // ===== PRÉAMBULE (uniquement si non lu) =====
+  if (!preambleRead) {
+    html += '' +
+      '<div class="parcours-preamble">' +
+        '<div class="parcours-preamble-left">' +
+          '<div class="parcours-preamble-eyebrow">⚠️ À lire avant tout</div>' +
+          '<div class="parcours-preamble-title">Le déroulement de ton concours</div>' +
+          '<div class="parcours-preamble-text">' +
+            'Avant de te lancer dans le parcours, lis la fiche de synthèse <strong>Déroulement du concours</strong>. ' +
+            'Tu sauras exactement quelles épreuves t\'attendent, le barème, et ce qui élimine. ' +
+            '<strong>5 minutes</strong> pour ne pas te tromper de cible.' +
+          '</div>' +
+        '</div>' +
+        '<div class="parcours-preamble-actions">' +
+          '<button class="btn-parcours-preamble" onclick="openParcoursPreambleDoc()">Lire la fiche</button>' +
+          '<button class="btn-parcours-preamble primary" onclick="markPreambleRead()">J\'ai lu →</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  // ===== BANDEAU DE PHASE =====
+  // Sous-titre adapté : si pas de date, on incite à la renseigner.
+  var subtitle = meta.subtitle;
+  var progressInfo = '';
+  if (weeks == null) {
+    progressInfo = 'Renseigne ta date d\'écrit pour activer le suivi · ';
+    progressInfo += '<button class="parcours-override-link" onclick="openParcoursModal()" style="color:#f5c66b">Configurer →</button>';
+  } else if (weeks === 0) {
+    progressInfo = 'Concours imminent · bonne chance';
+  } else {
+    progressInfo = weeks + ' semaine' + (weeks > 1 ? 's' : '') + ' avant l\'écrit';
+  }
+
+  // Calcul progression de phase pour la barre
+  var progressPct = 0;
+  if (weeks != null) {
+    // On considère 52 semaines comme parcours total (1 an typique)
+    // La barre représente "ce qui est fait sur le parcours total"
+    var totalWeeks = 52;
+    var doneWeeks = totalWeeks - weeks;
+    progressPct = Math.max(2, Math.min(100, Math.round(doneWeeks / totalWeeks * 100)));
+  } else {
+    progressPct = 2; // visuel minimum
+  }
+
+  // Stepper P1/P2/P3 : done / active / upcoming
+  function stepClass(stepNum) {
+    if (stepNum < phase) return 'done';
+    if (stepNum === phase) return 'active';
+    return '';
+  }
+  function stepLabel(stepNum) {
+    if (stepNum < phase) return 'P' + stepNum + ' ✓';
+    return 'P' + stepNum;
+  }
+
+  html += '' +
+    '<div class="parcours-banner">' +
+      '<div class="parcours-banner-row">' +
+        '<div class="parcours-banner-left">' +
+          '<div class="parcours-eyebrow">' + meta.eyebrow + '</div>' +
+          '<div class="parcours-title">' + meta.title + ' · <em>' + meta.titleEm + '</em></div>' +
+          '<div class="parcours-subtitle">' + subtitle + '</div>' +
+          '<div class="parcours-progress"><div class="parcours-progress-fill" style="width:' + progressPct + '%"></div></div>' +
+          '<div class="parcours-progress-text">' + progressInfo + '</div>' +
+        '</div>' +
+        '<div class="parcours-banner-right">' +
+          '<div class="parcours-stepper">' +
+            '<button class="parcours-step ' + stepClass(1) + '" onclick="openParcoursModal()" title="Phase 1 — Acquisition">' + stepLabel(1) + '</button>' +
+            '<button class="parcours-step ' + stepClass(2) + '" onclick="openParcoursModal()" title="Phase 2 — Entraînement">' + stepLabel(2) + '</button>' +
+            '<button class="parcours-step ' + stepClass(3) + '" onclick="openParcoursModal()" title="Phase 3 — Ciblage">' + stepLabel(3) + '</button>' +
+          '</div>' +
+          '<button class="parcours-override-link" onclick="openParcoursModal()">Configurer mon parcours →</button>' +
+        '</div>' +
+      '</div>' +
+    '</div>';
+
+  // ===== SUGGESTION P1 → P2 (parcours terminé) =====
+  // S'affiche uniquement en Phase 1 quand tous les docs disponibles ont été marqués vus,
+  // et uniquement si le candidat n'a pas cliqué "Plus tard" récemment (cooldown 7 jours).
+  var parcoursTermine = phase === 1 && globalProg.total > 0 && globalProg.read >= globalProg.total;
+  var dismissed = (typeof isPhaseUpgradeDismissed === 'function') ? isPhaseUpgradeDismissed() : false;
+  if (parcoursTermine && !dismissed) {
+    html += '' +
+      '<div class="parcours-suggestion">' +
+        '<div class="parcours-suggestion-left">' +
+          '<div class="parcours-suggestion-eyebrow">✓ Parcours terminé</div>' +
+          '<div class="parcours-suggestion-title">Tu as lu et fiché les ' + globalProg.total + ' documents du parcours</div>' +
+          '<div class="parcours-suggestion-text">Tes fondations sont posées. Il est temps de basculer en <strong>Phase 2 — Entraînement</strong> pour enchaîner les QCM et consolider tout ça.</div>' +
+        '</div>' +
+        '<div class="parcours-suggestion-actions">' +
+          '<button class="btn-parcours-suggestion-secondary" onclick="dismissPhaseUpgrade()">Plus tard</button>' +
+          '<button class="btn-parcours-suggestion" onclick="advanceToPhase2()">Passer en Phase 2 →</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  // ===== ENCART "PROCHAIN DOC À LIRE" — uniquement Phase 1, parcours non terminé =====
+  // Donne au candidat un point d'entrée immédiat ("clique ici pour ouvrir").
+  if (phase === 1 && !parcoursTermine) {
+    var nextDoc = (typeof getNextDocToRead === 'function') ? getNextDocToRead() : null;
+    if (nextDoc) {
+      var nextTitle = (typeof getDocTitle === 'function') ? getDocTitle(nextDoc.docId, true) : nextDoc.docId;
+      // Info pagination/découpage : "162 pages · prévois ~4 séances de 45 min"
+      var pagesInfo = '';
+      var totalParts = (typeof getDocPartsCount === 'function') ? getDocPartsCount(nextDoc.docId) : 1;
+      var pages = (typeof DOC_PAGES !== 'undefined') ? DOC_PAGES[nextDoc.docId] : null;
+      if (pages && totalParts > 1) {
+        pagesInfo = pages + ' pages · ' + totalParts + ' séances de 45 min à prévoir';
+      } else if (pages) {
+        pagesInfo = pages + ' pages · ~45 min de lecture/fichage';
+      }
+      html += '' +
+        '<div class="parcours-next-doc">' +
+          '<div class="parcours-next-doc-left">' +
+            '<div class="parcours-next-doc-eyebrow">📚 Prochain doc à lire</div>' +
+            '<div class="parcours-next-doc-title">' + nextTitle + '</div>' +
+            '<div class="parcours-next-doc-bloc">Bloc en cours : ' + nextDoc.blocLabel +
+              (pagesInfo ? ' · <span style="color:var(--charcoal)">' + pagesInfo + '</span>' : '') +
+            '</div>' +
+          '</div>' +
+          '<div class="parcours-next-doc-actions">' +
+            '<button class="btn-parcours-next-doc" onclick="openParcoursDoc(\'' + nextDoc.docId + '\')">Ouvrir →</button>' +
+          '</div>' +
+        '</div>';
+    }
+  }
+
+  // ===== BLOC POINTS FAIBLES — uniquement Phase 3 =====
+  // Visualisation des 3 thèmes les plus faibles auto-détectés.
+  // En cohérence avec ce que rebuildProgPlanning utilise pour cibler les QCM.
+  if (phase === 3) {
+    var weakest = (typeof getWeakestCategories === 'function') ? getWeakestCategories(3) : [];
+    html += '<div class="parcours-weak">' +
+      '<div class="parcours-weak-header">' +
+        '<div class="parcours-weak-title">Tes points faibles auto-détectés</div>' +
+        '<div class="parcours-weak-sub">Mis à jour à chaque QCM · base : ≥ 5 questions vues, &lt; 75% de réussite</div>' +
+      '</div>';
+    if (weakest.length === 0) {
+      html += '<div class="parcours-weak-empty">' +
+        'Pas encore assez de données pour identifier tes points faibles. ' +
+        'Lance quelques sessions QCM (au moins 5 questions par thème) et reviens : tes 3 priorités s\'afficheront ici.' +
+      '</div>';
+    } else {
+      html += '<div class="parcours-weak-list">';
+      weakest.forEach(function(w, idx) {
+        var lbl = (typeof CAT_LABELS !== 'undefined' && CAT_LABELS[w.cat]) ? CAT_LABELS[w.cat] : w.cat;
+        html += '<div class="parcours-weak-item">' +
+          '<div class="parcours-weak-item-rank">Priorité ' + (idx + 1) + '</div>' +
+          '<div class="parcours-weak-item-name">' + lbl + '</div>' +
+          '<div class="parcours-weak-item-score">Score : <strong>' + Math.round(w.pct * 100) + '%</strong> · ' + w.seen + ' Q vues</div>' +
+        '</div>';
+      });
+      html += '</div>';
+    }
+    html += '</div>';
+  }
+
+  // ===== PARCOURS 4 BLOCS — uniquement en Phase 1 =====
+  if (phase === 1) {
+    var blocs = getParcoursBlocs();
+    var activeIdx = getActiveBlocIndex();
+
+    html += '' +
+      '<div class="parcours-blocs">' +
+        '<div class="parcours-blocs-header">' +
+          '<div class="parcours-blocs-title">Ton parcours de lecture</div>' +
+          '<div class="parcours-blocs-counter">' +
+            (globalProg.total > 0
+              ? '<strong>' + globalProg.read + ' / ' + globalProg.total + '</strong> documents lus'
+              : 'Parcours à venir') +
+          '</div>' +
+        '</div>' +
+        '<div class="parcours-blocs-grid">';
+
+    blocs.forEach(function(bloc, idx) {
+      var prog = getBlocProgress(bloc);
+      var isDone = prog.total > 0 && prog.read >= prog.total;
+      var isActive = (idx === activeIdx) && !isDone;
+      var cls = '';
+      if (isDone) cls = 'done';
+      else if (isActive) cls = 'active';
+
+      var numLabel = '';
+      if (isDone) numLabel = 'Bloc ' + (idx + 1) + ' · Terminé';
+      else if (isActive) numLabel = 'Bloc ' + (idx + 1) + ' · En cours';
+      else numLabel = 'Bloc ' + (idx + 1);
+
+      var statusLabel = '';
+      if (prog.total === 0) statusLabel = 'À venir';
+      else statusLabel = prog.read + ' / ' + prog.total + ' lus';
+
+      html += '' +
+        '<div class="parcours-bloc ' + cls + '" onclick="goToBlocBiblio(\'' + bloc.key + '\')" title="Voir dans la bibliothèque">' +
+          '<div class="parcours-bloc-num">' + numLabel + '</div>' +
+          '<div class="parcours-bloc-name">' + bloc.label + '</div>' +
+          '<div class="parcours-bloc-status">' + statusLabel + '</div>' +
+        '</div>';
+    });
+
+    html += '</div></div>';
+  }
+
+  wrap.innerHTML = html;
+}
+
+// Ouvre la fiche du préambule (déroulement du concours).
+function openParcoursPreambleDoc() {
+  if (typeof openDoc === 'function') {
+    openDoc(
+      PARCOURS_PREAMBLE_DOC.id,
+      PARCOURS_PREAMBLE_DOC.title,
+      PARCOURS_PREAMBLE_DOC.type,
+      PARCOURS_PREAMBLE_DOC.url,
+      PARCOURS_PREAMBLE_DOC.access
+    );
+  }
+}
+
+// Marque le préambule comme lu et rafraîchit l'affichage.
+function markPreambleRead() {
+  setParcoursField('preamble_read_at', new Date().toISOString());
+  renderParcours();
+  if (typeof showToast === 'function') {
+    showToast('✓ Préambule validé. Bonne préparation !');
+  }
+}
+
+// Suggestion P1→P2 : bascule manuelle vers la Phase 2 quand le parcours est terminé.
+// Pose un override explicite sur le profil et reconstruit planning + parcours.
+function advanceToPhase2() {
+  setParcoursField('phase_override', 2);
+  renderParcours();
+  if (typeof rebuildProgPlanning === 'function') rebuildProgPlanning();
+  if (typeof showToast === 'function') {
+    showToast('✓ Phase 2 activée — bonne séance !');
+  }
+  // Scroll en haut pour qu'on voie le bandeau changer
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+// "Plus tard" sur la suggestion : on stocke la décision en localStorage pour
+// ne plus afficher la bannière pendant 7 jours (UX : ne pas harceler).
+function dismissPhaseUpgrade() {
+  try {
+    var until = Date.now() + 7 * 24 * 60 * 60 * 1000;
+    localStorage.setItem('parcours_phase_upgrade_dismissed_until', String(until));
+  } catch(e) {}
+  // Re-render pour faire disparaître la bannière (renderParcours lit cette clé)
+  renderParcours();
+}
+
+// Vrai si la bannière de suggestion est en cooldown (cliqué "Plus tard" récemment).
+function isPhaseUpgradeDismissed() {
+  try {
+    var raw = localStorage.getItem('parcours_phase_upgrade_dismissed_until');
+    if (!raw) return false;
+    var until = parseInt(raw, 10);
+    return !isNaN(until) && Date.now() < until;
+  } catch(e) { return false; }
+}
+
+// Navigue vers la bibliothèque, onglet correspondant au bloc.
+function goToBlocBiblio(blocKey) {
+  if (typeof goTo === 'function') goTo('biblio');
+  // Le scroll vers la bonne section se fera en lisant la cat ciblée :
+  // on stocke en session le bloc actif, la biblio peut le récupérer si elle veut.
+  try { sessionStorage.setItem('parcours_target_bloc', blocKey); } catch(e){}
+}
+
+// ---------- MODALE DE CONFIGURATION ----------
+function openParcoursModal() {
+  var p = getPrepaProfile() || {};
+  var modal = document.getElementById('parcours-modal-backdrop');
+  if (!modal) return;
+
+  // Pré-remplir la date
+  var dateInput = document.getElementById('parcours-modal-date');
+  if (dateInput) dateInput.value = p.concours_date || '';
+
+  // Construire les radios des 3 phases
+  var currentPhase = getCurrentPhase();
+  var recommended = getRecommendedPhase();
+  var hasOverride = !!(p && p.phase_override);
+
+  var phasesHtml = '';
+  // Option "auto" en premier
+  var isAuto = !hasOverride;
+  phasesHtml += '' +
+    '<label class="parcours-radio-item ' + (isAuto ? 'selected' : '') + '">' +
+      '<input type="radio" name="parcours-phase-choice" value="auto" class="parcours-radio-input" ' + (isAuto ? 'checked' : '') + ' />' +
+      '<div class="parcours-radio-content">' +
+        '<div class="parcours-radio-title">Automatique <span class="parcours-radio-tag">Recommandé</span></div>' +
+        '<div class="parcours-radio-desc">L\'algo détermine ta phase selon ta date d\'écrit. ' +
+          (recommended ? 'Aujourd\'hui : <strong>Phase ' + recommended + '</strong>.' : '') +
+        '</div>' +
+      '</div>' +
+    '</label>';
+
+  // Options manuelles P1/P2/P3
+  [1, 2, 3].forEach(function(n) {
+    var meta = PHASE_META[n];
+    var isSelected = hasOverride && p.phase_override === n;
+    phasesHtml += '' +
+      '<label class="parcours-radio-item ' + (isSelected ? 'selected' : '') + '">' +
+        '<input type="radio" name="parcours-phase-choice" value="' + n + '" class="parcours-radio-input" ' + (isSelected ? 'checked' : '') + ' />' +
+        '<div class="parcours-radio-content">' +
+          '<div class="parcours-radio-title">Phase ' + n + ' · ' + meta.titleEm + '</div>' +
+          '<div class="parcours-radio-desc">' + meta.subtitle + '</div>' +
+        '</div>' +
+      '</label>';
+  });
+
+  document.getElementById('parcours-modal-phases').innerHTML = phasesHtml;
+
+  // Recommandation textuelle
+  var recoEl = document.getElementById('parcours-modal-recommendation');
+  if (recoEl) {
+    if (getWeeksUntilConcours() == null) {
+      recoEl.textContent = 'Renseigne ta date d\'écrit pour que la recommandation auto s\'active.';
+    } else {
+      recoEl.innerHTML = 'Mode <strong>Automatique</strong> conseillé — la phase évolue toute seule à mesure que tu approches du concours.';
+    }
+  }
+
+  // Branchement clic sur les radios pour le visuel "selected"
+  var radios = modal.querySelectorAll('input[name="parcours-phase-choice"]');
+  radios.forEach(function(r) {
+    r.addEventListener('change', function() {
+      modal.querySelectorAll('.parcours-radio-item').forEach(function(item) {
+        item.classList.remove('selected');
+      });
+      r.closest('.parcours-radio-item').classList.add('selected');
+    });
+  });
+
+  modal.classList.add('open');
+}
+
+function closeParcoursModal() {
+  var modal = document.getElementById('parcours-modal-backdrop');
+  if (modal) modal.classList.remove('open');
+}
+
+function saveParcoursModal() {
+  var dateInput = document.getElementById('parcours-modal-date');
+  var radios = document.querySelectorAll('input[name="parcours-phase-choice"]:checked');
+  var newDate = dateInput ? (dateInput.value || null) : null;
+  var newOverride = null;
+  if (radios && radios.length > 0) {
+    var val = radios[0].value;
+    if (val !== 'auto') {
+      var num = parseInt(val, 10);
+      if ([1, 2, 3].indexOf(num) !== -1) newOverride = num;
+    }
+  }
+
+  var p = getPrepaProfile() || {};
+  p.concours_date = newDate;
+  p.phase_override = newOverride;
+  p.updatedAt = new Date().toISOString();
+
+  try { localStorage.setItem(PREPA_PROFILE_KEY, JSON.stringify(p)); } catch(e){}
+  if (typeof pushPrepaProfileToSupabase === 'function') {
+    pushPrepaProfileToSupabase(p);
+  }
+
+  closeParcoursModal();
+  renderParcours();
+  // Rebuild le planning hebdo : la phase a peut-être changé,
+  // donc le contenu des séances révision doit s'adapter.
+  if (typeof rebuildProgPlanning === 'function') rebuildProgPlanning();
+  if (typeof showToast === 'function') {
+    showToast('✓ Parcours mis à jour');
+  }
+}
 
 // ---------- PROFIL CANDIDAT ----------
 function getPrepaProfile() {
@@ -18660,6 +20151,40 @@ function submitBetaFeedback() {
 
 </script>
 
+<!-- =====================================================
+     MODALE PARCOURS — Configuration date concours + override phase
+     ===================================================== -->
+<div class="parcours-modal-backdrop" id="parcours-modal-backdrop" onclick="if(event.target===this)closeParcoursModal()">
+  <div class="parcours-modal" role="dialog" aria-labelledby="parcours-modal-title">
+    <button class="parcours-modal-close" onclick="closeParcoursModal()" aria-label="Fermer">×</button>
+    <div class="parcours-modal-eyebrow">Mon parcours</div>
+    <div class="parcours-modal-title" id="parcours-modal-title">Configurer ton parcours</div>
+    <div class="parcours-modal-desc">
+      Renseigne ta date probable d'écrit pour que le planning s'adapte à ton calendrier. Tu peux aussi forcer une phase si tu veux contrôler ton rythme manuellement.
+    </div>
+
+    <div class="parcours-field">
+      <label class="parcours-field-label" for="parcours-modal-date">Date probable de l'écrit</label>
+      <input type="date" class="parcours-field-input" id="parcours-modal-date" />
+      <div class="parcours-field-help">Ex : septembre 2027 pour la prochaine session. Tu peux modifier à tout moment.</div>
+    </div>
+
+    <div class="parcours-field">
+      <label class="parcours-field-label">Phase active</label>
+      <div class="parcours-radio-group" id="parcours-modal-phases">
+        <!-- Injecté dynamiquement par openParcoursModal() -->
+      </div>
+      <div class="parcours-field-help" id="parcours-modal-recommendation">—</div>
+    </div>
+
+    <div class="parcours-modal-actions">
+      <button class="btn btn-outline" onclick="closeParcoursModal()" style="padding:10px 18px;font-size:.85rem">Annuler</button>
+      <button class="btn btn-red" onclick="saveParcoursModal()" style="padding:10px 20px;font-size:.85rem">Enregistrer →</button>
+    </div>
+  </div>
+</div>
+
 </body>
+
 </html>
 
