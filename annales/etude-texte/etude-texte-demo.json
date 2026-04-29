@@ -2,62 +2,26 @@
   "id": "etude-texte-demo",
   "theme": "etude-texte",
   "year": 2025,
-  "title": "Démo — Étude de texte (10 questions)",
-  "duration_min": 30,
+  "title": "Démo — Étude de texte (exemple)",
+  "duration_min": 60,
   "pdf_sujet": "annales/etude-texte/etude-texte-demo-sujet.pdf",
-  "pdf_corrige": "",
-  "is_demo": true,
-  "instructions": "Lis attentivement le texte présenté dans le PDF à gauche, puis coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses — aucune indication n'est donnée sur le nombre attendu. Tu peux revenir au texte à tout moment. Durée indicative : 30 min.",
+  "pdf_corrige": "annales/etude-texte/etude-texte-demo-corrige.pdf",
+  "instructions": "Lis attentivement le texte fourni dans le PDF à gauche, puis réponds aux questions de la grille à droite. Certaines questions admettent une seule bonne réponse, d'autres en admettent plusieurs. Durée : 1 heure pour la version complète, quelques minutes pour cette démo.",
   "questions": [
     {
       "num": 1,
-      "correct": [0, 2],
-      "expl": "Bonnes réponses : A et C. Le premier paragraphe cite expressément « l'augmentation des feux de forêt » (A) et « la multiplication des épisodes de canicule et la répétition d'événements climatiques extrêmes » (C). La baisse du nombre d'interventions (B) n'est pas mentionnée — le texte évoque au contraire une transformation du volume d'activité. La disparition des SPV (D) n'est pas affirmée : le texte parle d'un recrutement qui stagne."
+      "correct": [1],
+      "expl": "La réponse est B. Selon le texte, la mission première du Service d'Incendie et de Secours est la protection des personnes — viennent ensuite la protection des biens et de l'environnement, dans cet ordre de priorité (article L1424-2 du CGCT cité dans le texte d'appui)."
     },
     {
       "num": 2,
-      "correct": [1],
-      "expl": "Bonne réponse : B. Le texte indique textuellement que « le nombre d'hectares brûlés en France métropolitaine a plus que doublé » entre 2015 et 2022. Les autres formulations ne correspondent pas à ce qui est écrit."
+      "correct": [0, 2, 3],
+      "expl": "Trois bonnes réponses : A, C et D. Le texte mentionne explicitement la prévention des risques de sécurité civile (A), la protection des personnes (C) et le secours d'urgence (D). L'organisation administrative des élections locales (B) ne fait pas partie des missions des SDIS."
     },
     {
       "num": 3,
-      "correct": [1, 2],
-      "expl": "Bonnes réponses : B et C. Le texte indique que les zones exposées « s'étendent désormais bien au-delà du pourtour méditerranéen traditionnel » (B ✓), ce qui contredit directement A. Le troisième paragraphe — pardon, le deuxième — mentionne des « modes de propagation atypiques observés lors de la saison 2019 » (C ✓). L'affirmation D (diminution des feux) est contraire à la thèse du texte."
-    },
-    {
-      "num": 4,
-      "correct": [0, 3],
-      "expl": "Bonnes réponses : A et D. Le sigle DGSCGC désigne bien la « Direction Générale de la Sécurité Civile et de la Gestion des Crises » (A ✓), et le texte précise qu'elle publie les GTO et GDO (D ✓). La formulation B est incorrecte. Le texte ne rattache pas la DGSCGC au ministère de la Transition écologique (C) — elle relève du ministère de l'Intérieur."
-    },
-    {
-      "num": 5,
-      "correct": [1, 3],
-      "expl": "Bonnes réponses : B et D. Le texte précise que le GDO Feux de forêts a été refondu « en 2021 » (B ✓) « afin de tenir compte des modes de propagation atypiques observés lors de la saison 2019 » (D ✓). Les années 2019 (A) et 2022 (C) ne correspondent pas à la date de refonte."
-    },
-    {
-      "num": 6,
-      "correct": [0, 2],
-      "expl": "Bonnes réponses : A et C. Le texte décrit les CCFM et CCFS comme « plus polyvalents » (A ✓) et « capables d'intervenir […] en interface habitat-forêt » (C ✓). L'affirmation B (zone urbaine dense exclusivement) est contraire au texte. L'affirmation D (remplacent tous les autres engins) n'est pas dans le texte et constitue un excès."
-    },
-    {
-      "num": 7,
-      "correct": [0, 2],
-      "expl": "Bonnes réponses : A et C. Le texte indique que « Le renforcement des colonnes de renfort interdépartementales, activées par le Centre Opérationnel de Gestion Interministérielle des Crises (COGIC), permet désormais une montée en puissance plus rapide » — ce qui valide A et C. B et D sont des contresens : le COGIC est un organe interministériel de l'État, pas une structure locale ni privée."
-    },
-    {
-      "num": 8,
-      "correct": [0, 2],
-      "expl": "Bonnes réponses : A et C. Le texte affirme que les SPV « représentent près de 80 % de l'effectif opérationnel national » (A ✓) et que « leur recrutement stagne » (C ✓). L'affirmation B (50 %) contredit le chiffre du texte, et D (forte hausse) est l'inverse de ce qui est écrit."
-    },
-    {
-      "num": 9,
-      "correct": [0, 2],
-      "expl": "Bonnes réponses : A et C. Le dernier paragraphe cite explicitement la participation des SIS à l'élaboration des Plans Communaux de Sauvegarde — PCS (A ✓) et à l'information sur le débroussaillement (C ✓). Les lois de finances (B) et les programmes scolaires (D) ne sont pas évoqués et ne relèvent pas des SIS."
-    },
-    {
-      "num": 10,
-      "correct": [1, 2],
-      "expl": "Bonnes réponses : B et C. La conclusion insiste précisément sur une approche intégrée combinant « prévention, préparation et réponse opérationnelle » (B ✓) et affirme que « l'enjeu n'est plus seulement d'éteindre les feux, mais de réduire en amont la vulnérabilité des territoires » (C ✓). L'affirmation A (la réponse opérationnelle seule priorité) et D (abandon de la prévention) sont contraires à la thèse du texte."
+      "correct": [2],
+      "expl": "La réponse est C. Le texte précise que le SDIS est un établissement public administratif placé sous l'autorité conjointe du préfet (pouvoir opérationnel) et du président du conseil d'administration du SDIS (pouvoir de gestion administrative et financière)."
     }
   ]
 }

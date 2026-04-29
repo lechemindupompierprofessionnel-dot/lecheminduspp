@@ -2,62 +2,31 @@
   "id": "maths-demo",
   "theme": "maths",
   "year": 2025,
-  "title": "Démo — Mathématiques (10 questions)",
-  "duration_min": 30,
+  "title": "Démo — Mathématiques (exemple)",
+  "duration_min": 60,
   "pdf_sujet": "annales/maths/maths-demo-sujet.pdf",
-  "pdf_corrige": "",
-  "is_demo": true,
-  "instructions": "Chaque question du PDF à gauche est un QCM. Coche la ou les bonnes réponses dans la grille à droite. Certaines questions admettent plusieurs bonnes réponses — aucune indication n'est donnée sur le nombre attendu. La calculatrice est interdite. Durée indicative : 30 min.",
+  "pdf_corrige": "annales/maths/maths-demo-corrige.pdf",
+  "instructions": "Lis attentivement chaque question du PDF à gauche. Coche la bonne réponse dans la grille à droite. Une seule réponse correcte par question. Calculatrice non autorisée. Durée : 1 heure pour la version complète, quelques minutes pour cette démo.",
   "questions": [
     {
       "num": 1,
-      "correct": [0, 2, 3],
-      "expl": "Bonnes réponses : A, C et D. A) 12 + 3 × 4 − 5 = 12 + 12 − 5 = 19 ✓. B) (15 − 3) × 2 = 12 × 2 = 24 ✗. C) 25 − 2 × 3 = 25 − 6 = 19 ✓. D) 2 × (5 + 4) + 1 = 2 × 9 + 1 = 19 ✓. Rappel : la multiplication est prioritaire sur l'addition et la soustraction, sauf en présence de parenthèses."
+      "correct": [2],
+      "expl": "La réponse est C (108 km/h). Conversion vitesse : 30 m/s × 3,6 = 108 km/h. Le facteur 3,6 (= 3600/1000) permet de passer des m/s aux km/h."
     },
     {
       "num": 2,
-      "correct": [0, 1, 3],
-      "expl": "Bonnes réponses : A, B et D. A) 1/2 + 1/4 = 2/4 + 1/4 = 3/4 ✓. B) 2/3 − 1/6 = 4/6 − 1/6 = 3/6 = 1/2 ✓. C) 3/5 + 1/10 = 6/10 + 1/10 = 7/10 ≠ 4/5 (= 8/10) ✗. D) 1/3 × 3/4 = 3/12 = 1/4 ✓. Rappel : pour additionner deux fractions, il faut d'abord les mettre au même dénominateur."
+      "correct": [1],
+      "expl": "La réponse est B (12,5 L). Volume d'un cylindre : V = π × r² × h. Ici r = 0,1 m (10 cm), h = 0,4 m (40 cm). V = π × 0,01 × 0,4 ≈ 0,01257 m³ ≈ 12,57 L."
     },
     {
       "num": 3,
-      "correct": [0, 1, 2],
-      "expl": "Bonnes réponses : A, B et C. A) 1 km = 1 000 m ✓. B) 1 tonne = 1 000 kg ✓. C) 1 hectolitre = 100 litres ✓ (le préfixe hecto- signifie cent). D) 1 m³ = 1 000 L, pas 100 L — à retenir absolument pour les calculs de volumes d'eau en intervention."
+      "correct": [0],
+      "expl": "La réponse est A (45 minutes). Temps = distance ÷ vitesse = 9 km ÷ 12 km/h = 0,75 h = 45 min. Pour un trajet à pied à 4 km/h, ce serait 9/4 = 2h15."
     },
     {
       "num": 4,
-      "correct": [0, 1, 2],
-      "expl": "Bonnes réponses : A, B et C. A) 20 % de 150 = 150 × 0,20 = 30 ✓. B) 15 % de 200 = 200 × 0,15 = 30 ✓. C) 75 % de 40 = 40 × 0,75 = 30 ✓. D) 10 % de 250 = 25, pas 30 ✗. Méthode : « x % de N » = N × x/100."
-    },
-    {
-      "num": 5,
-      "correct": [2],
-      "expl": "Bonne réponse : C (30 km). Le véhicule roule pendant 20 minutes, soit 20/60 = 1/3 d'heure. Distance = vitesse × temps = 90 × 1/3 = 30 km. Autre méthode : en 60 min il parcourt 90 km, donc en 20 min il parcourt 90/3 = 30 km."
-    },
-    {
-      "num": 6,
-      "correct": [0, 2, 3],
-      "expl": "Bonnes réponses : A, C et D. A) Rectangle : 8 × 5 = 40 m² ✓. B) Carré de côté 8 m : 8 × 8 = 64 m² ✗. C) Triangle : (base × hauteur) / 2 = (10 × 8) / 2 = 40 m² ✓. D) Rectangle : 10 × 4 = 40 m² ✓. À retenir : aire du triangle = moitié de celle du rectangle de même base et même hauteur."
-    },
-    {
-      "num": 7,
-      "correct": [1, 2],
-      "expl": "Bonnes réponses : B et C. Volume d'un cylindre = π × r² × h = 3,14 × 1² × 2 = 6,28 m³ (B ✓). Et 6,28 m³ = 6 280 litres (C ✓) puisque 1 m³ = 1 000 L. Les propositions A (3,14 m³) et D (12,56 m³) proviennent d'erreurs classiques : oubli du facteur hauteur pour A, multiplication par un facteur 2 superflu pour D."
-    },
-    {
-      "num": 8,
-      "correct": [1, 2],
-      "expl": "Bonnes réponses : B et C. Une échelle 1/25 000 signifie que 1 cm sur la carte représente 25 000 cm dans la réalité. Donc 4 cm représentent 4 × 25 000 = 100 000 cm. Conversion : 100 000 cm = 1 000 m (B ✓) = 1 km (C ✓). Les deux propositions expriment la même distance, elles sont donc toutes les deux justes."
-    },
-    {
-      "num": 9,
-      "correct": [1],
-      "expl": "Bonne réponse : B (x = 7). 3x + 5 = 2x + 12. On soustrait 2x des deux côtés : x + 5 = 12. Puis on soustrait 5 des deux côtés : x = 7. Vérification : 3 × 7 + 5 = 26 et 2 × 7 + 12 = 26 ✓."
-    },
-    {
-      "num": 10,
-      "correct": [0],
-      "expl": "Bonne réponse : A (40 km/h). Attention : la vitesse moyenne d'un aller-retour n'est PAS la moyenne arithmétique des deux vitesses. Il faut calculer le temps total et la distance totale. Aller : 60 km à 60 km/h = 1 h. Retour : 60 km à 30 km/h = 2 h. Temps total = 3 h, distance totale = 120 km. Vitesse moyenne = 120 / 3 = 40 km/h. Le piège classique (45 km/h = moyenne de 60 et 30) est faux : la vitesse la plus lente pèse plus lourd dans la moyenne parce qu'on y passe plus de temps."
+      "correct": [3],
+      "expl": "La réponse est D (1500 L/min). Une LDV (lance à débit variable) règle son débit entre 250 et 500 L/min. Une LDT (lance à grand débit) peut atteindre 1000 à 2000 L/min selon le matériel."
     }
   ]
 }
