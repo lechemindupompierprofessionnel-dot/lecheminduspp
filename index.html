@@ -746,25 +746,20 @@ body.is-logged .nav-member-only{display:revert}
 /* Membre payant : aucun cadenas visible (a accès à tout) */
 body.is-member .biblio-lock{display:none}
 
-/* Membre gratuit connecté : masque les cadenas des contenus 'free', garde ceux des 'paid' */
-body.is-free-member .biblio-card[data-access="free"] .biblio-lock,
-body.is-free-member .biblio-card[data-access="public"] .biblio-lock,
-body.is-free-member .biblio-source-card[data-access="free"] .biblio-lock,
-body.is-free-member .biblio-source-card[data-access="public"] .biblio-lock{display:none}
+/* Documents publics : aucun cadenas pour personne (visiteur, gratuit ou payant) */
+.biblio-card[data-access="public"] .biblio-lock,
+.biblio-source-card[data-access="public"] .biblio-lock{display:none}
 
 /* Badge "Premium" sur les cartes réservées aux abonnés payants */
 .biblio-card[data-access="paid"] .biblio-lock::before{content:'👑 ';font-size:.7rem;margin-right:2px}
 .biblio-source-card[data-access="paid"] .biblio-lock::before{content:'👑 ';font-size:.6rem}
 
-/* Badge discret "Gratuit" sur les cartes en accès 'free' */
-.biblio-card[data-access="free"]::after,
+/* Badge discret "Gratuit" sur les cartes en accès public */
 .biblio-card[data-access="public"]::after{content:'GRATUIT';position:absolute;bottom:10px;right:10px;font-size:.56rem;font-weight:700;letter-spacing:1.2px;color:#4a7c59;background:#e8f3ec;padding:2px 6px;border-radius:3px}
-body.is-member .biblio-card[data-access="free"]::after,
 body.is-member .biblio-card[data-access="public"]::after{display:none}
 
 /* Overlay texte contextualisé selon le niveau d'accès */
 .biblio-card[data-access="paid"] .biblio-overlay p::before{content:'🔐 '}
-.biblio-card[data-access="free"] .biblio-overlay p::before{content:'👤 '}
 .biblio-card[data-access="public"] .biblio-overlay p::before{content:'✅ '}
 
 body.is-member .biblio-overlay p{content:'';display:none}
@@ -932,7 +927,6 @@ body:not(.is-member) .biblio-quiz-badge{display:none}
 /* Sur les fiches avec badge "Fiche", décale le lock pour ne pas chevaucher le NEW badge */
 .biblio-card.is-synthese .biblio-lock{top:26px}
 /* Masque le tag "GRATUIT" (::after) quand un badge NEW est présent sur la carte — évite collision visuelle */
-.biblio-card:has(.biblio-new-badge)[data-access="free"]::after,
 .biblio-card:has(.biblio-new-badge)[data-access="public"]::after{display:none}
 
 /* Section "Sources" — repliée par défaut, bouton toggle pour afficher */
@@ -945,15 +939,11 @@ body:not(.is-member) .biblio-quiz-badge{display:none}
 .biblio-sources-free-tag{display:inline-flex;align-items:center;gap:4px;font-size:.6rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#2d6a4f;background:#e8f3ec;padding:3px 8px;border-radius:3px;white-space:nowrap}
 /* Masqué pour les abonnés payants (info inutile pour eux) */
 body.is-member:not(.is-free-member) .biblio-sources-free-tag{display:none}
-/* Bandeau explicatif à l'intérieur du menu sources, contextualisé selon le statut */
+/* Bandeau explicatif à l'intérieur du menu sources */
 .biblio-sources-notice{font-size:.76rem;color:var(--charcoal);background:#F4F1E9;border-left:3px solid #2d6a4f;padding:10px 14px;margin-bottom:12px;line-height:1.45}
 .biblio-sources-notice strong{color:#2d6a4f;font-weight:700}
-/* Les visiteurs non inscrits voient le CTA d'inscription, les inscrits gratuits voient le message "tu y as accès" */
-.biblio-sources-notice .if-anon{display:block}
-.biblio-sources-notice .if-free{display:none}
-body.is-free-member .biblio-sources-notice .if-anon{display:none}
-body.is-free-member .biblio-sources-notice .if-free{display:block}
-body.is-member:not(.is-free-member) .biblio-sources-notice{display:none}
+/* Masqué pour les abonnés payants (info inutile pour eux) */
+body.is-member .biblio-sources-notice{display:none}
 .biblio-sources-chevron{font-size:.8rem;color:var(--gray);transition:transform .2s}
 .biblio-sources-section.open .biblio-sources-chevron{transform:rotate(180deg)}
 .biblio-sources-body{max-height:0;overflow:hidden;transition:max-height .25s ease;padding:0 18px}
@@ -1258,6 +1248,15 @@ body.biblio-searching .biblio-acc-section.empty{display:none}
 
   .annales-theme-grid{grid-template-columns:1fr}
   .correction-stats{grid-template-columns:repeat(2,1fr)}
+
+  /* Examen en mode démo (visiteur non connecté) : on libère l'espace de la barre démo en haut.
+     Sur mobile la barre fait 50px (au-delà de 680px). Les panneaux passent à 50/50 du reste. */
+  body.demo-mode:not(.is-logged) .exam-layout{
+    height:calc(100vh - 50px);
+    height:calc(100dvh - 50px);
+    margin-top:50px;
+  }
+  body.demo-mode:not(.is-logged) .exam-pdf-pane{height:calc(50vh - 25px);height:calc(50dvh - 25px);max-height:calc(50vh - 25px);max-height:calc(50dvh - 25px)}
 }
 
 /* Très petits écrans : le timer + les infos doivent rester lisibles */
@@ -1693,6 +1692,67 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 .esp-ctx-msg{background:var(--cream2);border:1px solid var(--border);border-left:3px solid var(--red);padding:14px 20px;margin-bottom:24px;font-size:.92rem;color:var(--charcoal);line-height:1.5;display:flex;align-items:center;gap:12px}
 .esp-ctx-msg-icon{font-size:1.3rem;flex-shrink:0}
 .esp-ctx-msg-text strong{color:var(--red)}
+
+/* ===== Barre fixe de navigation entre démos ===== */
+/* Visible UNIQUEMENT pour les visiteurs non connectés ET sur les pages démo (body.demo-mode) */
+.demo-nav-bar{display:none;position:fixed;top:68px;left:0;right:0;z-index:850;background:white;border-bottom:1px solid var(--border);box-shadow:0 2px 8px rgba(0,0,0,.04)}
+body.is-logged .demo-nav-bar{display:none !important}
+body.demo-mode:not(.is-logged) .demo-nav-bar{display:block}
+.demo-nav-inner{max-width:1200px;margin:0 auto;padding:10px 5%;display:flex;align-items:center;gap:14px}
+.demo-nav-label{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);white-space:nowrap;flex-shrink:0}
+.demo-nav-tabs{display:flex;gap:4px;overflow-x:auto;flex:1;scrollbar-width:thin;-webkit-overflow-scrolling:touch}
+.demo-nav-tabs::-webkit-scrollbar{height:3px}
+.demo-nav-tabs::-webkit-scrollbar-thumb{background:var(--border)}
+.demo-nav-tab{flex-shrink:0;display:inline-flex;align-items:center;gap:6px;padding:7px 12px;background:var(--cream2);border:1px solid transparent;font-family:inherit;font-size:.8rem;color:var(--charcoal);cursor:pointer;white-space:nowrap;transition:all .15s;border-radius:3px}
+.demo-nav-tab:hover{background:var(--cream3);border-color:var(--border)}
+.demo-nav-tab.active{background:var(--red);color:white;font-weight:600}
+.demo-nav-tab.active:hover{background:var(--red-dark);border-color:transparent}
+.demo-nav-tab-ico{font-size:.95rem;line-height:1}
+.demo-nav-cta{flex-shrink:0;font-size:.78rem;font-weight:700;color:var(--gray);background:none;border:0;cursor:pointer;padding:6px 10px;font-family:inherit;text-decoration:underline}
+.demo-nav-cta:hover{color:var(--red)}
+
+/* Compensation : quand la barre démo est visible, on décale tout le contenu de 50px supplémentaires */
+/* La barre prend ~50px de haut (10px padding + ~30px contenu + bordure). */
+body.demo-mode:not(.is-logged) .countdown-bar,
+body.demo-mode:not(.is-logged) .hero,
+body.demo-mode:not(.is-logged) .qcm-page,
+body.demo-mode:not(.is-logged) .ch-hero,
+body.demo-mode:not(.is-logged) .page-header,
+body.demo-mode:not(.is-logged) .login-wrap,
+body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
+
+/* Layout examen DESKTOP en mode démo : nav (68px) + barre démo (50px) = 118px d'espace pris en haut.
+   On retire le margin-top sur .exam-layout (les sticky se positionnent par rapport au viewport),
+   on réduit la hauteur des panneaux pour qu'ils tiennent sous la barre démo,
+   et on ajuste le top des éléments sticky pour qu'ils apparaissent juste sous la barre démo. */
+@media(min-width:901px){
+  body.demo-mode:not(.is-logged) .exam-layout{margin-top:50px}
+  body.demo-mode:not(.is-logged) .exam-pdf-pane{height:calc(100vh - 50px);top:118px}
+  body.demo-mode:not(.is-logged) .exam-answers-pane{height:calc(100vh - 50px)}
+  body.demo-mode:not(.is-logged) .exam-timer-bar{top:118px}
+}
+
+@media (max-width:680px){
+  .demo-nav-inner{gap:8px;padding:8px 12px}
+  .demo-nav-label{font-size:.62rem;letter-spacing:1px}
+  .demo-nav-tab{padding:6px 9px;font-size:.74rem}
+  .demo-nav-cta{font-size:.7rem;padding:6px 4px}
+  /* Sur mobile la barre est plus dense, ~46px → on compense ~46+68 = 114px */
+  body.demo-mode:not(.is-logged) .countdown-bar,
+  body.demo-mode:not(.is-logged) .hero,
+  body.demo-mode:not(.is-logged) .qcm-page,
+  body.demo-mode:not(.is-logged) .ch-hero,
+  body.demo-mode:not(.is-logged) .page-header,
+  body.demo-mode:not(.is-logged) .login-wrap,
+  body.demo-mode:not(.is-logged) .examen-wrap{margin-top:114px}
+  /* Layout examen mobile en mode démo : barre 46px, panneaux empilés 50/50 du reste */
+  body.demo-mode:not(.is-logged) .exam-layout{
+    height:calc(100vh - 46px);
+    height:calc(100dvh - 46px);
+    margin-top:46px;
+  }
+  body.demo-mode:not(.is-logged) .exam-pdf-pane{height:calc(50vh - 23px);height:calc(50dvh - 23px);max-height:calc(50vh - 23px);max-height:calc(50dvh - 23px)}
+}
 
 /* ===== Toggle voie de concours (Voie 1° externe / Voie 2° externe SPV) ===== */
 .esp-voie-toggle{display:inline-flex;background:var(--cream2);border:1px solid var(--border);padding:3px;margin-bottom:14px;border-radius:6px}
@@ -2818,8 +2878,8 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 
   <!-- Footer : CTAs contextuels -->
   <div class="mobile-nav-footer">
-    <!-- CTA inscription (non connectés) -->
-    <button class="btn btn-red mobile-nav-cta-signup" onclick="msSignupFree();closeMobileNav()">Commencer gratuitement</button>
+    <!-- CTA principal (non connectés) -->
+    <button class="btn btn-red mobile-nav-cta-signup" onclick="goTo('decouverte');closeMobileNav()">Essai gratuit</button>
     <button class="btn btn-outline mobile-nav-cta-signup" onclick="goTo('connexion');closeMobileNav()">Se connecter</button>
     <!-- Logout (connectés) -->
     <button class="btn btn-outline mobile-nav-logout" onclick="logoutMember();closeMobileNav()">Déconnexion</button>
@@ -2900,9 +2960,9 @@ body:not(.is-logged) .mobile-nav-member{display:none}
   </div>
   <div class="nav-right">
     <!-- CTA rouge visible uniquement aux non-inscrits -->
-    <button class="btn btn-red nav-cta" id="nav-cta-signup" onclick="msSignupFree()">
-      <span class="nav-cta-full">Commencer gratuitement</span>
-      <span class="nav-cta-short">Essai gratuit</span>
+    <button class="btn btn-red nav-cta" id="nav-cta-signup" onclick="goTo('decouverte')">
+      <span class="nav-cta-full">Essai gratuit</span>
+      <span class="nav-cta-short">Essai</span>
     </button>
     <!-- Bouton affiché si non connecté -->
     <button class="member-btn" id="nav-login-btn" onclick="goTo('connexion')">Se connecter →</button>
@@ -2918,6 +2978,23 @@ body:not(.is-logged) .mobile-nav-member{display:none}
     </button>
   </div>
 </nav>
+
+<!-- ===== BARRE STICKY DÉMO (visible uniquement pour visiteurs non connectés sur les 7 pages démo) ===== -->
+<div class="demo-nav-bar" id="demo-nav-bar" role="navigation" aria-label="Navigation entre les démos">
+  <div class="demo-nav-inner">
+    <span class="demo-nav-label">🚪 Mode démo</span>
+    <div class="demo-nav-tabs" id="demo-nav-tabs">
+      <button class="demo-nav-tab" data-demo-target="qcm" onclick="goTo('qcm')"><span class="demo-nav-tab-ico">🎯</span>QCM</button>
+      <button class="demo-nav-tab" data-demo-target="concours" onclick="goTo('concours')"><span class="demo-nav-tab-ico">📝</span>Annales</button>
+      <button class="demo-nav-tab" data-demo-target="biblio" onclick="goTo('biblio')"><span class="demo-nav-tab-ico">📚</span>Biblio</button>
+      <button class="demo-nav-tab" data-demo-target="demo-prepa" onclick="goTo('demo-prepa')"><span class="demo-nav-tab-ico">💪</span>Physique</button>
+      <button class="demo-nav-tab" data-demo-target="demo-espace" onclick="goTo('demo-espace')"><span class="demo-nav-tab-ico">📊</span>Espace</button>
+      <button class="demo-nav-tab" data-demo-target="programme" onclick="goTo('programme')"><span class="demo-nav-tab-ico">📅</span>Planning</button>
+      <button class="demo-nav-tab" data-demo-target="actu" onclick="goTo('actu')"><span class="demo-nav-tab-ico">📰</span>Actus</button>
+    </div>
+    <button class="demo-nav-cta" onclick="goTo('formation')">S'abonner →</button>
+  </div>
+</div>
 
 <!-- ============================= PAGE: HOME ============================= -->
 <div class="page active" id="page-home">
@@ -2997,10 +3074,11 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 
   <div class="section section-red" style="text-align:center;padding:70px 5%">
     <div class="s-eyebrow" style="color:rgba(255,255,255,0.7)">Formation en ligne · Sans engagement</div>
-    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:white;margin:12px 0 20px;line-height:1.2">Ta préparation au concours à partir de <span style="text-decoration:underline">15,80€/mois</span></div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:white;margin:12px 0 20px;line-height:1.2">La plateforme complète à partir de <span style="text-decoration:underline">19€/mois</span></div>
     <div style="font-size:.95rem;color:rgba(255,255,255,0.8);margin-bottom:32px">QCM · Annales · Bibliothèque · Programmes physiques — choisis ta formule.</div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-      <button class="btn" style="background:white;color:var(--red);font-weight:700" onclick="goTo('formation')">Voir les formules</button>
+      <button class="btn" style="background:white;color:var(--red);font-weight:700" onclick="goTo('decouverte')">Essai gratuit</button>
+      <button class="btn btn-outline-white" onclick="goTo('formation')">Voir les formules →</button>
     </div>
   </div>
 </div>
@@ -3073,29 +3151,29 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 
   <div class="section">
 
-    <!-- PALIER 1 — DÉCOUVERTE (gratuit, carte horizontale) — placée en tête pour guider le prospect avant les offres payantes -->
-    <div class="discover-card hide-when-logged" onclick="msSignupFree()" style="cursor:pointer">
+    <!-- PALIER 1 — DÉCOUVERTE (libre, sans inscription) — placée en tête pour guider le prospect avant les offres payantes -->
+    <div class="discover-card hide-when-logged" onclick="goTo('decouverte')" style="cursor:pointer">
       <div class="discover-card-left">
         <div class="discover-card-icon">🚪</div>
         <div class="discover-card-title-wrap">
           <div class="discover-card-title">Découverte</div>
-          <div class="discover-card-subtitle">Testez gratuitement la plateforme</div>
+          <div class="discover-card-subtitle">Accès libre · sans inscription</div>
         </div>
       </div>
       <div class="discover-card-center">
-        Pas encore prêt à t'engager ? Crée un compte gratuit et teste la plateforme avec une sélection représentative de contenu avant de choisir ta formule.
+        Tu peux tester la plateforme tout de suite, sans créer de compte ni laisser ton email. Six outils à essayer librement avant de choisir ta formule.
         <ul class="discover-card-features">
-          <li>30 QCM offerts</li>
-          <li>1 annale démo par épreuve</li>
-          <li>Bibliothèque officielle</li>
+          <li>10 QCM par jour, tous thèmes</li>
+          <li>3 annales démo en mode concours</li>
+          <li>Bibliothèque officielle (47 documents)</li>
+          <li>Aperçus prépa physique &amp; espace candidat</li>
           <li>Actualités en libre accès</li>
-          <li>Premiers badges</li>
         </ul>
       </div>
       <div class="discover-card-right">
-        <div class="discover-card-price-label">Sans CB requise</div>
+        <div class="discover-card-price-label">Sans inscription</div>
         <div class="discover-card-price">Gratuit</div>
-        <button class="btn btn-outline-red" onclick="event.stopPropagation();msSignupFree()">Créer mon compte →</button>
+        <button class="btn btn-outline-red" onclick="event.stopPropagation();goTo('decouverte')">Tester maintenant →</button>
       </div>
     </div>
 
@@ -3117,8 +3195,8 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <div class="offer-price">19 €<span class="offer-price-suffix">/mois</span></div>
         <div class="offer-price-alt">Sans engagement · résiliable à tout moment</div>
         <div class="offer-price-note" style="color:var(--gray)">💳 Satisfait ou remboursé sous 14j</div>
-        <button class="btn btn-red" onclick="msPay('prc_plateforme-mensuel-ol4g0ax1')">Choisir mensuel</button>
-        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.95rem;font-weight:700;line-height:1.35;padding-top:10px;padding-bottom:10px" onclick="msPay('prc_plan-2a-plateforme-annuel-3v4y03zj')">Annuel à 15,80 €/mois — 2 mois offerts<br><span style="font-weight:400;font-size:.82rem">facturé 190 € une fois par an</span></button>
+        <button class="btn btn-red" onclick="msPay('prc_pr-paration-mensuel-9wb30edt')">Choisir mensuel</button>
+        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.95rem;font-weight:700;line-height:1.35;padding-top:10px;padding-bottom:10px" onclick="msPay('prc_-pr-paration-annuel-mr4003iu')">Annuel à 15,80 €/mois — 2 mois offerts<br><span style="font-weight:400;font-size:.82rem">facturé 190 € une fois par an</span></button>
       </div>
 
       <!-- PALIER 2B — PERFORMANCE (recommandé) -->
@@ -3137,8 +3215,8 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <div class="offer-price">49 €<span class="offer-price-suffix">/mois</span></div>
         <div class="offer-price-alt">Sans engagement · résiliable à tout moment</div>
         <div class="offer-price-note">🏆 La formule la plus choisie</div>
-        <button class="btn btn-red" onclick="msPay('prc_plateforme-physique-mensuel-9l4j0akb')">Choisir mensuel</button>
-        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.95rem;font-weight:700;line-height:1.35;padding-top:10px;padding-bottom:10px" onclick="msPay('prc_formule-compl-te-th-orique-physique-12-mois-2-mois-offerts-7bae0e4l')">Annuel à 40,80 €/mois — 2 mois offerts<br><span style="font-weight:400;font-size:.82rem">facturé 490 € une fois par an</span></button>
+        <button class="btn btn-red" onclick="msPay('prc_performance-mensuel-fw4103ti')">Choisir mensuel</button>
+        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.95rem;font-weight:700;line-height:1.35;padding-top:10px;padding-bottom:10px" onclick="msPay('prc_performance-annuel-dqb40e0f')">Annuel à 40,80 €/mois — 2 mois offerts<br><span style="font-weight:400;font-size:.82rem">facturé 490 € une fois par an</span></button>
       </div>
 
       <!-- PALIER 3 — EXCELLENCE -->
@@ -3158,7 +3236,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <div class="offer-price-alt">Engagement 3 mois min. — soit 447 €</div>
         <div class="offer-price-label">Prolongeable au mois au-delà</div>
         <div class="offer-price-note" style="color:var(--gold)">✦ Places limitées — 20 candidats max</div>
-        <button class="btn btn-red" onclick="msPay('prc_accompagnement-pro-mensuel-s7ag0ei9')">Candidater</button>
+        <button class="btn btn-red" onclick="msPay('prc_-excellence-mensuel-ih3u0avo')">Candidater</button>
       </div>
 
     </div>
@@ -3187,9 +3265,9 @@ body:not(.is-logged) .mobile-nav-member{display:none}
           <tr>
             <td class="compare-feature">Annales commentées</td>
             <td>3 annales démo</td>
-            <td class="yes">7 annales</td>
-            <td class="compare-highlight yes">7 annales</td>
-            <td class="yes">7 annales</td>
+            <td class="yes">23 annales</td>
+            <td class="compare-highlight yes">23 annales</td>
+            <td class="yes">23 annales</td>
           </tr>
           <tr>
             <td class="compare-feature">Bibliothèque documentaire</td>
@@ -3419,9 +3497,9 @@ body:not(.is-logged) .mobile-nav-member{display:none}
   <div class="section">
     <div class="comment-final-cta hide-when-logged">
       <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--charcoal);line-height:1.25;margin-bottom:14px">Prêt à voir tout ça <em style="color:var(--red)">par toi-même</em> ?</div>
-      <div style="font-size:.95rem;color:var(--gray);line-height:1.6;max-width:580px;margin:0 auto 26px">Crée ton compte gratuitement et explore une partie de la plateforme avant de t'engager. Tu te feras ton propre avis — c'est la meilleure façon de savoir si la méthode te correspond.</div>
+      <div style="font-size:.95rem;color:var(--gray);line-height:1.6;max-width:580px;margin:0 auto 26px">Teste la plateforme tout de suite, sans inscription : six outils à essayer librement (QCM, annales, bibliothèque, prépa physique, espace candidat, actualités). Tu te feras ton propre avis — c'est la meilleure façon de savoir si la méthode te correspond.</div>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-        <button class="btn btn-red" onclick="msSignupFree()" style="padding:14px 28px">Créer mon compte gratuit</button>
+        <button class="btn btn-red" onclick="goTo('decouverte')" style="padding:14px 28px">Essai gratuit</button>
         <button class="btn btn-outline" onclick="goTo('formation')" style="padding:14px 28px">Voir les tarifs →</button>
       </div>
     </div>
@@ -3437,7 +3515,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
       <div class="s-eyebrow">Espace membres</div>
       <div class="login-title">Connexion</div>
       <div class="login-divider"></div>
-      <div class="login-sub">Accède à tes QCM, annales et documents de préparation.</div>
+      <div class="login-sub">Accède à ton espace candidat — réservé aux abonnés.</div>
       <div class="login-error" id="login-error">Email ou mot de passe incorrect. Réessaie.</div>
       <div class="form-group">
         <div class="form-label">Email</div>
@@ -3454,8 +3532,8 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <button onclick="resetPassword()" style="background:none;border:none;cursor:pointer;color:var(--red);font-family:'DM Sans',sans-serif;font-size:.82rem;text-decoration:underline">Mot de passe oublié ?</button>
       </div>
       <div class="hide-when-logged" style="border-top:1px solid var(--border);margin-top:28px;padding-top:20px;text-align:center;font-size:.83rem;color:var(--gray)">
-        Pas encore de compte ?<br>
-        <button onclick="msSignupFree()" style="background:none;border:none;cursor:pointer;color:var(--red);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;text-decoration:underline;margin-top:6px">Créer mon compte gratuitement →</button>
+        Pas encore abonné ?<br>
+        <button onclick="goTo('decouverte')" style="background:none;border:none;cursor:pointer;color:var(--red);font-family:'DM Sans',sans-serif;font-size:.9rem;font-weight:700;text-decoration:underline;margin-top:6px">Essai gratuit →</button>
       </div>
     </div>
   </div>
@@ -3648,7 +3726,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
             <div style="flex:1;min-width:220px">
               <div style="font-size:.88rem;font-weight:700;color:#8B6914;margin-bottom:4px;letter-spacing:.3px">Mode démo — 10 questions par jour</div>
               <div style="font-size:.85rem;color:var(--charcoal);line-height:1.55;margin-bottom:6px">
-                Tu testes la plateforme gratuitement. Tu peux t'entraîner sur <strong>10 questions aléatoires par jour</strong>, tirées dans l'ensemble des QCM du concours.
+                Tu testes la plateforme sans inscription. Tu peux t'entraîner sur <strong>10 questions aléatoires par jour</strong>, tirées dans l'ensemble des QCM du concours.
               </div>
               <div><span id="qcm-demo-remaining" style="display:inline-block;padding:3px 10px;background:white;border:1px solid #f5c66b;font-size:.78rem;font-weight:700;color:#8B6914">—</span></div>
             </div>
@@ -3757,7 +3835,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         <div style="font-size:.92rem;color:var(--gray);line-height:1.7;max-width:520px;margin:0 auto 24px">
           Débloque le plan d'entraînement hebdomadaire calibré sur ton niveau, avec allures de course et charges calculées automatiquement, et le suivi complet de tes séances.
         </div>
-        <button class="btn btn-red" onclick="msPay('prc_plateforme-physique-mensuel-9l4j0akb')">Plateforme + préparation physique à partir de 40,80 €/mois →</button>
+        <button class="btn btn-red" onclick="msPay('prc_performance-mensuel-fw4103ti')">Débloquer l'accès — 49€/mois →</button>
         <div style="margin-top:14px;font-size:.85rem;color:var(--gray)">
           Envie de voir à quoi ça ressemble avant ? <button onclick="goTo('demo-prepa')" style="background:none;border:none;color:var(--red);font-weight:600;cursor:pointer;text-decoration:underline;font-family:'DM Sans',sans-serif;font-size:.85rem">Voir un aperçu →</button>
         </div>
@@ -3960,28 +4038,28 @@ body:not(.is-logged) .mobile-nav-member{display:none}
           <div class="biblio-grid">
             <!-- ===== AU PROGRAMME — ordre pédagogique du parcours ===== -->
             <!-- 1. Fondamentaux opérationnels -->
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-vicies','GTO Engagement en milieux viciés','GTO','docs/doctrines/gto/engagement-milieux-vicies.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Engagement en milieux viciés</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-sauvetage','GTO Sauvetage et mises en sécurité','GTO','docs/doctrines/gto/sauvetage-mises-securite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvetage et mises en sécurité</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-sauvegarde','GTO Sauvegarde opérationnelle','GTO','docs/doctrines/gto/sauvegarde-operationnelle.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvegarde opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="public" onclick="openDoc('gto-vicies','GTO Engagement en milieux viciés','GTO','docs/doctrines/gto/engagement-milieux-vicies.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Engagement en milieux viciés</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="public" onclick="openDoc('gto-sauvetage','GTO Sauvetage et mises en sécurité','GTO','docs/doctrines/gto/sauvetage-mises-securite.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvetage et mises en sécurité</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="public" onclick="openDoc('gto-sauvegarde','GTO Sauvegarde opérationnelle','GTO','docs/doctrines/gto/sauvegarde-operationnelle.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Sauvegarde opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- 2. Incendie : structures puis techniques -->
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-incendies-structures','GDO Interventions incendies structures','GDO','docs/doctrines/gdo/incendies-structures.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions incendies structures</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-extinction','GTO Établissement techniques d\u2019extinction','GTO','docs/doctrines/gto/techniques-extinction.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Établissement techniques d'extinction</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-ventilation','GTO Ventilation opérationnelle','GTO','docs/doctrines/gto/ventilation-operationnelle.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Ventilation opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-incendies-structures','GDO Interventions incendies structures','GDO','docs/doctrines/gdo/incendies-structures.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions incendies structures</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="public" onclick="openDoc('gto-extinction','GTO Établissement techniques d\u2019extinction','GTO','docs/doctrines/gto/techniques-extinction.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Établissement techniques d'extinction</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="public" onclick="openDoc('gto-ventilation','GTO Ventilation opérationnelle','GTO','docs/doctrines/gto/ventilation-operationnelle.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-name">Ventilation opérationnelle</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- 3. Risques et environnements -->
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-toxicite','GDO Prévention risques toxicité des fumées','GDO','docs/doctrines/gdo/toxicite-fumees.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Prévention risques toxicité des fumées</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-routier','GDO Opérations secours milieu routier','GDO','docs/doctrines/gdo/milieu-routier.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Opérations secours milieu routier</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-gaz','GDO Interventions présence de gaz','GDO','docs/doctrines/gdo/presence-gaz.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions présence de gaz</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-toxicite','GDO Prévention risques toxicité des fumées','GDO','docs/doctrines/gdo/toxicite-fumees.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Prévention risques toxicité des fumées</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-routier','GDO Opérations secours milieu routier','GDO','docs/doctrines/gdo/milieu-routier.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Opérations secours milieu routier</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-gaz','GDO Interventions présence de gaz','GDO','docs/doctrines/gdo/presence-gaz.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Interventions présence de gaz</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <!-- 4. Secourisme en dernier -->
-            <div class="biblio-card" data-cat="doctrines" data-sub="ssuap" data-access="free" onclick="openDoc('ssuap-recommandations','Recommandations premiers secours','SSUAP','docs/doctrines/ssuap/recommandations-premiers-secours.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">SSUAP</div><div class="biblio-name">Recommandations premiers secours</div><div class="biblio-meta">PDF · Référentiel</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ssuap','GDO Secours et soins d\u2019urgence aux personnes','GDO','docs/doctrines/gdo/secours-soins-urgences-personnes.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Secours et soins d'urgence aux personnes</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="ssuap" data-access="public" onclick="openDoc('ssuap-recommandations','Recommandations premiers secours','SSUAP','docs/doctrines/ssuap/recommandations-premiers-secours.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">SSUAP</div><div class="biblio-name">Recommandations premiers secours</div><div class="biblio-meta">PDF · Référentiel</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-ssuap','GDO Secours et soins d\u2019urgence aux personnes','GDO','docs/doctrines/gdo/secours-soins-urgences-personnes.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-name">Secours et soins d'urgence aux personnes</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
 
             <!-- ===== HORS PROGRAMME — pour aller plus loin ===== -->
-            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="free" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Lutte feux forêts espaces naturels</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Feu de forêt et espace naturel</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions milieu agricole</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="free" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gto" data-access="public" onclick="openDoc('gto-forets','GTO Lutte feux forêts espaces naturels','GTO','docs/doctrines/gto/feux-forets-espaces-naturels.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GTO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Lutte feux forêts espaces naturels</div><div class="biblio-meta">PDF · Guide technique</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-feu-foret','GDO Feu de forêt et espace naturel','GDO','docs/doctrines/gdo/feu-foret-espace-naturel.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Feu de forêt et espace naturel</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-agricole','GDO Interventions milieu agricole','GDO','docs/doctrines/gdo/milieu-agricole.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions milieu agricole</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
           </div>
         </div>
       </div>
@@ -4013,17 +4091,16 @@ body:not(.is-logged) .mobile-nav-member{display:none}
               </div>
               <div class="biblio-sources-body">
               <div class="biblio-sources-notice">
-                <span class="if-anon"><strong>💡 Inscription gratuite :</strong> ces 6 textes officiels sont accessibles dès que tu crées un compte (gratuit et sans engagement).</span>
-                <span class="if-free"><strong>✅ Accès gratuit :</strong> tous les textes sources de cette section sont inclus dans ton compte gratuit — consulte-les librement.</span>
+                <strong>✅ Accès libre :</strong> ces 6 textes officiels sont consultables sans inscription.
               </div>
               <div class="biblio-sources-sub">Lire les textes officiels en complément de la fiche de synthèse.</div>
               <div class="biblio-sources-grid">
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-96-369','Loi n°96-369 du 3 mai 1996','Source','docs/culture-admin/organisation-sis/sources/loi-96-369.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°96-369 du 3 mai 1996</div><div class="biblio-meta">Départementalisation des SIS</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-2004-811','Loi n°2004-811 du 13 août 2004','Source','docs/culture-admin/organisation-sis/sources/loi-2004-811.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2004-811 du 13 août 2004</div><div class="biblio-meta">Modernisation sécurité civile</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-2021-1520','Loi n°2021-1520 (MATRAS)','Source','docs/culture-admin/organisation-sis/sources/loi-2021-1520-matras.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2021-1520 MATRAS</div><div class="biblio-meta">25 novembre 2021</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-97-1225','Décret n°97-1225 du 26 décembre 1997','Source','docs/culture-admin/organisation-sis/sources/decret-97-1225.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°97-1225</div><div class="biblio-meta">Organisation des SDIS</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-cgct-l1424-2','Article L.1424-2 du CGCT','Source','docs/culture-admin/organisation-sis/sources/cgct-article-l1424-2.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">Article L.1424-2 du CGCT</div><div class="biblio-meta">Missions des SIS</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-cgct-chapitre-iv','CGCT Chapitre IV','Source','docs/culture-admin/organisation-sis/sources/cgct-chapitre-iv.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">CGCT — Chapitre IV</div><div class="biblio-meta">Services d'incendie et de secours</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-96-369','Loi n°96-369 du 3 mai 1996','Source','docs/culture-admin/organisation-sis/sources/loi-96-369.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°96-369 du 3 mai 1996</div><div class="biblio-meta">Départementalisation des SIS</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-2004-811','Loi n°2004-811 du 13 août 2004','Source','docs/culture-admin/organisation-sis/sources/loi-2004-811.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2004-811 du 13 août 2004</div><div class="biblio-meta">Modernisation sécurité civile</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-2021-1520','Loi n°2021-1520 (MATRAS)','Source','docs/culture-admin/organisation-sis/sources/loi-2021-1520-matras.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2021-1520 MATRAS</div><div class="biblio-meta">25 novembre 2021</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-97-1225','Décret n°97-1225 du 26 décembre 1997','Source','docs/culture-admin/organisation-sis/sources/decret-97-1225.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°97-1225</div><div class="biblio-meta">Organisation des SDIS</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-cgct-l1424-2','Article L.1424-2 du CGCT','Source','docs/culture-admin/organisation-sis/sources/cgct-article-l1424-2.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">Article L.1424-2 du CGCT</div><div class="biblio-meta">Missions des SIS</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-cgct-chapitre-iv','CGCT Chapitre IV','Source','docs/culture-admin/organisation-sis/sources/cgct-chapitre-iv.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">CGCT — Chapitre IV</div><div class="biblio-meta">Services d'incendie et de secours</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
               </div>
               </div>
             </div>
@@ -4041,22 +4118,21 @@ body:not(.is-logged) .mobile-nav-member{display:none}
               </div>
               <div class="biblio-sources-body">
               <div class="biblio-sources-notice">
-                <span class="if-anon"><strong>💡 Inscription gratuite :</strong> ces 11 textes officiels sont accessibles dès que tu crées un compte (gratuit et sans engagement).</span>
-                <span class="if-free"><strong>✅ Accès gratuit :</strong> tous les textes sources de cette section sont inclus dans ton compte gratuit — consulte-les librement.</span>
+                <strong>✅ Accès libre :</strong> ces 11 textes officiels sont consultables sans inscription.
               </div>
               <div class="biblio-sources-sub">Lire les textes officiels en complément de la fiche de synthèse.</div>
               <div class="biblio-sources-grid">
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-83-634','Loi n°83-634 du 13 juillet 1983','Source','docs/culture-admin/statut-spp/sources/loi-83-634-droits-obligations.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°83-634 (Le Pors)</div><div class="biblio-meta">Droits et obligations des fonctionnaires</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-84-53','Loi n°84-53 du 26 janvier 1984','Source','docs/culture-admin/statut-spp/sources/loi-84-53-fpt.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°84-53</div><div class="biblio-meta">Dispositions statutaires FPT</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-2016-483','Loi n°2016-483 du 20 avril 2016','Source','docs/culture-admin/statut-spp/sources/loi-2016-483-deontologie.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2016-483</div><div class="biblio-meta">Déontologie, droits et obligations</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-loi-2019-828','Loi n°2019-828 du 6 août 2019','Source','docs/culture-admin/statut-spp/sources/loi-2019-828-transformation-fp.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2019-828</div><div class="biblio-meta">Transformation de la FP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-89-677','Décret n°89-677 du 18 septembre 1989','Source','docs/culture-admin/statut-spp/sources/decret-89-677-procedure-disciplinaire.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°89-677</div><div class="biblio-meta">Procédure disciplinaire</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-90-850','Décret n°90-850 du 25 septembre 1990','Source','docs/culture-admin/statut-spp/sources/decret-90-850-dispositions-communes-spp.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°90-850</div><div class="biblio-meta">Dispositions communes SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-2016-596','Décret n°2016-596 du 12 mai 2016','Source','docs/culture-admin/statut-spp/sources/decret-2016-596-carrieres-c.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2016-596</div><div class="biblio-meta">Organisation carrières catégorie C</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-2023-543','Décret n°2023-543 du 30 juin 2023','Source','docs/culture-admin/statut-spp/sources/decret-2023-543.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2023-543</div><div class="biblio-meta">Modifications diverses</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-2024-1038','Décret n°2024-1038 du 6 novembre 2024','Source','docs/culture-admin/statut-spp/sources/decret-2024-1038.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2024-1038</div><div class="biblio-meta">Dispositions statutaires</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-decret-2025-330','Décret n°2025-330 du 10 avril 2025','Source','docs/culture-admin/statut-spp/sources/decret-2025-330-medecine-prevention.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2025-330</div><div class="biblio-meta">Médecine de prévention</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('src-cgct-spp','Code général des collectivités territoriales','Source','docs/culture-admin/statut-spp/sources/cgct-extrait.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">CGCT — Extrait</div><div class="biblio-meta">Dispositions applicables</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-83-634','Loi n°83-634 du 13 juillet 1983','Source','docs/culture-admin/statut-spp/sources/loi-83-634-droits-obligations.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°83-634 (Le Pors)</div><div class="biblio-meta">Droits et obligations des fonctionnaires</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-84-53','Loi n°84-53 du 26 janvier 1984','Source','docs/culture-admin/statut-spp/sources/loi-84-53-fpt.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°84-53</div><div class="biblio-meta">Dispositions statutaires FPT</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-2016-483','Loi n°2016-483 du 20 avril 2016','Source','docs/culture-admin/statut-spp/sources/loi-2016-483-deontologie.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2016-483</div><div class="biblio-meta">Déontologie, droits et obligations</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-loi-2019-828','Loi n°2019-828 du 6 août 2019','Source','docs/culture-admin/statut-spp/sources/loi-2019-828-transformation-fp.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Loi</div><div class="biblio-name">Loi n°2019-828</div><div class="biblio-meta">Transformation de la FP</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-89-677','Décret n°89-677 du 18 septembre 1989','Source','docs/culture-admin/statut-spp/sources/decret-89-677-procedure-disciplinaire.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°89-677</div><div class="biblio-meta">Procédure disciplinaire</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-90-850','Décret n°90-850 du 25 septembre 1990','Source','docs/culture-admin/statut-spp/sources/decret-90-850-dispositions-communes-spp.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°90-850</div><div class="biblio-meta">Dispositions communes SPP</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-2016-596','Décret n°2016-596 du 12 mai 2016','Source','docs/culture-admin/statut-spp/sources/decret-2016-596-carrieres-c.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2016-596</div><div class="biblio-meta">Organisation carrières catégorie C</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-2023-543','Décret n°2023-543 du 30 juin 2023','Source','docs/culture-admin/statut-spp/sources/decret-2023-543.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2023-543</div><div class="biblio-meta">Modifications diverses</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-2024-1038','Décret n°2024-1038 du 6 novembre 2024','Source','docs/culture-admin/statut-spp/sources/decret-2024-1038.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2024-1038</div><div class="biblio-meta">Dispositions statutaires</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-decret-2025-330','Décret n°2025-330 du 10 avril 2025','Source','docs/culture-admin/statut-spp/sources/decret-2025-330-medecine-prevention.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2025-330</div><div class="biblio-meta">Médecine de prévention</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('src-cgct-spp','Code général des collectivités territoriales','Source','docs/culture-admin/statut-spp/sources/cgct-extrait.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CGCT</div><div class="biblio-name">CGCT — Extrait</div><div class="biblio-meta">Dispositions applicables</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
               </div>
               </div>
             </div>
@@ -4087,13 +4163,12 @@ body:not(.is-logged) .mobile-nav-member{display:none}
               </div>
               <div class="biblio-sources-body">
               <div class="biblio-sources-notice">
-                <span class="if-anon"><strong>💡 Inscription gratuite :</strong> ces 2 textes officiels sont accessibles dès que tu crées un compte (gratuit et sans engagement).</span>
-                <span class="if-free"><strong>✅ Accès gratuit :</strong> tous les textes sources de cette section sont inclus dans ton compte gratuit — consulte-les librement.</span>
+                <strong>✅ Accès libre :</strong> ces 2 textes officiels sont consultables sans inscription.
               </div>
               <div class="biblio-sources-sub">Lire les textes officiels en complément des fiches de synthèse.</div>
               <div class="biblio-sources-grid">
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('div-pcs-2005','Décret n°2005-1156 — Plan Communal de Sauvegarde','Source','docs/divers/sources/decret-2005-1156-pcs.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2005-1156</div><div class="biblio-meta">Plan communal de sauvegarde</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('div-erp-classement','Classement des ERP — Articles R143-18 à R143-21','Source','docs/divers/sources/erp-classement-r143-18-21.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CCH</div><div class="biblio-name">Classement des ERP</div><div class="biblio-meta">Articles R143-18 à R143-21</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('div-pcs-2005','Décret n°2005-1156 — Plan Communal de Sauvegarde','Source','docs/divers/sources/decret-2005-1156-pcs.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2005-1156</div><div class="biblio-meta">Plan communal de sauvegarde</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('div-erp-classement','Classement des ERP — Articles R143-18 à R143-21','Source','docs/divers/sources/erp-classement-r143-18-21.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CCH</div><div class="biblio-name">Classement des ERP</div><div class="biblio-meta">Articles R143-18 à R143-21</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
               </div>
               </div>
             </div>
@@ -4114,7 +4189,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
         </div>
         <div class="biblio-acc-body">
           <div class="biblio-grid">
-            <div class="biblio-card is-synthese" data-cat="concours" data-access="free" onclick="openDoc('fiche-deroulement-concours','Déroulement du concours','Fiche de synthèse','docs/concours/fiche-deroulement-concours.pdf','free')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Concours</div><div class="biblio-name">Déroulement du concours</div><div class="biblio-meta">PDF · Synthèse</div><div class="biblio-overlay"><p>Inscription gratuite</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="concours" data-access="public" onclick="openDoc('fiche-deroulement-concours','Déroulement du concours','Fiche de synthèse','docs/concours/fiche-deroulement-concours.pdf','public')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Concours</div><div class="biblio-name">Déroulement du concours</div><div class="biblio-meta">PDF · Synthèse</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-sources-section" data-cat="concours">
               <div class="biblio-sources-header" onclick="toggleBiblioSources(this)">
                 <div class="biblio-sources-title">📚 Textes sources — Concours</div>
@@ -4124,15 +4199,14 @@ body:not(.is-logged) .mobile-nav-member{display:none}
               </div>
               <div class="biblio-sources-body">
               <div class="biblio-sources-notice">
-                <span class="if-anon"><strong>💡 Inscription gratuite :</strong> ces 4 textes officiels sont accessibles dès que tu crées un compte (gratuit et sans engagement).</span>
-                <span class="if-free"><strong>✅ Accès gratuit :</strong> tous les textes sources de cette section sont inclus dans ton compte gratuit — consulte-les librement.</span>
+                <strong>✅ Accès libre :</strong> ces 4 textes officiels sont consultables sans inscription.
               </div>
               <div class="biblio-sources-sub">Lire les textes officiels en complément de la fiche de synthèse.</div>
               <div class="biblio-sources-grid">
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2012-520','Décret n°2012-520 — Statut sapeurs et caporaux','Source','docs/concours/Sources/decret-2012-520-statut-sapeurs-caporaux.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2012-520</div><div class="biblio-meta">Statut sapeurs et caporaux SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2013-593','Décret n°2013-593 — Recrutement et avancement','Source','docs/concours/Sources/decret-2013-593-recrutement-avancement.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2013-593</div><div class="biblio-meta">Recrutement et avancement FPT</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-decret-2020-1474','Décret n°2020-1474 — Modalités des concours','Source','docs/concours/Sources/decret-2020-1474-modalites-concours.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2020-1474</div><div class="biblio-meta">Modalités des concours SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="free" onclick="openDoc('cc-arrete-2020','Arrêté du 30 novembre 2020 — Programmes','Source','docs/concours/Sources/arrete-30-novembre-2020-programmes.pdf','free')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Arrêté</div><div class="biblio-name">Arrêté du 30 novembre 2020</div><div class="biblio-meta">Programmes des concours SPP</div><div class="biblio-overlay"><p>Inscription gratuite</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('cc-decret-2012-520','Décret n°2012-520 — Statut sapeurs et caporaux','Source','docs/concours/Sources/decret-2012-520-statut-sapeurs-caporaux.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2012-520</div><div class="biblio-meta">Statut sapeurs et caporaux SPP</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('cc-decret-2013-593','Décret n°2013-593 — Recrutement et avancement','Source','docs/concours/Sources/decret-2013-593-recrutement-avancement.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2013-593</div><div class="biblio-meta">Recrutement et avancement FPT</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('cc-decret-2020-1474','Décret n°2020-1474 — Modalités des concours','Source','docs/concours/Sources/decret-2020-1474-modalites-concours.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2020-1474</div><div class="biblio-meta">Modalités des concours SPP</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('cc-arrete-2020','Arrêté du 30 novembre 2020 — Programmes','Source','docs/concours/Sources/arrete-30-novembre-2020-programmes.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Arrêté</div><div class="biblio-name">Arrêté du 30 novembre 2020</div><div class="biblio-meta">Programmes des concours SPP</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
               </div>
               </div>
             </div>
@@ -4438,7 +4512,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
           <div class="ch-pack-label">Envie d'un vrai suivi humain ?</div>
           <div class="ch-pack-price">149 &euro;<span style="font-size:.82rem;font-weight:400;color:var(--gray);margin-left:4px">/mois</span></div>
           <div class="ch-pack-desc">Excellence : pr&eacute;paration th&eacute;orique compl&egrave;te + pr&eacute;pa physique + RDV mensuel + WhatsApp + oraux blancs.</div>
-          <button class="btn btn-red" style="width:100%;justify-content:center;display:flex;font-size:.8rem" onclick="msPay('prc_accompagnement-pro-mensuel-s7ag0ei9')">D&eacute;couvrir Excellence &rarr;</button>
+          <button class="btn btn-red" style="width:100%;justify-content:center;display:flex;font-size:.8rem" onclick="msPay('prc_-excellence-mensuel-ih3u0avo')">D&eacute;couvrir Excellence &rarr;</button>
         </div>
       </div>
     </div>
@@ -4449,7 +4523,7 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 <script>
 if(window.location.search.indexOf('success') !== -1) {
   document.addEventListener('DOMContentLoaded', function(){
-    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','demo-espace','demo-prepa','bienvenue','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
     pages.forEach(function(p){
       var el = document.getElementById('page-'+p);
       if(el) el.classList.toggle('active', p === 'merci');
@@ -4504,11 +4578,11 @@ if(window.location.search.indexOf('success') !== -1) {
         <div class="esp-locked-icon">🔒</div>
         <div class="esp-locked-title">Espace réservé aux membres</div>
         <div class="esp-locked-text">
-          Ton espace candidat te donne accès à tes statistiques détaillées QCM par catégorie, tes documents lus et tes sessions précédentes. Connecte-toi ou débloque l'accès complet.
+          Ton espace candidat te donne accès à tes statistiques détaillées QCM par catégorie, tes documents lus, tes sessions précédentes, ton planning personnalisé et ton radar de compétences. Réservé aux abonnés.
         </div>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
-          <button class="btn btn-outline-red" onclick="goTo('connexion')">Se connecter</button>
-          <button class="btn btn-red" onclick="msPay('prc_plateforme-mensuel-ol4g0ax1')">Accès à partir de 15,80 €/mois →</button>
+          <button class="btn btn-outline-red" onclick="goTo('connexion')">J'ai déjà un compte</button>
+          <button class="btn btn-red" onclick="msPay('prc_performance-mensuel-fw4103ti')">Accès complet — 49€/mois →</button>
         </div>
       </div>
     </div>
@@ -5115,7 +5189,7 @@ if(window.location.search.indexOf('success') !== -1) {
             <button class="cand-chip" data-cat="parcours" onclick="candFilterByCategory('parcours')">Parcours</button>
             <button class="cand-chip" data-cat="regularite" onclick="candFilterByCategory('regularite')">Régularité</button>
             <button class="cand-chip" data-cat="anciennete" onclick="candFilterByCategory('anciennete')">Ancienneté</button>
-            <button class="cand-chip" data-cat="performance" onclick="candFilterByCategory('performance')">Performance</button>
+            <button class="cand-chip" data-cat="performance" onclick="candFilterByCategory('performance')">Maîtrise</button>
             <button class="cand-chip" data-cat="insolites" onclick="candFilterByCategory('insolites')">Insolites</button>
             <button class="cand-chip" data-cat="concours" onclick="candFilterByCategory('concours')">Concours</button>
             <button class="cand-chip" data-cat="statut" onclick="candFilterByCategory('statut')">Abonnement</button>
@@ -5381,7 +5455,7 @@ if(window.location.search.indexOf('success') !== -1) {
     <!-- ===== CTA FINAL ===== -->
     <div class="hide-when-logged" style="background:var(--dark);color:var(--cream);padding:44px 36px;margin-top:20px;text-align:center">
       <div style="font-size:.75rem;color:#E8A82A;font-weight:700;letter-spacing:3px;text-transform:uppercase;margin-bottom:14px">Prêt à lancer ta préparation ?</div>
-      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;line-height:1.2;margin-bottom:14px">Crée ton compte et <em style="color:#E8A82A">suis ta propre progression</em></div>
+      <div style="font-family:'Playfair Display',serif;font-size:1.8rem;font-weight:900;line-height:1.2;margin-bottom:14px">Abonne-toi et <em style="color:#E8A82A">suis ta propre progression</em></div>
       <div style="font-size:.92rem;color:rgba(245,240,232,0.75);max-width:540px;margin:0 auto 24px;line-height:1.6">Chaque QCM que tu feras, chaque séance, chaque document lu viendra enrichir ton espace personnel. Ton radar de compétences évoluera en direct avec tes efforts.</div>
       <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
         <button class="btn btn-red" onclick="goTo('formation')" style="padding:14px 28px">Découvrir la formation →</button>
@@ -5522,8 +5596,8 @@ if(window.location.search.indexOf('success') !== -1) {
     <!-- CTA FINAL : Performance -->
     <div class="hide-when-logged" style="background:var(--dark);color:var(--cream);padding:36px 32px;border:2px solid var(--red)">
       <div style="text-align:center;margin-bottom:24px">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F09580;margin-bottom:10px">Performance — à partir de 40,80 €/mois</div>
-        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:white;font-weight:900;line-height:1.2;margin-bottom:8px">Préparation Écrite + Préparation Physique</div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F09580;margin-bottom:10px">Performance — 49 €/mois</div>
+        <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:white;font-weight:900;line-height:1.2;margin-bottom:8px">Préparation écrite + Préparation physique</div>
         <div style="font-size:.92rem;color:#D5CCBB;line-height:1.6;max-width:540px;margin:0 auto">Pas d'abonnement séparé : un seul prix pour la préparation écrite ET physique.</div>
       </div>
 
@@ -5550,12 +5624,12 @@ if(window.location.search.indexOf('success') !== -1) {
 
       <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1;font-weight:900">À partir de 40,80 €<span style="font-size:.95rem;color:#D5CCBB;font-weight:400;margin-left:4px">/mois</span></div>
-          <div style="font-size:.8rem;color:#D5CCBB;margin-top:4px">en abonnement annuel · 2 mois offerts</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1;font-weight:900">49 €<span style="font-size:.95rem;color:#D5CCBB;font-weight:400;margin-left:4px">/mois</span></div>
+          <div style="font-size:.8rem;color:#D5CCBB;margin-top:4px">ou 490 € / an · 2 mois offerts</div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-outline" onclick="goTo('connexion')" style="padding:14px 22px;border-color:var(--cream);color:var(--cream)">J'ai déjà un compte</button>
-          <button class="btn btn-red" onclick="msPay('prc_plateforme-physique-mensuel-9l4j0akb')" style="padding:14px 26px">Débloquer Performance →</button>
+          <button class="btn btn-red" onclick="msPay('prc_performance-mensuel-fw4103ti')" style="padding:14px 26px">Débloquer Performance →</button>
         </div>
       </div>
     </div>
@@ -5564,7 +5638,7 @@ if(window.location.search.indexOf('success') !== -1) {
     <div style="display:none;background:var(--cream2);padding:28px 32px;text-align:center" class="only-when-logged-nonpaid">
       <div class="s-eyebrow">Prêt à te lancer ?</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.3rem;color:var(--charcoal);margin:10px 0 16px">Débloque Performance et obtiens ton propre plan</div>
-      <button class="btn btn-red" onclick="msPay('prc_plateforme-physique-mensuel-9l4j0akb')">Débloquer Performance à partir de 40,80 €/mois →</button>
+      <button class="btn btn-red" onclick="msPay('prc_performance-mensuel-fw4103ti')">Débloquer — 49 €/mois →</button>
     </div>
 
   </div>
@@ -5661,10 +5735,10 @@ if(window.location.search.indexOf('success') !== -1) {
     <div class="hide-when-logged" style="background:var(--dark);color:var(--cream);padding:28px 26px;border:2px solid var(--red);text-align:center">
       <div style="font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#F09580;margin-bottom:8px">Ça te plaît ?</div>
       <div style="font-family:'Playfair Display',serif;font-size:1.35rem;color:white;line-height:1.3;margin-bottom:8px">Sauvegarde ton planning et suis ta progression</div>
-      <div style="font-size:.84rem;color:#D5CCBB;line-height:1.6;margin-bottom:18px;max-width:540px;margin-left:auto;margin-right:auto">Crée ton compte en 30 secondes. Ton planning, tes stats, ton radar de compétences et ta bibliothèque — tout au même endroit, accessible depuis n'importe quel appareil.</div>
+      <div style="font-size:.84rem;color:#D5CCBB;line-height:1.6;margin-bottom:18px;max-width:540px;margin-left:auto;margin-right:auto">Avec un abonnement, ton planning, tes stats, ton radar de compétences et ta bibliothèque sont tous au même endroit, accessibles depuis n'importe quel appareil — et synchronisés entre tes sessions.</div>
       <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
         <button class="btn btn-outline" onclick="goTo('connexion')" style="padding:10px 18px;border-color:var(--cream);color:var(--cream)">J'ai déjà un compte</button>
-        <button class="btn btn-red" onclick="msSignupFree()" style="padding:10px 20px">Commencer gratuitement →</button>
+        <button class="btn btn-red" onclick="goTo('formation')" style="padding:10px 20px">Voir les formules →</button>
       </div>
     </div>
 
@@ -5679,55 +5753,134 @@ if(window.location.search.indexOf('success') !== -1) {
   </div>
 </div>
 
-<!-- ============================= PAGE: BIENVENUE (choix de formule après signup gratuit) ============================= -->
-<div class="page" id="page-bienvenue">
+<!-- ============================= PAGE: DÉCOUVERTE (hub 6 outils accessibles sans inscription) ============================= -->
+<style>
+  .disc-hub-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:1100px;margin:0 auto}
+  @media (max-width:900px){.disc-hub-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.disc-hub-grid{grid-template-columns:1fr;gap:14px}}
+  .disc-hub-card{background:white;border:1px solid var(--border);padding:28px 26px;display:flex;flex-direction:column;transition:border-color .2s,transform .2s,box-shadow .2s;cursor:pointer;text-align:left;font-family:inherit;color:inherit}
+  .disc-hub-card:hover{border-color:var(--red);transform:translateY(-3px);box-shadow:0 6px 20px rgba(204,34,41,0.08)}
+  .disc-hub-card-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:14px}
+  .disc-hub-card-icon{font-size:1.9rem;line-height:1}
+  .disc-hub-card-tag{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;padding:4px 9px;background:#e8f3ec;color:#2d6a4f;white-space:nowrap;align-self:flex-start;margin-top:6px}
+  .disc-hub-card-tag.demo{background:#fff6e5;color:#8B6914}
+  .disc-hub-card-title{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:var(--charcoal);line-height:1.25;margin-bottom:10px}
+  .disc-hub-card-text{font-size:.85rem;color:var(--gray);line-height:1.6;margin-bottom:16px;flex:1}
+  .disc-hub-card-meta{font-size:.72rem;color:var(--charcoal);font-weight:600;margin-bottom:14px;padding:8px 12px;background:var(--cream2);border-left:2px solid var(--red)}
+  .disc-hub-card-arrow{display:inline-flex;align-items:center;gap:6px;font-size:.85rem;font-weight:700;color:var(--red);margin-top:auto}
+  .disc-hub-intro{max-width:760px;margin:0 auto 36px;text-align:center;font-size:.95rem;color:var(--gray);line-height:1.7}
+  .disc-hub-cta-final{max-width:760px;margin:48px auto 0;background:var(--charcoal);color:white;padding:32px 36px;text-align:center}
+  .disc-hub-cta-final-eyebrow{font-size:.66rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#F09580;margin-bottom:10px}
+  .disc-hub-cta-final-title{font-family:'Playfair Display',serif;font-size:1.4rem;line-height:1.3;margin-bottom:8px}
+  .disc-hub-cta-final-text{font-size:.85rem;color:rgba(255,255,255,0.8);line-height:1.6;margin-bottom:22px;max-width:520px;margin-left:auto;margin-right:auto}
+</style>
+<div class="page" id="page-decouverte">
   <div class="page-header">
     <div class="page-header-inner">
-      <div class="s-eyebrow">Bienvenue dans l'aventure</div>
-      <div class="s-title">Bienvenue <em id="bienvenue-pseudo">candidat</em></div>
+      <div class="s-eyebrow">Mode Découverte · sans inscription</div>
+      <div class="s-title">Teste la plateforme <em>par toi-même</em></div>
       <div class="s-intro">
-        Ton compte est créé. Il ne te reste plus qu'à choisir comment tu veux préparer ton concours. Tu peux commencer en mode découverte gratuit et évoluer quand tu veux.
+        Six outils à essayer librement, sans créer de compte ni laisser ton email. Clique sur chaque carte pour explorer comment fonctionne la préparation au concours de Caporal SPP.
       </div>
     </div>
   </div>
 
   <div class="section">
 
-    <!-- Carte Découverte (format bannière comme sur page Formation) -->
-    <div class="discover-card" style="margin-top:40px;cursor:pointer" onclick="startFreeJourney()">
-      <div class="discover-card-left">
-        <div class="discover-card-icon">🚪</div>
-        <div class="discover-card-title-wrap">
-          <div class="discover-card-title">Commencer en Découverte</div>
-          <div class="discover-card-subtitle">Gratuit · sans CB · accès immédiat</div>
+    <div class="disc-hub-grid">
+
+      <!-- 1. QCM thématiques -->
+      <button class="disc-hub-card" onclick="goTo('qcm')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">🎯</div>
+          <span class="disc-hub-card-tag demo">Démo</span>
         </div>
-      </div>
-      <div class="discover-card-center">
-        Tu accèdes dès maintenant à une sélection représentative. Idéal pour prendre tes marques avant de t'engager.
-        <ul class="discover-card-features">
-          <li>30 QCM offerts</li>
-          <li>1 annale démo par épreuve</li>
-          <li>Bibliothèque officielle</li>
-          <li>Actualités en libre accès</li>
-          <li>Premiers badges</li>
-        </ul>
-      </div>
-      <div class="discover-card-right">
-        <div class="discover-card-price-label">Recommandé pour démarrer</div>
-        <div class="discover-card-price" style="color:var(--red)">Gratuit</div>
-        <button class="btn btn-red" onclick="event.stopPropagation();startFreeJourney()">Commencer →</button>
-      </div>
+        <div class="disc-hub-card-title">QCM thématiques</div>
+        <div class="disc-hub-card-text">Choisis un ou plusieurs thèmes du concours et entraîne-toi avec des questions tirées au sort, corrigées et sourcées.</div>
+        <div class="disc-hub-card-meta">10 questions par jour · tous thèmes du programme</div>
+        <span class="disc-hub-card-arrow">Lancer une session →</span>
+      </button>
+
+      <!-- 2. Mode concours (annales) -->
+      <button class="disc-hub-card" onclick="goTo('concours')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">📝</div>
+          <span class="disc-hub-card-tag demo">Démo</span>
+        </div>
+        <div class="disc-hub-card-title">Mode concours</div>
+        <div class="disc-hub-card-text">Place-toi dans les conditions du jour J. Sujet PDF à gauche, grille de réponses à droite, chrono qui tourne. Correction à la fin.</div>
+        <div class="disc-hub-card-meta">3 annales démo : Équipier · Maths · Étude de texte</div>
+        <span class="disc-hub-card-arrow">Tester une annale →</span>
+      </button>
+
+      <!-- 3. Bibliothèque -->
+      <button class="disc-hub-card" onclick="goTo('biblio')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">📚</div>
+          <span class="disc-hub-card-tag">Libre</span>
+        </div>
+        <div class="disc-hub-card-title">Bibliothèque officielle</div>
+        <div class="disc-hub-card-text">Tous les textes officiels et doctrines opérationnelles du concours, en accès direct, sans téléchargement payant.</div>
+        <div class="disc-hub-card-meta">47 documents publics · GTO · GDO · sources juridiques</div>
+        <span class="disc-hub-card-arrow">Consulter →</span>
+      </button>
+
+      <!-- 4. Préparation physique -->
+      <button class="disc-hub-card" onclick="goTo('demo-prepa')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">💪</div>
+          <span class="disc-hub-card-tag demo">Démo</span>
+        </div>
+        <div class="disc-hub-card-title">Préparation physique</div>
+        <div class="disc-hub-card-text">Entre tes performances de base (VMA, force) et reçois un programme adapté à ton niveau pour préparer les épreuves physiques.</div>
+        <div class="disc-hub-card-meta">Aperçu du programme · profil simplifié</div>
+        <span class="disc-hub-card-arrow">Voir un exemple →</span>
+      </button>
+
+      <!-- 5. Espace candidat -->
+      <button class="disc-hub-card" onclick="goTo('demo-espace')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">📊</div>
+          <span class="disc-hub-card-tag demo">Démo</span>
+        </div>
+        <div class="disc-hub-card-title">Espace candidat</div>
+        <div class="disc-hub-card-text">Stats détaillées par thème, radar des compétences, courbe d'évolution sur 8 semaines, planning personnalisé. Aperçu du tableau de bord abonné.</div>
+        <div class="disc-hub-card-meta">Aperçu interactif · données fictives</div>
+        <span class="disc-hub-card-arrow">Voir le tableau de bord →</span>
+      </button>
+
+      <!-- 6. Actualités -->
+      <button class="disc-hub-card" onclick="goTo('actu')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">📰</div>
+          <span class="disc-hub-card-tag">Libre</span>
+        </div>
+        <div class="disc-hub-card-title">Actualités</div>
+        <div class="disc-hub-card-text">Décryptages des concours en cours, actus de la fonction publique territoriale, brèves de la semaine sur le monde des SDIS.</div>
+        <div class="disc-hub-card-meta">Mise à jour régulière · libre accès</div>
+        <span class="disc-hub-card-arrow">Lire les actus →</span>
+      </button>
+
+      <!-- 7. Planning intelligent -->
+      <button class="disc-hub-card" onclick="goTo('programme')">
+        <div class="disc-hub-card-head">
+          <div class="disc-hub-card-icon">📅</div>
+          <span class="disc-hub-card-tag demo">Démo</span>
+        </div>
+        <div class="disc-hub-card-title">Planning intelligent</div>
+        <div class="disc-hub-card-text">Indique combien de temps tu as par jour. La plateforme te génère un planning équilibré sport + révision, exportable vers ton agenda.</div>
+        <div class="disc-hub-card-meta">Génération automatique · planning type</div>
+        <span class="disc-hub-card-arrow">Tester →</span>
+      </button>
+
     </div>
 
-    <!-- Lien discret vers les formules payantes -->
-    <div style="text-align:center;margin-top:48px;padding:28px 24px;background:var(--cream2);border:1px dashed var(--border)">
-      <div style="font-size:.92rem;color:var(--charcoal);margin-bottom:6px">Tu sais déjà que tu veux aller plus loin ?</div>
-      <div style="font-size:.82rem;color:var(--gray);line-height:1.6;margin-bottom:16px">Tu peux aussi passer directement à une formule complète — Préparation, Performance, ou Excellence.</div>
-      <button class="btn btn-outline-red" onclick="goTo('formation')" style="font-size:.88rem;padding:11px 22px">Voir les formules complètes →</button>
-    </div>
-
-    <div style="text-align:center;margin-top:32px">
-      <div style="font-size:.8rem;color:var(--gray);line-height:1.7">Tu peux toujours passer au niveau supérieur plus tard, depuis ton espace candidat.</div>
+    <!-- CTA final : passer à l'abonnement -->
+    <div class="disc-hub-cta-final">
+      <div class="disc-hub-cta-final-eyebrow">Convaincu ?</div>
+      <div class="disc-hub-cta-final-title">Passe à l'abonnement et débloque tout</div>
+      <div class="disc-hub-cta-final-text">QCM illimités, toutes les annales corrigées, programmes physiques personnalisés, ton espace candidat avec sauvegarde de tes progrès, et un suivi humain pour les abonnés Excellence.</div>
+      <button class="btn btn-red" onclick="goTo('formation')" style="padding:14px 28px">Voir les formules →</button>
     </div>
 
   </div>
@@ -5894,9 +6047,9 @@ if(window.location.search.indexOf('success') !== -1) {
     <button class="lock-modal-close" id="lock-modal-close-btn" aria-label="Fermer">✕</button>
     <div class="lock-modal-icon">🔒</div>
     <div class="lock-modal-title">Contenu réservé aux membres</div>
-    <div class="lock-modal-text">Accède à l'intégralité du contenu — QCM illimités, annales, bibliothèque, actualités et fiches de révision — à partir de 15,80 €/mois.</div>
+    <div class="lock-modal-text">Accède à l'intégralité du contenu — QCM illimités, annales, bibliothèque, actualités et programmes physiques — avec l'abonnement Performance.</div>
     <div style="display:flex;flex-direction:column;gap:10px">
-      <button class="btn btn-red" style="width:100%;justify-content:center" id="lock-modal-pay-btn">Accéder à partir de 15,80 €/mois</button>
+      <button class="btn btn-red" style="width:100%;justify-content:center" id="lock-modal-pay-btn">Accéder maintenant — 49€/mois</button>
       <button class="btn btn-outline" style="width:100%;justify-content:center" id="lock-modal-login-btn">J'ai déjà un compte →</button>
     </div>
   </div>
@@ -6446,27 +6599,27 @@ var PLAN_CATALOG = {
   '2a': {
     label: 'Préparation',
     ids: [
-      'prc_plateforme-mensuel-ol4g0ax1',
-      'prc_plan-2a-plateforme-annuel-3v4y03zj'
+      'prc_pr-paration-mensuel-9wb30edt',
+      'prc_-pr-paration-annuel-mr4003iu'
     ]
   },
   '2b': {
     label: 'Performance',
     ids: [
-      'prc_plateforme-physique-mensuel-9l4j0akb',
-      'prc_formule-compl-te-th-orique-physique-12-mois-2-mois-offerts-7bae0e4l'
+      'prc_performance-mensuel-fw4103ti',
+      'prc_performance-annuel-dqb40e0f'
     ]
   },
   '3': {
     label: 'Excellence',
     ids: [
-      'prc_accompagnement-pro-mensuel-s7ag0ei9'
+      'prc_-excellence-mensuel-ih3u0avo'
     ]
   },
   'coaching_unit': {
     label: 'Séance coaching unité',
     ids: [
-      'prc_s-ance-coaching-unit--724n0an3'
+      'prc_s-ance-de-coaching-unitaire-k63v0au4'
     ]
   },
   // Anciens plans — acheteurs historiques, à NE PAS SUPPRIMER.
@@ -6504,11 +6657,9 @@ var PAID_PLAN_IDS = (function() {
 // ============================================================
 // PRICEID PAR DÉFAUT pour les CTAs "débloquer l'accès"
 // ============================================================
-// Point d'entrée unique : c'est le tier minimum pour accéder au contenu
-// théorique (QCM, biblio, annales, espace candidat). On pousse par défaut
-// vers Préparation (2A) car c'est l'offre d'entrée la moins chère.
-// Les CTAs spécifiques à la prépa physique pointent eux directement vers 2B.
-var DEFAULT_CHECKOUT_ID = 'prc_plateforme-mensuel-ol4g0ax1'; // Palier 2A Mensuel (19€)
+// Point d'entrée unique : si tu veux un jour changer le produit vers lequel
+// tu pousses par défaut (ex : bascule de 2b vers 2a), modifie uniquement ici.
+var DEFAULT_CHECKOUT_ID = 'prc_performance-mensuel-fw4103ti'; // Palier 2B Mensuel (49€)
 
 // ============================================================
 // FONCTIONS D'ACCÈS
@@ -8443,7 +8594,7 @@ var BADGES_DEFINITIONS = {
   'parc_tour_complet':  { label: 'Tour complet',       icon: '📚', desc: 'Tu as fait au moins un QCM dans chaque thème.',        category: 'parcours',   rarity: 'commun' },
   'parc_500_club':      { label: '500 Club',           icon: '🎯', desc: 'Tu as complété 500 QCM.',                               category: 'parcours',   rarity: 'rare' },
   'parc_millenaire':    { label: 'Millénaire',         icon: '🏛️', desc: 'Tu as complété 1000 QCM.',                              category: 'parcours',   rarity: 'rare' },
-  'parc_explorateur':   { label: 'Explorateur',        icon: '🗺️', desc: 'Tu as tenté les 7 annales officielles.',                category: 'parcours',   rarity: 'rare' },
+  'parc_explorateur':   { label: 'Explorateur',        icon: '🗺️', desc: 'Tu as tenté les 23 annales officielles.',               category: 'parcours',   rarity: 'rare' },
   'parc_titan':         { label: 'Titan',              icon: '👑', desc: 'Tu as complété 2500 QCM.',                              category: 'parcours',   rarity: 'epique' },
 
   // ---------- RÉGULARITÉ — QUOTIDIEN (6) ----------
@@ -8497,7 +8648,7 @@ var BADGE_CATEGORY_LABELS = {
   parcours:    'Parcours',
   regularite:  'Régularité',
   anciennete:  'Ancienneté',
-  performance: 'Performance',
+  performance: 'Maîtrise',
   insolites:   'Insolites',
   concours:    'Concours',
   statut:      'Abonnement'
@@ -10336,9 +10487,9 @@ function renderUpgradeTab() {
         '<li>Traceur de progressions physiques</li>' +
         '<li>Badges exclusifs</li>' +
       '</ul>' +
-      '<div class="esp-upg-card-price">à partir de 40,80 €<span style="font-size:.9rem;color:var(--gray);font-weight:400">/mois</span></div>' +
-      '<div class="esp-upg-card-price-sub">en abonnement annuel · 2 mois offerts</div>' +
-      '<button class="btn btn-red" onclick="msPay(\'prc_plateforme-physique-mensuel-9l4j0akb\')">Passer à Performance →</button>' +
+      '<div class="esp-upg-card-price">49 €<span style="font-size:.9rem;color:var(--gray);font-weight:400">/mois</span></div>' +
+      '<div class="esp-upg-card-price-sub">ou 490 € / an · 2 mois offerts</div>' +
+      '<button class="btn btn-red" onclick="msPay(\'prc_performance-mensuel-fw4103ti\')">Passer à Performance →</button>' +
       '</div>';
   }
 
@@ -10357,7 +10508,7 @@ function renderUpgradeTab() {
       '</ul>' +
       '<div class="esp-upg-card-price">149 €<span style="font-size:.9rem;color:var(--gray);font-weight:400">/mois</span></div>' +
       '<div class="esp-upg-card-price-sub">Engagement 3 mois min. · Places limitées</div>' +
-      '<button class="btn btn-red" onclick="msPay(\'prc_accompagnement-pro-mensuel-s7ag0ei9\')">Candidater →</button>' +
+      '<button class="btn btn-red" onclick="msPay(\'prc_-excellence-mensuel-ih3u0avo\')">Candidater →</button>' +
       '</div>';
   }
 
@@ -10446,7 +10597,7 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace','prepa','demo-espace','demo-prepa','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','espace','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -10506,14 +10657,6 @@ function goTo(id) {
     // Si paiement récent détecté (< 2h), afficher directement le calendrier
     if (typeof coachingCheckPrepaidStatus === 'function') coachingCheckPrepaidStatus();
   }
-  if (id === 'bienvenue') {
-    // Afficher le pseudo dans le titre de la page Bienvenue
-    var bEl = document.getElementById('bienvenue-pseudo');
-    if (bEl) {
-      var pseudo = (currentMember && currentMember._profile && currentMember._profile.pseudo) || 'candidat';
-      bEl.textContent = pseudo;
-    }
-  }
 }
 
 // ============================================================
@@ -10570,7 +10713,7 @@ function goTo(id) {
     }
 
     // Sécurité : vérifier que la page cible existe
-    if (pages.indexOf(targetPage) === -1 && targetPage !== 'bienvenue') {
+    if (pages.indexOf(targetPage) === -1) {
       targetPage = 'home';
     }
 
@@ -10592,7 +10735,7 @@ function goTo(id) {
     var hash = (window.location.hash || '').replace('#', '');
     if (!hash || hash === 'merci') return; // #merci est déjà géré ailleurs
 
-    if (pages.indexOf(hash) !== -1 || hash === 'bienvenue') {
+    if (pages.indexOf(hash) !== -1) {
       // Petit délai pour laisser le DOM et les autres init finir
       setTimeout(function() {
         _navFromPopState = true;
@@ -10933,7 +11076,7 @@ function refreshDemoBanner() {
   var remaining = demoRemainingToday();
   var used = DEMO_DAILY_LIMIT - remaining;
   if (remaining === 0) {
-    remainingEl.innerHTML = '⏰ Limite atteinte — reviens demain ou <a onclick="msPay(\'prc_plateforme-physique-mensuel-9l4j0akb\');return false" style="color:#8B6914;font-weight:700;cursor:pointer;text-decoration:underline">débloque l\'accès complet</a>';
+    remainingEl.innerHTML = '⏰ Limite atteinte — reviens demain ou <a onclick="msPay(\'prc_performance-mensuel-fw4103ti\');return false" style="color:#8B6914;font-weight:700;cursor:pointer;text-decoration:underline">débloque l\'accès complet</a>';
     remainingEl.style.background = '#f8d7da';
     remainingEl.style.borderColor = '#d68a1a';
   } else {
@@ -11526,7 +11669,7 @@ function showSessionResults() {
         '</div>',
         '<div class="qcm-results-actions">',
           '<button class="btn btn-outline-red" onclick="stopSession()">← Retour</button>',
-          '<button class="btn btn-red" onclick="msPay(\'prc_plateforme-mensuel-ol4g0ax1\')">Accès à partir de 15,80 €/mois →</button>',
+          '<button class="btn btn-red" onclick="msPay(\'prc_performance-mensuel-fw4103ti\')">Accès complet — 49€/mois →</button>',
         '</div>',
         ctaLogin,
       '</div>'
@@ -11737,7 +11880,7 @@ function showDemoLimitReached() {
       '</div>',
       '<div class="qcm-results-actions">',
         '<button class="btn btn-outline-red" onclick="stopSession()">← Retour</button>',
-        '<button class="btn btn-red" onclick="msPay(\'prc_plateforme-mensuel-ol4g0ax1\')">Accès à partir de 15,80 €/mois →</button>',
+        '<button class="btn btn-red" onclick="msPay(\'prc_performance-mensuel-fw4103ti\')">Accès complet — 49€/mois →</button>',
       '</div>',
     '</div>'
   ].join('');
@@ -12594,7 +12737,7 @@ var CONTEXT_TOURS = {
       targetSelector: '#esp-tab-btn-badges',
       stepLabel: 'Tutoriel · 4 / 5',
       title: 'Badges',
-      text: "Récompenses qui marquent les paliers : régularité, ancienneté, performance, parcours. Pas obligatoire, mais ça aide à entretenir la motivation.",
+      text: "Récompenses qui marquent les paliers : régularité, ancienneté, maîtrise, parcours. Pas obligatoire, mais ça aide à entretenir la motivation.",
       onEnter: function(){ if (typeof espSwitchTab === 'function') espSwitchTab('badges'); }
     },
     {
@@ -15702,7 +15845,9 @@ function resetEspaceStats() {
 // Si non-membre → modale verrou. Si membre → viewer protégé + tracking.
 
 function openDoc(id, name, type, url, accessLevel) {
-  // accessLevel : 'public' (tous), 'free' (connecté même gratuit), 'paid' (abonné payant)
+  // accessLevel : 'public' (tous) ou 'paid' (abonné payant)
+  // Note : l'ancien niveau 'free' (compte gratuit requis) a été supprimé — tous les
+  // documents non-payants sont désormais publics et accessibles sans inscription.
   // Par défaut : 'paid' pour la compatibilité avec les appels existants
   accessLevel = accessLevel || 'paid';
 
@@ -15711,12 +15856,7 @@ function openDoc(id, name, type, url, accessLevel) {
     openLockModal('paid');
     return;
   }
-  // Niveau 'free' : exige juste d'être connecté (compte gratuit suffit)
-  if (accessLevel === 'free' && !currentMember) {
-    openLockModal('free');
-    return;
-  }
-  // Niveau 'public' : pas de restriction, on laisse passer
+  // Niveau 'public' (et legacy 'free') : pas de restriction, on laisse passer
 
   // Tracking uniquement pour les membres (connectés OU payants)
   if (currentMember) {
@@ -16160,7 +16300,7 @@ function checkAccessGate(page) {
 // Le client est redirigé vers Stripe → paye → retour sur le site.
 // Le handler de retour détecte kind=coaching et affiche le calendrier.
 function coachingStartPayment() {
-  msPay('prc_s-ance-coaching-unit--724n0an3', 'coaching');
+  msPay('prc_s-ance-de-coaching-unitaire-k63v0au4', 'coaching');
 }
 
 // Affiche le calendrier de réservation (après paiement réussi)
@@ -16349,9 +16489,9 @@ function msSignupFree() {
     setTimeout(msSignupFree, 1500);
     return;
   }
-  // Court-circuit : si déjà en mémoire qu'on est connecté, on va direct à /bienvenue
+  // Court-circuit : si déjà en mémoire qu'on est connecté, on va direct à /decouverte
   if (currentMember) {
-    goTo('bienvenue');
+    goTo('decouverte');
     return;
   }
   function launchSignupAndWait() {
@@ -16361,7 +16501,7 @@ function msSignupFree() {
           // Memberstack ne ferme pas la modale automatiquement après signup — on le fait nous-même
           try { ms.hideModal(); } catch(e) { console.warn('[signup-free] hideModal failed', e); }
           updateNavMember(result.data.member);
-          waitForPseudoAndGoTo('bienvenue');
+          waitForPseudoAndGoTo('decouverte');
         }
       },
       function(e) { console.log('[signup-free] modal closed or failed', e); }
@@ -16372,7 +16512,7 @@ function msSignupFree() {
     function(res) {
       if (res && res.data && res.data.member) {
         updateNavMember(res.data.member);
-        goTo('bienvenue');
+        goTo('decouverte');
       } else {
         launchSignupAndWait();
       }
@@ -16473,9 +16613,10 @@ function openLockModal(requiredLevel) {
   var payBtn  = document.getElementById('lock-modal-pay-btn');
 
   if (requiredLevel === 'free') {
-    // Document gratuit : on invite simplement à se connecter/s'inscrire
-    if (titleEl) titleEl.textContent = 'Inscription gratuite requise';
-    if (textEl)  textEl.textContent  = 'Ce document est accessible gratuitement après inscription. Crée un compte en 30 secondes pour y accéder.';
+    // Branche legacy — n'est plus déclenchée puisque les anciens 'free' sont devenus 'public'.
+    // Conservée par sécurité au cas où un attribut data-access="free" résiduel apparaîtrait.
+    if (titleEl) titleEl.textContent = 'Document non disponible';
+    if (textEl)  textEl.textContent  = 'Ce document est temporairement indisponible. Reviens un peu plus tard.';
     if (payBtn)  payBtn.style.display = 'none';
   } else {
     // Document premium : message classique d'abonnement
@@ -16644,8 +16785,8 @@ function renderAnnalesThemes() {
     if (!isPaidMember) {
       html += '<div style="grid-column:1/-1;background:white;border:1px solid var(--border);padding:32px;margin-top:16px;text-align:center">' +
         '<div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px">Accède à toutes les annales complètes</div>' +
-        '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:540px;margin:0 auto 20px">Une fois les 3 démos testées (Équipier · Maths · Étude de texte), débloque les <strong>7 annales Équipier complètes</strong> (CDG13, CDG35, CDG57, CDG69 de 2021 à 2025), la bibliothèque documentaire, les QCM thématiques et ton espace de suivi personnel.</div>' +
-        '<button class="btn btn-red" onclick="msPay(\'prc_plateforme-mensuel-ol4g0ax1\')">Accès à partir de 15,80 €/mois →</button>' +
+        '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:540px;margin:0 auto 20px">Une fois les 3 démos testées (Équipier · Maths · Étude de texte), débloque les <strong>23 annales officielles</strong> (CDG13, CDG35, CDG57, CDG69 de 2021 à 2025), la bibliothèque documentaire, les QCM thématiques et ton espace de suivi personnel.</div>' +
+        '<button class="btn btn-red" onclick="msPay(\'prc_performance-mensuel-fw4103ti\')">Débloquer l\'accès — 49€/mois →</button>' +
         (currentMember ? '' : ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">J\'ai déjà un compte</button>') +
       '</div>';
     }
@@ -16705,15 +16846,15 @@ function showAnnalesThemes() {
 
 // ---------- DEMARRAGE MODE EXAMEN ----------
 function startExam(annaleId) {
-  // Les annales de démo (IDs finissant par "-demo") sont accessibles aux non-payants.
-  // Toutes les autres sont réservées aux membres.
-  var isDemoId = /-demo$/.test(annaleId);
-  if (!isPaidMember && !isDemoId) {
+  // Une annale est en démo si son flag is_demo:true est positionné dans index.json.
+  // Les annales démo sont accessibles aux non-payants ; toutes les autres sont réservées aux abonnés.
+  var annaleInfo = (annalesData && annalesData.annales || []).find(function(a) { return a.id === annaleId; });
+  var isDemo = annaleInfo && annaleInfo.is_demo === true;
+  if (!isPaidMember && !isDemo) {
     openLockModal();
     return;
   }
   // Charge le fichier détaillé de l'annale (organisé en sous-dossiers par thème)
-  var annaleInfo = (annalesData && annalesData.annales || []).find(function(a) { return a.id === annaleId; });
   var themeFolder = annaleInfo ? annaleInfo.theme : '';
   var path = 'annales/' + themeFolder + '/' + annaleId + '.json';
   fetch(path).then(function(r) {
@@ -16904,7 +17045,7 @@ function submitExam(forced) {
         id: currentAnnale.id || '',
         title: currentAnnale.title || 'Annale',
         theme: currentAnnale.theme || null,
-        isDemo: !!currentAnnale.is_demo || /-demo$/.test(currentAnnale.id || ''),
+        isDemo: !!currentAnnale.is_demo,
         nCorrect: nCorrect,
         nWrong: nWrong,
         nSkipped: nSkipped,
@@ -16976,8 +17117,33 @@ function showCorrection(nCorrect, nWrong, nSkipped, nTotal, details) {
 
 // Hook : recharger les thèmes quand on arrive sur la page biblio
 var _origGoTo = goTo;
+
+// Pages qui font partie de la "démo" (visible aux non connectés sur ces pages → barre sticky)
+var DEMO_PAGES = ['qcm','concours','examen','correction','biblio','demo-prepa','demo-espace','programme','actu','decouverte'];
+// Note : 'examen' utilise un layout pleine hauteur ; un CSS spécifique ajuste la hauteur des
+// panneaux pour que la barre démo reste visible au-dessus.
+// L'onglet "Annales" de la barre démo a data-demo-target="concours" et reste actif aussi sur
+// les pages 'examen' (sujet en cours) et 'correction' (résultats post-soumission).
+
+function updateDemoModeUI(pageId) {
+  // Active/désactive body.demo-mode selon la page courante
+  var inDemo = DEMO_PAGES.indexOf(pageId) !== -1;
+  document.body.classList.toggle('demo-mode', inDemo);
+
+  // Met à jour l'onglet actif dans la barre démo
+  var tabs = document.querySelectorAll('.demo-nav-tab');
+  tabs.forEach(function(t) {
+    var target = t.getAttribute('data-demo-target');
+    // L'onglet "Annales" (target=concours) reste actif sur concours / examen / correction
+    var isAnnalesContext = (target === 'concours' && (pageId === 'concours' || pageId === 'examen' || pageId === 'correction'));
+    var isActive = (target === pageId) || isAnnalesContext;
+    t.classList.toggle('active', isActive);
+  });
+}
+
 goTo = function(id) {
   _origGoTo(id);
+  updateDemoModeUI(id);
   if (id === 'biblio') {
     showAnnalesThemes();
     renderAnnalesThemes();
@@ -16999,6 +17165,16 @@ goTo = function(id) {
     if (typeof initActualites === 'function') initActualites();
   }
 };
+
+// Initialiser l'état au chargement de la page (au cas où on arrive directement sur une URL #qcm)
+document.addEventListener('DOMContentLoaded', function() {
+  // Détermine la page initiale active
+  var activePage = document.querySelector('.page.active');
+  if (activePage) {
+    var pageId = activePage.id.replace('page-', '');
+    updateDemoModeUI(pageId);
+  }
+});
 
 // ================================================================
 // ACTUALITÉS — Chargement depuis actualites.json
@@ -19808,11 +19984,11 @@ function loadCommFriends() {
     container.innerHTML =
       '<div style="background:var(--cream2);border:1px dashed var(--border);padding:48px 28px;text-align:center;max-width:560px;margin:0 auto">' +
         '<div style="font-size:2.5rem;margin-bottom:16px">🔒</div>' +
-        '<div style="font-family:\'Playfair Display\',serif;font-size:1.35rem;color:var(--charcoal);font-weight:700;line-height:1.25;margin-bottom:10px">Connecte-toi pour <em style="color:var(--red)">retrouver tes amis</em></div>' +
-        '<div style="font-size:.9rem;color:var(--gray);line-height:1.6;margin-bottom:22px;max-width:420px;margin-left:auto;margin-right:auto">Crée ton compte (gratuit) ou connecte-toi pour obtenir ton code personnel, ajouter tes connaissances et suivre leur progression ensemble.</div>' +
+        '<div style="font-family:\'Playfair Display\',serif;font-size:1.35rem;color:var(--charcoal);font-weight:700;line-height:1.25;margin-bottom:10px">Espace réservé aux <em style="color:var(--red)">abonnés</em></div>' +
+        '<div style="font-size:.9rem;color:var(--gray);line-height:1.6;margin-bottom:22px;max-width:420px;margin-left:auto;margin-right:auto">L\'espace candidats te permet de retrouver d\'autres préparants, partager ton code personnel et suivre vos progressions ensemble. Il est inclus dans tous les abonnements.</div>' +
         '<div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">' +
           '<button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="padding:10px 18px;font-size:.85rem">J\'ai déjà un compte</button>' +
-          '<button class="btn btn-red" onclick="msSignupFree()" style="padding:10px 20px;font-size:.85rem">Créer un compte →</button>' +
+          '<button class="btn btn-red" onclick="goTo(\'formation\')" style="padding:10px 20px;font-size:.85rem">Voir les formules →</button>' +
         '</div>' +
       '</div>';
     return;
