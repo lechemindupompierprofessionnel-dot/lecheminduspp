@@ -84,6 +84,68 @@
 </script>
 <!-- =================== /SEO META ====================== -->
 
+<!-- ===================== ANALYTICS · GOOGLE ANALYTICS 4 ===================== -->
+<!--
+  Intégration GA4 avec Consent Mode v2 (RGPD).
+  - Le tag est chargé toujours, mais en mode "denied" par défaut
+  - Quand l'utilisateur accepte via le bandeau cookies, on bascule en "granted"
+  - Aucun cookie de tracking n'est posé tant que le consentement n'est pas donné
+-->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-C5YC1E4YXJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+
+  // Consent Mode v2 — par défaut tout est refusé jusqu'à consentement explicite
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'functionality_storage': 'denied',
+    'personalization_storage': 'denied',
+    'security_storage': 'granted',  // toujours autorisé (sécurité technique)
+    'wait_for_update': 500
+  });
+
+  gtag('js', new Date());
+
+  // Configuration de base GA4 (anonymisation IP + désactivation publicité)
+  gtag('config', 'G-C5YC1E4YXJ', {
+    'anonymize_ip': true,
+    'allow_google_signals': false,
+    'allow_ad_personalization_signals': false
+  });
+
+  // Si le consentement a déjà été donné lors d'une session précédente, on l'applique
+  // immédiatement (sans attendre le bandeau)
+  try {
+    var savedConsent = localStorage.getItem('cookies_consent');
+    if (savedConsent === 'accepted') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'functionality_storage': 'granted'
+      });
+    }
+  } catch(e) {}
+</script>
+
+<!-- Fonction wrapper de tracking : n'émet rien si pas de consentement -->
+<script>
+  // Émission d'un événement GA4 avec garde de consentement.
+  // Tous les appels track('event_name', {...params}) du site passent par ici.
+  // Si le consentement n'est pas donné, l'appel est silencieusement ignoré.
+  window.track = function(eventName, params) {
+    try {
+      var consent = localStorage.getItem('cookies_consent');
+      if (consent !== 'accepted') return; // pas de tracking sans consentement
+      if (typeof gtag !== 'function') return;
+      gtag('event', eventName, params || {});
+    } catch(e) { /* silent */ }
+  };
+</script>
+<!-- =================== /ANALYTICS ====================== -->
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;1,300&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <script>
 // ===== Durée de session Memberstack : 365 jours ("rester connecté") =====
@@ -6305,7 +6367,7 @@ if(window.location.search.indexOf('success') !== -1) {
       <div style="font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--charcoal);line-height:1.3;margin-bottom:24px;word-break:break-all">
         <a href="mailto:lechemindupompierprofessionnel@gmail.com" style="color:var(--charcoal);text-decoration:none;border-bottom:2px solid var(--red);padding-bottom:2px">lechemindupompierprofessionnel@gmail.com</a>
       </div>
-      <a href="mailto:lechemindupompierprofessionnel@gmail.com" class="btn btn-red" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">M'envoyer un email →</a>
+      <a href="mailto:lechemindupompierprofessionnel@gmail.com" class="btn btn-red" onclick="if(typeof window.track==='function')window.track('contact_email_clicked')" style="text-decoration:none;display:inline-flex;align-items:center;justify-content:center">M'envoyer un email →</a>
       <div style="font-size:.78rem;color:var(--gray);margin-top:18px;line-height:1.5">Réponse sous 24h ouvrées en moyenne</div>
     </div>
 
@@ -6721,6 +6783,7 @@ if(window.location.search.indexOf('success') !== -1) {
         <li><button onclick="goTo('mentions')">Mentions légales</button></li>
         <li><button onclick="goTo('cgv')">CGV</button></li>
         <li><button onclick="goTo('confidentialite')">Politique de confidentialité</button></li>
+        <li><button onclick="cookiesReset()">Gestion des cookies</button></li>
         <li><button onclick="goTo('remboursement')">Remboursement</button></li>
       </ul>
     </div>
@@ -11014,6 +11077,13 @@ function closeMobileNav() {
 
   window._stripeReturnKind = kind;
 
+  // ========== Tracking GA4 : conversion réussie ==========
+  if (typeof window.track === 'function') {
+    window.track('purchase_completed', {
+      purchase_kind: kind  // 'subscription' ou 'coaching'
+    });
+  }
+
   // Nettoie l'URL pour propreté
   try {
     var cleanUrl2 = window.location.origin + window.location.pathname;
@@ -11824,6 +11894,13 @@ function startSession(pool, title) {
   qIdx = 0; score = 0; answered = 0;
   sessionAnswers = [];
   sessionStartTs = Date.now();
+  // ========== Tracking GA4 : démarrage session QCM ==========
+  if (typeof window.track === 'function') {
+    window.track('qcm_session_started', {
+      session_title: title || 'unknown',
+      questions_count: pool ? pool.length : 0
+    });
+  }
   document.getElementById('qcm-launch-screen').style.display = 'none';
   document.getElementById('qcm-session').style.display = '';
   var resEl = document.getElementById('qcm-results-screen');
@@ -11854,6 +11931,17 @@ function showSessionResults() {
   var mins = Math.floor(elapsed / 60);
   var secs = elapsed % 60;
   var timeLbl = mins + ':' + (secs < 10 ? '0' : '') + secs;
+
+  // ========== Tracking GA4 : fin de session QCM ==========
+  if (typeof window.track === 'function') {
+    window.track('qcm_session_completed', {
+      score: score,
+      total: total,
+      score_pct: pct,
+      duration_seconds: elapsed,
+      is_paid_member: !!isPaidMember
+    });
+  }
 
   // Masque la session en cours, prépare la zone résultats
   document.getElementById('qcm-session').style.display = 'none';
@@ -16328,13 +16416,12 @@ function getMemberstack() {
 }
 
 // Hook de tracking déclenché au clic sur "Télécharger le PDF" du cadeau de bienvenue.
-// Pour l'instant volontairement minimaliste (no-op) : à brancher sur un analytics
-// (Plausible/Umami) plus tard si besoin de mesurer le taux d'usage du cadeau.
+// Émet l'événement gift_download vers Google Analytics 4 via le wrapper track().
+// Le wrapper vérifie le consentement cookies avant d'envoyer quoi que ce soit.
 function trackGiftDownload() {
-  try {
-    if (typeof plausible === 'function') plausible('Gift Download');
-    if (typeof umami === 'object' && umami.track) umami.track('gift-download');
-  } catch(e) {}
+  if (typeof window.track === 'function') {
+    window.track('gift_download', { item_name: 'ebook_5_erreurs' });
+  }
 }
 
 function updateNavMember(member) {
@@ -16607,6 +16694,26 @@ function msPay(priceId, kind) {
 
   // Par défaut c'est un abonnement — seuls les CTAs coaching passent explicitement 'coaching'
   var purchaseKind = (kind === 'coaching') ? 'coaching' : 'subscription';
+
+  // ========== Tracking GA4 : intention d'achat ==========
+  // On identifie le tier à partir du priceId pour avoir un nom parlant dans GA4
+  // (Préparation Mensuel, Performance Annuel, Excellence, Coaching...)
+  if (typeof window.track === 'function') {
+    var planLabel = 'unknown';
+    try {
+      for (var k in PLAN_CATALOG) {
+        if (PLAN_CATALOG[k].ids && PLAN_CATALOG[k].ids.indexOf(priceId) >= 0) {
+          planLabel = PLAN_CATALOG[k].label || k;
+          break;
+        }
+      }
+    } catch(e) {}
+    window.track('purchase_started', {
+      plan_label: planLabel,
+      purchase_kind: purchaseKind,
+      price_id: priceId
+    });
+  }
 
   // Helper : après paiement réussi, on re-fetch le membre pour que planConnections
   // soit à jour et que isPaidMember passe à true avant la redirection merci.
@@ -16896,6 +17003,10 @@ window.addEventListener('load', function() {
 document.addEventListener('memberstack.formSubmitSuccess', function(e) {
   if (e.detail && e.detail.member) {
     updateNavMember(e.detail.member);
+    // ========== Tracking GA4 : inscription gratuite réussie ==========
+    if (typeof window.track === 'function') {
+      window.track('signup_completed', { method: 'memberstack_form' });
+    }
     goTo('merci');
   }
 });
@@ -20905,6 +21016,147 @@ function submitBetaFeedback() {
 })();
 </script>
 <!-- =================== /PWA ===================== -->
+
+<!-- ===================== COOKIES · BANDEAU RGPD ===================== -->
+<style>
+#cookies-banner {
+  display: none;
+  position: fixed;
+  left: 12px; right: 12px; bottom: 12px;
+  z-index: 9998; /* sous le bandeau PWA (9999) */
+  background: white;
+  border: 1px solid #D8D0C2;
+  border-left: 4px solid #CC2229;
+  border-radius: 6px;
+  padding: 18px 22px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.12);
+  font-family: 'DM Sans', sans-serif;
+  max-width: 560px;
+  margin: 0 auto;
+}
+#cookies-banner.visible { display: block; animation: cookies-in 0.35s ease-out; }
+@keyframes cookies-in {
+  from { transform: translateY(110%); opacity: 0; }
+  to   { transform: translateY(0); opacity: 1; }
+}
+.cookies-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: 700;
+  color: #1C1C1C;
+  margin-bottom: 6px;
+}
+.cookies-desc {
+  font-size: 0.82rem;
+  color: #5a5550;
+  line-height: 1.55;
+  margin-bottom: 14px;
+}
+.cookies-desc a { color: #CC2229; text-decoration: underline; }
+.cookies-actions { display: flex; gap: 8px; flex-wrap: wrap; }
+.cookies-btn {
+  font-family: inherit;
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 9px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  border: none;
+  transition: opacity .15s, background .15s;
+}
+.cookies-btn-accept { background: #CC2229; color: white; flex: 1; min-width: 100px; }
+.cookies-btn-accept:hover { background: #A02020; }
+.cookies-btn-refuse { background: white; color: #5a5550; border: 1px solid #D8D0C2; flex: 1; min-width: 100px; }
+.cookies-btn-refuse:hover { background: #F5F0E8; }
+@media (max-width: 480px) {
+  #cookies-banner { left: 8px; right: 8px; padding: 14px 16px; }
+  .cookies-actions { flex-direction: column; }
+  .cookies-btn { width: 100%; }
+}
+</style>
+
+<div id="cookies-banner" role="dialog" aria-label="Gestion des cookies">
+  <div class="cookies-title">🍪 Cookies & confidentialité</div>
+  <div class="cookies-desc">
+    Ce site utilise Google Analytics pour mesurer l'audience de manière anonyme et améliorer ton expérience.
+    Aucune donnée n'est partagée avec des tiers à des fins publicitaires.
+    <a onclick="goTo('confidentialite');return false;" href="#confidentialite">En savoir plus</a>
+  </div>
+  <div class="cookies-actions">
+    <button class="cookies-btn cookies-btn-refuse" onclick="cookiesRefuse()">Refuser</button>
+    <button class="cookies-btn cookies-btn-accept" onclick="cookiesAccept()">Accepter</button>
+  </div>
+</div>
+
+<script>
+// ===================== COOKIES · LOGIQUE =====================
+(function() {
+  var STORAGE_KEY = 'cookies_consent';
+
+  function getConsent() {
+    try { return localStorage.getItem(STORAGE_KEY); } catch(e) { return null; }
+  }
+
+  function setConsent(value) {
+    try { localStorage.setItem(STORAGE_KEY, value); } catch(e) {}
+  }
+
+  function hideBanner() {
+    var b = document.getElementById('cookies-banner');
+    if (b) b.classList.remove('visible');
+  }
+
+  function showBanner() {
+    var b = document.getElementById('cookies-banner');
+    if (b) b.classList.add('visible');
+  }
+
+  // Handlers globaux (pour les onclick du bandeau)
+  window.cookiesAccept = function() {
+    setConsent('accepted');
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', {
+        'analytics_storage': 'granted',
+        'functionality_storage': 'granted'
+      });
+    }
+    hideBanner();
+    // Track immédiatement le consentement (pour avoir au moins une page_view)
+    if (typeof window.track === 'function') {
+      window.track('consent_accepted');
+    }
+  };
+
+  window.cookiesRefuse = function() {
+    setConsent('refused');
+    // gtag reste en 'denied' par défaut, rien à changer
+    hideBanner();
+  };
+
+  // Permet au candidat de revenir sur son choix depuis la page Confidentialité
+  window.cookiesReset = function() {
+    try { localStorage.removeItem(STORAGE_KEY); } catch(e) {}
+    showBanner();
+  };
+
+  // Affichage du bandeau si pas encore de choix exprimé
+  function init() {
+    var consent = getConsent();
+    if (consent === null) {
+      // Pas de choix encore → on affiche le bandeau (avec petit délai non-intrusif)
+      setTimeout(showBanner, 800);
+    }
+    // Si 'accepted' ou 'refused' → on ne fait rien, le choix est déjà appliqué côté gtag
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<!-- =================== /COOKIES ===================== -->
 
 </body>
 
