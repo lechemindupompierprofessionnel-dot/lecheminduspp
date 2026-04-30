@@ -4212,6 +4212,24 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         </div>
       </div>
 
+      <!-- ========== 📝 ÉTUDE DE TEXTE — MÉTHODOLOGIE ========== -->
+      <div class="biblio-acc-section" data-acc="methodo">
+        <div class="biblio-acc-header" onclick="toggleBiblioAcc(this)">
+          <span class="biblio-acc-icon">📝</span>
+          <span class="biblio-acc-title">Étude de texte — Méthodologie</span>
+          <span class="biblio-acc-count">4 fiches</span>
+          <span class="biblio-acc-chevron">▾</span>
+        </div>
+        <div class="biblio-acc-body">
+          <div class="biblio-grid">
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-bareme','Décrypter le barème avant tout','Méthodologie étude de texte','fiches/methodo/fiche-1-bareme.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 01</div><div class="biblio-name">Décrypter le barème avant tout</div><div class="biblio-meta">HTML · ~5 min · Stratégie</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-lecture','Lire un texte pour le concours','Méthodologie étude de texte','fiches/methodo/fiche-2-lecture.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 02</div><div class="biblio-name">Lire un texte pour le concours</div><div class="biblio-meta">HTML · ~7 min · Méthode 3 passes</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-arbitrage','Arbitrer entre 2 réponses proches','Méthodologie étude de texte','fiches/methodo/fiche-3-arbitrage.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 03</div><div class="biblio-name">Arbitrer entre 2 réponses proches</div><div class="biblio-meta">HTML · ~8 min · 5 techniques</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-arbitrer-repondre','Répondre ou ne pas répondre','Méthodologie étude de texte','fiches/methodo/fiche-4-arbitrer-repondre.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 04</div><div class="biblio-name">Répondre ou ne pas répondre</div><div class="biblio-meta">HTML · ~7 min · Décision</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+          </div>
+        </div>
+      </div>
+
       <!-- ========== 📘 DOCTRINES OPÉRATIONNELLES ========== -->
       <div class="biblio-acc-section" data-acc="doctrines">
         <div class="biblio-acc-header" onclick="toggleBiblioAcc(this)">
@@ -16204,8 +16222,9 @@ function openDoc(id, name, type, url, accessLevel) {
   document.getElementById('pdf-viewer-type').textContent = type || 'Document';
   // Paramètres qui cachent la barre d'outils du viewer PDF natif du navigateur
   // (toolbar=0, navpanes=0 : Chrome/Edge ; #toolbar=0 : historique legacy)
-  var sep = url.indexOf('?') !== -1 ? '&' : '?';
-  var src = url + '#toolbar=0&navpanes=0&scrollbar=1&view=FitH';
+  // Pour les fichiers HTML, on ne rajoute aucun hash (sinon ça interfère avec le scroll/ancres)
+  var isHtml = /\.html?$/i.test(url.split('?')[0].split('#')[0]);
+  var src = isHtml ? url : (url + '#toolbar=0&navpanes=0&scrollbar=1&view=FitH');
   iframe.src = src;
   overlay.classList.add('visible');
   document.body.classList.add('pdf-open');
