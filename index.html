@@ -846,19 +846,6 @@ body.is-logged .nav-member-only{display:revert}
 /* ===== BARRE DE RECHERCHE ===== */
 .biblio-search{position:relative;margin-bottom:20px}
 
-/* ===== Bannière Cadeau de bienvenue (membres connectés uniquement) ===== */
-.biblio-gift{display:flex;align-items:center;gap:20px;background:linear-gradient(135deg,#2a2320 0%,#1C1C1C 100%);color:white;padding:22px 26px;margin-bottom:28px;border-left:4px solid var(--red);position:relative}
-.biblio-gift-icon{font-size:2.4rem;flex-shrink:0;line-height:1}
-.biblio-gift-text{flex:1;min-width:0}
-.biblio-gift-eyebrow{font-size:.7rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#E88080;margin-bottom:6px}
-.biblio-gift-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:700;color:white;line-height:1.25;margin-bottom:4px}
-.biblio-gift-desc{font-size:.85rem;color:#C8C2BB;line-height:1.5}
-.biblio-gift-btn{flex-shrink:0;background:var(--red);color:white;padding:13px 22px;text-decoration:none;font-size:.88rem;font-weight:600;font-family:inherit;white-space:nowrap;transition:background .2s;border:none;cursor:pointer}
-.biblio-gift-btn:hover{background:var(--red-dark)}
-@media (max-width:720px){
-  .biblio-gift{flex-direction:column;align-items:flex-start;gap:16px;padding:20px}
-  .biblio-gift-btn{width:100%;text-align:center;justify-content:center;display:flex;align-items:center}
-}
 .biblio-search-input{width:100%;padding:14px 44px 14px 44px;border:1px solid var(--border);background:white;font-size:.95rem;color:var(--charcoal);font-family:inherit;transition:all .2s}
 .biblio-search-input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(204,34,41,0.1)}
 .biblio-search-input::placeholder{color:var(--gray-light)}
@@ -987,7 +974,6 @@ body:not(.is-member) .biblio-seen-check{display:none}
 .biblio-quiz-badge.red:hover{background:#f4d2d2}
 .biblio-quiz-dot{width:6px;height:6px;border-radius:50%;display:inline-block;background:currentColor;flex-shrink:0}
 body:not(.is-member) .biblio-quiz-badge{display:none}
-.biblio-card.biblio-gift .biblio-quiz-badge,
 .biblio-source-card .biblio-quiz-badge{display:none}
 
 /* Modale d'invitation au quiz */
@@ -4173,17 +4159,6 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
   </div>
   <div class="section">
 
-    <!-- ===== CADEAU DE BIENVENUE (membres connectés uniquement) ===== -->
-    <div id="biblio-gift-banner" class="biblio-gift" style="display:none">
-      <div class="biblio-gift-icon">🎁</div>
-      <div class="biblio-gift-text">
-        <div class="biblio-gift-eyebrow">Ton cadeau de bienvenue</div>
-        <div class="biblio-gift-title">Les 5 erreurs qui éliminent les bons candidats</div>
-        <div class="biblio-gift-desc">Le guide écrit par Quentin pour t'éviter les pièges les plus courants de la prépa. À lire en premier.</div>
-      </div>
-      <a class="biblio-gift-btn" href="ebook_V2_pdf.pdf" download="Le_Chemin_du_SPP_Les_5_erreurs.pdf" onclick="trackGiftDownload()">Télécharger le PDF →</a>
-    </div>
-
     <!-- ===== BARRE DE RECHERCHE ===== -->
     <div class="biblio-search">
       <span class="biblio-search-icon">🔍</span>
@@ -4222,10 +4197,10 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         </div>
         <div class="biblio-acc-body">
           <div class="biblio-grid">
-            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-bareme','Décrypter le barème avant tout','Méthodologie étude de texte','docs/methodo/fiche-1-bareme.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 01</div><div class="biblio-name">Décrypter le barème avant tout</div><div class="biblio-meta">HTML · ~5 min · Stratégie</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-lecture','Lire un texte pour le concours','Méthodologie étude de texte','docs/methodo/fiche-2-lecture.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 02</div><div class="biblio-name">Lire un texte pour le concours</div><div class="biblio-meta">HTML · ~7 min · Méthode 3 passes</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-arbitrage','Arbitrer entre 2 réponses proches','Méthodologie étude de texte','docs/methodo/fiche-3-arbitrage.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 03</div><div class="biblio-name">Arbitrer entre 2 réponses proches</div><div class="biblio-meta">HTML · ~8 min · 5 techniques</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
-            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-arbitrer-repondre','Répondre ou ne pas répondre','Méthodologie étude de texte','docs/methodo/fiche-4-arbitrer-repondre.html','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 04</div><div class="biblio-name">Répondre ou ne pas répondre</div><div class="biblio-meta">HTML · ~7 min · Décision</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-bareme','Décrypter le barème avant tout','Méthodologie étude de texte','docs/methodo/fiche-1-bareme.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 01</div><div class="biblio-name">Décrypter le barème avant tout</div><div class="biblio-meta">PDF · 5 pages · Stratégie</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-lecture','Lire un texte pour le concours','Méthodologie étude de texte','docs/methodo/fiche-2-lecture.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 02</div><div class="biblio-name">Lire un texte pour le concours</div><div class="biblio-meta">PDF · 6 pages · Méthode 3 passes</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-arbitrage','Arbitrer entre 2 réponses proches','Méthodologie étude de texte','docs/methodo/fiche-3-arbitrage.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 03</div><div class="biblio-name">Arbitrer entre 2 réponses proches</div><div class="biblio-meta">PDF · 7 pages · 5 techniques</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card is-synthese" data-cat="methodo" data-access="paid" onclick="openDoc('fiche-methodo-arbitrer-repondre','Répondre ou ne pas répondre','Méthodologie étude de texte','docs/methodo/fiche-4-arbitrer-repondre.pdf','paid')"><div class="biblio-badge">Fiche</div><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Méthodo · 04</div><div class="biblio-name">Répondre ou ne pas répondre</div><div class="biblio-meta">PDF · 6 pages · Décision</div><div class="biblio-overlay"><p>Réservé aux abonnés</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
           </div>
         </div>
       </div>
@@ -8974,7 +8949,6 @@ var BADGE_RARITY_LABELS = {
 function _biblioIsTrackableCard(cardEl) {
   if (!cardEl) return false;
   if (cardEl.classList.contains('biblio-source-card')) return false;
-  if (cardEl.classList.contains('biblio-gift')) return false;
   var cat = cardEl.getAttribute('data-cat');
   // Fiches : culture admin avec is-synthese + concours fiche + divers fiches
   if (cardEl.classList.contains('is-synthese')) return true;
@@ -16195,7 +16169,7 @@ function openDoc(id, name, type, url, accessLevel) {
   // Tracking uniquement pour les membres (connectés OU payants)
   if (currentMember) {
     espTrackDoc(id, name, type);
-    // Mémorise que ce doc a été ouvert (pour badge "Déjà ouvert") — hors sources/cadeau
+    // Mémorise que ce doc a été ouvert (pour badge "Déjà ouvert") — hors sources
     if (_biblioOpenedIds && !_biblioOpenedIds.has(id)) {
       _biblioOpenedIds.add(id);
       // On ne refait pas tout le rendu ici (inutile pendant que la modal est ouverte) —
@@ -16452,15 +16426,6 @@ function getMemberstack() {
   return window.$memberstackDom || null;
 }
 
-// Hook de tracking déclenché au clic sur "Télécharger le PDF" du cadeau de bienvenue.
-// Émet l'événement gift_download vers Google Analytics 4 via le wrapper track().
-// Le wrapper vérifie le consentement cookies avant d'envoyer quoi que ce soit.
-function trackGiftDownload() {
-  if (typeof window.track === 'function') {
-    window.track('gift_download', { item_name: 'ebook_5_erreurs' });
-  }
-}
-
 function updateNavMember(member) {
   var loginBtn  = document.getElementById('nav-login-btn');
   var logoutBtn = document.getElementById('nav-logout-btn');
@@ -16494,9 +16459,6 @@ function updateNavMember(member) {
     if (spaceBtn)    spaceBtn.style.display    = 'inline-flex';
     if (espaceItem)  espaceItem.style.display  = 'block';
     if (mobileEspace) mobileEspace.style.display = 'block';
-    // Affichage du cadeau de bienvenue dans la Bibliothèque (membre connecté uniquement)
-    var gift = document.getElementById('biblio-gift-banner');
-    if (gift) gift.style.display = 'flex';
     // L'affichage pseudo + badge est géré entièrement par updateNavMemberName()
     // qui remplit dynamiquement le bouton "Mon espace" (icône + pseudo).
     // Fallback rapide : si le pseudo n'est pas encore chargé, on affiche l'email
@@ -16566,9 +16528,6 @@ function updateNavMember(member) {
     if (spaceBtn) spaceBtn.style.display = 'none';
     if (espaceItem) espaceItem.style.display = 'block';
     if (mobileEspace) mobileEspace.style.display = 'block';
-    // Masque le cadeau de bienvenue quand l'utilisateur se déconnecte
-    var giftOff = document.getElementById('biblio-gift-banner');
-    if (giftOff) giftOff.style.display = 'none';
     // Rafraîchit l'UI QCM (mode démo à nouveau actif)
     if (typeof refreshDemoBanner === 'function') refreshDemoBanner();
     if (typeof updateSummary === 'function') updateSummary();
