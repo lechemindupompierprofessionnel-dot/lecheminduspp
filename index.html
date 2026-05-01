@@ -3107,8 +3107,8 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
 
   <div class="section section-red" style="text-align:center;padding:70px 5%">
     <div class="s-eyebrow" style="color:rgba(255,255,255,0.7)">Formation en ligne · Sans engagement</div>
-    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:white;margin:12px 0 20px;line-height:1.2">Ta préparation au concours à partir de <span style="text-decoration:underline">15,80€/mois</span></div>
-    <div style="font-size:.95rem;color:rgba(255,255,255,0.8);margin-bottom:32px">QCM · Annales · Bibliothèque · Programmes physiques — choisis ta formule.</div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:white;margin:12px 0 20px;line-height:1.2">Ta préparation au concours à partir de <span style="text-decoration:underline">19€/mois</span></div>
+    <div style="font-size:.95rem;color:rgba(255,255,255,0.8);margin-bottom:32px">QCM · Annales · Bibliothèque · Programmes physiques — choisis ta formule. Essai gratuit 7 jours sur les abonnements mensuels.</div>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <button class="btn" style="background:white;color:var(--red);font-weight:700" onclick="goTo('decouverte')">Essai gratuit</button>
       <button class="btn btn-outline-white" onclick="goTo('formation')">Voir les formules →</button>
@@ -3170,6 +3170,18 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
       </div>
     </div>
   </div>
+
+  <!-- CTA FINAL EN PLEINE LARGEUR — visible après lecture complète de la timeline -->
+  <div class="section section-red" style="text-align:center;padding:64px 5%">
+    <div class="s-eyebrow" style="color:rgba(255,255,255,0.75)">Et toi, où en es-tu ?</div>
+    <div style="font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.2vw,2.4rem);font-weight:700;color:white;margin:14px 0 18px;line-height:1.25;max-width:720px;margin-left:auto;margin-right:auto">Tu n'as pas besoin d'années — tu as besoin de la <em style="font-style:italic">bonne méthode</em></div>
+    <div style="font-size:.98rem;color:rgba(255,255,255,0.88);line-height:1.7;max-width:600px;margin:0 auto 32px">J'ai construit la plateforme que j'aurais voulu trouver à mes débuts. QCM, annales, programme physique, coaching — tout est là.</div>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <button class="btn" style="background:white;color:var(--red);font-weight:700;padding:14px 28px" onclick="goTo('formation')">Découvrir les formules →</button>
+      <button class="btn btn-outline-white" style="padding:14px 28px" onclick="goTo('comment')">Comment je t'aide</button>
+    </div>
+    <div style="margin-top:20px;font-size:.82rem;color:rgba(255,255,255,0.7)">Essai gratuit 7 jours · sans engagement · aucun prélèvement pendant l'essai</div>
+  </div>
 </div>
 
 <!-- ============================= PAGE: FORMATION ============================= -->
@@ -3217,7 +3229,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <div class="offer-icon">📘</div>
         <div class="offer-trial-badge">🎁 7 jours gratuits sans engagement</div>
         <div class="offer-title">Préparation</div>
-        <div class="offer-subtitle">Tous les outils pour réviser efficacement</div>
+        <div class="offer-subtitle">La préparation théorique uniquement (sans le physique)</div>
         <ul class="offer-features">
           <li>+1000 QCM thématiques corrigés</li>
           <li>Toutes les annales commentées</li>
@@ -3226,11 +3238,14 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
           <li>Espace analytique &amp; badges avancés</li>
           <li>Actualités &amp; mises à jour</li>
         </ul>
+        <div style="background:var(--cream2);border-left:3px solid var(--gray-light);padding:10px 14px;margin:14px 0 18px;font-size:.78rem;color:var(--gray);line-height:1.5">
+          ⚠️ <strong style="color:var(--charcoal)">Pas de programme physique</strong> dans cette formule. Pour préparer aussi les épreuves physiques (sportives), choisis <strong>Performance</strong>.
+        </div>
         <div class="offer-price">19 €<span class="offer-price-suffix">/mois</span></div>
         <div class="offer-price-alt">Après ton essai gratuit · résiliable à tout moment</div>
         <div class="offer-price-note" style="color:var(--gray)">💳 Aucun prélèvement pendant les 7 premiers jours</div>
         <button class="btn btn-red" onclick="msPay('prc_pr-paration-mensuel-p740e3k')">Démarrer mon essai gratuit</button>
-        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.85rem;font-weight:600;padding:10px;color:var(--gray);border-color:#D8D0C2;line-height:1.35" onclick="msPay('prc_-pr-paration-annuel-mr4003iu')">Ou annuel à <strong style="color:var(--charcoal)">15,80 €/mois</strong> <span style="background:#CC2229;color:white;font-size:.65rem;padding:2px 6px;margin-left:4px;font-weight:700">−17%</span><br><span style="font-weight:400;font-size:.75rem">2 mois offerts · 190 €/an</span></button>
+        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.85rem;font-weight:600;padding:11px 10px;color:var(--gray);border-color:#D8D0C2;line-height:1.4" onclick="msPay('prc_-pr-paration-annuel-mr4003iu')">Ou annuel : <strong style="color:var(--charcoal)">190 €/an</strong> <span style="background:#CC2229;color:white;font-size:.62rem;padding:2px 6px;margin-left:4px;font-weight:700;letter-spacing:.5px">−17%</span><br><span style="font-weight:400;font-size:.78rem;color:var(--gray)">soit 15,80 €/mois · 2 mois offerts · paiement immédiat, pas d'essai</span></button>
       </div>
 
       <!-- PALIER 2B — PERFORMANCE (recommandé) -->
@@ -3251,7 +3266,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <div class="offer-price-alt">Après ton essai gratuit · résiliable à tout moment</div>
         <div class="offer-price-note">🏆 La formule la plus choisie</div>
         <button class="btn btn-red" onclick="msPay('prc_performance-mensuel-qwjb03gp')">Démarrer mon essai gratuit</button>
-        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.85rem;font-weight:600;padding:10px;color:var(--gray);border-color:#D8D0C2;line-height:1.35" onclick="msPay('prc_performance-annuel-dqb40e0f')">Ou annuel à <strong style="color:var(--charcoal)">40,80 €/mois</strong> <span style="background:#CC2229;color:white;font-size:.65rem;padding:2px 6px;margin-left:4px;font-weight:700">−17%</span><br><span style="font-weight:400;font-size:.75rem">2 mois offerts · 490 €/an</span></button>
+        <button class="btn btn-outline" style="width:100%;margin-top:8px;justify-content:center;font-size:.85rem;font-weight:600;padding:11px 10px;color:var(--gray);border-color:#D8D0C2;line-height:1.4" onclick="msPay('prc_performance-annuel-dqb40e0f')">Ou annuel : <strong style="color:var(--charcoal)">490 €/an</strong> <span style="background:#CC2229;color:white;font-size:.62rem;padding:2px 6px;margin-left:4px;font-weight:700;letter-spacing:.5px">−17%</span><br><span style="font-weight:400;font-size:.78rem;color:var(--gray)">soit 40,80 €/mois · 2 mois offerts · paiement immédiat, pas d'essai</span></button>
       </div>
 
       <!-- PALIER 3 — EXCELLENCE -->
@@ -4635,7 +4650,7 @@ if(window.location.search.indexOf('success') !== -1) {
         </div>
         <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
           <button class="btn btn-outline-red" onclick="goTo('connexion')">J'ai déjà un compte</button>
-          <button class="btn btn-red" onclick="msPay('prc_-pr-paration-annuel-mr4003iu')">Accès complet — à partir de 15,80€/mois →</button>
+          <button class="btn btn-red" onclick="msPay('prc_-pr-paration-annuel-mr4003iu')">Accès complet — à partir de 19€/mois →</button>
         </div>
       </div>
     </div>
@@ -5658,7 +5673,7 @@ if(window.location.search.indexOf('success') !== -1) {
     <!-- CTA FINAL : Performance -->
     <div class="hide-when-logged" style="background:var(--dark);color:var(--cream);padding:36px 32px;border:2px solid var(--red)">
       <div style="text-align:center;margin-bottom:24px">
-        <div style="font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F09580;margin-bottom:10px">Performance — à partir de 40,80 €/mois</div>
+        <div style="font-size:.72rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:#F09580;margin-bottom:10px">Performance — 49 €/mois ou 490 €/an</div>
         <div style="font-family:'Playfair Display',serif;font-size:1.6rem;color:white;font-weight:900;line-height:1.2;margin-bottom:8px">Préparation écrite + Préparation physique</div>
         <div style="font-size:.92rem;color:#D5CCBB;line-height:1.6;max-width:540px;margin:0 auto">Pas d'abonnement séparé : un seul prix pour la préparation écrite ET physique.</div>
       </div>
@@ -5686,8 +5701,8 @@ if(window.location.search.indexOf('success') !== -1) {
 
       <div style="display:flex;align-items:center;justify-content:space-between;gap:14px;flex-wrap:wrap">
         <div>
-          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1;font-weight:900">À partir de 40,80 €<span style="font-size:.95rem;color:#D5CCBB;font-weight:400;margin-left:4px">/mois</span></div>
-          <div style="font-size:.8rem;color:#D5CCBB;margin-top:4px">en abonnement annuel · 2 mois offerts</div>
+          <div style="font-family:'Playfair Display',serif;font-size:1.8rem;color:white;line-height:1;font-weight:900">49 €<span style="font-size:.95rem;color:#D5CCBB;font-weight:400;margin-left:4px">/mois</span></div>
+          <div style="font-size:.8rem;color:#D5CCBB;margin-top:4px">ou 490 €/an (équivalent 40,80 €/mois — 2 mois offerts)</div>
         </div>
         <div style="display:flex;gap:10px;flex-wrap:wrap">
           <button class="btn btn-outline" onclick="goTo('connexion')" style="padding:14px 22px;border-color:var(--cream);color:var(--cream)">J'ai déjà un compte</button>
@@ -6111,7 +6126,7 @@ if(window.location.search.indexOf('success') !== -1) {
     <div class="lock-modal-title">Contenu réservé aux membres</div>
     <div class="lock-modal-text">Accède à l'intégralité du contenu écrit — QCM illimités, annales et bibliothèque documentaire — avec l'abonnement Préparation.</div>
     <div style="display:flex;flex-direction:column;gap:10px">
-      <button class="btn btn-red" style="width:100%;justify-content:center" id="lock-modal-pay-btn">Accéder maintenant — à partir de 15,80€/mois</button>
+      <button class="btn btn-red" style="width:100%;justify-content:center" id="lock-modal-pay-btn">Accéder maintenant — à partir de 19€/mois</button>
       <button class="btn btn-outline" style="width:100%;justify-content:center" id="lock-modal-login-btn">J'ai déjà un compte →</button>
     </div>
   </div>
@@ -8249,12 +8264,41 @@ var PSEUDO_BLACKLIST = [
   'admin','moderateur','lecheminduspp','support','staff','officiel','bot'
 ];
 
-// Retire les accents et passe en lowercase pour comparer contre la blacklist
+// Retire les accents, passe en lowercase, supprime les caractères non-alphanumériques.
+// Utilisé pour la comparaison contre la blacklist.
 function normalizePseudo(s) {
   return (s || '')
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, ''); // retire diacritiques
+}
+
+// Variante "agressive" : convertit les substitutions classiques de l33t-speak
+// pour détecter les tentatives de contournement de la blacklist (h1tler, n4z1,
+// nègr3, p3d3...). Appelée en complément de normalizePseudo() lors de la
+// validation.
+// Substitutions appliquées : 0→o, 1→i, 3→e, 4→a, 5→s, 7→t, 8→b, 9→g, $→s, @→a
+// Puis suppression des séparateurs (-, _) qui peuvent masquer des mots
+// (ex: h-i-t-l-e-r). On ne supprime pas les chiffres restants pour ne pas
+// déformer des pseudos légitimes contenant des nombres (alex2024).
+function normalizePseudoStrict(s) {
+  var n = normalizePseudo(s);
+  // Substitutions l33t (un seul passage suffit, on n'enchaîne pas pour éviter
+  // les faux positifs sur des transformations en cascade)
+  n = n
+    .replace(/0/g, 'o')
+    .replace(/1/g, 'i')
+    .replace(/3/g, 'e')
+    .replace(/4/g, 'a')
+    .replace(/5/g, 's')
+    .replace(/7/g, 't')
+    .replace(/8/g, 'b')
+    .replace(/9/g, 'g')
+    .replace(/\$/g, 's')
+    .replace(/@/g, 'a');
+  // Suppression des séparateurs internes (h-i-t-l-e-r → hitler)
+  n = n.replace(/[\-_]/g, '');
+  return n;
 }
 
 // État interne de la modale pseudo
@@ -8283,10 +8327,16 @@ function validatePseudoLocal(raw) {
   if (!/^[A-Za-z0-9_\-]+$/.test(trimmed)) {
     return { ok: false, error: 'Caractères autorisés : lettres, chiffres, tirets et underscores.', level: 'ko' };
   }
-  // Blacklist (mode "contient")
+  // Blacklist : on teste contre les deux normalisations pour attraper les
+  // contournements l33t-speak (h1tler, n4z1, etc.). La normalisation stricte
+  // peut générer des faux positifs sur des pseudos légitimes (ex: "as7" → "ast"
+  // ne matche rien mais "h1tler" → "hitler" matche). On accepte ce trade-off
+  // au profit de la modération.
   var norm = normalizePseudo(trimmed);
+  var normStrict = normalizePseudoStrict(trimmed);
   for (var i = 0; i < PSEUDO_BLACKLIST.length; i++) {
-    if (norm.indexOf(PSEUDO_BLACKLIST[i]) !== -1) {
+    var bad = PSEUDO_BLACKLIST[i];
+    if (norm.indexOf(bad) !== -1 || normStrict.indexOf(bad) !== -1) {
       return { ok: false, error: 'Ce pseudo contient un terme non autorisé.', level: 'ko' };
     }
   }
@@ -10719,8 +10769,8 @@ function renderUpgradeTab() {
         '<li>Traceur de progressions physiques</li>' +
         '<li>Badges exclusifs</li>' +
       '</ul>' +
-      '<div class="esp-upg-card-price">à partir de 40,80 €<span style="font-size:.9rem;color:var(--gray);font-weight:400">/mois</span></div>' +
-      '<div class="esp-upg-card-price-sub">en abonnement annuel · 2 mois offerts</div>' +
+      '<div class="esp-upg-card-price">49 €<span style="font-size:.9rem;color:var(--gray);font-weight:400">/mois</span></div>' +
+      '<div class="esp-upg-card-price-sub">ou 490 €/an (équivalent 40,80 €/mois)</div>' +
       '<button class="btn btn-red" onclick="msPay(\'prc_performance-mensuel-qwjb03gp\')">Passer à Performance →</button>' +
       '</div>';
   }
@@ -11975,7 +12025,7 @@ function showSessionResults() {
         '</div>',
         '<div class="qcm-results-actions">',
           '<button class="btn btn-outline-red" onclick="stopSession()">← Retour</button>',
-          '<button class="btn btn-red" onclick="msPay(\'prc_-pr-paration-annuel-mr4003iu\')">Accès complet — à partir de 15,80€/mois →</button>',
+          '<button class="btn btn-red" onclick="msPay(\'prc_-pr-paration-annuel-mr4003iu\')">Accès complet — à partir de 19€/mois →</button>',
         '</div>',
         ctaLogin,
       '</div>'
@@ -12186,7 +12236,7 @@ function showDemoLimitReached() {
       '</div>',
       '<div class="qcm-results-actions">',
         '<button class="btn btn-outline-red" onclick="stopSession()">← Retour</button>',
-        '<button class="btn btn-red" onclick="msPay(\'prc_-pr-paration-annuel-mr4003iu\')">Accès complet — à partir de 15,80€/mois →</button>',
+        '<button class="btn btn-red" onclick="msPay(\'prc_-pr-paration-annuel-mr4003iu\')">Accès complet — à partir de 19€/mois →</button>',
       '</div>',
     '</div>'
   ].join('');
@@ -15163,15 +15213,14 @@ function espAllCats() {
   return ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
 }
 
-// Nombre total de questions par catégorie (hérité de l'UI sidebar)
-var CAT_TOTALS = {
-  'statut': 105, 'sis': 50, 'divers': 18, 'textes': 29, 'maths': 150,
-  'gto-ventilation': 34, 'gto-sauvetage': 10, 'gto-sauvegarde': 28,
-  'gto-forets': 7, 'gto-extinctions': 24, 'gto-vicie': 20,
-  'gdo-ssuap': 45, 'gdo-fumees': 30, 'gdo-elec': 15, 'gdo-silos': 4,
-  'gdo-gaz': 20, 'gdo-agricole': 11, 'gdo-incendie': 60,
-  'gdo-ulm': 8, 'gdo-routier': 62, 'gdo-foret': 10, 'pse': 254
-};
+// Nombre total de questions par catégorie. Initialisé vide : les vraies valeurs
+// sont remplies au chargement par preloadAllCategoriesForCounts() qui charge les
+// JSON et compte les entrées. Avant 2026-05, ces valeurs étaient hardcodées —
+// elles sont devenues massivement obsolètes (sauvetage : 10→49 réelles, vicie :
+// 20→100 réelles, ssuap : 45→14 réelles, etc.) et créaient un flicker visuel
+// pendant les ~200ms de chargement initial. On préfère désormais ne rien
+// afficher (un "—" via le DOM) plutôt qu'un faux compteur.
+var CAT_TOTALS = {};
 
 // ----- Formatage temps relatif -----
 function espTimeAgo(ts) {
@@ -17175,7 +17224,7 @@ function renderAnnalesThemes() {
       html += '<div style="grid-column:1/-1;background:white;border:1px solid var(--border);padding:32px;margin-top:16px;text-align:center">' +
         '<div style="font-family:\'Playfair Display\',serif;font-size:1.3rem;color:var(--charcoal);margin-bottom:10px">Accède à toutes les annales complètes</div>' +
         '<div style="font-size:.9rem;color:var(--gray);line-height:1.65;max-width:540px;margin:0 auto 20px">Une fois les 3 démos testées (Équipier · Maths · Étude de texte), débloque les <strong>23 annales officielles</strong> (CDG13, CDG35, CDG57, CDG69 de 2021 à 2025), la bibliothèque documentaire, les QCM thématiques et ton espace de suivi personnel.</div>' +
-        '<button class="btn btn-red" onclick="msPay(\'prc_-pr-paration-annuel-mr4003iu\')">Débloquer l\'accès — à partir de 15,80€/mois →</button>' +
+        '<button class="btn btn-red" onclick="msPay(\'prc_-pr-paration-annuel-mr4003iu\')">Débloquer l\'accès — à partir de 19€/mois →</button>' +
         (currentMember ? '' : ' <button class="btn btn-outline-red" onclick="goTo(\'connexion\')" style="margin-left:6px">J\'ai déjà un compte</button>') +
       '</div>';
     }
