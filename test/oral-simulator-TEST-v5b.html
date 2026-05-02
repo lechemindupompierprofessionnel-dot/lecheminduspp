@@ -208,9 +208,9 @@
   .oral-jure-portrait {
     width: 80px; height: 80px; border-radius: 50%;
     background: #4A4A4A; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 16px; font-family: 'Playfair Display', serif;
-    font-size: 32px; font-weight: 700; color: white;
+    margin: 0 auto 16px; overflow: hidden;
   }
+  .oral-jure-portrait svg { display: block; width: 100%; height: 100%; }
   .oral-jure-card.officier .oral-jure-portrait { background: #CC2229; }
   .oral-jure-card.elu .oral-jure-portrait { background: #1E40AF; }
   .oral-jure-card.sousoff .oral-jure-portrait { background: #525252; }
@@ -297,10 +297,10 @@
   .oral-jure-fs-portrait {
     width: 64px; height: 64px; border-radius: 50%;
     background: #4A4A4A; display: flex; align-items: center; justify-content: center;
-    margin: 0 auto 12px; font-family: 'Playfair Display', serif;
-    font-size: 24px; font-weight: 700; color: white;
+    margin: 0 auto 12px; overflow: hidden;
     position: relative;
   }
+  .oral-jure-fs-portrait svg { display: block; width: 100%; height: 100%; }
   .oral-jure-fs-card.officier .oral-jure-fs-portrait { background: #CC2229; }
   .oral-jure-fs-card.elu .oral-jure-fs-portrait { background: #1E40AF; }
   .oral-jure-fs-card.sousoff .oral-jure-fs-portrait { background: #525252; }
@@ -1101,7 +1101,8 @@ const OralSimulator = (function() {
       role: 'officier',
       grade: gradesOfficier[Math.floor(Math.random() * gradesOfficier.length)],
       domaine: 'Statut SPP, organisation du SDIS, missions, textes',
-      avatarLetter: 'O'
+      avatarLetter: 'O',
+      avatarVariant: Math.floor(Math.random() * 3)
     };
 
     const elu = {
@@ -1109,7 +1110,8 @@ const OralSimulator = (function() {
       role: 'elu',
       grade: gradesElu[Math.floor(Math.random() * gradesElu.length)],
       domaine: 'Culture administrative, FPT, fonction publique, culture générale',
-      avatarLetter: 'É'
+      avatarLetter: 'É',
+      avatarVariant: Math.floor(Math.random() * 3)
     };
 
     const sousoff = {
@@ -1117,10 +1119,108 @@ const OralSimulator = (function() {
       role: 'sousoff',
       grade: gradesSousOff[Math.floor(Math.random() * gradesSousOff.length)],
       domaine: 'Technique opérationnelle, savoir-être, mises en situation',
-      avatarLetter: 'S'
+      avatarLetter: 'S',
+      avatarVariant: Math.floor(Math.random() * 3)
     };
 
     return { officier, elu, sousoff };
+  }
+
+  // === V5b-fix : Génération de portraits SVG stylisés selon genre + variant ===
+  function getAvatarSvg(jure, size) {
+    const isFemme = jure.isFemme;
+    const variant = jure.avatarVariant || 0;
+    const role = jure.role;
+    const s = size || 80;
+
+    // Couleurs selon le rôle
+    const bgColor = { officier: '#CC2229', elu: '#1E40AF', sousoff: '#525252' }[role] || '#525252';
+
+    // Couleur peau (varie légèrement selon variant pour de la diversité)
+    const skinColors = ['#F5C6A0', '#E8B080', '#C99063'];
+    const skinColor = skinColors[variant % 3];
+
+    // Couleur cheveux selon variant
+    const hairColorsM = ['#3D2817', '#1A1A1A', '#6B4423']; // Brun, noir, châtain
+    const hairColorsF = ['#3D2817', '#8B4513', '#D4A574']; // Brun, châtain, blond
+    const hairColor = (isFemme ? hairColorsF : hairColorsM)[variant % 3];
+
+    if (isFemme) {
+      // === PORTRAIT FÉMININ ===
+      // Variants : 1 = cheveux longs, 2 = cheveux mi-longs, 3 = cheveux courts/carré
+      const hairs = [
+        // Variant 0 : cheveux longs descendant sur les épaules
+        `<path d="M 25 45 Q 22 60 20 80 L 22 95 L 78 95 L 80 80 Q 78 60 75 45 Q 75 28 50 25 Q 25 28 25 45 Z" fill="${hairColor}"/>`,
+        // Variant 1 : cheveux mi-longs avec une raie
+        `<path d="M 28 45 Q 25 65 28 85 L 35 90 L 65 90 L 72 85 Q 75 65 72 45 Q 72 28 50 25 Q 28 28 28 45 Z" fill="${hairColor}"/><line x1="50" y1="28" x2="50" y2="42" stroke="${skinColor}" stroke-width="1"/>`,
+        // Variant 2 : carré au niveau des épaules
+        `<path d="M 26 45 Q 24 70 28 80 L 32 78 L 32 50 L 68 50 L 68 78 L 72 80 Q 76 70 74 45 Q 74 28 50 25 Q 26 28 26 45 Z" fill="${hairColor}"/>`
+      ];
+      return `
+        <svg viewBox="0 0 100 100" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fond circulaire -->
+          <circle cx="50" cy="50" r="50" fill="${bgColor}"/>
+          <!-- Cou -->
+          <rect x="42" y="65" width="16" height="20" fill="${skinColor}"/>
+          <!-- Visage -->
+          <ellipse cx="50" cy="50" rx="20" ry="24" fill="${skinColor}"/>
+          <!-- Cheveux -->
+          ${hairs[variant % 3]}
+          <!-- Yeux -->
+          <ellipse cx="42" cy="48" rx="2" ry="2.5" fill="#1A1A1A"/>
+          <ellipse cx="58" cy="48" rx="2" ry="2.5" fill="#1A1A1A"/>
+          <!-- Cils légers -->
+          <path d="M 39 46 Q 42 44 45 46" stroke="#1A1A1A" stroke-width="0.8" fill="none"/>
+          <path d="M 55 46 Q 58 44 61 46" stroke="#1A1A1A" stroke-width="0.8" fill="none"/>
+          <!-- Nez (subtil) -->
+          <path d="M 50 52 L 49 58 L 51 58 Z" fill="${skinColor}" stroke="#C99063" stroke-width="0.5"/>
+          <!-- Bouche -->
+          <path d="M 45 62 Q 50 64 55 62" stroke="#A0524D" stroke-width="1.2" fill="none"/>
+        </svg>
+      `;
+    } else {
+      // === PORTRAIT MASCULIN ===
+      // Variants : 1 = cheveux courts classiques, 2 = cheveux très courts, 3 = front dégarni
+      const hairs = [
+        // Variant 0 : cheveux courts standards
+        `<path d="M 30 38 Q 30 28 50 25 Q 70 28 70 38 L 70 45 Q 65 35 50 35 Q 35 35 30 45 Z" fill="${hairColor}"/>`,
+        // Variant 1 : très courts (presque rasés)
+        `<path d="M 32 40 Q 32 30 50 28 Q 68 30 68 40 L 68 42 Q 60 36 50 36 Q 40 36 32 42 Z" fill="${hairColor}"/>`,
+        // Variant 2 : front dégarni / tempes grises
+        `<path d="M 32 42 Q 35 32 50 32 Q 65 32 68 42 L 68 47 Q 55 42 50 42 Q 45 42 32 47 Z" fill="${hairColor}" opacity="0.85"/>`
+      ];
+      // Barbe optionnelle selon variant
+      const beards = [
+        '', // Pas de barbe
+        '', // Pas de barbe
+        // Variant 2 : barbe légère
+        `<path d="M 38 64 Q 40 72 50 72 Q 60 72 62 64 Q 58 66 50 66 Q 42 66 38 64 Z" fill="${hairColor}" opacity="0.6"/>`
+      ];
+      return `
+        <svg viewBox="0 0 100 100" width="${s}" height="${s}" xmlns="http://www.w3.org/2000/svg">
+          <!-- Fond circulaire -->
+          <circle cx="50" cy="50" r="50" fill="${bgColor}"/>
+          <!-- Cou (plus large pour homme) -->
+          <rect x="40" y="65" width="20" height="20" fill="${skinColor}"/>
+          <!-- Visage (mâchoire plus marquée) -->
+          <path d="M 30 50 Q 30 35 50 33 Q 70 35 70 50 Q 70 65 50 70 Q 30 65 30 50 Z" fill="${skinColor}"/>
+          <!-- Cheveux -->
+          ${hairs[variant % 3]}
+          <!-- Yeux -->
+          <ellipse cx="42" cy="48" rx="2" ry="2" fill="#1A1A1A"/>
+          <ellipse cx="58" cy="48" rx="2" ry="2" fill="#1A1A1A"/>
+          <!-- Sourcils marqués -->
+          <path d="M 38 44 L 46 43" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+          <path d="M 54 43 L 62 44" stroke="#1A1A1A" stroke-width="1.5" stroke-linecap="round"/>
+          <!-- Nez plus prononcé -->
+          <path d="M 50 52 L 48 60 L 52 60 Z" fill="${skinColor}" stroke="#C99063" stroke-width="0.5"/>
+          <!-- Bouche -->
+          <path d="M 44 64 Q 50 65 56 64" stroke="#7A3F3A" stroke-width="1.2" fill="none"/>
+          <!-- Barbe éventuelle -->
+          ${beards[variant % 3]}
+        </svg>
+      `;
+    }
   }
 
   // === V5 : Affichage de l'écran "Entrée dans la salle" ===
@@ -1138,7 +1238,7 @@ const OralSimulator = (function() {
       }[jure.role];
       return `
         <div class="oral-jure-card ${jure.role}">
-          <div class="oral-jure-portrait">${jure.avatarLetter}</div>
+          <div class="oral-jure-portrait">${getAvatarSvg(jure, 80)}</div>
           <div class="oral-jure-role">${roleLabel}</div>
           <div class="oral-jure-name">${titre} ${jure.prenom} ${jure.nom}</div>
           <div class="oral-jure-grade">${jure.grade}</div>
@@ -1963,32 +2063,31 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
 
   // Sélection d'une voix par juré, en respectant strictement le genre
   function getVoiceForJure(speaker) {
-    if (!state.availableVoices || state.availableVoices.length === 0) return null;
+    if (!state.availableVoices || state.availableVoices.length === 0) return { voice: null, fallback: false };
     const jure = state.jury && state.jury[speaker];
-    if (!jure) return state.availableVoices[0]?.voice;
+    if (!jure) return { voice: state.availableVoices[0]?.voice, fallback: false };
 
     const isFemme = jure.isFemme;
     let pool = isFemme ? state.femaleVoices : state.maleVoices;
+    let fallback = false;
 
-    // Si aucune voix du bon genre n'est disponible, on se rabat sur les indéterminées
-    // puis sur n'importe quelle voix
+    // Si aucune voix du bon genre n'est disponible, on bascule en mode fallback
     if (pool.length === 0) {
+      fallback = true;
       pool = state.unknownVoices;
       if (pool.length === 0) {
         pool = state.availableVoices;
       }
     }
 
-    if (pool.length === 0) return null;
+    if (pool.length === 0) return { voice: null, fallback: false };
 
-    // Hash du speaker pour avoir une voix consistante par juré dans la session
-    // Mais on diversifie quand même les 2-3 jurés du même genre
     const speakerIdx = { officier: 0, elu: 1, sousoff: 2 }[speaker] || 0;
     const idx = speakerIdx % pool.length;
     const selected = pool[idx];
 
-    console.log(`[VOIX] ${speaker} (${isFemme ? 'F' : 'H'}) → ${selected.name}`);
-    return selected.voice;
+    console.log(`[VOIX] ${speaker} (${isFemme ? 'F' : 'H'}) → ${selected.name}${fallback ? ' [FALLBACK : pitch forcé]' : ''}`);
+    return { voice: selected.voice, fallback };
   }
 
   // Lire un texte avec la voix d'un juré
@@ -1997,34 +2096,59 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
       if (onEndCallback) onEndCallback();
       return;
     }
-    // Annuler toute lecture en cours
     window.speechSynthesis.cancel();
 
+    // V5b-fix3 : pause de la reconnaissance vocale pendant que le jury parle
+    // pour éviter que le micro capte la voix du jury et crée des doublons
+    const wasRecording = state.isRecording;
+    if (wasRecording && state.recognition) {
+      state.isRecording = false; // empêche le redémarrage automatique
+      try { state.recognition.stop(); } catch(e) {}
+    }
+
     const utterance = new SpeechSynthesisUtterance(text);
-    const voice = getVoiceForJure(speaker);
-    if (voice) utterance.voice = voice;
+    const result = getVoiceForJure(speaker);
+    if (result.voice) utterance.voice = result.voice;
     utterance.lang = 'fr-FR';
     utterance.rate = 0.95;
 
-    // V5b-fix : pitch ajusté finement selon le genre du juré
-    // Si on a dû tomber sur une voix indéterminée, on force le pitch pour différencier
     const jure = state.jury && state.jury[speaker];
     const isFemme = jure?.isFemme;
+    const fallback = result.fallback;
 
-    if (isFemme) {
-      // Voix féminine : pitch plus haut
-      utterance.pitch = speaker === 'elu' ? 1.15 : (speaker === 'sousoff' ? 1.05 : 1.10);
+    if (fallback) {
+      if (isFemme) {
+        utterance.pitch = speaker === 'elu' ? 1.7 : (speaker === 'sousoff' ? 1.55 : 1.6);
+      } else {
+        utterance.pitch = speaker === 'officier' ? 0.4 : (speaker === 'sousoff' ? 0.55 : 0.5);
+      }
     } else {
-      // Voix masculine : pitch plus bas
-      utterance.pitch = speaker === 'officier' ? 0.85 : (speaker === 'sousoff' ? 0.95 : 0.90);
+      if (isFemme) {
+        utterance.pitch = speaker === 'elu' ? 1.15 : (speaker === 'sousoff' ? 1.0 : 1.10);
+      } else {
+        utterance.pitch = speaker === 'officier' ? 0.85 : (speaker === 'sousoff' ? 0.95 : 0.90);
+      }
     }
 
     utterance.volume = 1.0;
 
-    if (onEndCallback) {
-      utterance.onend = onEndCallback;
-      utterance.onerror = onEndCallback;
-    }
+    // À la fin de la lecture du jury, on relance la reconnaissance si elle était active
+    const onFinish = () => {
+      if (wasRecording) {
+        // Petite pause pour éviter que le tampon audio capte les derniers mots
+        setTimeout(() => {
+          state.isRecording = true;
+          if (state.recognition && state._currentPhase) {
+            try { state.recognition.start(); } catch(e) { /* déjà démarré */ }
+          }
+        }, 300);
+      }
+      if (onEndCallback) onEndCallback();
+    };
+
+    utterance.onend = onFinish;
+    utterance.onerror = onFinish;
+
     window.speechSynthesis.speak(utterance);
   }
 
@@ -2052,7 +2176,7 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
       const titre = jure.isFemme ? 'Mme' : 'M.';
       return `
         <div class="oral-jure-fs-card ${jure.role}" id="fs-jure-${jure.role}">
-          <div class="oral-jure-fs-portrait" id="fs-portrait-${jure.role}">${jure.avatarLetter}</div>
+          <div class="oral-jure-fs-portrait" id="fs-portrait-${jure.role}">${getAvatarSvg(jure, 64)}</div>
           <div class="oral-jure-fs-name">${titre} ${jure.nom}</div>
           <div class="oral-jure-fs-grade">${jure.grade}</div>
         </div>
@@ -2257,7 +2381,7 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
     el.className = 'oral-message';
     const messageId = 'msg-' + Date.now();
     el.innerHTML = `
-      <div class="oral-avatar jury-${speaker}">${jure.avatarLetter}</div>
+      <div class="oral-avatar jury-${speaker}" style="overflow:hidden;padding:0;">${getAvatarSvg(jure, 40)}</div>
       <div class="oral-message-content">
         <div class="oral-message-meta">${labelMap[speaker]} · ${titre} ${jure.nom} · ${meta || ''}</div>
         <div class="oral-bulle jury-bulle bulle-${speaker} ${isRelance ? 'relance' : ''}" id="${messageId}-bulle">
