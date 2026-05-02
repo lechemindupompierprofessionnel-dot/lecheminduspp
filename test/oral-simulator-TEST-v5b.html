@@ -1,0 +1,2352 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulateur d'oral SPP — MODE TEST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F5EFE6; color: #1A1A1A; min-height: 100vh; line-height: 1.6; }
+
+  /* === Bandeau de test === */
+  .test-banner {
+    background: #FBBF24; color: #78350F; padding: 12px 24px;
+    text-align: center; font-size: 13px; font-weight: 600;
+    border-bottom: 2px solid #92400E;
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .test-banner code { background: #78350F; color: #FBBF24; padding: 2px 6px; border-radius: 3px; }
+
+  .test-config {
+    background: #1A1A1A; color: #F5EFE6; padding: 24px;
+    margin: 16px auto; max-width: 1100px;
+    font-family: monospace; font-size: 13px;
+  }
+  .test-config h3 {
+    color: #FBBF24; font-family: 'DM Sans'; font-size: 14px;
+    margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .test-config label {
+    display: block; margin-bottom: 12px;
+    font-family: 'DM Sans'; font-size: 13px;
+  }
+  .test-config input[type="text"], .test-config input[type="password"], .test-config select {
+    width: 100%; padding: 8px 12px; background: #2D2D2D; color: white;
+    border: 1px solid #6B6B6B; font-family: monospace; font-size: 12px;
+    margin-top: 4px;
+  }
+  .test-config button {
+    background: #FBBF24; color: #1A1A1A; border: none;
+    padding: 10px 20px; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans'; margin-top: 12px;
+  }
+  .test-config .status { margin-top: 16px; padding: 12px; background: #2D2D2D; }
+  .test-config .status.ok { border-left: 3px solid #2D7A5F; }
+  .test-config .status.error { border-left: 3px solid #CC2229; }
+
+  /* Tous les styles oral-* (copiés du fichier principal) */
+  .oral-screen { display: none; }
+  .oral-screen.active { display: block; }
+  .oral-tag { display: inline-block; background: #CC2229; color: white; padding: 4px 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .oral-quota-card { background: white; border: 2px solid #1A1A1A; padding: 32px; margin-bottom: 32px; }
+  .oral-quota-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #6B6B6B; margin-bottom: 8px; }
+  .oral-quota-number { font-family: 'Playfair Display', serif; font-size: 64px; line-height: 1; color: #CC2229; font-weight: 700; }
+  .oral-quota-total { font-size: 24px; color: #6B6B6B; }
+  .oral-quota-bar { height: 6px; background: #D4D0CA; margin-top: 20px; position: relative; overflow: hidden; }
+  .oral-quota-bar-fill { position: absolute; top: 0; left: 0; bottom: 0; background: #CC2229; transition: width 0.4s; }
+  .oral-btn-primary { background: #CC2229; color: white; border: none; padding: 18px 40px; font-family: 'DM Sans'; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 12px; }
+  .oral-btn-primary:hover { background: #A01820; }
+  .oral-btn-primary:disabled { background: #D4D0CA; cursor: not-allowed; }
+  .oral-btn-secondary { background: transparent; color: #1A1A1A; border: 1.5px solid #1A1A1A; padding: 16px 32px; font-family: 'DM Sans'; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .oral-prep-screen { background: #1A1A1A; color: #F5EFE6; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .oral-prep-content { max-width: 720px; text-align: center; }
+  .oral-prep-content h1 { color: white; margin-bottom: 24px; font-style: italic; }
+  .oral-countdown { font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 700; color: #CC2229; line-height: 1; margin: 40px 0; }
+  .oral-prep-checks { display: flex; justify-content: center; gap: 32px; margin: 40px 0; flex-wrap: wrap; }
+  .oral-prep-check { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .oral-prep-check svg.ok { color: #2D7A5F; }
+  .oral-prep-check svg.ko { color: #CC2229; }
+  .oral-expose-screen { background: #F5EFE6; min-height: 80vh; }
+  .oral-header { background: #1A1A1A; color: white; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .oral-phase-indicator { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4D0CA; }
+  .oral-phase-indicator strong { color: #CC2229; }
+  .oral-timer { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+  .oral-timer.warning { color: #D97706; }
+  .oral-timer.critical { color: #CC2229; }
+  .oral-timer-pulse { width: 12px; height: 12px; background: #CC2229; border-radius: 50%; animation: oralPulse 1.5s ease-in-out infinite; }
+  @keyframes oralPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+  .oral-expose-body { display: grid; grid-template-columns: 320px 1fr; gap: 0; min-height: 60vh; }
+  .oral-micro-panel { background: white; padding: 48px 32px; border-right: 1px solid #D4D0CA; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .oral-micro-circle { width: 160px; height: 160px; border-radius: 50%; background: #CC2229; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 24px; position: relative; cursor: pointer; border: none; }
+  .oral-micro-circle.active::before, .oral-micro-circle.active::after { content: ''; position: absolute; border-radius: 50%; border: 2px solid #CC2229; }
+  .oral-micro-circle.active::before { inset: -8px; opacity: 0.4; animation: oralRing 2s ease-out infinite; }
+  .oral-micro-circle.active::after { inset: -16px; opacity: 0.2; animation: oralRing 2s ease-out infinite 0.5s; }
+  @keyframes oralRing { 0% { transform: scale(0.95); opacity: 0.6; } 100% { transform: scale(1.15); opacity: 0; } }
+  .oral-micro-circle svg { width: 48px; height: 48px; }
+  .oral-micro-status { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #CC2229; margin-bottom: 8px; }
+  .oral-micro-info { font-size: 13px; color: #6B6B6B; }
+  .oral-transcription-panel { padding: 48px; overflow-y: auto; max-height: 60vh; }
+  .oral-transcription-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 24px; }
+  .oral-transcription-text { font-family: 'Playfair Display', serif; font-size: 22px; line-height: 1.6; color: #1A1A1A; max-width: 720px; }
+  .oral-transcription-text .definitif { color: #1A1A1A; }
+  .oral-transcription-text .provisoire { color: #6B6B6B; font-style: italic; }
+  .oral-footer { background: white; padding: 24px 32px; border-top: 1px solid #D4D0CA; display: flex; justify-content: space-between; align-items: center; }
+  .oral-progress-container { flex: 1; margin: 0 32px; max-width: 400px; }
+  .oral-progress-bar { height: 4px; background: #D4D0CA; position: relative; }
+  .oral-progress-bar-fill { position: absolute; top: 0; left: 0; bottom: 0; background: #CC2229; transition: width 1s linear; }
+  .oral-qr-conversation { flex: 1; overflow-y: auto; padding: 48px 32px; max-height: 65vh; min-height: 50vh; }
+  .oral-conversation-inner { max-width: 820px; margin: 0 auto; }
+  .oral-message { margin-bottom: 32px; display: flex; gap: 16px; }
+  .oral-message.candidat { flex-direction: row-reverse; }
+  .oral-avatar { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; }
+  .oral-avatar.jury { background: #1A1A1A; color: #F5EFE6; }
+  .oral-avatar.candidat-avatar { background: #CC2229; color: white; }
+  .oral-message-content { max-width: 600px; }
+  .oral-message-meta { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 6px; }
+  .oral-message.candidat .oral-message-meta { text-align: right; }
+  .oral-bulle { padding: 18px 22px; font-size: 15px; line-height: 1.6; }
+  .oral-bulle.jury-bulle { background: white; border: 1px solid #D4D0CA; border-left: 3px solid #CC2229; }
+  .oral-bulle.candidat-bulle { background: #1A1A1A; color: #F5EFE6; }
+  .oral-bulle.relance { margin-top: 8px; background: #FAF6F0; border: 1px dashed #CC2229; border-left: 3px solid #CC2229; font-style: italic; }
+  .oral-relance-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #CC2229; font-weight: 600; margin-bottom: 6px; display: block; font-style: normal; }
+  .oral-jury-pense { display: flex; align-items: center; gap: 16px; padding: 16px 22px; background: white; border: 1px solid #D4D0CA; border-left: 3px solid #CC2229; }
+  .oral-jury-pense-text { font-style: italic; color: #6B6B6B; font-size: 14px; }
+  .oral-jury-pense-dots { display: flex; gap: 4px; }
+  .oral-jury-pense-dots span { width: 8px; height: 8px; border-radius: 50%; background: #CC2229; animation: oralDots 1.4s ease-in-out infinite; }
+  .oral-jury-pense-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .oral-jury-pense-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes oralDots { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+  .oral-input-zone { background: white; border-top: 1px solid #D4D0CA; padding: 24px 32px; display: flex; align-items: center; gap: 16px; }
+  .oral-input-text { flex: 1; padding: 12px 16px; border: 1px solid #D4D0CA; font-family: 'DM Sans'; font-size: 14px; min-height: 44px; resize: vertical; max-height: 120px; }
+  .oral-input-mic-btn { width: 56px; height: 56px; border-radius: 50%; background: #CC2229; border: none; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .oral-input-mic-btn.recording { animation: oralPulse 1s ease-in-out infinite; }
+  .oral-input-send-btn { background: #1A1A1A; color: white; border: none; padding: 14px 24px; font-weight: 600; cursor: pointer; font-family: 'DM Sans'; font-size: 14px; }
+  .oral-input-send-btn:disabled { background: #D4D0CA; cursor: not-allowed; }
+  .oral-debrief { padding: 60px 32px; background: #F5EFE6; }
+  .oral-debrief-container { max-width: 1000px; margin: 0 auto; }
+  .oral-debrief-header { border-bottom: 2px solid #1A1A1A; padding-bottom: 32px; margin-bottom: 48px; }
+  .oral-debrief-meta { font-size: 13px; color: #6B6B6B; margin-top: 8px; }
+  .oral-debrief-meta span:not(:last-child)::after { content: '·'; margin: 0 12px; }
+  .oral-verdict-card { background: #1A1A1A; color: #F5EFE6; padding: 48px; margin-bottom: 48px; }
+  .oral-verdict-card h2 { color: white; margin-bottom: 16px; font-style: italic; font-family: 'Playfair Display', serif; font-size: 28px; }
+  .oral-verdict-text { font-size: 16px; line-height: 1.8; }
+  .oral-verdict-text strong { color: white; }
+  .oral-debrief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+  .oral-axe-card { background: white; padding: 28px; border: 1px solid #D4D0CA; }
+  .oral-axe-card.full { grid-column: span 2; }
+  .oral-axe-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 8px; }
+  .oral-axe-titre { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; margin-bottom: 16px; }
+  .oral-niveau-badge { display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 16px; }
+  .oral-niveau-insuffisant { background: #FECACA; color: #991B1B; }
+  .oral-niveau-ameliorer { background: #FED7AA; color: #9A3412; }
+  .oral-niveau-satisfaisant { background: #FDE68A; color: #92400E; }
+  .oral-niveau-bon { background: #BBF7D0; color: #14532D; }
+  .oral-niveau-excellent { background: #2D7A5F; color: white; }
+  .oral-axe-jauge { display: flex; gap: 4px; margin: 12px 0 20px; }
+  .oral-axe-jauge span { flex: 1; height: 6px; background: #D4D0CA; }
+  .oral-axe-jauge span.actif { background: #CC2229; }
+  .oral-axe-commentaire { font-size: 14px; line-height: 1.7; }
+  .oral-axe-points { margin-top: 16px; padding-top: 16px; border-top: 1px solid #D4D0CA; }
+  .oral-axe-points-titre { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 8px; }
+  .oral-axe-points ul { list-style: none; padding: 0; margin: 0; }
+  .oral-axe-points li { font-size: 13px; padding: 4px 0 4px 20px; position: relative; }
+  .oral-axe-points li::before { content: ''; position: absolute; left: 0; top: 12px; width: 12px; height: 1px; background: #CC2229; }
+
+  /* === V5 : Styles pour les 3 jurés === */
+
+  /* Avatars différenciés par juré */
+  .oral-avatar.jury-officier { background: #CC2229; color: white; }
+  .oral-avatar.jury-elu { background: #1E40AF; color: white; }
+  .oral-avatar.jury-sousoff { background: #525252; color: white; }
+
+  /* Bulles différenciées par juré */
+  .oral-bulle.bulle-officier { border-left: 3px solid #CC2229; }
+  .oral-bulle.bulle-elu { border-left: 3px solid #1E40AF; }
+  .oral-bulle.bulle-sousoff { border-left: 3px solid #525252; }
+
+  .oral-bulle.relance.bulle-officier { border-left: 3px solid #CC2229; border-color: #CC2229; }
+  .oral-bulle.relance.bulle-elu { border-left: 3px solid #1E40AF; border-color: #1E40AF; }
+  .oral-bulle.relance.bulle-sousoff { border-left: 3px solid #525252; border-color: #525252; }
+
+  .oral-relance-tag.tag-officier { color: #CC2229; }
+  .oral-relance-tag.tag-elu { color: #1E40AF; }
+  .oral-relance-tag.tag-sousoff { color: #525252; }
+
+  /* === Écran "Entrée dans la salle" === */
+  .oral-salle-screen {
+    background: #1A1A1A; color: #F5EFE6; min-height: 80vh;
+    display: flex; align-items: center; justify-content: center;
+    padding: 40px;
+  }
+  .oral-salle-content {
+    max-width: 900px; text-align: center;
+  }
+  .oral-salle-content h1 {
+    font-family: 'Playfair Display', serif; font-size: 40px;
+    color: white; margin-bottom: 16px; font-style: italic;
+  }
+  .oral-salle-subtitle {
+    font-size: 16px; color: #D4D0CA; margin-bottom: 48px;
+    font-style: italic;
+  }
+
+  .oral-jury-table {
+    display: flex; justify-content: center; gap: 40px;
+    margin: 48px 0; flex-wrap: wrap;
+  }
+  .oral-jure-card {
+    background: #2D2D2D; padding: 32px 24px; min-width: 200px;
+    border-top: 3px solid; transition: all 0.3s;
+  }
+  .oral-jure-card.officier { border-color: #CC2229; }
+  .oral-jure-card.elu { border-color: #1E40AF; }
+  .oral-jure-card.sousoff { border-color: #525252; }
+
+  .oral-jure-portrait {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: #4A4A4A; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 16px; font-family: 'Playfair Display', serif;
+    font-size: 32px; font-weight: 700; color: white;
+  }
+  .oral-jure-card.officier .oral-jure-portrait { background: #CC2229; }
+  .oral-jure-card.elu .oral-jure-portrait { background: #1E40AF; }
+  .oral-jure-card.sousoff .oral-jure-portrait { background: #525252; }
+
+  .oral-jure-role {
+    font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #D4D0CA; margin-bottom: 8px;
+  }
+  .oral-jure-name {
+    font-family: 'Playfair Display', serif; font-size: 18px;
+    color: white; margin-bottom: 4px;
+  }
+  .oral-jure-grade {
+    font-size: 13px; color: #A0A0A0; font-style: italic;
+  }
+  .oral-jure-domain {
+    font-size: 12px; color: #D4D0CA; margin-top: 12px;
+    padding-top: 12px; border-top: 1px solid #4A4A4A;
+  }
+
+  .oral-salle-warning {
+    background: #2D2D2D; padding: 20px 32px; margin: 24px auto;
+    max-width: 600px; border-left: 3px solid #CC2229;
+    text-align: left;
+  }
+  .oral-salle-warning strong { color: white; }
+
+  .oral-salle-actions {
+    display: flex; gap: 16px; justify-content: center;
+    margin-top: 32px; flex-wrap: wrap;
+  }
+
+  /* Indicateur du juré qui parle (top du Q/R) */
+  .oral-jury-indicator {
+    background: #1A1A1A; color: white; padding: 12px 32px;
+    display: flex; align-items: center; justify-content: space-between;
+    border-bottom: 1px solid #333;
+    font-size: 13px;
+  }
+  .oral-jury-indicator-left {
+    display: flex; align-items: center; gap: 24px;
+  }
+  .oral-jury-active {
+    display: flex; align-items: center; gap: 8px;
+  }
+  .oral-jury-active-dot {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: #888;
+  }
+  .oral-jury-active.is-speaking .oral-jury-active-dot {
+    background: #2D7A5F;
+    animation: dotPulse 1.5s ease-in-out infinite;
+  }
+  @keyframes dotPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.4; transform: scale(0.7); }
+  }
+
+  /* Sélecteur tier dans le bandeau test */
+  @media (max-width: 900px) {
+    .oral-jury-table { flex-direction: column; align-items: center; }
+    .oral-jure-card { min-width: unset; width: 100%; max-width: 320px; }
+  }
+
+  /* === V5b : Avatars plein écran pendant l'exposé === */
+  .oral-jury-fullscreen {
+    background: #1A1A1A; padding: 24px 32px;
+    border-bottom: 1px solid #333;
+  }
+  .oral-jury-fullscreen-row {
+    display: flex; gap: 32px; justify-content: center; align-items: flex-start;
+    flex-wrap: wrap;
+  }
+  .oral-jure-fs-card {
+    background: #2D2D2D; padding: 20px 24px; min-width: 200px; max-width: 240px;
+    border-top: 3px solid; text-align: center;
+    transition: transform 0.3s, opacity 0.3s;
+    position: relative;
+  }
+  .oral-jure-fs-card.officier { border-color: #CC2229; }
+  .oral-jure-fs-card.elu { border-color: #1E40AF; }
+  .oral-jure-fs-card.sousoff { border-color: #525252; }
+
+  .oral-jure-fs-portrait {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: #4A4A4A; display: flex; align-items: center; justify-content: center;
+    margin: 0 auto 12px; font-family: 'Playfair Display', serif;
+    font-size: 24px; font-weight: 700; color: white;
+    position: relative;
+  }
+  .oral-jure-fs-card.officier .oral-jure-fs-portrait { background: #CC2229; }
+  .oral-jure-fs-card.elu .oral-jure-fs-portrait { background: #1E40AF; }
+  .oral-jure-fs-card.sousoff .oral-jure-fs-portrait { background: #525252; }
+
+  .oral-jure-fs-name {
+    font-family: 'Playfair Display', serif; font-size: 14px;
+    color: white; margin-bottom: 2px;
+  }
+  .oral-jure-fs-grade {
+    font-size: 11px; color: #A0A0A0; font-style: italic;
+  }
+
+  /* Animation "prend des notes" sur l'avatar */
+  .oral-jure-fs-portrait.taking-notes::after {
+    content: '✎';
+    position: absolute; bottom: -4px; right: -4px;
+    background: #FBBF24; color: #1A1A1A;
+    width: 22px; height: 22px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: bold;
+    animation: penWiggle 0.6s ease-in-out infinite alternate;
+  }
+  @keyframes penWiggle {
+    from { transform: rotate(-15deg); }
+    to { transform: rotate(15deg); }
+  }
+
+  /* Réactions non-verbales (sourcils, sourire, neutralité) */
+  .oral-jure-fs-card.reaction-frown .oral-jure-fs-portrait {
+    box-shadow: 0 0 0 3px #CC2229;
+    animation: frownPulse 0.8s ease-out;
+  }
+  .oral-jure-fs-card.reaction-smile .oral-jure-fs-portrait {
+    box-shadow: 0 0 0 3px #FBBF24;
+    animation: smilePulse 0.8s ease-out;
+  }
+  @keyframes frownPulse {
+    0% { box-shadow: 0 0 0 0 rgba(204, 34, 41, 0.7); }
+    100% { box-shadow: 0 0 0 6px rgba(204, 34, 41, 0); }
+  }
+  @keyframes smilePulse {
+    0% { box-shadow: 0 0 0 0 rgba(251, 191, 36, 0.7); }
+    100% { box-shadow: 0 0 0 6px rgba(251, 191, 36, 0); }
+  }
+
+  /* Indicateur du juré qui parle (overlay sur la carte) */
+  .oral-jure-fs-card.is-speaking {
+    transform: scale(1.05);
+  }
+  .oral-jure-fs-card.is-speaking::before {
+    content: '';
+    position: absolute; top: -4px; left: -4px; right: -4px; bottom: -4px;
+    border: 2px solid #2D7A5F; border-radius: 4px;
+    animation: speakingPulse 1.5s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes speakingPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.4; }
+  }
+
+  /* Bouton sourdine */
+  .oral-mute-btn {
+    background: #2D2D2D; color: #F5EFE6; border: 1px solid #555;
+    padding: 8px 16px; cursor: pointer; font-family: 'DM Sans';
+    font-size: 12px; display: inline-flex; align-items: center; gap: 8px;
+    border-radius: 4px;
+  }
+  .oral-mute-btn:hover { background: #3D3D3D; }
+  .oral-mute-btn.muted { color: #CC2229; }
+  .oral-mute-btn svg { width: 14px; height: 14px; }
+
+  /* Affichage progressif des bulles */
+  .oral-bulle.typing {
+    position: relative;
+  }
+  .oral-bulle.typing::after {
+    content: '▋';
+    color: #CC2229;
+    margin-left: 2px;
+    animation: blink 0.8s infinite;
+  }
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  /* Styles V5b pour le débrief enrichi */
+  .oral-debrief-stats {
+    background: white; border: 1px solid #D4D0CA;
+    padding: 24px; margin-bottom: 32px;
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 16px;
+  }
+  .oral-stat-item {
+    text-align: center; padding: 16px;
+    border-right: 1px solid #D4D0CA;
+  }
+  .oral-stat-item:last-child { border-right: none; }
+  .oral-stat-value {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px; font-weight: 700; color: #CC2229;
+  }
+  .oral-stat-label {
+    font-size: 11px; letter-spacing: 1.5px;
+    text-transform: uppercase; color: #6B6B6B;
+    margin-top: 4px;
+  }
+  .oral-stat-context {
+    font-size: 11px; color: #6B6B6B; margin-top: 4px;
+    font-style: italic;
+  }
+
+  @media (max-width: 900px) {
+    .oral-expose-body { grid-template-columns: 1fr; }
+    .oral-debrief-grid { grid-template-columns: 1fr; }
+    .oral-axe-card.full { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Bandeau d'avertissement -->
+<div class="test-banner">
+  ⚠️ MODE TEST V5b — Voix synthétiques, avatars plein écran, buzzer 5min, détection hésitations, affichage progressif.
+</div>
+
+<!-- Panneau de configuration -->
+<div class="test-config">
+  <h3>⚙️ Configuration de test</h3>
+
+  <label>
+    Mode d'appel à Claude
+    <select id="test-mode">
+      <option value="mock">🤖 MOCK — Réponses simulées (sans appel API, pour tester l'UI)</option>
+      <option value="direct">🔴 DIRECT — Appel direct à l'API avec ta clé (RISQUE : clé visible côté client)</option>
+      <option value="proxy">✅ PROXY — Via ton URL Vercel (recommandé en prod)</option>
+    </select>
+  </label>
+
+  <div id="test-config-direct" style="display:none;">
+    <label>
+      Ta clé API Anthropic (sk-ant-...) — RESTE EN LOCAL, NE COMMITE JAMAIS
+      <input type="password" id="test-api-key" placeholder="sk-ant-api03-...">
+    </label>
+  </div>
+
+  <div id="test-config-proxy" style="display:none;">
+    <label>
+      URL de ta fonction Vercel
+      <input type="text" id="test-proxy-url" placeholder="https://ton-projet.vercel.app/api/oral-jury">
+    </label>
+  </div>
+
+  <label>
+    Tier simulé
+    <select id="test-tier">
+      <option value="2b">2b — Performance (2 sessions/semaine)</option>
+      <option value="3">3 — Excellence (illimité)</option>
+      <option value="2a">2a — Préparation (accès refusé)</option>
+    </select>
+  </label>
+
+  <label>
+    Durée de l'exposé (sec) — pour ne pas attendre 5 min en test
+    <select id="test-expose-duration">
+      <option value="30">30 secondes (test rapide)</option>
+      <option value="60">1 minute</option>
+      <option value="300" selected>5 minutes (réel)</option>
+    </select>
+  </label>
+
+  <button onclick="applyTestConfig()">Appliquer et démarrer</button>
+
+  <div id="test-status" class="status" style="display:none;"></div>
+</div>
+
+
+<!-- Conteneur du simulateur -->
+<div id="oral-simulator-root" style="display:none;">
+
+  <!-- ÉCRAN ACCUEIL -->
+  <div id="oral-screen-accueil" class="oral-screen active">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 60px 32px;">
+      <span class="oral-tag">Simulateur d'oral</span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 600; line-height: 1.1; letter-spacing: -1px;">
+        Le jury<br><em style="color: #CC2229; font-style: italic;">t'attend.</em>
+      </h1>
+      <p style="font-size: 18px; color: #6B6B6B; max-width: 600px; margin-top: 24px;">
+        Entraîne-toi dans les conditions réelles du concours. 5 minutes d'exposé, 10 minutes de questions, un débrief complet à la fin.
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 40px;">
+        <div>
+          <div class="oral-quota-card">
+            <div class="label">Sessions cette semaine</div>
+            <div>
+              <span class="oral-quota-number" id="oral-quota-used">0</span>
+              <span class="oral-quota-total">/ <span id="oral-quota-max">2</span></span>
+            </div>
+            <div class="oral-quota-bar"><div class="oral-quota-bar-fill" id="oral-quota-bar-fill" style="width: 0%;"></div></div>
+            <p style="font-size: 13px; color: #6B6B6B; margin-top: 16px;" id="oral-quota-info">Reset chaque lundi à 00h00.</p>
+          </div>
+          <button class="oral-btn-primary" id="oral-btn-start" onclick="OralSimulator.startSession()">
+            Démarrer ma session
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 24px;">Le déroulé</h3>
+          <div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid #D4D0CA;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #CC2229; line-height: 1; min-width: 48px;">01</div>
+            <div><h4 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Présente ton parcours et tes motivations</h4><p style="font-size: 14px; color: #6B6B6B;">5 minutes maximum. Le timer coupe net.</p></div>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid #D4D0CA;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #CC2229; line-height: 1; min-width: 48px;">02</div>
+            <div><h4 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Le jury te questionne</h4><p style="font-size: 14px; color: #6B6B6B;">10 minutes de questions et de relances.</p></div>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 20px 0;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #CC2229; line-height: 1; min-width: 48px;">03</div>
+            <div><h4 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Reçois ton débrief détaillé</h4><p style="font-size: 14px; color: #6B6B6B;">Niveaux qualitatifs sur 5 axes.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN PREP -->
+  <div id="oral-screen-prep" class="oral-screen oral-prep-screen">
+    <div class="oral-prep-content">
+      <span class="oral-tag">Préparation</span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 600;">Respire.<br><em>Tu commences dans...</em></h1>
+      <div class="oral-countdown" id="oral-countdown">15</div>
+      <p style="font-size: 17px; margin-bottom: 32px;">Le jury va te demander de te présenter et d'exposer tes motivations. Tu auras <strong style="color: white;">5 minutes pile</strong>.</p>
+      <div class="oral-prep-checks" id="oral-prep-checks">
+        <div class="oral-prep-check"><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Micro détecté</div>
+        <div class="oral-prep-check"><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Navigateur compatible</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN ENTRÉE DANS LA SALLE (V5) -->
+  <div id="oral-screen-salle" class="oral-screen oral-salle-screen">
+    <div class="oral-salle-content">
+      <span class="oral-tag">Entrée dans la salle</span>
+      <h1>Le jury <em>vous attend.</em></h1>
+      <p class="oral-salle-subtitle">Vous allez entrer dans la salle d'examen. Trois jurés sont assis derrière une table.</p>
+
+      <div class="oral-jury-table" id="oral-jury-table-display">
+        <!-- Les 3 jurés sont injectés dynamiquement ici par le JS -->
+      </div>
+
+      <div class="oral-salle-warning">
+        <strong>⚠️ Pensez à saluer le jury.</strong><br>
+        En entrant dans la salle, on s'adresse d'abord au président, puis aux membres du jury. Cette politesse est observée et notée.<br>
+        Au début de votre exposé, vous direz : <em>« Monsieur/Madame le/la président/e, mesdames/messieurs les membres du jury, je m'appelle... »</em>
+      </div>
+
+      <div class="oral-salle-actions">
+        <button class="oral-btn-secondary" onclick="OralSimulator.abandonSession()">Renoncer</button>
+        <button class="oral-btn-primary" onclick="OralSimulator.enterRoom()">
+          J'entre et je salue le jury
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN EXPOSÉ -->
+  <div id="oral-screen-expose" class="oral-screen oral-expose-screen">
+    <div class="oral-header">
+      <div class="oral-phase-indicator">Phase 01 / 02 — <strong>Exposé du candidat</strong></div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <button class="oral-mute-btn" id="oral-mute-btn" onclick="OralSimulator.toggleMute()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <span id="oral-mute-label">Voix activée</span>
+        </button>
+        <div class="oral-timer" id="oral-expose-timer">
+          <span class="oral-timer-pulse"></span>
+          <span id="oral-expose-time">05:00</span>
+        </div>
+      </div>
+    </div>
+    <!-- V5b : Avatars du jury en plein écran pendant l'exposé -->
+    <div class="oral-jury-fullscreen">
+      <div class="oral-jury-fullscreen-row" id="oral-jury-fullscreen-row">
+        <!-- Cards injectées dynamiquement par le JS -->
+      </div>
+    </div>
+    <div class="oral-expose-body">
+      <div class="oral-micro-panel">
+        <button class="oral-micro-circle active" id="oral-expose-mic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/>
+            <path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/>
+          </svg>
+        </button>
+        <div class="oral-micro-status" id="oral-mic-status">À toi la parole</div>
+        <div class="oral-micro-info">Le jury t'écoute</div>
+      </div>
+      <div class="oral-transcription-panel">
+        <div class="oral-transcription-label">Transcription en direct</div>
+        <div class="oral-transcription-text" id="oral-transcription">
+          <span class="provisoire">Commence à parler...</span>
+        </div>
+      </div>
+    </div>
+    <div class="oral-footer">
+      <button class="oral-btn-secondary" onclick="OralSimulator.abandonSession()">Quitter la session</button>
+      <div class="oral-progress-container">
+        <div class="oral-progress-bar"><div class="oral-progress-bar-fill" id="oral-expose-progress" style="width: 0%;"></div></div>
+      </div>
+      <button class="oral-btn-primary" onclick="OralSimulator.endExpose()">J'ai terminé</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN Q/R -->
+  <div id="oral-screen-qr" class="oral-screen">
+    <div class="oral-header">
+      <div class="oral-phase-indicator">Phase 02 / 02 — <strong>Questions du jury</strong></div>
+      <div style="display: flex; align-items: center; gap: 16px;">
+        <button class="oral-mute-btn" id="oral-mute-btn-qr" onclick="OralSimulator.toggleMute()">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/>
+            <path d="M19.07 4.93a10 10 0 0 1 0 14.14M15.54 8.46a5 5 0 0 1 0 7.07"/>
+          </svg>
+          <span id="oral-mute-label-qr">Voix activée</span>
+        </button>
+        <div class="oral-timer" id="oral-qr-timer">
+          <span class="oral-timer-pulse"></span>
+          <span id="oral-qr-time">10:00</span>
+        </div>
+      </div>
+    </div>
+    <!-- V5 : Indicateur des 3 jurés -->
+    <div class="oral-jury-indicator">
+      <div class="oral-jury-indicator-left">
+        <div class="oral-jury-active" id="indicator-officier"><span class="oral-jury-active-dot"></span><span>Officier (Président)</span></div>
+        <div class="oral-jury-active" id="indicator-elu"><span class="oral-jury-active-dot"></span><span>Élu</span></div>
+        <div class="oral-jury-active" id="indicator-sousoff"><span class="oral-jury-active-dot"></span><span>Sous-officier</span></div>
+      </div>
+      <div style="font-size: 11px; color: #888;">Le point vert indique le juré qui parle</div>
+    </div>
+    <div class="oral-qr-conversation" id="oral-qr-conversation">
+      <div class="oral-conversation-inner" id="oral-conversation-inner"></div>
+    </div>
+    <div class="oral-input-zone">
+      <button class="oral-input-mic-btn" id="oral-qr-mic" onclick="OralSimulator.toggleQRMic()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/>
+          <path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/>
+        </svg>
+      </button>
+      <textarea class="oral-input-text" id="oral-qr-input" placeholder="Réponds vocalement (micro) ou tape ta réponse..." rows="2"></textarea>
+      <button class="oral-input-send-btn" id="oral-qr-send" onclick="OralSimulator.sendAnswer()">Répondre</button>
+    </div>
+    <div style="padding: 8px 32px; background: #FBBF24; color: #78350F; font-size: 12px; text-align: center;">
+      💡 Astuce test : clique <a href="#" onclick="OralSimulator.endQR(); return false;" style="color:#78350F;text-decoration:underline;font-weight:bold;">ICI</a> pour terminer immédiatement et voir le débrief.
+    </div>
+  </div>
+
+  <!-- ÉCRAN DÉBRIEF -->
+  <div id="oral-screen-debrief" class="oral-screen oral-debrief">
+    <div class="oral-debrief-container" id="oral-debrief-container"></div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// SCRIPT TEST — Mocks pour Memberstack et Supabase
+// ============================================================
+
+// Configuration globale
+let TEST_CONFIG = {
+  mode: 'mock',
+  apiKey: '',
+  proxyUrl: '',
+  tier: '2b',
+  exposeDuration: 300
+};
+
+// Affichage dynamique des champs de config
+document.getElementById('test-mode').addEventListener('change', (e) => {
+  document.getElementById('test-config-direct').style.display = e.target.value === 'direct' ? 'block' : 'none';
+  document.getElementById('test-config-proxy').style.display = e.target.value === 'proxy' ? 'block' : 'none';
+});
+
+function applyTestConfig() {
+  TEST_CONFIG.mode = document.getElementById('test-mode').value;
+  TEST_CONFIG.apiKey = document.getElementById('test-api-key').value;
+  TEST_CONFIG.proxyUrl = document.getElementById('test-proxy-url').value;
+  TEST_CONFIG.tier = document.getElementById('test-tier').value;
+  TEST_CONFIG.exposeDuration = parseInt(document.getElementById('test-expose-duration').value);
+
+  const status = document.getElementById('test-status');
+  status.style.display = 'block';
+
+  if (TEST_CONFIG.mode === 'direct' && !TEST_CONFIG.apiKey.startsWith('sk-ant-')) {
+    status.className = 'status error';
+    status.textContent = '❌ Clé API invalide — doit commencer par sk-ant-';
+    return;
+  }
+  if (TEST_CONFIG.mode === 'proxy' && !TEST_CONFIG.proxyUrl.startsWith('http')) {
+    status.className = 'status error';
+    status.textContent = '❌ URL proxy invalide';
+    return;
+  }
+
+  status.className = 'status ok';
+  status.textContent = `✅ Configuration appliquée — Mode: ${TEST_CONFIG.mode}, Tier: ${TEST_CONFIG.tier}, Durée exposé: ${TEST_CONFIG.exposeDuration}s. Le simulateur démarre.`;
+
+  // === FIX V5b : Masquer le panneau de config et le bandeau pour ne pas polluer l'UI ===
+  document.querySelector('.test-banner').style.display = 'none';
+  document.querySelector('.test-config').style.display = 'none';
+
+  // Lancer le simulateur
+  document.getElementById('oral-simulator-root').style.display = 'block';
+  setTimeout(() => OralSimulator.init(), 500);
+}
+
+// ============================================================
+// MOCK SUPABASE
+// ============================================================
+const mockSupabase = {
+  _data: JSON.parse(localStorage.getItem('mock_oral_sessions') || '[]'),
+  _save() { localStorage.setItem('mock_oral_sessions', JSON.stringify(this._data)); },
+
+  rpc(fn, params) {
+    if (fn === 'count_oral_sessions_this_week') {
+      const week = OralSimulator._getCurrentWeekIso();
+      const count = this._data.filter(s =>
+        s.member_email === params.p_email && s.week_iso === week && s.status !== 'abandoned'
+      ).length;
+      console.log('[MOCK Supabase] count_oral_sessions_this_week →', count);
+      return Promise.resolve({ data: count, error: null });
+    }
+  },
+
+  from(table) {
+    return {
+      insert(row) {
+        const newRow = { id: 'mock-' + Date.now(), ...row };
+        return {
+          select() {
+            return {
+              single() {
+                mockSupabase._data.push(newRow);
+                mockSupabase._save();
+                console.log('[MOCK Supabase] INSERT →', newRow);
+                return Promise.resolve({ data: newRow, error: null });
+              }
+            };
+          }
+        };
+      },
+      update(updates) {
+        return {
+          eq(col, val) {
+            const row = mockSupabase._data.find(r => r[col] === val);
+            if (row) Object.assign(row, updates);
+            mockSupabase._save();
+            console.log('[MOCK Supabase] UPDATE', val, '→', updates);
+            return Promise.resolve({ data: row, error: null });
+          }
+        };
+      }
+    };
+  }
+};
+
+// ============================================================
+// MOCK CLAUDE API
+// ============================================================
+async function mockClaudeAPI(payload) {
+  console.log('[MOCK Claude] Appel simulé:', payload);
+  await new Promise(r => setTimeout(r, 1000 + Math.random() * 1500));
+
+  const isFirst = payload.messages.length === 1 && payload.messages[0].content.includes('vient de finir son exposé');
+  const isDebrief = payload.messages.some(m => m.content.includes('entretien est terminé'));
+
+  if (isDebrief) {
+    return {
+      text: JSON.stringify({
+        verdict_titre: "[MOCK] Une copie honnête, à affiner sur les points techniques",
+        verdict_texte: "Ta présentation est sincère et ton parcours cohérent. Tu maîtrises les bases du statut mais des lacunes persistent sur l'organisation d'un SIS et la fonction publique territoriale. Continue tes efforts sur la déontologie : tes hésitations trahissent un manque de réflexes face aux mises en situation.",
+        axes: [
+          { id: "motivation", titre: "Motivation", niveau: "Bon", jauge: 4, commentaire: "[MOCK] Engagement clair, parcours SPV cohérent avec le projet SPP.", points_titre: "À renforcer", points: ["Articule mieux le pourquoi maintenant", "Évoque une intervention marquante"] },
+          { id: "coherence", titre: "Cohérence du parcours", niveau: "Excellent", jauge: 5, commentaire: "[MOCK] Aucune incohérence entre exposé et réponses.", points_titre: "Points forts", points: ["Récit chronologique limpide", "Réponses alignées"] },
+          { id: "metier", titre: "Connaissances métier", niveau: "Satisfaisant", jauge: 3, commentaire: "[MOCK] Bases solides mais lacunes sur SDACR et CASDIS.", points_titre: "À retravailler", points: ["Composition du SDACR", "Rôle du préfet vs président de CASDIS", "GDO et GTO récents"] },
+          { id: "deontologie", titre: "Savoir-être & déontologie", niveau: "À améliorer", jauge: 2, commentaire: "[MOCK] Hésitations marquées sur les mises en situation.", points_titre: "À retravailler", points: ["Article 40 du CPP", "Devoir de signalement", "Obligations déontologiques"] },
+          { id: "expression", titre: "Expression orale", niveau: "Bon", jauge: 4, commentaire: "[MOCK] Débit régulier, vocabulaire approprié, bonne tenue dans la durée.", points_titre: "À soigner", points: ["Marquer des silences avant les réponses complexes"] }
+        ]
+      }),
+      usage: { input_tokens: 1234, output_tokens: 567 }
+    };
+  }
+
+  // V5 : Détection du juré qui parle depuis le system prompt
+  const sys = payload.system || '';
+  let role = 'officier';
+  if (sys.includes("TU ES L'ÉLU")) role = 'elu';
+  else if (sys.includes("TU ES LE SOUS-OFFICIER")) role = 'sousoff';
+
+  // Banques de questions par juré
+  const questionsByRole = {
+    officier: {
+      first: [
+        "Bien. Pour commencer, dites-moi : quelle est la différence fondamentale, en termes de cadre d'emploi, entre un sapeur-pompier volontaire et un sapeur-pompier professionnel ?",
+        "Merci pour votre présentation. Première question : qui est l'autorité de gestion d'un sapeur-pompier professionnel, et qui est l'autorité opérationnelle ?",
+        "Définissez-moi le SDACR."
+      ],
+      next: [
+        "[RELANCE] Précisez. Sur quel fondement juridique ?",
+        "Citez-moi trois grades de la filière sapeurs-pompiers non-officiers.",
+        "Qu'apporte la loi MATRAS de 2021 ?",
+        "[RELANCE] Et que dit l'article L. 1424-2 du CGCT exactement ?",
+        "Le règlement opérationnel, c'est quoi ? Qui l'arrête ?",
+        "Le DDSIS, ses deux casquettes, vous me les expliquez ?"
+      ],
+      transitions: ['Précisez.', 'Sur quel fondement ?', 'Continuez.', '', 'Hmm.', 'Détaillez.']
+    },
+    elu: {
+      first: [
+        "Bien. Quels sont les trois versants de la fonction publique française ?",
+        "Quelle est la différence entre un cadre d'emplois et un corps ?",
+        "Qu'est-ce que le CGFP, et depuis quand est-il en vigueur ?"
+      ],
+      next: [
+        "Citez-moi 3 acteurs institutionnels de la fonction publique territoriale.",
+        "[RELANCE] Précisez le rôle du CDG par rapport au CNFPT.",
+        "Le CST a remplacé deux instances, lesquelles ?",
+        "Un événement international récent vous a-t-il marqué ces derniers mois ?",
+        "[RELANCE] Et quelles conséquences voyez-vous pour la France ?",
+        "Comment fonctionne la liste d'aptitude en FPT ?"
+      ],
+      transitions: ['Bien.', 'D\'accord.', 'Je vois.', '', 'Continuons.']
+    },
+    sousoff: {
+      first: [
+        "Vous arrivez sur intervention SAP. Votre collègue glisse un billet trouvé chez la victime dans sa poche. Que faites-vous ?",
+        "À la prise de garde, vous sentez clairement l'haleine d'un collègue chargée d'alcool. Que faites-vous ?",
+        "Le ménage et l'entretien des locaux, ça vous parle comment ?"
+      ],
+      next: [
+        "[RELANCE] Et si votre chef de garde décide de fermer les yeux ?",
+        "Un collègue tient régulièrement des propos racistes en chambrée. Les autres rient. Vous faites quoi ?",
+        "[RELANCE] Vous risquez d'être mis à l'écart par l'équipe, vous y avez pensé ?",
+        "Vous être prêt à faire les TIG, le reconditionnement matériel après chaque garde ?",
+        "Décrivez-moi votre dernière intervention marquante.",
+        "[RELANCE] Comment l'avez-vous gérée émotionnellement après ?"
+      ],
+      transitions: ['Je vous écoute.', 'Concrètement ?', '', 'Et après ?', 'Vous faites quoi ?']
+    }
+  };
+
+  const bank = questionsByRole[role];
+
+  if (isFirst) {
+    return { text: bank.first[Math.floor(Math.random() * bank.first.length)], usage: {} };
+  }
+
+  const transition = bank.transitions[Math.floor(Math.random() * bank.transitions.length)];
+  const question = bank.next[Math.floor(Math.random() * bank.next.length)];
+  const fullText = transition ? transition + ' ' + question : question;
+  return { text: fullText, usage: {} };
+}
+
+// ============================================================
+// SIMULATEUR (version test)
+// ============================================================
+window.supabase = mockSupabase; // Injection du mock
+
+// ============================================================
+// BASE DE CONNAISSANCES — SYNTHÈSE DES FICHES QUENTIN
+// ============================================================
+// Cette synthèse est injectée dans le prompt système du jury
+// pour qu'il pose des questions précises et évalue selon les
+// vrais attendus du concours de Caporal SPP.
+// ============================================================
+const JURY_KNOWLEDGE_BASE = `## SYNTHÈSE DE RÉFÉRENCE — CONNAISSANCES DU JURY
+
+### STATUT DU SPP
+
+Architecture statutaire à 3 étages : (1) CGFP en vigueur depuis le 1er mars 2022, (2) décret n°90-850 du 25 sept. 1990 (dispositions communes SPP), (3) décret n°2012-520 du 20 avril 2012 (statut particulier sapeurs et caporaux).
+
+Trois grades depuis 2017 (décret 2017-504) : sapeur (C1), caporal (C2), caporal-chef (C3). Le grade de sapeur 1re classe a été supprimé. Le caporal est le premier grade à responsabilité (chef d'équipe de 2-3 équipiers).
+
+Trois voies d'accès : concours externe au grade de caporal, recrutement sans concours au grade de sapeur (SPV 3 ans min, JSP, service civique, militaires BSPP/BMPM — quota 1 sapeur pour 2 caporaux), promotion interne.
+
+Concours externe (décret n°2020-1474 du 30 nov. 2020) : étude de texte (1h, coef 1) + QCM math (1h, coef 1) + EPS (coef 4, éliminatoires) + entretien individuel 15 min (5 min présentation + 10 min questions).
+
+Formations : FIA après nomination stagiaire (conditionne titularisation), formation de professionnalisation du caporal (indispensable pour exercer comme chef d'équipe), FMPA annuelles, formations de spécialité, formations d'avancement.
+
+Rémunération : traitement indiciaire (moins de 60% du revenu réel) + indemnité de résidence + SFT + prime de feu + indemnité de responsabilité (6-39%) + indemnité de spécialité (jusqu'à 10%) + NBI éventuelle.
+
+Prime de feu : 25% du traitement indiciaire brut depuis le décret n°2020-903 du 24 juillet 2020 (auparavant 19%). Réservée aux SPP. Intégrée au calcul de la pension de retraite. Surcotisation 1,8% supprimée par décret n°2026-18 du 20 janvier 2026.
+
+Temps de travail (décret 2001-1382) : régime dérogatoire. Gardes de 24h ou service hors rang ou mixte. ~96 gardes/an. CASDIS fixe le régime.
+
+Droits : protection fonctionnelle (L. 134-1 CGFP), droit syndical, droit de grève encadré (service minimum), liberté d'opinion, congés, CNRACL.
+
+Obligations : devoir d'obéissance (sauf ordre manifestement illégal), neutralité/laïcité, discrétion professionnelle, secret professionnel, obligation de réserve, dignité/probité/intégrité (L. 121-1 CGFP), aptitude physique permanente, formation continue.
+
+Sanctions disciplinaires en 4 groupes : avertissement, blâme, exclusion temporaire, rétrogradation, révocation. Conseil de discipline pour les sanctions graves. Depuis MATRAS (décret 16 déc. 2021) : CAP des SPP A et B transférées des CDG aux SIS.
+
+Reclassement pour raison opérationnelle (décret 90-850) : en cas d'inaptitude opérationnelle.
+
+Catégorie active (art. L. 24 Code des pensions) : âge légal abaissé, ~57 ans 9 mois actuellement, cible 59 ans à terme. ~27 ans services actifs dont ~17 en SPP requis.
+
+Bonification du cinquième : 1/5 du temps SPP, plafonné 5 ans (20 trimestres). 25 ans service = 5 ans bonifiés. Conditions : radiation sur emploi SPP, âge légal atteint, 17 ans min en SPP.
+
+Double autorité d'emploi UNIQUE en FPT : autorité de gestion = PCASDIS, autorité opérationnelle = préfet. DDSIS incarne cette double casquette.
+
+### ORGANISATION DES SIS
+
+Cadre juridique : articles L. 1424-1 à L. 1424-99 CGCT.
+
+Trois lois fondatrices : Loi n°96-369 du 3 mai 1996 (départementalisation), Loi n°2004-811 du 13 août 2004 (modernisation sécurité civile), Loi n°2021-1520 du 25 nov. 2021 dite MATRAS.
+
+Loi MATRAS : officialisation "SIS" dans le CGCT, intégration SUAP, encadrement carence ambulancière, expérimentation 112, réserve citoyenne, mention "Mort pour le service de la République", référents obligatoires (mixité + sûreté), renforcement PCS, création PICS, pactes capacitaires.
+
+SDIS = établissement public administratif (EPA) autonome, personnalité juridique, autonomie financière.
+
+Effectifs (DGSCGC fin 2022) : ~43 000 SPP, ~198 800 SPV (79%), ~12 000 PATS. 97 SIS + BSPP + BMPM (formations militaires).
+
+3 catégories de SDIS (A, B, C) selon population et activité.
+
+CASDIS : organe délibérant (art. L. 1424-24 à L. 1424-29 CGCT). Composition : conseillers départementaux (majoritaires, ~14), représentants communes, EPCI. Consultatifs : DDSIS, médecin-chef, président UDSP, repr. personnel. Préfet sans voix délibérative.
+
+Président CASDIS : président Conseil départemental de droit (peut déléguer). Pouvoirs : délibérations, marchés publics, justice, nominations, autorité hiérarchique.
+
+Préfet (art. L. 2215-1 CGCT) : autorité opérationnelle. 4 domaines : mise en œuvre opérationnelle, prévention, prévision, formation. Arrête SDACR et règlement opérationnel après avis CASDIS. Déclenche ORSEC. DOS sur événement majeur.
+
+Maire (art. L. 2212-2 CGCT) : autorité de proximité. DOS sur opérations courantes communales. Élabore PCS.
+
+DDSIS : DOUBLE CASQUETTE — directeur EPA (sous PCASDIS) + chef de corps départemental (sous préfet). Recruté parmi colonels/colonels hors classe/contrôleurs généraux. Nomination conjointe (arrêté ministre Intérieur + avis PCASDIS). Mandat 5 ans renouvelable une fois (10 ans max). En intervention : COS (Commandant des opérations de secours), pendant opérationnel du DOS.
+
+Organisation interne (post-MATRAS, décret 14 avril 2022) : centres + services, regroupés en groupements et sous-directions. Logique fonctionnelle (par domaine) + territoriale (par géographie).
+
+Groupements fonctionnels : Opérations, Prévention, Prévision, Formation/Sport, RH/Volontariat, SDTL (Technique/Logistique), Finances/AJ, SSSM.
+
+3 types de centres : CSP (principal, plusieurs départs), CS (secours, mixte), CPI (première intervention, majoritairement SPV — devient "service local d'incendie et de secours" post-MATRAS).
+
+CTA = traitement de l'alerte (18 et 112). CODIS = coordination opérationnelle départementale. Souvent regroupés (CTA-CODIS), fonctions distinctes. 24h/24.
+
+Missions (art. L. 1424-2 CGCT) :
+- Exclusives : prévention, protection, lutte contre les incendies
+- Partagées : SAP/SUAP, accidents, risques techno, naturels, opérations diverses, animaux (MATRAS)
+- Annexes payantes (L. 1424-42)
+- SAP > 80% des interventions
+
+Carence ambulancière : SAMU sollicite SIS faute de transporteur privé. Hors L. 1424-2. Prise en charge par établissements de santé sièges des SAMU. Conventions obligatoires.
+
+SDACR (art. L. 1424-7) : outil prospectif. Élaboré sous autorité préfet, arrêté par préfet après avis CD et CASDIS. Révision tous les 5-7 ans.
+
+Règlement opérationnel : tactique. Arrêté par préfet après avis CASDIS.
+Règlement intérieur : administratif interne. Arrêté par PCASDIS après avis CST.
+
+Plans : ORSEC (préfet), PCS (maire), PICS (EPCI, créé par MATRAS), ETARE.
+
+Financement : ~58% département, ~42% communes/EPCI.
+
+Instances : CST (fusion CT+CHSCT, loi 6 août 2019, comporte FSSSCT), CAP (catégories A et B SPP transférées aux SIS post-MATRAS), CCDSPV, conseil de discipline, commission de réforme. Élections pro : 10 décembre 2026.
+
+Référents obligatoires (art. 56 MATRAS) : mixité/discriminations + sûreté/sécurité.
+
+### TROIS VERSANTS DE LA FONCTION PUBLIQUE
+
+Effectifs fin 2024 : FPE 2,58M (44%), FPT 2,02M (34%), FPH 1,25M (22%). Total 5,85M. + 1,4M contractuels (FPT a la part la plus forte : 26%).
+
+4 lois statutaires historiques : 13 juillet 1983 (Le Pors, droits/obligations, titre I), 11 janvier 1984 (FPE, titre II), 26 janvier 1984 (FPT, titre III), 9 janvier 1986 (FPH, titre IV). Toutes codifiées dans le CGFP.
+
+CGFP : 1265 articles, 8 livres. Législatif depuis le 1er mars 2022. Réglementaire progressif depuis 2025.
+
+FPT : organisée en CADRES D'EMPLOIS (et non corps). Loi 84-53 du 26 janvier 1984 fondatrice. Concilie unité nationale et libre administration (art. 72 Constitution).
+
+Liste d'aptitude FPT : valable 2 ans, renouvelable 2 fois (4 ans max). Pour SPP : concours organisés directement par SIS, recrutements plus rapides.
+
+8 filières FPT : administrative, technique, médico-sociale, culturelle, sportive, animation, police municipale, sapeurs-pompiers. Filière SP = SEULE dont concours organisés directement par les SIS.
+
+3 catégories : A (Bac+3 min), B (Bac), C (sans diplôme requis). SPP = catégorie C, sans condition de diplôme pour le concours.
+
+Acteurs FPT : CNFPT (formation, concours A+), CDG (~96, concours A/B/C, CAP, conseil RH), DGCL (ministère Intérieur), CSFPT (instance nationale).
+
+Rupture conventionnelle : loi 6 août 2019, pérennisée par loi de finances 2026. Art. L. 552-1 à L. 552-5 CGFP.
+
+Militaires : statut spécifique (Code défense), pas FP. BSPP/BMPM = militaires. SPP = FPT.`;
+
+const OralSimulator = (function() {
+  const CONFIG = { EXPOSE_DURATION: 300, QR_DURATION: 600, PREP_DURATION: 5, MAX_SESSIONS_PER_WEEK: 2 };
+  let state = { sessionId: null, memberEmail: 'mehdi.test@example.com', memberTier: '2b', weekIso: null, sessionsThisWeek: 0, exposeText: '', conversation: [], recognition: null, isRecording: false, timers: {}, startedAt: null, questionsCount: 0 };
+
+  async function init() {
+    state.memberTier = TEST_CONFIG.tier;
+    CONFIG.EXPOSE_DURATION = TEST_CONFIG.exposeDuration;
+    state.weekIso = _getCurrentWeekIso();
+    if (!['2b', '3'].includes(state.memberTier)) { showAccessDenied(); return; }
+    await loadQuota();
+    await loadJuryQuestions();
+    initSpeechSynthesis(); // V5b
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      console.warn('[INFO] Web Speech API non supportée — utilise Chrome ou Edge');
+    }
+    console.log('[INIT] Simulateur prêt. Tier:', state.memberTier, 'Mode:', TEST_CONFIG.mode);
+    console.log('[INIT] Questions types chargées :', state.juryQuestions ? state.juryQuestions.length : 0);
+  }
+
+  async function loadJuryQuestions() {
+    try {
+      const res = await fetch('questions-types-jury.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      state.juryQuestions = data.questions || [];
+      console.log('[QUESTIONS] Banque chargée :', state.juryQuestions.length, 'questions');
+    } catch (e) {
+      console.warn('[QUESTIONS] Échec du chargement (questions-types-jury.json non trouvé) — le jury fonctionnera sans la banque enrichie. Erreur :', e.message);
+      state.juryQuestions = [];
+    }
+  }
+
+  async function loadQuota() {
+    const { data } = await supabase.rpc('count_oral_sessions_this_week', { p_email: state.memberEmail });
+    state.sessionsThisWeek = data || 0;
+    const max = state.memberTier === '3' ? '∞' : CONFIG.MAX_SESSIONS_PER_WEEK;
+    document.getElementById('oral-quota-used').textContent = state.sessionsThisWeek;
+    document.getElementById('oral-quota-max').textContent = max;
+    if (state.memberTier === '2b') {
+      const pct = (state.sessionsThisWeek / CONFIG.MAX_SESSIONS_PER_WEEK) * 100;
+      document.getElementById('oral-quota-bar-fill').style.width = pct + '%';
+      const btn = document.getElementById('oral-btn-start');
+      if (state.sessionsThisWeek >= CONFIG.MAX_SESSIONS_PER_WEEK) {
+        btn.disabled = true;
+        btn.textContent = 'Quota atteint (test : reset via console)';
+        document.getElementById('oral-quota-info').innerHTML = 'Quota atteint. Pour réinitialiser en mode test, ouvre la console et tape : <code>localStorage.clear(); location.reload()</code>';
+      }
+    } else {
+      document.getElementById('oral-quota-bar-fill').style.width = '100%';
+      document.getElementById('oral-quota-info').textContent = 'Accès illimité — Tier Excellence';
+    }
+  }
+
+  async function startSession() {
+    if (state.memberTier === '2b' && state.sessionsThisWeek >= CONFIG.MAX_SESSIONS_PER_WEEK) {
+      alert('Quota atteint'); return;
+    }
+
+    // === V5 : Génération des 3 jurés (1 femme + 2 hommes par défaut) ===
+    state.jury = generateJury();
+    console.log('[JURY] Composition tirée :', state.jury);
+
+    state.startedAt = new Date();
+    state.lastJurySpeaker = null; // pour la rotation
+
+    const { data } = await supabase.from('oral_sessions').insert({
+      member_email: state.memberEmail, member_tier: state.memberTier,
+      week_iso: state.weekIso, status: 'in_progress'
+    }).select().single();
+    state.sessionId = data.id;
+
+    showScreen('prep');
+    let count = CONFIG.PREP_DURATION;
+    document.getElementById('oral-countdown').textContent = count;
+    state.timers.prep = setInterval(() => {
+      count--;
+      document.getElementById('oral-countdown').textContent = count;
+      if (count <= 0) { clearInterval(state.timers.prep); showSalleScreen(); }
+    }, 1000);
+  }
+
+  // === V5 : Génération aléatoire des 3 jurés ===
+  function generateJury() {
+    // Prénoms français crédibles
+    const prenomsHommes = ['Pascal', 'Bernard', 'Christophe', 'Frédéric', 'Olivier', 'Stéphane', 'Laurent', 'Patrick', 'Philippe', 'Vincent'];
+    const prenomsFemmes = ['Catherine', 'Isabelle', 'Sylvie', 'Nathalie', 'Christine', 'Martine', 'Véronique', 'Florence', 'Anne', 'Brigitte'];
+    const noms = ['Martin', 'Bernard', 'Dubois', 'Thomas', 'Robert', 'Richard', 'Petit', 'Durand', 'Leroy', 'Moreau', 'Simon', 'Laurent', 'Lefebvre', 'Michel', 'Garcia'];
+
+    // Tirer au sort la personne qui sera femme (1 femme + 2 hommes)
+    const femalePosition = Math.floor(Math.random() * 3); // 0 = officier, 1 = élu, 2 = sous-off
+
+    function pickPerson(isFemme) {
+      const prenom = isFemme
+        ? prenomsFemmes[Math.floor(Math.random() * prenomsFemmes.length)]
+        : prenomsHommes[Math.floor(Math.random() * prenomsHommes.length)];
+      const nom = noms[Math.floor(Math.random() * noms.length)];
+      return { prenom, nom, isFemme };
+    }
+
+    // Grades possibles pour l'officier
+    const gradesOfficier = ['Capitaine', 'Commandant', 'Lieutenant-colonel'];
+    const gradesSousOff = ['Sergent', 'Sergent-chef', 'Adjudant', 'Caporal-chef'];
+    const gradesElu = ['Conseiller départemental', 'Conseiller municipal', 'Maire', 'Adjoint au maire'];
+
+    const officier = {
+      ...pickPerson(femalePosition === 0),
+      role: 'officier',
+      grade: gradesOfficier[Math.floor(Math.random() * gradesOfficier.length)],
+      domaine: 'Statut SPP, organisation du SDIS, missions, textes',
+      avatarLetter: 'O'
+    };
+
+    const elu = {
+      ...pickPerson(femalePosition === 1),
+      role: 'elu',
+      grade: gradesElu[Math.floor(Math.random() * gradesElu.length)],
+      domaine: 'Culture administrative, FPT, fonction publique, culture générale',
+      avatarLetter: 'É'
+    };
+
+    const sousoff = {
+      ...pickPerson(femalePosition === 2),
+      role: 'sousoff',
+      grade: gradesSousOff[Math.floor(Math.random() * gradesSousOff.length)],
+      domaine: 'Technique opérationnelle, savoir-être, mises en situation',
+      avatarLetter: 'S'
+    };
+
+    return { officier, elu, sousoff };
+  }
+
+  // === V5 : Affichage de l'écran "Entrée dans la salle" ===
+  function showSalleScreen() {
+    showScreen('salle');
+    const container = document.getElementById('oral-jury-table-display');
+    const j = state.jury;
+
+    const cardHtml = (jure) => {
+      const titre = jure.isFemme ? 'Madame' : 'Monsieur';
+      const roleLabel = {
+        officier: 'Président du jury · Officier SPP',
+        elu: 'Membre du jury · Élu',
+        sousoff: 'Membre du jury · Sous-officier SPP'
+      }[jure.role];
+      return `
+        <div class="oral-jure-card ${jure.role}">
+          <div class="oral-jure-portrait">${jure.avatarLetter}</div>
+          <div class="oral-jure-role">${roleLabel}</div>
+          <div class="oral-jure-name">${titre} ${jure.prenom} ${jure.nom}</div>
+          <div class="oral-jure-grade">${jure.grade}</div>
+          <div class="oral-jure-domain">${jure.domaine}</div>
+        </div>
+      `;
+    };
+
+    // Ordre d'affichage : Officier au centre (président), Élu à gauche, Sous-off à droite
+    container.innerHTML = cardHtml(j.elu) + cardHtml(j.officier) + cardHtml(j.sousoff);
+  }
+
+  // === V5 : Le candidat entre dans la salle (clic bouton) ===
+  function enterRoom() {
+    state.juryGreeted = true; // le candidat a salué le jury
+    console.log('[CANDIDAT] A salué le jury en entrant');
+
+    // V5b : Afficher d'abord l'écran exposé avec les avatars, puis faire parler l'officier
+    showScreen('expose');
+    renderJuryFullscreen();
+
+    // Phrase d'ouverture ritualisée prononcée par l'officier
+    const officier = state.jury.officier;
+    const phraseOuverture = `Installez-vous. Vous disposez de cinq minutes maximum pour vous présenter et nous expliquer vos motivations. À l'issue, nous échangerons sous forme de questions-réponses pendant dix minutes. Quand vous voulez.`;
+
+    // Highlight l'officier en train de parler
+    highlightSpeakerFullscreen('officier');
+    state.exposeStartedAt = null;
+
+    // Petit délai avant de commencer à parler (immersion)
+    setTimeout(() => {
+      speakAsJure(phraseOuverture, 'officier', () => {
+        // Quand la phrase est terminée (ou si voix off), on lance l'exposé
+        highlightSpeakerFullscreen(null);
+        startExposeRecording();
+      });
+
+      // Si voix coupée, on bypass l'attente
+      if (!state.voiceEnabled) {
+        setTimeout(() => {
+          highlightSpeakerFullscreen(null);
+          startExposeRecording();
+        }, 500);
+      }
+    }, 800);
+  }
+
+  function startExpose() {
+    // Cette fonction reste pour compatibilité, mais on passe par enterRoom maintenant
+    enterRoom();
+  }
+
+  function startExposeRecording() {
+    state.exposeText = '';
+    state.committedText = '';
+    state.currentSessionText = '';
+    state.exposeStartedAt = new Date();
+    document.getElementById('oral-transcription').innerHTML = '<span class="provisoire">Commence à parler...</span>';
+
+    let elapsed = 0;
+    state.timers.expose = setInterval(() => {
+      elapsed++;
+      const remaining = CONFIG.EXPOSE_DURATION - elapsed;
+      const min = Math.floor(remaining / 60);
+      const sec = remaining % 60;
+      document.getElementById('oral-expose-time').textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+      document.getElementById('oral-expose-progress').style.width = ((elapsed / CONFIG.EXPOSE_DURATION) * 100) + '%';
+      const t = document.getElementById('oral-expose-timer');
+      if (remaining <= 30) t.classList.add('critical');
+      else if (remaining <= 60) t.classList.add('warning');
+      if (remaining <= 0) {
+        clearInterval(state.timers.expose);
+        playBuzzer(); // V5b : buzzer à la fin
+        endExpose();
+      }
+    }, 1000);
+
+    // V5b : démarrer l'animation des notes
+    startTakingNotesAnimation();
+
+    startSpeechRecognition('expose');
+  }
+
+  function endExpose() {
+    clearInterval(state.timers.expose);
+    stopSpeechRecognition();
+    stopTakingNotesAnimation(); // V5b
+
+    // V5b : analyser l'exposé pour le débrief
+    const exposeDuration = state.exposeStartedAt ? (new Date() - state.exposeStartedAt) / 1000 : CONFIG.EXPOSE_DURATION;
+    const t = document.getElementById('oral-transcription').innerText.trim();
+    state.exposeText = t || '(Pas d\'exposé enregistré — mode test)';
+    state.exposeAnalysis = analyzeSpeechPatterns(state.exposeText, exposeDuration);
+    console.log('[EXPOSÉ TERMINÉ]', state.exposeText);
+    console.log('[ANALYSE EXPOSÉ]', state.exposeAnalysis);
+    supabase.from('oral_sessions').update({ expose_text: state.exposeText }).eq('id', state.sessionId);
+    startQR();
+  }
+
+  async function startQR() {
+    showScreen('qr');
+
+    let elapsed = 0;
+    state.timers.qr = setInterval(() => {
+      elapsed++;
+      const remaining = CONFIG.QR_DURATION - elapsed;
+      const min = Math.floor(remaining / 60), sec = remaining % 60;
+      document.getElementById('oral-qr-time').textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+      const t = document.getElementById('oral-qr-timer');
+      if (remaining <= 60) t.classList.add('critical');
+      else if (remaining <= 120) t.classList.add('warning');
+      if (remaining <= 0) { clearInterval(state.timers.qr); endQR(); }
+    }, 1000);
+
+    // V5 : Première question = toujours l'officier (président qui ouvre)
+    state.currentSpeaker = 'officier';
+    state.lastJurySpeaker = 'officier';
+    state.relanceCount = 0; // compteur de relances consécutives par juré
+    state.candidateAnswers = []; // V5b : pour analyse débit/hésitations
+    state.lastAnswerTimestamp = new Date();
+    updateJuryIndicator('officier', true);
+
+    // V5b : délai variable avant la première question (le jury "s'organise")
+    const firstDelay = 3000 + Math.random() * 2000;
+    showJuryThinking(true, state.currentSpeaker);
+    await new Promise(r => setTimeout(r, firstDelay));
+
+    const q = await callJury({ isFirstQuestion: true, speaker: 'officier' });
+    showJuryThinking(false);
+    addJuryMessage(q, 'officier', 'Question 1');
+    updateJuryIndicator('officier', false);
+  }
+
+  // V5 : Détermination du prochain juré qui parle
+  function pickNextSpeaker(isRelance) {
+    // Si c'est une relance, le même juré garde la parole (max 2 relances consécutives)
+    if (isRelance && state.relanceCount < 2) {
+      state.relanceCount++;
+      return state.lastJurySpeaker;
+    }
+    // Sinon : rotation stricte officier → élu → sous-off → officier...
+    state.relanceCount = 0;
+    const order = ['officier', 'elu', 'sousoff'];
+    const currentIdx = order.indexOf(state.lastJurySpeaker);
+    const nextIdx = (currentIdx + 1) % 3;
+    return order[nextIdx];
+  }
+
+  // V5 : Mise à jour de l'indicateur visuel du juré qui parle
+  function updateJuryIndicator(speaker, isSpeaking) {
+    document.querySelectorAll('.oral-jury-active').forEach(el => el.classList.remove('is-speaking'));
+    if (isSpeaking && speaker) {
+      const ind = document.getElementById('indicator-' + speaker);
+      if (ind) ind.classList.add('is-speaking');
+    }
+  }
+
+  async function sendAnswer() {
+    const input = document.getElementById('oral-qr-input');
+    const a = input.value.trim();
+    if (!a) return;
+    addMessage('candidat', a);
+    input.value = '';
+
+    // V5b : enregistrer la durée et l'analyse de cette réponse pour le débrief
+    const answerDurationSec = (new Date() - state.lastAnswerTimestamp) / 1000;
+    const answerAnalysis = analyzeSpeechPatterns(a, answerDurationSec);
+    if (answerAnalysis) {
+      state.candidateAnswers.push({
+        text: a,
+        analysis: answerAnalysis,
+        timestamp: new Date().toISOString()
+      });
+    }
+
+    // Réinitialiser le buffer de transcription pour la prochaine réponse
+    state.committedText = '';
+    state.currentSessionText = '';
+
+    state.questionsCount++;
+
+    const nextSpeaker = pickNextSpeaker(false);
+    state.currentSpeaker = nextSpeaker;
+    state.lastJurySpeaker = nextSpeaker;
+
+    updateJuryIndicator(nextSpeaker, true);
+    showJuryThinking(true, nextSpeaker);
+
+    // V5b : délai variable de réflexion avant la prochaine question (3-8s selon longueur de la réponse)
+    const thinkingDelay = calculateThinkingDelay(a);
+    await new Promise(r => setTimeout(r, thinkingDelay));
+
+    const next = await callJury({ candidateAnswer: a, speaker: nextSpeaker });
+    showJuryThinking(false);
+
+    const isRelance = next.toLowerCase().includes('[relance]');
+    const clean = next.replace(/^\[relance\]\s*/i, '').trim();
+
+    // Si c'est une relance, on REVIENT au juré précédent (qui creuse sa propre question)
+    let actualSpeaker = nextSpeaker;
+    if (isRelance && state.previousJurySpeaker && state.relanceCount < 2) {
+      actualSpeaker = state.previousJurySpeaker;
+      state.lastJurySpeaker = state.previousJurySpeaker;
+      state.relanceCount++;
+      updateJuryIndicator(nextSpeaker, false);
+      updateJuryIndicator(actualSpeaker, true);
+    } else {
+      state.previousJurySpeaker = nextSpeaker;
+      state.relanceCount = 0;
+    }
+
+    addJuryMessage(clean, actualSpeaker, isRelance ? 'Relance' : `Question ${Math.ceil(state.questionsCount/2) + 1}`, isRelance);
+    updateJuryIndicator(actualSpeaker, false);
+
+    // Reset du timestamp pour la prochaine réponse
+    state.lastAnswerTimestamp = new Date();
+  }
+
+  async function endQR() {
+    Object.values(state.timers).forEach(clearInterval);
+    stopSpeechRecognition();
+    if ('speechSynthesis' in window) window.speechSynthesis.cancel();
+
+    // V5b : Calculer l'analyse globale du candidat (pour le débrief)
+    const allCandidateText = state.candidateAnswers.map(a => a.text).join(' ');
+    const totalAnswerDuration = state.candidateAnswers.reduce((sum, a) => sum + a.analysis.durationSeconds, 0);
+    state.globalAnalysis = analyzeSpeechPatterns(allCandidateText, totalAnswerDuration || 1);
+    console.log('[V5b] Analyse globale candidat :', state.globalAnalysis);
+
+    showJuryThinking(true);
+    const raw = await callJury({ requestDebrief: true });
+    showJuryThinking(false);
+    let debrief;
+    try {
+      debrief = JSON.parse(raw.match(/\{[\s\S]*\}/)[0]);
+    } catch (e) {
+      console.error('[ERREUR] Parsing débrief', e, raw);
+      debrief = { error: 'Débrief non parsable', raw };
+    }
+    const duration = Math.floor((new Date() - state.startedAt) / 1000);
+    await supabase.from('oral_sessions').update({
+      ended_at: new Date().toISOString(), conversation: state.conversation,
+      debrief, status: 'completed', duration_seconds: duration, questions_count: state.questionsCount
+    }).eq('id', state.sessionId);
+    renderDebrief(debrief);
+  }
+
+  // === Routage de l'appel selon le mode ===
+  async function callJury(opts) {
+    const messages = buildMessages(opts);
+    const system = buildSystemPrompt(opts.requestDebrief, opts.speaker);
+
+    if (TEST_CONFIG.mode === 'mock') {
+      const r = await mockClaudeAPI({ messages, system, max_tokens: opts.requestDebrief ? 2000 : 600 });
+      return r.text;
+    }
+
+    if (TEST_CONFIG.mode === 'direct') {
+      // ⚠️ Appel direct — clé exposée
+      console.warn('[DIRECT] Appel API direct — clé visible côté client !');
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'x-api-key': TEST_CONFIG.apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-5-20250929',
+            max_tokens: opts.requestDebrief ? 2000 : 600,
+            system, messages
+          })
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error.message);
+        return data.content.filter(b => b.type === 'text').map(b => b.text).join('\n');
+      } catch (e) {
+        console.error('[DIRECT] Erreur API:', e);
+        return opts.requestDebrief ? '{"error":"' + e.message + '"}' : 'Erreur API : ' + e.message;
+      }
+    }
+
+    if (TEST_CONFIG.mode === 'proxy') {
+      try {
+        const res = await fetch(TEST_CONFIG.proxyUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages, system, max_tokens: opts.requestDebrief ? 2000 : 600 })
+        });
+        const data = await res.json();
+        return data.text;
+      } catch (e) {
+        console.error('[PROXY] Erreur:', e);
+        return opts.requestDebrief ? '{"error":"' + e.message + '"}' : 'Erreur proxy : ' + e.message;
+      }
+    }
+  }
+
+  function buildSystemPrompt(forDebrief, speaker) {
+    if (forDebrief) {
+      return `Tu es président du jury de concours de Caporal Sapeur-Pompier Professionnel français. L'entretien est terminé. Tu produis un débrief honnête et exigeant, fondé sur tes connaissances précises du concours.
+
+═══════════════════════════════════════════════════
+TES CONNAISSANCES DE RÉFÉRENCE
+═══════════════════════════════════════════════════
+
+${JURY_KNOWLEDGE_BASE}
+
+═══════════════════════════════════════════════════
+GRILLE CACHÉE DE L'EXCELLENT CANDIDAT
+═══════════════════════════════════════════════════
+
+Un excellent candidat (15-18/20) est :
+1. Quelqu'un qui a compris l'environnement de travail (chaîne de commandement, sa place dans l'institution)
+2. Mature et posé (sait répondre calmement, ne se laisse pas déstabiliser)
+3. Humble sur ses lacunes : ne maîtrise pas tout sur le bout des doigts mais sait OÙ chercher les réponses
+4. Savoir-être irréprochable (politesse, posture, vocabulaire approprié)
+5. Motivé pour les belles interventions ET pour les tâches ingrates (TIG, ménage, entretien matériel, planning, formation continue)
+6. Sait s'intégrer dans une équipe : sait quand s'affirmer pour le besoin de la mission ET quand s'effacer au profit de l'esprit de corps
+7. Fiable, travailleur, demandeur, intéressé par tous les aspects du métier
+8. Apprécie l'activité physique sans en faire un objectif d'athlète
+
+Un candidat moyen (10-12/20) ne montre pas ces marqueurs ou les montre partiellement.
+
+ERREURS RÉDHIBITOIRES qui plombent la note (à signaler dans le débrief si présentes) :
+- Oubli de saluer le jury (président d'abord, puis membres)
+- Dire "caserne" au lieu de "centre de secours"
+- Donner son avis personnel AVANT de se référer aux textes réglementaires
+- Tenue inappropriée (mais pas toujours observable en simulation)
+- Vocabulaire familier ou tutoiement
+
+═══════════════════════════════════════════════════
+DONNÉES DE LA SESSION À ÉVALUER
+═══════════════════════════════════════════════════
+
+EXPOSÉ DU CANDIDAT :
+"""${state.exposeText}"""
+
+Le candidat a-t-il salué le jury en entrant dans la salle ? ${state.juryGreeted ? 'OUI' : 'NON (à pénaliser)'}
+
+A-t-il commencé son exposé par la formule "Monsieur/Madame le/la président/e, mesdames/messieurs les membres du jury, je m'appelle..." ? À détecter dans l'exposé.
+
+CONVERSATION COMPLÈTE :
+${state.conversation.map(m => {
+  if (m.role === 'jury') {
+    return `[${m.speaker?.toUpperCase() || 'JURY'} - ${m.jureName || ''}] ${m.content}`;
+  }
+  return `[CANDIDAT] ${m.content}`;
+}).join('\n')}
+
+═══════════════════════════════════════════════════
+ANALYSE COMPORTEMENTALE OBJECTIVE (V5b)
+═══════════════════════════════════════════════════
+
+${state.exposeAnalysis ? `EXPOSÉ :
+- ${state.exposeAnalysis.wordCount} mots prononcés en ${state.exposeAnalysis.durationSeconds}s
+- Débit : ${state.exposeAnalysis.wordsPerMinute} mots/min (${getDebitLabel(state.exposeAnalysis.wordsPerMinute)})
+- Hésitations détectées : ${state.exposeAnalysis.hesitations} (${state.exposeAnalysis.hesitationsPerMinute}/min — ${getHesitationLabel(state.exposeAnalysis.hesitationsPerMinute)})` : 'EXPOSÉ : pas d\'analyse disponible'}
+
+${state.globalAnalysis ? `RÉPONSES Q/R AGGRÉGÉES :
+- ${state.globalAnalysis.wordCount} mots prononcés en ${state.globalAnalysis.durationSeconds}s
+- Débit : ${state.globalAnalysis.wordsPerMinute} mots/min (${getDebitLabel(state.globalAnalysis.wordsPerMinute)})
+- Hésitations : ${state.globalAnalysis.hesitations} (${state.globalAnalysis.hesitationsPerMinute}/min — ${getHesitationLabel(state.globalAnalysis.hesitationsPerMinute)})` : 'Q/R : pas d\'analyse disponible'}
+
+UTILISE CES DONNÉES OBJECTIVES dans l'évaluation de l'axe "expression" — sois précis, cite les chiffres si pertinent.
+
+═══════════════════════════════════════════════════
+INSTRUCTIONS POUR LE DÉBRIEF
+═══════════════════════════════════════════════════
+
+Tu produis un débrief STRICTEMENT au format JSON suivant. Aucun texte avant ou après le JSON.
+
+Niveaux qualitatifs (5) : "Insuffisant", "À améliorer", "Satisfaisant", "Bon", "Excellent". Jauge : entier 1-5.
+
+Tu évalues sur 5 axes OBLIGATOIRES :
+1. motivation — Sincérité du projet, projection dans le métier (interventions ET tâches ingrates)
+2. coherence — Cohérence exposé/réponses, pas d'incohérences relevées
+3. metier — Maîtrise précise du statut, SIS, FPT, textes (utilise tes connaissances de référence)
+4. deontologie — Savoir-être, réflexes éthiques, mises en situation, attitude générale
+5. expression — Clarté, structure, posture orale, gestion du temps, vocabulaire approprié
+
+Pour chaque axe : commentaire factuel (2-3 phrases citant des moments précis), points concrets (2-3 items courts).
+
+Le verdict général doit être HONNÊTE — n'enrobe pas, ne console pas. Cite des moments précis. Si erreurs rédhibitoires, mentionne-les.
+
+FORMAT JSON STRICT :
+{
+  "verdict_titre": "Titre court de 5-15 mots qui résume le verdict",
+  "verdict_texte": "4-6 phrases d'évaluation honnête citant des moments précis",
+  "axes": [
+    {"id":"motivation","titre":"Motivation","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"À renforcer","points":["...","..."]},
+    {"id":"coherence","titre":"Cohérence du parcours","niveau":"Excellent","jauge":5,"commentaire":"...","points_titre":"Points forts","points":["..."]},
+    {"id":"metier","titre":"Connaissances métier","niveau":"Satisfaisant","jauge":3,"commentaire":"...","points_titre":"À retravailler","points":["..."]},
+    {"id":"deontologie","titre":"Savoir-être & déontologie","niveau":"À améliorer","jauge":2,"commentaire":"...","points_titre":"À retravailler","points":["..."]},
+    {"id":"expression","titre":"Expression orale","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"À soigner","points":["..."]}
+  ]
+}
+
+RÉPONDS UNIQUEMENT EN JSON VALIDE — RIEN D'AUTRE AVANT OU APRÈS.`;
+    }
+
+    // === V5 : Construction du prompt pour le juré qui parle ===
+    const j = state.jury;
+    if (!j || !speaker) {
+      console.warn('[PROMPT] Juré ou speaker manquant');
+      return '';
+    }
+
+    const currentJure = j[speaker];
+    const titre = currentJure.isFemme ? 'Madame' : 'Monsieur';
+
+    // Détecter si le candidat est SPV/JSP/militaire dans son exposé
+    const exposeText = (state.exposeText || '').toLowerCase();
+    const isSPV = /\b(spv|sapeur[- ]?pompier[- ]?volontaire|volontaire|jsp|jeune sapeur|militaire|bspp|bmpm)\b/.test(exposeText);
+
+    // Profils des 3 jurés
+    const profiles = {
+      officier: `TU ES L'OFFICIER SPP — PRÉSIDENT DU JURY
+Tu es ${titre} ${currentJure.prenom} ${currentJure.nom}, ${currentJure.grade} de sapeurs-pompiers professionnels.
+Tu es le président de ce jury. C'est toi qui mènes l'entretien : tu as ouvert la session, tu poseras la dernière question, tu cadres le timing.
+
+TON DOMAINE de questionnement :
+- Statut du sapeur-pompier professionnel (cadre d'emplois, grades, formations)
+- Organisation et fonctionnement d'un SDIS / SIS
+- Missions des SIS (article L. 1424-2 CGCT)
+- Textes de référence (CGCT, lois 1996, 2004, MATRAS, décrets statutaires)
+- Vérification de cohérence du parcours présenté
+
+TON STYLE :
+- Autoritaire mais courtois, posé, professionnel
+- Tu poses des questions précises, factuelles
+- Tu sais creuser quand le candidat répond bien
+- Tu changes de thème silencieusement si le candidat sèche
+- Tu ne souris pas, ne félicites pas, mais tu n'es pas méchant
+- Mots de transition autorisés : "Précisez.", "Sur quel fondement ?", "Continuez.", "Détaillez.", "Hmm.", ou rien.`,
+
+      elu: `TU ES L'ÉLU — MEMBRE DU JURY
+Tu es ${titre} ${currentJure.prenom} ${currentJure.nom}, ${currentJure.grade}.
+Tu représentes la collectivité qui finance le SDIS. Tu es membre du jury.
+
+TON DOMAINE de questionnement :
+- Culture administrative générale (les 3 versants de la fonction publique, FPT, FPE, FPH)
+- Spécificités de la FPT (cadres d'emplois, libre administration, liste d'aptitude)
+- Acteurs institutionnels (CNFPT, CDG, DGCL, CSFPT, CGFP)
+- Fonctionnement institutionnel (CST, CAP, lois statutaires)
+- Culture générale NEUTRE (actualité grand public, niveau JT 20h : conflits internationaux, élections, événements sportifs ou culturels)
+- Tu évites les sujets politiques sensibles (immigration, gilets jaunes, etc.)
+
+TON STYLE :
+- Courtois, distant, parfois un peu hors-sol par rapport au métier de pompier
+- Tu utilises un français châtié
+- Tu poses tes questions calmement
+- Tu peux paraître condescendant sans le faire exprès
+- Mots de transition autorisés : "Bien.", "D'accord.", "Continuons.", "Je vois.", ou rien.`,
+
+      sousoff: `TU ES LE SOUS-OFFICIER SPP — MEMBRE DU JURY
+Tu es ${titre} ${currentJure.prenom} ${currentJure.nom}, ${currentJure.grade} de sapeurs-pompiers professionnels.
+Tu es le seul "homme/femme de terrain" au jury. Tu vas tester si le candidat est crédible côté pompier.
+
+LE CANDIDAT EST-IL SPV/JSP/MILITAIRE ? ${isSPV ? 'OUI — pose des questions techniques pointues' : 'NON (civil pur) — pose des questions opérationnelles plus générales et de savoir-être'}
+
+TON DOMAINE de questionnement :
+- Mises en situation déontologiques (vol, alcool, harcèlement, ordre illégal, secret pro)
+- Vie de caserne et savoir-être (esprit d'équipe, hiérarchie, tâches ingrates)
+- Vérification de la motivation profonde (acceptation des TIG, du ménage, de l'entretien)
+- ${isSPV ? "Questions techniques précises (SAP, incendie, matériels, gestes techniques, interventions vécues citées dans l'exposé)" : "Questions opérationnelles générales (qu'est-ce qui vous attire dans ce métier au-delà de l'image ? Comment gérez-vous le stress ?)"}
+
+TON STYLE :
+- Direct, concret, parfois un peu rugueux
+- "Entre nous on se comprend" : tu tests si le candidat sait de quoi il parle
+- Tu sais quand quelqu'un noie le poisson
+- Tu poses les questions piège sur les valeurs : "Et le ménage de la caserne, ça vous parle ?"
+- Mots de transition autorisés : "Et concrètement ?", "Et après ?", "Vous faites quoi ?", "Je vous écoute.", ou rien.`
+    };
+
+    // Sélection des questions types pertinentes pour CE juré
+    let sampleQuestions = '';
+    if (state.juryQuestions && state.juryQuestions.length > 0) {
+      const filterByRole = {
+        officier: q => q.categorie.startsWith('statut_') || q.categorie.startsWith('sis_'),
+        elu: q => q.categorie.startsWith('fpt_') || q.categorie === 'sis_origines',
+        sousoff: q => q.categorie.includes('deontologie') || q.categorie.includes('droits_obligations') || q.categorie === 'statut_double_autorite' || q.categorie === 'statut_grades'
+      };
+
+      const filtered = state.juryQuestions.filter(filterByRole[speaker] || (() => true));
+      const pool = filtered.length > 0 ? filtered : state.juryQuestions;
+      const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 5);
+
+      sampleQuestions = shuffled.map(q => {
+        const attendus = q.reponse_attendue.slice(0, 4).map(r => '  • ' + r).join('\n');
+        const relances = q.relances.slice(0, 2).map(r => '  → ' + r).join('\n');
+        return `▸ ${q.question}
+RÉPONSE ATTENDUE :
+${attendus}
+RELANCES :
+${relances}`;
+      }).join('\n\n---\n\n');
+    }
+
+    return `Tu es membre d'un jury de concours de Caporal de Sapeur-Pompier Professionnel français. C'est ton tour de poser une question au candidat. Tu es UN juré spécifique — joue ton rôle précisément.
+
+${profiles[speaker]}
+
+═══════════════════════════════════════════════════
+EXPOSÉ DU CANDIDAT (à mémoriser)
+═══════════════════════════════════════════════════
+"""${state.exposeText}"""
+
+═══════════════════════════════════════════════════
+TES CONNAISSANCES DE RÉFÉRENCE
+═══════════════════════════════════════════════════
+
+${JURY_KNOWLEDGE_BASE}
+
+${sampleQuestions ? `
+═══════════════════════════════════════════════════
+QUESTIONS TYPES DE TON DOMAINE
+═══════════════════════════════════════════════════
+
+Tu peux piocher dans ces questions (en les reformulant à ta sauce). Les "réponses attendues" sont ta grille d'évaluation.
+
+${sampleQuestions}
+` : ''}
+
+═══════════════════════════════════════════════════
+RÈGLES ABSOLUES — IMMERSION TOTALE
+═══════════════════════════════════════════════════
+
+❌ INTERDIT :
+- Qualifier la réponse ("bonne réponse", "exact", "vous avez raison", "c'est ça")
+- Confirmer/infirmer ("oui c'est ça", "non c'est faux")
+- Féliciter ("bravo", "parfait", "intéressant")
+- Faire un commentaire pédagogique ("attention à", "il faut savoir que")
+- Compléter ou corriger une réponse
+- Donner un signal sur la qualité de la réponse
+
+✅ AUTORISÉ :
+- Un mot de transition de TON profil, OU rien
+- Marquer un silence
+- Poser ta prochaine question
+
+═══════════════════════════════════════════════════
+MÉTHODE — LE CREUSAGE
+═══════════════════════════════════════════════════
+
+→ Si la réponse couvre les ÉLÉMENTS CLÉS attendus : tu CREUSES sur le même thème avec une question plus difficile. Marque [RELANCE] au début.
+
+→ Si la réponse est INCOMPLÈTE : tu re-questionnes pour faire dire ce qui manque. Marque [RELANCE].
+
+→ Si la réponse est FAUSSE ou ESQUIVÉE : tu changes de thème silencieusement.
+
+→ Si NOIE le POISSON : tu re-poses la MÊME question plus directement. Max 2 fois.
+
+→ Si INCOHÉRENCE avec l'exposé : tu y reviens froidement.
+
+═══════════════════════════════════════════════════
+FORMAT DE RÉPONSE
+═══════════════════════════════════════════════════
+
+UNE seule question. 1 à 3 phrases maximum.
+Si c'est une relance, commence par [RELANCE].
+RESTE DANS TON DOMAINE — ne pose pas de question qui relèverait d'un autre juré (sauf cas de cohérence parcours).
+
+Exemple de bonne réponse :
+"Précisez. Sur quel fondement juridique ?"
+
+Exemple INTERDIT :
+"Très bien, c'est exact ! Maintenant, parlez-moi de..."
+
+Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du concours.`;
+  }
+
+  function buildMessages(opts) {
+    if (opts.requestDebrief) return [{ role: 'user', content: 'L\'entretien est terminé. Produis maintenant le débrief JSON complet en suivant strictement les instructions.' }];
+
+    if (opts.isFirstQuestion) {
+      return [{
+        role: 'user',
+        content: `Le candidat vient de finir son exposé. En tant qu'officier président, c'est à toi d'ouvrir le questionnaire avec ta première question.`
+      }];
+    }
+
+    // Pour les tours suivants : on construit l'historique en marquant qui parle
+    const history = [];
+    state.conversation.forEach(m => {
+      if (m.role === 'jury') {
+        // On préfixe le message du juré pour que Claude sache qui a parlé
+        const speakerLabel = m.speaker
+          ? `[${{officier: 'Officier', elu: 'Élu', sousoff: 'Sous-officier'}[m.speaker]}]`
+          : '';
+        history.push({ role: 'assistant', content: `${speakerLabel} ${m.content}`.trim() });
+      } else {
+        history.push({ role: 'user', content: m.content });
+      }
+    });
+
+    // Ajouter la dernière réponse du candidat + signaler que c'est au tour du juré X
+    history.push({
+      role: 'user',
+      content: `${opts.candidateAnswer}\n\n---\n[INSTRUCTION SYSTÈME : c'est maintenant à toi de poser la prochaine question, en respectant ton profil de juré décrit dans le system prompt. Reste dans ton domaine.]`
+    });
+    return history;
+  }
+
+  function startSpeechRecognition(phase) {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) {
+      console.warn('[SPEECH] Web Speech API non supportée — utilise Chrome ou Edge');
+      return;
+    }
+
+    // Stop toute reconnaissance en cours pour repartir propre
+    if (state.recognition) {
+      try { state.recognition.stop(); } catch(e) {}
+      state.recognition = null;
+    }
+
+    // === Architecture simplifiée pour éviter les doublons ===
+    //
+    // Le bug venait du fait que Chrome redémarre la reconnaissance vocale
+    // toutes les ~30 secondes (event 'onend'), et chaque redémarrage repart
+    // avec un resultIndex à 0, ce qui faisait que des segments déjà figés
+    // étaient réinjectés dans la transcription.
+    //
+    // SOLUTION : on sépare clairement deux états :
+    // - `committedText` : texte définitivement figé (ne change plus jamais)
+    // - `currentSessionText` : texte de la session de reconnaissance courante
+    //                          (sera figé dans committedText au onend)
+    //
+    // À chaque tour, l'affichage = committedText + currentSessionText + interim
+    // Et au redémarrage : committedText reste intact, currentSessionText repart à zéro.
+
+    state.committedText = state.committedText || '';
+    state.currentSessionText = '';
+    state._currentPhase = phase;
+
+    state.recognition = new SR();
+    state.recognition.lang = 'fr-FR';
+    state.recognition.continuous = true;
+    state.recognition.interimResults = true;
+    state.recognition.maxAlternatives = 1;
+
+    state.recognition.onresult = (e) => {
+      let interim = '';
+      let sessionFinal = '';
+
+      // On parcourt TOUS les résultats de la session courante uniquement
+      for (let i = 0; i < e.results.length; i++) {
+        const result = e.results[i];
+        const transcript = result[0].transcript;
+        if (result.isFinal) {
+          sessionFinal += transcript;
+        } else {
+          interim += transcript;
+        }
+      }
+
+      // La session courante remplace la précédente version
+      state.currentSessionText = sessionFinal;
+
+      // L'affichage = ce qui a été figé + la session en cours + l'interim
+      const fullFinal = (state.committedText + ' ' + state.currentSessionText).trim();
+      const display = (fullFinal + ' ' + interim.trim()).trim();
+
+      if (phase === 'expose') {
+        const el = document.getElementById('oral-transcription');
+        if (display) {
+          el.innerHTML = `<span class="definitif">${escapeHtml(fullFinal)}</span>${interim.trim() ? ' <span class="provisoire">' + escapeHtml(interim.trim()) + '</span>' : ''}`;
+        }
+        state.exposeText = fullFinal;
+      } else if (phase === 'qr') {
+        const input = document.getElementById('oral-qr-input');
+        input.value = display;
+      }
+    };
+
+    state.recognition.onerror = (e) => {
+      console.warn('[SPEECH] Erreur:', e.error);
+      if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
+        alert('Micro bloqué. Autorise l\'accès au micro dans Chrome (icône cadenas dans la barre d\'adresse).');
+        state.isRecording = false;
+      } else if (e.error === 'no-speech' || e.error === 'aborted') {
+        // Erreurs normales, on continue
+        return;
+      }
+    };
+
+    state.recognition.onend = () => {
+      // Au redémarrage : on FIGE la session courante dans committedText
+      if (state.currentSessionText && state.currentSessionText.trim()) {
+        state.committedText = (state.committedText + ' ' + state.currentSessionText).trim();
+        console.log('[SPEECH] Texte figé :', state.committedText.substring(state.committedText.length - 80));
+      }
+      state.currentSessionText = '';
+
+      // Auto-restart si on est encore en phase active
+      if (state.isRecording) {
+        try {
+          state.recognition.start();
+        } catch(e) {
+          // Si erreur (souvent : "InvalidStateError"), on attend un peu et on relance
+          setTimeout(() => {
+            if (state.isRecording) {
+              try { state.recognition.start(); } catch(e2) { console.warn('[SPEECH] Restart impossible:', e2.message); }
+            }
+          }, 200);
+        }
+      }
+    };
+
+    try {
+      state.recognition.start();
+      state.isRecording = true;
+      console.log('[SPEECH] Reconnaissance démarrée — phase:', phase);
+    } catch(e) {
+      console.warn('[SPEECH] Démarrage impossible:', e.message);
+    }
+  }
+
+  function stopSpeechRecognition() {
+    state.isRecording = false;
+    if (state.recognition) try { state.recognition.stop(); } catch(e){}
+  }
+
+  function toggleQRMic() {
+    const btn = document.getElementById('oral-qr-mic');
+    if (state.isRecording) { stopSpeechRecognition(); btn.classList.remove('recording'); }
+    else { startSpeechRecognition('qr'); btn.classList.add('recording'); }
+  }
+
+  // ============================================================
+  // V5b — VOIX SYNTHÉTIQUE (SpeechSynthesis API)
+  // ============================================================
+
+  // État global de la voix
+  state.voiceEnabled = true; // par défaut activée
+  state.availableVoices = [];
+
+  function initSpeechSynthesis() {
+    if (!('speechSynthesis' in window)) {
+      console.warn('[VOIX] SpeechSynthesis non supportée');
+      state.voiceEnabled = false;
+      return;
+    }
+    // Charger les voix (parfois asynchrone)
+    const loadVoices = () => {
+      state.availableVoices = window.speechSynthesis.getVoices().filter(v => v.lang.startsWith('fr'));
+      console.log('[VOIX] Voix françaises disponibles :', state.availableVoices.length, state.availableVoices.map(v => v.name));
+    };
+    loadVoices();
+    if (window.speechSynthesis.onvoiceschanged !== undefined) {
+      window.speechSynthesis.onvoiceschanged = loadVoices;
+    }
+  }
+
+  // Sélection d'une voix par juré (homme grave / homme medium / femme medium)
+  function getVoiceForJure(speaker) {
+    if (!state.availableVoices || state.availableVoices.length === 0) return null;
+    const jure = state.jury && state.jury[speaker];
+    if (!jure) return state.availableVoices[0];
+
+    // Filtre par genre quand possible (selon les noms typiques des voix)
+    const isFemme = jure.isFemme;
+    const candidates = state.availableVoices.filter(v => {
+      const n = v.name.toLowerCase();
+      if (isFemme) {
+        return /femme|woman|female|aurélie|amélie|julie|virginie|chantal|marie|audrey/i.test(v.name);
+      }
+      return !/femme|woman|female|aurélie|amélie|julie|virginie|chantal|marie|audrey/i.test(v.name);
+    });
+
+    const pool = candidates.length > 0 ? candidates : state.availableVoices;
+    // Hash du speaker pour avoir une voix consistante
+    const idx = (speaker.charCodeAt(0) + speaker.charCodeAt(1)) % pool.length;
+    return pool[idx];
+  }
+
+  // Lire un texte avec la voix d'un juré
+  function speakAsJure(text, speaker, onEndCallback) {
+    if (!state.voiceEnabled || !('speechSynthesis' in window) || !text) {
+      if (onEndCallback) onEndCallback();
+      return;
+    }
+    // Annuler toute lecture en cours
+    window.speechSynthesis.cancel();
+
+    const utterance = new SpeechSynthesisUtterance(text);
+    const voice = getVoiceForJure(speaker);
+    if (voice) utterance.voice = voice;
+    utterance.lang = 'fr-FR';
+    utterance.rate = 0.95;
+    utterance.pitch = speaker === 'officier' ? 0.9 : (speaker === 'sousoff' ? 1.0 : 1.05);
+    utterance.volume = 1.0;
+
+    if (onEndCallback) {
+      utterance.onend = onEndCallback;
+      utterance.onerror = onEndCallback;
+    }
+    window.speechSynthesis.speak(utterance);
+  }
+
+  function toggleMute() {
+    state.voiceEnabled = !state.voiceEnabled;
+    const labels = document.querySelectorAll('#oral-mute-label, #oral-mute-label-qr');
+    const btns = document.querySelectorAll('#oral-mute-btn, #oral-mute-btn-qr');
+    labels.forEach(l => l.textContent = state.voiceEnabled ? 'Voix activée' : 'Voix coupée');
+    btns.forEach(b => b.classList.toggle('muted', !state.voiceEnabled));
+    if (!state.voiceEnabled) {
+      window.speechSynthesis.cancel();
+    }
+    console.log('[VOIX] Mute :', !state.voiceEnabled);
+  }
+
+  // ============================================================
+  // V5b — AVATARS PLEIN ÉCRAN (pendant l'exposé)
+  // ============================================================
+
+  function renderJuryFullscreen() {
+    const container = document.getElementById('oral-jury-fullscreen-row');
+    if (!container || !state.jury) return;
+    const j = state.jury;
+    const cardHtml = (jure) => {
+      const titre = jure.isFemme ? 'Mme' : 'M.';
+      return `
+        <div class="oral-jure-fs-card ${jure.role}" id="fs-jure-${jure.role}">
+          <div class="oral-jure-fs-portrait" id="fs-portrait-${jure.role}">${jure.avatarLetter}</div>
+          <div class="oral-jure-fs-name">${titre} ${jure.nom}</div>
+          <div class="oral-jure-fs-grade">${jure.grade}</div>
+        </div>
+      `;
+    };
+    container.innerHTML = cardHtml(j.elu) + cardHtml(j.officier) + cardHtml(j.sousoff);
+  }
+
+  // Animation "prend des notes" (déclenchée pendant l'exposé)
+  function startTakingNotesAnimation() {
+    const portraits = document.querySelectorAll('.oral-jure-fs-portrait');
+    let counter = 0;
+    state.timers.notes = setInterval(() => {
+      // Aléatoirement, un juré écrit ou pas
+      portraits.forEach(p => {
+        if (Math.random() > 0.55) p.classList.add('taking-notes');
+        else p.classList.remove('taking-notes');
+      });
+      counter++;
+    }, 2000);
+  }
+
+  function stopTakingNotesAnimation() {
+    if (state.timers.notes) clearInterval(state.timers.notes);
+    document.querySelectorAll('.oral-jure-fs-portrait').forEach(p => p.classList.remove('taking-notes'));
+  }
+
+  // Indicateur visuel : quel juré parle en plein écran
+  function highlightSpeakerFullscreen(speaker) {
+    document.querySelectorAll('.oral-jure-fs-card').forEach(c => c.classList.remove('is-speaking'));
+    if (speaker) {
+      const card = document.getElementById('fs-jure-' + speaker);
+      if (card) card.classList.add('is-speaking');
+    }
+  }
+
+  // ============================================================
+  // V5b — BUZZER SONORE (fin d'exposé)
+  // ============================================================
+
+  function playBuzzer() {
+    try {
+      const ctx = new (window.AudioContext || window.webkitAudioContext)();
+      const oscillator = ctx.createOscillator();
+      const gainNode = ctx.createGain();
+      oscillator.type = 'sine';
+      oscillator.frequency.setValueAtTime(800, ctx.currentTime);
+      oscillator.frequency.setValueAtTime(600, ctx.currentTime + 0.15);
+      gainNode.gain.setValueAtTime(0.3, ctx.currentTime);
+      gainNode.gain.exponentialRampToValueAtTime(0.01, ctx.currentTime + 0.6);
+      oscillator.connect(gainNode);
+      gainNode.connect(ctx.destination);
+      oscillator.start();
+      oscillator.stop(ctx.currentTime + 0.6);
+    } catch (e) {
+      console.warn('[BUZZER] Erreur:', e.message);
+    }
+  }
+
+  // ============================================================
+  // V5b — DÉLAI VARIABLE + AFFICHAGE PROGRESSIF
+  // ============================================================
+
+  // Calcul du délai de réflexion d'un juré (3-8s selon complexité de la question précédente)
+  function calculateThinkingDelay(lastAnswer) {
+    if (!lastAnswer) return 2500; // pas de réponse précédente, délai court
+    const wordCount = lastAnswer.trim().split(/\s+/).length;
+    // Plus la réponse est longue/complexe, plus le jury "réfléchit"
+    if (wordCount < 15) return 2500 + Math.random() * 1500; // 2.5-4s
+    if (wordCount < 50) return 4000 + Math.random() * 2000; // 4-6s
+    return 5500 + Math.random() * 2500; // 5.5-8s
+  }
+
+  // Affichage progressif du texte d'une bulle (mot par mot)
+  function typeMessageProgressively(element, text, callback) {
+    const words = text.split(' ');
+    let idx = 0;
+    element.classList.add('typing');
+    element.textContent = '';
+    // Le speech synthesis synchronise plus ou moins (~150-180 mots/min en français)
+    // Donc ~60ms par mot moyen, on aligne avec ça pour un effet fluide
+    const wordsPerSec = 2.8;
+    const intervalMs = 1000 / wordsPerSec;
+
+    const interval = setInterval(() => {
+      if (idx >= words.length) {
+        clearInterval(interval);
+        element.classList.remove('typing');
+        if (callback) callback();
+        return;
+      }
+      element.textContent += (idx === 0 ? '' : ' ') + words[idx];
+      idx++;
+      // Auto-scroll
+      const conv = document.getElementById('oral-qr-conversation');
+      if (conv) conv.scrollTop = conv.scrollHeight;
+    }, intervalMs);
+  }
+
+  // ============================================================
+  // V5b — DÉTECTION DES HÉSITATIONS / DÉBIT / EUH
+  // ============================================================
+
+  function analyzeSpeechPatterns(text, durationSeconds) {
+    if (!text || !text.trim()) return null;
+    const cleaned = text.toLowerCase().trim();
+    const words = cleaned.split(/\s+/);
+    const wordCount = words.length;
+
+    // Compter les marqueurs d'hésitation
+    const hesitationPatterns = /\b(euh+|heu+|ben|bah|donc|voilà|en fait|du coup|j'veux dire|on va dire)\b/gi;
+    const hesitations = (cleaned.match(hesitationPatterns) || []).length;
+
+    // Calcul débit (mots/minute)
+    const minutesSpoken = durationSeconds / 60;
+    const wordsPerMinute = minutesSpoken > 0 ? Math.round(wordCount / minutesSpoken) : 0;
+
+    return {
+      wordCount,
+      hesitations,
+      hesitationsPerMinute: minutesSpoken > 0 ? Math.round(hesitations / minutesSpoken) : 0,
+      wordsPerMinute,
+      durationSeconds: Math.round(durationSeconds)
+    };
+  }
+
+  function getDebitLabel(wpm) {
+    if (wpm < 110) return 'Lent — bien pour la posture mais peu d\'idées par minute';
+    if (wpm < 140) return 'Posé — rythme idéal pour un oral de concours';
+    if (wpm < 170) return 'Soutenu — vous tenez bien le débit';
+    return 'Rapide — risque de manquer d\'articulation';
+  }
+
+  function getHesitationLabel(perMin) {
+    if (perMin < 2) return 'Très peu — excellente fluidité';
+    if (perMin < 5) return 'Acceptable — quelques tics légers';
+    if (perMin < 10) return 'Élevé — à travailler pour gagner en assurance';
+    return 'Très élevé — risque de paraître peu sûr';
+  }
+
+  // ============================================================
+  // FIN V5b
+  // ============================================================
+
+  function showScreen(name) {
+    // Désactiver tous les écrans
+    document.querySelectorAll('.oral-screen').forEach(s => {
+      s.classList.remove('active');
+      s.style.display = 'none';
+    });
+    // Activer l'écran demandé
+    const target = document.getElementById('oral-screen-' + name);
+    if (target) {
+      target.classList.add('active');
+      target.style.display = 'block';
+    }
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    console.log('[SCREEN] Écran actif :', name);
+  }
+
+  function addMessage(role, content, meta, isRelance) {
+    state.conversation.push({ role, content, meta, isRelance, timestamp: new Date().toISOString() });
+    const inner = document.getElementById('oral-conversation-inner');
+    const el = document.createElement('div');
+    el.className = 'oral-message candidat';
+    const av = (state.memberEmail?.[0] || 'M').toUpperCase();
+    el.innerHTML = `
+      <div class="oral-avatar candidat-avatar">${av}</div>
+      <div class="oral-message-content">
+        <div class="oral-message-meta">Toi · Réponse</div>
+        <div class="oral-bulle candidat-bulle">${escapeHtml(content)}</div>
+      </div>`;
+    inner.appendChild(el);
+    document.getElementById('oral-qr-conversation').scrollTop = 9999999;
+  }
+
+  // V5 : Affichage d'un message d'un juré spécifique
+  function addJuryMessage(content, speaker, meta, isRelance) {
+    const jure = state.jury[speaker];
+    if (!jure) return;
+
+    state.conversation.push({
+      role: 'jury',
+      speaker: speaker,
+      jureName: `${jure.prenom} ${jure.nom}`,
+      jureGrade: jure.grade,
+      content,
+      meta,
+      isRelance,
+      timestamp: new Date().toISOString()
+    });
+
+    const titre = jure.isFemme ? 'Madame' : 'Monsieur';
+    const labelMap = {
+      officier: 'Officier (Président)',
+      elu: 'Élu',
+      sousoff: 'Sous-officier'
+    };
+
+    const inner = document.getElementById('oral-conversation-inner');
+    const el = document.createElement('div');
+    el.className = 'oral-message';
+    const messageId = 'msg-' + Date.now();
+    el.innerHTML = `
+      <div class="oral-avatar jury-${speaker}">${jure.avatarLetter}</div>
+      <div class="oral-message-content">
+        <div class="oral-message-meta">${labelMap[speaker]} · ${titre} ${jure.nom} · ${meta || ''}</div>
+        <div class="oral-bulle jury-bulle bulle-${speaker} ${isRelance ? 'relance' : ''}" id="${messageId}-bulle">
+          ${isRelance ? `<span class="oral-relance-tag tag-${speaker}">↪ Creuse sa propre question</span>` : ''}
+          <span id="${messageId}-text"></span>
+        </div>
+      </div>`;
+    inner.appendChild(el);
+    document.getElementById('oral-qr-conversation').scrollTop = 9999999;
+
+    // V5b : affichage progressif synchronisé avec la voix
+    const textElement = document.getElementById(messageId + '-text');
+    const bulleElement = document.getElementById(messageId + '-bulle');
+
+    // On démarre la voix ET l'affichage progressif en parallèle
+    if (state.voiceEnabled) {
+      speakAsJure(content, speaker);
+    }
+    typeMessageProgressively(textElement, content, () => {
+      // Quand l'affichage est fini, on enlève le curseur
+      if (bulleElement) bulleElement.classList.remove('typing');
+    });
+  }
+
+  function showJuryThinking(show, speaker) {
+    const ex = document.getElementById('oral-thinking');
+    if (ex) ex.remove();
+    if (!show) return;
+
+    const jure = speaker && state.jury ? state.jury[speaker] : null;
+    const text = jure
+      ? `${jure.isFemme ? 'Madame' : 'Monsieur'} ${jure.nom} consulte ses notes...`
+      : `Le jury réfléchit...`;
+    const el = document.createElement('div');
+    el.id = 'oral-thinking';
+    el.className = 'oral-jury-pense';
+    el.innerHTML = `<div class="oral-jury-pense-dots"><span></span><span></span><span></span></div><div class="oral-jury-pense-text">${escapeHtml(text)}</div>`;
+    document.getElementById('oral-conversation-inner').appendChild(el);
+    document.getElementById('oral-qr-conversation').scrollTop = 9999999;
+  }
+
+  function renderDebrief(d) {
+    showScreen('debrief');
+    const c = document.getElementById('oral-debrief-container');
+    if (d.error) {
+      c.innerHTML = `<p>Erreur : ${escapeHtml(d.error)}</p><pre>${escapeHtml(d.raw || '')}</pre>`;
+      return;
+    }
+    const dur = Math.floor((new Date() - state.startedAt) / 1000);
+    const niveauClass = (n) => ({ 'Insuffisant':'oral-niveau-insuffisant','À améliorer':'oral-niveau-ameliorer','Satisfaisant':'oral-niveau-satisfaisant','Bon':'oral-niveau-bon','Excellent':'oral-niveau-excellent' }[n] || 'oral-niveau-satisfaisant');
+
+    // V5b : Bloc statistiques comportementales
+    let statsHtml = '';
+    const exposeAna = state.exposeAnalysis;
+    const globalAna = state.globalAnalysis;
+
+    if (exposeAna || globalAna) {
+      const totalWords = (exposeAna?.wordCount || 0) + (globalAna?.wordCount || 0);
+      const totalHesitations = (exposeAna?.hesitations || 0) + (globalAna?.hesitations || 0);
+      const totalDuration = (exposeAna?.durationSeconds || 0) + (globalAna?.durationSeconds || 0);
+      const avgWpm = totalDuration > 0 ? Math.round(totalWords / (totalDuration / 60)) : 0;
+      const avgHpm = totalDuration > 0 ? Math.round(totalHesitations / (totalDuration / 60) * 10) / 10 : 0;
+
+      statsHtml = `
+        <div class="oral-debrief-stats">
+          <div class="oral-stat-item">
+            <div class="oral-stat-value">${totalWords}</div>
+            <div class="oral-stat-label">Mots prononcés</div>
+            <div class="oral-stat-context">Total exposé + Q/R</div>
+          </div>
+          <div class="oral-stat-item">
+            <div class="oral-stat-value">${avgWpm}</div>
+            <div class="oral-stat-label">Mots / min</div>
+            <div class="oral-stat-context">${getDebitLabel(avgWpm)}</div>
+          </div>
+          <div class="oral-stat-item">
+            <div class="oral-stat-value">${totalHesitations}</div>
+            <div class="oral-stat-label">Hésitations détectées</div>
+            <div class="oral-stat-context">${getHesitationLabel(avgHpm)}</div>
+          </div>
+          <div class="oral-stat-item">
+            <div class="oral-stat-value">${Math.floor(totalDuration/60)}:${Math.floor(totalDuration%60).toString().padStart(2,'0')}</div>
+            <div class="oral-stat-label">Temps de parole</div>
+            <div class="oral-stat-context">Sur 15 min total</div>
+          </div>
+        </div>
+      `;
+    }
+
+    c.innerHTML = `
+      <div class="oral-debrief-header">
+        <span class="oral-tag">Débrief de session</span>
+        <h1 style="font-family:'Playfair Display',serif;font-size:40px;font-weight:600;line-height:1.2;">Voici ce que <em style="color:#CC2229;font-style:italic;">le jury</em> a retenu.</h1>
+        <div class="oral-debrief-meta">
+          <span>${new Date().toLocaleDateString('fr-FR')}</span>
+          <span>Durée : ${Math.floor(dur/60)}:${(dur%60).toString().padStart(2,'0')}</span>
+          <span>${state.questionsCount} questions</span>
+        </div>
+      </div>
+      ${statsHtml}
+      <div class="oral-verdict-card">
+        <div class="oral-axe-label" style="color:#D4D0CA;">Verdict général</div>
+        <h2>${escapeHtml(d.verdict_titre || '')}</h2>
+        <p class="oral-verdict-text">${escapeHtml(d.verdict_texte || '')}</p>
+      </div>
+      <div class="oral-debrief-grid">
+        ${(d.axes || []).map((a, i) => {
+          const isFull = i === d.axes.length - 1 && d.axes.length === 5;
+          const j = Array.from({length:5}, (_,x) => `<span class="${x < (a.jauge||0) ? 'actif' : ''}"></span>`).join('');
+          return `<div class="oral-axe-card ${isFull ? 'full' : ''}">
+            <div class="oral-axe-label">Axe ${i+1} / ${d.axes.length}</div>
+            <div class="oral-axe-titre">${escapeHtml(a.titre || '')}</div>
+            <span class="oral-niveau-badge ${niveauClass(a.niveau)}">${escapeHtml(a.niveau || '')}</span>
+            <div class="oral-axe-jauge">${j}</div>
+            <p class="oral-axe-commentaire">${escapeHtml(a.commentaire || '')}</p>
+            ${(a.points && a.points.length) ? `<div class="oral-axe-points"><div class="oral-axe-points-titre">${escapeHtml(a.points_titre || 'À retravailler')}</div><ul>${a.points.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul></div>` : ''}
+          </div>`;
+        }).join('')}
+      </div>
+      <div style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+        <div style="font-size:13px;color:#6B6B6B;">Session enregistrée (en mode test : dans localStorage).</div>
+        <div style="display:flex;gap:12px;">
+          <button class="oral-btn-secondary" onclick="OralSimulator.backToHome()">Retour</button>
+          <button class="oral-btn-primary" onclick="OralSimulator.restart()">Refaire</button>
+        </div>
+      </div>`;
+  }
+
+  function abandonSession() {
+    if (!confirm('Quitter ?')) return;
+    Object.values(state.timers).forEach(clearInterval);
+    stopSpeechRecognition();
+    if (state.sessionId) supabase.from('oral_sessions').update({ status: 'abandoned' }).eq('id', state.sessionId);
+    backToHome();
+  }
+
+  function backToHome() {
+    state.sessionId = null;
+    state.conversation = [];
+    state.exposeText = '';
+    state.questionsCount = 0;
+    state.jury = null;
+    state.lastJurySpeaker = null;
+    state.previousJurySpeaker = null;
+    state.relanceCount = 0;
+    state.juryGreeted = false;
+    document.getElementById('oral-conversation-inner').innerHTML = '';
+    loadQuota();
+    showScreen('accueil');
+  }
+
+  function restart() { backToHome(); setTimeout(() => startSession(), 300); }
+
+  function showAccessDenied() {
+    document.getElementById('oral-simulator-root').innerHTML = `<div style="max-width:600px;margin:80px auto;padding:48px;text-align:center;background:white;border:2px solid #1A1A1A;"><h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;">Le simulateur est réservé aux membres <em style="color:#CC2229;">Performance et Excellence</em>.</h2><p style="color:#6B6B6B;">Tier ${state.memberTier} non éligible.</p></div>`;
+  }
+
+  function escapeHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+
+  function _getCurrentWeekIso() {
+    const d = new Date();
+    d.setHours(0,0,0,0);
+    d.setDate(d.getDate() + 4 - (d.getDay() || 7));
+    const ys = new Date(d.getFullYear(), 0, 1);
+    const w = Math.ceil((((d - ys) / 86400000) + 1) / 7);
+    return `${d.getFullYear()}-W${w.toString().padStart(2,'0')}`;
+  }
+
+  return { init, startSession, endExpose, sendAnswer, toggleQRMic, abandonSession, backToHome, restart, endQR, enterRoom, toggleMute, _getCurrentWeekIso };
+})();
+
+console.log('%c[SIMULATEUR ORAL — MODE TEST]', 'background:#1A1A1A;color:#FBBF24;padding:8px 16px;font-size:14px;font-weight:bold;');
+console.log('Configure le mode et clique "Appliquer et démarrer"');
+console.log('Pour réinitialiser le quota : localStorage.clear(); location.reload()');
+</script>
+
+</body>
+</html>
