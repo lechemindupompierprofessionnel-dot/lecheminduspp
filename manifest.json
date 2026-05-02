@@ -1,37 +1,35 @@
 {
-  "name": "Le Chemin du Sapeur-Pompier Professionnel",
+  "name": "Le Chemin du SPP",
   "short_name": "Chemin SPP",
-  "description": "Préparation au concours de Caporal Sapeur-Pompier Professionnel : QCM, annales, prépa physique et coaching.",
-  "start_url": "/#decouverte",
+  "description": "Préparation au concours de Caporal Sapeur-Pompier Professionnel",
+  "start_url": "/",
   "scope": "/",
   "display": "standalone",
   "orientation": "portrait",
-  "background_color": "#CC2229",
+  "background_color": "#F5F0E8",
   "theme_color": "#CC2229",
-  "lang": "fr-FR",
-  "dir": "ltr",
-  "categories": ["education", "productivity"],
+  "lang": "fr",
   "icons": [
     {
-      "src": "logo_192.png",
+      "src": "/logo_192.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "logo_512.png",
+      "src": "/logo_512.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any"
     },
     {
-      "src": "logo_192_maskable.png",
+      "src": "/logo_192_maskable.png",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "maskable"
     },
     {
-      "src": "logo_512_maskable.png",
+      "src": "/logo_512_maskable.png",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "maskable"
