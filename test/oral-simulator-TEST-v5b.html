@@ -1293,8 +1293,8 @@ const OralSimulator = (function() {
 
   function startExposeRecording() {
     state.exposeText = '';
-    state.committedText = '';
-    state.currentSessionText = '';
+    state.seenSegments = new Set();
+    state.allFinalSegments = [];
     state.exposeStartedAt = new Date();
     document.getElementById('oral-transcription').innerHTML = '<span class="provisoire">Commence à parler...</span>';
 
@@ -1415,8 +1415,8 @@ const OralSimulator = (function() {
     }
 
     // Réinitialiser le buffer de transcription pour la prochaine réponse
-    state.committedText = '';
-    state.currentSessionText = '';
+    state.seenSegments = new Set();
+    state.allFinalSegments = [];
 
     state.questionsCount++;
 
@@ -1854,27 +1854,35 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
 
     // Stop toute reconnaissance en cours pour repartir propre
     if (state.recognition) {
-      try { state.recognition.stop(); } catch(e) {}
+      try { state.recognition.abort(); } catch(e) {}
       state.recognition = null;
     }
 
-    // === Architecture simplifiée pour éviter les doublons ===
+    // ============================================================
+    // ARCHITECTURE V5b-fix4 — Anti-doublons définitif Android
+    // ============================================================
     //
-    // Le bug venait du fait que Chrome redémarre la reconnaissance vocale
-    // toutes les ~30 secondes (event 'onend'), et chaque redémarrage repart
-    // avec un resultIndex à 0, ce qui faisait que des segments déjà figés
-    // étaient réinjectés dans la transcription.
+    // Problème Android : la SpeechRecognition API se coupe automatiquement
+    // après un timeout court (10-15s sans parole), et au redémarrage,
+    // re-émet parfois les anciens résultats. Mon ancien code accumulait
+    // ces résultats déjà vus, créant des doublons.
     //
-    // SOLUTION : on sépare clairement deux états :
-    // - `committedText` : texte définitivement figé (ne change plus jamais)
-    // - `currentSessionText` : texte de la session de reconnaissance courante
-    //                          (sera figé dans committedText au onend)
+    // SOLUTION : tracking par identifiant unique de chaque résultat.
+    // Chaque résultat figé (isFinal=true) reçoit un hash basé sur son
+    // contenu. On stocke ces hashes dans un Set. Quand un résultat
+    // arrive, on vérifie si on l'a déjà vu : si oui, on l'ignore.
     //
-    // À chaque tour, l'affichage = committedText + currentSessionText + interim
-    // Et au redémarrage : committedText reste intact, currentSessionText repart à zéro.
+    // De plus : on ne redémarre PAS automatiquement la reconnaissance.
+    // Les notifs sonores Android viennent de ces redémarrages. À la place,
+    // on laisse le navigateur gérer ses propres redémarrages internes.
+    // Si la reconnaissance s'arrête vraiment, on attend que le candidat
+    // reprenne la parole et on redémarre seulement à ce moment-là.
+    //
+    // Pour l'exposé : on accumule TOUS les segments uniques rencontrés.
+    // Pour le Q/R : pareil, mais on remet à zéro à chaque sendAnswer.
 
-    state.committedText = state.committedText || '';
-    state.currentSessionText = '';
+    state.seenSegments = new Set(); // hashes des segments déjà vus
+    state.allFinalSegments = []; // tous les segments finaux uniques, dans l'ordre
     state._currentPhase = phase;
 
     state.recognition = new SR();
@@ -1883,37 +1891,56 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
     state.recognition.interimResults = true;
     state.recognition.maxAlternatives = 1;
 
-    state.recognition.onresult = (e) => {
-      let interim = '';
-      let sessionFinal = '';
+    // Hash simple d'une string (déterministe, rapide)
+    const hashString = (s) => {
+      let h = 0;
+      const trimmed = s.trim().toLowerCase();
+      for (let i = 0; i < trimmed.length; i++) {
+        h = ((h << 5) - h) + trimmed.charCodeAt(i);
+        h = h & h;
+      }
+      return h.toString(36);
+    };
 
-      // On parcourt TOUS les résultats de la session courante uniquement
+    state.recognition.onresult = (e) => {
+      let currentInterim = '';
+
+      // On parcourt TOUS les résultats du tampon courant
       for (let i = 0; i < e.results.length; i++) {
         const result = e.results[i];
         const transcript = result[0].transcript;
+
         if (result.isFinal) {
-          sessionFinal += transcript;
+          // Résultat figé : on vérifie qu'on ne l'a pas déjà vu
+          const trimmed = transcript.trim();
+          if (trimmed.length === 0) continue;
+
+          const h = hashString(trimmed);
+          if (!state.seenSegments.has(h)) {
+            state.seenSegments.add(h);
+            state.allFinalSegments.push(trimmed);
+            console.log('[SPEECH] Nouveau segment figé :', trimmed.substring(0, 60));
+          } else {
+            console.log('[SPEECH] Segment ignoré (déjà vu) :', trimmed.substring(0, 60));
+          }
         } else {
-          interim += transcript;
+          // Résultat provisoire : on remplace simplement à chaque tick
+          currentInterim = transcript;
         }
       }
 
-      // La session courante remplace la précédente version
-      state.currentSessionText = sessionFinal;
-
-      // L'affichage = ce qui a été figé + la session en cours + l'interim
-      const fullFinal = (state.committedText + ' ' + state.currentSessionText).trim();
-      const display = (fullFinal + ' ' + interim.trim()).trim();
+      // Construction du texte final
+      const finalText = state.allFinalSegments.join(' ').trim();
 
       if (phase === 'expose') {
         const el = document.getElementById('oral-transcription');
-        if (display) {
-          el.innerHTML = `<span class="definitif">${escapeHtml(fullFinal)}</span>${interim.trim() ? ' <span class="provisoire">' + escapeHtml(interim.trim()) + '</span>' : ''}`;
+        if (finalText || currentInterim) {
+          el.innerHTML = `<span class="definitif">${escapeHtml(finalText)}</span>${currentInterim.trim() ? ' <span class="provisoire">' + escapeHtml(currentInterim.trim()) + '</span>' : ''}`;
         }
-        state.exposeText = fullFinal;
+        state.exposeText = finalText;
       } else if (phase === 'qr') {
         const input = document.getElementById('oral-qr-input');
-        input.value = display;
+        input.value = (finalText + ' ' + currentInterim.trim()).trim();
       }
     };
 
@@ -1922,32 +1949,29 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
       if (e.error === 'not-allowed' || e.error === 'service-not-allowed') {
         alert('Micro bloqué. Autorise l\'accès au micro dans Chrome (icône cadenas dans la barre d\'adresse).');
         state.isRecording = false;
-      } else if (e.error === 'no-speech' || e.error === 'aborted') {
-        // Erreurs normales, on continue
-        return;
       }
+      // Pour 'no-speech', 'aborted', etc. : on ne fait rien, c'est normal
     };
 
+    // V5b-fix4 : redémarrage SILENCIEUX (sans notif sonore)
+    // On ne redémarre QUE si on était vraiment en train d'enregistrer
+    // ET on attend un délai pour éviter le phénomène de double-déclenchement
     state.recognition.onend = () => {
-      // Au redémarrage : on FIGE la session courante dans committedText
-      if (state.currentSessionText && state.currentSessionText.trim()) {
-        state.committedText = (state.committedText + ' ' + state.currentSessionText).trim();
-        console.log('[SPEECH] Texte figé :', state.committedText.substring(state.committedText.length - 80));
-      }
-      state.currentSessionText = '';
-
-      // Auto-restart si on est encore en phase active
+      console.log('[SPEECH] onend déclenché');
       if (state.isRecording) {
-        try {
-          state.recognition.start();
-        } catch(e) {
-          // Si erreur (souvent : "InvalidStateError"), on attend un peu et on relance
-          setTimeout(() => {
-            if (state.isRecording) {
-              try { state.recognition.start(); } catch(e2) { console.warn('[SPEECH] Restart impossible:', e2.message); }
+        // Délai d'attente plus long pour réduire la fréquence des redémarrages
+        // (la notif sonore Android se déclenche à chaque .start())
+        setTimeout(() => {
+          if (state.isRecording && state.recognition) {
+            try {
+              state.recognition.start();
+              console.log('[SPEECH] Redémarrage silencieux');
+            } catch(e) {
+              // Si on ne peut pas redémarrer (déjà actif ou autre), on abandonne silencieusement
+              console.warn('[SPEECH] Redémarrage impossible :', e.message);
             }
-          }, 200);
-        }
+          }
+        }, 500);
       }
     };
 
@@ -2098,13 +2122,10 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
     }
     window.speechSynthesis.cancel();
 
-    // V5b-fix3 : pause de la reconnaissance vocale pendant que le jury parle
-    // pour éviter que le micro capte la voix du jury et crée des doublons
-    const wasRecording = state.isRecording;
-    if (wasRecording && state.recognition) {
-      state.isRecording = false; // empêche le redémarrage automatique
-      try { state.recognition.stop(); } catch(e) {}
-    }
+    // V5b-fix4 : SUPPRIMÉ le fix qui coupait la reconnaissance vocale
+    // pendant que le jury parle (cause des notifs sonores intempestives).
+    // Le micro continue de tourner ; les segments du jury qui pourraient
+    // être captés sont désormais filtrés par le système de hash anti-doublons.
 
     const utterance = new SpeechSynthesisUtterance(text);
     const result = getVoiceForJure(speaker);
@@ -2132,23 +2153,10 @@ Le candidat doit sortir en se demandant "ai-je bien fait ?". C'est la règle du 
 
     utterance.volume = 1.0;
 
-    // À la fin de la lecture du jury, on relance la reconnaissance si elle était active
-    const onFinish = () => {
-      if (wasRecording) {
-        // Petite pause pour éviter que le tampon audio capte les derniers mots
-        setTimeout(() => {
-          state.isRecording = true;
-          if (state.recognition && state._currentPhase) {
-            try { state.recognition.start(); } catch(e) { /* déjà démarré */ }
-          }
-        }, 300);
-      }
-      if (onEndCallback) onEndCallback();
-    };
-
-    utterance.onend = onFinish;
-    utterance.onerror = onFinish;
-
+    if (onEndCallback) {
+      utterance.onend = onEndCallback;
+      utterance.onerror = onEndCallback;
+    }
     window.speechSynthesis.speak(utterance);
   }
 
