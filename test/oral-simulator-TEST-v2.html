@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simulateur d'oral SPP — MODE TEST</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'DM Sans', sans-serif; background: #F5EFE6; color: #1A1A1A; min-height: 100vh; line-height: 1.6; }
+
+  /* === Bandeau de test === */
+  .test-banner {
+    background: #FBBF24; color: #78350F; padding: 12px 24px;
+    text-align: center; font-size: 13px; font-weight: 600;
+    border-bottom: 2px solid #92400E;
+    position: sticky; top: 0; z-index: 1000;
+  }
+  .test-banner code { background: #78350F; color: #FBBF24; padding: 2px 6px; border-radius: 3px; }
+
+  .test-config {
+    background: #1A1A1A; color: #F5EFE6; padding: 24px;
+    margin: 16px auto; max-width: 1100px;
+    font-family: monospace; font-size: 13px;
+  }
+  .test-config h3 {
+    color: #FBBF24; font-family: 'DM Sans'; font-size: 14px;
+    margin-bottom: 12px; letter-spacing: 1px; text-transform: uppercase;
+  }
+  .test-config label {
+    display: block; margin-bottom: 12px;
+    font-family: 'DM Sans'; font-size: 13px;
+  }
+  .test-config input[type="text"], .test-config input[type="password"], .test-config select {
+    width: 100%; padding: 8px 12px; background: #2D2D2D; color: white;
+    border: 1px solid #6B6B6B; font-family: monospace; font-size: 12px;
+    margin-top: 4px;
+  }
+  .test-config button {
+    background: #FBBF24; color: #1A1A1A; border: none;
+    padding: 10px 20px; font-weight: 700; cursor: pointer;
+    font-family: 'DM Sans'; margin-top: 12px;
+  }
+  .test-config .status { margin-top: 16px; padding: 12px; background: #2D2D2D; }
+  .test-config .status.ok { border-left: 3px solid #2D7A5F; }
+  .test-config .status.error { border-left: 3px solid #CC2229; }
+
+  /* Tous les styles oral-* (copiés du fichier principal) */
+  .oral-screen { display: none; }
+  .oral-screen.active { display: block; }
+  .oral-tag { display: inline-block; background: #CC2229; color: white; padding: 4px 12px; font-size: 12px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+  .oral-quota-card { background: white; border: 2px solid #1A1A1A; padding: 32px; margin-bottom: 32px; }
+  .oral-quota-card .label { font-size: 12px; text-transform: uppercase; letter-spacing: 1.5px; color: #6B6B6B; margin-bottom: 8px; }
+  .oral-quota-number { font-family: 'Playfair Display', serif; font-size: 64px; line-height: 1; color: #CC2229; font-weight: 700; }
+  .oral-quota-total { font-size: 24px; color: #6B6B6B; }
+  .oral-quota-bar { height: 6px; background: #D4D0CA; margin-top: 20px; position: relative; overflow: hidden; }
+  .oral-quota-bar-fill { position: absolute; top: 0; left: 0; bottom: 0; background: #CC2229; transition: width 0.4s; }
+  .oral-btn-primary { background: #CC2229; color: white; border: none; padding: 18px 40px; font-family: 'DM Sans'; font-size: 15px; font-weight: 600; letter-spacing: 0.5px; cursor: pointer; transition: background 0.2s; display: inline-flex; align-items: center; gap: 12px; }
+  .oral-btn-primary:hover { background: #A01820; }
+  .oral-btn-primary:disabled { background: #D4D0CA; cursor: not-allowed; }
+  .oral-btn-secondary { background: transparent; color: #1A1A1A; border: 1.5px solid #1A1A1A; padding: 16px 32px; font-family: 'DM Sans'; font-size: 14px; font-weight: 500; cursor: pointer; }
+  .oral-prep-screen { background: #1A1A1A; color: #F5EFE6; min-height: 80vh; display: flex; align-items: center; justify-content: center; padding: 40px; }
+  .oral-prep-content { max-width: 720px; text-align: center; }
+  .oral-prep-content h1 { color: white; margin-bottom: 24px; font-style: italic; }
+  .oral-countdown { font-family: 'Playfair Display', serif; font-size: 120px; font-weight: 700; color: #CC2229; line-height: 1; margin: 40px 0; }
+  .oral-prep-checks { display: flex; justify-content: center; gap: 32px; margin: 40px 0; flex-wrap: wrap; }
+  .oral-prep-check { display: flex; align-items: center; gap: 8px; font-size: 14px; }
+  .oral-prep-check svg.ok { color: #2D7A5F; }
+  .oral-prep-check svg.ko { color: #CC2229; }
+  .oral-expose-screen { background: #F5EFE6; min-height: 80vh; }
+  .oral-header { background: #1A1A1A; color: white; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; }
+  .oral-phase-indicator { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #D4D0CA; }
+  .oral-phase-indicator strong { color: #CC2229; }
+  .oral-timer { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; display: flex; align-items: center; gap: 12px; }
+  .oral-timer.warning { color: #D97706; }
+  .oral-timer.critical { color: #CC2229; }
+  .oral-timer-pulse { width: 12px; height: 12px; background: #CC2229; border-radius: 50%; animation: oralPulse 1.5s ease-in-out infinite; }
+  @keyframes oralPulse { 0%, 100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.4; transform: scale(0.8); } }
+  .oral-expose-body { display: grid; grid-template-columns: 320px 1fr; gap: 0; min-height: 60vh; }
+  .oral-micro-panel { background: white; padding: 48px 32px; border-right: 1px solid #D4D0CA; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+  .oral-micro-circle { width: 160px; height: 160px; border-radius: 50%; background: #CC2229; display: flex; align-items: center; justify-content: center; color: white; margin-bottom: 24px; position: relative; cursor: pointer; border: none; }
+  .oral-micro-circle.active::before, .oral-micro-circle.active::after { content: ''; position: absolute; border-radius: 50%; border: 2px solid #CC2229; }
+  .oral-micro-circle.active::before { inset: -8px; opacity: 0.4; animation: oralRing 2s ease-out infinite; }
+  .oral-micro-circle.active::after { inset: -16px; opacity: 0.2; animation: oralRing 2s ease-out infinite 0.5s; }
+  @keyframes oralRing { 0% { transform: scale(0.95); opacity: 0.6; } 100% { transform: scale(1.15); opacity: 0; } }
+  .oral-micro-circle svg { width: 48px; height: 48px; }
+  .oral-micro-status { font-family: 'Playfair Display', serif; font-style: italic; font-size: 18px; color: #CC2229; margin-bottom: 8px; }
+  .oral-micro-info { font-size: 13px; color: #6B6B6B; }
+  .oral-transcription-panel { padding: 48px; overflow-y: auto; max-height: 60vh; }
+  .oral-transcription-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 24px; }
+  .oral-transcription-text { font-family: 'Playfair Display', serif; font-size: 22px; line-height: 1.6; color: #1A1A1A; max-width: 720px; }
+  .oral-transcription-text .definitif { color: #1A1A1A; }
+  .oral-transcription-text .provisoire { color: #6B6B6B; font-style: italic; }
+  .oral-footer { background: white; padding: 24px 32px; border-top: 1px solid #D4D0CA; display: flex; justify-content: space-between; align-items: center; }
+  .oral-progress-container { flex: 1; margin: 0 32px; max-width: 400px; }
+  .oral-progress-bar { height: 4px; background: #D4D0CA; position: relative; }
+  .oral-progress-bar-fill { position: absolute; top: 0; left: 0; bottom: 0; background: #CC2229; transition: width 1s linear; }
+  .oral-qr-conversation { flex: 1; overflow-y: auto; padding: 48px 32px; max-height: 65vh; min-height: 50vh; }
+  .oral-conversation-inner { max-width: 820px; margin: 0 auto; }
+  .oral-message { margin-bottom: 32px; display: flex; gap: 16px; }
+  .oral-message.candidat { flex-direction: row-reverse; }
+  .oral-avatar { width: 44px; height: 44px; border-radius: 50%; flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-weight: 700; font-size: 16px; }
+  .oral-avatar.jury { background: #1A1A1A; color: #F5EFE6; }
+  .oral-avatar.candidat-avatar { background: #CC2229; color: white; }
+  .oral-message-content { max-width: 600px; }
+  .oral-message-meta { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 6px; }
+  .oral-message.candidat .oral-message-meta { text-align: right; }
+  .oral-bulle { padding: 18px 22px; font-size: 15px; line-height: 1.6; }
+  .oral-bulle.jury-bulle { background: white; border: 1px solid #D4D0CA; border-left: 3px solid #CC2229; }
+  .oral-bulle.candidat-bulle { background: #1A1A1A; color: #F5EFE6; }
+  .oral-bulle.relance { margin-top: 8px; background: #FAF6F0; border: 1px dashed #CC2229; border-left: 3px solid #CC2229; font-style: italic; }
+  .oral-relance-tag { font-size: 10px; letter-spacing: 1.5px; text-transform: uppercase; color: #CC2229; font-weight: 600; margin-bottom: 6px; display: block; font-style: normal; }
+  .oral-jury-pense { display: flex; align-items: center; gap: 16px; padding: 16px 22px; background: white; border: 1px solid #D4D0CA; border-left: 3px solid #CC2229; }
+  .oral-jury-pense-text { font-style: italic; color: #6B6B6B; font-size: 14px; }
+  .oral-jury-pense-dots { display: flex; gap: 4px; }
+  .oral-jury-pense-dots span { width: 8px; height: 8px; border-radius: 50%; background: #CC2229; animation: oralDots 1.4s ease-in-out infinite; }
+  .oral-jury-pense-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .oral-jury-pense-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes oralDots { 0%, 60%, 100% { opacity: 0.3; transform: translateY(0); } 30% { opacity: 1; transform: translateY(-4px); } }
+  .oral-input-zone { background: white; border-top: 1px solid #D4D0CA; padding: 24px 32px; display: flex; align-items: center; gap: 16px; }
+  .oral-input-text { flex: 1; padding: 12px 16px; border: 1px solid #D4D0CA; font-family: 'DM Sans'; font-size: 14px; min-height: 44px; resize: vertical; max-height: 120px; }
+  .oral-input-mic-btn { width: 56px; height: 56px; border-radius: 50%; background: #CC2229; border: none; cursor: pointer; color: white; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .oral-input-mic-btn.recording { animation: oralPulse 1s ease-in-out infinite; }
+  .oral-input-send-btn { background: #1A1A1A; color: white; border: none; padding: 14px 24px; font-weight: 600; cursor: pointer; font-family: 'DM Sans'; font-size: 14px; }
+  .oral-input-send-btn:disabled { background: #D4D0CA; cursor: not-allowed; }
+  .oral-debrief { padding: 60px 32px; background: #F5EFE6; }
+  .oral-debrief-container { max-width: 1000px; margin: 0 auto; }
+  .oral-debrief-header { border-bottom: 2px solid #1A1A1A; padding-bottom: 32px; margin-bottom: 48px; }
+  .oral-debrief-meta { font-size: 13px; color: #6B6B6B; margin-top: 8px; }
+  .oral-debrief-meta span:not(:last-child)::after { content: '·'; margin: 0 12px; }
+  .oral-verdict-card { background: #1A1A1A; color: #F5EFE6; padding: 48px; margin-bottom: 48px; }
+  .oral-verdict-card h2 { color: white; margin-bottom: 16px; font-style: italic; font-family: 'Playfair Display', serif; font-size: 28px; }
+  .oral-verdict-text { font-size: 16px; line-height: 1.8; }
+  .oral-verdict-text strong { color: white; }
+  .oral-debrief-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-bottom: 48px; }
+  .oral-axe-card { background: white; padding: 28px; border: 1px solid #D4D0CA; }
+  .oral-axe-card.full { grid-column: span 2; }
+  .oral-axe-label { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 8px; }
+  .oral-axe-titre { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 600; margin-bottom: 16px; }
+  .oral-niveau-badge { display: inline-block; padding: 4px 12px; font-size: 12px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 16px; }
+  .oral-niveau-insuffisant { background: #FECACA; color: #991B1B; }
+  .oral-niveau-ameliorer { background: #FED7AA; color: #9A3412; }
+  .oral-niveau-satisfaisant { background: #FDE68A; color: #92400E; }
+  .oral-niveau-bon { background: #BBF7D0; color: #14532D; }
+  .oral-niveau-excellent { background: #2D7A5F; color: white; }
+  .oral-axe-jauge { display: flex; gap: 4px; margin: 12px 0 20px; }
+  .oral-axe-jauge span { flex: 1; height: 6px; background: #D4D0CA; }
+  .oral-axe-jauge span.actif { background: #CC2229; }
+  .oral-axe-commentaire { font-size: 14px; line-height: 1.7; }
+  .oral-axe-points { margin-top: 16px; padding-top: 16px; border-top: 1px solid #D4D0CA; }
+  .oral-axe-points-titre { font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; color: #6B6B6B; margin-bottom: 8px; }
+  .oral-axe-points ul { list-style: none; padding: 0; margin: 0; }
+  .oral-axe-points li { font-size: 13px; padding: 4px 0 4px 20px; position: relative; }
+  .oral-axe-points li::before { content: ''; position: absolute; left: 0; top: 12px; width: 12px; height: 1px; background: #CC2229; }
+
+  @media (max-width: 900px) {
+    .oral-expose-body { grid-template-columns: 1fr; }
+    .oral-debrief-grid { grid-template-columns: 1fr; }
+    .oral-axe-card.full { grid-column: span 1; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Bandeau d'avertissement -->
+<div class="test-banner">
+  ⚠️ MODE TEST V2 — Jury 100% neutre verbalement, 4 personnalités tirées au sort. Ouvre la console (F12) pour voir le jury actif.
+</div>
+
+<!-- Panneau de configuration -->
+<div class="test-config">
+  <h3>⚙️ Configuration de test</h3>
+
+  <label>
+    Mode d'appel à Claude
+    <select id="test-mode">
+      <option value="mock">🤖 MOCK — Réponses simulées (sans appel API, pour tester l'UI)</option>
+      <option value="direct">🔴 DIRECT — Appel direct à l'API avec ta clé (RISQUE : clé visible côté client)</option>
+      <option value="proxy">✅ PROXY — Via ton URL Vercel (recommandé en prod)</option>
+    </select>
+  </label>
+
+  <div id="test-config-direct" style="display:none;">
+    <label>
+      Ta clé API Anthropic (sk-ant-...) — RESTE EN LOCAL, NE COMMITE JAMAIS
+      <input type="password" id="test-api-key" placeholder="sk-ant-api03-...">
+    </label>
+  </div>
+
+  <div id="test-config-proxy" style="display:none;">
+    <label>
+      URL de ta fonction Vercel
+      <input type="text" id="test-proxy-url" placeholder="https://ton-projet.vercel.app/api/oral-jury">
+    </label>
+  </div>
+
+  <label>
+    Tier simulé
+    <select id="test-tier">
+      <option value="2b">2b — Performance (2 sessions/semaine)</option>
+      <option value="3">3 — Excellence (illimité)</option>
+      <option value="2a">2a — Préparation (accès refusé)</option>
+    </select>
+  </label>
+
+  <label>
+    Durée de l'exposé (sec) — pour ne pas attendre 5 min en test
+    <select id="test-expose-duration">
+      <option value="30">30 secondes (test rapide)</option>
+      <option value="60">1 minute</option>
+      <option value="300" selected>5 minutes (réel)</option>
+    </select>
+  </label>
+
+  <button onclick="applyTestConfig()">Appliquer et démarrer</button>
+
+  <div id="test-status" class="status" style="display:none;"></div>
+</div>
+
+
+<!-- Conteneur du simulateur -->
+<div id="oral-simulator-root" style="display:none;">
+
+  <!-- ÉCRAN ACCUEIL -->
+  <div id="oral-screen-accueil" class="oral-screen active">
+    <div style="max-width: 1100px; margin: 0 auto; padding: 60px 32px;">
+      <span class="oral-tag">Simulateur d'oral</span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 56px; font-weight: 600; line-height: 1.1; letter-spacing: -1px;">
+        Le jury<br><em style="color: #CC2229; font-style: italic;">t'attend.</em>
+      </h1>
+      <p style="font-size: 18px; color: #6B6B6B; max-width: 600px; margin-top: 24px;">
+        Entraîne-toi dans les conditions réelles du concours. 5 minutes d'exposé, 10 minutes de questions, un débrief complet à la fin.
+      </p>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; margin-top: 40px;">
+        <div>
+          <div class="oral-quota-card">
+            <div class="label">Sessions cette semaine</div>
+            <div>
+              <span class="oral-quota-number" id="oral-quota-used">0</span>
+              <span class="oral-quota-total">/ <span id="oral-quota-max">2</span></span>
+            </div>
+            <div class="oral-quota-bar"><div class="oral-quota-bar-fill" id="oral-quota-bar-fill" style="width: 0%;"></div></div>
+            <p style="font-size: 13px; color: #6B6B6B; margin-top: 16px;" id="oral-quota-info">Reset chaque lundi à 00h00.</p>
+          </div>
+          <button class="oral-btn-primary" id="oral-btn-start" onclick="OralSimulator.startSession()">
+            Démarrer ma session
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </button>
+        </div>
+        <div>
+          <h3 style="font-family: 'Playfair Display', serif; font-size: 28px; margin-bottom: 24px;">Le déroulé</h3>
+          <div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid #D4D0CA;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #CC2229; line-height: 1; min-width: 48px;">01</div>
+            <div><h4 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Présente ton parcours et tes motivations</h4><p style="font-size: 14px; color: #6B6B6B;">5 minutes maximum. Le timer coupe net.</p></div>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 20px 0; border-bottom: 1px solid #D4D0CA;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #CC2229; line-height: 1; min-width: 48px;">02</div>
+            <div><h4 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Le jury te questionne</h4><p style="font-size: 14px; color: #6B6B6B;">10 minutes de questions et de relances.</p></div>
+          </div>
+          <div style="display: flex; gap: 16px; padding: 20px 0;">
+            <div style="font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: #CC2229; line-height: 1; min-width: 48px;">03</div>
+            <div><h4 style="font-size: 16px; font-weight: 600; margin-bottom: 4px;">Reçois ton débrief détaillé</h4><p style="font-size: 14px; color: #6B6B6B;">Niveaux qualitatifs sur 5 axes.</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN PREP -->
+  <div id="oral-screen-prep" class="oral-screen oral-prep-screen">
+    <div class="oral-prep-content">
+      <span class="oral-tag">Préparation</span>
+      <h1 style="font-family: 'Playfair Display', serif; font-size: 48px; font-weight: 600;">Respire.<br><em>Tu commences dans...</em></h1>
+      <div class="oral-countdown" id="oral-countdown">15</div>
+      <p style="font-size: 17px; margin-bottom: 32px;">Le jury va te demander de te présenter et d'exposer tes motivations. Tu auras <strong style="color: white;">5 minutes pile</strong>.</p>
+      <div class="oral-prep-checks" id="oral-prep-checks">
+        <div class="oral-prep-check"><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Micro détecté</div>
+        <div class="oral-prep-check"><svg class="ok" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg> Navigateur compatible</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ÉCRAN EXPOSÉ -->
+  <div id="oral-screen-expose" class="oral-screen oral-expose-screen">
+    <div class="oral-header">
+      <div class="oral-phase-indicator">Phase 01 / 02 — <strong>Exposé du candidat</strong></div>
+      <div class="oral-timer" id="oral-expose-timer">
+        <span class="oral-timer-pulse"></span>
+        <span id="oral-expose-time">05:00</span>
+      </div>
+    </div>
+    <div class="oral-expose-body">
+      <div class="oral-micro-panel">
+        <button class="oral-micro-circle active" id="oral-expose-mic">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/>
+            <path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/>
+          </svg>
+        </button>
+        <div class="oral-micro-status" id="oral-mic-status">À toi la parole</div>
+        <div class="oral-micro-info">Le jury t'écoute</div>
+      </div>
+      <div class="oral-transcription-panel">
+        <div class="oral-transcription-label">Transcription en direct</div>
+        <div class="oral-transcription-text" id="oral-transcription">
+          <span class="provisoire">Commence à parler...</span>
+        </div>
+      </div>
+    </div>
+    <div class="oral-footer">
+      <button class="oral-btn-secondary" onclick="OralSimulator.abandonSession()">Quitter la session</button>
+      <div class="oral-progress-container">
+        <div class="oral-progress-bar"><div class="oral-progress-bar-fill" id="oral-expose-progress" style="width: 0%;"></div></div>
+      </div>
+      <button class="oral-btn-primary" onclick="OralSimulator.endExpose()">J'ai terminé</button>
+    </div>
+  </div>
+
+  <!-- ÉCRAN Q/R -->
+  <div id="oral-screen-qr" class="oral-screen">
+    <div class="oral-header">
+      <div class="oral-phase-indicator">Phase 02 / 02 — <strong>Questions du jury</strong> <span style="color:#FBBF24;font-size:10px;margin-left:12px;">[TEST] Jury : <span id="oral-jury-persona">—</span></span></div>
+      <div class="oral-timer" id="oral-qr-timer">
+        <span class="oral-timer-pulse"></span>
+        <span id="oral-qr-time">10:00</span>
+      </div>
+    </div>
+    <div class="oral-qr-conversation" id="oral-qr-conversation">
+      <div class="oral-conversation-inner" id="oral-conversation-inner"></div>
+    </div>
+    <div class="oral-input-zone">
+      <button class="oral-input-mic-btn" id="oral-qr-mic" onclick="OralSimulator.toggleQRMic()">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M12 2a3 3 0 00-3 3v6a3 3 0 006 0V5a3 3 0 00-3-3z"/>
+          <path d="M19 10v1a7 7 0 01-14 0v-1M12 18v4M8 22h8"/>
+        </svg>
+      </button>
+      <textarea class="oral-input-text" id="oral-qr-input" placeholder="Réponds vocalement (micro) ou tape ta réponse..." rows="2"></textarea>
+      <button class="oral-input-send-btn" id="oral-qr-send" onclick="OralSimulator.sendAnswer()">Répondre</button>
+    </div>
+    <div style="padding: 8px 32px; background: #FBBF24; color: #78350F; font-size: 12px; text-align: center;">
+      💡 Astuce test : clique <a href="#" onclick="OralSimulator.endQR(); return false;" style="color:#78350F;text-decoration:underline;font-weight:bold;">ICI</a> pour terminer immédiatement et voir le débrief.
+    </div>
+  </div>
+
+  <!-- ÉCRAN DÉBRIEF -->
+  <div id="oral-screen-debrief" class="oral-screen oral-debrief">
+    <div class="oral-debrief-container" id="oral-debrief-container"></div>
+  </div>
+
+</div>
+
+<script>
+// ============================================================
+// SCRIPT TEST — Mocks pour Memberstack et Supabase
+// ============================================================
+
+// Configuration globale
+let TEST_CONFIG = {
+  mode: 'mock',
+  apiKey: '',
+  proxyUrl: '',
+  tier: '2b',
+  exposeDuration: 300
+};
+
+// Affichage dynamique des champs de config
+document.getElementById('test-mode').addEventListener('change', (e) => {
+  document.getElementById('test-config-direct').style.display = e.target.value === 'direct' ? 'block' : 'none';
+  document.getElementById('test-config-proxy').style.display = e.target.value === 'proxy' ? 'block' : 'none';
+});
+
+function applyTestConfig() {
+  TEST_CONFIG.mode = document.getElementById('test-mode').value;
+  TEST_CONFIG.apiKey = document.getElementById('test-api-key').value;
+  TEST_CONFIG.proxyUrl = document.getElementById('test-proxy-url').value;
+  TEST_CONFIG.tier = document.getElementById('test-tier').value;
+  TEST_CONFIG.exposeDuration = parseInt(document.getElementById('test-expose-duration').value);
+
+  const status = document.getElementById('test-status');
+  status.style.display = 'block';
+
+  if (TEST_CONFIG.mode === 'direct' && !TEST_CONFIG.apiKey.startsWith('sk-ant-')) {
+    status.className = 'status error';
+    status.textContent = '❌ Clé API invalide — doit commencer par sk-ant-';
+    return;
+  }
+  if (TEST_CONFIG.mode === 'proxy' && !TEST_CONFIG.proxyUrl.startsWith('http')) {
+    status.className = 'status error';
+    status.textContent = '❌ URL proxy invalide';
+    return;
+  }
+
+  status.className = 'status ok';
+  status.textContent = `✅ Configuration appliquée — Mode: ${TEST_CONFIG.mode}, Tier: ${TEST_CONFIG.tier}, Durée exposé: ${TEST_CONFIG.exposeDuration}s. Le simulateur démarre.`;
+
+  // Lancer le simulateur
+  document.getElementById('oral-simulator-root').style.display = 'block';
+  setTimeout(() => OralSimulator.init(), 500);
+}
+
+// ============================================================
+// MOCK SUPABASE
+// ============================================================
+const mockSupabase = {
+  _data: JSON.parse(localStorage.getItem('mock_oral_sessions') || '[]'),
+  _save() { localStorage.setItem('mock_oral_sessions', JSON.stringify(this._data)); },
+
+  rpc(fn, params) {
+    if (fn === 'count_oral_sessions_this_week') {
+      const week = OralSimulator._getCurrentWeekIso();
+      const count = this._data.filter(s =>
+        s.member_email === params.p_email && s.week_iso === week && s.status !== 'abandoned'
+      ).length;
+      console.log('[MOCK Supabase] count_oral_sessions_this_week →', count);
+      return Promise.resolve({ data: count, error: null });
+    }
+  },
+
+  from(table) {
+    return {
+      insert(row) {
+        const newRow = { id: 'mock-' + Date.now(), ...row };
+        return {
+          select() {
+            return {
+              single() {
+                mockSupabase._data.push(newRow);
+                mockSupabase._save();
+                console.log('[MOCK Supabase] INSERT →', newRow);
+                return Promise.resolve({ data: newRow, error: null });
+              }
+            };
+          }
+        };
+      },
+      update(updates) {
+        return {
+          eq(col, val) {
+            const row = mockSupabase._data.find(r => r[col] === val);
+            if (row) Object.assign(row, updates);
+            mockSupabase._save();
+            console.log('[MOCK Supabase] UPDATE', val, '→', updates);
+            return Promise.resolve({ data: row, error: null });
+          }
+        };
+      }
+    };
+  }
+};
+
+// ============================================================
+// MOCK CLAUDE API
+// ============================================================
+async function mockClaudeAPI(payload) {
+  console.log('[MOCK Claude] Appel simulé:', payload);
+  await new Promise(r => setTimeout(r, 1000 + Math.random() * 1500));
+
+  const isFirst = payload.messages.length === 1 && payload.messages[0].content.includes('vient de finir son exposé');
+  const isDebrief = payload.messages.some(m => m.content.includes('entretien est terminé'));
+
+  if (isDebrief) {
+    return {
+      text: JSON.stringify({
+        verdict_titre: "[MOCK] Une copie honnête, à affiner sur les points techniques",
+        verdict_texte: "Ta présentation est sincère et ton parcours cohérent. Tu maîtrises les bases du statut mais des lacunes persistent sur l'organisation d'un SIS et la fonction publique territoriale. Continue tes efforts sur la déontologie : tes hésitations trahissent un manque de réflexes face aux mises en situation.",
+        axes: [
+          { id: "motivation", titre: "Motivation", niveau: "Bon", jauge: 4, commentaire: "[MOCK] Engagement clair, parcours SPV cohérent avec le projet SPP.", points_titre: "À renforcer", points: ["Articule mieux le pourquoi maintenant", "Évoque une intervention marquante"] },
+          { id: "coherence", titre: "Cohérence du parcours", niveau: "Excellent", jauge: 5, commentaire: "[MOCK] Aucune incohérence entre exposé et réponses.", points_titre: "Points forts", points: ["Récit chronologique limpide", "Réponses alignées"] },
+          { id: "metier", titre: "Connaissances métier", niveau: "Satisfaisant", jauge: 3, commentaire: "[MOCK] Bases solides mais lacunes sur SDACR et CASDIS.", points_titre: "À retravailler", points: ["Composition du SDACR", "Rôle du préfet vs président de CASDIS", "GDO et GTO récents"] },
+          { id: "deontologie", titre: "Savoir-être & déontologie", niveau: "À améliorer", jauge: 2, commentaire: "[MOCK] Hésitations marquées sur les mises en situation.", points_titre: "À retravailler", points: ["Article 40 du CPP", "Devoir de signalement", "Obligations déontologiques"] },
+          { id: "expression", titre: "Expression orale", niveau: "Bon", jauge: 4, commentaire: "[MOCK] Débit régulier, vocabulaire approprié, bonne tenue dans la durée.", points_titre: "À soigner", points: ["Marquer des silences avant les réponses complexes"] }
+        ]
+      }),
+      usage: { input_tokens: 1234, output_tokens: 567 }
+    };
+  }
+
+  // Récupère la personnalité du jury (stockée à l'init de la session)
+  const persona = window._juryPersona || 'sec';
+
+  if (isFirst) {
+    const questionsByPersona = {
+      technique: [
+        "Quelle est la différence fondamentale, en termes de cadre d'emploi, entre un sapeur-pompier volontaire et un sapeur-pompier professionnel ?",
+        "Qui est l'autorité de gestion d'un sapeur-pompier professionnel, et qui est l'autorité d'emploi ?",
+        "Définissez-moi un SDACR."
+      ],
+      bienveillant: [
+        "Merci pour votre exposé. Pour commencer, pouvez-vous me dire ce qu'est un SIS ?",
+        "D'accord. Concrètement, pour vous, qu'est-ce que devenir caporal change par rapport à votre statut actuel ?",
+        "Très bien. Parlez-moi de votre engagement de SPV. Qu'est-ce qui vous a marqué ?"
+      ],
+      sec: [
+        "Différence SPV / SPP. Cadre d'emploi.",
+        "SDACR. Définition.",
+        "Autorité de gestion d'un SPP. Autorité d'emploi."
+      ],
+      comportementaliste: [
+        "Vous arrivez sur intervention SAP. Votre collègue glisse un billet trouvé chez la victime dans sa poche. Que faites-vous ?",
+        "À la prise de garde, vous sentez clairement l'haleine d'un collègue chargée d'alcool. Que faites-vous ?",
+        "Un collègue tient régulièrement des propos racistes en chambrée. Les autres rient. Vous faites quoi ?"
+      ]
+    };
+    const list = questionsByPersona[persona] || questionsByPersona.sec;
+    return { text: list[Math.floor(Math.random() * list.length)], usage: {} };
+  }
+
+  // Réponse suivante : transition neutre + question
+  const transitions = {
+    technique: ['Précisez.', 'Sur quel fondement ?', 'Continuez.', '', 'Hmm.', 'Détaillez.'],
+    bienveillant: ['D\'accord.', 'Je vois.', 'Bien.', '', 'Continuons.', 'Très bien.'],
+    sec: ['', '', 'Suivant.', '.', 'Hmm.', ''],
+    comportementaliste: ['Je vous écoute.', 'Concrètement ?', '', 'Et après ?', 'Vous faites quoi ?', '']
+  };
+  const transition = (transitions[persona] || transitions.sec)[Math.floor(Math.random() * 6)];
+
+  const nextQuestions = [
+    "[RELANCE] Sur quel fondement juridique vous appuyez-vous précisément ?",
+    "Vous arrivez sur intervention SAP. Votre collègue glisse un billet trouvé chez la victime dans sa poche. Que faites-vous ?",
+    "Qu'est-ce que le SDACR, et qui l'élabore ?",
+    "[RELANCE] Précisez ce que vous entendez par 'cadre d'emploi'.",
+    "Citez-moi trois grades de la filière non-officier.",
+    "Un événement international récent vous a-t-il marqué ces derniers mois ?",
+    "À la prise de garde, vous sentez l'haleine d'un collègue chargée d'alcool. Que faites-vous ?",
+    "[RELANCE] Et si votre chef de garde décide de fermer les yeux ?",
+    "Le devoir de réserve, vous me l'expliquez ?",
+    "[RELANCE] Concrètement, comment ça s'applique sur les réseaux sociaux ?",
+    "Article 40 du Code de procédure pénale. Vous me dites ?",
+    "Le président du CASDIS dans votre département, c'est qui ?",
+    "Vous évoquez un parcours d'engagement. Pourquoi le SPP plutôt que de rester SPV ?"
+  ];
+  const question = nextQuestions[Math.floor(Math.random() * nextQuestions.length)];
+  const fullText = transition ? transition + ' ' + question : question;
+  return { text: fullText, usage: {} };
+}
+
+// ============================================================
+// SIMULATEUR (version test)
+// ============================================================
+window.supabase = mockSupabase; // Injection du mock
+
+const OralSimulator = (function() {
+  const CONFIG = { EXPOSE_DURATION: 300, QR_DURATION: 600, PREP_DURATION: 5, MAX_SESSIONS_PER_WEEK: 2 };
+  let state = { sessionId: null, memberEmail: 'mehdi.test@example.com', memberTier: '2b', weekIso: null, sessionsThisWeek: 0, exposeText: '', conversation: [], recognition: null, isRecording: false, timers: {}, startedAt: null, questionsCount: 0 };
+
+  async function init() {
+    state.memberTier = TEST_CONFIG.tier;
+    CONFIG.EXPOSE_DURATION = TEST_CONFIG.exposeDuration;
+    state.weekIso = _getCurrentWeekIso();
+    if (!['2b', '3'].includes(state.memberTier)) { showAccessDenied(); return; }
+    await loadQuota();
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+      console.warn('[INFO] Web Speech API non supportée — utilise Chrome ou Edge');
+    }
+    console.log('[INIT] Simulateur prêt. Tier:', state.memberTier, 'Mode:', TEST_CONFIG.mode);
+  }
+
+  async function loadQuota() {
+    const { data } = await supabase.rpc('count_oral_sessions_this_week', { p_email: state.memberEmail });
+    state.sessionsThisWeek = data || 0;
+    const max = state.memberTier === '3' ? '∞' : CONFIG.MAX_SESSIONS_PER_WEEK;
+    document.getElementById('oral-quota-used').textContent = state.sessionsThisWeek;
+    document.getElementById('oral-quota-max').textContent = max;
+    if (state.memberTier === '2b') {
+      const pct = (state.sessionsThisWeek / CONFIG.MAX_SESSIONS_PER_WEEK) * 100;
+      document.getElementById('oral-quota-bar-fill').style.width = pct + '%';
+      const btn = document.getElementById('oral-btn-start');
+      if (state.sessionsThisWeek >= CONFIG.MAX_SESSIONS_PER_WEEK) {
+        btn.disabled = true;
+        btn.textContent = 'Quota atteint (test : reset via console)';
+        document.getElementById('oral-quota-info').innerHTML = 'Quota atteint. Pour réinitialiser en mode test, ouvre la console et tape : <code>localStorage.clear(); location.reload()</code>';
+      }
+    } else {
+      document.getElementById('oral-quota-bar-fill').style.width = '100%';
+      document.getElementById('oral-quota-info').textContent = 'Accès illimité — Tier Excellence';
+    }
+  }
+
+  async function startSession() {
+    if (state.memberTier === '2b' && state.sessionsThisWeek >= CONFIG.MAX_SESSIONS_PER_WEEK) {
+      alert('Quota atteint'); return;
+    }
+
+    // === Tirage au sort de la personnalité du jury ===
+    const personas = ['technique', 'bienveillant', 'sec', 'comportementaliste'];
+    window._juryPersona = personas[Math.floor(Math.random() * personas.length)];
+    console.log('[JURY] Personnalité tirée :', window._juryPersona);
+
+    state.startedAt = new Date();
+    const { data } = await supabase.from('oral_sessions').insert({
+      member_email: state.memberEmail, member_tier: state.memberTier,
+      week_iso: state.weekIso, status: 'in_progress'
+    }).select().single();
+    state.sessionId = data.id;
+
+    showScreen('prep');
+    let count = CONFIG.PREP_DURATION;
+    document.getElementById('oral-countdown').textContent = count;
+    state.timers.prep = setInterval(() => {
+      count--;
+      document.getElementById('oral-countdown').textContent = count;
+      if (count <= 0) { clearInterval(state.timers.prep); startExpose(); }
+    }, 1000);
+  }
+
+  function startExpose() {
+    showScreen('expose');
+    state.exposeText = '';
+    let elapsed = 0;
+    document.getElementById('oral-transcription').innerHTML = '<span class="provisoire">Commence à parler...</span>';
+    state.timers.expose = setInterval(() => {
+      elapsed++;
+      const remaining = CONFIG.EXPOSE_DURATION - elapsed;
+      const min = Math.floor(remaining / 60);
+      const sec = remaining % 60;
+      document.getElementById('oral-expose-time').textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+      document.getElementById('oral-expose-progress').style.width = ((elapsed / CONFIG.EXPOSE_DURATION) * 100) + '%';
+      const t = document.getElementById('oral-expose-timer');
+      if (remaining <= 30) t.classList.add('critical');
+      else if (remaining <= 60) t.classList.add('warning');
+      if (remaining <= 0) { clearInterval(state.timers.expose); endExpose(); }
+    }, 1000);
+    startSpeechRecognition('expose');
+  }
+
+  function endExpose() {
+    clearInterval(state.timers.expose);
+    stopSpeechRecognition();
+    const t = document.getElementById('oral-transcription').innerText.trim();
+    state.exposeText = t || '(Pas d\'exposé enregistré — mode test)';
+    console.log('[EXPOSÉ TERMINÉ]', state.exposeText);
+    supabase.from('oral_sessions').update({ expose_text: state.exposeText }).eq('id', state.sessionId);
+    startQR();
+  }
+
+  async function startQR() {
+    showScreen('qr');
+
+    // Affichage de la personnalité (mode test uniquement, à retirer en prod)
+    const personaLabels = {
+      technique: 'Le Technique',
+      bienveillant: 'Le Bienveillant-Piégeux',
+      sec: 'Le Sec',
+      comportementaliste: 'Le Comportementaliste'
+    };
+    const el = document.getElementById('oral-jury-persona');
+    if (el) el.textContent = personaLabels[window._juryPersona] || '—';
+
+    let elapsed = 0;
+    state.timers.qr = setInterval(() => {
+      elapsed++;
+      const remaining = CONFIG.QR_DURATION - elapsed;
+      const min = Math.floor(remaining / 60), sec = remaining % 60;
+      document.getElementById('oral-qr-time').textContent = `${min.toString().padStart(2,'0')}:${sec.toString().padStart(2,'0')}`;
+      const t = document.getElementById('oral-qr-timer');
+      if (remaining <= 60) t.classList.add('critical');
+      else if (remaining <= 120) t.classList.add('warning');
+      if (remaining <= 0) { clearInterval(state.timers.qr); endQR(); }
+    }, 1000);
+
+    showJuryThinking(true);
+    const q = await callJury({ isFirstQuestion: true });
+    showJuryThinking(false);
+    addMessage('jury', q, 'Question 1');
+  }
+
+  async function sendAnswer() {
+    const input = document.getElementById('oral-qr-input');
+    const a = input.value.trim();
+    if (!a) return;
+    addMessage('candidat', a);
+    input.value = '';
+    state.questionsCount++;
+    showJuryThinking(true);
+    const next = await callJury({ candidateAnswer: a });
+    showJuryThinking(false);
+    const isRelance = next.toLowerCase().includes('[relance]');
+    const clean = next.replace(/^\[relance\]\s*/i, '').trim();
+    addMessage('jury', clean, isRelance ? 'Relance' : `Question ${Math.ceil(state.questionsCount/2) + 1}`, isRelance);
+  }
+
+  async function endQR() {
+    Object.values(state.timers).forEach(clearInterval);
+    stopSpeechRecognition();
+    showJuryThinking(true);
+    const raw = await callJury({ requestDebrief: true });
+    showJuryThinking(false);
+    let debrief;
+    try {
+      debrief = JSON.parse(raw.match(/\{[\s\S]*\}/)[0]);
+    } catch (e) {
+      console.error('[ERREUR] Parsing débrief', e, raw);
+      debrief = { error: 'Débrief non parsable', raw };
+    }
+    const duration = Math.floor((new Date() - state.startedAt) / 1000);
+    await supabase.from('oral_sessions').update({
+      ended_at: new Date().toISOString(), conversation: state.conversation,
+      debrief, status: 'completed', duration_seconds: duration, questions_count: state.questionsCount
+    }).eq('id', state.sessionId);
+    renderDebrief(debrief);
+  }
+
+  // === Routage de l'appel selon le mode ===
+  async function callJury(opts) {
+    const messages = buildMessages(opts);
+    const system = buildSystemPrompt(opts.requestDebrief);
+
+    if (TEST_CONFIG.mode === 'mock') {
+      const r = await mockClaudeAPI({ messages, system, max_tokens: opts.requestDebrief ? 2000 : 600 });
+      return r.text;
+    }
+
+    if (TEST_CONFIG.mode === 'direct') {
+      // ⚠️ Appel direct — clé exposée
+      console.warn('[DIRECT] Appel API direct — clé visible côté client !');
+      try {
+        const res = await fetch('https://api.anthropic.com/v1/messages', {
+          method: 'POST',
+          headers: {
+            'content-type': 'application/json',
+            'x-api-key': TEST_CONFIG.apiKey,
+            'anthropic-version': '2023-06-01',
+            'anthropic-dangerous-direct-browser-access': 'true'
+          },
+          body: JSON.stringify({
+            model: 'claude-sonnet-4-5-20250929',
+            max_tokens: opts.requestDebrief ? 2000 : 600,
+            system, messages
+          })
+        });
+        const data = await res.json();
+        if (data.error) throw new Error(data.error.message);
+        return data.content.filter(b => b.type === 'text').map(b => b.text).join('\n');
+      } catch (e) {
+        console.error('[DIRECT] Erreur API:', e);
+        return opts.requestDebrief ? '{"error":"' + e.message + '"}' : 'Erreur API : ' + e.message;
+      }
+    }
+
+    if (TEST_CONFIG.mode === 'proxy') {
+      try {
+        const res = await fetch(TEST_CONFIG.proxyUrl, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ messages, system, max_tokens: opts.requestDebrief ? 2000 : 600 })
+        });
+        const data = await res.json();
+        return data.text;
+      } catch (e) {
+        console.error('[PROXY] Erreur:', e);
+        return opts.requestDebrief ? '{"error":"' + e.message + '"}' : 'Erreur proxy : ' + e.message;
+      }
+    }
+  }
+
+  function buildSystemPrompt(forDebrief) {
+    if (forDebrief) {
+      return `Tu es président de jury de concours Caporal SPP. L'entretien est terminé.
+
+EXPOSÉ : """${state.exposeText}"""
+CONVERSATION : ${state.conversation.map(m => `[${m.role}] ${m.content}`).join('\n')}
+
+Produis un débrief JSON STRICT :
+{
+  "verdict_titre": "...",
+  "verdict_texte": "...",
+  "axes": [
+    {"id":"motivation","titre":"Motivation","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"À renforcer","points":["...","..."]},
+    {"id":"coherence","titre":"Cohérence du parcours","niveau":"Excellent","jauge":5,"commentaire":"...","points_titre":"...","points":["..."]},
+    {"id":"metier","titre":"Connaissances métier","niveau":"Satisfaisant","jauge":3,"commentaire":"...","points_titre":"...","points":["..."]},
+    {"id":"deontologie","titre":"Savoir-être & déontologie","niveau":"À améliorer","jauge":2,"commentaire":"...","points_titre":"...","points":["..."]},
+    {"id":"expression","titre":"Expression orale","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"...","points":["..."]}
+  ]
+}
+
+Niveaux : "Insuffisant", "À améliorer", "Satisfaisant", "Bon", "Excellent". Jauge entier 1-5. Sois honnête et exigeant. RÉPONDS UNIQUEMENT EN JSON VALIDE.`;
+    }
+
+    // === Personnalité du jury (tirée au sort à l'init de session) ===
+    const persona = window._juryPersona || 'sec';
+    const personaProfiles = {
+      technique: `PROFIL : Le TECHNIQUE
+- Tu es obsédé par le statut, l'organisation des SIS, les textes, les cadres d'emploi
+- Tu poses des questions précises, factuelles, sans détour
+- Tu creuses systématiquement la moindre approximation : "Précisez.", "Sur quel fondement ?", "Article ?"
+- Tu ne fais aucune mise en situation déontologique sauf si vraiment nécessaire
+- Ton ton est froid mais correct
+- Tes mots de transition autorisés : "Précisez.", "Sur quel fondement ?", "Continuez.", "Détaillez.", "Hmm." ou rien.`,
+      bienveillant: `PROFIL : Le BIENVEILLANT-PIÉGEUX
+- Tu parles doucement, tu sembles compréhensif
+- Tu utilises des "D'accord.", "Je vois.", "Bien.", "Continuons." pour mettre le candidat à l'aise
+- Mais tes questions sont parmi les plus dures : pièges, mises en situation tordues, questions à tiroir
+- Tu profites du faux confort que tu installes pour déstabiliser
+- Tu peux dire "Très bien." sans que ça veuille dire que la réponse était bonne — c'est un piège
+- Tes mots de transition autorisés : "D'accord.", "Je vois.", "Bien.", "Continuons.", "Très bien." (mais ATTENTION : "très bien" ne signale JAMAIS une bonne réponse, c'est une transition vide)`,
+      sec: `PROFIL : Le SEC
+- Tu parles peu, ton ton est coupant, tu vas droit au point sensible
+- Tu poses la question sans formule de politesse, parfois en fragments verbaux
+- Tu n'as pas de patience pour le bavardage — tu coupes ou enchaînes sec
+- Tu réponds par "Hmm." ou un silence avant de poser la suivante
+- Si le candidat noie le poisson, tu re-poses la même question avec une légère reformulation
+- Tes mots de transition autorisés : "Hmm.", "Suivant.", ".", ou rien (silence + question)`,
+      comportementaliste: `PROFIL : Le COMPORTEMENTALISTE
+- Tu testes en priorité les réflexes éthiques et le savoir-être
+- Tu enchaînes les mises en situation : vol par un collègue, alcool, harcèlement, ordre illégal
+- Tu pousses chaque réponse dans ses retranchements : "Et après ?", "Concrètement ?", "Vous faites quoi ?"
+- Tu cherches le moment où le candidat hésite ou contourne — c'est là que tu creuses
+- Tes mots de transition autorisés : "Je vous écoute.", "Concrètement ?", "Et après ?", "Vous faites quoi ?" ou rien.`
+    };
+
+    return `Tu es membre d'un jury de concours de Caporal de Sapeur-Pompier Professionnel français. Le candidat vient de présenter ses motivations pendant 5 minutes, et tu vas maintenant le questionner pendant 10 minutes.
+
+${personaProfiles[persona] || personaProfiles.sec}
+
+EXPOSÉ DU CANDIDAT (à mémoriser pour vérifier la cohérence) :
+"""${state.exposeText}"""
+
+═══════════════════════════════════════════════════
+RÈGLES ABSOLUES — IMMERSION TOTALE
+═══════════════════════════════════════════════════
+
+❌ INTERDIT — Tu ne dois JAMAIS, sous aucun prétexte :
+- Qualifier la réponse du candidat ("bonne réponse", "exact", "tout à fait", "vous avez raison", "c'est ça")
+- Confirmer ou infirmer ("oui c'est ça", "non c'est faux", "vous vous trompez")
+- Féliciter ou complimenter ("bravo", "parfait", "intéressant")
+- Faire un commentaire pédagogique ("attention à ne pas confondre", "il faut savoir que")
+- Compléter ou corriger une réponse incomplète
+- Donner un signal au candidat sur la qualité de sa réponse, par quelque biais que ce soit
+
+✅ AUTORISÉ — Tu peux uniquement :
+- Utiliser un des mots de transition de ton profil ci-dessus, OU rien du tout
+- Marquer un silence (juste poser la question suivante sans préambule)
+- Poser ta prochaine question
+
+═══════════════════════════════════════════════════
+MÉTHODE — LE CREUSAGE
+═══════════════════════════════════════════════════
+
+→ Si la réponse est BONNE et complète : tu CREUSES sur le même thème avec une question plus difficile. Tu marques [RELANCE] au début de ta question.
+
+→ Si la réponse est INCOMPLÈTE ou approximative : tu re-questionnes sur le même point pour faire dire au candidat ce qui manque ("Précisez.", "Sur quel article ?", "Et concrètement ?"). Tu marques [RELANCE].
+
+→ Si la réponse est FAUSSE ou si le candidat ESQUIVE : tu changes complètement de thème, sans aucune indication. Le candidat doit ressentir le glissement sans en comprendre la raison.
+
+→ Si le candidat NOIE le POISSON (réponse longue et vague) : tu re-poses la MÊME question, plus directement. Une fois. Maximum deux. Si toujours esquive, tu changes.
+
+→ Si tu repères une INCOHÉRENCE avec l'exposé initial : tu y reviens froidement ("Vous avez dit tout à l'heure que [X]. Comment expliquez-vous [Y] ?")
+
+═══════════════════════════════════════════════════
+THÈMES À COUVRIR
+═══════════════════════════════════════════════════
+
+- Statut SPP, SPV, cadres d'emploi, grades de la filière
+- Organisation et fonctionnement d'un SIS (CASDIS, DDSIS, SDACR, conseils)
+- Fonction publique territoriale (statut général, droits et obligations)
+- Textes de référence (GDO, GTO, code de la sécurité intérieure)
+- Mises en situation déontologiques (vol, alcool, harcèlement, ordre illégal, secret pro)
+- Actualité grand public (politique nationale et internationale, conflits, sport, culture — niveau JT 20h)
+- Vérifications de cohérence du parcours présenté
+
+═══════════════════════════════════════════════════
+FORMAT DE RÉPONSE
+═══════════════════════════════════════════════════
+
+UNE seule question à la fois. 1 à 3 phrases maximum. Pas de paragraphe.
+Si c'est une relance, commence par [RELANCE].
+Tu peux préfixer ton message d'un mot de transition autorisé OU rien.
+
+Exemple de bonne réponse de ta part :
+"Précisez. Sur quel fondement juridique ?"
+
+Exemple de mauvaise réponse (INTERDITE) :
+"Très bien, c'est exact ! Maintenant, pouvez-vous nous parler de..."
+
+Le candidat doit sortir de l'oral en se demandant "ai-je bien fait ?". C'est la condition du réalisme.`;
+  }
+
+  function buildMessages(opts) {
+    if (opts.requestDebrief) return [{ role: 'user', content: 'L\'entretien est terminé. Produis le débrief JSON.' }];
+    if (opts.isFirstQuestion) return [{ role: 'user', content: 'Le candidat vient de finir son exposé. Pose ta première question.' }];
+    const h = state.conversation.map(m => ({ role: m.role === 'jury' ? 'assistant' : 'user', content: m.content }));
+    h.push({ role: 'user', content: opts.candidateAnswer });
+    return h;
+  }
+
+  function startSpeechRecognition(phase) {
+    const SR = window.SpeechRecognition || window.webkitSpeechRecognition;
+    if (!SR) return;
+    state.recognition = new SR();
+    state.recognition.lang = 'fr-FR';
+    state.recognition.continuous = true;
+    state.recognition.interimResults = true;
+    let final = '';
+    state.recognition.onresult = (e) => {
+      let interim = '';
+      for (let i = e.resultIndex; i < e.results.length; i++) {
+        const t = e.results[i][0].transcript;
+        if (e.results[i].isFinal) final += t + ' ';
+        else interim += t;
+      }
+      if (phase === 'expose') {
+        document.getElementById('oral-transcription').innerHTML = `<span class="definitif">${final}</span><span class="provisoire">${interim}</span>`;
+        state.exposeText = final;
+      } else if (phase === 'qr') {
+        document.getElementById('oral-qr-input').value = final + interim;
+      }
+    };
+    state.recognition.onerror = (e) => console.warn('Speech error', e);
+    state.recognition.onend = () => { if (state.isRecording) try { state.recognition.start(); } catch(e){} };
+    try { state.recognition.start(); state.isRecording = true; } catch(e){}
+  }
+
+  function stopSpeechRecognition() {
+    state.isRecording = false;
+    if (state.recognition) try { state.recognition.stop(); } catch(e){}
+  }
+
+  function toggleQRMic() {
+    const btn = document.getElementById('oral-qr-mic');
+    if (state.isRecording) { stopSpeechRecognition(); btn.classList.remove('recording'); }
+    else { startSpeechRecognition('qr'); btn.classList.add('recording'); }
+  }
+
+  function showScreen(name) {
+    document.querySelectorAll('.oral-screen').forEach(s => s.classList.remove('active'));
+    document.getElementById('oral-screen-' + name).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function addMessage(role, content, meta, isRelance) {
+    state.conversation.push({ role, content, meta, isRelance, timestamp: new Date().toISOString() });
+    const inner = document.getElementById('oral-conversation-inner');
+    const el = document.createElement('div');
+    el.className = 'oral-message ' + (role === 'candidat' ? 'candidat' : '');
+    const av = role === 'jury' ? 'J' : 'M';
+    const avC = role === 'jury' ? 'jury' : 'candidat-avatar';
+    const bC = role === 'jury' ? 'jury-bulle' + (isRelance ? ' relance' : '') : 'candidat-bulle';
+    el.innerHTML = `
+      <div class="oral-avatar ${avC}">${av}</div>
+      <div class="oral-message-content">
+        <div class="oral-message-meta">${role === 'jury' ? 'Jury · ' + (meta || 'Question') : 'Toi · Réponse'}</div>
+        <div class="oral-bulle ${bC}">${isRelance ? '<span class="oral-relance-tag">↪ Le jury creuse</span>' : ''}${escapeHtml(content)}</div>
+      </div>`;
+    inner.appendChild(el);
+    document.getElementById('oral-qr-conversation').scrollTop = 9999999;
+  }
+
+  function showJuryThinking(show) {
+    const ex = document.getElementById('oral-thinking');
+    if (ex) ex.remove();
+    if (!show) return;
+    const el = document.createElement('div');
+    el.id = 'oral-thinking';
+    el.className = 'oral-jury-pense';
+    el.innerHTML = `<div class="oral-jury-pense-dots"><span></span><span></span><span></span></div><div class="oral-jury-pense-text">Le jury réfléchit...</div>`;
+    document.getElementById('oral-conversation-inner').appendChild(el);
+    document.getElementById('oral-qr-conversation').scrollTop = 9999999;
+  }
+
+  function renderDebrief(d) {
+    showScreen('debrief');
+    const c = document.getElementById('oral-debrief-container');
+    if (d.error) {
+      c.innerHTML = `<p>Erreur : ${escapeHtml(d.error)}</p><pre>${escapeHtml(d.raw || '')}</pre>`;
+      return;
+    }
+    const dur = Math.floor((new Date() - state.startedAt) / 1000);
+    const niveauClass = (n) => ({ 'Insuffisant':'oral-niveau-insuffisant','À améliorer':'oral-niveau-ameliorer','Satisfaisant':'oral-niveau-satisfaisant','Bon':'oral-niveau-bon','Excellent':'oral-niveau-excellent' }[n] || 'oral-niveau-satisfaisant');
+    c.innerHTML = `
+      <div class="oral-debrief-header">
+        <span class="oral-tag">Débrief de session</span>
+        <h1 style="font-family:'Playfair Display',serif;font-size:40px;font-weight:600;line-height:1.2;">Voici ce que <em style="color:#CC2229;font-style:italic;">le jury</em> a retenu.</h1>
+        <div class="oral-debrief-meta">
+          <span>${new Date().toLocaleDateString('fr-FR')}</span>
+          <span>Durée : ${Math.floor(dur/60)}:${(dur%60).toString().padStart(2,'0')}</span>
+          <span>${state.questionsCount} questions</span>
+        </div>
+      </div>
+      <div class="oral-verdict-card">
+        <div class="oral-axe-label" style="color:#D4D0CA;">Verdict général</div>
+        <h2>${escapeHtml(d.verdict_titre || '')}</h2>
+        <p class="oral-verdict-text">${escapeHtml(d.verdict_texte || '')}</p>
+      </div>
+      <div class="oral-debrief-grid">
+        ${(d.axes || []).map((a, i) => {
+          const isFull = i === d.axes.length - 1 && d.axes.length === 5;
+          const j = Array.from({length:5}, (_,x) => `<span class="${x < (a.jauge||0) ? 'actif' : ''}"></span>`).join('');
+          return `<div class="oral-axe-card ${isFull ? 'full' : ''}">
+            <div class="oral-axe-label">Axe ${i+1} / ${d.axes.length}</div>
+            <div class="oral-axe-titre">${escapeHtml(a.titre || '')}</div>
+            <span class="oral-niveau-badge ${niveauClass(a.niveau)}">${escapeHtml(a.niveau || '')}</span>
+            <div class="oral-axe-jauge">${j}</div>
+            <p class="oral-axe-commentaire">${escapeHtml(a.commentaire || '')}</p>
+            ${(a.points && a.points.length) ? `<div class="oral-axe-points"><div class="oral-axe-points-titre">${escapeHtml(a.points_titre || 'À retravailler')}</div><ul>${a.points.map(p => `<li>${escapeHtml(p)}</li>`).join('')}</ul></div>` : ''}
+          </div>`;
+        }).join('')}
+      </div>
+      <div style="display:flex;gap:16px;justify-content:space-between;align-items:center;flex-wrap:wrap;">
+        <div style="font-size:13px;color:#6B6B6B;">Session enregistrée (en mode test : dans localStorage).</div>
+        <div style="display:flex;gap:12px;">
+          <button class="oral-btn-secondary" onclick="OralSimulator.backToHome()">Retour</button>
+          <button class="oral-btn-primary" onclick="OralSimulator.restart()">Refaire</button>
+        </div>
+      </div>`;
+  }
+
+  function abandonSession() {
+    if (!confirm('Quitter ?')) return;
+    Object.values(state.timers).forEach(clearInterval);
+    stopSpeechRecognition();
+    if (state.sessionId) supabase.from('oral_sessions').update({ status: 'abandoned' }).eq('id', state.sessionId);
+    backToHome();
+  }
+
+  function backToHome() {
+    state.sessionId = null;
+    state.conversation = [];
+    state.exposeText = '';
+    state.questionsCount = 0;
+    document.getElementById('oral-conversation-inner').innerHTML = '';
+    loadQuota();
+    showScreen('accueil');
+  }
+
+  function restart() { backToHome(); setTimeout(() => startSession(), 300); }
+
+  function showAccessDenied() {
+    document.getElementById('oral-simulator-root').innerHTML = `<div style="max-width:600px;margin:80px auto;padding:48px;text-align:center;background:white;border:2px solid #1A1A1A;"><h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;">Le simulateur est réservé aux membres <em style="color:#CC2229;">Performance et Excellence</em>.</h2><p style="color:#6B6B6B;">Tier ${state.memberTier} non éligible.</p></div>`;
+  }
+
+  function escapeHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
+
+  function _getCurrentWeekIso() {
+    const d = new Date();
+    d.setHours(0,0,0,0);
+    d.setDate(d.getDate() + 4 - (d.getDay() || 7));
+    const ys = new Date(d.getFullYear(), 0, 1);
+    const w = Math.ceil((((d - ys) / 86400000) + 1) / 7);
+    return `${d.getFullYear()}-W${w.toString().padStart(2,'0')}`;
+  }
+
+  return { init, startSession, endExpose, sendAnswer, toggleQRMic, abandonSession, backToHome, restart, endQR, _getCurrentWeekIso };
+})();
+
+console.log('%c[SIMULATEUR ORAL — MODE TEST]', 'background:#1A1A1A;color:#FBBF24;padding:8px 16px;font-size:14px;font-weight:bold;');
+console.log('Configure le mode et clique "Appliquer et démarrer"');
+console.log('Pour réinitialiser le quota : localStorage.clear(); location.reload()');
+</script>
+
+</body>
+</html>
