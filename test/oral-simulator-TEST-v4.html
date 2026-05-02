@@ -166,7 +166,7 @@
 
 <!-- Bandeau d'avertissement -->
 <div class="test-banner">
-  ⚠️ MODE TEST V3 — Bug de transcription corrigé. Pour tester la pertinence des relances, passe en mode DIRECT (vraie IA).
+  ⚠️ MODE TEST V4 — Jury enrichi avec 45 questions types et la base de connaissances complète. Mode DIRECT recommandé pour exploiter pleinement.
 </div>
 
 <!-- Panneau de configuration -->
@@ -542,6 +542,122 @@ async function mockClaudeAPI(payload) {
 // ============================================================
 window.supabase = mockSupabase; // Injection du mock
 
+// ============================================================
+// BASE DE CONNAISSANCES — SYNTHÈSE DES FICHES QUENTIN
+// ============================================================
+// Cette synthèse est injectée dans le prompt système du jury
+// pour qu'il pose des questions précises et évalue selon les
+// vrais attendus du concours de Caporal SPP.
+// ============================================================
+const JURY_KNOWLEDGE_BASE = `## SYNTHÈSE DE RÉFÉRENCE — CONNAISSANCES DU JURY
+
+### STATUT DU SPP
+
+Architecture statutaire à 3 étages : (1) CGFP en vigueur depuis le 1er mars 2022, (2) décret n°90-850 du 25 sept. 1990 (dispositions communes SPP), (3) décret n°2012-520 du 20 avril 2012 (statut particulier sapeurs et caporaux).
+
+Trois grades depuis 2017 (décret 2017-504) : sapeur (C1), caporal (C2), caporal-chef (C3). Le grade de sapeur 1re classe a été supprimé. Le caporal est le premier grade à responsabilité (chef d'équipe de 2-3 équipiers).
+
+Trois voies d'accès : concours externe au grade de caporal, recrutement sans concours au grade de sapeur (SPV 3 ans min, JSP, service civique, militaires BSPP/BMPM — quota 1 sapeur pour 2 caporaux), promotion interne.
+
+Concours externe (décret n°2020-1474 du 30 nov. 2020) : étude de texte (1h, coef 1) + QCM math (1h, coef 1) + EPS (coef 4, éliminatoires) + entretien individuel 15 min (5 min présentation + 10 min questions).
+
+Formations : FIA après nomination stagiaire (conditionne titularisation), formation de professionnalisation du caporal (indispensable pour exercer comme chef d'équipe), FMPA annuelles, formations de spécialité, formations d'avancement.
+
+Rémunération : traitement indiciaire (moins de 60% du revenu réel) + indemnité de résidence + SFT + prime de feu + indemnité de responsabilité (6-39%) + indemnité de spécialité (jusqu'à 10%) + NBI éventuelle.
+
+Prime de feu : 25% du traitement indiciaire brut depuis le décret n°2020-903 du 24 juillet 2020 (auparavant 19%). Réservée aux SPP. Intégrée au calcul de la pension de retraite. Surcotisation 1,8% supprimée par décret n°2026-18 du 20 janvier 2026.
+
+Temps de travail (décret 2001-1382) : régime dérogatoire. Gardes de 24h ou service hors rang ou mixte. ~96 gardes/an. CASDIS fixe le régime.
+
+Droits : protection fonctionnelle (L. 134-1 CGFP), droit syndical, droit de grève encadré (service minimum), liberté d'opinion, congés, CNRACL.
+
+Obligations : devoir d'obéissance (sauf ordre manifestement illégal), neutralité/laïcité, discrétion professionnelle, secret professionnel, obligation de réserve, dignité/probité/intégrité (L. 121-1 CGFP), aptitude physique permanente, formation continue.
+
+Sanctions disciplinaires en 4 groupes : avertissement, blâme, exclusion temporaire, rétrogradation, révocation. Conseil de discipline pour les sanctions graves. Depuis MATRAS (décret 16 déc. 2021) : CAP des SPP A et B transférées des CDG aux SIS.
+
+Reclassement pour raison opérationnelle (décret 90-850) : en cas d'inaptitude opérationnelle.
+
+Catégorie active (art. L. 24 Code des pensions) : âge légal abaissé, ~57 ans 9 mois actuellement, cible 59 ans à terme. ~27 ans services actifs dont ~17 en SPP requis.
+
+Bonification du cinquième : 1/5 du temps SPP, plafonné 5 ans (20 trimestres). 25 ans service = 5 ans bonifiés. Conditions : radiation sur emploi SPP, âge légal atteint, 17 ans min en SPP.
+
+Double autorité d'emploi UNIQUE en FPT : autorité de gestion = PCASDIS, autorité opérationnelle = préfet. DDSIS incarne cette double casquette.
+
+### ORGANISATION DES SIS
+
+Cadre juridique : articles L. 1424-1 à L. 1424-99 CGCT.
+
+Trois lois fondatrices : Loi n°96-369 du 3 mai 1996 (départementalisation), Loi n°2004-811 du 13 août 2004 (modernisation sécurité civile), Loi n°2021-1520 du 25 nov. 2021 dite MATRAS.
+
+Loi MATRAS : officialisation "SIS" dans le CGCT, intégration SUAP, encadrement carence ambulancière, expérimentation 112, réserve citoyenne, mention "Mort pour le service de la République", référents obligatoires (mixité + sûreté), renforcement PCS, création PICS, pactes capacitaires.
+
+SDIS = établissement public administratif (EPA) autonome, personnalité juridique, autonomie financière.
+
+Effectifs (DGSCGC fin 2022) : ~43 000 SPP, ~198 800 SPV (79%), ~12 000 PATS. 97 SIS + BSPP + BMPM (formations militaires).
+
+3 catégories de SDIS (A, B, C) selon population et activité.
+
+CASDIS : organe délibérant (art. L. 1424-24 à L. 1424-29 CGCT). Composition : conseillers départementaux (majoritaires, ~14), représentants communes, EPCI. Consultatifs : DDSIS, médecin-chef, président UDSP, repr. personnel. Préfet sans voix délibérative.
+
+Président CASDIS : président Conseil départemental de droit (peut déléguer). Pouvoirs : délibérations, marchés publics, justice, nominations, autorité hiérarchique.
+
+Préfet (art. L. 2215-1 CGCT) : autorité opérationnelle. 4 domaines : mise en œuvre opérationnelle, prévention, prévision, formation. Arrête SDACR et règlement opérationnel après avis CASDIS. Déclenche ORSEC. DOS sur événement majeur.
+
+Maire (art. L. 2212-2 CGCT) : autorité de proximité. DOS sur opérations courantes communales. Élabore PCS.
+
+DDSIS : DOUBLE CASQUETTE — directeur EPA (sous PCASDIS) + chef de corps départemental (sous préfet). Recruté parmi colonels/colonels hors classe/contrôleurs généraux. Nomination conjointe (arrêté ministre Intérieur + avis PCASDIS). Mandat 5 ans renouvelable une fois (10 ans max). En intervention : COS (Commandant des opérations de secours), pendant opérationnel du DOS.
+
+Organisation interne (post-MATRAS, décret 14 avril 2022) : centres + services, regroupés en groupements et sous-directions. Logique fonctionnelle (par domaine) + territoriale (par géographie).
+
+Groupements fonctionnels : Opérations, Prévention, Prévision, Formation/Sport, RH/Volontariat, SDTL (Technique/Logistique), Finances/AJ, SSSM.
+
+3 types de centres : CSP (principal, plusieurs départs), CS (secours, mixte), CPI (première intervention, majoritairement SPV — devient "service local d'incendie et de secours" post-MATRAS).
+
+CTA = traitement de l'alerte (18 et 112). CODIS = coordination opérationnelle départementale. Souvent regroupés (CTA-CODIS), fonctions distinctes. 24h/24.
+
+Missions (art. L. 1424-2 CGCT) :
+- Exclusives : prévention, protection, lutte contre les incendies
+- Partagées : SAP/SUAP, accidents, risques techno, naturels, opérations diverses, animaux (MATRAS)
+- Annexes payantes (L. 1424-42)
+- SAP > 80% des interventions
+
+Carence ambulancière : SAMU sollicite SIS faute de transporteur privé. Hors L. 1424-2. Prise en charge par établissements de santé sièges des SAMU. Conventions obligatoires.
+
+SDACR (art. L. 1424-7) : outil prospectif. Élaboré sous autorité préfet, arrêté par préfet après avis CD et CASDIS. Révision tous les 5-7 ans.
+
+Règlement opérationnel : tactique. Arrêté par préfet après avis CASDIS.
+Règlement intérieur : administratif interne. Arrêté par PCASDIS après avis CST.
+
+Plans : ORSEC (préfet), PCS (maire), PICS (EPCI, créé par MATRAS), ETARE.
+
+Financement : ~58% département, ~42% communes/EPCI.
+
+Instances : CST (fusion CT+CHSCT, loi 6 août 2019, comporte FSSSCT), CAP (catégories A et B SPP transférées aux SIS post-MATRAS), CCDSPV, conseil de discipline, commission de réforme. Élections pro : 10 décembre 2026.
+
+Référents obligatoires (art. 56 MATRAS) : mixité/discriminations + sûreté/sécurité.
+
+### TROIS VERSANTS DE LA FONCTION PUBLIQUE
+
+Effectifs fin 2024 : FPE 2,58M (44%), FPT 2,02M (34%), FPH 1,25M (22%). Total 5,85M. + 1,4M contractuels (FPT a la part la plus forte : 26%).
+
+4 lois statutaires historiques : 13 juillet 1983 (Le Pors, droits/obligations, titre I), 11 janvier 1984 (FPE, titre II), 26 janvier 1984 (FPT, titre III), 9 janvier 1986 (FPH, titre IV). Toutes codifiées dans le CGFP.
+
+CGFP : 1265 articles, 8 livres. Législatif depuis le 1er mars 2022. Réglementaire progressif depuis 2025.
+
+FPT : organisée en CADRES D'EMPLOIS (et non corps). Loi 84-53 du 26 janvier 1984 fondatrice. Concilie unité nationale et libre administration (art. 72 Constitution).
+
+Liste d'aptitude FPT : valable 2 ans, renouvelable 2 fois (4 ans max). Pour SPP : concours organisés directement par SIS, recrutements plus rapides.
+
+8 filières FPT : administrative, technique, médico-sociale, culturelle, sportive, animation, police municipale, sapeurs-pompiers. Filière SP = SEULE dont concours organisés directement par les SIS.
+
+3 catégories : A (Bac+3 min), B (Bac), C (sans diplôme requis). SPP = catégorie C, sans condition de diplôme pour le concours.
+
+Acteurs FPT : CNFPT (formation, concours A+), CDG (~96, concours A/B/C, CAP, conseil RH), DGCL (ministère Intérieur), CSFPT (instance nationale).
+
+Rupture conventionnelle : loi 6 août 2019, pérennisée par loi de finances 2026. Art. L. 552-1 à L. 552-5 CGFP.
+
+Militaires : statut spécifique (Code défense), pas FP. BSPP/BMPM = militaires. SPP = FPT.`;
+
 const OralSimulator = (function() {
   const CONFIG = { EXPOSE_DURATION: 300, QR_DURATION: 600, PREP_DURATION: 5, MAX_SESSIONS_PER_WEEK: 2 };
   let state = { sessionId: null, memberEmail: 'mehdi.test@example.com', memberTier: '2b', weekIso: null, sessionsThisWeek: 0, exposeText: '', conversation: [], recognition: null, isRecording: false, timers: {}, startedAt: null, questionsCount: 0 };
@@ -552,10 +668,25 @@ const OralSimulator = (function() {
     state.weekIso = _getCurrentWeekIso();
     if (!['2b', '3'].includes(state.memberTier)) { showAccessDenied(); return; }
     await loadQuota();
+    await loadJuryQuestions();
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
       console.warn('[INFO] Web Speech API non supportée — utilise Chrome ou Edge');
     }
     console.log('[INIT] Simulateur prêt. Tier:', state.memberTier, 'Mode:', TEST_CONFIG.mode);
+    console.log('[INIT] Questions types chargées :', state.juryQuestions ? state.juryQuestions.length : 0);
+  }
+
+  async function loadJuryQuestions() {
+    try {
+      const res = await fetch('questions-types-jury.json');
+      if (!res.ok) throw new Error('HTTP ' + res.status);
+      const data = await res.json();
+      state.juryQuestions = data.questions || [];
+      console.log('[QUESTIONS] Banque chargée :', state.juryQuestions.length, 'questions');
+    } catch (e) {
+      console.warn('[QUESTIONS] Échec du chargement (questions-types-jury.json non trouvé) — le jury fonctionnera sans la banque enrichie. Erreur :', e.message);
+      state.juryQuestions = [];
+    }
   }
 
   async function loadQuota() {
@@ -765,25 +896,58 @@ const OralSimulator = (function() {
 
   function buildSystemPrompt(forDebrief) {
     if (forDebrief) {
-      return `Tu es président de jury de concours Caporal SPP. L'entretien est terminé.
+      return `Tu es président de jury de concours de Caporal Sapeur-Pompier Professionnel français. L'entretien est terminé. Tu dois produire un débrief honnête et exigeant, fondé sur tes connaissances précises du concours.
 
-EXPOSÉ : """${state.exposeText}"""
-CONVERSATION : ${state.conversation.map(m => `[${m.role}] ${m.content}`).join('\n')}
+═══════════════════════════════════════════════════
+TES CONNAISSANCES DE RÉFÉRENCE
+═══════════════════════════════════════════════════
 
-Produis un débrief JSON STRICT :
+${JURY_KNOWLEDGE_BASE}
+
+═══════════════════════════════════════════════════
+DONNÉES DE LA SESSION À ÉVALUER
+═══════════════════════════════════════════════════
+
+EXPOSÉ DU CANDIDAT :
+"""${state.exposeText}"""
+
+CONVERSATION COMPLÈTE :
+${state.conversation.map(m => `[${m.role.toUpperCase()}] ${m.content}`).join('\n')}
+
+═══════════════════════════════════════════════════
+INSTRUCTIONS POUR LE DÉBRIEF
+═══════════════════════════════════════════════════
+
+Tu produis un débrief STRICTEMENT au format JSON suivant. Aucun texte avant ou après le JSON.
+
+Niveaux qualitatifs autorisés (5) : "Insuffisant", "À améliorer", "Satisfaisant", "Bon", "Excellent"
+Jauge : entier de 1 à 5 correspondant au niveau (1=Insuffisant, 5=Excellent).
+
+Tu évalues sur 5 axes OBLIGATOIRES :
+1. motivation — La sincérité et la solidité du projet de devenir caporal SPP
+2. coherence — La cohérence entre l'exposé initial et les réponses (incohérences relevées ?)
+3. metier — La maîtrise des connaissances techniques (statut, SIS, FPT, textes) — UTILISE TES CONNAISSANCES DE RÉFÉRENCE pour évaluer la précision factuelle
+4. deontologie — Le savoir-être, les réflexes éthiques, la gestion des mises en situation
+5. expression — La clarté, la structure, la posture orale, la gestion du temps
+
+Pour chaque axe : commentaire factuel (2-3 phrases), points concrets à retravailler ou points forts (2-3 items courts).
+
+Le verdict général doit être HONNÊTE — n'enrobe pas, ne console pas. Si le candidat a hésité, dis-le. Si une réponse était fausse, dis-le. Cite des moments précis de la conversation.
+
+FORMAT JSON STRICT :
 {
-  "verdict_titre": "...",
-  "verdict_texte": "...",
+  "verdict_titre": "Titre court de 5-15 mots qui résume le verdict",
+  "verdict_texte": "4-6 phrases d'évaluation honnête citant des moments précis",
   "axes": [
     {"id":"motivation","titre":"Motivation","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"À renforcer","points":["...","..."]},
-    {"id":"coherence","titre":"Cohérence du parcours","niveau":"Excellent","jauge":5,"commentaire":"...","points_titre":"...","points":["..."]},
-    {"id":"metier","titre":"Connaissances métier","niveau":"Satisfaisant","jauge":3,"commentaire":"...","points_titre":"...","points":["..."]},
-    {"id":"deontologie","titre":"Savoir-être & déontologie","niveau":"À améliorer","jauge":2,"commentaire":"...","points_titre":"...","points":["..."]},
-    {"id":"expression","titre":"Expression orale","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"...","points":["..."]}
+    {"id":"coherence","titre":"Cohérence du parcours","niveau":"Excellent","jauge":5,"commentaire":"...","points_titre":"Points forts","points":["..."]},
+    {"id":"metier","titre":"Connaissances métier","niveau":"Satisfaisant","jauge":3,"commentaire":"...","points_titre":"À retravailler","points":["..."]},
+    {"id":"deontologie","titre":"Savoir-être & déontologie","niveau":"À améliorer","jauge":2,"commentaire":"...","points_titre":"À retravailler","points":["..."]},
+    {"id":"expression","titre":"Expression orale","niveau":"Bon","jauge":4,"commentaire":"...","points_titre":"À soigner","points":["..."]}
   ]
 }
 
-Niveaux : "Insuffisant", "À améliorer", "Satisfaisant", "Bon", "Excellent". Jauge entier 1-5. Sois honnête et exigeant. RÉPONDS UNIQUEMENT EN JSON VALIDE.`;
+RÉPONDS UNIQUEMENT EN JSON VALIDE — RIEN D'AUTRE AVANT OU APRÈS.`;
     }
 
     // === Personnalité du jury (tirée au sort à l'init de session) ===
@@ -818,12 +982,57 @@ Niveaux : "Insuffisant", "À améliorer", "Satisfaisant", "Bon", "Excellent". Ja
 - Tes mots de transition autorisés : "Je vous écoute.", "Concrètement ?", "Et après ?", "Vous faites quoi ?" ou rien.`
     };
 
+    // === Sélection aléatoire de questions types selon la personnalité ===
+    let sampleQuestions = '';
+    if (state.juryQuestions && state.juryQuestions.length > 0) {
+      const filterByPersona = {
+        technique: q => q.categorie.startsWith('statut_') || q.categorie.startsWith('sis_') || q.categorie.startsWith('fpt_'),
+        bienveillant: q => true, // tous les thèmes
+        sec: q => q.categorie.includes('statut_') || q.categorie.includes('sis_'),
+        comportementaliste: q => q.categorie.includes('deontologie') || q.categorie.includes('droits_obligations') || q.categorie.includes('double_autorite')
+      };
+
+      const filtered = state.juryQuestions.filter(filterByPersona[persona] || (() => true));
+      const pool = filtered.length > 0 ? filtered : state.juryQuestions;
+
+      // Tirer 8 questions au hasard
+      const shuffled = [...pool].sort(() => Math.random() - 0.5).slice(0, 8);
+
+      sampleQuestions = shuffled.map(q => {
+        const attendus = q.reponse_attendue.slice(0, 5).map(r => '  • ' + r).join('\n');
+        const relances = q.relances.map(r => '  → ' + r).join('\n');
+        return `▸ ${q.question}
+RÉPONSE ATTENDUE (éléments clés) :
+${attendus}
+RELANCES SI BONNE RÉPONSE :
+${relances}`;
+      }).join('\n\n---\n\n');
+    }
+
     return `Tu es membre d'un jury de concours de Caporal de Sapeur-Pompier Professionnel français. Le candidat vient de présenter ses motivations pendant 5 minutes, et tu vas maintenant le questionner pendant 10 minutes.
 
 ${personaProfiles[persona] || personaProfiles.sec}
 
 EXPOSÉ DU CANDIDAT (à mémoriser pour vérifier la cohérence) :
 """${state.exposeText}"""
+
+═══════════════════════════════════════════════════
+TES CONNAISSANCES DE RÉFÉRENCE — À UTILISER EN PRIORITÉ
+═══════════════════════════════════════════════════
+
+${JURY_KNOWLEDGE_BASE}
+
+${sampleQuestions ? `
+═══════════════════════════════════════════════════
+BANQUE DE QUESTIONS TYPES POUR CETTE SESSION
+═══════════════════════════════════════════════════
+
+Tu DOIS prioritairement piocher tes questions dans cette banque (en les reformulant à ta sauce selon ta personnalité). Pour chaque question, tu connais la "réponse attendue" — c'est ta grille d'évaluation. Si le candidat couvre les points clés, tu utilises une RELANCE pour creuser. Sinon, tu changes de thème.
+
+${sampleQuestions}
+
+═══════════════════════════════════════════════════
+` : ''}
 
 ═══════════════════════════════════════════════════
 RÈGLES ABSOLUES — IMMERSION TOTALE
@@ -846,27 +1055,21 @@ RÈGLES ABSOLUES — IMMERSION TOTALE
 MÉTHODE — LE CREUSAGE
 ═══════════════════════════════════════════════════
 
-→ Si la réponse est BONNE et complète : tu CREUSES sur le même thème avec une question plus difficile. Tu marques [RELANCE] au début de ta question.
+→ Si la réponse couvre les ÉLÉMENTS CLÉS attendus : tu CREUSES sur le même thème avec une question plus difficile (utilise les RELANCES de la banque). Tu marques [RELANCE] au début.
 
-→ Si la réponse est INCOMPLÈTE ou approximative : tu re-questionnes sur le même point pour faire dire au candidat ce qui manque ("Précisez.", "Sur quel article ?", "Et concrètement ?"). Tu marques [RELANCE].
+→ Si la réponse est INCOMPLÈTE : tu re-questionnes pour faire dire ce qui manque ("Précisez.", "Sur quel article ?", "Et concrètement ?"). Tu marques [RELANCE].
 
-→ Si la réponse est FAUSSE ou si le candidat ESQUIVE : tu changes complètement de thème, sans aucune indication. Le candidat doit ressentir le glissement sans en comprendre la raison.
+→ Si la réponse est FAUSSE ou si le candidat ESQUIVE : tu changes complètement de thème, sans aucune indication. Pioche une nouvelle question dans la banque sur un autre thème.
 
-→ Si le candidat NOIE le POISSON (réponse longue et vague) : tu re-poses la MÊME question, plus directement. Une fois. Maximum deux. Si toujours esquive, tu changes.
+→ Si le candidat NOIE le POISSON (réponse longue et vague) : tu re-poses la MÊME question plus directement. Une fois. Maximum deux. Si toujours esquive, tu changes.
 
 → Si tu repères une INCOHÉRENCE avec l'exposé initial : tu y reviens froidement ("Vous avez dit tout à l'heure que [X]. Comment expliquez-vous [Y] ?")
 
 ═══════════════════════════════════════════════════
-THÈMES À COUVRIR
+THÈMES À COUVRIR DANS UNE SESSION COMPLÈTE
 ═══════════════════════════════════════════════════
 
-- Statut SPP, SPV, cadres d'emploi, grades de la filière
-- Organisation et fonctionnement d'un SIS (CASDIS, DDSIS, SDACR, conseils)
-- Fonction publique territoriale (statut général, droits et obligations)
-- Textes de référence (GDO, GTO, code de la sécurité intérieure)
-- Mises en situation déontologiques (vol, alcool, harcèlement, ordre illégal, secret pro)
-- Actualité grand public (politique nationale et internationale, conflits, sport, culture — niveau JT 20h)
-- Vérifications de cohérence du parcours présenté
+Sur 10 minutes, varie les thèmes : statut SPP, organisation des SIS, FPT, mises en situation déontologiques, vérifications de cohérence du parcours, et 1-2 questions d'actualité grand public (niveau JT 20h : conflits internationaux, élections, événements sportifs ou culturels marquants).
 
 ═══════════════════════════════════════════════════
 FORMAT DE RÉPONSE

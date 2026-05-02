@@ -1,0 +1,852 @@
+{
+  "version": "1.0-DRAFT-A-VALIDER",
+  "source": "Extraction automatique des fiches : Statut SPP, Organisation SDIS, Trois versants FP",
+  "instructions_jury": "Le jury pioche aléatoirement dans cette banque, reformule à sa sauce selon sa personnalité, et utilise les 'reponse_attendue' comme grille d'évaluation.",
+
+  "categories": {
+    "statut_architecture": "Architecture statutaire : CGFP, décrets, statuts particuliers",
+    "statut_grades": "Cadre d'emplois sapeurs et caporaux, grades, missions",
+    "statut_concours": "Voies d'accès, épreuves du concours",
+    "statut_formation": "FIA, professionnalisation, FMPA, formation d'avancement",
+    "statut_remuneration": "Traitement, primes, prime de feu",
+    "statut_temps_travail": "Régimes de garde, durée annuelle, ARTT",
+    "statut_droits_obligations": "Droits, obligations, discipline, reclassement",
+    "statut_retraite": "Catégorie active, bonification, intégration prime de feu",
+    "statut_double_autorite": "PCASDIS, préfet, maire, DDSIS",
+    "sis_origines": "Lois fondatrices, départementalisation",
+    "sis_nature_juridique": "EPA, panorama national, catégories A/B/C",
+    "sis_gouvernance": "CASDIS, président, préfet, maire",
+    "sis_ddsis": "Double casquette, recrutement, mandat",
+    "sis_organisation_interne": "Groupements fonctionnels, territoriaux, CIS",
+    "sis_cta_codis": "Différence CTA / CODIS, fonctionnement",
+    "sis_missions": "Article L. 1424-2, missions exclusives, partagées, annexes",
+    "sis_outils_pilotage": "SDACR, règlement opérationnel, règlement intérieur, plans",
+    "sis_financement": "Répartition département/communes, instances",
+    "fpt_versants": "Vue d'ensemble FPE/FPT/FPH",
+    "fpt_specificites": "Cadres d'emplois, libre administration, liste d'aptitude",
+    "fpt_acteurs": "CNFPT, CDG, DGCL, CSFPT",
+    "fpt_filieres_categories": "8 filières, 3 catégories, place du SPP",
+    "fpt_cgfp": "Code général de la fonction publique"
+  },
+
+  "questions": [
+
+    {
+      "id": "Q01",
+      "categorie": "statut_architecture",
+      "question": "Sur quels textes fondamentaux repose le statut du sapeur-pompier professionnel ?",
+      "reponse_attendue": [
+        "Architecture à 3 étages",
+        "1. Code général de la fonction publique (CGFP) — socle commun à tous les fonctionnaires (en vigueur depuis le 1er mars 2022)",
+        "2. Décret n°90-850 du 25 septembre 1990 — dispositions communes à tous les SPP",
+        "3. Décret n°2012-520 du 20 avril 2012 — statut particulier des sapeurs et caporaux"
+      ],
+      "relances": [
+        "[RELANCE] Que contient précisément le décret de 1990 ?",
+        "[RELANCE] Quand est entré en vigueur le CGFP ?",
+        "[RELANCE] Quelles dispositions trouve-t-on dans le statut particulier de 2012 ?"
+      ]
+    },
+    {
+      "id": "Q02",
+      "categorie": "statut_grades",
+      "question": "Quels sont les grades du cadre d'emplois des sapeurs et caporaux ?",
+      "reponse_attendue": [
+        "Trois grades depuis la réforme de 2017 (décret n°2017-504 du 6 avril 2017)",
+        "Sapeur (échelle C1)",
+        "Caporal (échelle C2)",
+        "Caporal-chef (échelle C3)",
+        "Le grade de sapeur de 1re classe a été supprimé"
+      ],
+      "relances": [
+        "[RELANCE] Quel est le grade le plus bas et comment y accède-t-on ?",
+        "[RELANCE] Quelle différence de mission entre caporal et caporal-chef ?",
+        "[RELANCE] À quelle échelle de rémunération correspond chaque grade ?"
+      ]
+    },
+    {
+      "id": "Q03",
+      "categorie": "statut_grades",
+      "question": "Quelles sont les missions du caporal de sapeur-pompier professionnel ?",
+      "reponse_attendue": [
+        "Participer aux missions de secours en qualité d'équipier ou de chef d'équipe",
+        "Premier grade à responsabilité",
+        "Peut commander une équipe de 2 à 3 équipiers",
+        "Encadre les sapeurs plus jeunes",
+        "Doit avoir validé la formation de professionnalisation pour exercer le commandement"
+      ],
+      "relances": [
+        "[RELANCE] La formation de professionnalisation, qu'est-ce que c'est exactement ?",
+        "[RELANCE] Concrètement, à quoi sert un chef d'équipe sur intervention ?",
+        "[RELANCE] Combien d'équipiers commande un caporal ?"
+      ]
+    },
+    {
+      "id": "Q04",
+      "categorie": "statut_concours",
+      "question": "Quelles sont les voies d'accès au cadre d'emplois des sapeurs et caporaux ?",
+      "reponse_attendue": [
+        "Trois voies d'accès",
+        "1. Concours externe au grade de caporal (voie majoritaire)",
+        "2. Recrutement sans concours au grade de sapeur (sous condition de SPV pendant 3 ans, JSP, service civique sécurité civile, militaires BSPP/BMPM)",
+        "3. Promotion interne pour les agents territoriaux déjà en poste",
+        "Contingent recrutement sans concours : 1 sapeur pour 2 caporaux recrutés"
+      ],
+      "relances": [
+        "[RELANCE] Pour un SPV, combien d'années faut-il pour bénéficier du recrutement sans concours ?",
+        "[RELANCE] Quelles sont les conditions générales d'inscription au concours ?",
+        "[RELANCE] Quel décret fixe les modalités du concours externe ?"
+      ]
+    },
+    {
+      "id": "Q05",
+      "categorie": "statut_concours",
+      "question": "Décrivez les épreuves du concours externe de caporal de SPP.",
+      "reponse_attendue": [
+        "Régi par le décret n°2020-1474 du 30 novembre 2020",
+        "Trois phases",
+        "Admissibilité : 1 étude de texte (1h, coef. 1) + QCM de mathématiques (1h, coef. 1)",
+        "Épreuves physiques et sportives (coef. 4) — éliminatoires",
+        "Admission : entretien individuel de 15 minutes (5 min de présentation + 10 min de questions)"
+      ],
+      "relances": [
+        "[RELANCE] Quel est le coefficient des épreuves physiques ?",
+        "[RELANCE] Combien de temps dure l'oral et comment est-il structuré ?",
+        "[RELANCE] Que se passe-t-il si on rate les épreuves physiques ?"
+      ]
+    },
+    {
+      "id": "Q06",
+      "categorie": "statut_formation",
+      "question": "Quelles formations un caporal SPP doit-il suivre au cours de sa carrière ?",
+      "reponse_attendue": [
+        "Formation initiale d'application (FIA) après nomination stagiaire — obligatoire, conditionne la titularisation",
+        "Formation de professionnalisation du caporal — indispensable pour exercer comme chef d'équipe",
+        "FMPA (Formations de maintien et de perfectionnement des acquis) — annuelles, dans chaque spécialité",
+        "Formations de spécialité (GRIMP, RCH, plongée, SD, etc.)",
+        "Formations d'adaptation à l'emploi",
+        "Formations d'avancement pour passer au grade supérieur"
+      ],
+      "relances": [
+        "[RELANCE] Que se passe-t-il si les FMPA ne sont pas à jour ?",
+        "[RELANCE] La FIA, où se déroule-t-elle ?",
+        "[RELANCE] Qu'est-ce qui distingue formation de professionnalisation et formation d'avancement ?"
+      ]
+    },
+    {
+      "id": "Q07",
+      "categorie": "statut_remuneration",
+      "question": "Comment est composée la rémunération d'un sapeur-pompier professionnel ?",
+      "reponse_attendue": [
+        "Le traitement indiciaire représente moins de 60% du revenu réel",
+        "Traitement indiciaire de base (selon grade et échelon)",
+        "Indemnité de résidence (selon zone)",
+        "Supplément familial de traitement",
+        "Prime de feu (25% du traitement)",
+        "Indemnité de responsabilité (6 à 39%)",
+        "Indemnité de spécialité (jusqu'à 10%)",
+        "Nouvelle bonification indiciaire (NBI) éventuelle"
+      ],
+      "relances": [
+        "[RELANCE] Combien représente la prime de feu en pourcentage ?",
+        "[RELANCE] Qu'est-ce qui justifie l'indemnité de responsabilité ?",
+        "[RELANCE] La NBI, c'est quoi exactement ?"
+      ]
+    },
+    {
+      "id": "Q08",
+      "categorie": "statut_remuneration",
+      "question": "Parlez-moi de la prime de feu : qu'est-ce que c'est, son montant, ses spécificités.",
+      "reponse_attendue": [
+        "Créée par le décret n°90-850 du 25 septembre 1990",
+        "Fixée à 25% du traitement indiciaire brut depuis le décret n°2020-903 du 24 juillet 2020 (auparavant 19%)",
+        "Réservée aux SPP — les SPV perçoivent des indemnités horaires distinctes",
+        "Spécificité majeure : intégrée dans le calcul de la pension de retraite",
+        "Le décret n°2026-18 du 20 janvier 2026 a supprimé la surcotisation de 1,8%"
+      ],
+      "relances": [
+        "[RELANCE] Pourquoi est-elle intégrée dans la pension ?",
+        "[RELANCE] Qu'a changé exactement le décret de janvier 2026 ?",
+        "[RELANCE] Les SPV ont-ils aussi une prime de feu ?"
+      ]
+    },
+    {
+      "id": "Q09",
+      "categorie": "statut_temps_travail",
+      "question": "Comment est organisé le temps de travail des SPP ?",
+      "reponse_attendue": [
+        "Régime spécifique régi par le décret n°2001-1382 du 31 décembre 2001",
+        "Régime dérogatoire au droit commun des 35 heures",
+        "Deux grands régimes : gardes de 24h ou service hors rang (8h)",
+        "Régime mixte fréquent dans les grands SDIS",
+        "Environ 96 gardes de 24h par an en rythme standard",
+        "Le CASDIS fixe par délibération le régime applicable",
+        "Garanties minimales du droit du travail respectées (repos quotidien, hebdo, durée max)"
+      ],
+      "relances": [
+        "[RELANCE] Pourquoi un régime dérogatoire pour les SPP ?",
+        "[RELANCE] Qui décide du régime applicable dans un SDIS ?",
+        "[RELANCE] Combien de gardes par an environ ?"
+      ]
+    },
+    {
+      "id": "Q10",
+      "categorie": "statut_droits_obligations",
+      "question": "Quels sont les principaux droits du sapeur-pompier professionnel ?",
+      "reponse_attendue": [
+        "Droit à rémunération après service fait (principe constitutionnel)",
+        "Droit à la formation professionnelle",
+        "Droit à la protection fonctionnelle (art. L. 134-1 CGFP)",
+        "Droit syndical et droit de grève (encadré, service minimum obligatoire)",
+        "Liberté d'opinion et droit à la non-discrimination",
+        "Droit à congés (annuels, maladie, maternité, paternité, parental)",
+        "Droit à la protection sociale (CNRACL pour la retraite)"
+      ],
+      "relances": [
+        "[RELANCE] Le droit de grève des SPP, comment est-il encadré ?",
+        "[RELANCE] Qu'est-ce que la protection fonctionnelle exactement ?",
+        "[RELANCE] Quel est le régime de retraite des SPP ?"
+      ]
+    },
+    {
+      "id": "Q11",
+      "categorie": "statut_droits_obligations",
+      "question": "Quelles sont les principales obligations du sapeur-pompier professionnel ?",
+      "reponse_attendue": [
+        "Devoir d'obéissance hiérarchique (sauf ordre manifestement illégal)",
+        "Obligation de neutralité et de laïcité dans l'exercice des fonctions",
+        "Discrétion professionnelle",
+        "Secret professionnel",
+        "Obligation de réserve",
+        "Obligation de dignité, probité et intégrité (art. L. 121-1 CGFP)",
+        "Aptitude physique et médicale permanente",
+        "Obligation de formation (FMPA)",
+        "Port de l'uniforme selon règlement intérieur"
+      ],
+      "relances": [
+        "[RELANCE] Quelle est la limite au devoir d'obéissance ?",
+        "[RELANCE] Différence entre discrétion professionnelle et secret professionnel ?",
+        "[RELANCE] Le devoir de réserve s'applique-t-il en dehors du service ?"
+      ]
+    },
+    {
+      "id": "Q12",
+      "categorie": "statut_droits_obligations",
+      "question": "Quel est le régime disciplinaire des sapeurs-pompiers professionnels ?",
+      "reponse_attendue": [
+        "Sanctions classées en 4 groupes de sévérité croissante",
+        "Du simple avertissement à la révocation",
+        "Avec entre les deux : blâme, exclusion temporaire, rétrogradation",
+        "Sanctions les plus graves : consultation obligatoire du conseil de discipline",
+        "Présence des représentants du personnel au conseil de discipline",
+        "Depuis la loi MATRAS (décret du 16 décembre 2021), les CAP des SPP catégories A et B ont été transférées aux SIS"
+      ],
+      "relances": [
+        "[RELANCE] Citez 2 sanctions du 1er groupe.",
+        "[RELANCE] Qui siège au conseil de discipline ?",
+        "[RELANCE] Qu'est-ce qu'a changé la loi MATRAS sur les CAP ?"
+      ]
+    },
+    {
+      "id": "Q13",
+      "categorie": "statut_droits_obligations",
+      "question": "Qu'est-ce que le reclassement pour raison opérationnelle ?",
+      "reponse_attendue": [
+        "Spécificité de la filière sapeurs-pompiers prévue par le décret n°90-850",
+        "S'applique en cas d'inaptitude à l'exercice des missions opérationnelles",
+        "Causes : blessure, maladie, usure, limite d'âge",
+        "Reclassement possible au sein du SDIS sur un emploi non opérationnel",
+        "Ou dans un autre cadre d'emplois de la FPT",
+        "Permet de concilier contraintes physiques du métier et continuité de carrière"
+      ],
+      "relances": [
+        "[RELANCE] Pourquoi cette possibilité existe-t-elle pour les SPP en particulier ?",
+        "[RELANCE] Que peut faire un SPP reclassé administrativement ?",
+        "[RELANCE] Le reclassement maintient-il le bénéfice de la prime de feu ?"
+      ]
+    },
+    {
+      "id": "Q14",
+      "categorie": "statut_retraite",
+      "question": "Qu'est-ce que la catégorie active et pourquoi les SPP en relèvent-ils ?",
+      "reponse_attendue": [
+        "Définition : emplois présentant un risque particulier ou des fatigues exceptionnelles",
+        "Fondement juridique : article L. 24 du Code des pensions civiles et militaires",
+        "Ouvre droit à un départ à la retraite anticipé",
+        "Autres exemples : policiers nationaux, surveillants pénitentiaires, contrôleurs aériens",
+        "Pour les SPP : âge légal de départ progressivement relevé suite à la réforme 2023",
+        "Cible : 59 ans à terme, actuellement 57 ans et 9 mois pour les générations concernées",
+        "Condition : durée minimale de services actifs (~27 ans dont ~17 en qualité de SPP)"
+      ],
+      "relances": [
+        "[RELANCE] Citez deux autres métiers en catégorie active.",
+        "[RELANCE] À quel âge peut partir un SPP en catégorie active ?",
+        "[RELANCE] Combien d'années de service faut-il pour bénéficier du départ anticipé ?"
+      ]
+    },
+    {
+      "id": "Q15",
+      "categorie": "statut_retraite",
+      "question": "Qu'est-ce que la bonification du cinquième pour les SPP ?",
+      "reponse_attendue": [
+        "Bonification spécifique au régime de retraite des SPP",
+        "Ajoute à la durée de services effectifs un cinquième du temps passé en qualité de SPP",
+        "Plafond : 5 années (soit 20 trimestres maximum)",
+        "Concrètement : 25 ans de service donnent droit à 5 années supplémentaires comptabilisées",
+        "Conditions : être radié des cadres sur un emploi de SPP (ou en reclassement opérationnel sous conditions), avoir atteint l'âge légal catégorie active, justifier d'au moins 17 ans de services en qualité de SPP"
+      ],
+      "relances": [
+        "[RELANCE] Quel est le plafond maximum de cette bonification ?",
+        "[RELANCE] Combien d'années de service donnent droit à 5 ans de bonification ?",
+        "[RELANCE] Le reclassement permet-il de garder le bénéfice de la bonification ?"
+      ]
+    },
+    {
+      "id": "Q16",
+      "categorie": "statut_double_autorite",
+      "question": "Pouvez-vous m'expliquer le principe de la double autorité d'emploi pour un SPP ?",
+      "reponse_attendue": [
+        "Singularité unique dans la fonction publique territoriale",
+        "Le SPP relève de DEUX autorités distinctes simultanément",
+        "Autorité de gestion : le président du CASDIS (PCASDIS)",
+        "Autorité opérationnelle : le préfet",
+        "Cette dualité découle de la double nature des missions : service public local + sécurité civile nationale",
+        "Le DDSIS incarne cette double autorité avec ses deux casquettes"
+      ],
+      "relances": [
+        "[RELANCE] Que fait précisément le PCASDIS ?",
+        "[RELANCE] Que fait précisément le préfet ?",
+        "[RELANCE] Et le maire dans tout ça, quel est son rôle ?"
+      ]
+    },
+    {
+      "id": "Q17",
+      "categorie": "sis_origines",
+      "question": "Quelles sont les trois grandes lois fondatrices de l'organisation actuelle des SIS ?",
+      "reponse_attendue": [
+        "Loi n°96-369 du 3 mai 1996 — départementalisation, création des SDIS comme EPA autonomes",
+        "Loi n°2004-811 du 13 août 2004 — modernisation de la sécurité civile",
+        "Loi n°2021-1520 du 25 novembre 2021, dite loi MATRAS — consolidation du modèle, valorisation du volontariat",
+        "Cadre général : articles L. 1424-1 à L. 1424-99 du CGCT"
+      ],
+      "relances": [
+        "[RELANCE] Que change la loi MATRAS concrètement ?",
+        "[RELANCE] Pourquoi a-t-on départementalisé en 1996 ?",
+        "[RELANCE] Qu'a apporté la loi de 2004 sur la sécurité civile ?"
+      ]
+    },
+    {
+      "id": "Q18",
+      "categorie": "sis_origines",
+      "question": "Qu'apporte la loi MATRAS du 25 novembre 2021 ?",
+      "reponse_attendue": [
+        "Officialisation de l'appellation SIS (services d'incendie et de secours) dans le CGCT",
+        "Intégration des soins d'urgence aux personnes dans les missions de sécurité civile",
+        "Encadrement de la carence ambulancière",
+        "Expérimentation du numéro unique d'appels d'urgence (112)",
+        "Création d'une réserve citoyenne des SIS",
+        "Mention 'Mort pour le service de la République'",
+        "Création de référents obligatoires (mixité/discriminations et sûreté/sécurité)",
+        "Renforcement des PCS et création des PICS",
+        "Création des pactes capacitaires"
+      ],
+      "relances": [
+        "[RELANCE] Qu'est-ce qu'un pacte capacitaire ?",
+        "[RELANCE] Qu'est-ce que la mention 'Mort pour le service de la République' ?",
+        "[RELANCE] Que sont les référents obligatoires créés par MATRAS ?"
+      ]
+    },
+    {
+      "id": "Q19",
+      "categorie": "sis_nature_juridique",
+      "question": "Quelle est la nature juridique d'un SDIS ?",
+      "reponse_attendue": [
+        "Établissement public à caractère administratif (EPA)",
+        "Doté de la personnalité juridique",
+        "Dispose de l'autonomie financière",
+        "Personne morale de droit public distincte du département",
+        "Dispose de son propre budget, patrimoine et personnels",
+        "Lié à la gouvernance départementale mais juridiquement autonome"
+      ],
+      "relances": [
+        "[RELANCE] Qu'est-ce que l'autonomie financière implique concrètement ?",
+        "[RELANCE] Le SDIS dépend-il du département ?",
+        "[RELANCE] Quelle est la différence entre un SDIS et un STIS ?"
+      ]
+    },
+    {
+      "id": "Q20",
+      "categorie": "sis_nature_juridique",
+      "question": "Quels sont les chiffres clés des effectifs sapeurs-pompiers en France ?",
+      "reponse_attendue": [
+        "Environ 43 000 SPP",
+        "Environ 198 800 SPV (soit ~79% des effectifs)",
+        "Environ 12 000 PATS (personnels administratifs, techniques et spécialisés)",
+        "97 SIS sur le territoire",
+        "+ 2 formations militaires : BSPP (Paris) et BMPM (Marseille)",
+        "Source : rapport DGSCGC fin 2022"
+      ],
+      "relances": [
+        "[RELANCE] Quelle proportion de volontaires dans les effectifs ?",
+        "[RELANCE] Que sont les PATS ?",
+        "[RELANCE] La BSPP et le BMPM sont-elles des SIS comme les autres ?"
+      ]
+    },
+    {
+      "id": "Q21",
+      "categorie": "sis_gouvernance",
+      "question": "Qu'est-ce que le CASDIS et qui le compose ?",
+      "reponse_attendue": [
+        "Conseil d'administration du Service départemental d'incendie et de secours",
+        "Organe délibérant du SDIS",
+        "Régi par les articles L. 1424-24 à L. 1424-29 du CGCT",
+        "Composition (membres délibérants) : conseillers départementaux (majoritaires, généralement 14), représentants des communes, représentants des EPCI",
+        "Membres consultatifs : DDSIS, médecin-chef, président de l'union départementale SP, représentants du personnel",
+        "Le préfet assiste de plein droit sans voix délibérative",
+        "Vote le budget, fixe les orientations stratégiques, organise le service"
+      ],
+      "relances": [
+        "[RELANCE] Qui préside le CASDIS de plein droit ?",
+        "[RELANCE] Qui sont les membres avec voix délibérative ?",
+        "[RELANCE] Le préfet vote-t-il au CASDIS ?"
+      ]
+    },
+    {
+      "id": "Q22",
+      "categorie": "sis_gouvernance",
+      "question": "Quels sont les pouvoirs du président du CASDIS ?",
+      "reponse_attendue": [
+        "Le président du Conseil départemental est de droit président du CASDIS (peut déléguer)",
+        "Prépare et exécute les délibérations du CASDIS",
+        "Passe les marchés publics au nom de l'établissement",
+        "Représente le SDIS en justice",
+        "Nomme aux emplois",
+        "Exerce l'autorité hiérarchique sur les personnels",
+        "Autorité administrative et de gestion"
+      ],
+      "relances": [
+        "[RELANCE] Le président du CASDIS peut-il déléguer ses fonctions ?",
+        "[RELANCE] Le PCASDIS peut-il sanctionner un agent ?",
+        "[RELANCE] Quelle différence avec les pouvoirs du préfet ?"
+      ]
+    },
+    {
+      "id": "Q23",
+      "categorie": "sis_gouvernance",
+      "question": "Quel est le rôle du préfet sur le SDIS ?",
+      "reponse_attendue": [
+        "Autorité opérationnelle, fondée sur ses pouvoirs de police générale (art. L. 2215-1 CGCT)",
+        "Quatre domaines d'intervention",
+        "1. Mise en œuvre opérationnelle des moyens de secours",
+        "2. Prévention des risques",
+        "3. Prévision (préparation à la crise)",
+        "4. Formation opérationnelle",
+        "Arrête le SDACR et le règlement opérationnel après avis du CASDIS",
+        "Déclenche les plans ORSEC",
+        "Devient DOS (directeur des opérations de secours) sur événement majeur"
+      ],
+      "relances": [
+        "[RELANCE] Qu'est-ce qu'un DOS ?",
+        "[RELANCE] Différence entre DOS et COS ?",
+        "[RELANCE] Le préfet peut-il imposer des choix budgétaires ?"
+      ]
+    },
+    {
+      "id": "Q24",
+      "categorie": "sis_gouvernance",
+      "question": "Quel est le rôle du maire en matière de secours ?",
+      "reponse_attendue": [
+        "Autorité de proximité, fondée sur le pouvoir de police générale (art. L. 2212-2 CGCT)",
+        "DOS (Directeur des opérations de secours) sur les opérations courantes communales",
+        "Élabore le Plan communal de sauvegarde (PCS)",
+        "Le préfet prend le relais dès que l'événement dépasse le périmètre communal",
+        "Articulation maire-préfet : fondement de la sécurité civile française"
+      ],
+      "relances": [
+        "[RELANCE] À quel moment le préfet relaye-t-il le maire ?",
+        "[RELANCE] Le PCS est-il obligatoire dans toutes les communes ?",
+        "[RELANCE] Qu'a apporté la loi MATRAS sur les PCS ?"
+      ]
+    },
+    {
+      "id": "Q25",
+      "categorie": "sis_ddsis",
+      "question": "Qui est le DDSIS et quelle est sa particularité ?",
+      "reponse_attendue": [
+        "Directeur départemental des services d'incendie et de secours",
+        "Position centrale et singulière : double casquette",
+        "1. Directeur de l'établissement public, sous responsabilité du PCASDIS — patron administratif",
+        "2. Chef du corps départemental des sapeurs-pompiers, sous responsabilité du préfet — patron opérationnel",
+        "Recruté parmi les officiers SPP de hauts grades : colonels, colonels hors classe, contrôleurs généraux",
+        "Nomination conjointe : arrêté du ministre de l'Intérieur après avis du PCASDIS",
+        "Mandat : 5 ans renouvelable une fois (10 ans max dans le même SDIS)"
+      ],
+      "relances": [
+        "[RELANCE] Pourquoi cette double casquette ?",
+        "[RELANCE] Quelle est la durée maximale dans un même SDIS ?",
+        "[RELANCE] Qui nomme le DDSIS ?"
+      ]
+    },
+    {
+      "id": "Q26",
+      "categorie": "sis_organisation_interne",
+      "question": "Comment est organisé un SDIS en interne ?",
+      "reponse_attendue": [
+        "Deux logiques coexistent",
+        "Organisation fonctionnelle : par domaine de compétence (opérations, prévention, RH, logistique...)",
+        "Organisation territoriale : par découpage géographique (groupements territoriaux)",
+        "Centres d'incendie et de secours (CIS) : unités opérationnelles de base",
+        "Structuration officialisée par la loi MATRAS et le décret du 14 avril 2022"
+      ],
+      "relances": [
+        "[RELANCE] Citez 3 groupements fonctionnels typiques.",
+        "[RELANCE] Combien y a-t-il de groupements territoriaux dans un SDIS en moyenne ?",
+        "[RELANCE] Comment s'articulent fonctionnel et territorial ?"
+      ]
+    },
+    {
+      "id": "Q27",
+      "categorie": "sis_organisation_interne",
+      "question": "Quels sont les différents types de centres d'incendie et de secours ?",
+      "reponse_attendue": [
+        "Trois catégories de centres",
+        "CSP (Centre de secours principal) : grande caserne, plusieurs départs simultanés possibles, effectif important, généralement en grandes villes",
+        "CS (Centre de secours) : caserne moyenne, missions SAP/incendie/secours routier, mixte SPP-SPV",
+        "CPI (Centre de première intervention) : plus petite unité, majoritairement ou exclusivement SPV",
+        "Depuis MATRAS, les CPI communaux/EPCI deviennent les 'services locaux d'incendie et de secours'"
+      ],
+      "relances": [
+        "[RELANCE] Quelle est la principale différence entre un CSP et un CS ?",
+        "[RELANCE] Qui compose un CPI ?",
+        "[RELANCE] Que sont les services locaux d'incendie et de secours ?"
+      ]
+    },
+    {
+      "id": "Q28",
+      "categorie": "sis_cta_codis",
+      "question": "Quelle est la différence entre le CTA et le CODIS ?",
+      "reponse_attendue": [
+        "CTA = Centre de traitement de l'alerte",
+        "Réceptionne les appels d'urgence (18 et 112)",
+        "Qualifie l'appel, détermine l'urgence, déclenche les moyens",
+        "Réoriente si besoin vers Samu (15) ou Police (17)",
+        "CODIS = Centre opérationnel départemental d'incendie et de secours",
+        "Supervise l'ensemble de l'activité opérationnelle du département",
+        "Coordonne les opérations en cours, engage les renforts, communication de crise",
+        "Interface avec autres services (Samu, police, gendarmerie, préfet, départements voisins)",
+        "Souvent regroupés physiquement aujourd'hui (CTA-CODIS) mais fonctions distinctes",
+        "Fonctionnement 24h/24"
+      ],
+      "relances": [
+        "[RELANCE] Quels numéros arrivent au CTA ?",
+        "[RELANCE] Qui commande le CODIS ?",
+        "[RELANCE] CTA et CODIS sont-ils toujours sur le même site ?"
+      ]
+    },
+    {
+      "id": "Q29",
+      "categorie": "sis_missions",
+      "question": "Quelles sont les missions des services d'incendie et de secours ?",
+      "reponse_attendue": [
+        "Cadre juridique : article L. 1424-2 du CGCT",
+        "Missions exclusives : prévention, protection et lutte contre les incendies",
+        "Missions partagées : secours à personne et soins d'urgence (SAP/SUAP), accidents de circulation, risques technologiques, risques naturels, opérations diverses, protection des animaux (ajoutée par MATRAS)",
+        "Missions annexes payantes possibles (art. L. 1424-42) : ouvertures de portes sans urgence, nids d'hyménoptères, etc.",
+        "SAP représente plus de 80% des interventions dans la plupart des SDIS"
+      ],
+      "relances": [
+        "[RELANCE] Différence entre missions exclusives et partagées ?",
+        "[RELANCE] Quelle est la mission la plus fréquente en termes de volume ?",
+        "[RELANCE] Toutes les interventions sont-elles gratuites ?"
+      ]
+    },
+    {
+      "id": "Q30",
+      "categorie": "sis_missions",
+      "question": "Qu'est-ce qu'une carence ambulancière ?",
+      "reponse_attendue": [
+        "Sujet structurant depuis la loi MATRAS",
+        "Lorsque le SAMU sollicite un SIS pour transporter une victime parce qu'aucun transporteur sanitaire privé n'est disponible",
+        "Ne relève pas stricto sensu de l'article L. 1424-2",
+        "Prise en charge financière spécifique par les établissements de santé sièges des SAMU",
+        "Conditions fixées par convention entre le SIS et l'hôpital",
+        "Cadre : art. L. 1424-42, 3e et 4e alinéas"
+      ],
+      "relances": [
+        "[RELANCE] Qui paie la carence ambulancière ?",
+        "[RELANCE] Pourquoi est-ce un sujet sensible en ce moment ?",
+        "[RELANCE] Une convention est-elle obligatoire ?"
+      ]
+    },
+    {
+      "id": "Q31",
+      "categorie": "sis_outils_pilotage",
+      "question": "Qu'est-ce que le SDACR ?",
+      "reponse_attendue": [
+        "Schéma départemental d'analyse et de couverture des risques",
+        "Outil de pilotage à visée prospective",
+        "Cadre : article L. 1424-7 du CGCT",
+        "Élaboré sous l'autorité du préfet",
+        "Arrêté par le préfet après avis du conseil départemental et du CASDIS",
+        "Révision en général tous les 5 à 7 ans",
+        "Contenu : inventaire des risques, analyse de la couverture actuelle, objectifs de couverture, identification des ruptures capacitaires, orientations stratégiques",
+        "C'est la 'colonne vertébrale' stratégique du SDIS"
+      ],
+      "relances": [
+        "[RELANCE] Qui élabore le SDACR ?",
+        "[RELANCE] Qui l'arrête définitivement ?",
+        "[RELANCE] Quelle différence avec le règlement opérationnel ?"
+      ]
+    },
+    {
+      "id": "Q32",
+      "categorie": "sis_outils_pilotage",
+      "question": "Quelle différence entre SDACR, règlement opérationnel et règlement intérieur ?",
+      "reponse_attendue": [
+        "SDACR = stratégie : 'quels objectifs de couverture voulons-nous atteindre ?'",
+        "Règlement opérationnel = tactique : 'concrètement, pour tel type d'intervention, on envoie tel matériel et tel effectif'",
+        "Règlement opérationnel arrêté par le préfet après avis du CASDIS",
+        "Règlement intérieur = administratif : règles de fonctionnement des services, gardes, discipline, tenues, protocoles internes",
+        "Règlement intérieur arrêté par le PCASDIS après avis du CST"
+      ],
+      "relances": [
+        "[RELANCE] Qui arrête le règlement opérationnel ?",
+        "[RELANCE] Qui arrête le règlement intérieur ?",
+        "[RELANCE] Pourquoi cette différence d'autorité ?"
+      ]
+    },
+    {
+      "id": "Q33",
+      "categorie": "sis_outils_pilotage",
+      "question": "Quels sont les principaux plans de secours et de sauvegarde ?",
+      "reponse_attendue": [
+        "Plan ORSEC départemental et zonal — réponse aux événements majeurs, sous autorité du préfet (ou préfet de zone)",
+        "Plan communal de sauvegarde (PCS) — élaboré par le maire, obligatoire pour communes en zone à risque, renforcé par MATRAS",
+        "Plan intercommunal de sauvegarde (PICS) — créé par MATRAS, obligatoire pour certains EPCI",
+        "Plans ETARE — plans d'établissements répertoriés (industries Seveso, hôpitaux, grands ERP)"
+      ],
+      "relances": [
+        "[RELANCE] Qui déclenche le plan ORSEC ?",
+        "[RELANCE] Quelles communes doivent avoir un PCS ?",
+        "[RELANCE] Que sont les plans ETARE ?"
+      ]
+    },
+    {
+      "id": "Q34",
+      "categorie": "sis_financement",
+      "question": "Comment est financé un SDIS ?",
+      "reponse_attendue": [
+        "Trois sources principales",
+        "Contributions du département : ~58% en moyenne nationale",
+        "Contributions des communes et EPCI : ~42% en moyenne",
+        "Recettes propres (moindres) : missions annexes, conventions, etc.",
+        "L'État intervient à la marge (dotations spécifiques, investissements exceptionnels)",
+        "Calcul des contributions communales : critères de population, richesse fiscale, historiquement nombre d'interventions",
+        "Sujet sensible : MATRAS a prévu un rapport au Parlement sur le financement"
+      ],
+      "relances": [
+        "[RELANCE] Quelle est la part du département en moyenne ?",
+        "[RELANCE] L'État finance-t-il les SDIS ?",
+        "[RELANCE] Qu'est-ce qui détermine la contribution d'une commune ?"
+      ]
+    },
+    {
+      "id": "Q35",
+      "categorie": "fpt_versants",
+      "question": "Quels sont les trois versants de la fonction publique française ?",
+      "reponse_attendue": [
+        "Fonction publique d'État (FPE) — environ 2,58 millions d'agents (44%)",
+        "Fonction publique territoriale (FPT) — environ 2,02 millions d'agents (34%)",
+        "Fonction publique hospitalière (FPH) — environ 1,25 million d'agents (22%)",
+        "Total : 5,85 millions d'agents fin 2024",
+        "Architecture issue des lois statutaires des années 1980",
+        "CGFP (Code général de la fonction publique) en vigueur depuis le 1er mars 2022 unifie le droit applicable"
+      ],
+      "relances": [
+        "[RELANCE] Quel versant a le plus d'agents ?",
+        "[RELANCE] À quel versant appartient un SPP ?",
+        "[RELANCE] Quand est entré en vigueur le CGFP ?"
+      ]
+    },
+    {
+      "id": "Q36",
+      "categorie": "fpt_versants",
+      "question": "Quelles sont les quatre lois statutaires historiques de la fonction publique ?",
+      "reponse_attendue": [
+        "Loi n°83-634 du 13 juillet 1983 (loi Le Pors) — droits et obligations des fonctionnaires, titre I, commun aux trois versants",
+        "Loi n°84-16 du 11 janvier 1984 — fonction publique d'État, titre II",
+        "Loi n°84-53 du 26 janvier 1984 — fonction publique territoriale, titre III",
+        "Loi n°86-33 du 9 janvier 1986 — fonction publique hospitalière, titre IV",
+        "Toutes intégralement codifiées dans le CGFP depuis 2022"
+      ],
+      "relances": [
+        "[RELANCE] Quelle loi concerne la FPT ?",
+        "[RELANCE] Sont-elles encore en vigueur ?",
+        "[RELANCE] Quel est le titre I du statut général ?"
+      ]
+    },
+    {
+      "id": "Q37",
+      "categorie": "fpt_specificites",
+      "question": "Quelle est la différence fondamentale entre la FPT et la FPE en termes d'organisation ?",
+      "reponse_attendue": [
+        "FPE organisée en CORPS — un corps rassemble des fonctionnaires soumis au même statut particulier",
+        "FPT organisée en CADRES D'EMPLOIS — vocation à occuper un ensemble d'emplois et non un poste précis",
+        "Logique 'emploi' en FPT : on passe un concours pour entrer dans un cadre d'emplois, puis on cherche un poste auprès d'un employeur",
+        "Inscription sur liste d'aptitude valable 2 ans, renouvelable 2 fois (4 ans max)",
+        "Pour la FPE, l'État affecte directement après concours",
+        "Cette différence reflète le principe constitutionnel de libre administration des collectivités (art. 72 Constitution)"
+      ],
+      "relances": [
+        "[RELANCE] Qu'est-ce que la liste d'aptitude ?",
+        "[RELANCE] Combien de temps est-elle valable ?",
+        "[RELANCE] Qu'est-ce que le principe de libre administration ?"
+      ]
+    },
+    {
+      "id": "Q38",
+      "categorie": "fpt_filieres_categories",
+      "question": "Citez-moi les filières de la fonction publique territoriale.",
+      "reponse_attendue": [
+        "Huit filières officielles",
+        "Administrative",
+        "Technique",
+        "Médico-sociale",
+        "Culturelle",
+        "Sportive",
+        "Animation",
+        "Police municipale",
+        "Sapeurs-pompiers"
+      ],
+      "relances": [
+        "[RELANCE] À quelle filière appartient un SPP ?",
+        "[RELANCE] Quelle est la spécificité de la filière sapeurs-pompiers ?",
+        "[RELANCE] Citez 3 cadres d'emplois de la filière administrative."
+      ]
+    },
+    {
+      "id": "Q39",
+      "categorie": "fpt_filieres_categories",
+      "question": "Quelles sont les trois catégories hiérarchiques de la fonction publique ?",
+      "reponse_attendue": [
+        "Catégorie A — niveau Bac+3 minimum, fonctions de conception, encadrement supérieur, direction",
+        "Catégorie B — niveau Baccalauréat, encadrement intermédiaire, application, mise en œuvre",
+        "Catégorie C — niveau CAP/BEP/Brevet/sans diplôme, fonctions d'exécution, opérations",
+        "Le SPP relève de la catégorie C",
+        "Particularité du concours SPP : pas de condition de diplôme, contrairement à la plupart des cadres C de la FPT"
+      ],
+      "relances": [
+        "[RELANCE] À quelle catégorie correspond le grade de caporal ?",
+        "[RELANCE] À quelle catégorie correspond le grade de lieutenant SPP ?",
+        "[RELANCE] Faut-il un diplôme pour passer le concours de caporal ?"
+      ]
+    },
+    {
+      "id": "Q40",
+      "categorie": "fpt_acteurs",
+      "question": "Quels sont les principaux acteurs institutionnels de la FPT ?",
+      "reponse_attendue": [
+        "CNFPT (Centre national de la fonction publique territoriale) — formation continue obligatoire, organisation des concours catégorie A+",
+        "Centres de gestion (CDG) — environ 96 centres, organisation des concours A/B/C, gestion des CAP/CCP, conseil RH",
+        "DGCL (Direction générale des collectivités locales) — service du ministère de l'Intérieur, élabore la politique FPT, prépare les textes",
+        "CSFPT (Conseil supérieur de la FPT) — instance nationale de dialogue social, obligatoirement consultée sur les projets de textes FPT",
+        "Spécificité SPP : les concours sont organisés directement par les SIS, pas par le CNFPT ni les CDG"
+      ],
+      "relances": [
+        "[RELANCE] Qui organise le concours de caporal ?",
+        "[RELANCE] Que fait le CNFPT ?",
+        "[RELANCE] Quel est le rôle d'un CDG ?"
+      ]
+    },
+    {
+      "id": "Q41",
+      "categorie": "fpt_cgfp",
+      "question": "Qu'est-ce que le Code général de la fonction publique (CGFP) ?",
+      "reponse_attendue": [
+        "Codification rassemblant en un seul texte les dispositions applicables aux trois versants",
+        "1265 articles organisés en 8 livres thématiques",
+        "Entrée en vigueur de la partie législative : 1er mars 2022",
+        "Issue de l'ordonnance du 24 novembre 2021",
+        "Partie réglementaire en vigueur progressivement : livres I et II au 1er février 2025, livre III au 1er octobre 2025",
+        "Affirme le caractère unitaire du droit de la fonction publique tout en préservant les spécificités de chaque versant",
+        "Objectif : accessibilité et intelligibilité de la loi"
+      ],
+      "relances": [
+        "[RELANCE] Combien de livres dans le CGFP ?",
+        "[RELANCE] Quand est entré en vigueur le CGFP ?",
+        "[RELANCE] Le CGFP remplace-t-il les lois de 1983-1984 ?"
+      ]
+    },
+    {
+      "id": "Q42",
+      "categorie": "sis_gouvernance",
+      "question": "Que sont les comités sociaux territoriaux (CST) ?",
+      "reponse_attendue": [
+        "Instances de dialogue social des employeurs territoriaux, dont les SDIS",
+        "Issus de la loi du 6 août 2019 de transformation de la fonction publique",
+        "Fusion des anciens comités techniques et CHSCT",
+        "Compétences : organisation, fonctionnement, conditions de travail",
+        "Comportent obligatoirement une formation spécialisée en matière de santé, de sécurité et de conditions de travail (FSSSCT)",
+        "Renouvelés tous les 4 ans : prochaines élections le 10 décembre 2026"
+      ],
+      "relances": [
+        "[RELANCE] Le CST a-t-il remplacé le CHSCT ?",
+        "[RELANCE] Qu'est-ce que la FSSSCT ?",
+        "[RELANCE] Quand auront lieu les prochaines élections professionnelles ?"
+      ]
+    },
+    {
+      "id": "Q43",
+      "categorie": "sis_gouvernance",
+      "question": "Qu'est-ce qu'une commission administrative paritaire (CAP) et quel changement a apporté la loi MATRAS ?",
+      "reponse_attendue": [
+        "Instance qui examine les questions individuelles des fonctionnaires",
+        "Compétences : discipline, révision d'évaluation, certains recours statutaires",
+        "Composition paritaire : représentants des employeurs et des personnels",
+        "Avant MATRAS : les CAP des SPP de catégories A et B relevaient des centres de gestion",
+        "Depuis la loi MATRAS et le décret du 16 décembre 2021 : transférées aux SDIS",
+        "Cohérence renforcée avec l'employeur direct"
+      ],
+      "relances": [
+        "[RELANCE] Qui siège dans une CAP ?",
+        "[RELANCE] Quelles questions y sont traitées ?",
+        "[RELANCE] Quelle est la différence entre CAP et CST ?"
+      ]
+    },
+    {
+      "id": "Q44",
+      "categorie": "fpt_versants",
+      "question": "Quelle est la spécificité de la rupture conventionnelle dans la fonction publique ?",
+      "reponse_attendue": [
+        "Dispositif permettant à un agent et son employeur de convenir d'un commun accord de la fin de leur relation de travail, avec indemnisation",
+        "Issu de la loi du 6 août 2019 de transformation de la fonction publique",
+        "Expérimentation initiale du 1er janvier 2020 au 31 décembre 2025",
+        "Pérennisé par la loi de finances pour 2026",
+        "Inscrit aux articles L. 552-1 à L. 552-5 du CGFP",
+        "S'applique aux agents publics titulaires"
+      ],
+      "relances": [
+        "[RELANCE] Depuis quand existe-t-elle ?",
+        "[RELANCE] Est-elle pérenne aujourd'hui ?",
+        "[RELANCE] Cela donne-t-il droit à des allocations chômage ?"
+      ]
+    },
+    {
+      "id": "Q45",
+      "categorie": "statut_double_autorite",
+      "question": "Vous parlez du DDSIS, mais quel rôle tient-il en intervention ?",
+      "reponse_attendue": [
+        "Le DDSIS peut devenir COS (Commandant des opérations de secours) en intervention",
+        "Pendant opérationnel du DOS (Directeur des opérations de secours)",
+        "Le COS dirige tactiquement les opérations sur le terrain",
+        "Le DOS (préfet ou maire) prend les décisions politiques et stratégiques",
+        "Le DDSIS exerce ce commandement par délégation du préfet, en sa qualité de chef du corps départemental"
+      ],
+      "relances": [
+        "[RELANCE] Différence entre DOS et COS ?",
+        "[RELANCE] Le COS est-il toujours le DDSIS ?",
+        "[RELANCE] Sous quelle autorité agit le COS ?"
+      ]
+    }
+  ]
+}
