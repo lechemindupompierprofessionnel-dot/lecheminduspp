@@ -319,10 +319,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:900;background:rgba(245,240,232,
 .nav-group-btn::after{content:'';display:inline-block;width:5px;height:5px;border-right:1.5px solid var(--gray);border-bottom:1.5px solid var(--gray);transform:rotate(45deg) translateY(-2px);transition:all .2s;margin-left:2px}
 /* Boutons nav directs (sans dropdown) : pas de flèche */
 .nav-group:not(:has(.nav-dropdown)) .nav-group-btn::after{display:none}
-.nav-group:hover .nav-group-btn,.nav-group.active .nav-group-btn{color:var(--charcoal)}
+.nav-group:hover .nav-group-btn{color:var(--charcoal)}
+/* Page courante : label rouge plein (vs charcoal au hover) pour repérage immédiat */
+.nav-group.active .nav-group-btn{color:var(--red)}
 .nav-group:hover .nav-group-btn::after,.nav-group.active .nav-group-btn::after{border-color:var(--red);transform:rotate(-135deg) translateY(-2px)}
-.nav-group-bar{position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--red);transform:scaleX(0);transition:transform .25s}
-.nav-group:hover .nav-group-bar,.nav-group.active .nav-group-bar{transform:scaleX(1)}
+.nav-group-bar{position:absolute;bottom:0;left:14px;right:14px;height:2px;background:var(--red);transform:scaleX(0);transition:transform .25s,height .2s}
+.nav-group:hover .nav-group-bar{transform:scaleX(1)}
+/* Page courante : barre permanente et plus épaisse (3px vs 2px hover) pour signal visuel fort */
+.nav-group.active .nav-group-bar{transform:scaleX(1);height:3px}
 .nav-dropdown{position:absolute;top:calc(100% + 1px);left:50%;transform:translateX(-50%);background:white;border:1px solid var(--border);border-top:2px solid var(--red);min-width:200px;opacity:0;pointer-events:none;transition:opacity .18s,transform .18s;transform:translateX(-50%) translateY(-6px);box-shadow:0 8px 32px rgba(0,0,0,0.08);z-index:999}
 .nav-group:hover .nav-dropdown{opacity:1;pointer-events:auto;transform:translateX(-50%) translateY(0)}
 .nav-dropdown-item{display:block;width:100%;padding:11px 20px;font-size:.83rem;font-weight:500;color:var(--gray);background:none;border:none;cursor:pointer;text-align:left;font-family:'DM Sans',sans-serif;transition:all .15s;white-space:nowrap;letter-spacing:.2px}
@@ -500,8 +504,17 @@ body.tour-active .ctx-help-btn{display:none !important}
 }
 
 /* ===== NAV ADAPTATIVE : visiteur vs membre =====
-   Par défaut, la nav membre est masquée. Quand body.is-logged est actif,
-   on bascule : la nav visiteur disparaît et la nav membre apparaît. */
+   Source de vérité : attribut data-audience="visitor|member" sur les éléments
+   nav (desktop + mobile). Le sélecteur d'attribut prend automatiquement le
+   relais des classes legacy.
+   Les anciennes classes .nav-visitor-only / .nav-member-only sont conservées
+   ici en alias parfaits (mêmes règles) pour rétrocompat — tant qu'on les
+   garde dans le HTML, elles fonctionnent. Suppression possible plus tard
+   sans toucher à ce CSS. */
+[data-audience="member"]{display:none}
+body.is-logged [data-audience="visitor"]{display:none}
+body.is-logged [data-audience="member"]{display:revert}
+/* Alias legacy — comportement strictement équivalent ci-dessus */
 .nav-member-only{display:none}
 body.is-logged .nav-visitor-only{display:none}
 body.is-logged .nav-member-only{display:revert}
@@ -1672,13 +1685,37 @@ body:not(.is-logged) .mobile-nav-member{display:none}
 #nav-space-btn{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;line-height:1.2}
 #nav-space-btn #nav-space-ico{display:inline-flex;align-items:center;font-size:.95rem;line-height:1}
 #nav-space-btn #nav-space-label{display:inline-flex;align-items:center;line-height:1;margin-left:0 !important}
-/* Sur mobile, le "Se connecter" et les autres disparaissent (accessibles via menu burger)
-   — SAUF "Mon espace" (qui affiche le pseudo + icône badge) pour accès rapide */
+/* ===== PICTOGRAMME α — bouton "Mon espace" en mobile =====
+   À <900px, on remplace label+icône par un cercle rouge contenant l'initiale
+   du pseudo. Si le pseudo est vide ou n'a aucun caractère alphanumérique
+   (ex : pseudo en emojis), le JS injecte une icône user SVG en fallback.
+   Caché par défaut (tailles desktop), affiché à <900px pour les membres. */
+#nav-space-pictogram{display:none;width:36px;height:36px;border-radius:50%;background:var(--red);color:white;align-items:center;justify-content:center;font-family:'DM Sans',sans-serif;font-weight:700;font-size:.95rem;line-height:1;flex-shrink:0;text-transform:uppercase}
+#nav-space-pictogram svg{width:18px;height:18px;display:block}
+
+/* ===== BREAKPOINT MOBILE @900px =====
+   Stratégie option B (validée Phase 2) :
+   - Visiteur : logo + CTA "Essai" compacté + burger
+   - Membre   : logo + pictogramme α + burger
+   - Boutons "Se connecter" / "Déconnexion" / nav-center : déplacés au burger */
 @media(max-width:900px){
+  /* Bascule burger : nav centrale cachée, hamburger visible */
+  .nav-center{display:none}
+  .nav-mobile-btn{display:flex;flex-shrink:0}
+  /* Visiteur : login/logout cachés (accessibles via burger) */
   #nav-login-btn,#nav-logout-btn{display:none !important}
-  /* Bouton Mon espace compact sur mobile — le pseudo reste visible */
-  #nav-space-btn{padding:7px 10px;font-size:.72rem;letter-spacing:.3px;margin-right:6px;max-width:160px;overflow:hidden}
-  #nav-space-btn #nav-space-label{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:110px}
+  /* Membre : "Mon espace" perd son habillage btn et devient un pictogramme rond.
+     Le bouton garde son onclick et son aria-label, mais ses enfants ico+label
+     sont remplacés visuellement par le pictogramme. */
+  #nav-space-btn{padding:0;border:none;background:none;margin-right:6px}
+  #nav-space-btn:hover{background:none}
+  #nav-space-btn #nav-space-ico,
+  #nav-space-btn #nav-space-label{display:none}
+  body.is-logged #nav-space-btn #nav-space-pictogram{display:inline-flex}
+}
+@media(max-width:420px){
+  /* Petits mobiles (Galaxy Fold, iPhone SE en zoom) : pictogramme et burger compacts */
+  #nav-space-pictogram{width:32px;height:32px;font-size:.85rem}
 }
 .member-logout{padding:8px 16px;border:1.5px solid var(--gray-light);color:var(--gray);font-size:.78rem;font-weight:600;background:none;transition:all .2s;cursor:pointer;font-family:'DM Sans',sans-serif}
 .member-logout:hover{border-color:var(--charcoal);color:var(--charcoal)}
@@ -2184,11 +2221,13 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
   .footer-top{grid-template-columns:1fr 1fr}
   .testi-grid{grid-template-columns:1fr}
 }
-/* Navigation progressive en 3 paliers pour éviter le débordement des onglets :
-   - > 1250px : menu complet (5 entrées visibles, identique côté visiteur et membre)
-   - 1000-1250px : menu membre allégé (Mon espace masqué — accessible via le logo)
-                   La nav visiteur tient sans rien masquer (5 entrées suffisamment compactes)
-   - < 1000px : bascule burger */
+/* Navigation progressive (refonte Phase 3 / commit 3) :
+   - > 1250px : menu complet (5 entrées visiteur OU 4 entrées membre)
+   - 900-1250px : menu visible, padding et CTA réduits (cf. .nav-cta-short)
+   - < 900px : bascule burger (cf. bloc PICTOGRAMME α / BREAKPOINT MOBILE plus haut)
+   La règle .nav-center{display:none} et l'affichage du burger ont été déplacés
+   à 900px pour cohérence avec l'option B (validée Phase 2). Le palier 1000px
+   ne sert plus qu'à ajuster le padding latéral à l'approche du burger. */
 @media(max-width:1400px){
   nav{padding:0 3%}
 }
@@ -2198,8 +2237,6 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
 }
 @media(max-width:1000px){
   nav{padding:0 4%}
-  .nav-center{display:none}
-  .nav-mobile-btn{display:flex}
 }
 @media(max-width:600px){
   .footer-top{grid-template-columns:1fr}
@@ -3025,6 +3062,10 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
     <button class="member-btn" id="nav-space-btn" style="display:none" onclick="goToEspace('planning')" title="Mon espace candidat — Mon planning">
       <span id="nav-space-ico">📊</span>
       <span id="nav-space-label">Mon espace</span>
+      <!-- Pictogramme α : visible uniquement à <900px (membre).
+           Le contenu (initiale ou icône user SVG fallback) est injecté par
+           updateSpacePictogram() lorsque le pseudo est connu. -->
+      <span id="nav-space-pictogram" aria-hidden="true"></span>
     </button>
     <button class="member-logout" id="nav-logout-btn" style="display:none" onclick="logoutMember()">Déconnexion</button>
     <button class="nav-mobile-btn" onclick="toggleMobileNav()" id="mobileBtn" aria-label="Menu">
@@ -16651,6 +16692,37 @@ function updateNavMember(member) {
 // Met à jour le nom affiché dans la nav : badge vitrine + pseudo.
 // Appelé quand le profil Supabase est chargé (pseudo, showcase_badge_id).
 // Fallback : affiche l'email split si pas de profil encore en cache.
+// Met à jour le pictogramme α du bouton "Mon espace" (visible à <900px).
+// Algorithme d'extraction d'initiale :
+//   1. Normalisation NFD pour retirer les accents (Évelyne → Evelyne)
+//   2. Première occurrence d'un caractère [A-Z0-9] (regex i/case)
+//   3. Si trouvé : uppercase et injection texte
+//   4. Sinon : injection d'un SVG icône user neutre (fallback)
+// Pas de "?" ni de carré vide visible — toujours un visuel propre.
+function updateSpacePictogram(rawName) {
+  var pict = document.getElementById('nav-space-pictogram');
+  if (!pict) return;
+  var initial = null;
+  if (rawName) {
+    try {
+      // Normalise + retire diacritiques (caractères Unicode 0300-036F)
+      var stripped = String(rawName).normalize('NFD').replace(/[̀-ͯ]/g, '');
+      var match = stripped.match(/[A-Za-z0-9]/);
+      if (match) initial = match[0].toUpperCase();
+    } catch(e) {
+      // Vieux navigateur sans String.normalize : fallback ASCII brut
+      var m2 = String(rawName).match(/[A-Za-z0-9]/);
+      if (m2) initial = m2[0].toUpperCase();
+    }
+  }
+  if (initial) {
+    pict.textContent = initial;
+  } else {
+    // Fallback icône user SVG (silhouette neutre, monochrome blanc)
+    pict.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>';
+  }
+}
+
 function updateNavMemberName() {
   var nameEl = document.getElementById('nav-member-name');
   var spaceIco = document.getElementById('nav-space-ico');
@@ -16678,6 +16750,12 @@ function updateNavMemberName() {
   // Injection dans le bouton "Mon espace" (icône badge + pseudo)
   if (spaceIco) spaceIco.textContent = icon;
   if (spaceLabel) spaceLabel.textContent = displayName;
+
+  // Pictogramme α (mobile <900px) : initiale du pseudo dans cercle rouge.
+  // Fallback robuste : on prend la première lettre alphanumérique uppercase
+  // après normalisation NFD (retire accents). Si rien d'alphanumérique
+  // (pseudo vide, en emojis, en symboles), on injecte une icône user SVG.
+  updateSpacePictogram(displayName);
 
   // L'ancien élément nav-member-name reste caché (remplacé par le bouton).
   // On le laisse en place pour éventuels autres usages, mais on ne l'affiche plus.
