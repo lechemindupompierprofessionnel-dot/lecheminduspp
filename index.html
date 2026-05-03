@@ -2903,11 +2903,11 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
        pour rendu correct pendant la pause de validation visuelle (pause-1).
      - L'a11y du drawer (role=dialog, focus trap, Escape) sera ajoutée au
        commit 4 — ici on prépare uniquement la structure data-driven. -->
-<div class="mobile-nav" id="mobileNav">
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-labelledby="mobile-nav-brand-title" aria-hidden="true">
   <!-- Header : logo + bouton fermer (toujours visible) -->
   <div class="mobile-nav-header">
-    <div class="mobile-nav-brand">Le Chemin du <em>SPP</em></div>
-    <button class="mobile-nav-close" onclick="closeMobileNav()" aria-label="Fermer le menu">&times;</button>
+    <div class="mobile-nav-brand" id="mobile-nav-brand-title">Le Chemin du <em>SPP</em></div>
+    <button class="mobile-nav-close" id="mobileNavCloseBtn" onclick="closeMobileNav()" aria-label="Fermer le menu">&times;</button>
   </div>
 
   <!-- Body scrollable -->
@@ -11136,19 +11136,97 @@ function goTo(id) {
 })();
 
 // Mobile nav
+// ============================================================
+// MOBILE NAV — accessibilité (commit 4/5)
+// ============================================================
+// Le drawer est un dialog modal :
+//   - role="dialog" + aria-modal="true" + aria-labelledby (sur le HTML)
+//   - aria-hidden bascule selon ouverture/fermeture
+//   - Escape ferme le drawer (listener global)
+//   - Tab est trappé entre le 1er et le dernier focusable du drawer
+//   - L'élément focus précédent (typiquement le burger) est restauré
+//     quand on ferme — convention WAI-ARIA pour les modales
+// ============================================================
+
+// Mémorise l'élément qui avait le focus avant ouverture, pour le restaurer.
+var _mobileNavLastFocus = null;
+
+// Sélecteur des éléments focusables à l'intérieur du drawer
+var _MOBILE_NAV_FOCUSABLE_SEL = 'button:not([disabled]), [href], input:not([disabled]), [tabindex]:not([tabindex="-1"])';
+
 function toggleMobileNav() {
   var nav = document.getElementById('mobileNav');
   if (!nav) return;
-  nav.classList.toggle('open');
-  // Bloque le scroll du body derrière quand le menu est ouvert
-  document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+  if (nav.classList.contains('open')) closeMobileNav();
+  else openMobileNav();
 }
+
+function openMobileNav() {
+  var nav = document.getElementById('mobileNav');
+  if (!nav) return;
+  // Mémorise le focus actuel pour le restaurer à la fermeture
+  _mobileNavLastFocus = document.activeElement;
+  nav.classList.add('open');
+  nav.setAttribute('aria-hidden', 'false');
+  document.body.style.overflow = 'hidden';
+  // Auto-focus sur le bouton fermer après l'animation slide-in (350ms)
+  setTimeout(function() {
+    var closeBtn = document.getElementById('mobileNavCloseBtn');
+    if (closeBtn) closeBtn.focus();
+  }, 100);
+}
+
 function closeMobileNav() {
   var nav = document.getElementById('mobileNav');
   if (!nav) return;
   nav.classList.remove('open');
+  nav.setAttribute('aria-hidden', 'true');
   document.body.style.overflow = '';
+  // Restaure le focus sur l'élément qui a déclenché l'ouverture (burger en général)
+  if (_mobileNavLastFocus && typeof _mobileNavLastFocus.focus === 'function') {
+    try { _mobileNavLastFocus.focus(); } catch(e) {}
+  }
+  _mobileNavLastFocus = null;
 }
+
+// Listener global : Escape ferme le drawer s'il est ouvert + Tab trappé
+document.addEventListener('keydown', function(e) {
+  var nav = document.getElementById('mobileNav');
+  if (!nav || !nav.classList.contains('open')) return;
+  // Escape ferme
+  if (e.key === 'Escape') {
+    e.preventDefault();
+    closeMobileNav();
+    return;
+  }
+  // Focus trap : on cycle Tab entre le premier et le dernier focusable visible.
+  // Calculé à chaque Tab pour rester juste si des éléments deviennent visibles
+  // ou cachés dynamiquement (basculer visiteur/membre, sections vides, etc.).
+  if (e.key === 'Tab') {
+    var focusables = Array.prototype.slice.call(nav.querySelectorAll(_MOBILE_NAV_FOCUSABLE_SEL))
+      .filter(function(el) {
+        // Filtre les éléments cachés (display:none, opacity 0, etc.) en testant offsetParent
+        return el.offsetParent !== null;
+      });
+    if (focusables.length === 0) return;
+    var first = focusables[0];
+    var last = focusables[focusables.length - 1];
+    var active = document.activeElement;
+    if (e.shiftKey) {
+      // Shift+Tab depuis le premier → on saute au dernier
+      if (active === first || !nav.contains(active)) {
+        e.preventDefault();
+        last.focus();
+      }
+    } else {
+      // Tab depuis le dernier → on revient au premier
+      if (active === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    }
+  }
+});
 
 // ============================================================
 // RETOUR STRIPE — détection ?success
