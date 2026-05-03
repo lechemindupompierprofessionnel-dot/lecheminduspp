@@ -2925,7 +2925,14 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
   </div>
 </div>
 
-<!-- ===== NAV ===== -->
+<!-- ===== NAV =====
+     Architecture refonte (Phase 3 / commit 1) :
+     - Chaque .nav-group porte data-audience="visitor|member" : source de vérité unique
+       pour le filtrage visiteur/membre. Le CSS [data-audience] (commit 3) prendra
+       le relais des anciennes classes .nav-visitor-only / .nav-member-only,
+       qui sont CONSERVÉES TEMPORAIREMENT pour garantir un rendu correct pendant
+       la pause de validation visuelle (stratégie pause-1).
+     - Les IDs (#navg-*), data-page et onclick restent intacts : JS legacy intouché. -->
 <nav>
   <div class="logo" onclick="logoClick()">
     <div class="logo-icon">
@@ -2936,24 +2943,24 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
   <div class="nav-center">
 
     <!-- ===================================================================
-         NAV VISITEUR (5 entrées directes) — masquée pour les membres connectés
-         Le retour à l'Accueil se fait via le clic sur le logo (convention web).
-         Parcours commercial : Mon histoire → Comment je t'aide (vitrine produit)
-         → Tarifs → Ressources gratuites → Communauté
+         NAV VISITEUR (5 entrées directes) — data-audience="visitor"
+         Parcours commercial : Mon histoire → Comment je t'aide → Tarifs
+         → Ressources gratuites → Communauté
+         Retour à l'Accueil via le clic sur le logo (convention web).
          ================================================================== -->
-    <div class="nav-group nav-visitor-only" id="navg-parcours-visitor">
+    <div class="nav-group nav-visitor-only" data-audience="visitor" id="navg-parcours-visitor">
       <button class="nav-group-btn" data-page="parcours" onclick="goTo('parcours')">Mon histoire</button>
       <div class="nav-group-bar"></div>
     </div>
-    <div class="nav-group nav-visitor-only" id="navg-comment">
+    <div class="nav-group nav-visitor-only" data-audience="visitor" id="navg-comment">
       <button class="nav-group-btn" data-page="comment" onclick="goTo('comment')">Comment je t'aide</button>
       <div class="nav-group-bar"></div>
     </div>
-    <div class="nav-group nav-visitor-only" id="navg-tarifs">
+    <div class="nav-group nav-visitor-only" data-audience="visitor" id="navg-tarifs">
       <button class="nav-group-btn" data-page="formation" onclick="goTo('formation')">Tarifs</button>
       <div class="nav-group-bar"></div>
     </div>
-    <div class="nav-group nav-visitor-only" id="navg-ressources-visitor">
+    <div class="nav-group nav-visitor-only" data-audience="visitor" id="navg-ressources-visitor">
       <button class="nav-group-btn">Ressources gratuites</button>
       <div class="nav-group-bar"></div>
       <div class="nav-dropdown">
@@ -2961,17 +2968,17 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
       </div>
     </div>
-    <div class="nav-group nav-visitor-only" id="navg-candidats-visitor">
+    <div class="nav-group nav-visitor-only" data-audience="visitor" id="navg-candidats-visitor">
       <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté<sup class="nav-new-badge">NEW</sup></button>
       <div class="nav-group-bar"></div>
     </div>
 
     <!-- ===================================================================
-         NAV MEMBRE — visible uniquement pour les membres connectés
-         L'entrée "Mon espace" du menu a été fusionnée avec le bouton du
-         pseudo en haut à droite (cf. nav-space-btn dans .nav-right).
+         NAV MEMBRE (4 entrées) — data-audience="member"
+         L'entrée "Mon espace" est portée par #nav-space-btn dans .nav-right
+         (combine identité + accès direct au planning).
          ================================================================== -->
-    <div class="nav-group nav-member-only" id="navg-prepa-ecrite">
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-ecrite">
       <button class="nav-group-btn">Préparation écrite</button>
       <div class="nav-group-bar"></div>
       <div class="nav-dropdown">
@@ -2979,11 +2986,11 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <button class="nav-dropdown-item" data-page="concours" onclick="goTo('concours')"><span class="nav-item-ico">⏱️</span>Mode concours</button>
       </div>
     </div>
-    <div class="nav-group nav-member-only" id="navg-prepa-physique">
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-physique">
       <button class="nav-group-btn" data-page="prepa" onclick="goToPrepa()">Préparation physique</button>
       <div class="nav-group-bar"></div>
     </div>
-    <div class="nav-group nav-member-only" id="navg-ressources-member">
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-ressources-member">
       <button class="nav-group-btn">Ressources</button>
       <div class="nav-group-bar"></div>
       <div class="nav-dropdown">
@@ -2991,7 +2998,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <button class="nav-dropdown-item" data-page="actu" onclick="goTo('actu')"><span class="nav-item-ico">📰</span>Actualités</button>
       </div>
     </div>
-    <div class="nav-group nav-member-only" id="navg-candidats-member">
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-candidats-member">
       <button class="nav-group-btn" data-page="candidats" onclick="goTo('candidats')">Communauté</button>
       <div class="nav-group-bar"></div>
     </div>
