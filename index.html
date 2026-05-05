@@ -2948,6 +2948,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
       <div class="mobile-nav-link" data-page="prepa-maths" onclick="goTo('prepa-maths');closeMobileNav()"><span class="mn-ico">🧮</span>Mathématiques<span class="mn-arrow">›</span></div>
       <div class="mobile-nav-link" data-page="prepa-texte" onclick="goTo('prepa-texte');closeMobileNav()"><span class="mn-ico">📖</span>Étude de texte<span class="mn-arrow">›</span></div>
       <div class="mobile-nav-link" data-page="prepa-equipier" onclick="goTo('prepa-equipier');closeMobileNav()"><span class="mn-ico">🚒</span>Connaissances équipier<span class="mn-arrow">›</span></div>
+      <div class="mobile-nav-link" data-page="prepa-culture-admin" onclick="goTo('prepa-culture-admin');closeMobileNav()"><span class="mn-ico">🏛️</span>Culture Administrative<span class="mn-arrow">›</span></div>
 
       <div class="mobile-nav-section">Préparation physique</div>
       <div class="mobile-nav-link" data-page="prepa" onclick="goToPrepa();closeMobileNav()"><span class="mn-ico">💪</span>Préparation physique<span class="mn-arrow">›</span></div>
@@ -3031,6 +3032,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <button class="nav-dropdown-item" data-page="prepa-maths" onclick="goTo('prepa-maths')"><span class="nav-item-ico">🧮</span>Mathématiques</button>
         <button class="nav-dropdown-item" data-page="prepa-texte" onclick="goTo('prepa-texte')"><span class="nav-item-ico">📖</span>Étude de texte</button>
         <button class="nav-dropdown-item" data-page="prepa-equipier" onclick="goTo('prepa-equipier')"><span class="nav-item-ico">🚒</span>Connaissances équipier</button>
+        <button class="nav-dropdown-item" data-page="prepa-culture-admin" onclick="goTo('prepa-culture-admin')"><span class="nav-item-ico">🏛️</span>Culture Administrative</button>
       </div>
     </div>
     <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-physique">
@@ -3974,13 +3976,27 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
     <div class="page-header-inner">
       <div class="s-eyebrow">Préparation écrite</div>
       <div class="s-title">Connaissances équipier</div>
-      <div class="s-lead">Activités, compétences et culture professionnelle de l'équipier sapeur-pompier : doctrines opérationnelles, statut, organisation des SIS, divers. Théorie, QCM ciblés et annales chronométrées rassemblés ici.</div>
+      <div class="s-lead">Maîtrise les doctrines opérationnelles GTO/GDO/SSUAP attendues le jour du concours, complétées des connaissances diverses utiles à l'épreuve.</div>
     </div>
   </div>
   <div class="section">
     <div id="prepa-equipier-textes" class="prepa-theme-block"></div>
     <div id="prepa-equipier-qcm" class="prepa-theme-block" style="margin-top:48px"></div>
     <div id="prepa-equipier-annales" class="prepa-theme-block" style="margin-top:48px"></div>
+  </div>
+</div>
+
+<div class="page" id="page-prepa-culture-admin">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="s-eyebrow">Préparation écrite</div>
+      <div class="s-title">Culture Administrative</div>
+      <div class="s-lead">Maîtrise les fondamentaux administratifs du concours : organisation des SIS, statut du sapeur-pompier professionnel, fonction publique. Fiches de synthèse, textes officiels et QCM ciblés sont rassemblés ici.</div>
+    </div>
+  </div>
+  <div class="section">
+    <div id="prepa-culture-admin-textes" class="prepa-theme-block"></div>
+    <div id="prepa-culture-admin-qcm" class="prepa-theme-block" style="margin-top:48px"></div>
   </div>
 </div>
 
@@ -11083,7 +11099,7 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','prepa-maths','prepa-texte','prepa-equipier','espace','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','prepa-maths','prepa-texte','prepa-equipier','prepa-culture-admin','espace','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -11114,6 +11130,7 @@ function goTo(id) {
     'prepa-maths':    ['navg-prepa-ecrite'],
     'prepa-texte':    ['navg-prepa-ecrite'],
     'prepa-equipier': ['navg-prepa-ecrite'],
+    'prepa-culture-admin': ['navg-prepa-ecrite'],
     prepa:       ['navg-prepa-physique'],
     'demo-prepa': ['navg-prepa-physique']
   };
@@ -11133,6 +11150,7 @@ function goTo(id) {
   if (id === 'prepa-maths')    initPrepaTheme('maths');
   if (id === 'prepa-texte')    initPrepaTheme('etude-texte');
   if (id === 'prepa-equipier') initPrepaTheme('equipier');
+  if (id === 'prepa-culture-admin') initPrepaTheme('culture-admin');
   if (id === 'prepa') { checkAccessGate('prepa'); renderPrepa(); }
   if (id === 'espace') { renderEspace(); }
   if (id === 'demo-espace') { renderDemoEspace(); }
@@ -17460,10 +17478,17 @@ var PREPA_THEME_MAP = {
     qcmCatsExtra: [],
     annalesKey: 'etude-texte'
   },
+  'culture-admin': {
+    label: 'Culture Administrative',
+    biblioAcc: ['culture'],
+    qcmCats: ['textes','statut','sis'],
+    qcmCatsExtra: [],
+    annalesKey: null
+  },
   'equipier': {
     label: 'Connaissances équipier',
-    biblioAcc: ['doctrines','culture','divers'],
-    qcmCats: ['textes','statut','sis','divers'].concat(DOCTRINES_SUBCATS),
+    biblioAcc: ['doctrines','divers'],
+    qcmCats: ['divers'].concat(DOCTRINES_SUBCATS),
     qcmCatsExtra: HORS_PROGRAMME_SUBCATS.slice(),
     annalesKey: 'equipier'
   }
@@ -17478,7 +17503,7 @@ function initPrepaTheme(themeKey) {
   var slug = _prepaThemeSlug(themeKey);
   renderPrepaTheme_Textes(slug, conf);
   renderPrepaTheme_Qcm(slug, themeKey, conf);
-  renderPrepaTheme_Annales(slug, conf.annalesKey);
+  if (conf.annalesKey) renderPrepaTheme_Annales(slug, conf.annalesKey);
 }
 
 // Bloc Theorie : clones outerHTML des biblio-cards des sections demandees
