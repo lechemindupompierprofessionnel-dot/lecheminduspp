@@ -1,0 +1,1228 @@
+[
+  {
+    "id": "maths-mes-001",
+    "level": "TF",
+    "q": "Quelles affirmations sont exactes concernant 1 mètre ?",
+    "choices": [
+      "1 m = 10 cm",
+      "1 m = 100 cm",
+      "1 m = 1 000 mm",
+      "1 m = 1 000 cm"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "1 m = 100 cm ET 1 m = 1 000 mm. Les deux sont des conversions usuelles du système métrique.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-002",
+    "level": "TF",
+    "q": "Quelles affirmations sont correctes concernant 1 m³ d'eau ?",
+    "choices": [
+      "1 m³ = 100 L",
+      "1 m³ = 1 000 L",
+      "1 m³ = 1 000 dm³",
+      "1 m³ pèse environ 1 000 kg"
+    ],
+    "correct": [
+      1,
+      2,
+      3
+    ],
+    "expl": "1 m³ = 1 000 dm³ = 1 000 L. 1 L d'eau ≈ 1 kg, donc 1 m³ d'eau ≈ 1 000 kg.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-003",
+    "level": "TF",
+    "q": "Combien y a-t-il de secondes dans 1 heure ?",
+    "choices": [
+      "60 s",
+      "360 s",
+      "3 600 s",
+      "6 000 s"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "1 h = 60 min × 60 s = 3 600 s.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-004",
+    "level": "TF",
+    "q": "Quelles sont les conversions correctes pour 1 kilogramme ?",
+    "choices": [
+      "1 000 g",
+      "100 g",
+      "1 000 000 mg",
+      "10 000 g"
+    ],
+    "correct": [
+      0,
+      2
+    ],
+    "expl": "1 kg = 1 000 g et 1 g = 1 000 mg donc 1 kg = 1 000 000 mg.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-005",
+    "level": "TF",
+    "q": "Quelles conversions de 2,5 km sont exactes ?",
+    "choices": [
+      "2 500 m",
+      "25 000 dm",
+      "250 cm",
+      "250 000 cm"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "2,5 km = 2 500 m = 25 000 dm = 250 000 cm. 250 cm = 2,5 m seulement.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-006",
+    "level": "TF",
+    "q": "Quelles propositions sont exactes pour une durée de 2 h 30 ?",
+    "choices": [
+      "150 min",
+      "9 000 s",
+      "2,5 h",
+      "130 min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "2 h 30 = 150 min = 2,5 h = 150 × 60 = 9 000 s. 130 min = 2 h 10 (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-007",
+    "level": "TF",
+    "q": "Convertir 500 g en kg.",
+    "choices": [
+      "0,05 kg",
+      "0,5 kg",
+      "5 kg",
+      "50 kg"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "1 kg = 1 000 g donc 500 g = 500/1 000 = 0,5 kg.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-008",
+    "level": "TF",
+    "q": "Convertir 1,5 L en millilitres.",
+    "choices": [
+      "15 mL",
+      "150 mL",
+      "1 500 mL",
+      "15 000 mL"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "1 L = 1 000 mL donc 1,5 × 1 000 = 1 500 mL.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-009",
+    "level": "TF",
+    "q": "Convertir 3 000 kg en tonnes.",
+    "choices": [
+      "0,3 t",
+      "3 t",
+      "30 t",
+      "300 t"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "1 t = 1 000 kg donc 3 000 kg = 3 t.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-010",
+    "level": "TF",
+    "q": "Quelles affirmations sont exactes ?",
+    "choices": [
+      "1 m² = 100 cm²",
+      "1 m² = 10 000 cm²",
+      "1 dm² = 100 cm²",
+      "1 km² = 1 000 m²"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "Pour les surfaces, chaque échelon du tableau est ×100. 1 m² = 100 dm² = 10 000 cm² ; 1 dm² = 100 cm² ; 1 km² = 1 000 000 m² (pas 1 000).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-011",
+    "level": "TF",
+    "q": "Quelles propositions sont équivalentes à 0,25 h ?",
+    "choices": [
+      "15 min",
+      "900 s",
+      "1/4 h",
+      "25 min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "0,25 h = 1/4 h = 15 min = 900 s. 25 min ≠ 0,25 h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-012",
+    "level": "TF",
+    "q": "Un camion roule à 60 km/h. Quelles affirmations sont exactes ?",
+    "choices": [
+      "En 1 h, il parcourt 60 km",
+      "Il parcourt 1 km par minute",
+      "Sa vitesse est d'environ 16,67 m/s",
+      "En 30 min, il parcourt 60 km"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "60 km/h = 60 km par heure = 1 km par minute = 60/3,6 ≈ 16,67 m/s. En 30 min : 30 km (pas 60).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-013",
+    "level": "TF",
+    "q": "Un camion roule à 80 km/h pendant 2 heures. Quelle distance parcourt-il ?",
+    "choices": [
+      "40 km",
+      "82 km",
+      "120 km",
+      "160 km"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Distance = vitesse × temps = 80 × 2 = 160 km.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-014",
+    "level": "TF",
+    "q": "Quelles propositions sont équivalentes à 120 minutes ?",
+    "choices": [
+      "2 h",
+      "7 200 s",
+      "1/12 jour",
+      "1 h 20"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "120 min = 2 h = 7 200 s. 1 jour = 1 440 min donc 120/1 440 = 1/12 jour. 1 h 20 = 80 min (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-015",
+    "level": "TF",
+    "q": "Quelles égalités sont exactes ?",
+    "choices": [
+      "1 h = 60 min",
+      "1 min = 60 s",
+      "1 h = 100 min",
+      "1 jour = 24 h"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "Système sexagésimal (base 60) pour heures et minutes ; 1 jour = 24 h. 1 h = 60 min (pas 100).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-016",
+    "level": "TF",
+    "q": "Un véhicule parcourt 90 km en 1 heure. Sa vitesse est de :",
+    "choices": [
+      "45 km/h",
+      "60 km/h",
+      "90 km/h",
+      "180 km/h"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Vitesse = distance / temps = 90 / 1 = 90 km/h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-017",
+    "level": "TF",
+    "q": "Quelles conversions sont équivalentes à 200 cL ?",
+    "choices": [
+      "2 L",
+      "2 000 mL",
+      "20 dL",
+      "0,2 L"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "200 cL = 2 L = 2 000 mL = 20 dL. 0,2 L = 20 cL (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-018",
+    "level": "TF",
+    "q": "Un engin consomme 1 L pour 4 km. Quelles propositions sont exactes ?",
+    "choices": [
+      "Avec 10 L il parcourt 40 km",
+      "Avec 5 L il parcourt 20 km",
+      "Sa consommation est de 25 L aux 100 km",
+      "Sa consommation est de 2,5 L aux 100 km"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Règle de 3. Avec 10 L : 40 km ; avec 5 L : 20 km. Aux 100 km : 100/4 = 25 L. 2,5 L est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-019",
+    "level": "TF",
+    "q": "Combien y a-t-il de millilitres dans 1 litre ?",
+    "choices": [
+      "10 mL",
+      "100 mL",
+      "1 000 mL",
+      "10 000 mL"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "1 L = 1 000 mL (multiples du litre).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-020",
+    "level": "TF",
+    "q": "Un tuyau débite 500 L/min. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Il délivre 500 L en 1 minute",
+      "Il délivre 30 000 L en 1 heure",
+      "Il délivre 30 m³ en 1 heure",
+      "Il délivre 5 000 L en 1 minute"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "500 L/min = 500 × 60 = 30 000 L/h = 30 m³/h. 5 000 L/min est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-021",
+    "level": "TF",
+    "q": "Quelles écritures sont équivalentes à 4 500 m ?",
+    "choices": [
+      "4,5 km",
+      "45 hm",
+      "450 dam",
+      "0,45 km"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "4 500 m = 4,5 km = 45 hm = 450 dam. 0,45 km = 450 m (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-022",
+    "level": "TF",
+    "q": "Quelles sont les unités de volume usuelles ?",
+    "choices": [
+      "m³",
+      "Litre (L)",
+      "km²",
+      "dm³"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "m³, L et dm³ sont des unités de volume (1 L = 1 dm³). km² est une unité de surface.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-023",
+    "level": "TF",
+    "q": "Quelles affirmations sur 1 litre d'eau pure sont exactes ?",
+    "choices": [
+      "Sa masse est d'environ 1 kg",
+      "Son volume est de 1 dm³",
+      "Son volume est de 1 000 cm³",
+      "Sa masse est d'environ 100 g"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "1 L = 1 dm³ = 1 000 cm³. Masse volumique eau = 1 kg/L donc 1 L ≈ 1 kg (pas 100 g).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-024",
+    "level": "F",
+    "q": "Un VSAV parcourt 12 km en 15 minutes. Quelles propositions sont exactes ?",
+    "choices": [
+      "Sa vitesse est de 48 km/h",
+      "Sa vitesse est de 800 m/min",
+      "Sa vitesse est de 36 km/h",
+      "Il parcourt 1 km en 1 min 15 s"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "V = 12/0,25 = 48 km/h = 800 m/min. Temps pour 1 km : 15/12 = 1,25 min = 1 min 15 s. 36 km/h est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-025",
+    "level": "F",
+    "q": "Un FPT roule à 70 km/h pendant 45 minutes. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Il parcourt 52,5 km",
+      "Il parcourt environ 52 500 m",
+      "Il parcourt 45 km",
+      "Son trajet dure 0,75 h"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "t = 45/60 = 0,75 h. d = 70 × 0,75 = 52,5 km = 52 500 m. 45 km est la durée en min, pas la distance.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-026",
+    "level": "F",
+    "q": "Un bassin de 120 m³ contient combien de litres d'eau s'il est plein ?",
+    "choices": [
+      "1 200 L",
+      "12 000 L",
+      "120 000 L",
+      "1 200 000 L"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "1 m³ = 1 000 L donc 120 × 1 000 = 120 000 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-027",
+    "level": "F",
+    "q": "Une lance débite 500 L/min. Combien de litres débite-t-elle en 30 minutes ?",
+    "choices": [
+      "1 500 L",
+      "5 000 L",
+      "15 000 L",
+      "30 000 L"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Débit × durée = 500 × 30 = 15 000 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-028",
+    "level": "F",
+    "q": "Un FPT contient 3 000 L. Avec une lance à 250 L/min, quelles affirmations sont exactes ?",
+    "choices": [
+      "L'autonomie est de 12 min",
+      "L'autonomie est de 720 s",
+      "L'autonomie est de 1/5 d'heure",
+      "L'autonomie est de 15 min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Durée = 3 000/250 = 12 min = 720 s = 12/60 = 1/5 h. 15 min est faux (serait 3 750 L).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-029",
+    "level": "F",
+    "q": "Un pompier parcourt 2 400 m en 12 minutes de course. Quelles propositions sont exactes ?",
+    "choices": [
+      "Sa vitesse est de 12 km/h",
+      "Sa vitesse est de 200 m/min",
+      "Sa vitesse est de 10 km/h",
+      "Il parcourt 200 m par minute"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "2 400 m / 12 min = 200 m/min. En km/h : 200 × 60 / 1 000 = 12 km/h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-030",
+    "level": "F",
+    "q": "Un réservoir de 5 m³ est rempli à 60 %. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Il contient 3 m³ d'eau",
+      "Il contient 3 000 L d'eau",
+      "Il reste 2 m³ d'espace vide",
+      "Il reste 40 % d'espace vide"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "60 % de 5 m³ = 3 m³ = 3 000 L. Espace vide = 5 − 3 = 2 m³ = 40 % (100 − 60). Toutes exactes.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-031",
+    "level": "F",
+    "q": "Un FPT arrive sur les lieux à 14 h 35 après 22 minutes de trajet. À quelle heure est-il parti ?",
+    "choices": [
+      "14 h 03",
+      "14 h 13",
+      "14 h 17",
+      "14 h 57"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "14 h 35 − 22 min = 14 h 13.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-032",
+    "level": "F",
+    "q": "Un véhicule consomme 9 L aux 100 km. Quelle est sa consommation pour 450 km ?",
+    "choices": [
+      "20,25 L",
+      "40,5 L",
+      "45 L",
+      "90 L"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Règle de 3 — 9 L pour 100 km donc (9 × 450) / 100 = 40,5 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-033",
+    "level": "F",
+    "q": "Un engin pèse 13,5 tonnes. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Sa masse est de 13 500 kg",
+      "Sa masse est de 1 350 kg",
+      "Sa masse est de 13 500 000 g",
+      "Sa masse est de 135 quintaux"
+    ],
+    "correct": [
+      0,
+      2,
+      3
+    ],
+    "expl": "1 t = 1 000 kg donc 13,5 t = 13 500 kg = 13 500 000 g. 1 quintal = 100 kg donc 13 500/100 = 135 quintaux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-034",
+    "level": "F",
+    "q": "Une intervention dure de 8 h 45 à 11 h 20. Quelles affirmations sont exactes ?",
+    "choices": [
+      "La durée est de 2 h 35",
+      "La durée est de 155 min",
+      "La durée est de 2 h 25",
+      "La durée est d'environ 2,58 h"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "11h20 − 8h45 = 2h35 = 155 min. 155/60 ≈ 2,58 h. 2h25 faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-035",
+    "level": "F",
+    "q": "Un FPT avance à 90 km/h. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Il parcourt 30 km en 20 min",
+      "Sa vitesse est de 1,5 km/min",
+      "Il parcourt 1 km en 40 s",
+      "Il parcourt 30 km en 15 min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "t = 30/90 = 1/3 h = 20 min. 90 km/h = 1,5 km/min. 1 km = 60/90 min = 2/3 min = 40 s. 15 min faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-036",
+    "level": "F",
+    "q": "Une tonne-pompe transporte 4 500 L d'eau. Quelles équivalences sont correctes ?",
+    "choices": [
+      "4,5 m³",
+      "4 500 kg (masse d'eau)",
+      "4 500 dm³",
+      "0,45 m³"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "4 500 L = 4,5 m³ = 4 500 dm³. Masse d'eau ≈ 4 500 kg (1 L = 1 kg). 0,45 m³ = 450 L (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-037",
+    "level": "F",
+    "q": "La masse volumique du gazole est d'environ 0,84 kg/L. Quelle est la masse de 50 L de gazole ?",
+    "choices": [
+      "4,2 kg",
+      "42 kg",
+      "48 kg",
+      "420 kg"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "m = ρ × V = 0,84 × 50 = 42 kg.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-038",
+    "level": "F",
+    "q": "Un véhicule roule à 72 km/h. Quelles équivalences sont correctes ?",
+    "choices": [
+      "20 m/s",
+      "1 200 m/min",
+      "Il parcourt 100 m en 5 s",
+      "15 m/s"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "72/3,6 = 20 m/s. 20 × 60 = 1 200 m/min. 100 m en 100/20 = 5 s. 15 m/s = 54 km/h (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-039",
+    "level": "F",
+    "q": "Un pompier a couru 5 km en 25 min. Quelles vitesses moyennes sont équivalentes ?",
+    "choices": [
+      "12 km/h",
+      "200 m/min",
+      "0,2 km/min",
+      "5 min / km"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "5 km / 25 min = 0,2 km/min = 200 m/min. 0,2 × 60 = 12 km/h. Allure = 25/5 = 5 min/km. Les quatre expriment la même vitesse.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-040",
+    "level": "F",
+    "q": "Un ARI fournit 1 600 L d'air. À une consommation de 40 L/min, quelles affirmations sont exactes ?",
+    "choices": [
+      "L'autonomie théorique est de 40 min",
+      "L'autonomie est de 2 400 s",
+      "L'autonomie est de 2/3 d'heure",
+      "L'autonomie est de 45 min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Durée = 1 600/40 = 40 min = 2 400 s = 40/60 = 2/3 h. 45 min faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-041",
+    "level": "F",
+    "q": "Une garde de 24 h a commencé à 7 h 30. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Elle se termine à 7 h 30 le lendemain",
+      "Sa durée totale est de 1 440 min",
+      "Sa durée totale est de 86 400 s",
+      "Elle se termine à 19 h 30 le même jour"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Fin : 7h30 + 24h = 7h30 le lendemain. 24 h = 24 × 60 = 1 440 min = 86 400 s. 19h30 = 12h après début (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-042",
+    "level": "F",
+    "q": "Un camion transporte 2,5 tonnes puis on ajoute 750 kg. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Charge totale = 3 250 kg",
+      "Charge totale = 3,25 t",
+      "Charge totale = 32,5 quintaux",
+      "Charge totale = 2 750 kg"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "2,5 t = 2 500 kg. Total = 2 500 + 750 = 3 250 kg = 3,25 t = 32,5 quintaux (1 q = 100 kg). 2 750 kg faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-043",
+    "level": "F",
+    "q": "Un bassin de 8 m × 4 m × 1,5 m est rempli par une MPR à 1 000 L/min. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Le volume est de 48 m³",
+      "Le remplissage dure 48 min",
+      "Le remplissage dure 0,8 h",
+      "Le remplissage dure 1 h 00"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "V = 8 × 4 × 1,5 = 48 m³ = 48 000 L. Temps = 48 000/1 000 = 48 min = 0,8 h. 1 h faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-044",
+    "level": "F",
+    "q": "Dans un FPT, la réserve est de 2 400 L et la MPR débite 1 500 L/min. Quelle autonomie en eau ?",
+    "choices": [
+      "1 min 24 s",
+      "1 min 36 s",
+      "2 min 40 s",
+      "4 min"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "t = 2 400 / 1 500 = 1,6 min = 1 min + 0,6 × 60 s = 1 min 36 s.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-045",
+    "level": "F",
+    "q": "Une intervention commence à 22 h 15 et finit le lendemain à 2 h 40. Quelles affirmations sont exactes ?",
+    "choices": [
+      "La durée est de 4 h 25",
+      "La durée est de 265 min",
+      "La durée est d'environ 4,42 h",
+      "La durée est de 5 h 25"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Durée = 4h25 = 4 × 60 + 25 = 265 min ≈ 4,42 h. 5h25 faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-046",
+    "level": "F",
+    "q": "Un engin pompe 18 m³ d'eau en 12 minutes. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Le débit est de 1 500 L/min",
+      "Le débit est de 90 m³/h",
+      "Le débit est de 25 L/s",
+      "Le débit est de 1 200 L/min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Q = 18 000/12 = 1 500 L/min = 1 500 × 60 = 90 000 L/h = 90 m³/h = 1 500/60 = 25 L/s. 1 200 L/min faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-047",
+    "level": "M",
+    "q": "Un FPT contient 4 000 L. Deux lances à 500 + 250 L/min débitent. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Débit total = 750 L/min",
+      "Autonomie ≈ 5 min 20 s",
+      "Autonomie ≈ 5,33 min",
+      "Autonomie ≈ 8 min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Débit = 500 + 250 = 750 L/min. t = 4 000/750 ≈ 5,33 min ≈ 5 min 20 s. 8 min faux (serait 6 000 L).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-048",
+    "level": "M",
+    "q": "Un FPT parcourt 40 km à 80 km/h puis 40 km à 40 km/h. Quelles affirmations sont exactes ?",
+    "choices": [
+      "La durée totale est de 1,5 h",
+      "La vitesse moyenne est d'environ 53,3 km/h",
+      "La vitesse moyenne est de 60 km/h (moyenne arithmétique)",
+      "La distance totale est de 80 km"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "t = 40/80 + 40/40 = 0,5 + 1 = 1,5 h. d = 80 km. V = 80/1,5 ≈ 53,3 km/h. Piège : 60 km/h (moyenne arithmétique) est faux — la vitesse moyenne ≠ moyenne des vitesses.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-049",
+    "level": "M",
+    "q": "Une piscine se remplit en 8 heures avec un débit constant. Au bout de combien de temps est-elle remplie au tiers ?",
+    "choices": [
+      "1 h 30",
+      "2 h 30",
+      "2 h 40",
+      "3 h 20"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "8 h / 3 ≈ 2,666... h = 2 h + 0,666 × 60 min = 2 h 40 min.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-050",
+    "level": "M",
+    "q": "Un véhicule consomme 12 L/100 km en ville et 8 L/100 km sur route. Sur 50 km ville + 150 km route, quelles affirmations sont exactes ?",
+    "choices": [
+      "La consommation totale est de 18 L",
+      "La consommation ville est de 6 L",
+      "La consommation route est de 12 L",
+      "La consommation totale est de 20 L"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Ville : 50 × 12/100 = 6 L. Route : 150 × 8/100 = 12 L. Total = 18 L. 20 L faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-051",
+    "level": "M",
+    "q": "Une lance débite 300 L/min pendant 15 minutes, puis 500 L/min pendant 10 minutes. Quel volume total d'eau a été utilisé ?",
+    "choices": [
+      "8 000 L",
+      "8 500 L",
+      "9 500 L",
+      "12 000 L"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Phase 1 : 300 × 15 = 4 500 L. Phase 2 : 500 × 10 = 5 000 L. Total = 9 500 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-052",
+    "level": "M",
+    "q": "Un sapeur-pompier court 2 km à 12 km/h puis marche 1 km à 4 km/h. Quelle est sa vitesse moyenne sur le parcours total ?",
+    "choices": [
+      "6 km/h",
+      "7,2 km/h",
+      "8 km/h",
+      "9 km/h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "t₁ = 2/12 = 1/6 h. t₂ = 1/4 h. Total : 3 km en 1/6 + 1/4 = 5/12 h. V = 3 / (5/12) = 36/5 = 7,2 km/h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-053",
+    "level": "M",
+    "q": "Une salle de 15 m × 8 m × 3 m avec 1 personne pour 2 m². Quelles affirmations sont correctes ?",
+    "choices": [
+      "Aire au sol = 120 m²",
+      "Capacité max = 60 personnes",
+      "Volume = 360 m³",
+      "Capacité max = 80 personnes"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Aire = 15 × 8 = 120 m². Capacité = 120/2 = 60 pers. V = 120 × 3 = 360 m³. 80 pers faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-054",
+    "level": "M",
+    "q": "Un engin se déplace de 60 km entre 14 h 15 et 15 h 00. Quelles affirmations sont exactes ?",
+    "choices": [
+      "La durée du trajet est de 45 min",
+      "La vitesse moyenne est de 80 km/h",
+      "La durée est de 0,75 h",
+      "La vitesse moyenne est de 90 km/h"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "15h − 14h15 = 45 min = 0,75 h. V = 60/0,75 = 80 km/h. 90 km/h faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-055",
+    "level": "M",
+    "q": "Un ARI contient 1 800 L d'air à la pression initiale. Le sapeur respire 50 L/min au repos mais 80 L/min sous effort. S'il alterne 10 min de repos et 10 min d'effort, quelle est son autonomie totale sur ce cycle ?",
+    "choices": [
+      "18 min",
+      "24 min",
+      "27 min 42 s environ",
+      "30 min"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Consommation moyenne = (10 × 50 + 10 × 80) / 20 = 1 300/20 = 65 L/min. Autonomie = 1 800/65 ≈ 27,69 min ≈ 27 min 42 s.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-056",
+    "level": "M",
+    "q": "Une pièce de 5 m × 4 m × 2,5 m est remplie à 60 % de fumée. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Volume total = 50 m³",
+      "Volume de fumée = 30 m³",
+      "Volume d'air non enfumé = 20 m³",
+      "Volume de fumée = 36 m³"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "V = 5 × 4 × 2,5 = 50 m³. Fumée = 50 × 0,6 = 30 m³. Air libre = 50 − 30 = 20 m³. 36 m³ faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-057",
+    "level": "M",
+    "q": "Une lance à eau arrive avec un débit de 500 L/min sur un sinistre. Après 6 minutes, on ajoute une deuxième lance identique. Au bout de 12 minutes au total, quel volume d'eau a été déversé ?",
+    "choices": [
+      "4 500 L",
+      "6 000 L",
+      "9 000 L",
+      "12 000 L"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Phase 1 (1 lance, 6 min) : 500 × 6 = 3 000 L. Phase 2 (2 lances, 6 min) : 2 × 500 × 6 = 6 000 L. Total = 9 000 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-058",
+    "level": "M",
+    "q": "Un engin roulant à 50 km/h freine sur 25 m. Un autre, roulant à 100 km/h, freine. À décélération égale, quelle est sa distance de freinage théorique ?",
+    "choices": [
+      "50 m",
+      "75 m",
+      "100 m",
+      "125 m"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "La distance de freinage est proportionnelle au carré de la vitesse. V doublée → distance × 4. 25 × 4 = 100 m.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-059",
+    "level": "M",
+    "q": "Un réservoir contient 60 % de sa capacité en eau. Après pompage, il ne reste que 15 % de sa capacité. Quel pourcentage de la capacité totale a été pompé ?",
+    "choices": [
+      "25 %",
+      "35 %",
+      "45 %",
+      "75 %"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Eau initiale = 60 %. Eau restante = 15 %. Volume pompé = 60 − 15 = 45 % de la capacité totale.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-060",
+    "level": "M",
+    "q": "Parmi les affirmations suivantes sur la densité et la masse volumique, lesquelles sont correctes ?",
+    "choices": [
+      "L'eau pure a une masse volumique de 1 kg/L",
+      "La densité est un nombre sans unité (rapport à l'eau)",
+      "Un corps de densité < 1 flotte dans l'eau",
+      "L'huile (densité ≈ 0,9) coule dans l'eau"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Masse volumique eau = 1 000 kg/m³ = 1 kg/L. Densité = rapport ρ/ρ_eau (sans unité). Un corps moins dense que l'eau flotte. L'huile (d ≈ 0,9) flotte, ne coule pas.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-061",
+    "level": "M",
+    "q": "Un sapeur court 10 km en 52 minutes. Lesquelles des propositions suivantes sont exactes ?",
+    "choices": [
+      "Sa vitesse moyenne est d'environ 11,54 km/h",
+      "Son allure est d'environ 5 min 12 s / km",
+      "Son allure est d'environ 3 min 30 s / km",
+      "Il parcourt environ 192 m par minute"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "V = 10 / (52/60) ≈ 11,54 km/h. Allure = 52/10 = 5,2 min/km = 5 min 12 s. 10 000/52 ≈ 192,3 m/min. 3 min 30/km donnerait 17 km/h (trop rapide).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-062",
+    "level": "M",
+    "q": "4 lances à 500 L/min pendant 20 minutes. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Débit total = 2 000 L/min",
+      "Volume total = 40 000 L",
+      "Volume total = 40 m³",
+      "Débit total = 1 500 L/min"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Débit = 4 × 500 = 2 000 L/min. Volume = 2 000 × 20 = 40 000 L = 40 m³. 1 500 L/min faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-063",
+    "level": "M",
+    "q": "Un local de 12 m × 8 m × 3,5 m avec 4 renouvellements/h. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Volume du local = 336 m³",
+      "Débit nécessaire = 1 344 m³/h",
+      "Débit nécessaire = 22,4 m³/min",
+      "Débit nécessaire = 672 m³/h"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "V = 12 × 8 × 3,5 = 336 m³. Débit = 4 × 336 = 1 344 m³/h = 1 344/60 = 22,4 m³/min. 672 m³/h faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-064",
+    "level": "M",
+    "q": "Un objet ayant une masse de 15 kg et un volume de 10 L a pour masse volumique :",
+    "choices": [
+      "1,5 kg/L",
+      "0,67 kg/L",
+      "150 kg/m³",
+      "1 500 kg/m³"
+    ],
+    "correct": [
+      0,
+      3
+    ],
+    "expl": "ρ = m/V = 15/10 = 1,5 kg/L = 1 500 kg/m³ (1 kg/L = 1 000 kg/m³).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-065",
+    "level": "M",
+    "q": "Un FPT part du centre de secours et parcourt 18 km en 15 minutes pour arriver sur un sinistre. Il repart à 16 h 30 et fait le chemin inverse à 80 km/h. À quelle heure est-il de retour au centre ?",
+    "choices": [
+      "16 h 43",
+      "16 h 45",
+      "16 h 47",
+      "17 h 00"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Retour : 18 km à 80 km/h = 18/80 h = 0,225 h = 13,5 min. 16 h 30 + 13 min 30 s ≈ 16 h 43.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-066",
+    "level": "M",
+    "q": "Un véhicule de secours parcourt 120 km à 80 km/h, puis 60 km à 60 km/h. Quelle est la vitesse moyenne sur le trajet total ?",
+    "choices": [
+      "68 km/h",
+      "70 km/h",
+      "72 km/h",
+      "75 km/h"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "t₁ = 120/80 = 1,5 h ; t₂ = 60/60 = 1 h. Total : 180 km en 2,5 h. V = 180/2,5 = 72 km/h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-067",
+    "level": "M",
+    "q": "Un sinistre dure 3 h 45. Trois équipes se relaient toutes les 45 minutes. Combien de relèves ont lieu au total ?",
+    "choices": [
+      "3 relèves",
+      "4 relèves",
+      "5 relèves",
+      "6 relèves"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "3 h 45 = 225 min. 225/45 = 5 périodes. Entre 5 périodes, il y a 4 relèves (la 1re équipe prend poste sans relève).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-068",
+    "level": "M",
+    "q": "Quelle proposition N'EST PAS cohérente avec une vitesse moyenne de 54 km/h ?",
+    "choices": [
+      "900 m par minute",
+      "15 m/s",
+      "1 km toutes les 1 min 7 s environ",
+      "100 m en 6 s"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "54 km/h = 15 m/s = 900 m/min. Temps pour 1 km = 60/54 ≈ 1 min 7 s. 100 m en 6 s = 16,67 m/s ≈ 60 km/h (pas cohérent avec 54 km/h).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-069",
+    "level": "M",
+    "q": "Parmi les affirmations sur les conversions d'unités, lesquelles sont correctes ?",
+    "choices": [
+      "1 m³ = 1 000 L",
+      "1 hL = 100 L",
+      "1 tonne = 1 000 kg",
+      "1 dm³ = 100 L"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "1 m³ = 1 000 L ✓ ; 1 hL = 100 L ✓ ; 1 t = 1 000 kg ✓. Mais 1 dm³ = 1 L (pas 100 L).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-070",
+    "level": "M",
+    "q": "Un engin transporte 2 500 L d'émulseur utilisé à 3 %. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Volume total de solution ≈ 83 333 L",
+      "Volume d'eau nécessaire ≈ 80 833 L",
+      "Rapport eau/émulseur ≈ 32,3",
+      "Volume total de solution = 125 000 L"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Solution = 2 500/0,03 ≈ 83 333 L. Eau = 83 333 − 2 500 ≈ 80 833 L. Rapport = 80 833/2 500 ≈ 32,3. 125 000 faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-mes-071",
+    "level": "M",
+    "q": "Une intervention se déroule sur 2 jours. Jour 1 : de 22 h à minuit, puis de minuit à 5 h. Jour 2 : de 9 h à 12 h. Quelle est la durée totale d'engagement ?",
+    "choices": [
+      "7 h",
+      "8 h",
+      "9 h",
+      "10 h"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Nuit : 22 h → 5 h = 7 h. Jour 2 : 9 h → 12 h = 3 h. Total = 7 + 3 = 10 h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  }
+]

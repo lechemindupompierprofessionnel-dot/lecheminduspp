@@ -1,0 +1,649 @@
+[
+  {
+    "id": "maths-arith-001",
+    "level": "TF",
+    "q": "Combien font 0,75 en fraction simplifiée ?",
+    "choices": [
+      "1/4",
+      "3/4",
+      "7/5",
+      "75/10"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "0,75 = 75/100 = 3/4 après simplification par 25.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-002",
+    "level": "TF",
+    "q": "Quel est le résultat de 12 × 8 ?",
+    "choices": [
+      "86",
+      "92",
+      "96",
+      "104"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Table de multiplication — 12 × 8 = 96.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-003",
+    "level": "TF",
+    "q": "Un pompier verse 25 litres d'eau puis 38 litres. Quelle quantité totale a-t-il versée ?",
+    "choices": [
+      "53 L",
+      "63 L",
+      "73 L",
+      "103 L"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Addition simple — 25 + 38 = 63 litres.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-004",
+    "level": "TF",
+    "q": "Combien font 10 % de 200 ?",
+    "choices": [
+      "10",
+      "20",
+      "50",
+      "100"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "10 % de 200 = 200 × 10/100 = 20.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-005",
+    "level": "TF",
+    "q": "Quelles opérations donnent le même résultat que 25 % de 80 ?",
+    "choices": [
+      "80 / 4",
+      "80 × 0,25",
+      "80 × 25",
+      "20"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "25 % = 1/4 donc 80/4 = 20. 80 × 0,25 = 20. 80 × 25 = 2 000 (faux — c'est sans diviser par 100).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-006",
+    "level": "TF",
+    "q": "Quel est le résultat de 3/4 + 1/4 ?",
+    "choices": [
+      "1/2",
+      "3/4",
+      "1",
+      "4/8"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Addition de fractions de même dénominateur — 3/4 + 1/4 = 4/4 = 1.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-007",
+    "level": "TF",
+    "q": "Quel est le résultat de 2/3 × 3 ?",
+    "choices": [
+      "1",
+      "2",
+      "6/9",
+      "9/3"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "2/3 × 3 = 6/3 = 2.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-008",
+    "level": "TF",
+    "q": "Le double de 45 vaut :",
+    "choices": [
+      "22,5",
+      "60",
+      "80",
+      "90"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Double = × 2 donc 45 × 2 = 90.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-009",
+    "level": "TF",
+    "q": "La moitié de 84 vaut :",
+    "choices": [
+      "21",
+      "32",
+      "42",
+      "48"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Moitié = /2 donc 84/2 = 42.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-010",
+    "level": "TF",
+    "q": "Quelles opérations donnent un quart de 200 ?",
+    "choices": [
+      "200 / 4",
+      "200 × 0,25",
+      "25 % de 200",
+      "200 × 4"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Un quart = 1/4 = 0,25 = 25 %. 200/4 = 200 × 0,25 = 25 % de 200 = 50. 200 × 4 = 800 (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-011",
+    "level": "TF",
+    "q": "Quel est le résultat de 7 × 9 ?",
+    "choices": [
+      "56",
+      "63",
+      "72",
+      "81"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Table de 7 : 7 × 9 = 63.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-012",
+    "level": "TF",
+    "q": "Quel est le résultat de 144 / 12 ?",
+    "choices": [
+      "10",
+      "11",
+      "12",
+      "14"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "12 × 12 = 144 donc 144 / 12 = 12.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-013",
+    "level": "TF",
+    "q": "Quelles opérations donnent 75 ?",
+    "choices": [
+      "50 % de 150",
+      "150 / 2",
+      "25 % de 300",
+      "0,5 × 150"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "50 % de 150 = 150/2 = 0,5 × 150 = 75. 25 % de 300 = 300/4 = 75. Les quatre sont équivalentes.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-014",
+    "level": "TF",
+    "q": "Quelles écritures sont équivalentes à 1 + 1/2 ?",
+    "choices": [
+      "1,5",
+      "3/2",
+      "150 %",
+      "0,15"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "1 + 1/2 = 3/2 = 1,5 = 150/100 = 150 %. 0,15 = 15 % (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-015",
+    "level": "TF",
+    "q": "Quelles opérations donnent 82 ?",
+    "choices": [
+      "45 + 37",
+      "100 − 18",
+      "2 × 41",
+      "9 × 9"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "45 + 37 = 82 ; 100 − 18 = 82 ; 2 × 41 = 82. 9 × 9 = 81 (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-016",
+    "level": "TF",
+    "q": "Quelles opérations donnent 10 ?",
+    "choices": [
+      "0,5 × 20",
+      "20 / 2",
+      "50 % de 20",
+      "5 × 5"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "0,5 × 20 = 20/2 = 50 % de 20 = 10. 5 × 5 = 25 (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-017",
+    "level": "TF",
+    "q": "Quelles affirmations sur la règle de trois sont vraies ?",
+    "choices": [
+      "Elle s'applique aux situations de proportionnalité",
+      "Elle permet de trouver une quatrième grandeur à partir de trois connues",
+      "Elle s'applique aux pourcentages",
+      "Elle n'est valable qu'avec des nombres entiers"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "La règle de 3 (produit en croix) s'applique à toute situation de proportionnalité, y compris les pourcentages. Elle fonctionne avec décimaux et fractions.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-018",
+    "level": "F",
+    "q": "Un matériel coûte 240 € avec une remise de 15 %. Quelles affirmations sont exactes ?",
+    "choices": [
+      "La remise est de 36 €",
+      "Le prix final est de 204 €",
+      "Le prix final représente 85 % du prix initial",
+      "La remise est de 24 €"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Remise = 240 × 0,15 = 36 €. Prix final = 240 − 36 = 204 € = 240 × 0,85 (85 %). 24 € est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-019",
+    "level": "F",
+    "q": "36 pompiers sont répartis en équipes de 6. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Il y a 6 équipes",
+      "Chaque équipe représente environ 16,7 % de l'effectif",
+      "Il y a 5 équipes",
+      "L'effectif total peut aussi être partagé en 4 équipes de 9"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "36/6 = 6 équipes. 1/6 ≈ 16,67 %. 36 = 4 × 9 donc possibilité de 4 équipes de 9. 5 équipes faux (36/5 = 7,2).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-020",
+    "level": "F",
+    "q": "Dans un SDIS, 120 pompiers sur 400 sont des femmes. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Cela représente 30 %",
+      "La proportion est de 3/10",
+      "Il y a 280 hommes",
+      "Cela représente 25 %"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "120/400 = 0,30 = 30 % = 3/10. Hommes = 400 − 120 = 280. 25 % serait 100 femmes (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-021",
+    "level": "F",
+    "q": "Une promotion de 36 élèves comprend 3 équipes égales. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Chaque équipe compte 12 élèves",
+      "Chaque équipe représente 1/3 de la promotion",
+      "Chaque équipe représente environ 33,3 %",
+      "Chaque équipe compte 9 élèves"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "36/3 = 12 par équipe. Chaque équipe = 1/3 ≈ 33,3 % de la promo. 9 est faux (serait 4 équipes).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-022",
+    "level": "F",
+    "q": "Un agent a un brut de 2 100 € avec 22 % de cotisations. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Les cotisations sont de 462 €",
+      "Le net est de 1 638 €",
+      "Le net représente 78 % du brut",
+      "Le net est de 1 738 €"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Cotis = 2 100 × 0,22 = 462 €. Net = 2 100 − 462 = 1 638 € = 2 100 × 0,78 (78 %). 1 738 faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-023",
+    "level": "F",
+    "q": "Une promotion compte 48 candidats. Le taux de réussite au concours est de 75 %. Combien de lauréats y a-t-il ?",
+    "choices": [
+      "24",
+      "32",
+      "36",
+      "40"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "75 % de 48 = 48 × 0,75 = 36 lauréats.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-024",
+    "level": "F",
+    "q": "Une ville de 24 000 habitants voit sa population augmenter de 8 %. Quelle est la nouvelle population ?",
+    "choices": [
+      "24 800",
+      "25 920",
+      "26 400",
+      "28 000"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Augmentation = 24 000 × 0,08 = 1 920. Total = 24 000 + 1 920 = 25 920 habitants.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-025",
+    "level": "F",
+    "q": "Un bâtiment a 4 étages identiques de 120 m² chacun. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Surface totale = 480 m²",
+      "Chaque étage représente 25 % de la surface totale",
+      "Surface totale = 4 800 dm²",
+      "Surface totale = 600 m²"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "4 × 120 = 480 m². 1/4 = 25 %. 4 800 dm² = 48 m² (faux). 600 m² faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-026",
+    "level": "F",
+    "q": "Parmi les calculs suivants, lesquels donnent un résultat égal à 24 ?",
+    "choices": [
+      "4 × 6",
+      "48 / 2",
+      "3 × 8",
+      "2³ × 3"
+    ],
+    "correct": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "expl": "4 × 6 = 24 ; 48/2 = 24 ; 3 × 8 = 24 ; 2³ × 3 = 8 × 3 = 24. Toutes exactes.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-027",
+    "level": "M",
+    "q": "Un FPT transporte 4 000 L d'eau. Il est utilisé pour ravitailler 5 seaux-pompes de 9 L chacun et 2 réservoirs de 500 L. Quel volume reste-t-il ?",
+    "choices": [
+      "2 455 L",
+      "2 955 L",
+      "3 045 L",
+      "3 455 L"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Consommation = 5 × 9 + 2 × 500 = 45 + 1 000 = 1 045 L. Reste : 4 000 − 1 045 = 2 955 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-028",
+    "level": "M",
+    "q": "Dans un SDIS, 80 sapeurs-pompiers professionnels sont présents sur 100 au total. 20 % sont en repos. Combien sont en repos ?",
+    "choices": [
+      "16",
+      "20",
+      "25",
+      "80"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "20 % de 100 = 20 sapeurs en repos. L'effectif de 80 présents confirme la cohérence (100 − 20 = 80).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-029",
+    "level": "M",
+    "q": "Un produit est soldé successivement à −20 % puis à −10 %. Quel est le taux de réduction global ?",
+    "choices": [
+      "28 %",
+      "30 %",
+      "32 %",
+      "70 %"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Prix après −20 % = 0,8 P. Après −10 % suppl. = 0,8 × 0,9 × P = 0,72 P. Réduction = 100 − 72 = 28 %.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-030",
+    "level": "M",
+    "q": "Un pompier de 82 kg perd 4 % de sa masse par déshydratation. Quelles affirmations sont exactes ?",
+    "choices": [
+      "La perte est de 3,28 kg",
+      "Sa masse finale est de 78,72 kg",
+      "Sa masse finale représente 96 % de la masse initiale",
+      "La perte est de 4 kg"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Perte = 82 × 0,04 = 3,28 kg. Masse finale = 82 − 3,28 = 78,72 kg = 82 × 0,96 (96 %). 4 kg faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-031",
+    "level": "M",
+    "q": "Quel est le plus petit de ces nombres ?",
+    "choices": [
+      "0,7",
+      "0,07",
+      "0,70",
+      "0,007"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "0,007 < 0,07 < 0,7 = 0,70. 0,007 est le plus petit.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-032",
+    "level": "M",
+    "q": "On veut transporter 12 m³ de sable dans un camion de 3,5 m³. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Il faut 4 trajets minimum",
+      "Après 3 trajets, il reste 1,5 m³ à transporter",
+      "3 trajets suffisent",
+      "3 trajets transportent 10,5 m³"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "12/3,5 ≈ 3,43 → arrondi supérieur = 4 trajets. 3 trajets = 10,5 m³, reste 1,5 m³. 3 trajets ne suffisent donc pas.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-033",
+    "level": "M",
+    "q": "Un agent perçoit 1 900 € net. Il a eu une augmentation de 6 % cette année. Quel était son net précédent ?",
+    "choices": [
+      "1 785 €",
+      "1 792,45 €",
+      "1 800 €",
+      "1 810 €"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Salaire précédent × 1,06 = 1 900. Donc = 1 900 / 1,06 ≈ 1 792,45 €.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-034",
+    "level": "M",
+    "q": "Laquelle des propositions suivantes N'EST PAS équivalente à 0,125 ?",
+    "choices": [
+      "1/8",
+      "12,5 %",
+      "125/1 000",
+      "1/12,5"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "1/8 = 0,125 ; 12,5 % = 0,125 ; 125/1 000 = 0,125. Mais 1/12,5 = 0,08 ≠ 0,125.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-035",
+    "level": "M",
+    "q": "Notes 12/20 (coef 3), 15/20 (coef 2), 14/20 (coef 3). Quelles affirmations sont exactes ?",
+    "choices": [
+      "Somme pondérée = 108",
+      "Moyenne = 13,5/20",
+      "Total des coefficients = 8",
+      "Moyenne = 13/20"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "12×3 + 15×2 + 14×3 = 36+30+42 = 108. Coef total = 8. Moyenne = 108/8 = 13,5. 13 faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-036",
+    "level": "M",
+    "q": "Un SDIS doit équiper 150 caporaux d'un paquetage. Chaque paquetage coûte 485 € HT. La TVA est de 20 %. Quel est le montant total TTC ?",
+    "choices": [
+      "58 200 €",
+      "72 750 €",
+      "87 300 €",
+      "98 100 €"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "HT total = 150 × 485 = 72 750 €. TTC = 72 750 × 1,20 = 87 300 €.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-037",
+    "level": "M",
+    "q": "Un SDIS de 800 pompiers évolue +5 % puis +2 %. Quelles affirmations sont exactes (arrondis à l'entier) ?",
+    "choices": [
+      "Fin d'année 1 : 840",
+      "Fin d'année 2 : 857",
+      "Évolution globale : +7,1 %",
+      "Évolution globale : +7 %"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Année 1 : 800 × 1,05 = 840. Année 2 : 840 × 1,02 = 856,8 → 857. Coef global = 1,05 × 1,02 = 1,071 = +7,1 % (pas +7 %).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-arith-038",
+    "level": "M",
+    "q": "Budget total 8,5 M€, matériel = 12 %, véhicules = 25 % du matériel. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Budget matériel = 1 020 000 €",
+      "Budget véhicules = 255 000 €",
+      "Budget véhicules = 3 % du budget total",
+      "Budget véhicules = 340 000 €"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Matériel = 8 500 000 × 0,12 = 1 020 000 €. Véhicules = 1 020 000 × 0,25 = 255 000 €. 0,12 × 0,25 = 0,03 = 3 %. 340 000 € faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  }
+]

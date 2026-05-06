@@ -1,0 +1,689 @@
+[
+  {
+    "id": "maths-geo-001",
+    "level": "TF",
+    "q": "Pour un carré de côté 6 m, quelles affirmations sont correctes ?",
+    "choices": [
+      "Périmètre = 24 m",
+      "Aire = 36 m²",
+      "Aire = 12 m²",
+      "Diagonale ≈ 8,49 m"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "P = 4 × 6 = 24 m ; Aire = 6² = 36 m² (pas 12) ; Diagonale = 6√2 ≈ 8,49 m.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-002",
+    "level": "TF",
+    "q": "Quelle est l'aire d'un carré de côté 7 m ?",
+    "choices": [
+      "14 m²",
+      "28 m²",
+      "49 m²",
+      "56 m²"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Aire du carré = côté × côté = 7 × 7 = 49 m².",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-003",
+    "level": "TF",
+    "q": "Un rectangle mesure 8 m de long et 5 m de large. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Périmètre = 26 m",
+      "Aire = 40 m²",
+      "Périmètre = 40 m",
+      "Diagonale ≈ 9,43 m"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "P = 2(8+5) = 26 m ; A = 8×5 = 40 m² ; Diagonale = √(8²+5²) = √89 ≈ 9,43 m. 40 m serait le périmètre d'un rectangle 15×5.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-004",
+    "level": "TF",
+    "q": "Un rectangle mesure 8 m sur 5 m. Quelle est son aire ?",
+    "choices": [
+      "13 m²",
+      "26 m²",
+      "40 m²",
+      "45 m²"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Aire du rectangle = L × l = 8 × 5 = 40 m².",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-005",
+    "level": "TF",
+    "q": "Quelle est la formule du volume d'un pavé droit (parallélépipède rectangle) ?",
+    "choices": [
+      "V = L × l",
+      "V = L × l × h",
+      "V = côté³",
+      "V = π × r² × h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Volume d'un parallélépipède rectangle = Longueur × largeur × hauteur.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-006",
+    "level": "TF",
+    "q": "Quelles caractéristiques sont correctes pour un cube d'arête 3 m ?",
+    "choices": [
+      "Volume = 27 m³",
+      "Aire totale = 54 m²",
+      "Volume = 9 m³",
+      "Aire d'une face = 9 m²"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "V = 3³ = 27 m³ ; Aire d'une face = 3² = 9 m² ; Aire totale = 6 × 9 = 54 m². 9 m³ est incorrect.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-007",
+    "level": "TF",
+    "q": "Quelle est la formule du volume d'un cylindre ?",
+    "choices": [
+      "V = π × r × h",
+      "V = π × r² × h",
+      "V = 4/3 × π × r³",
+      "V = L × l × h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Volume du cylindre = aire de la base (disque) × hauteur = π × r² × h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-008",
+    "level": "TF",
+    "q": "Quelle est la formule du volume d'une sphère ?",
+    "choices": [
+      "V = π × r²",
+      "V = π × r² × h",
+      "V = 4/3 × π × r³",
+      "V = 1/3 × π × r² × h"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Volume de la sphère = 4/3 × π × r³ (à connaître pour le concours).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-009",
+    "level": "TF",
+    "q": "Quelle est la formule du volume d'un cône ?",
+    "choices": [
+      "V = π × r² × h",
+      "V = 1/3 × π × r² × h",
+      "V = 4/3 × π × r³",
+      "V = 2 × π × r × h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Volume du cône = 1/3 × aire de la base × hauteur = 1/3 × π × r² × h.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-010",
+    "level": "TF",
+    "q": "Quelle est la formule de l'aire d'un disque ?",
+    "choices": [
+      "A = 2 × π × r",
+      "A = π × r²",
+      "A = π × d²",
+      "A = π × r × h"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Aire du disque = π × r² (r = rayon).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-011",
+    "level": "TF",
+    "q": "Quelle est la formule de la circonférence (périmètre) d'un cercle ?",
+    "choices": [
+      "P = π × r²",
+      "P = π × r",
+      "P = 2 × π × r",
+      "P = 4 × r"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "Périmètre du cercle = 2 × π × r = π × d (d = diamètre).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-012",
+    "level": "F",
+    "q": "Un bassin rectangulaire mesure 12 m × 5 m × 2 m. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Son volume est de 120 m³",
+      "Il peut contenir 120 000 L d'eau",
+      "Sa surface au sol est de 60 m²",
+      "Son volume est de 60 m³"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "V = 12 × 5 × 2 = 120 m³ = 120 000 L. Surface au sol = 12 × 5 = 60 m². 60 m³ est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-013",
+    "level": "F",
+    "q": "Un cylindre a un rayon de 2 m et une hauteur de 5 m. Quel est son volume ? (π ≈ 3,14)",
+    "choices": [
+      "31,4 m³",
+      "62,8 m³",
+      "125,6 m³",
+      "314 m³"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "V = π × r² × h = 3,14 × 2² × 5 = 3,14 × 4 × 5 = 62,8 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-014",
+    "level": "F",
+    "q": "Une citerne cylindrique a un diamètre de 2 m et une hauteur de 4 m. Quel est son volume ? (π ≈ 3,14)",
+    "choices": [
+      "6,28 m³",
+      "12,56 m³",
+      "25,12 m³",
+      "50,24 m³"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "d = 2 m donc r = 1 m. V = π × r² × h = 3,14 × 1² × 4 = 12,56 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-015",
+    "level": "F",
+    "q": "Un triangle rectangle a des côtés de l'angle droit mesurant 3 m et 4 m. Quelle est la longueur de l'hypoténuse ?",
+    "choices": [
+      "5 m",
+      "6 m",
+      "7 m",
+      "12 m"
+    ],
+    "correct": [
+      0
+    ],
+    "expl": "Pythagore — h² = 3² + 4² = 9 + 16 = 25 donc h = 5 m (triangle 3-4-5 classique).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-016",
+    "level": "F",
+    "q": "Un champ rectangulaire mesure 150 m × 80 m. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Sa surface est de 12 000 m²",
+      "Sa surface est de 1,2 ha",
+      "Son périmètre est de 460 m",
+      "Sa surface est de 120 ha"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Aire = 150 × 80 = 12 000 m² = 1,2 ha. Périmètre = 2(150+80) = 460 m. 120 ha faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-017",
+    "level": "F",
+    "q": "Un triangle a une base de 10 m et une hauteur de 6 m. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Son aire est de 30 m²",
+      "La formule utilisée est (base × hauteur) / 2",
+      "Son aire est de 60 m²",
+      "Son aire est de 300 dm²"
+    ],
+    "correct": [
+      0,
+      1
+    ],
+    "expl": "Aire = (10 × 6)/2 = 30 m². 60 m² est l'aire sans diviser par 2 (faux). 300 dm² = 3 m² (faux).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-018",
+    "level": "F",
+    "q": "Une sphère a un rayon de 3 m. Quel est son volume ? (π ≈ 3,14)",
+    "choices": [
+      "36,5 m³",
+      "56,5 m³",
+      "84,8 m³",
+      "113,04 m³"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "V = 4/3 × π × r³ = 4/3 × 3,14 × 27 = 113,04 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-019",
+    "level": "F",
+    "q": "Un appartement a une surface au sol de 65 m² et une hauteur sous plafond de 2,5 m. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Son volume est de 162,5 m³",
+      "Son volume est de 162 500 L",
+      "Son volume est de 67,5 m³",
+      "Son volume est de 162 500 dm³"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "V = 65 × 2,5 = 162,5 m³ = 162 500 dm³ = 162 500 L. 67,5 m³ est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-020",
+    "level": "F",
+    "q": "Une pièce carrée a un périmètre de 32 m. Quelles affirmations sont correctes ?",
+    "choices": [
+      "Son côté mesure 8 m",
+      "Son aire est de 64 m²",
+      "Sa diagonale mesure environ 11,31 m",
+      "Son aire est de 128 m²"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Côté = 32/4 = 8 m. Aire = 64 m². Diagonale = 8√2 ≈ 11,31 m. 128 m² est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-021",
+    "level": "F",
+    "q": "Un rectangle a une aire de 84 m² et une largeur de 7 m. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Sa longueur est de 12 m",
+      "Son périmètre est de 38 m",
+      "Sa longueur est de 10 m",
+      "Sa diagonale mesure environ 13,89 m"
+    ],
+    "correct": [
+      0,
+      1,
+      3
+    ],
+    "expl": "L = 84/7 = 12 m. Périmètre = 2(12+7) = 38 m. Diagonale = √(12²+7²) = √193 ≈ 13,89 m. 10 m faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-022",
+    "level": "F",
+    "q": "Un cône a un rayon de base de 3 m et une hauteur de 7 m. Quel est son volume ? (π ≈ 3,14)",
+    "choices": [
+      "21,98 m³",
+      "65,94 m³",
+      "131,88 m³",
+      "197,82 m³"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "V = 1/3 × π × r² × h = 1/3 × 3,14 × 9 × 7 = 65,94 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-023",
+    "level": "F",
+    "q": "Un rectangle a une longueur de 15 m et une diagonale de 17 m. Quelle est sa largeur ?",
+    "choices": [
+      "2 m",
+      "4 m",
+      "6 m",
+      "8 m"
+    ],
+    "correct": [
+      3
+    ],
+    "expl": "Pythagore — l² = 17² − 15² = 289 − 225 = 64, donc l = 8 m.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-024",
+    "level": "F",
+    "q": "Un entonnoir conique a un volume de 300 cm³. Si son rayon est de 5 cm, quelle est sa hauteur ? (π ≈ 3,14)",
+    "choices": [
+      "9,55 cm environ",
+      "11,46 cm environ",
+      "12 cm environ",
+      "15 cm environ"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "V = 1/3 × π × r² × h donc h = 3V / (π × r²) = 900 / (3,14 × 25) = 900 / 78,5 ≈ 11,46 cm.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-025",
+    "level": "F",
+    "q": "Un réservoir sphérique a un diamètre de 6 m. Quel est son volume ? (π ≈ 3,14)",
+    "choices": [
+      "56,52 m³",
+      "113,04 m³",
+      "150,72 m³",
+      "226,08 m³"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "d = 6 m donc r = 3 m. V = 4/3 × π × r³ = 4/3 × 3,14 × 27 = 113,04 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-026",
+    "level": "F",
+    "q": "Un tuyau d'incendie de 70 mm a une longueur de 20 m. Quel est son volume intérieur (en litres) ? (π ≈ 3,14)",
+    "choices": [
+      "7,7 L",
+      "76,9 L",
+      "153,8 L",
+      "307,7 L"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "r = 35 mm = 0,035 m. V = π × r² × L = 3,14 × 0,035² × 20 ≈ 0,0769 m³ = 76,9 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-027",
+    "level": "F",
+    "q": "Un rectangle de 12 m × 9 m est-il équivalent à un carré de surface identique ?",
+    "choices": [
+      "Oui, un carré de 10 m de côté",
+      "Oui, un carré d'environ 10,39 m de côté",
+      "Non, ils n'ont pas la même aire",
+      "Le rectangle a une aire de 108 m²"
+    ],
+    "correct": [
+      1,
+      3
+    ],
+    "expl": "Aire rectangle = 12 × 9 = 108 m². Côté carré équivalent = √108 ≈ 10,39 m. Un carré de 10 m a une aire de 100 m² (pas équivalent).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-028",
+    "level": "F",
+    "q": "Un cercle a un diamètre de 14 m. Quelles affirmations sont exactes ? (π ≈ 3,14)",
+    "choices": [
+      "Sa circonférence est d'environ 43,96 m",
+      "Son rayon est de 7 m",
+      "Son aire est d'environ 153,86 m²",
+      "Son rayon est de 14 m"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "P = π × d = 3,14 × 14 = 43,96 m. r = d/2 = 7 m. Aire = π × r² = 3,14 × 49 ≈ 153,86 m². r = 14 m faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-029",
+    "level": "F",
+    "q": "Un champ trapézoïdal a des bases de 20 m et 30 m, et une hauteur de 12 m. Quelle est son aire ?",
+    "choices": [
+      "240 m²",
+      "300 m²",
+      "360 m²",
+      "600 m²"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Aire trapèze = (B + b) × h / 2 = (20 + 30) × 12 / 2 = 50 × 12 / 2 = 300 m².",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-030",
+    "level": "M",
+    "q": "Une citerne cylindrique horizontale de 2 m de diamètre et 6 m de long est remplie à moitié. Quel est le volume d'eau présent ? (π ≈ 3,14)",
+    "choices": [
+      "4,71 m³",
+      "9,42 m³",
+      "18,84 m³",
+      "37,68 m³"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Volume total = π × r² × L = 3,14 × 1² × 6 = 18,84 m³. À moitié plein = 18,84 / 2 = 9,42 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-031",
+    "level": "M",
+    "q": "Quelles sont les caractéristiques correctes d'un triangle équilatéral de côté 10 cm ?",
+    "choices": [
+      "Son périmètre est de 30 cm",
+      "Ses trois angles mesurent 60°",
+      "Sa hauteur mesure environ 8,66 cm",
+      "Son aire est de 50 cm²"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "P = 3 × 10 = 30 cm ; angles = 60° ; h = (10 × √3)/2 ≈ 8,66 cm ; Aire = (10 × 8,66)/2 ≈ 43,3 cm² (pas 50).",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-032",
+    "level": "M",
+    "q": "Un bassin a la forme d'un cylindre surmonté d'un cône. Le cylindre a un rayon de 2 m et une hauteur de 3 m. Le cône a le même rayon et une hauteur de 1,5 m. Quel est le volume total ? (π ≈ 3,14)",
+    "choices": [
+      "31,4 m³",
+      "37,68 m³",
+      "44 m³",
+      "50,24 m³"
+    ],
+    "correct": [
+      2
+    ],
+    "expl": "V_cyl = 3,14 × 4 × 3 = 37,68 m³. V_cône = 1/3 × 3,14 × 4 × 1,5 = 6,28 m³. Total ≈ 43,96 m³ ≈ 44 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-033",
+    "level": "M",
+    "q": "Une citerne cylindrique verticale de 3 m de diamètre contient de l'eau sur 4 m de hauteur. Parmi les valeurs suivantes, lesquelles sont correctes ? (π ≈ 3,14)",
+    "choices": [
+      "L'aire de la base est d'environ 7,07 m²",
+      "Le volume d'eau est d'environ 28,26 m³",
+      "La masse d'eau est d'environ 28 260 kg",
+      "Le volume d'eau est d'environ 14 130 L"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "r = 1,5 m. Aire base = 3,14 × 2,25 ≈ 7,07 m². V = 7,07 × 4 ≈ 28,26 m³ = 28 260 L. Masse ≈ 28 260 kg.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-034",
+    "level": "M",
+    "q": "Une cour carrée de périmètre 60 m est pavée avec des dalles de 50 cm de côté. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Côté de la cour = 15 m",
+      "Aire de la cour = 225 m²",
+      "Nombre de dalles = 900",
+      "Nombre de dalles = 600"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Côté = 60/4 = 15 m. Aire = 225 m². Dalle = 0,25 m². Nombre = 225/0,25 = 900. 600 faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-035",
+    "level": "M",
+    "q": "Un tuyau DN 45 (45 mm) a une longueur de 20 m. Quel est son volume intérieur en litres ? (π ≈ 3,14)",
+    "choices": [
+      "25,4 L",
+      "31,8 L",
+      "50,8 L",
+      "127,2 L"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "r = 22,5 mm = 0,0225 m. V = π × r² × L = 3,14 × 0,0225² × 20 ≈ 0,0318 m³ ≈ 31,8 L.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-036",
+    "level": "M",
+    "q": "Un réservoir hémisphérique (demi-sphère) a un rayon de 1,5 m. Quel est son volume ? (π ≈ 3,14)",
+    "choices": [
+      "2,355 m³",
+      "7,065 m³",
+      "14,13 m³",
+      "28,26 m³"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "V_sphère = 4/3 × π × r³ = 4/3 × 3,14 × 3,375 = 14,13 m³. Demi-sphère = 14,13/2 ≈ 7,065 m³.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-037",
+    "level": "M",
+    "q": "Une échelle de 6 m est posée à 1,8 m d'un mur. Quelles affirmations sont exactes ?",
+    "choices": [
+      "Elle touche le mur à environ 5,72 m",
+      "Le théorème de Pythagore s'applique",
+      "L'échelle forme l'hypoténuse du triangle rectangle",
+      "Elle touche le mur à 4,20 m"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Pythagore : h² = 6² − 1,8² = 32,76 → h ≈ 5,72 m. L'échelle (6 m) est bien l'hypoténuse. 4,20 m faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-038",
+    "level": "M",
+    "q": "Parmi les propositions suivantes concernant un carré de côté 10 m, lesquelles sont exactes ?",
+    "choices": [
+      "Sa diagonale mesure environ 14,14 m",
+      "Son aire est de 100 m²",
+      "Son périmètre est de 40 m",
+      "Sa diagonale mesure 20 m"
+    ],
+    "correct": [
+      0,
+      1,
+      2
+    ],
+    "expl": "Diagonale = côté × √2 = 10 × 1,414 ≈ 14,14 m. Aire = 100 m². Périmètre = 40 m. 20 m est faux.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-039",
+    "level": "M",
+    "q": "Un réservoir cubique et un réservoir cylindrique ont le même volume de 27 m³. Le cube a donc des arêtes de 3 m. Si le cylindre a une hauteur de 3 m, quel est son rayon approximatif ? (π ≈ 3,14)",
+    "choices": [
+      "1,00 m",
+      "1,69 m",
+      "2,00 m",
+      "2,70 m"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "V = π × r² × h donc r² = V/(π × h) = 27/(3,14 × 3) = 27/9,42 ≈ 2,866. r = √2,866 ≈ 1,69 m.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-040",
+    "level": "M",
+    "q": "Un triangle rectangle a un angle droit et une hypoténuse de 13 cm. Un de ses côtés mesure 5 cm. Quel est l'aire du triangle ?",
+    "choices": [
+      "20 cm²",
+      "30 cm²",
+      "32,5 cm²",
+      "60 cm²"
+    ],
+    "correct": [
+      1
+    ],
+    "expl": "Second côté = √(13² − 5²) = √(169 − 25) = √144 = 12 cm. Aire = (5 × 12)/2 = 30 cm².",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  },
+  {
+    "id": "maths-geo-041",
+    "level": "M",
+    "q": "Un cône et un cylindre ont même base (rayon r) et même hauteur (h). Quelles affirmations sont exactes ?",
+    "choices": [
+      "Leur volume est identique",
+      "Le volume du cône est 1/3 de celui du cylindre",
+      "Le volume du cylindre est 3 fois celui du cône",
+      "Le volume du cône est le double de celui du cylindre"
+    ],
+    "correct": [
+      1,
+      2
+    ],
+    "expl": "V_cyl = π r² h et V_cône = 1/3 × π r² h. Donc V_cône = V_cyl/3 et V_cyl = 3 × V_cône.",
+    "source": "Programme de l'arrêté du 30 novembre 2020 — Mathématiques (concours externe Caporal SPP)"
+  }
+]

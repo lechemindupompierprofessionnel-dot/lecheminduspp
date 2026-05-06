@@ -11564,6 +11564,7 @@ var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto
 // (cohérent avec OUT_OF_SCOPE_QCM_CATS dans le module parcours)
 var HORS_PROGRAMME_SUBCATS = ['gto-forets','gdo-elec','gdo-silos','gdo-agricole','gdo-ulm','gdo-foret'];
 var CULTURE_SUBCATS = ['statut','sis','divers'];
+var MATHS_SUBCATS = ['maths-arithmetique','maths-geometrie','maths-mesures'];
 
 // Labels humains des thèmes (pour l'affichage)
 var CAT_LABELS = {
@@ -11572,7 +11573,9 @@ var CAT_LABELS = {
   'sis': 'Organisation d\'un SIS',
   'divers': 'Divers',
   'textes': 'Textes structurants du concours',
-  'maths': 'Mathématiques',
+  'maths-arithmetique': 'Mathématiques — Arithmétique',
+  'maths-geometrie': 'Mathématiques — Géométrie',
+  'maths-mesures': 'Mathématiques — Mesures du quotidien',
   'gto-ventilation': 'GTO Ventilation Opérationnelle',
   'gto-sauvetage': 'GTO Sauvetage & Mise en Sécurité',
   'gto-sauvegarde': 'GTO Sauvegarde Opérationnelle',
@@ -11761,6 +11764,14 @@ function toggleCat(cat) {
       if (hparrow) hparrow.textContent = '▾';
     }
   }
+
+  // Si c'est "maths" (parent virtuel sans panneau UI), on toggle les 3 sous-cats internes
+  if (cat === 'maths') {
+    MATHS_SUBCATS.forEach(function(sc) {
+      selectedCats[sc] = selectedCats['maths'];
+      updateCheckbox(sc);
+    });
+  }
   updateSummary();
 }
 
@@ -11841,14 +11852,16 @@ function toggleHorsProgrammePanel(evt) {
 }
 
 function toggleSelectAll() {
-  var allCats = ['textes','maths'].concat(CULTURE_SUBCATS).concat(DOCTRINES_SUBCATS);
+  var allCats = ['textes'].concat(MATHS_SUBCATS).concat(CULTURE_SUBCATS).concat(DOCTRINES_SUBCATS);
   var anySelected = allCats.some(function(c){ return selectedCats[c]; });
   var newState = !anySelected;
   allCats.forEach(function(c){ selectedCats[c] = newState; updateCheckbox(c); });
   selectedCats['doctrines'] = newState;
   selectedCats['culture'] = newState;
+  selectedCats['maths'] = newState;
   updateCheckbox('doctrines');
   updateCheckbox('culture');
+  updateCheckbox('maths');
   document.getElementById('select-all-icon').textContent = newState ? '☑' : '☐';
   document.getElementById('select-all-label').textContent = newState ? 'Tout désélectionner' : 'Tout sélectionner';
   // Ouvrir les panneaux si on sélectionne tout
@@ -11889,11 +11902,19 @@ function updateCheckbox(cat) {
     el.textContent = allCul ? '☑' : (anyCul ? '▪' : '☐');
     if (item) item.classList.toggle('checked', anyCul);
   }
+  // Indicateur mi-coché sur le parent maths si des sous sont cochées (filet de sécurité
+  // pour les setters programmatiques type toggleSelectAll ou planificateur V1)
+  if (cat === 'maths' && el) {
+    var anyMath = MATHS_SUBCATS.some(function(sc){ return selectedCats[sc]; });
+    var allMath = MATHS_SUBCATS.every(function(sc){ return selectedCats[sc]; });
+    el.textContent = allMath ? '☑' : (anyMath ? '▪' : '☐');
+    if (item) item.classList.toggle('checked', anyMath);
+  }
 }
 
 function updateSummary() {
   // 'cats' = thèmes au programme officiel (utilisé pour le compteur "tout sélectionner")
-  var cats = ['textes','maths'].concat(CULTURE_SUBCATS).concat(DOCTRINES_SUBCATS);
+  var cats = ['textes'].concat(MATHS_SUBCATS).concat(CULTURE_SUBCATS).concat(DOCTRINES_SUBCATS);
   // 'allSelectableCats' = thèmes au programme + hors programme (toutes les cases cochables)
   var allSelectableCats = cats.concat(HORS_PROGRAMME_SUBCATS);
   var selected = allSelectableCats.filter(function(c){ return selectedCats[c]; });
@@ -11994,7 +12015,13 @@ function updateSummary() {
     if (doctrinesSub.length === DOCTRINES_SUBCATS.length) catNames.push('Doctrines (toutes)');
     else if (doctrinesSub.length > 0) catNames.push('Doctrines (' + doctrinesSub.length + ')');
     if (selectedCats['textes']) catNames.push('Textes structurants');
-    if (selectedCats['maths']) catNames.push('Mathématiques');
+    var mathsSub = MATHS_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+    if (mathsSub.length === MATHS_SUBCATS.length) catNames.push('Mathématiques');
+    else if (mathsSub.length > 0) {
+      if (selectedCats['maths-arithmetique']) catNames.push('Maths — Arithmétique');
+      if (selectedCats['maths-geometrie']) catNames.push('Maths — Géométrie');
+      if (selectedCats['maths-mesures']) catNames.push('Maths — Mesures');
+    }
     // Hors programme (s'il y en a de coché)
     var horsProgSub = HORS_PROGRAMME_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
     if (horsProgSub.length > 0) {
@@ -12093,7 +12120,7 @@ function launchQcmSession() {
 function launchQcm() {
   // Toutes les cats sélectionnables : programme officiel + sous-cats hors programme
   // (un candidat peut volontairement cocher une cat hors programme dans le mode "sélection thématique")
-  var cats = ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
+  var cats = ['statut','sis','divers','textes'].concat(MATHS_SUBCATS).concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
   var selected = cats.filter(function(c){ return selectedCats[c]; });
   if (selected.length === 0) return;
 
@@ -12202,7 +12229,13 @@ function buildSessionTitle(selected) {
   if (ds.length === DOCTRINES_SUBCATS.length) names.push('Doctrines Opérationnelles');
   else if (ds.length > 0) names.push('Doctrines (' + ds.length + ' sous-thèmes)');
   if (selectedCats['textes']) names.push('Textes structurants');
-  if (selectedCats['maths']) names.push('Mathématiques');
+  var ms = MATHS_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
+  if (ms.length === MATHS_SUBCATS.length) names.push('Mathématiques');
+  else if (ms.length > 0) {
+    if (selectedCats['maths-arithmetique']) names.push('Maths — Arithmétique');
+    if (selectedCats['maths-geometrie']) names.push('Maths — Géométrie');
+    if (selectedCats['maths-mesures']) names.push('Maths — Mesures');
+  }
   var hps = HORS_PROGRAMME_SUBCATS.filter(function(sc){ return selectedCats[sc]; });
   if (hps.length > 0) names.push('Hors programme (' + hps.length + ')');
   return names.join(' · ');
@@ -12448,7 +12481,7 @@ var _qcmCountsPreloaded = false;
 function preloadAllCategoriesForCounts() {
   if (_qcmCountsPreloaded) return;
   _qcmCountsPreloaded = true;
-  var mainCats = ['statut', 'sis', 'divers', 'textes', 'maths'];
+  var mainCats = ['statut', 'sis', 'divers', 'textes', 'maths-arithmetique', 'maths-geometrie', 'maths-mesures'];
   var allCats = mainCats.concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
   var loaded = 0;
   allCats.forEach(function(cat) {
@@ -12457,6 +12490,7 @@ function preloadAllCategoriesForCounts() {
       if (loaded === allCats.length) {
         refreshDoctrinesTotal();
         refreshHorsProgrammeTotal();
+        refreshMathsTotal();
       }
     }).catch(function(err){
       console.warn('Préchargement ' + cat + ' échoué :', err.message);
@@ -12464,6 +12498,7 @@ function preloadAllCategoriesForCounts() {
       if (loaded === allCats.length) {
         refreshDoctrinesTotal();
         refreshHorsProgrammeTotal();
+        refreshMathsTotal();
       }
     });
   });
@@ -12486,6 +12521,17 @@ function refreshHorsProgrammeTotal() {
     total += CAT_TOTALS[sub] || 0;
   });
   var el = document.getElementById('count-hors-programme');
+  if (el) el.textContent = total;
+}
+
+// Recalcule le sous-total « Mathématiques » affiché à côté du groupe principal
+// (somme des 3 sous-cats arithmétique / géométrie / mesures du quotidien)
+function refreshMathsTotal() {
+  var total = 0;
+  MATHS_SUBCATS.forEach(function(sub) {
+    total += CAT_TOTALS[sub] || 0;
+  });
+  var el = document.getElementById('count-maths');
   if (el) el.textContent = total;
 }
 
@@ -14619,6 +14665,9 @@ function espGetCategoryLabel(catKey) {
     'divers': 'Divers',
     'textes': 'Textes structurants',
     'maths': 'Mathématiques',
+    'maths-arithmetique': 'Maths — Arithmétique',
+    'maths-geometrie': 'Maths — Géométrie',
+    'maths-mesures': 'Maths — Mesures',
     'pse': 'Secourisme PSE'
   };
   if (labels[catKey]) return labels[catKey];
@@ -15516,7 +15565,7 @@ function espMigrateLocalToSupabase() {
 
 // ----- Liste de référence des catégories (pour afficher même celles non vues) -----
 function espAllCats() {
-  return ['statut','sis','divers','textes','maths'].concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
+  return ['statut','sis','divers','textes'].concat(MATHS_SUBCATS).concat(DOCTRINES_SUBCATS).concat(HORS_PROGRAMME_SUBCATS);
 }
 
 // Nombre total de questions par catégorie. Initialisé vide : les vraies valeurs
@@ -16027,7 +16076,8 @@ var VOIE_AXES = {
 function espMapCatToAxis(cat) {
   if (cat === 'statut' || cat === 'sis' || cat === 'divers') return 'culture';
   if (cat === 'textes') return 'textes';
-  if (cat === 'maths') return 'maths';
+  if (cat === 'maths') return 'maths'; // rétrocompat anciennes réponses Supabase
+  if (cat === 'maths-arithmetique' || cat === 'maths-geometrie' || cat === 'maths-mesures') return 'maths';
   if (cat === 'pse') return 'secourisme';
   // Tout ce qui est GTO / GDO → doctrines
   if (cat && (cat.indexOf('gto-') === 0 || cat.indexOf('gdo-') === 0)) return 'doctrines';
@@ -17503,7 +17553,7 @@ var PREPA_THEME_MAP = {
   'maths': {
     label: 'Mathématiques',
     biblioAcc: ['maths'],
-    qcmCats: ['maths'],
+    qcmCats: ['maths-arithmetique', 'maths-geometrie', 'maths-mesures'],
     qcmCatsExtra: [],
     annalesKey: 'maths'
   },
