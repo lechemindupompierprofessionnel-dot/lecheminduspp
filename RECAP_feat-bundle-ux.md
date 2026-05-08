@@ -196,4 +196,93 @@ La fonction retourne early si `!currentMember` (L 9096). Donc pour les non-loggu
 CHANTIER 3c — Tarif Performance — mise en avant prépa physique
 ═══════════════════════════════════════════════════════════════════
 
-À venir.
+## Périmètre strict
+Page Tarifs uniquement (`#page-formation`, L 3261), 3 cartes de la `.offer-grid` (Préparation L 3301, Performance L 3325, Excellence L 3346). Toutes les modifications sont 100% textuelles ou structurelles — aucune CSS touchée.
+
+## 8 modifications appliquées
+
+### Carte Préparation (L 3300-3322)
+
+1. **Sous-titre** (L 3305) :
+   - Avant : "La préparation théorique uniquement (sans le physique)"
+   - Après : "Préparation complète à l'épreuve écrite du concours"
+
+2. **Suppression** (L 3314-3316, 3 lignes retirées) :
+   - Avant : `<div style="background:var(--cream2);border-left:3px solid var(--gray-light)..."> ⚠️ <strong>Pas de programme physique</strong> dans cette formule. Pour préparer aussi les épreuves physiques (sportives), choisis <strong>Performance</strong>. </div>`
+   - Après : (bloc entier supprimé, container et tout)
+
+### Carte Performance (L 3324-3343)
+
+3. **Icône** (L 3326) :
+   - Avant : `<div class="offer-icon">🔥</div>`
+   - Après : `<div class="offer-icon">🏋️</div>`
+   - Vérification : aucun autre 🔥 dans le bloc Performance (grep ciblé). Les flammes décoratives ailleurs sur le site ne sont pas touchées.
+
+4. **Sous-titre** (L 3329) :
+   - Avant : "La théorie + le physique"
+   - Après : "Préparation complète aux épreuves écrites et physiques du concours"
+
+5. **Feature 1** (L 3331) :
+   - Avant : `<li>Accès complet à la préparation théorique</li>`
+   - Après : `<li>toute la préparation écrite</li>`
+
+6. **Inversion d'ordre** (L 3332-3333 → 3332-3333 inversés) :
+   - Avant : "Blocs de 6 semaines" puis "Programme de préparation physique progressif"
+   - Après : "Programme de préparation physique progressif" puis "Blocs de 6 semaines"
+
+7. **Mise en GRAS des features prépa physique** (`<strong>...</strong>`) :
+   - L 3332 : `<li><strong>Programme de préparation physique progressif</strong></li>` (contient « physique »)
+   - L 3335 : `<li><strong>Traceur de progressions physiques</strong></li>` (contient « physiques »)
+   - **Critère appliqué** strictement : « contenant 'physique', 'physiques', '1RM', 'pompes', 'tractions', 'endurance', ou tout terme sportif clairement lié à la prépa physique ». "Blocs de 6 semaines" et "Personnalisé à ton niveau" ne contiennent aucun de ces termes → restent en poids normal.
+
+### Carte Excellence (L 3346-3363)
+
+8. **Sous-titre** (L 3349) :
+   - Avant : "L'accompagnement sur mesure pour viser le haut du classement"
+   - Après : "Accompagnement premium pour ceux désirant mettre toutes les chances de leur côté"
+
+### Inventaire final du diff
+- 7 lignes ajoutées, 10 lignes supprimées (net −3 lignes : la mention "⚠️ Pas de programme physique..." faisait 3 lignes alors que ses replacements n'en font qu'une).
+
+## Tests locaux (Playwright headless, http://localhost:8000#formation)
+
+### Vérifications sémantiques (page chargée, 3 cartes inspectées)
+
+| Carte | Sous-titre | Icône | Mention "Pas de programme physique" |
+|---|---|---|---|
+| Préparation | "Préparation complète à l'épreuve écrite du concours" | 📘 | ✓ supprimée |
+| Performance | "Préparation complète aux épreuves écrites et physiques du concours" | 🏋️ | n/a |
+| Excellence | "Accompagnement premium pour ceux désirant mettre toutes les chances de leur côté" | 💎 | n/a |
+
+### Carte Performance — features (ordre + bold)
+
+| # | Texte | `<strong>` | Conformité |
+|---|---|---|---|
+| 1 | "toute la préparation écrite" | non | ✓ |
+| 2 | "Programme de préparation physique progressif" | **oui** | ✓ |
+| 3 | "Blocs de 6 semaines" | non | ✓ |
+| 4 | "Personnalisé à ton niveau" | non | ✓ |
+| 5 | "Traceur de progressions physiques" | **oui** | ✓ |
+| 6 | "Badges exclusifs" | non | ✓ |
+
+### Visuel
+- Desktop 1280×900 : 3 cartes côte à côte, charte respectée, mention physique bien retirée de la carte Préparation, layout compacté en cohérence.
+- Mobile 375×812 : carte Performance en pleine largeur, titre Playfair, sous-titre rouge, ordre des features correct, **bold parfaitement lisible** sur les 2 features physique. Icône 🏋️ s'affiche sans glyph manquant.
+
+### Console
+0 errors, 0 warnings.
+
+## ⚠️ Point de vigilance — incohérence non touchée hors-périmètre
+
+Le briefing limitait le périmètre à la page Tarifs. Toutefois, j'ai identifié en grep la chaîne `'La théorie + le physique'` à **L 10973** :
+```js
+'<div class="esp-upg-card-sub">La théorie + le physique</div>' +
+```
+Il s'agit du sous-titre d'une carte d'upsell affichée dans **l'espace candidat** (probablement quand un membre Préparation voit l'invitation à upgrader vers Performance). Ce texte n'a **PAS** été modifié par cette branche, conformément au périmètre du briefing.
+
+Si l'objectif est une cohérence globale du copy, il faudrait dans un commit ultérieur :
+- L 10973 : "La théorie + le physique" → "Préparation complète aux épreuves écrites et physiques du concours" (ou variant adapté à la longueur de la card upsell, qui est plus contraint qu'un sous-titre de carte tarifs).
+
+## Commit
+- Message : `Feat: renforce la mise en avant de la prépa physique dans le tier Performance et clarifie les sous-titres des 3 tiers`
+- Hash : à venir
