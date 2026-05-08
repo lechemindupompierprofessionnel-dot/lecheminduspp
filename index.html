@@ -17621,20 +17621,25 @@ function initPrepaTheme(themeKey) {
 function renderPrepaTheme_Textes(slug, conf) {
   var container = document.getElementById('prepa-' + slug + '-textes');
   if (!container) return;
-  // On split les cards selon leur statut : "au programme" vs "hors programme".
-  // Une card est hors programme si elle contient un enfant `.biblio-out-of-scope-badge`
-  // (marqueur posé en HTML statique dans la bibliothèque). Cas concret aujourd'hui :
-  // les 6 doctrines HORS_PROGRAMME_SUBCATS (gto-forets, gdo-elec/silos/agricole/ulm/foret)
-  // et les 2 fiches divers ERP & PCS, qui atterrissent toutes dans l'onglet
-  // Connaissances équipier (biblioAcc=['doctrines','divers']).
-  var cardsInScope = [];
+  // Split en 3 groupes :
+  //   - cardsOutOfScope : badge `.biblio-out-of-scope-badge` (hors programme, prime sur tout)
+  //   - cardsInScopeSources : `.biblio-source-card` au programme (lois, décrets, CGCT)
+  //   - cardsInScopeMain : tout le reste au programme (fiches `.is-synthese` + doctrines)
+  // Cas concrets :
+  //   - culture-admin : 4 fiches en main, 17 sources sous "Documents officiels", 0 hors programme
+  //   - équipier : 13 cards en main (11 doctrines + 2 fiches divers), 0 source au programme,
+  //                10 hors programme (6 doctrines + 2 fiches + 2 sources Décret 2005-1156 et ERP)
+  //   - maths / étude-texte : que des fiches en main, pas de sources, pas de hors programme
+  var cardsInScopeMain = [];
+  var cardsInScopeSources = [];
   var cardsOutOfScope = [];
   conf.biblioAcc.forEach(function(acc) {
     var section = document.querySelector('.biblio-acc-section[data-acc="' + acc + '"]');
     if (!section) return;
     section.querySelectorAll('.biblio-card').forEach(function(card) {
       if (card.querySelector('.biblio-out-of-scope-badge')) cardsOutOfScope.push(card);
-      else cardsInScope.push(card);
+      else if (card.classList.contains('biblio-source-card')) cardsInScopeSources.push(card);
+      else cardsInScopeMain.push(card);
     });
   });
 
@@ -17642,11 +17647,23 @@ function renderPrepaTheme_Textes(slug, conf) {
              '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Les <em style="color:var(--red)">documents clés</em> de l\'épreuve</div>' +
              '<div style="font-size:.9rem;color:var(--gray);line-height:1.7;max-width:640px;margin-bottom:24px">Fiches de synthèse, doctrines officielles et textes structurants — extraits de la bibliothèque, ciblés sur ce thème.</div>';
 
-  if (cardsInScope.length === 0 && cardsOutOfScope.length === 0) {
+  var totalCards = cardsInScopeMain.length + cardsInScopeSources.length + cardsOutOfScope.length;
+  if (totalCards === 0) {
     html += '<div style="background:white;border:1px dashed var(--border);padding:32px;text-align:center;color:var(--gray);font-size:.9rem">📭 Aucun document pour ce thème pour l\'instant.</div>';
   } else {
-    if (cardsInScope.length > 0) {
-      html += '<div class="biblio-grid">' + cardsInScope.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+    if (cardsInScopeMain.length > 0) {
+      html += '<div class="biblio-grid">' + cardsInScopeMain.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+    }
+    if (cardsInScopeSources.length > 0) {
+      // Sous-section "Documents officiels" — référentiels juridiques séparés des fiches.
+      // Séparateur dashed plus léger que le solid du bloc Hors programme ci-dessous, pour
+      // marquer que c'est une sous-section du bloc Théorie, pas un bloc autonome.
+      html += '<div style="margin-top:40px;padding-top:28px;border-top:1px dashed var(--border)">' +
+                '<div class="s-eyebrow">Documents officiels</div>' +
+                '<div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Lois, décrets <em style="color:var(--red)">& textes structurants</em></div>' +
+                '<div style="font-size:.85rem;color:var(--gray);line-height:1.6;max-width:640px;margin-bottom:20px">Référentiels juridiques officiels — à consulter en complément des fiches de synthèse.</div>' +
+                '<div class="biblio-grid">' + cardsInScopeSources.map(function(c){ return c.outerHTML; }).join('') + '</div>' +
+              '</div>';
     }
     if (cardsOutOfScope.length > 0) {
       // Bloc séparé pour les documents hors programme — terminologie cohérente avec le panneau
