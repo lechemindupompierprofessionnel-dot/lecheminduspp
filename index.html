@@ -17404,7 +17404,16 @@ async function loginMember() {
 async function logoutMember() {
   try {
     var ms = getMemberstack();
-    if (ms) await ms.logout();
+    if (ms) {
+      await ms.logout();
+      // Force le SDK Memberstack v2 à re-synchroniser son état interne après
+      // logout (cookie de session, token CSRF, lock interne). Sans ce ping,
+      // certaines sessions laissent le SDK dans un état où la prochaine
+      // tentative de loginMemberEmailPassword reste pendante indéfiniment :
+      // la Promise ne se résout pas, aucune erreur, l'utilisateur doit
+      // recharger la page pour pouvoir se reconnecter.
+      try { await ms.getCurrentMember(); } catch(e) {}
+    }
   } catch(e) {}
   updateNavMember(null);
   showToast('Déconnecté.');
