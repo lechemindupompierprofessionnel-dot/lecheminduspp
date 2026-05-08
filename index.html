@@ -11597,6 +11597,8 @@ var CAT_LABELS = {
   'sis': 'Organisation d\'un SIS',
   'divers': 'Divers',
   'textes': 'Textes structurants du concours',
+  'fp-versants': 'Les 3 versants de la fonction publique',
+  'fp-pouvoirs': 'Organisation des pouvoirs publics',
   'maths-arithmetique': 'Mathématiques — Arithmétique',
   'maths-geometrie': 'Mathématiques — Géométrie',
   'maths-mesures': 'Mathématiques — Mesures du quotidien',
@@ -16099,6 +16101,9 @@ var VOIE_AXES = {
 // Mapping des catégories vers les axes (indépendant de la voie, filtrage au rendu)
 function espMapCatToAxis(cat) {
   if (cat === 'statut' || cat === 'sis' || cat === 'divers') return 'culture';
+  // Les sous-catégories Fonction publique appartiennent à l'axe Culture admin
+  // (cohérent avec leur regroupement sur le sous-onglet prepa-culture-admin)
+  if (cat === 'fp-versants' || cat === 'fp-pouvoirs') return 'culture';
   if (cat === 'textes') return 'textes';
   if (cat === 'maths') return 'maths'; // rétrocompat anciennes réponses Supabase
   if (cat === 'maths-arithmetique' || cat === 'maths-geometrie' || cat === 'maths-mesures') return 'maths';
@@ -17592,7 +17597,7 @@ var PREPA_THEME_MAP = {
   'culture-admin': {
     label: 'Culture Administrative',
     biblioAcc: ['culture'],
-    qcmCats: ['textes','statut','sis'],
+    qcmCats: ['statut','sis','fp-versants','fp-pouvoirs'],
     qcmCatsExtra: [],
     annalesKey: null
   },
