@@ -17664,12 +17664,13 @@ function renderPrepaTheme_Qcm(slug, themeKey, conf) {
   // qui assure le menage des ecrans transitoires.
   if (window.prepaQcm && typeof prepaQcm.reset === 'function') prepaQcm.reset();
 
-  // Etat vide : aucune categorie au programme officiel pour ce theme (ex. etude-texte)
+  // Etat vide : aucune categorie au programme officiel pour ce theme (ex. etude-texte).
+  // On masque entièrement le bloc QCM (display:none + innerHTML vidé) plutôt que d'afficher
+  // un placeholder "Bientôt", pour ne pas alourdir visuellement la page. L'espacement entre
+  // Théorie et Annales est assuré par le margin-top du bloc Annales.
   if (conf.qcmCats.length === 0) {
-    container.innerHTML =
-      '<div class="s-eyebrow">QCM ciblés</div>' +
-      '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Pratique <em style="color:var(--red)">sur le thème</em></div>' +
-      '<div style="background:white;border:1px dashed var(--border);padding:32px;text-align:center;color:var(--gray);font-size:.9rem;line-height:1.7">📭 Les QCM dédiés à ce thème arrivent prochainement.</div>';
+    container.innerHTML = '';
+    container.style.display = 'none';
     return;
   }
 
