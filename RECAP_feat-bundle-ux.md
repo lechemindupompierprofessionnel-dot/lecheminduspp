@@ -109,7 +109,88 @@ home, qcm, biblio, prepa, prepa-maths, prepa-orale, prepa-culture-admin, espace,
 CHANTIER 3b — Sync "vu" Bibliothèque ↔ Prépa écrite
 ═══════════════════════════════════════════════════════════════════
 
-À venir.
+## Audit
+
+### Architecture du marquage "Vu"
+
+**État** : 2 Sets en mémoire alimentés par Supabase
+- `_biblioSeenIds` (L 9050) : docs explicitement marqués vus → table `doc_completions`
+- `_biblioOpenedIds` (L 9051) : docs ouverts au moins une fois → table `doc_reads`
+
+**Fonctions clés**
+- `loadBiblioReadStatus()` (L 9054-9092) : charge les 2 Sets depuis Supabase au démarrage, puis `renderBiblioReadStatus()`
+- `renderBiblioReadStatus()` (L 9095-9159) : pour chaque `.biblio-card` du DOM (`document.querySelectorAll`), nettoie les anciennes décorations puis ajoute `.biblio-read-status` (pastille) + `.biblio-seen-check` (checkbox cliquable, **avec listener via `addEventListener`**)
+- `toggleDocSeen(docId, cardEl)` (L 9170-9231) : toggle l'état + persist Supabase + appelle `renderBiblioReadStatus()` après → propage la nouvelle valeur sur tous les `.biblio-card` du DOM
+- `toggleSeenFromViewer()` (L 9251) : appelé depuis le bouton du PDF viewer
+
+### Architecture des sous-onglets de Préparation écrite
+
+**`renderPrepaTheme_Textes(slug, conf)`** (L 17624-17645) clone des cartes biblio :
+
+```js
+section.querySelectorAll('.biblio-card').forEach(function(card) { cards.push(card); });
+// ...
+html += '<div class="biblio-grid">' + cards.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+container.innerHTML = html;
+```
+
+`outerHTML` sérialise la structure DOM **mais PAS les event listeners attachés via `addEventListener`** (c'est une caractéristique standard de `outerHTML` : seuls les attributs HTML inline survivent).
+
+### Cause racine identifiée
+
+Quand l'utilisateur navigue vers `prepa-maths` (ou n'importe quel sous-onglet de Prépa écrite) :
+1. `goTo('prepa-maths')` → `initPrepaTheme('maths')` → `renderPrepaTheme_Textes()`
+2. Les `.biblio-card` source (déjà décorées par `renderBiblioReadStatus()` lors du load biblio) sont clonées via `outerHTML`
+3. Les clones ont visuellement la pastille `.biblio-read-status` et la case `.biblio-seen-check`, **mais le listener `click` de la case n'a pas été copié**
+4. Conséquence : cliquer sur "Vu" depuis prepa-écrite ne fait rien
+
+`renderBiblioReadStatus()` n'est PAS rappelé après `initPrepaTheme()` → pas de re-rendering qui ré-attache les listeners.
+
+## Fix appliqué
+
+**+7 lignes additives**, à la fin de `renderPrepaTheme_Textes()` (juste après `container.innerHTML = html`) :
+
+```js
+// Les cards ont été clonées via outerHTML : leurs listeners JS (notamment le
+// clic sur la case "Vu" et le badge quiz) n'ont PAS été copiés. On relance
+// renderBiblioReadStatus() qui itère sur tous les .biblio-card du DOM (pas
+// seulement ceux de la bibliothèque) et ré-attache les listeners + pastilles
+// de statut. Effet bonus : le statut "Vu" reste synchronisé entre les
+// contextes biblio ↔ prépa écrite, dans les deux sens.
+if (typeof renderBiblioReadStatus === 'function') renderBiblioReadStatus();
+```
+
+### Pourquoi cette ligne suffit
+
+1. `renderBiblioReadStatus()` utilise `document.querySelectorAll('.biblio-card')` (L 9097) — itère sur **tous** les `.biblio-card` du DOM, sans distinguer biblio vs clone prepa.
+2. Pour chaque card, elle supprime les vieilles `.biblio-read-status` et `.biblio-seen-check` (qui dans le cas des clones, sont les versions sans listener), puis en ajoute de nouvelles via `addEventListener('click', ...)` → listeners fraîchement attachés sur les nouvelles divs.
+3. La synchronisation bidirectionnelle est **gratuite** : `toggleDocSeen()` appelle déjà `renderBiblioReadStatus()` à L 9180. Marquer depuis biblio met à jour les clones prepa (et vice-versa).
+
+### Idempotence
+Appel multiple sans effet de bord négatif : `renderBiblioReadStatus` supprime systématiquement les anciennes décorations avant d'en poser de nouvelles. Pas d'accumulation, pas de doublons.
+
+### Garde sur `currentMember`
+La fonction retourne early si `!currentMember` (L 9096). Donc pour les non-loggués, aucune décoration n'est ajoutée — comportement identique à celui de la bibliothèque.
+
+## Tests locaux (Playwright headless, currentMember mocké)
+
+| Test | Résultat |
+|---|---|
+| Navigation `prepa-maths` rend 3 `.biblio-card` clonées dans `#prepa-maths-textes` | ✓ |
+| Après le fix : 3 `.biblio-seen-check` injectées dans le container prepa | ✓ |
+| Après le fix : 3 `.biblio-read-status` injectées dans le container prepa | ✓ |
+| Clic sur la case "Vu" prepa-maths → `_biblioSeenIds` ajoute le docId | ✓ (`fiche-maths-arith` : false → true) |
+| Card prepa-maths reçoit `.is-seen` après clic | ✓ |
+| **Bidirectionnalité** : clic sur "Vu" depuis biblio → la clone prepa devient `.is-seen` + `.is-active` | ✓ (`fiche-maths-geo`) |
+| Console errors / warnings | 0 / 0 |
+
+### Limites du test local
+- Le mock de `currentMember`, `supabaseClient`, `espMemberId` simule le contexte loggué payant. Le fix CSS/DOM est validé. La persistance Supabase réelle (insert dans `doc_completions`) n'est pas testée mais non touchée par ce fix.
+- Les autres prepa-* tabs (texte, equipier, culture-admin) suivent strictement le même flux `renderPrepaTheme_Textes` : le fix s'applique à tous.
+
+## Commit
+- Message : `Feat: synchronise le statut 'vu' des documents entre la bibliothèque et les sous-onglets de Préparation écrite`
+- Hash : à venir
 
 ═══════════════════════════════════════════════════════════════════
 CHANTIER 3c — Tarif Performance — mise en avant prépa physique

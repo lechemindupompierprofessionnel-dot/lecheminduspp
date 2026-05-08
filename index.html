@@ -17642,6 +17642,13 @@ function renderPrepaTheme_Textes(slug, conf) {
     html += '<div style="margin-top:16px"><button class="btn btn-outline-red" onclick="goTo(\'biblio\')">Voir toute la bibliothèque →</button></div>';
   }
   container.innerHTML = html;
+  // Les cards ont été clonées via outerHTML : leurs listeners JS (notamment le
+  // clic sur la case "Vu" et le badge quiz) n'ont PAS été copiés. On relance
+  // renderBiblioReadStatus() qui itère sur tous les .biblio-card du DOM (pas
+  // seulement ceux de la bibliothèque) et ré-attache les listeners + pastilles
+  // de statut. Effet bonus : le statut "Vu" reste synchronisé entre les
+  // contextes biblio ↔ prépa écrite, dans les deux sens.
+  if (typeof renderBiblioReadStatus === 'function') renderBiblioReadStatus();
 }
 
 // Bloc QCM : structure 3 ecrans (config / picker / session / results) rendus
