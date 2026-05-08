@@ -2950,11 +2950,11 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
       <div class="mobile-nav-link" data-page="prepa-equipier" onclick="goTo('prepa-equipier');closeMobileNav()"><span class="mn-ico">🚒</span>Connaissances équipier<span class="mn-arrow">›</span></div>
       <div class="mobile-nav-link" data-page="prepa-culture-admin" onclick="goTo('prepa-culture-admin');closeMobileNav()"><span class="mn-ico">🏛️</span>Culture Administrative<span class="mn-arrow">›</span></div>
 
-      <div class="mobile-nav-section">Préparation orale</div>
-      <div class="mobile-nav-link" data-page="prepa-orale" onclick="goTo('prepa-orale');closeMobileNav()"><span class="mn-ico">🎤</span>Préparation orale<span class="mn-arrow">›</span></div>
-
       <div class="mobile-nav-section">Préparation physique</div>
       <div class="mobile-nav-link" data-page="prepa" onclick="goToPrepa();closeMobileNav()"><span class="mn-ico">💪</span>Préparation physique<span class="mn-arrow">›</span></div>
+
+      <div class="mobile-nav-section">Préparation orale</div>
+      <div class="mobile-nav-link" data-page="prepa-orale" onclick="goTo('prepa-orale');closeMobileNav()"><span class="mn-ico">🎤</span>Préparation orale<span class="mn-arrow">›</span></div>
 
       <div class="mobile-nav-section">Ressources</div>
       <div class="mobile-nav-link" data-page="biblio" onclick="goTo('biblio');closeMobileNav()"><span class="mn-ico">📚</span>Bibliothèque<span class="mn-arrow">›</span></div>
@@ -3038,12 +3038,12 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <button class="nav-dropdown-item" data-page="prepa-culture-admin" onclick="goTo('prepa-culture-admin')"><span class="nav-item-ico">🏛️</span>Culture Administrative</button>
       </div>
     </div>
-    <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-orale">
-      <button class="nav-group-btn" data-page="prepa-orale" onclick="goTo('prepa-orale')">Préparation orale</button>
-      <div class="nav-group-bar"></div>
-    </div>
     <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-physique">
       <button class="nav-group-btn" data-page="prepa" onclick="goToPrepa()">Préparation physique</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-orale">
+      <button class="nav-group-btn" data-page="prepa-orale" onclick="goTo('prepa-orale')">Préparation orale</button>
       <div class="nav-group-bar"></div>
     </div>
     <div class="nav-group nav-member-only" data-audience="member" id="navg-ressources-member">
