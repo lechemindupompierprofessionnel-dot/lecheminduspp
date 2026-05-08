@@ -17621,21 +17621,43 @@ function initPrepaTheme(themeKey) {
 function renderPrepaTheme_Textes(slug, conf) {
   var container = document.getElementById('prepa-' + slug + '-textes');
   if (!container) return;
-  var cards = [];
+  // On split les cards selon leur statut : "au programme" vs "hors programme".
+  // Une card est hors programme si elle contient un enfant `.biblio-out-of-scope-badge`
+  // (marqueur posé en HTML statique dans la bibliothèque). Cas concret aujourd'hui :
+  // les 6 doctrines HORS_PROGRAMME_SUBCATS (gto-forets, gdo-elec/silos/agricole/ulm/foret)
+  // et les 2 fiches divers ERP & PCS, qui atterrissent toutes dans l'onglet
+  // Connaissances équipier (biblioAcc=['doctrines','divers']).
+  var cardsInScope = [];
+  var cardsOutOfScope = [];
   conf.biblioAcc.forEach(function(acc) {
     var section = document.querySelector('.biblio-acc-section[data-acc="' + acc + '"]');
     if (!section) return;
-    section.querySelectorAll('.biblio-card').forEach(function(card) { cards.push(card); });
+    section.querySelectorAll('.biblio-card').forEach(function(card) {
+      if (card.querySelector('.biblio-out-of-scope-badge')) cardsOutOfScope.push(card);
+      else cardsInScope.push(card);
+    });
   });
 
   var html = '<div class="s-eyebrow">Théorie & sources</div>' +
              '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Les <em style="color:var(--red)">documents clés</em> de l\'épreuve</div>' +
              '<div style="font-size:.9rem;color:var(--gray);line-height:1.7;max-width:640px;margin-bottom:24px">Fiches de synthèse, doctrines officielles et textes structurants — extraits de la bibliothèque, ciblés sur ce thème.</div>';
 
-  if (cards.length === 0) {
+  if (cardsInScope.length === 0 && cardsOutOfScope.length === 0) {
     html += '<div style="background:white;border:1px dashed var(--border);padding:32px;text-align:center;color:var(--gray);font-size:.9rem">📭 Aucun document pour ce thème pour l\'instant.</div>';
   } else {
-    html += '<div class="biblio-grid">' + cards.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+    if (cardsInScope.length > 0) {
+      html += '<div class="biblio-grid">' + cardsInScope.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+    }
+    if (cardsOutOfScope.length > 0) {
+      // Bloc séparé pour les documents hors programme — terminologie cohérente avec le panneau
+      // QCM "Pour aller plus loin" déjà présent dans la page QCM (L 3759).
+      html += '<div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border)">' +
+                '<div class="s-eyebrow">Pour aller plus loin</div>' +
+                '<div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Documents <em style="color:var(--red)">hors programme</em></div>' +
+                '<div style="font-size:.85rem;color:var(--gray);line-height:1.6;max-width:640px;margin-bottom:20px">Pas au programme officiel du concours — pour ta culture personnelle.</div>' +
+                '<div class="biblio-grid">' + cardsOutOfScope.map(function(c){ return c.outerHTML; }).join('') + '</div>' +
+              '</div>';
+    }
     html += '<div style="margin-top:16px"><button class="btn btn-outline-red" onclick="goTo(\'biblio\')">Voir toute la bibliothèque →</button></div>';
   }
   container.innerHTML = html;
