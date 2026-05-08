@@ -92,3 +92,88 @@ Screenshot desktop 1280×800 loggué : chrono pixel-perfect aligné sous le nav 
 2. Aller en mode examen sur une annale réelle
 3. Vérifier que le chrono est visible sous le nav, qu'il décompte normalement
 4. Tester la transition warning/danger des couleurs (≤5min, ≤1min) — purement JS, non touchée
+
+═══════════════════════════════════════════════════════════════════
+COMMIT 2 — Suppression bandeau d'instructions
+═══════════════════════════════════════════════════════════════════
+
+## Justification
+Le bandeau `.exam-instructions` du mode examen affichait des instructions par annale (durée, barème, calculatrice) chargées depuis le champ `instructions` de chaque JSON d'annale. Cette information est **redondante avec le PDF de chaque annale**, qui contient déjà l'entête officielle avec ces mêmes informations. Suppression définitive demandée.
+
+## Audit préalable
+
+### Localisation
+Le bandeau cherché via "Calculatrice non autorisée" / "Barème : 1 point" / "Durée : 1 heure" → **aucun match dans `index.html`**. Ces textes sont en réalité **dans les fichiers JSON d'annales**, pas dans le HTML statique. Le HTML L 4455 ne contenait qu'un texte fallback ("Lis le PDF à gauche...").
+
+### 3 emplacements identifiés
+| # | Fichier | Ligne | Élément |
+|---|---|---|---|
+| 1 | `index.html` | 4455 | `<div class="exam-instructions" id="exam-instructions">…</div>` (texte fallback statique) |
+| 2 | `index.html` | 1204 | Règle CSS `.exam-instructions{...}` (classe utilisée nulle part ailleurs — grep négatif) |
+| 3 | `index.html` | 18678-18681 | Bloc JS `document.getElementById('exam-instructions').textContent = annale.instructions \|\| (isMobile ? '...' : '...')` |
+
+### Dépendance JS critique flaggée
+Le JS L 18678 remplit dynamiquement le bandeau avec `annale.instructions` (texte custom du JSON courant) ou un fallback mobile/desktop. Sans suppression du JS, `getElementById` retournerait `null` après suppression du HTML → TypeError silencieux à chaque chargement d'annale.
+
+### Vérification annales
+`grep -l '"instructions"' annales/**/*.json` → 26 annales sur 26 contiennent un champ `instructions` (equipier × 8, étude de texte × 9, maths × 9). Échantillon contenu :
+- Maths CDG13 2021 : `"20 questions réparties en 3 problèmes. Durée : 1 heure. Une seule réponse exacte par question. Calculatrice non autorisée. Barème : +1 point bonne réponse, 0 sinon."`
+- Equipier CDG69 2025 : `"40 questions. Durée : 1 heure. Chaque question peut comporter une ou plusieurs bonnes réponses. Barème : 1 point si toutes exactes, 0,5 si la moitié au moins sans erreur, 0 point dès qu'une réponse inexacte est cochée. Calculatrice non autorisée."`
+- Étude de texte CDG69 2025 : barème spécifique avec −0,5
+
+**Effet collatéral acté par l'utilisateur** : le contenu de `annale.instructions` ne sera plus affiché à l'écran. Le PDF de chaque annale prend le relais comme source unique de vérité pour les instructions. Les 26 JSON conservent leur champ `instructions` (données dormantes — pas de cleanup JSON nécessaire dans ce commit).
+
+### Aucune autre référence à `annale.instructions` dans le code
+Grep final `annale\.instructions|currentAnnale\.instructions|\.instructions\b` → unique hit à L 18678 (la ligne supprimée). Aucune dépendance résiduelle.
+
+## Diff appliqué
+
+**6 lignes supprimées, 0 ligne ajoutée.**
+
+```diff
+ .exam-answers-scroll{flex:1;overflow-y:auto;padding:24px}
+-.exam-instructions{background:var(--red-pale);border-left:3px solid var(--red);padding:14px 18px;margin-bottom:24px;font-size:.85rem;color:var(--charcoal);line-height:1.6}
+ .exam-q-row{...}
+```
+
+```diff
+       <div class="exam-answers-scroll">
+-        <div class="exam-instructions" id="exam-instructions">Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.</div>
+         <div id="exam-questions-list">
+```
+
+```diff
+       pdfFrame.srcdoc = '...';
+     }
+-    document.getElementById('exam-instructions').textContent = annale.instructions ||
+-      (isMobile
+-        ? 'Consulte le sujet en haut, réponds dans la grille ci-dessous. Tu peux revenir sur une question à tout moment.'
+-        : 'Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.');
+     renderExamQuestions();
+```
+
+## Tests locaux (Playwright headless, http://localhost:8000?nocache=#examen)
+
+| Vérification | Desktop 1280×800 | Mobile 375×812 |
+|---|---|---|
+| `#exam-instructions` existe | ❌ supprimé | ❌ supprimé |
+| `.exam-instructions` (classe) utilisée | 0 fois | 0 fois |
+| `.exam-timer-bar` présent | ✓ | ✓ |
+| `.exam-timer-bar` top | `68px` (fix commit 1 préservé) | `0px` (mobile rule préservée) |
+| `#exam-questions-list` présent | ✓ | ✓ |
+| Page `#page-examen` active | ✓ | ✓ |
+| **Console errors** | **0** | **0** |
+| **Console warnings** | **0** | **0** |
+
+### Vérif anti-TypeError
+Plus aucun `getElementById('exam-instructions')` dans le code (grep final). Donc plus aucun risque de `TypeError: Cannot set properties of null (setting 'textContent')` au chargement d'annale.
+
+### Limites
+Le test sur une vraie annale chargée (avec PDF + grille de questions populée) n'a pas été effectué en local — tester en local exige un compte payant et une session live. Le diff est tellement minimal (3 retraits stricts) que le risque résiduel est sur le rendu visuel (espacement, marge) plus que fonctionnel. Vérification visuelle attendue au retour.
+
+## ⚠️ Référence à `annale.instructions` non touchée hors-périmètre
+Aucune trouvée dans `index.html` (grep complet). Les 26 JSON conservent leur champ `instructions` (données archivées non affichées). Aucun cleanup à faire ailleurs dans le repo pour ce commit.
+
+## Commit
+- Hash : à venir
+- Message : `Suppression du bandeau d'instructions du mode examen (HTML + CSS + JS), redondant avec le PDF de chaque annale`

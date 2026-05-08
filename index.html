@@ -1201,7 +1201,6 @@ body.biblio-searching .biblio-acc-section.empty{display:none}
 .exam-progress-count{font-size:.85rem;color:white;font-weight:600;margin-bottom:2px}
 .exam-progress-sub{font-size:.7rem;color:var(--cream4)}
 .exam-answers-scroll{flex:1;overflow-y:auto;padding:24px}
-.exam-instructions{background:var(--red-pale);border-left:3px solid var(--red);padding:14px 18px;margin-bottom:24px;font-size:.85rem;color:var(--charcoal);line-height:1.6}
 .exam-q-row{background:white;border:1px solid var(--border);padding:14px 18px;margin-bottom:10px;display:flex;align-items:center;gap:16px;transition:all .15s;flex-wrap:wrap}
 .exam-q-row.answered{border-color:var(--red-pale2);background:var(--red-pale)}
 .exam-q-num{font-family:'Playfair Display',serif;font-size:1rem;color:var(--red);font-weight:700;min-width:38px;flex-shrink:0}
@@ -4452,7 +4451,6 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         </div>
       </div>
       <div class="exam-answers-scroll">
-        <div class="exam-instructions" id="exam-instructions">Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.</div>
         <div id="exam-questions-list">
           <!-- Rempli dynamiquement -->
         </div>
@@ -18675,10 +18673,6 @@ function startExam(annaleId) {
       // Page d'attente si pas de PDF (questions auto-suffisantes)
       pdfFrame.srcdoc = '<div style="font-family:sans-serif;padding:40px;text-align:center;color:#666"><div style="font-size:2rem;margin-bottom:12px">📝</div><div style="font-size:1.1rem;color:#333;margin-bottom:8px">Sujet consultable à droite</div><div style="font-size:.9rem;line-height:1.6">Cette annale ne comporte pas de PDF sujet séparé.<br>Les questions sont autonomes — réponds directement dans la grille.</div></div>';
     }
-    document.getElementById('exam-instructions').textContent = annale.instructions ||
-      (isMobile
-        ? 'Consulte le sujet en haut, réponds dans la grille ci-dessous. Tu peux revenir sur une question à tout moment.'
-        : 'Lis le PDF à gauche. Coche ta/tes réponse(s) à chaque question ci-dessous. Tu peux revenir sur une question à tout moment.');
     renderExamQuestions();
     updateExamProgress();
     startExamTimer();
