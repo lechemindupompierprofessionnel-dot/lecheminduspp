@@ -2950,6 +2950,9 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
       <div class="mobile-nav-link" data-page="prepa-equipier" onclick="goTo('prepa-equipier');closeMobileNav()"><span class="mn-ico">🚒</span>Connaissances équipier<span class="mn-arrow">›</span></div>
       <div class="mobile-nav-link" data-page="prepa-culture-admin" onclick="goTo('prepa-culture-admin');closeMobileNav()"><span class="mn-ico">🏛️</span>Culture Administrative<span class="mn-arrow">›</span></div>
 
+      <div class="mobile-nav-section">Préparation orale</div>
+      <div class="mobile-nav-link" data-page="prepa-orale" onclick="goTo('prepa-orale');closeMobileNav()"><span class="mn-ico">🎤</span>Préparation orale<span class="mn-arrow">›</span></div>
+
       <div class="mobile-nav-section">Préparation physique</div>
       <div class="mobile-nav-link" data-page="prepa" onclick="goToPrepa();closeMobileNav()"><span class="mn-ico">💪</span>Préparation physique<span class="mn-arrow">›</span></div>
 
@@ -3034,6 +3037,10 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <button class="nav-dropdown-item" data-page="prepa-equipier" onclick="goTo('prepa-equipier')"><span class="nav-item-ico">🚒</span>Connaissances équipier</button>
         <button class="nav-dropdown-item" data-page="prepa-culture-admin" onclick="goTo('prepa-culture-admin')"><span class="nav-item-ico">🏛️</span>Culture Administrative</button>
       </div>
+    </div>
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-orale">
+      <button class="nav-group-btn" data-page="prepa-orale" onclick="goTo('prepa-orale')">Préparation orale</button>
+      <div class="nav-group-bar"></div>
     </div>
     <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-physique">
       <button class="nav-group-btn" data-page="prepa" onclick="goToPrepa()">Préparation physique</button>
@@ -4000,6 +4007,25 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
   </div>
 </div>
 
+<!-- ============================= PAGE: PREPARATION ORALE (placeholder Bientôt) =============================
+     Section future. Aujourd'hui simple page d'attente : titre + sous-titre + icône + phrase
+     explicative. Aucune fiche, aucun QCM, aucun lien fonctionnel — c'est volontaire.
+     ===================================================================================================== -->
+<div class="page" id="page-prepa-orale">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="s-eyebrow">Préparation orale</div>
+      <div class="s-title">Bientôt<br><em>disponible</em></div>
+      <div class="s-lead">Cette section est en cours de préparation. Reviens bientôt pour découvrir les fiches méthodologiques dédiées à l'épreuve orale du concours.</div>
+    </div>
+  </div>
+  <div class="section">
+    <div style="text-align:center;padding:60px 20px 80px">
+      <div style="font-size:5rem;line-height:1;margin-bottom:8px" aria-hidden="true">🎤</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============================= PAGE: PREPARATION PHYSIQUE ============================= -->
 <div class="page" id="page-prepa">
   <div class="page-header">
@@ -4724,7 +4750,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
 <script>
 if(window.location.search.indexOf('success') !== -1) {
   document.addEventListener('DOMContentLoaded', function(){
-    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','prepa-orale','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
     pages.forEach(function(p){
       var el = document.getElementById('page-'+p);
       if(el) el.classList.toggle('active', p === 'merci');
@@ -11099,7 +11125,7 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','prepa-maths','prepa-texte','prepa-equipier','prepa-culture-admin','espace','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','prepa-maths','prepa-texte','prepa-equipier','prepa-culture-admin','espace','prepa','prepa-orale','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -11131,6 +11157,7 @@ function goTo(id) {
     'prepa-texte':    ['navg-prepa-ecrite'],
     'prepa-equipier': ['navg-prepa-ecrite'],
     'prepa-culture-admin': ['navg-prepa-ecrite'],
+    'prepa-orale': ['navg-prepa-orale'],
     prepa:       ['navg-prepa-physique'],
     'demo-prepa': ['navg-prepa-physique']
   };
