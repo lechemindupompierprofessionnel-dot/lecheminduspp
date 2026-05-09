@@ -762,9 +762,12 @@ const mockSupabase = {
 
   rpc(fn, params) {
     if (fn === 'count_oral_sessions_this_week') {
-      const week = OralSimulator._getCurrentWeekIso();
+      // V6 : signature alignée sur le SQL prod — 2 params explicites (p_member_email, p_week_iso)
+      // Exclut les sessions 'abandoned' du compteur, comme la RPC SQL.
       const count = this._data.filter(s =>
-        s.member_email === params.p_email && s.week_iso === week && s.status !== 'abandoned'
+        s.member_email === params.p_member_email
+        && s.week_iso === params.p_week_iso
+        && s.status !== 'abandoned'
       ).length;
       console.log('[MOCK Supabase] count_oral_sessions_this_week →', count);
       return Promise.resolve({ data: count, error: null });
@@ -1104,7 +1107,10 @@ const OralSimulator = (function() {
   }
 
   async function loadQuota() {
-    const { data } = await supabase.rpc('count_oral_sessions_this_week', { p_email: state.memberEmail });
+    const { data } = await supabase.rpc('count_oral_sessions_this_week', {
+      p_member_email: state.memberEmail,
+      p_week_iso: state.weekIso
+    });
     state.sessionsThisWeek = data || 0;
     const max = state.memberTier === '3' ? '∞' : CONFIG.MAX_SESSIONS_PER_WEEK;
     document.getElementById('oral-quota-used').textContent = state.sessionsThisWeek;
