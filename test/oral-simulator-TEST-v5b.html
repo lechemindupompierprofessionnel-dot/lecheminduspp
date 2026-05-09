@@ -891,12 +891,49 @@ async function mockClaudeAPI(payload) {
 
   const bank = questionsByRole[role];
 
+  // V6 : détection du questionType injecté par le système (Solution C)
+  // Le prompt système contient une ligne "Tu vas poser une question de TYPE : XXX"
+  let questionType = 'NOUVELLE_QUESTION';
+  let niveauProfondeur = 0;
+  const typeMatch = sys.match(/Tu vas poser une question de TYPE : (\w+)/);
+  if (typeMatch) questionType = typeMatch[1];
+  const niveauMatch = sys.match(/NIVEAU de profondeur : N(\d+)/);
+  if (niveauMatch) niveauProfondeur = parseInt(niveauMatch[1], 10) - 1;
+
+  // Pour la 1ère question (juste après l'exposé), on force NOUVELLE_QUESTION
   if (isFirst) {
     return { text: bank.first[Math.floor(Math.random() * bank.first.length)], usage: {} };
   }
 
+  // V6 : templates génériques pour les 3 types
+  const relancesBasiques = [
+    "Reprenez. Concrètement, qu'est-ce que vous me dites sur ce point ?",
+    "Je reformule : la question portait sur le thème principal — vous me répondez quoi ?",
+    "Précisez. J'ai besoin d'une réponse plus directe."
+  ];
+  const relancesN2 = {
+    officier: ["Précisez le fondement juridique de ce que vous venez d'évoquer.", "Et concrètement, comment ça s'applique sur le terrain ?", "Sur quel décret vous appuyez-vous ?"],
+    elu: ["Et au niveau institutionnel, qui pilote ce dispositif ?", "Vous parlez de la FPT — quelle particularité par rapport à la FPE ?", "Et l'instance qui valide tout ça, c'est laquelle ?"],
+    sousoff: ["Et concrètement, vous faites quoi le jour J ?", "Et si votre chef de garde n'est pas d'accord, vous gérez comment ?", "Vous vous êtes déjà retrouvé dans cette situation ?"]
+  };
+  const relancesN3 = {
+    officier: ["L'article du CGCT qui fonde cette obligation, vous me le citez ?", "À partir de quel seuil de population la catégorie A s'applique ?", "Quel décret encadre précisément ce dispositif ?"],
+    elu: ["Le sigle CSFPT, qu'est-ce qu'il désigne exactement ?", "Quelle est la durée de validité d'une liste d'aptitude FPT ?", "Quel article du CGFP fonde la rupture conventionnelle dans la fonction publique ?"],
+    sousoff: ["Quelle conséquence juridique concrète pour vous si vous ne signalez pas ?", "Article 40 du CPP, vous m'expliquez ?", "Quelle sanction disciplinaire risquez-vous dans ce cas ?"]
+  };
+
+  let question;
+  if (questionType === 'RELANCE_BASIQUE') {
+    question = relancesBasiques[Math.floor(Math.random() * relancesBasiques.length)];
+  } else if (questionType === 'RELANCE_APPROFONDISSEMENT') {
+    const pool = niveauProfondeur >= 2 ? relancesN3[role] : relancesN2[role];
+    question = pool[Math.floor(Math.random() * pool.length)];
+  } else {
+    // NOUVELLE_QUESTION (N1)
+    question = bank.next[Math.floor(Math.random() * bank.next.length)].replace(/^\[RELANCE\]\s*/i, '');
+  }
+
   const transition = bank.transitions[Math.floor(Math.random() * bank.transitions.length)];
-  const question = bank.next[Math.floor(Math.random() * bank.next.length)];
   const fullText = transition ? transition + ' ' + question : question;
   return { text: fullText, usage: {} };
 }
@@ -1393,7 +1430,9 @@ const OralSimulator = (function() {
     // V5 : Première question = toujours l'officier (président qui ouvre)
     state.currentSpeaker = 'officier';
     state.lastJurySpeaker = 'officier';
-    state.relanceCount = 0; // compteur de relances consécutives par juré
+    state.previousJurySpeaker = 'officier'; // V6 : pour Solution C — qui détient le sujet en cours
+    state.relanceCount = 0; // V6 : compteur de relances consécutives sur le sujet courant (0=N1, 1=N2, 2=N3)
+    state.lastDecision = null; // V6 : trace debug de la dernière décision relance/question
     state.candidateAnswers = []; // V5b : pour analyse débit/hésitations
     state.lastAnswerTimestamp = new Date();
     updateJuryIndicator('officier', true);
@@ -1409,15 +1448,8 @@ const OralSimulator = (function() {
     updateJuryIndicator('officier', false);
   }
 
-  // V5 : Détermination du prochain juré qui parle
-  function pickNextSpeaker(isRelance) {
-    // Si c'est une relance, le même juré garde la parole (max 2 relances consécutives)
-    if (isRelance && state.relanceCount < 2) {
-      state.relanceCount++;
-      return state.lastJurySpeaker;
-    }
-    // Sinon : rotation stricte officier → élu → sous-off → officier...
-    state.relanceCount = 0;
+  // V6 : Rotation stricte officier → élu → sous-off → officier… (la logique de relance est dans decideRelance())
+  function pickNextSpeaker() {
     const order = ['officier', 'elu', 'sousoff'];
     const currentIdx = order.indexOf(state.lastJurySpeaker);
     const nextIdx = (currentIdx + 1) % 3;
@@ -1457,38 +1489,46 @@ const OralSimulator = (function() {
 
     state.questionsCount++;
 
-    const nextSpeaker = pickNextSpeaker(false);
-    state.currentSpeaker = nextSpeaker;
-    state.lastJurySpeaker = nextSpeaker;
+    // === V6 (Solution C) : décision relance vs nouvelle question, 100% côté JS ===
+    const decision = decideRelance(a, state);
+    let targetSpeaker;
+    if (decision.type === 'NOUVELLE_QUESTION') {
+      // Reset relance, rotation vers le juré suivant
+      state.relanceCount = 0;
+      targetSpeaker = pickNextSpeaker();
+      state.previousJurySpeaker = targetSpeaker;
+    } else {
+      // RELANCE_BASIQUE ou RELANCE_APPROFONDISSEMENT : même juré, niveau mis à jour
+      state.relanceCount = decision.niveau;
+      targetSpeaker = state.previousJurySpeaker || 'officier';
+    }
+    state.currentSpeaker = targetSpeaker;
+    state.lastJurySpeaker = targetSpeaker;
+    state.lastDecision = { ...decision, speaker: targetSpeaker, timestamp: Date.now() };
+    console.log('[DECISION]', state.lastDecision);
 
-    updateJuryIndicator(nextSpeaker, true);
-    showJuryThinking(true, nextSpeaker);
+    updateJuryIndicator(targetSpeaker, true);
+    showJuryThinking(true, targetSpeaker);
 
     // V5b : délai variable de réflexion avant la prochaine question (3-8s selon longueur de la réponse)
     const thinkingDelay = calculateThinkingDelay(a);
     await new Promise(r => setTimeout(r, thinkingDelay));
 
-    const next = await callJury({ candidateAnswer: a, speaker: nextSpeaker });
+    // === V6 : on appelle avec le BON profil de juré ET le BON contexte de question ===
+    const next = await callJury({
+      candidateAnswer: a,
+      speaker: targetSpeaker,
+      questionType: decision.type,
+      niveauProfondeur: decision.niveau
+    });
     showJuryThinking(false);
 
-    const isRelance = next.toLowerCase().includes('[relance]');
+    const isRelance = decision.type !== 'NOUVELLE_QUESTION';
+    // On nettoie un éventuel marqueur [RELANCE] que le modèle aurait quand même produit
     const clean = next.replace(/^\[relance\]\s*/i, '').trim();
 
-    // Si c'est une relance, on REVIENT au juré précédent (qui creuse sa propre question)
-    let actualSpeaker = nextSpeaker;
-    if (isRelance && state.previousJurySpeaker && state.relanceCount < 2) {
-      actualSpeaker = state.previousJurySpeaker;
-      state.lastJurySpeaker = state.previousJurySpeaker;
-      state.relanceCount++;
-      updateJuryIndicator(nextSpeaker, false);
-      updateJuryIndicator(actualSpeaker, true);
-    } else {
-      state.previousJurySpeaker = nextSpeaker;
-      state.relanceCount = 0;
-    }
-
-    addJuryMessage(clean, actualSpeaker, isRelance ? 'Relance' : `Question ${Math.ceil(state.questionsCount/2) + 1}`, isRelance);
-    updateJuryIndicator(actualSpeaker, false);
+    addJuryMessage(clean, targetSpeaker, isRelance ? 'Relance' : `Question ${Math.ceil(state.questionsCount/2) + 1}`, isRelance);
+    updateJuryIndicator(targetSpeaker, false);
 
     // Reset du timestamp pour la prochaine réponse
     state.lastAnswerTimestamp = new Date();
@@ -1521,6 +1561,22 @@ const OralSimulator = (function() {
     return null;
   }
 
+  // V6 — Solution C : décision relance vs nouvelle question, 100% côté JS (0ms ajouté).
+  // Logique :
+  //   - relanceCount >= 2 → on a déjà fait 2 approfondissements (N2 puis N3), on PASSE à un autre thème
+  //   - réponse < 10 mots → le candidat n'a pas vraiment répondu → RELANCE_BASIQUE (reformulation simple, pas de montée en niveau)
+  //   - sinon → RELANCE_APPROFONDISSEMENT (on creuse, le niveau monte d'un cran : 1=N2, 2=N3)
+  function decideRelance(candidateAnswer, st) {
+    const wordCount = (candidateAnswer || '').trim().split(/\s+/).filter(Boolean).length;
+    if (st.relanceCount >= 2) {
+      return { type: 'NOUVELLE_QUESTION', niveau: 0, reason: 'plafond_2_approfondissements', wordCount };
+    }
+    if (wordCount < 10) {
+      return { type: 'RELANCE_BASIQUE', niveau: st.relanceCount, reason: 'reponse_insuffisante', wordCount };
+    }
+    return { type: 'RELANCE_APPROFONDISSEMENT', niveau: st.relanceCount + 1, reason: 'approfondissement_systematique', wordCount };
+  }
+
   async function endQR() {
     Object.values(state.timers).forEach(clearInterval);
     stopSpeechRecognition();
@@ -1548,7 +1604,13 @@ const OralSimulator = (function() {
   // === Routage de l'appel selon le mode ===
   async function callJury(opts) {
     const messages = buildMessages(opts);
-    const system = buildSystemPrompt(opts.requestDebrief, opts.speaker);
+    // V6 : on passe au prompt système le contexte question (speaker, questionType, niveauProfondeur)
+    const ctx = opts.requestDebrief ? null : {
+      speaker: opts.speaker,
+      questionType: opts.isFirstQuestion ? 'NOUVELLE_QUESTION' : (opts.questionType || 'NOUVELLE_QUESTION'),
+      niveauProfondeur: opts.isFirstQuestion ? 0 : (opts.niveauProfondeur || 0)
+    };
+    const system = buildSystemPrompt(opts.requestDebrief, ctx);
 
     if (TEST_CONFIG.mode === 'mock') {
       const r = await mockClaudeAPI({ messages, system, max_tokens: opts.requestDebrief ? 2000 : 600 });
@@ -1598,7 +1660,12 @@ const OralSimulator = (function() {
     }
   }
 
-  function buildSystemPrompt(forDebrief, speaker) {
+  // V6 : signature étendue. Pour le débrief : buildSystemPrompt(true). Pour une question : buildSystemPrompt(false, { speaker, questionType, niveauProfondeur })
+  function buildSystemPrompt(forDebrief, ctx) {
+    const speaker = ctx && ctx.speaker;
+    const questionType = ctx && ctx.questionType;
+    const niveauProfondeur = ctx && ctx.niveauProfondeur;
+
     if (forDebrief) {
       return `Tu es président du jury de concours de Caporal Sapeur-Pompier Professionnel français. L'entretien est terminé. Tu produis un débrief honnête et exigeant, fondé sur tes connaissances précises du concours.
 
@@ -1847,26 +1914,62 @@ RÈGLES ABSOLUES — IMMERSION TOTALE
 - Poser ta prochaine question
 
 ═══════════════════════════════════════════════════
-MÉTHODE — LE CREUSAGE
+DOCTRINE DE QUESTIONNEMENT — TU SUIS CETTE PROGRESSION
 ═══════════════════════════════════════════════════
 
-→ Si la réponse couvre les ÉLÉMENTS CLÉS attendus : tu CREUSES sur le même thème avec une question plus difficile. Marque [RELANCE] au début.
+Pour chaque sujet, tu suis 3 niveaux de profondeur. Tu ne sautes JAMAIS de niveau et tu ne reviens JAMAIS en arrière.
 
-→ Si la réponse est INCOMPLÈTE : tu re-questionnes pour faire dire ce qui manque. Marque [RELANCE].
+NIVEAU 1 (N1 — question initiale) — LARGE et CONNU
+  Question d'ouverture sur un thème classique du concours.
+  Exemples :
+  - "Pourquoi voulez-vous devenir Caporal SPP ?"
+  - "Le secret professionnel, vous me l'expliquez ?"
+  - "L'engagement en milieu vicié, c'est quoi pour vous ?"
 
-→ Si la réponse est FAUSSE ou ESQUIVÉE : tu changes de thème silencieusement.
+NIVEAU 2 (N2 — 1ère relance, APPROFONDISSEMENT) — PRÉCISION et NUANCE
+  Tu pars de ce que le candidat vient de dire. Tu creuses un point précis qu'il a mentionné.
+  Tu vérifies qu'il MAÎTRISE ce qu'il a énoncé, pas juste récité.
+  Tu introduis une nuance, un cas limite, ou une situation concrète.
+  Exemples (à partir des N1 ci-dessus) :
+  - "Vous parlez d'engagement. Concrètement, qu'est-ce qui change entre SPV et SPP au quotidien ?"
+  - "Et si en intervention vous reconnaissez votre voisin victime, qu'est-ce que vous racontez chez vous le soir ?"
+  - "Vous parlez d'ARI. À partir de quelle pression d'air un binôme peut s'engager avec un ARICO de 300 bars ?"
 
-→ Si NOIE le POISSON : tu re-poses la MÊME question plus directement. Max 2 fois.
+NIVEAU 3 (N3 — 2ème relance, POINTU) — TECHNICITÉ
+  Tu vas chercher la limite de ses connaissances. Tu valides s'il est carré ou s'il navigue à vue.
+  VARIE les angles selon le thème :
+  - Thèmes juridiques / statut → un article précis, une référence textuelle (CGFP, décret, loi)
+  - Thèmes opérationnels → un seuil chiffré, une procédure exacte, un matériel précis
+  - Thèmes institutionnels → un acronyme, une instance, un acteur précis (CASDIS, SDACR, DGSCGC)
+  - Mises en situation → la conséquence juridique ou disciplinaire concrète (article 40 CPP, faute personnelle)
+  NE demande PAS systématiquement "citez l'article". Varie : "à partir de quelle pression", "qui préside", "quelle conséquence si…", "quel article fonde…".
 
-→ Si INCOHÉRENCE avec l'exposé : tu y reviens froidement.
+RÈGLES STRICTES
+  - Tu ne sautes JAMAIS de niveau (pas de N3 directement après N1).
+  - Tu ne reviens JAMAIS en arrière (pas de N2 après un N3).
+  - Si le candidat ne répond pas (réponse trop courte ou hors sujet), tu reformules SIMPLEMENT ta dernière question SANS monter en difficulté.
+  - Après 2 relances, tu CHANGES de sujet (nouvelle question N1 sur un autre thème).
+  - Tu varies les thèmes : motivation, statut, technique opérationnelle, mises en situation, déontologie, institutionnel.
+
+═══════════════════════════════════════════════════
+CONTEXTE DE LA QUESTION COURANTE
+═══════════════════════════════════════════════════
+
+Tu vas poser une question de TYPE : ${questionType || 'NOUVELLE_QUESTION'}
+NIVEAU de profondeur : N${(niveauProfondeur || 0) + 1}
+
+Selon le type :
+- NOUVELLE_QUESTION (N1) : pose une question d'ouverture sur un thème NON ENCORE ABORDÉ dans cette session. Regarde l'historique de conversation pour ne pas te répéter.
+- RELANCE_APPROFONDISSEMENT (N2 ou N3) : pars de la DERNIÈRE réponse du candidat et creuse selon la doctrine ci-dessus. NE pose PAS une question sans rapport.
+- RELANCE_BASIQUE : le candidat n'a pas répondu correctement. Reformule SIMPLEMENT ta dernière question avec d'autres mots, SANS monter en difficulté.
 
 ═══════════════════════════════════════════════════
 FORMAT DE RÉPONSE
 ═══════════════════════════════════════════════════
 
 UNE seule question. 1 à 3 phrases maximum.
-Si c'est une relance, commence par [RELANCE].
 RESTE DANS TON DOMAINE — ne pose pas de question qui relèverait d'un autre juré (sauf cas de cohérence parcours).
+N'ajoute PAS de marqueur [RELANCE] ou autre balise — c'est le système qui gère ça.
 
 Exemple de bonne réponse :
 "Précisez. Sur quel fondement juridique ?"
