@@ -1,0 +1,422 @@
+[
+  {
+    "id": "gdo-soutien-intervenant-001",
+    "level": "TF",
+    "q": "Selon le GDO, le service d'incendie et de secours (SIS) est identifié comme un acteur dans le domaine de :",
+    "choices": [
+      "la santé, la sécurité et la qualité de vie en service (SSQVS)",
+      "la prévention des risques chimiques uniquement",
+      "la formation des élus territoriaux",
+      "la coordination internationale de sécurité civile"
+    ],
+    "correct": [0],
+    "expl": "Le GDO place explicitement le SIS comme acteur du SSQVS (santé, sécurité et qualité de vie en service).",
+    "source": "Chapitre 1"
+  },
+  {
+    "id": "gdo-soutien-intervenant-002",
+    "level": "TF",
+    "q": "Quels sont les trois niveaux de prévention identifiés dans le GDO ?",
+    "choices": [
+      "primaire",
+      "secondaire",
+      "tertiaire",
+      "préventive"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "Le GDO retient les trois niveaux classiques de prévention : primaire, secondaire et tertiaire.",
+    "source": "Chapitre 1"
+  },
+  {
+    "id": "gdo-soutien-intervenant-003",
+    "level": "F",
+    "q": "Le chapitre 1 du GDO identifie trois dimensions complémentaires à prendre en compte pour préparer l'engagement opérationnel. Lesquelles ?",
+    "choices": [
+      "l'état de santé",
+      "l'état de forme",
+      "la santé psychique",
+      "l'état de motivation"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "Le GDO articule la préparation autour de trois dimensions : état de santé, état de forme et santé psychique.",
+    "source": "Chapitre 1"
+  },
+  {
+    "id": "gdo-soutien-intervenant-004",
+    "level": "TF",
+    "q": "Le GDO « Préparation et soutien de l'intervenant en opération » est édité par :",
+    "choices": [
+      "l'INRS",
+      "la DGSCGC",
+      "l'École nationale supérieure des officiers de sapeurs-pompiers",
+      "la direction départementale de la sécurité civile"
+    ],
+    "correct": [1],
+    "expl": "Ce GDO de 1ère édition (février 2026) est édité par la DGSCGC.",
+    "source": "Préface"
+  },
+  {
+    "id": "gdo-soutien-intervenant-005",
+    "level": "TF",
+    "q": "Quelle est la consommation d'eau quotidienne minimale recommandée par le GDO pour le sapeur-pompier ?",
+    "choices": [
+      "1 L",
+      "1,5 L",
+      "2 L",
+      "0,75 L"
+    ],
+    "correct": [1],
+    "expl": "Le GDO fixe la recommandation d'hydratation quotidienne à au moins 1,5 L.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-006",
+    "level": "TF",
+    "q": "Combien de temps avant le coucher le GDO recommande-t-il d'arrêter toute activité physique ?",
+    "choices": [
+      "30 minutes",
+      "1 heure",
+      "2 heures",
+      "3 heures"
+    ],
+    "correct": [1],
+    "expl": "Le GDO recommande de cesser toute activité physique au moins une heure avant le coucher pour préserver la qualité du sommeil.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-007",
+    "level": "F",
+    "q": "Quelle est la durée standard d'une sieste recommandée par le GDO ?",
+    "choices": [
+      "10 à 15 minutes",
+      "20 à 30 minutes",
+      "45 minutes à 1 heure",
+      "1 h 30 systématiquement"
+    ],
+    "correct": [1],
+    "expl": "Le GDO préconise une sieste standard de 20 à 30 min ; la durée d'1 h 30 reste exceptionnelle.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-008",
+    "level": "M",
+    "q": "Selon le GDO, dans quel cadre une sieste de 1 h 30 peut-elle être envisagée ?",
+    "choices": [
+      "avant chaque garde de 24 h",
+      "à titre exceptionnel",
+      "pendant un rappel à la caserne",
+      "jamais, l'usage est proscrit"
+    ],
+    "correct": [1],
+    "expl": "Le GDO mentionne la sieste de 1 h 30 comme un usage exceptionnel, et non comme une pratique systématique.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-009",
+    "level": "F",
+    "q": "À partir de quelle température ambiante le GDO recommande-t-il d'adapter la tenue dans le cadre d'une vigilance grand froid ?",
+    "choices": [
+      "10 °C",
+      "5 °C",
+      "0 °C",
+      "−5 °C"
+    ],
+    "correct": [1],
+    "expl": "Le GDO retient un seuil de 5 °C ambiant pour déclencher l'adaptation des tenues au grand froid.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-010",
+    "level": "M",
+    "q": "L'adaptation des tenues en période chaude s'appuie sur le système national de vigilance météorologique. Quels niveaux de vigilance le GDO mentionne-t-il pour ce dispositif ?",
+    "choices": [
+      "jaune",
+      "orange",
+      "rouge",
+      "bleu"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "Le GDO renvoie aux niveaux de vigilance jaune, orange et rouge pour adapter les tenues en période de canicule.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-011",
+    "level": "F",
+    "q": "Parmi les éléments suivants, lesquels font l'objet d'un pictogramme spécifique de prévention dans le GDO en amont de l'engagement opérationnel ?",
+    "choices": [
+      "l'alcool",
+      "les produits dopants",
+      "les médicaments",
+      "les traitements homéopathiques"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "Le GDO identifie des pictogrammes spécifiques pour l'alcool, les produits dopants et les médicaments susceptibles d'altérer la vigilance.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-012",
+    "level": "TF",
+    "q": "Avant l'engagement opérationnel, le GDO préconise systématiquement :",
+    "choices": [
+      "une vérification des inventaires et du matériel (drill)",
+      "une auto-évaluation médicale écrite",
+      "un entretien individuel avec le COS",
+      "une lecture des consignes par le SP de tour"
+    ],
+    "correct": [0],
+    "expl": "Le drill — vérification des inventaires et du matériel — est cité comme une étape de routine avant chaque engagement.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-013",
+    "level": "TF",
+    "q": "Selon le GDO, l'activité physique raisonnée est positionnée comme :",
+    "choices": [
+      "un levier de préparation à l'engagement opérationnel",
+      "une obligation réglementaire annuelle",
+      "un dispositif réservé aux SP nouvellement intégrés",
+      "une mission exclusive de l'éducation nationale"
+    ],
+    "correct": [0],
+    "expl": "L'activité physique raisonnée figure parmi les leviers de préparation préalable à l'engagement opérationnel.",
+    "source": "Chapitre 2"
+  },
+  {
+    "id": "gdo-soutien-intervenant-014",
+    "level": "TF",
+    "q": "Quels sont les trois piliers du soutien de l'intervenant en opération selon le GDO ?",
+    "choices": [
+      "sécurité",
+      "soutien sanitaire",
+      "reconditionnement",
+      "coordination tactique"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "Le GDO structure le soutien autour de trois piliers : sécurité, soutien sanitaire et reconditionnement.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-015",
+    "level": "M",
+    "q": "Le GDO identifie sept acteurs intervenant dans le soutien à l'opération. Parmi les fonctions suivantes, lesquelles figurent explicitement dans cette liste ?",
+    "choices": [
+      "le commandant des opérations de secours (COS)",
+      "l'officier sécurité",
+      "le chef de secteur soutien",
+      "le professionnel de santé"
+    ],
+    "correct": [0, 1, 2, 3],
+    "expl": "Le GDO liste sept acteurs : SP, chef d'agrès, COS, officier sécurité, chef de secteur soutien, professionnel de santé et centre opérationnel — les quatre cités ici en font tous partie.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-016",
+    "level": "TF",
+    "q": "Quelle est la durée maximale d'engagement sous ARI selon le GDO ?",
+    "choices": [
+      "15 minutes",
+      "20 minutes",
+      "30 minutes",
+      "45 minutes"
+    ],
+    "correct": [1],
+    "expl": "Le GDO retient une durée maximale d'engagement sous ARI de 20 min.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-017",
+    "level": "F",
+    "q": "Après un engagement sous ARI, quelle durée de reconditionnement le GDO préconise-t-il ?",
+    "choices": [
+      "10 minutes",
+      "15 minutes",
+      "25 minutes",
+      "30 minutes"
+    ],
+    "correct": [1],
+    "expl": "Le reconditionnement post-ARI est fixé à 15 min selon le GDO.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-018",
+    "level": "F",
+    "q": "Sur le ravitaillement de niveau 1 (N1), quelle quantité d'eau par membre d'équipage le GDO prévoit-il ?",
+    "choices": [
+      "0,75 L",
+      "1 L",
+      "1,5 L",
+      "2 L"
+    ],
+    "correct": [2],
+    "expl": "Le ravitaillement N1 prévoit 1,5 L d'eau par membre d'équipage.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-019",
+    "level": "TF",
+    "q": "Sur le ravitaillement N1, sous quel format les bouteilles d'eau sont-elles distribuées ?",
+    "choices": [
+      "1 L",
+      "0,5 L",
+      "0,33 L",
+      "1,5 L"
+    ],
+    "correct": [1],
+    "expl": "Le GDO précise un conditionnement en bouteilles de 0,5 L pour le ravitaillement N1.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-020",
+    "level": "TF",
+    "q": "À partir de quel score sur la matrice d'aide à la décision pour l'engagement du soutien sanitaire opérationnel (SSO) le GDO ne préconise-t-il aucun engagement spécifique ?",
+    "choices": [
+      "0 à 2",
+      "3 à 4",
+      "5 à 7",
+      "8 à 10"
+    ],
+    "correct": [0],
+    "expl": "Un score 0-2 sur la matrice SSO du GDO n'entraîne pas d'engagement spécifique de soutien sanitaire.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-021",
+    "level": "M",
+    "q": "Sur la matrice SSO du GDO, quel score déclenche un engagement de type VSAV + VSS + ISP + VSM ?",
+    "choices": [
+      "3 à 4",
+      "5 à 7",
+      "8 à 10",
+      "au-delà de 10"
+    ],
+    "correct": [2],
+    "expl": "Selon la matrice SSO, un score 8-10 déclenche VSAV + VSS + ISP + VSM. Un score supérieur à 10 ajoute en outre la MSP.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-022",
+    "level": "M",
+    "q": "Le Heat-index, outil d'aide à la décision dans la gestion de la chaleur, se calcule à partir de :",
+    "choices": [
+      "la température de l'air",
+      "l'humidité relative",
+      "la vitesse du vent",
+      "l'altitude du chantier"
+    ],
+    "correct": [0, 1],
+    "expl": "Le Heat-index est calculé à partir de la température de l'air et de l'humidité relative ; un correctif est ajouté en cas d'ensoleillement direct.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-023",
+    "level": "M",
+    "q": "Quel correctif le GDO applique-t-il à la valeur de Heat-index lorsque l'intervention se déroule en plein soleil ?",
+    "choices": [
+      "+5",
+      "+10",
+      "+15",
+      "+20"
+    ],
+    "correct": [2],
+    "expl": "Le GDO ajoute un correctif de +15 à la valeur du Heat-index en cas d'ensoleillement direct.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-024",
+    "level": "M",
+    "q": "L'indice de refroidissement éolien combine température et vent. Pour une température ambiante de −20 °C et un vent de 50 km/h, quelle valeur ressentie le GDO retient-il ?",
+    "choices": [
+      "−25 °C",
+      "−30 °C",
+      "−35 °C",
+      "−40 °C"
+    ],
+    "correct": [2],
+    "expl": "Le GDO illustre, par cet exemple, une valeur ressentie de −35 °C pour −20 °C ambiants combinés à un vent de 50 km/h.",
+    "source": "Chapitre 3"
+  },
+  {
+    "id": "gdo-soutien-intervenant-025",
+    "level": "F",
+    "q": "Le reconditionnement psychologique post-intervention s'appuie, selon le GDO, sur plusieurs notions clés. Lesquelles parmi les suivantes ?",
+    "choices": [
+      "les signaux faibles",
+      "la blessure mentale",
+      "le déni traumatique",
+      "la catharsis collective"
+    ],
+    "correct": [0, 1],
+    "expl": "Le GDO cite explicitement les signaux faibles et la notion de blessure mentale dans le cadre du reconditionnement psychologique.",
+    "source": "Chapitre 4"
+  },
+  {
+    "id": "gdo-soutien-intervenant-026",
+    "level": "M",
+    "q": "Parmi les contextes opérationnels suivants, lesquels sont identifiés par le GDO comme à risque psychologique élevé pour le sapeur-pompier ?",
+    "choices": [
+      "les opérations impliquant des proches",
+      "la prise en charge d'enfants en détresse ou décédés",
+      "les contextes de violence",
+      "les contrôles techniques annuels en caserne"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "Le GDO identifie cinq contextes critiques, dont les opérations impliquant des proches, les enfants en détresse ou décédés et les contextes de violence.",
+    "source": "Chapitre 4"
+  },
+  {
+    "id": "gdo-soutien-intervenant-027",
+    "level": "M",
+    "q": "Selon le GDO, le reconditionnement post-intervention recouvre :",
+    "choices": [
+      "une dimension physique",
+      "une dimension psychologique",
+      "une certification administrative",
+      "une évaluation hiérarchique disciplinaire"
+    ],
+    "correct": [0, 1],
+    "expl": "Le reconditionnement post-intervention articule deux dimensions complémentaires : physique et psychologique.",
+    "source": "Chapitre 4"
+  },
+  {
+    "id": "gdo-soutien-intervenant-028",
+    "level": "F",
+    "q": "Selon le GDO, après l'opération, l'expression de la reconnaissance par la hiérarchie est :",
+    "choices": [
+      "un levier managérial reconnu",
+      "une procédure réglementaire opposable",
+      "une obligation hiérarchique notée par écrit",
+      "réservée aux missions exceptionnelles"
+    ],
+    "correct": [0],
+    "expl": "Le GDO place l'expression de la reconnaissance parmi les leviers de positionnement managérial après opération.",
+    "source": "Chapitre 4"
+  },
+  {
+    "id": "gdo-soutien-intervenant-029",
+    "level": "F",
+    "q": "L'annexe C du GDO, programme de reprise d'activité, totalise :",
+    "choices": [
+      "8 heures",
+      "12 heures",
+      "16 heures",
+      "20 heures"
+    ],
+    "correct": [2],
+    "expl": "L'annexe C totalise 16 h de programme de reprise d'activité.",
+    "source": "Annexe C"
+  },
+  {
+    "id": "gdo-soutien-intervenant-030",
+    "level": "M",
+    "q": "Le programme de reprise d'activité (annexe C) se décompose en :",
+    "choices": [
+      "6 h de réathlétisation",
+      "2 h de parcours opérationnel",
+      "8 h de formation",
+      "4 h d'examen final"
+    ],
+    "correct": [0, 1, 2],
+    "expl": "L'annexe C détaille 6 h de réathlétisation, 2 h de parcours opérationnel et 8 h de formation, soit 16 h au total.",
+    "source": "Annexe C"
+  }
+]

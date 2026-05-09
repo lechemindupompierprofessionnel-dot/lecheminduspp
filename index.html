@@ -1179,6 +1179,10 @@ body.biblio-searching .biblio-acc-section.empty{display:none}
 .annale-sujet-title{font-size:1rem;font-weight:600;color:var(--charcoal);margin-bottom:4px}
 .annale-sujet-meta{font-size:.82rem;color:var(--gray-light)}
 .annale-sujet-actions{display:flex;gap:10px;flex-wrap:wrap}
+.annale-sujet-last{display:inline-block;margin-top:6px;padding:4px 10px;font-size:.78rem;font-weight:600;border:1px solid;line-height:1.4}
+.annale-sujet-last--success{background:#e8f3ea;color:#2d7a3a;border-color:#2d7a3a40}
+.annale-sujet-last--warn{background:#fdf5e3;color:#8B6914;border-color:#8B691440}
+.annale-sujet-last--error{background:#fbecec;color:#B83232;border-color:#B8323240}
 
 /* ===== MODE EXAMEN ===== */
 .exam-layout{display:grid;grid-template-columns:1.4fr 1fr;gap:0;min-height:100vh;margin-top:0}
@@ -3723,6 +3727,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
                 <span id="select-all-icon">☐</span> <span id="select-all-label">Tout sélectionner</span>
               </button>
               <span class="qcm-select-all-count" id="select-all-count">0 thème sélectionné</span>
+              <span class="qcm-select-all-count" id="qcm-total-count"><strong>—</strong> QCM disponibles</span>
             </div>
 
             <div class="qcm-themes-grid">
@@ -3754,13 +3759,6 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
                 <span class="qcm-cat-count" id="count-maths">150</span>
               </div>
 
-              <!-- Carte 5 : Pour aller plus loin (hors programme — parent repliable) -->
-              <div class="qcm-check-item qcm-check-parent qcm-check-hors-programme" id="parent-hors-programme" onclick="toggleHorsProgrammePanel(event)">
-                <span class="qcm-checkbox" id="chk-hors-programme" onclick="event.stopPropagation();toggleCat('hors-programme')" style="cursor:pointer">☐</span>
-                <span class="qcm-check-label">Pour aller plus loin <span class="qcm-hors-programme-tag">hors programme</span></span>
-                <span style="display:flex;align-items:center;gap:6px"><span class="qcm-cat-count" id="count-hors-programme">68</span><span class="qcm-subcat-arrow" id="arrow-hors-programme">▸</span></span>
-              </div>
-
               <!-- Panneau sous-catégories Culture administrative (pleine largeur, déplié au clic) -->
               <div class="qcm-subcats" id="culture-sub">
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('statut',event)"><span class="qcm-checkbox" id="chk-statut">☐</span><span class="qcm-check-label">Statut SPP &amp; Fonctionnaire</span><span class="qcm-cat-count" id="count-statut">105</span></div>
@@ -3783,16 +3781,6 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
                 <div class="qcm-subcheck-item" onclick="toggleSubCat('pse',event)"><span class="qcm-checkbox" id="chk-pse">☐</span><span class="qcm-check-label">Secourisme PSE1 / PSE2</span><span class="qcm-cat-count" id="count-pse">254</span></div>
               </div>
 
-              <!-- Panneau sous-catégories "Pour aller plus loin" (hors programme) -->
-              <div class="qcm-subcats" id="hors-programme-sub">
-                <div class="qcm-subcat-eyebrow">Doctrines hors programme — pour ta culture personnelle</div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gto-forets',event)"><span class="qcm-checkbox" id="chk-gto-forets">☐</span><span class="qcm-check-label">GTO Luttes Feux de Forêts &amp; EN</span><span class="qcm-cat-count" id="count-gto-forets">12</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-foret',event)"><span class="qcm-checkbox" id="chk-gdo-foret">☐</span><span class="qcm-check-label">GDO Feux Forêt &amp; Espace Naturel</span><span class="qcm-cat-count" id="count-gdo-foret">10</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-agricole',event)"><span class="qcm-checkbox" id="chk-gdo-agricole">☐</span><span class="qcm-check-label">GDO Milieu Agricole</span><span class="qcm-cat-count" id="count-gdo-agricole">14</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-silos',event)"><span class="qcm-checkbox" id="chk-gdo-silos">☐</span><span class="qcm-check-label">GDO Intervention Silos</span><span class="qcm-cat-count" id="count-gdo-silos">12</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-ulm',event)"><span class="qcm-checkbox" id="chk-gdo-ulm">☐</span><span class="qcm-check-label">GDO Présence ULM</span><span class="qcm-cat-count" id="count-gdo-ulm">8</span></div>
-                <div class="qcm-subcheck-item" onclick="toggleSubCat('gdo-elec',event)"><span class="qcm-checkbox" id="chk-gdo-elec">☐</span><span class="qcm-check-label">GDO Présence Électricité</span><span class="qcm-cat-count" id="count-gdo-elec">12</span></div>
-              </div>
             </div>
           </div>
 
@@ -4283,6 +4271,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-silos','GDO Interventions silos','GDO','docs/doctrines/gdo/silos.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions silos</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-ulm','GDO Interventions ULM','GDO','docs/doctrines/gdo/ulm.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Interventions ULM</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
             <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-electricite','GDO Opérations secours présence électricité','GDO','docs/doctrines/gdo/presence-electricite.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Opérations secours présence électricité</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
+            <div class="biblio-card" data-cat="doctrines" data-sub="gdo" data-access="public" onclick="openDoc('gdo-soutien-intervenant','GDO Préparation et soutien de l’intervenant en opération','GDO','docs/doctrines/gdo/preparation-soutien-intervenant.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">GDO</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Préparation et soutien de l'intervenant en opération</div><div class="biblio-meta">PDF · Doctrine officielle</div><div class="biblio-overlay"><p>Document gratuit</p><span class="btn btn-red" style="font-size:.8rem;padding:8px 16px">Consulter →</span></div></div>
           </div>
         </div>
       </div>
@@ -11584,7 +11573,7 @@ var DOCTRINES_SUBCATS = ['gto-ventilation','gto-sauvetage','gto-sauvegarde','gto
 // Sous-catégories HORS PROGRAMME — accessibles via "Pour aller plus loin" mais
 // jamais piochées en QCM aléatoire/intelligent ni ciblage Phase 3.
 // (cohérent avec OUT_OF_SCOPE_QCM_CATS dans le module parcours)
-var HORS_PROGRAMME_SUBCATS = ['gto-forets','gdo-elec','gdo-silos','gdo-agricole','gdo-ulm','gdo-foret'];
+var HORS_PROGRAMME_SUBCATS = [];
 var CULTURE_SUBCATS = ['statut','sis','divers'];
 var MATHS_SUBCATS = ['maths-arithmetique','maths-geometrie','maths-mesures'];
 
@@ -11616,6 +11605,7 @@ var CAT_LABELS = {
   'gdo-ulm': 'GDO Présence ULM',
   'gdo-routier': 'GDO Milieu Routier',
   'gdo-foret': 'GDO Feux Forêt & Espace Naturel',
+  'gdo-soutien-intervenant': 'GDO Préparation & soutien intervenant',
   'pse': 'Secourisme PSE1 / PSE2'
 };
 
@@ -12496,6 +12486,8 @@ function initQcm() {
   // loadCat() met à jour CAT_TOTALS et l'élément #count-XXX dans le DOM au fur et à mesure.
   // L'utilisateur voit les compteurs hardcodés dans l'HTML pendant ~200ms puis ils se corrigent.
   preloadAllCategoriesForCounts();
+  // Premier render immediat du total global (fallback sur pastilles HTML hardcodees)
+  if (typeof refreshQcmTotalCount === 'function') refreshQcmTotalCount();
 }
 
 // Précharge toutes les catégories (best-effort, erreurs silencieuses)
@@ -12515,6 +12507,7 @@ function preloadAllCategoriesForCounts() {
         refreshDoctrinesTotal();
         refreshHorsProgrammeTotal();
         refreshMathsTotal();
+        refreshQcmTotalCount();
       }
     }).catch(function(err){
       console.warn('Préchargement ' + cat + ' échoué :', err.message);
@@ -12523,6 +12516,7 @@ function preloadAllCategoriesForCounts() {
         refreshDoctrinesTotal();
         refreshHorsProgrammeTotal();
         refreshMathsTotal();
+        refreshQcmTotalCount();
       }
     });
   });
@@ -12557,6 +12551,28 @@ function refreshMathsTotal() {
   });
   var el = document.getElementById('count-maths');
   if (el) el.textContent = total;
+}
+
+// Recalcule le total global "X QCM disponibles" affiché en haut de l'ecran de config.
+// Perimetre = categories AU PROGRAMME (HORS_PROGRAMME_SUBCATS exclus).
+function refreshQcmTotalCount() {
+  var el = document.getElementById('qcm-total-count');
+  if (!el) return;
+  var total = 0;
+  var cats = ['statut','sis','divers','textes']
+    .concat(DOCTRINES_SUBCATS)
+    .concat(MATHS_SUBCATS);
+  cats.forEach(function(sub) { total += CAT_TOTALS[sub] || 0; });
+  // Fallback : si CAT_TOTALS pas encore peuple, on lit les pastilles HTML hardcodees
+  if (total === 0) {
+    var fallbackIds = ['count-culture','count-doctrines','count-textes','count-maths'];
+    fallbackIds.forEach(function(id) {
+      var n = document.getElementById(id);
+      var v = n ? parseInt(n.textContent, 10) : 0;
+      if (!isNaN(v)) total += v;
+    });
+  }
+  el.innerHTML = '<strong>' + total + '</strong> QCM disponibles';
 }
 
 // Affiché quand un non-payant atteint sa limite quotidienne de 10 questions
@@ -18656,6 +18672,76 @@ function renderAnnalesThemes() {
   });
 }
 
+// ---------- HELPERS DERNIER PASSAGE ANNALE (Mode concours) ----------
+// Cherche dans window._espLastData.sessions la derniere entree [ANNALE] dont
+// le title (sans prefixe) correspond a annaleTitle. data.sessions est deja
+// triee par created_at desc → on retourne le 1er match. Retourne null si
+// _espLastData absent ou aucun match.
+function getLastExamForAnnale(annaleTitle) {
+  if (!annaleTitle) return null;
+  if (!window._espLastData || !Array.isArray(window._espLastData.sessions)) return null;
+  var sessions = window._espLastData.sessions;
+  var prefix = '[ANNALE] ';
+  var target = annaleTitle.trim();
+  for (var i = 0; i < sessions.length; i++) {
+    var s = sessions[i];
+    if (!s || !s.title) continue;
+    if (s.title.indexOf(prefix) !== 0) continue;
+    if (s.title.slice(prefix.length).trim() !== target) continue;
+    return { date: s.date, score: s.score, total: s.total, pct: s.pct };
+  }
+  return null;
+}
+
+// Fetch dedie Supabase pour les sessions [ANNALE] du membre courant.
+// Construit un map { titleSansPrefixe: { date, score, total, pct } } ou seule
+// la 1re occurrence (la plus recente) est conservee. Best-effort : si !
+// supabaseClient ou !currentMember ou erreur reseau → cb({}).
+function fetchLastExamsForMember(cb) {
+  if (!window.supabaseClient || !currentMember) { cb({}); return; }
+  var mid = (typeof espMemberId === 'function') ? espMemberId() : null;
+  if (!mid) { cb({}); return; }
+  window.supabaseClient.from('qcm_sessions')
+    .select('title, created_at, score, total, pct')
+    .eq('member_id', mid)
+    .like('title', '[ANNALE]%')
+    .order('created_at', { ascending: false })
+    .then(function(res){
+      if (res && res.error) {
+        console.warn('Supabase select annales :', res.error.message);
+        cb({}); return;
+      }
+      var map = {};
+      (res.data || []).forEach(function(row){
+        var key = (row.title || '').replace(/^\[ANNALE\]\s*/, '').trim();
+        if (key && !map[key]) {
+          map[key] = {
+            date: new Date(row.created_at).getTime(),
+            score: row.score, total: row.total, pct: row.pct
+          };
+        }
+      });
+      cb(map);
+    });
+}
+
+// Genere le HTML du badge "dernier passage" a injecter dans .annale-sujet-body.
+// last : objet { date, score, total, pct } ou null. Retourne '' si null.
+// Seuils : success >=80 | warn 50–79 | error <50.
+function buildLastExamBadge(last) {
+  if (!last) return '';
+  var pct = last.pct || 0;
+  var mod = (pct >= 80) ? 'success' : (pct >= 50 ? 'warn' : 'error');
+  var d = new Date(last.date);
+  var dd = String(d.getDate()).padStart(2, '0');
+  var mm = String(d.getMonth() + 1).padStart(2, '0');
+  var yyyy = d.getFullYear();
+  return '<div class="annale-sujet-last annale-sujet-last--' + mod + '">' +
+    '📊 Dernier : ' + dd + '/' + mm + '/' + yyyy + ' · ' +
+    (last.score || 0) + '/' + (last.total || 0) +
+    ' (' + pct + '%)</div>';
+}
+
 // ---------- AFFICHAGE DES SUJETS D'UN THEME ----------
 function showAnnalesSujets(themeKey) {
   loadAnnalesIndex().then(function(data) {
@@ -18682,18 +18768,40 @@ function showAnnalesSujets(themeKey) {
       return;
     }
 
-    list.innerHTML = annales.map(function(a) {
-      return '<div class="annale-sujet-card">' +
-        '<div class="annale-sujet-year">' + (a.year || '—') + '</div>' +
-        '<div class="annale-sujet-body">' +
-          '<div class="annale-sujet-title">' + (a.title || 'Sujet ' + a.year) + '</div>' +
-          '<div class="annale-sujet-meta">' + (a.nb_questions || '?') + ' questions · ' + (a.duration_min || 60) + ' minutes · Mode examen chronométré</div>' +
-        '</div>' +
-        '<div class="annale-sujet-actions">' +
-          '<button class="btn btn-red" onclick="startExam(\'' + a.id + '\')">🎯 Lancer l\'examen</button>' +
-        '</div>' +
-      '</div>';
-    }).join('');
+    // Aiguille la source du "dernier passage" selon l'etat utilisateur :
+    //  - non-connecte         → pas de derniere session
+    //  - _espLastData present → lecture in-memory (helper getLastExamForAnnale)
+    //  - sinon                → fetch dedie Supabase (best-effort)
+    var renderList = function(getLast) {
+      list.innerHTML = annales.map(function(a) {
+        var last = getLast(a.title);
+        var btnLabel = last ? '🔄 Refaire l\'examen' : '🎯 Lancer l\'examen';
+        return '<div class="annale-sujet-card">' +
+          '<div class="annale-sujet-year">' + (a.year || '—') + '</div>' +
+          '<div class="annale-sujet-body">' +
+            '<div class="annale-sujet-title">' + (a.title || 'Sujet ' + a.year) + '</div>' +
+            '<div class="annale-sujet-meta">' + (a.nb_questions || '?') + ' questions · ' + (a.duration_min || 60) + ' minutes · Mode examen chronométré</div>' +
+            buildLastExamBadge(last) +
+          '</div>' +
+          '<div class="annale-sujet-actions">' +
+            '<button class="btn btn-red" onclick="startExam(\'' + a.id + '\')">' + btnLabel + '</button>' +
+          '</div>' +
+        '</div>';
+      }).join('');
+    };
+
+    if (!currentMember) {
+      renderList(function(){ return null; });
+    } else if (window._espLastData && Array.isArray(window._espLastData.sessions)) {
+      renderList(function(title){ return getLastExamForAnnale(title); });
+    } else {
+      fetchLastExamsForMember(function(map){
+        renderList(function(title){
+          if (!title) return null;
+          return map[title.trim()] || null;
+        });
+      });
+    }
   });
 }
 
@@ -19375,6 +19483,7 @@ var OUT_OF_SCOPE_DOCS = [
   'gdo-silos',           // Interventions silos
   'gdo-ulm',             // Interventions ULM
   'gdo-electricite',     // Opérations secours présence électricité
+  'gdo-soutien-intervenant', // Préparation et soutien de l'intervenant en opération
   // Fiches divers hors programme
   'fiche-erp',           // Établissements recevant du public
   'fiche-pcs'            // Plan Communal de Sauvegarde
@@ -19389,7 +19498,8 @@ var OUT_OF_SCOPE_QCM_CATS = [
   'gdo-agricole',
   'gdo-silos',
   'gdo-ulm',
-  'gdo-elec'             // Note : la cat QCM s'appelle "gdo-elec"
+  'gdo-elec',            // Note : la cat QCM s'appelle "gdo-elec"
+  'gdo-soutien-intervenant'
 ];
 
 // Helpers
@@ -19553,6 +19663,7 @@ var DOC_TITLES = {
   'gdo-ulm':                  { short: 'GDO ULM',                   full: 'GDO Interventions ULM' },
   'gdo-electricite':          { short: 'GDO Présence électricité',  full: 'GDO Opérations secours présence électricité' },
   'gdo-ssuap':                { short: 'GDO Secours d\'urgence',     full: 'GDO Secours et soins d\'urgence aux personnes' },
+  'gdo-soutien-intervenant':  { short: 'GDO Soutien intervenant',    full: 'GDO Préparation et soutien de l\'intervenant en opération' },
   // Secourisme
   'ssuap-recommandations':    { short: 'Premiers secours',          full: 'Recommandations premiers secours' },
   // Fiches culture admin
@@ -19596,6 +19707,7 @@ var DOC_OPEN_META = {
   'gdo-ulm':                  { type: 'GDO', url: 'docs/doctrines/gdo/ulm.pdf',                          access: 'free' },
   'gdo-electricite':          { type: 'GDO', url: 'docs/doctrines/gdo/presence-electricite.pdf',         access: 'free' },
   'gdo-ssuap':                { type: 'GDO', url: 'docs/doctrines/gdo/secours-soins-urgences-personnes.pdf', access: 'free' },
+  'gdo-soutien-intervenant':  { type: 'GDO', url: 'docs/doctrines/gdo/preparation-soutien-intervenant.pdf',  access: 'free' },
   'ssuap-recommandations':    { type: 'SSUAP', url: 'docs/doctrines/ssuap/recommandations-premiers-secours.pdf', access: 'free' },
   // Fiches culture admin
   'fiche-sis':                { type: 'Fiche de synthèse', url: 'docs/culture-admin/organisation-sis/fiche-synthese.pdf',     access: 'paid' },
@@ -19632,6 +19744,7 @@ var DOC_PAGES = {
   'gdo-ulm':                  40,
   'gdo-electricite':          120,
   'gdo-ssuap':                76,
+  'gdo-soutien-intervenant':  65,
   'ssuap-recommandations':    396,  // PSE complet — traité à part (10 séances forfaitaires)
   // Fiches culture admin
   'fiche-sis':                19,
