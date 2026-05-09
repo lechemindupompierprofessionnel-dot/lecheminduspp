@@ -2953,6 +2953,9 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
       <div class="mobile-nav-section">Préparation physique</div>
       <div class="mobile-nav-link" data-page="prepa" onclick="goToPrepa();closeMobileNav()"><span class="mn-ico">💪</span>Préparation physique<span class="mn-arrow">›</span></div>
 
+      <div class="mobile-nav-section">Préparation orale</div>
+      <div class="mobile-nav-link" data-page="prepa-orale" onclick="goTo('prepa-orale');closeMobileNav()"><span class="mn-ico">🎤</span>Préparation orale<span class="mn-arrow">›</span></div>
+
       <div class="mobile-nav-section">Ressources</div>
       <div class="mobile-nav-link" data-page="biblio" onclick="goTo('biblio');closeMobileNav()"><span class="mn-ico">📚</span>Bibliothèque<span class="mn-arrow">›</span></div>
       <div class="mobile-nav-link" data-page="actu" onclick="goTo('actu');closeMobileNav()"><span class="mn-ico">📰</span>Actualités<span class="mn-arrow">›</span></div>
@@ -3037,6 +3040,10 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
     </div>
     <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-physique">
       <button class="nav-group-btn" data-page="prepa" onclick="goToPrepa()">Préparation physique</button>
+      <div class="nav-group-bar"></div>
+    </div>
+    <div class="nav-group nav-member-only" data-audience="member" id="navg-prepa-orale">
+      <button class="nav-group-btn" data-page="prepa-orale" onclick="goTo('prepa-orale')">Préparation orale</button>
       <div class="nav-group-bar"></div>
     </div>
     <div class="nav-group nav-member-only" data-audience="member" id="navg-ressources-member">
@@ -3295,7 +3302,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
         <div class="offer-icon">📘</div>
         <div class="offer-trial-badge">🎁 7 jours gratuits sans engagement</div>
         <div class="offer-title">Préparation</div>
-        <div class="offer-subtitle">La préparation théorique uniquement (sans le physique)</div>
+        <div class="offer-subtitle">Préparation complète à l'épreuve écrite du concours</div>
         <ul class="offer-features">
           <li>+1000 QCM thématiques corrigés</li>
           <li>Toutes les annales commentées</li>
@@ -3304,9 +3311,6 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
           <li>Espace analytique &amp; badges avancés</li>
           <li>Actualités &amp; mises à jour</li>
         </ul>
-        <div style="background:var(--cream2);border-left:3px solid var(--gray-light);padding:10px 14px;margin:14px 0 18px;font-size:.78rem;color:var(--gray);line-height:1.5">
-          ⚠️ <strong style="color:var(--charcoal)">Pas de programme physique</strong> dans cette formule. Pour préparer aussi les épreuves physiques (sportives), choisis <strong>Performance</strong>.
-        </div>
         <div class="offer-price">19 €<span class="offer-price-suffix">/mois</span></div>
         <div class="offer-price-alt">Après ton essai gratuit · résiliable à tout moment</div>
         <div class="offer-price-note" style="color:var(--gray)">💳 Aucun prélèvement pendant les 7 premiers jours</div>
@@ -3316,16 +3320,16 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
 
       <!-- PALIER 2B — PERFORMANCE (recommandé) -->
       <div class="offer-card featured">
-        <div class="offer-icon">🔥</div>
+        <div class="offer-icon">🏋️</div>
         <div class="offer-trial-badge">🎁 7 jours gratuits sans engagement</div>
         <div class="offer-title">Performance</div>
-        <div class="offer-subtitle">La théorie + le physique</div>
+        <div class="offer-subtitle">Préparation complète aux épreuves écrites et physiques du concours</div>
         <ul class="offer-features">
-          <li>Accès complet à la préparation théorique</li>
+          <li>toute la préparation écrite</li>
+          <li><strong>Programme de préparation physique progressif</strong></li>
           <li>Blocs de 6 semaines</li>
-          <li>Programme de préparation physique progressif</li>
           <li>Personnalisé à ton niveau</li>
-          <li>Traceur de progressions physiques</li>
+          <li><strong>Traceur de progressions physiques</strong></li>
           <li>Badges exclusifs</li>
         </ul>
         <div class="offer-price">49 €<span class="offer-price-suffix">/mois</span></div>
@@ -3339,7 +3343,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
       <div class="offer-card">
         <div class="offer-icon">💎</div>
         <div class="offer-title">Excellence</div>
-        <div class="offer-subtitle">L'accompagnement sur mesure pour viser le haut du classement</div>
+        <div class="offer-subtitle">Accompagnement premium pour ceux désirant mettre toutes les chances de leur côté</div>
         <ul class="offer-features">
           <li>Accès complet à la préparation théorique</li>
           <li>Programme de préparation physique personnalisé</li>
@@ -4000,6 +4004,25 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
   </div>
 </div>
 
+<!-- ============================= PAGE: PREPARATION ORALE (placeholder Bientôt) =============================
+     Section future. Aujourd'hui simple page d'attente : titre + sous-titre + icône + phrase
+     explicative. Aucune fiche, aucun QCM, aucun lien fonctionnel — c'est volontaire.
+     ===================================================================================================== -->
+<div class="page" id="page-prepa-orale">
+  <div class="page-header">
+    <div class="page-header-inner">
+      <div class="s-eyebrow">Préparation orale</div>
+      <div class="s-title">Bientôt<br><em>disponible</em></div>
+      <div class="s-lead">Cette section est en cours de préparation. Reviens bientôt pour découvrir les fiches méthodologiques dédiées à l'épreuve orale du concours.</div>
+    </div>
+  </div>
+  <div class="section">
+    <div style="text-align:center;padding:60px 20px 80px">
+      <div style="font-size:5rem;line-height:1;margin-bottom:8px" aria-hidden="true">🎤</div>
+    </div>
+  </div>
+</div>
+
 <!-- ============================= PAGE: PREPARATION PHYSIQUE ============================= -->
 <div class="page" id="page-prepa">
   <div class="page-header">
@@ -4368,8 +4391,8 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
               </div>
               <div class="biblio-sources-sub">Lire les textes officiels en complément des fiches de synthèse.</div>
               <div class="biblio-sources-grid">
-                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('div-pcs-2005','Décret n°2005-1156 — Plan Communal de Sauvegarde','Source','docs/divers/sources/decret-2005-1156-pcs.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-name">Décret n°2005-1156</div><div class="biblio-meta">Plan communal de sauvegarde</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
-                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('div-erp-classement','Classement des ERP — Articles R143-18 à R143-21','Source','docs/divers/sources/erp-classement-r143-18-21.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CCH</div><div class="biblio-name">Classement des ERP</div><div class="biblio-meta">Articles R143-18 à R143-21</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('div-pcs-2005','Décret n°2005-1156 — Plan Communal de Sauvegarde','Source','docs/divers/sources/decret-2005-1156-pcs.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">Décret</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Décret n°2005-1156</div><div class="biblio-meta">Plan communal de sauvegarde</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
+                <div class="biblio-source-card biblio-card" data-access="public" onclick="openDoc('div-erp-classement','Classement des ERP — Articles R143-18 à R143-21','Source','docs/divers/sources/erp-classement-r143-18-21.pdf','public')"><div class="biblio-lock">🔒</div><div class="biblio-type-tag">CCH</div><div class="biblio-out-of-scope-badge" title="Pas au programme du concours — pour aller plus loin">Hors programme</div><div class="biblio-name">Classement des ERP</div><div class="biblio-meta">Articles R143-18 à R143-21</div><div class="biblio-overlay"><p>Document gratuit</p></div></div>
               </div>
               </div>
             </div>
@@ -4723,7 +4746,7 @@ body.demo-mode:not(.is-logged) .examen-wrap{margin-top:118px}
 <script>
 if(window.location.search.indexOf('success') !== -1) {
   document.addEventListener('DOMContentLoaded', function(){
-    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+    var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','espace','merci','concours','prepa','prepa-orale','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
     pages.forEach(function(p){
       var el = document.getElementById('page-'+p);
       if(el) el.classList.toggle('active', p === 'merci');
@@ -11098,7 +11121,7 @@ function refreshMemberAccess() {
 // ============================================================
 // NAVIGATION
 // ============================================================
-var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','prepa-maths','prepa-texte','prepa-equipier','prepa-culture-admin','espace','prepa','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
+var pages = ['home','parcours','comment','formation','connexion','qcm','biblio','examen','correction','actu','coaching','merci','concours','prepa-maths','prepa-texte','prepa-equipier','prepa-culture-admin','espace','prepa','prepa-orale','demo-espace','demo-prepa','decouverte','candidats','profil','mentions','cgv','confidentialite','remboursement','programme','contact'];
 
 function goTo(id) {
   pages.forEach(function(p) {
@@ -11130,6 +11153,7 @@ function goTo(id) {
     'prepa-texte':    ['navg-prepa-ecrite'],
     'prepa-equipier': ['navg-prepa-ecrite'],
     'prepa-culture-admin': ['navg-prepa-ecrite'],
+    'prepa-orale': ['navg-prepa-orale'],
     prepa:       ['navg-prepa-physique'],
     'demo-prepa': ['navg-prepa-physique']
   };
@@ -11572,6 +11596,8 @@ var CAT_LABELS = {
   'sis': 'Organisation d\'un SIS',
   'divers': 'Divers',
   'textes': 'Textes structurants du concours',
+  'fp-versants': 'Les 3 versants de la fonction publique',
+  'fp-pouvoirs': 'Organisation des pouvoirs publics',
   'maths-arithmetique': 'Mathématiques — Arithmétique',
   'maths-geometrie': 'Mathématiques — Géométrie',
   'maths-mesures': 'Mathématiques — Mesures du quotidien',
@@ -16074,6 +16100,9 @@ var VOIE_AXES = {
 // Mapping des catégories vers les axes (indépendant de la voie, filtrage au rendu)
 function espMapCatToAxis(cat) {
   if (cat === 'statut' || cat === 'sis' || cat === 'divers') return 'culture';
+  // Les sous-catégories Fonction publique appartiennent à l'axe Culture admin
+  // (cohérent avec leur regroupement sur le sous-onglet prepa-culture-admin)
+  if (cat === 'fp-versants' || cat === 'fp-pouvoirs') return 'culture';
   if (cat === 'textes') return 'textes';
   if (cat === 'maths') return 'maths'; // rétrocompat anciennes réponses Supabase
   if (cat === 'maths-arithmetique' || cat === 'maths-geometrie' || cat === 'maths-mesures') return 'maths';
@@ -17567,7 +17596,7 @@ var PREPA_THEME_MAP = {
   'culture-admin': {
     label: 'Culture Administrative',
     biblioAcc: ['culture'],
-    qcmCats: ['textes','statut','sis'],
+    qcmCats: ['statut','sis','fp-versants','fp-pouvoirs'],
     qcmCatsExtra: [],
     annalesKey: null
   },
@@ -17596,24 +17625,70 @@ function initPrepaTheme(themeKey) {
 function renderPrepaTheme_Textes(slug, conf) {
   var container = document.getElementById('prepa-' + slug + '-textes');
   if (!container) return;
-  var cards = [];
+  // Split en 3 groupes :
+  //   - cardsOutOfScope : badge `.biblio-out-of-scope-badge` (hors programme, prime sur tout)
+  //   - cardsInScopeSources : `.biblio-source-card` au programme (lois, décrets, CGCT)
+  //   - cardsInScopeMain : tout le reste au programme (fiches `.is-synthese` + doctrines)
+  // Cas concrets :
+  //   - culture-admin : 4 fiches en main, 17 sources sous "Documents officiels", 0 hors programme
+  //   - équipier : 13 cards en main (11 doctrines + 2 fiches divers), 0 source au programme,
+  //                10 hors programme (6 doctrines + 2 fiches + 2 sources Décret 2005-1156 et ERP)
+  //   - maths / étude-texte : que des fiches en main, pas de sources, pas de hors programme
+  var cardsInScopeMain = [];
+  var cardsInScopeSources = [];
+  var cardsOutOfScope = [];
   conf.biblioAcc.forEach(function(acc) {
     var section = document.querySelector('.biblio-acc-section[data-acc="' + acc + '"]');
     if (!section) return;
-    section.querySelectorAll('.biblio-card').forEach(function(card) { cards.push(card); });
+    section.querySelectorAll('.biblio-card').forEach(function(card) {
+      if (card.querySelector('.biblio-out-of-scope-badge')) cardsOutOfScope.push(card);
+      else if (card.classList.contains('biblio-source-card')) cardsInScopeSources.push(card);
+      else cardsInScopeMain.push(card);
+    });
   });
 
   var html = '<div class="s-eyebrow">Théorie & sources</div>' +
              '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Les <em style="color:var(--red)">documents clés</em> de l\'épreuve</div>' +
              '<div style="font-size:.9rem;color:var(--gray);line-height:1.7;max-width:640px;margin-bottom:24px">Fiches de synthèse, doctrines officielles et textes structurants — extraits de la bibliothèque, ciblés sur ce thème.</div>';
 
-  if (cards.length === 0) {
+  var totalCards = cardsInScopeMain.length + cardsInScopeSources.length + cardsOutOfScope.length;
+  if (totalCards === 0) {
     html += '<div style="background:white;border:1px dashed var(--border);padding:32px;text-align:center;color:var(--gray);font-size:.9rem">📭 Aucun document pour ce thème pour l\'instant.</div>';
   } else {
-    html += '<div class="biblio-grid">' + cards.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+    if (cardsInScopeMain.length > 0) {
+      html += '<div class="biblio-grid">' + cardsInScopeMain.map(function(c){ return c.outerHTML; }).join('') + '</div>';
+    }
+    if (cardsInScopeSources.length > 0) {
+      // Sous-section "Documents officiels" — référentiels juridiques séparés des fiches.
+      // Séparateur dashed plus léger que le solid du bloc Hors programme ci-dessous, pour
+      // marquer que c'est une sous-section du bloc Théorie, pas un bloc autonome.
+      html += '<div style="margin-top:40px;padding-top:28px;border-top:1px dashed var(--border)">' +
+                '<div class="s-eyebrow">Documents officiels</div>' +
+                '<div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Lois, décrets <em style="color:var(--red)">& textes structurants</em></div>' +
+                '<div style="font-size:.85rem;color:var(--gray);line-height:1.6;max-width:640px;margin-bottom:20px">Référentiels juridiques officiels — à consulter en complément des fiches de synthèse.</div>' +
+                '<div class="biblio-grid">' + cardsInScopeSources.map(function(c){ return c.outerHTML; }).join('') + '</div>' +
+              '</div>';
+    }
+    if (cardsOutOfScope.length > 0) {
+      // Bloc séparé pour les documents hors programme — terminologie cohérente avec le panneau
+      // QCM "Pour aller plus loin" déjà présent dans la page QCM (L 3759).
+      html += '<div style="margin-top:48px;padding-top:32px;border-top:1px solid var(--border)">' +
+                '<div class="s-eyebrow">Pour aller plus loin</div>' +
+                '<div style="font-family:\'Playfair Display\',serif;font-size:1.4rem;color:var(--charcoal);margin-bottom:8px">Documents <em style="color:var(--red)">hors programme</em></div>' +
+                '<div style="font-size:.85rem;color:var(--gray);line-height:1.6;max-width:640px;margin-bottom:20px">Pas au programme officiel du concours — pour ta culture personnelle.</div>' +
+                '<div class="biblio-grid">' + cardsOutOfScope.map(function(c){ return c.outerHTML; }).join('') + '</div>' +
+              '</div>';
+    }
     html += '<div style="margin-top:16px"><button class="btn btn-outline-red" onclick="goTo(\'biblio\')">Voir toute la bibliothèque →</button></div>';
   }
   container.innerHTML = html;
+  // Les cards ont été clonées via outerHTML : leurs listeners JS (notamment le
+  // clic sur la case "Vu" et le badge quiz) n'ont PAS été copiés. On relance
+  // renderBiblioReadStatus() qui itère sur tous les .biblio-card du DOM (pas
+  // seulement ceux de la bibliothèque) et ré-attache les listeners + pastilles
+  // de statut. Effet bonus : le statut "Vu" reste synchronisé entre les
+  // contextes biblio ↔ prépa écrite, dans les deux sens.
+  if (typeof renderBiblioReadStatus === 'function') renderBiblioReadStatus();
 }
 
 // Bloc QCM : structure 3 ecrans (config / picker / session / results) rendus
@@ -17632,12 +17707,13 @@ function renderPrepaTheme_Qcm(slug, themeKey, conf) {
   // qui assure le menage des ecrans transitoires.
   if (window.prepaQcm && typeof prepaQcm.reset === 'function') prepaQcm.reset();
 
-  // Etat vide : aucune categorie au programme officiel pour ce theme (ex. etude-texte)
+  // Etat vide : aucune categorie au programme officiel pour ce theme (ex. etude-texte).
+  // On masque entièrement le bloc QCM (display:none + innerHTML vidé) plutôt que d'afficher
+  // un placeholder "Bientôt", pour ne pas alourdir visuellement la page. L'espacement entre
+  // Théorie et Annales est assuré par le margin-top du bloc Annales.
   if (conf.qcmCats.length === 0) {
-    container.innerHTML =
-      '<div class="s-eyebrow">QCM ciblés</div>' +
-      '<div style="font-family:\'Playfair Display\',serif;font-size:1.6rem;color:var(--charcoal);margin-bottom:8px">Pratique <em style="color:var(--red)">sur le thème</em></div>' +
-      '<div style="background:white;border:1px dashed var(--border);padding:32px;text-align:center;color:var(--gray);font-size:.9rem;line-height:1.7">📭 Les QCM dédiés à ce thème arrivent prochainement.</div>';
+    container.innerHTML = '';
+    container.style.display = 'none';
     return;
   }
 
