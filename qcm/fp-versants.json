@@ -1,1 +1,452 @@
-[]
+[
+  {
+    "id": "fp-versants-001",
+    "level": "TF",
+    "q": "En combien de versants la fonction publique française est-elle organisée ?",
+    "choices": ["Deux versants", "Trois versants", "Quatre versants", "Un versant unique"],
+    "correct": [1],
+    "expl": "La fonction publique est organisée en trois versants autonomes (FPE, FPT, FPH) depuis les lois de décentralisation de 1982-1984.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-002",
+    "level": "TF",
+    "q": "Quelle loi fonde le titre I du statut général, commun aux trois versants ?",
+    "choices": ["Loi n°84-16 du 11 janvier 1984", "Loi n°84-53 du 26 janvier 1984", "Loi n°83-634 du 13 juillet 1983", "Loi n°86-33 du 9 janvier 1986"],
+    "correct": [2],
+    "expl": "La loi n°83-634 du 13 juillet 1983 (loi Le Pors) — droits et obligations des fonctionnaires — constitue le titre I du statut général, commun aux trois versants.",
+    "source": "Loi 83-634"
+  },
+  {
+    "id": "fp-versants-003",
+    "level": "TF",
+    "q": "Quelle loi a porté les dispositions statutaires de la fonction publique territoriale ?",
+    "choices": ["Loi n°84-16 du 11 janvier 1984", "Loi n°84-53 du 26 janvier 1984", "Loi n°86-33 du 9 janvier 1986", "Loi n°83-634 du 13 juillet 1983"],
+    "correct": [1],
+    "expl": "La loi n°84-53 du 26 janvier 1984 — titre III du statut général — porte les dispositions statutaires relatives à la fonction publique territoriale.",
+    "source": "Loi 84-53"
+  },
+  {
+    "id": "fp-versants-004",
+    "level": "F",
+    "q": "Parmi ces lois, lesquelles font partie des quatre lois statutaires historiques de la fonction publique ?",
+    "choices": ["Loi 83-634 du 13 juillet 1983", "Loi 84-53 du 26 janvier 1984", "Loi 86-33 du 9 janvier 1986", "Loi NOTRe du 7 août 2015"],
+    "correct": [0, 1, 2],
+    "expl": "Les quatre lois statutaires historiques sont : 83-634 (titre I), 84-16 (FPE), 84-53 (FPT) et 86-33 (FPH). La loi NOTRe est une loi territoriale, pas une loi statutaire de la fonction publique.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-005",
+    "level": "F",
+    "q": "Parmi ces affirmations sur les effectifs des versants fin 2024, lesquelles sont exactes ?",
+    "choices": ["La FPE compte environ 2,58 millions d'agents", "La FPT compte environ 2 millions d'agents", "La FPH compte environ 1,25 million d'agents", "La FPH est le versant le plus important en effectifs"],
+    "correct": [0, 1, 2],
+    "expl": "Effectifs fin 2024 : FPE 2,58 M (44 %), FPT 2,02 M (34 %), FPH 1,25 M (22 %). C'est la FPE qui est la plus importante, pas la FPH.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-006",
+    "level": "M",
+    "q": "Quel est le pourcentage de contractuels dans la fonction publique territoriale fin 2023 ?",
+    "choices": ["20 %", "23 %", "26 %", "30 %"],
+    "correct": [2],
+    "expl": "La FPT est le versant où le poids des contractuels est le plus élevé : 26 % des agents fin 2023, contre environ 22 % dans les deux autres versants.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-007",
+    "level": "TF",
+    "q": "Quel est le principe d'organisation des fonctionnaires de la fonction publique d'État ?",
+    "choices": ["Cadres d'emplois", "Corps", "Filières", "Cadres de direction"],
+    "correct": [1],
+    "expl": "Les fonctionnaires de la FPE sont organisés en corps. Un corps rassemble des fonctionnaires soumis au même statut particulier et ayant vocation aux mêmes grades.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-008",
+    "level": "TF",
+    "q": "Qui est l'employeur unique des fonctionnaires de l'État ?",
+    "choices": ["Le ministère de l'Intérieur", "Chaque ministère séparément", "L'État (unicité de l'employeur)", "Le Premier ministre"],
+    "correct": [2],
+    "expl": "La FPE se caractérise par l'unicité de l'employeur : l'État est l'employeur unique, ce qui facilite la mobilité entre administrations mais limite le pouvoir de recrutement local.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-009",
+    "level": "F",
+    "q": "Parmi ces caractéristiques, lesquelles distinguent la FPE des deux autres versants ?",
+    "choices": ["Organisation par corps", "Unicité de l'employeur (État)", "L'agent est affecté par l'État après concours", "Recrutement local par chaque collectivité"],
+    "correct": [0, 1, 2],
+    "expl": "La FPE se caractérise par l'organisation par corps, l'unicité de l'employeur (État) et l'affectation par l'État après concours. Le recrutement local par chaque collectivité est, lui, propre à la FPT.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-010",
+    "level": "M",
+    "q": "Parmi ces unités de sapeurs-pompiers, lesquelles relèvent du statut militaire ?",
+    "choices": ["BSPP (Brigade de sapeurs-pompiers de Paris)", "SDIS de droit commun", "BMPM (Bataillon de marins-pompiers de Marseille)", "SIS départementaux et métropolitains"],
+    "correct": [0, 2],
+    "expl": "La BSPP et le BMPM relèvent du statut militaire. Les SPP des SDIS/SIS relèvent en revanche de la fonction publique territoriale et ne sont PAS militaires.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-011",
+    "level": "F",
+    "q": "Les militaires (environ 300 000 agents) relèvent-ils du statut général de la fonction publique ?",
+    "choices": ["Oui, ils sont assimilés à la FPE", "Oui, mais avec des règles dérogatoires", "Non, ils relèvent du Code de la défense", "Non, ils relèvent de la FPH"],
+    "correct": [2],
+    "expl": "Les militaires ne relèvent pas du statut général. Ils sont régis par un statut spécifique, le Code de la défense, et bénéficient d'un régime particulier de droits, d'obligations et de pensions.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-012",
+    "level": "TF",
+    "q": "La fonction publique hospitalière (FPH) regroupe principalement quels agents ?",
+    "choices": ["Les médecins hospitaliers", "Les agents non médicaux des établissements publics sanitaires, sociaux et médico-sociaux", "Tous les agents des cliniques privées", "Les agents administratifs des hôpitaux uniquement"],
+    "correct": [1],
+    "expl": "La FPH regroupe les agents non médicaux des établissements publics sanitaires, sociaux et médico-sociaux (1,25 million d'agents fin 2024).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-013",
+    "level": "TF",
+    "q": "Comme la FPE, la FPH est organisée par :",
+    "choices": ["Cadres d'emplois", "Corps", "Filières uniquement", "Statuts particuliers indépendants"],
+    "correct": [1],
+    "expl": "La FPH est organisée par corps (comme la FPE), mais chaque établissement est l'employeur direct de ses agents — c'est la logique « établissement » au cœur du fonctionnement hospitalier.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-014",
+    "level": "F",
+    "q": "Parmi ces établissements, lesquels relèvent de la FPH ?",
+    "choices": ["Centres hospitaliers et CHU publics", "EHPAD publics", "Cliniques privées à but lucratif", "Établissements publics pour personnes en situation de handicap"],
+    "correct": [0, 1, 3],
+    "expl": "La FPH couvre les centres hospitaliers et CHU publics, les EHPAD publics, les établissements publics pour mineurs ou personnes en situation de handicap. Les cliniques privées sont, elles, hors du champ de la FPH.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-015",
+    "level": "M",
+    "q": "Les médecins hospitaliers (praticiens hospitaliers) relèvent-ils de la FPH ?",
+    "choices": ["Oui, comme tous les agents hospitaliers", "Oui, mais avec un statut dérogatoire", "Non, ils ont un statut spécifique distinct du statut général", "Non, ils relèvent de la FPE"],
+    "correct": [2],
+    "expl": "Les médecins ne relèvent PAS de la FPH. Les praticiens hospitaliers ont un statut spécifique, distinct du statut général des fonctionnaires.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-016",
+    "level": "TF",
+    "q": "Les sapeurs-pompiers professionnels relèvent de quel versant de la fonction publique ?",
+    "choices": ["FPE (État)", "FPT (territoriale)", "FPH (hospitalière)", "Aucun, ils ont un statut militaire"],
+    "correct": [1],
+    "expl": "Les SPP relèvent de la fonction publique territoriale, au sein de la filière sapeurs-pompiers. Les SIS sont des établissements publics territoriaux.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-017",
+    "level": "TF",
+    "q": "Quel est le principe d'organisation propre à la FPT, qui la distingue de la FPE et de la FPH ?",
+    "choices": ["Les corps", "Les cadres d'emplois", "Les filières", "Les ministères"],
+    "correct": [1],
+    "expl": "La FPT s'organise en cadres d'emplois (et non en corps comme la FPE et la FPH). Cette différence reflète une philosophie distincte : un cadre d'emplois est un cadre national mais le recrutement se fait localement.",
+    "source": "Art. L.411-1 CGFP"
+  },
+  {
+    "id": "fp-versants-018",
+    "level": "TF",
+    "q": "En combien de filières les cadres d'emplois de la FPT sont-ils répartis officiellement ?",
+    "choices": ["Six filières", "Sept filières", "Huit filières", "Dix filières"],
+    "correct": [2],
+    "expl": "L'architecture officielle retient huit filières : administrative, technique, médico-sociale, culturelle, sportive, animation, police municipale et sapeurs-pompiers.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-019",
+    "level": "F",
+    "q": "Que regroupe un cadre d'emplois selon le CGFP ?",
+    "choices": ["Les fonctionnaires d'un même ministère", "Les fonctionnaires soumis au même statut particulier, titulaires d'un grade donnant vocation à un ensemble d'emplois", "Tous les fonctionnaires d'une collectivité", "Les agents d'une même filière, toutes catégories confondues"],
+    "correct": [1],
+    "expl": "Art. L.411-1 CGFP — un cadre d'emplois regroupe les fonctionnaires soumis au même statut particulier, titulaires d'un grade leur donnant vocation à occuper un ensemble d'emplois. Il peut regrouper plusieurs grades.",
+    "source": "Art. L.411-1 CGFP"
+  },
+  {
+    "id": "fp-versants-020",
+    "level": "F",
+    "q": "Parmi ces filières, lesquelles font partie des huit filières officielles de la FPT ?",
+    "choices": ["Filière administrative", "Filière sapeurs-pompiers", "Filière diplomatique", "Filière police municipale"],
+    "correct": [0, 1, 3],
+    "expl": "Les huit filières officielles : administrative, technique, médico-sociale, culturelle, sportive, animation, police municipale, sapeurs-pompiers. Il n'existe pas de « filière diplomatique » — la diplomatie relève de la FPE.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-021",
+    "level": "F",
+    "q": "Quelle est la spécificité notable de la filière sapeurs-pompiers en matière de concours ?",
+    "choices": ["Les concours sont organisés par le CNFPT", "Les concours sont organisés par les centres de gestion", "Les concours sont organisés directement par les Services d'incendie et de secours (SIS)", "Les concours sont organisés par le ministère de l'Intérieur"],
+    "correct": [2],
+    "expl": "La filière sapeurs-pompiers est la seule dont les concours sont organisés directement par les SIS, et non par le CNFPT ou les centres de gestion.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-022",
+    "level": "F",
+    "q": "Parmi ces affirmations sur les cadres d'emplois de la FPT, lesquelles sont exactes ?",
+    "choices": ["Chaque cadre d'emplois est régi par un décret statutaire propre", "Chaque cadre d'emplois a un caractère national (règles identiques partout en France)", "Un cadre d'emplois peut regrouper plusieurs grades", "Chaque cadre d'emplois relève d'un employeur unique au niveau national"],
+    "correct": [0, 1, 2],
+    "expl": "Chaque cadre d'emplois est régi par un décret propre, a un caractère national et peut regrouper plusieurs grades. En revanche, ses titulaires sont employés localement par chaque collectivité, pas par un employeur unique.",
+    "source": "Art. L.411-1 CGFP"
+  },
+  {
+    "id": "fp-versants-023",
+    "level": "M",
+    "q": "Combien de cadres d'emplois la FPT compte-t-elle aujourd'hui ?",
+    "choices": ["Environ 20", "Entre 30 et 40", "Entre 53 et 55", "Plus de 100"],
+    "correct": [2],
+    "expl": "La FPT compte aujourd'hui entre 53 et 55 cadres d'emplois. Le chiffre varie légèrement selon les sources et les évolutions statutaires en cours.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-024",
+    "level": "TF",
+    "q": "À quelle catégorie hiérarchique appartient le sapeur-pompier professionnel ?",
+    "choices": ["Catégorie A", "Catégorie B", "Catégorie C", "Catégorie A+"],
+    "correct": [2],
+    "expl": "Le SPP et le caporal de SPP relèvent de la catégorie C — fonctions d'exécution, opérations, fonctions techniques directes.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-025",
+    "level": "TF",
+    "q": "Quel est le grade visé pour accéder par concours externe à la filière sapeurs-pompiers professionnels non officiers ?",
+    "choices": ["Sapeur de 2e classe", "Caporal", "Sergent", "Lieutenant"],
+    "correct": [1],
+    "expl": "Depuis la réforme de 2012, le grade visé par le concours externe SPP non officier est celui de caporal (et non plus sapeur de 2e classe).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-026",
+    "level": "F",
+    "q": "Quel niveau de recrutement correspond à la catégorie A dans la FPT ?",
+    "choices": ["Sans diplôme ou CAP/BEP", "Baccalauréat", "Bac + 3 minimum (licence, master)", "Bac + 5 obligatoire"],
+    "correct": [2],
+    "expl": "La catégorie A correspond à un recrutement à Bac + 3 minimum (licence, master), pour des fonctions de conception, encadrement supérieur ou direction. Officier de SPP, attaché ou ingénieur sont en catégorie A.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-027",
+    "level": "F",
+    "q": "Parmi ces cadres d'emplois, lesquels relèvent de la catégorie C ?",
+    "choices": ["Adjoint technique", "ATSEM (Agent territorial spécialisé des écoles maternelles)", "Caporal de SPP", "Attaché territorial"],
+    "correct": [0, 1, 2],
+    "expl": "Adjoint technique, ATSEM et caporal de SPP sont en catégorie C (exécution). L'attaché territorial est en catégorie A (conception, encadrement supérieur).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-028",
+    "level": "M",
+    "q": "Quelle est la particularité du recrutement de SPP en catégorie C par rapport à beaucoup d'autres cadres d'emplois de catégorie C ?",
+    "choices": ["Il exige un baccalauréat", "Il s'effectue sans condition de diplôme spécifique", "Il exige un CAP minimum", "Il est réservé aux militaires"],
+    "correct": [1],
+    "expl": "Particularité forte du SPP : le recrutement s'effectue sans condition de diplôme spécifique. Un candidat sans diplôme peut se présenter au concours, alors que la plupart des cadres d'emplois de catégorie C exigent généralement le brevet ou le CAP.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-029",
+    "level": "TF",
+    "q": "À quel ministère est rattachée la DGCL (Direction générale des collectivités locales) ?",
+    "choices": ["Ministère de la Fonction publique", "Ministère de l'Économie et des Finances", "Ministère de l'Intérieur", "Ministère chargé des collectivités territoriales (autonome)"],
+    "correct": [2],
+    "expl": "La DGCL est un service du ministère de l'Intérieur. Elle élabore et pilote la politique de l'État en matière de collectivités territoriales et de FPT.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-030",
+    "level": "TF",
+    "q": "Le CNFPT est l'organisateur des concours pour quelle catégorie de cadres d'emplois ?",
+    "choices": ["Catégorie C exclusivement", "Catégories A, B et C", "Catégorie A+ uniquement (administrateurs, ingénieurs en chef, conservateurs)", "Toutes catégories sauf SPP"],
+    "correct": [2],
+    "expl": "Le CNFPT organise les concours et examens des cadres d'emplois de catégorie A+ : administrateurs, ingénieurs en chef, conservateurs. Les autres catégories (A hors A+, B, C) sont gérées par les centres de gestion.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-031",
+    "level": "F",
+    "q": "Parmi ces missions, lesquelles relèvent du CNFPT ?",
+    "choices": ["Formation continue obligatoire des agents territoriaux", "Organisation des concours de catégorie A+", "Gestion des FMPE de catégorie A+", "Organisation des concours de catégories B et C"],
+    "correct": [0, 1, 2],
+    "expl": "Le CNFPT est à la fois l'organisme de formation continue obligatoire, l'organisateur des concours A+ et le gestionnaire des fonctionnaires momentanément privés d'emploi (FMPE) de catégorie A+. Les concours B et C sont organisés par les CDG.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-032",
+    "level": "F",
+    "q": "À quelle échelle territoriale les centres de gestion (CDG) sont-ils organisés ?",
+    "choices": ["Régionale", "Départementale (environ 96 centres)", "Communale", "Nationale (un seul CDG pour tout le territoire)"],
+    "correct": [1],
+    "expl": "Les CDG sont des établissements publics locaux à caractère administratif organisés à l'échelle départementale (environ 96 centres).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-033",
+    "level": "F",
+    "q": "Parmi ces missions, lesquelles relèvent des centres de gestion (CDG) ?",
+    "choices": ["Organisation des concours de catégories A (hors A+), B et C", "Gestion des commissions administratives paritaires (CAP)", "Conseil aux collectivités affiliées en gestion RH", "Formation continue obligatoire des agents"],
+    "correct": [0, 1, 2],
+    "expl": "Les CDG organisent les concours A/B/C (hors A+), gèrent les CAP et CCP, assurent la publicité des emplois et conseillent les collectivités affiliées. La formation continue est, elle, du ressort exclusif du CNFPT.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-034",
+    "level": "M",
+    "q": "Au-delà de quel seuil d'agents les communes et intercommunalités peuvent-elles ne plus être obligatoirement affiliées à un CDG ?",
+    "choices": ["100 agents", "200 agents", "350 agents", "500 agents"],
+    "correct": [2],
+    "expl": "Les CDG sont obligatoires pour les communes et intercommunalités de moins de 350 agents.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-035",
+    "level": "M",
+    "q": "Parmi ces affirmations sur le CSFPT, lesquelles sont exactes ?",
+    "choices": ["Il est obligatoirement consulté sur tous les projets de textes relatifs à la FPT", "Sa composition est paritaire", "Il peut auto-saisir le gouvernement sur des questions de portée générale", "Il organise les concours de catégorie A+"],
+    "correct": [0, 1, 2],
+    "expl": "Le CSFPT est l'instance nationale de dialogue social propre à la FPT, obligatoirement consulté, paritaire (employeurs / syndicats), et peut auto-saisir le gouvernement. L'organisation des concours A+ relève du CNFPT, pas du CSFPT.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-036",
+    "level": "TF",
+    "q": "Quel principe constitutionnel empêche l'État d'imposer aux collectivités territoriales le recrutement d'un agent particulier ?",
+    "choices": ["Le principe de libre administration des collectivités territoriales", "Le principe d'égalité d'accès aux emplois publics", "Le principe de séparation des pouvoirs", "Le principe de subsidiarité"],
+    "correct": [0],
+    "expl": "Le principe de libre administration des collectivités territoriales (art. 72 Constitution) empêche l'État d'imposer aux collectivités le choix de leurs agents. C'est ce principe qui justifie le système de la liste d'aptitude en FPT.",
+    "source": "Art. 72 Constitution"
+  },
+  {
+    "id": "fp-versants-037",
+    "level": "TF",
+    "q": "Quelle est la durée de validité initiale de l'inscription sur la liste d'aptitude FPT ?",
+    "choices": ["Un an", "Deux ans", "Trois ans", "Quatre ans"],
+    "correct": [1],
+    "expl": "L'inscription sur la liste d'aptitude est valable deux ans, renouvelable deux fois sur demande, soit quatre ans maximum.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-038",
+    "level": "F",
+    "q": "Pourquoi le système de la liste d'aptitude existe-t-il en FPT ?",
+    "choices": ["Pour réduire le nombre de fonctionnaires", "Parce que l'État ne peut imposer aux collectivités le choix d'un agent (libre administration)", "Pour économiser sur les concours", "Pour éviter les conflits sociaux"],
+    "correct": [1],
+    "expl": "C'est le principe de libre administration (art. 72 Constitution) qui justifie la liste d'aptitude : l'État organise les concours et inscrit les lauréats, mais c'est chaque collectivité qui choisit librement parmi eux.",
+    "source": "Art. 72 Constitution"
+  },
+  {
+    "id": "fp-versants-039",
+    "level": "F",
+    "q": "Parmi ces affirmations sur la liste d'aptitude FPT, lesquelles sont exactes ?",
+    "choices": ["Elle est valable deux ans à compter de l'inscription", "Elle est renouvelable deux fois sur demande", "Sa durée maximale, renouvellements inclus, est de quatre ans", "Le lauréat est automatiquement affecté à un poste après le concours"],
+    "correct": [0, 1, 2],
+    "expl": "La liste d'aptitude est valable 2 ans, renouvelable 2 fois sur demande, pour un maximum de 4 ans. L'affectation n'est PAS automatique : le lauréat doit trouver un employeur qui accepte de le recruter.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-040",
+    "level": "M",
+    "q": "Que se passe-t-il pour le lauréat d'un concours FPT qui n'a pas été recruté à l'expiration de la liste d'aptitude ?",
+    "choices": ["Il est automatiquement intégré dans le cadre d'emplois", "Il conserve son rang sur une liste complémentaire", "Le bénéfice du concours est perdu", "Il peut demander une affectation par décret"],
+    "correct": [2],
+    "expl": "Passé le délai de 4 ans sans recrutement, le bénéfice du concours est perdu. C'est une spécificité forte de la FPT par rapport à la FPE.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-041",
+    "level": "M",
+    "q": "Pour les SPP, le concours est en pratique organisé par :",
+    "choices": ["Le CNFPT", "Un centre de gestion uniquement", "Un SIS ou un CDG pour le compte d'un ou plusieurs SIS", "Le ministère de l'Intérieur"],
+    "correct": [2],
+    "expl": "Pour les SPP, le concours est directement organisé par un SIS ou par un CDG pour le compte d'un ou plusieurs SIS. L'inscription sur liste d'aptitude existe, mais les recrutements sont généralement plus rapides car les SIS anticipent leurs besoins.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-042",
+    "level": "TF",
+    "q": "Quand la partie législative du Code général de la fonction publique (CGFP) est-elle entrée en vigueur ?",
+    "choices": ["1er janvier 2020", "1er mars 2022", "1er février 2025", "1er octobre 2025"],
+    "correct": [1],
+    "expl": "La partie législative du CGFP est entrée en vigueur le 1er mars 2022 (issue de l'ordonnance du 24 novembre 2021).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-043",
+    "level": "TF",
+    "q": "Combien de livres thématiques composent l'architecture du CGFP ?",
+    "choices": ["Cinq livres", "Six livres", "Huit livres", "Dix livres"],
+    "correct": [2],
+    "expl": "Le CGFP est organisé en huit livres thématiques suivant une logique « parcours de l'agent », du livre I (droits, obligations, protections) au livre VIII (santé et sécurité au travail).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-044",
+    "level": "TF",
+    "q": "Combien d'articles structurent le CGFP ?",
+    "choices": ["Environ 500 articles", "Environ 800 articles", "1 265 articles", "Plus de 2 000 articles"],
+    "correct": [2],
+    "expl": "Le CGFP rassemble en un seul texte 1 265 articles, codifiant les quatre lois statutaires historiques (1983, 1984 et 1986) ainsi que de nombreuses dispositions éparses.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-045",
+    "level": "F",
+    "q": "Parmi ces livres du CGFP, lesquels existent dans son architecture ?",
+    "choices": ["Livre I — Droits, obligations et protections des agents publics", "Livre III — Recrutement (concours, voies d'accès, contractuels)", "Livre VIII — Prévention et santé au travail", "Livre X — Statut spécial des SPP"],
+    "correct": [0, 1, 2],
+    "expl": "L'architecture du CGFP comprend 8 livres : I droits/obligations, II dialogue social, III recrutement, IV organisation/RH, V carrière, VI temps de travail, VII rémunération, VIII santé/sécurité. Il n'y a pas de livre X dédié aux SPP.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-046",
+    "level": "F",
+    "q": "Quel livre du CGFP traite du recrutement (concours, voies d'accès, contractuels) ?",
+    "choices": ["Livre I", "Livre II", "Livre III", "Livre V"],
+    "correct": [2],
+    "expl": "Le livre III du CGFP est consacré au recrutement (concours, voies d'accès, contractuels). Le livre I traite des droits/obligations/protections, le livre II du dialogue social.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-047",
+    "level": "M",
+    "q": "Parmi ces affirmations sur le calendrier d'entrée en vigueur de la partie réglementaire du CGFP, lesquelles sont exactes ?",
+    "choices": ["Les livres I et II sont entrés en vigueur le 1er février 2025", "Le livre III est entré en vigueur le 1er octobre 2025", "L'ensemble de la partie réglementaire est entré en vigueur en mars 2022", "Les autres livres sont publiés progressivement"],
+    "correct": [0, 1, 3],
+    "expl": "Calendrier : 1er fév. 2025 livres I-II, 1er oct. 2025 livre III, autres livres à venir progressivement. La partie réglementaire n'est pas entrée en vigueur en mars 2022 — c'est la partie législative qui l'a été.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-048",
+    "level": "TF",
+    "q": "Quand auront lieu les prochaines élections professionnelles dans les trois versants ?",
+    "choices": ["10 décembre 2025", "10 décembre 2026", "10 décembre 2027", "10 décembre 2028"],
+    "correct": [1],
+    "expl": "Les prochaines élections professionnelles auront lieu le jeudi 10 décembre 2026, simultanément dans les trois versants de la fonction publique.",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-049",
+    "level": "F",
+    "q": "Pour la FPT, quelles instances seront notamment renouvelées lors des élections professionnelles ?",
+    "choices": ["Comités sociaux territoriaux (CST)", "Commissions administratives paritaires (CAP)", "Commissions consultatives paritaires (CCP)", "Conseils municipaux"],
+    "correct": [0, 1, 2],
+    "expl": "Pour la FPT, sont renouvelés : les comités sociaux territoriaux (CST), les commissions administratives paritaires (CAP) et les commissions consultatives paritaires (CCP). Les conseils municipaux relèvent d'un autre processus électoral (élections municipales).",
+    "source": ""
+  },
+  {
+    "id": "fp-versants-050",
+    "level": "F",
+    "q": "Le dispositif de rupture conventionnelle dans la fonction publique a été :",
+    "choices": ["Créé par la loi NOTRe en 2015", "Expérimenté de 2020 à 2025 puis pérennisé par la loi de finances pour 2026", "Supprimé en 2025", "Réservé aux contractuels"],
+    "correct": [1],
+    "expl": "Après une expérimentation de six ans (1er janvier 2020 - 31 décembre 2025) menée en application de la loi de transformation du 6 août 2019, le dispositif a été pérennisé par la loi de finances pour 2026. Il est désormais inscrit aux articles L.552-1 à L.552-5 du CGFP.",
+    "source": "Art. L.552-1 à L.552-5 CGFP"
+  }
+]

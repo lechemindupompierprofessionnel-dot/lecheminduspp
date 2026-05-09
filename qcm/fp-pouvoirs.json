@@ -1,1 +1,452 @@
-[]
+[
+  {
+    "id": "fp-pouvoirs-001",
+    "level": "TF",
+    "q": "Quel philosophe a théorisé le principe de séparation des pouvoirs dans De l'esprit des lois (1748) ?",
+    "choices": ["Rousseau", "Montesquieu", "Voltaire", "Locke"],
+    "correct": [1],
+    "expl": "Montesquieu théorise la séparation des pouvoirs dans De l'esprit des lois (1748). Le principe : pour empêcher l'abus de pouvoir, il faut que le pouvoir arrête le pouvoir.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-002",
+    "level": "F",
+    "q": "Quelle est la date de la Constitution de la Ve République actuellement en vigueur ?",
+    "choices": ["27 octobre 1946", "4 octobre 1958", "28 septembre 1958", "23 juillet 2008"],
+    "correct": [1],
+    "expl": "La Constitution de la Ve République a été promulguée le 4 octobre 1958. Elle a été révisée 25 fois depuis son adoption (notamment en 1962, 2000 et 2008).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-003",
+    "level": "TF",
+    "q": "L'article 16 qui consacre le principe de séparation des pouvoirs figure dans :",
+    "choices": ["La Constitution de 1958", "La Déclaration des droits de l'homme et du citoyen (DDHC) de 1789", "Le préambule de la Constitution de 1946", "Le Code général des collectivités territoriales (CGCT)"],
+    "correct": [1],
+    "expl": "L'art. 16 DDHC 1789 dispose : « Toute société dans laquelle la garantie des droits n'est pas assurée ni la séparation des pouvoirs déterminée, n'a point de Constitution. » Attention à ne pas confondre avec l'art. 16 de la Constitution de 1958 qui, lui, traite des pouvoirs exceptionnels du Président.",
+    "source": "Art. 16 DDHC 1789"
+  },
+  {
+    "id": "fp-pouvoirs-004",
+    "level": "F",
+    "q": "Parmi ces branches, lesquelles correspondent à la séparation classique des pouvoirs sous la Ve République ?",
+    "choices": ["Pouvoir exécutif", "Pouvoir législatif", "Autorité judiciaire", "Pouvoir constituant"],
+    "correct": [0, 1, 2],
+    "expl": "Sous la Ve République, la séparation des pouvoirs distingue : exécutif, législatif et autorité judiciaire (titre VIII de la Constitution emploie « autorité » et non « pouvoir »). Le pouvoir constituant n'est pas une branche permanente : il s'exerce ponctuellement pour adopter ou réviser la Constitution.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-005",
+    "level": "TF",
+    "q": "Quelle est la durée actuelle du mandat du Président de la République ?",
+    "choices": ["3 ans", "5 ans", "6 ans", "7 ans"],
+    "correct": [1],
+    "expl": "Depuis le référendum du 24 septembre 2000, le mandat présidentiel est de 5 ans (quinquennat). Il était auparavant de 7 ans.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-006",
+    "level": "TF",
+    "q": "Comment le Président de la République est-il élu aujourd'hui ?",
+    "choices": ["Au suffrage universel indirect par les députés et sénateurs", "Par un collège d'environ 80 000 grands électeurs", "Au suffrage universel direct, scrutin uninominal à deux tours", "Par le Parlement réuni en Congrès"],
+    "correct": [2],
+    "expl": "Depuis le référendum du 28 octobre 1962, le Président est élu au suffrage universel direct, scrutin uninominal à deux tours. Avant 1962, il était élu par un collège d'environ 80 000 grands électeurs.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-007",
+    "level": "TF",
+    "q": "Combien de mandats présidentiels consécutifs sont autorisés depuis la révision constitutionnelle de 2008 ?",
+    "choices": ["Un seul mandat", "Deux mandats consécutifs", "Trois mandats consécutifs", "Aucune limite"],
+    "correct": [1],
+    "expl": "La révision constitutionnelle du 23 juillet 2008 (art. 6 de la Constitution) limite à deux le nombre de mandats présidentiels consécutifs.",
+    "source": "Art. 6 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-008",
+    "level": "F",
+    "q": "Que sont les pouvoirs propres du Président de la République ?",
+    "choices": ["Les prérogatives qu'il exerce sans contreseing du Premier ministre", "Les pouvoirs délégués au Premier ministre par décret", "Les pouvoirs exercés en commun avec le Conseil constitutionnel", "Les pouvoirs réservés aux périodes de cohabitation"],
+    "correct": [0],
+    "expl": "Les pouvoirs propres sont les prérogatives que le Président exerce sans contreseing du Premier ministre. Ils sont énumérés à l'art. 19 de la Constitution et incluent notamment la nomination du PM, la dissolution de l'AN et le recours au référendum.",
+    "source": "Art. 19 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-009",
+    "level": "F",
+    "q": "Comment sont nommés les membres du Gouvernement autres que le Premier ministre (ministres, secrétaires d'État) ?",
+    "choices": ["Par le Président de la République, sur proposition du Premier ministre", "Par le Premier ministre seul, après avis du Président", "Par décret du ministre de l'Intérieur", "Par vote de confiance de l'Assemblée nationale"],
+    "correct": [0],
+    "expl": "Le Président nomme les autres membres du Gouvernement sur proposition du Premier ministre (art. 8 Constitution). Le PM ne nomme pas directement, il propose ; c'est le Président qui formalise la nomination.",
+    "source": "Art. 8 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-010",
+    "level": "F",
+    "q": "Parmi ces prérogatives, lesquelles relèvent des pouvoirs propres du Président (art. 19 Constitution) ?",
+    "choices": ["Nommer le Premier ministre", "Dissoudre l'Assemblée nationale", "Soumettre un projet de loi au référendum", "Déclarer la guerre seul"],
+    "correct": [0, 1, 2],
+    "expl": "Pouvoirs propres : nomination du Premier ministre (art. 8), dissolution de l'AN (art. 12), référendum (art. 11). La déclaration de guerre n'est pas un pouvoir propre : elle est autorisée par le Parlement (art. 35 Constitution).",
+    "source": "Art. 19 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-011",
+    "level": "M",
+    "q": "Le dispositif constitutionnel permettant au Président d'exercer des pouvoirs exceptionnels en cas de menace grave et immédiate sur les institutions :",
+    "choices": ["N'a jamais été utilisé sous la Ve République", "A été utilisé une seule fois, par le général de Gaulle en 1961", "Est utilisé en moyenne tous les dix ans", "Est interdit en temps de paix"],
+    "correct": [1],
+    "expl": "L'art. 16 de la Constitution permet au Président d'exercer des pouvoirs exceptionnels en cas de menace grave et immédiate. Il n'a été utilisé qu'une seule fois, par le général de Gaulle en 1961. Ne pas confondre avec l'art. 16 DDHC 1789 qui, lui, consacre la séparation des pouvoirs.",
+    "source": "Art. 16 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-012",
+    "level": "M",
+    "q": "Parmi ces prérogatives présidentielles, lesquelles relèvent de pouvoirs encadrés par la Constitution ?",
+    "choices": ["Le Président est chef des armées (art. 15)", "Le Président négocie et ratifie les traités (art. 52)", "Le Président préside le Conseil des ministres (art. 9)", "Le Président peut révoquer le Premier ministre à tout moment"],
+    "correct": [0, 1, 2],
+    "expl": "Le Président est chef des armées (art. 15), négocie et ratifie les traités (art. 52), préside le Conseil des ministres (art. 9). En revanche, la Constitution ne lui donne pas le pouvoir de révoquer le Premier ministre : ce dernier remet sa démission, le Président ne peut pas l'imposer (art. 8).",
+    "source": "Art. 9, 15, 52 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-013",
+    "level": "TF",
+    "q": "Selon la Constitution, qui dirige l'action du Gouvernement ?",
+    "choices": ["Le Président de la République", "Le Premier ministre", "Le ministre d'État le plus ancien dans le rang", "Le secrétaire général du Gouvernement"],
+    "correct": [1],
+    "expl": "L'art. 21 de la Constitution dispose : « Le Premier ministre dirige l'action du Gouvernement. » Il est responsable de la défense nationale, assure l'exécution des lois et exerce le pouvoir réglementaire.",
+    "source": "Art. 21 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-014",
+    "level": "F",
+    "q": "Qui préside le Conseil des ministres ?",
+    "choices": ["Le Premier ministre, dans tous les cas", "Le Président de la République (art. 9 Constitution)", "Le ministre d'État le plus ancien", "Le président de l'Assemblée nationale"],
+    "correct": [1],
+    "expl": "L'article 9 de la Constitution dispose que le Président de la République préside le Conseil des ministres. Le Premier ministre, lui, préside les Conseils de cabinet (réunions du Gouvernement sans le Président).",
+    "source": "Art. 9 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-015",
+    "level": "F",
+    "q": "Parmi ces titres, lesquels correspondent à des rangs effectifs de membres du Gouvernement ?",
+    "choices": ["Ministre d'État", "Ministre délégué", "Secrétaire d'État", "Conseiller d'État"],
+    "correct": [0, 1, 2],
+    "expl": "Les rangs gouvernementaux sont, par ordre protocolaire : ministre d'État, ministre, ministre délégué, secrétaire d'État. Le « conseiller d'État » est un magistrat administratif (Conseil d'État), pas un membre du Gouvernement.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-016",
+    "level": "M",
+    "q": "Le secrétaire d'État, dans l'organisation du Gouvernement :",
+    "choices": ["Est membre de droit du Conseil des ministres pour toutes les séances", "Ne participe au Conseil des ministres que si son ordre du jour le concerne", "A le même rang protocolaire qu'un ministre de plein exercice", "Préside les Conseils de cabinet"],
+    "correct": [1],
+    "expl": "Le secrétaire d'État ne participe au Conseil des ministres que si son ordre du jour le concerne. Son rang protocolaire est inférieur à celui de ministre.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-017",
+    "level": "TF",
+    "q": "Combien de députés composent l'Assemblée nationale ?",
+    "choices": ["348", "489", "577", "925"],
+    "correct": [2],
+    "expl": "L'Assemblée nationale est composée de 577 députés, élus au suffrage universel direct dans une circonscription pour un mandat de 5 ans.",
+    "source": "Art. 24 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-018",
+    "level": "TF",
+    "q": "Quelle est la durée du mandat d'un député ?",
+    "choices": ["3 ans", "5 ans", "6 ans", "9 ans"],
+    "correct": [1],
+    "expl": "Le mandat de député est de 5 ans, dans le cadre du scrutin majoritaire uninominal à deux tours par circonscription. L'Assemblée peut être dissoute par le Président (art. 12).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-019",
+    "level": "F",
+    "q": "Quel est le mode de scrutin pour l'élection des députés ?",
+    "choices": ["Suffrage universel indirect", "Scrutin de liste proportionnel", "Scrutin majoritaire uninominal à deux tours", "Scrutin binominal mixte"],
+    "correct": [2],
+    "expl": "Les députés sont élus au suffrage universel direct, scrutin majoritaire uninominal à deux tours, dans le cadre d'une circonscription (partie d'un département).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-020",
+    "level": "F",
+    "q": "Parmi ces prérogatives, lesquelles distinguent l'Assemblée nationale du Sénat ?",
+    "choices": ["L'Assemblée a le dernier mot en cas de désaccord persistant avec le Sénat sur un texte (art. 45 Constitution)", "Seule l'Assemblée peut renverser le Gouvernement (art. 49 Constitution)", "L'Assemblée peut être dissoute par le Président de la République (art. 12)", "L'Assemblée peut dissoudre le Sénat à la majorité des 3/5"],
+    "correct": [0, 1, 2],
+    "expl": "L'AN a 3 prérogatives spécifiques : dernier mot sur la loi (art. 45), responsabilité politique du Gouvernement (art. 49), dissolution par le Président (art. 12). L'AN ne peut PAS dissoudre le Sénat — il n'existe aucune procédure permettant à une chambre de dissoudre l'autre.",
+    "source": "Art. 12, 45, 49 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-021",
+    "level": "M",
+    "q": "Parmi ces affirmations sur l'articulation entre dissolution et motion de censure, lesquelles sont exactes ?",
+    "choices": ["Le Président peut dissoudre l'Assemblée nationale (art. 12 Constitution)", "L'Assemblée nationale peut renverser le Gouvernement par motion de censure (art. 49)", "Le Président peut dissoudre le Sénat dans les mêmes conditions que l'AN", "Le Sénat peut renverser le Gouvernement à la majorité absolue"],
+    "correct": [0, 1],
+    "expl": "Le Président peut dissoudre l'AN (art. 12). L'AN peut renverser le Gouvernement par motion de censure (art. 49). En revanche : le Sénat ne peut pas être dissous par le Président, et le Sénat ne peut pas renverser le Gouvernement (seule l'AN engage la responsabilité du Gouvernement).",
+    "source": "Art. 12, 49 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-022",
+    "level": "TF",
+    "q": "Combien de sénateurs composent le Sénat ?",
+    "choices": ["348", "489", "577", "925"],
+    "correct": [0],
+    "expl": "Le Sénat est composé de 348 sénateurs, élus au suffrage universel indirect par un collège d'environ 162 000 grands électeurs (essentiellement des élus locaux).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-023",
+    "level": "TF",
+    "q": "Quelle est la durée du mandat d'un sénateur ?",
+    "choices": ["3 ans", "5 ans", "6 ans", "9 ans"],
+    "correct": [2],
+    "expl": "Le sénateur est élu pour 6 ans. Le Sénat se renouvelle par moitié tous les 3 ans (et NON par tiers — c'est une confusion fréquente avec le Conseil constitutionnel).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-024",
+    "level": "F",
+    "q": "Quelle est la mission particulière confiée au Sénat sous la Ve République ?",
+    "choices": ["Représenter les Français de l'étranger uniquement", "Assurer la représentation des collectivités territoriales de la République", "Voter le budget de l'État avant l'Assemblée nationale", "Contrôler la conformité des lois à la Constitution"],
+    "correct": [1],
+    "expl": "L'art. 24 Constitution confie au Sénat une mission particulière : « Il assure la représentation des collectivités territoriales de la République. » C'est pourquoi on parle aussi de « chambre des territoires ».",
+    "source": "Art. 24 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-025",
+    "level": "M",
+    "q": "Parmi ces affirmations sur le Sénat, lesquelles sont exactes ?",
+    "choices": ["Il représente les collectivités territoriales (art. 24 Constitution)", "Son président est le 2e personnage de l'État (art. 7 Constitution)", "Il se renouvelle par moitié tous les 3 ans", "Il a le dernier mot sur la loi en cas de désaccord persistant avec l'Assemblée"],
+    "correct": [0, 1, 2],
+    "expl": "Le Sénat représente les collectivités (art. 24), son président est le 2e personnage de l'État (art. 7, assure l'intérim en cas de vacance présidentielle) et il se renouvelle par moitié tous les 3 ans. En revanche, c'est l'Assemblée nationale, et NON le Sénat, qui a le dernier mot sur la loi (art. 45).",
+    "source": "Art. 7, 24, 45 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-026",
+    "level": "F",
+    "q": "Parmi ces étapes, lesquelles font partie de la procédure législative ordinaire ?",
+    "choices": ["Initiative (projet de loi du Gouvernement ou proposition de loi parlementaire)", "Examen en première lecture dans la chambre choisie en premier", "Promulgation par le Président de la République", "Vote en assemblée plénière du Conseil constitutionnel avant publication"],
+    "correct": [0, 1, 2],
+    "expl": "La procédure législative ordinaire comprend : l'initiative (projet ou proposition), l'examen en lectures successives, la navette, éventuellement la CMP, et la promulgation par le Président. Le Conseil constitutionnel n'intervient qu'en cas de saisine, et son rôle est de contrôler la conformité, pas de voter le texte.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-027",
+    "level": "M",
+    "q": "Combien de membres composent une commission mixte paritaire (CMP) en cas de désaccord persistant entre les deux chambres ?",
+    "choices": ["5 députés et 5 sénateurs", "7 députés et 7 sénateurs", "10 députés et 10 sénateurs", "Un nombre variable selon l'importance du texte"],
+    "correct": [1],
+    "expl": "La commission mixte paritaire (CMP) réunit 7 députés et 7 sénateurs pour trouver un compromis sur un texte en désaccord. Elle est convoquée après deux lectures, ou une seule en procédure accélérée.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-028",
+    "level": "TF",
+    "q": "En combien d'ordres de juridiction la justice française est-elle organisée ?",
+    "choices": ["Un seul ordre", "Deux ordres (judiciaire et administratif)", "Trois ordres", "Quatre ordres"],
+    "correct": [1],
+    "expl": "La justice française est organisée en deux ordres autonomes : l'ordre judiciaire (litiges entre particuliers et affaires pénales) et l'ordre administratif (litiges entre l'Administration et les administrés).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-029",
+    "level": "TF",
+    "q": "Quelle juridiction est au sommet de l'ordre judiciaire ?",
+    "choices": ["Le Conseil d'État", "La Cour de cassation", "Le Conseil constitutionnel", "La Cour des comptes"],
+    "correct": [1],
+    "expl": "La Cour de cassation est au sommet de l'ordre judiciaire. Elle ne juge pas les faits, elle juge le droit : elle vérifie que la loi a été correctement appliquée par les cours d'appel.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-030",
+    "level": "TF",
+    "q": "Quelle juridiction est au sommet de l'ordre administratif ?",
+    "choices": ["La Cour de cassation", "Le Conseil d'État", "La Cour des comptes", "Le Conseil constitutionnel"],
+    "correct": [1],
+    "expl": "Le Conseil d'État est au sommet de l'ordre administratif. Il est à la fois conseiller du Gouvernement (avis sur les projets de loi) et juge suprême de l'ordre administratif.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-031",
+    "level": "F",
+    "q": "Combien de membres composent le Conseil constitutionnel et pour quelle durée ?",
+    "choices": ["7 membres pour 7 ans", "9 membres pour 9 ans", "11 membres pour 11 ans", "9 membres pour un mandat à vie"],
+    "correct": [1],
+    "expl": "Le Conseil constitutionnel est composé de 9 membres nommés pour 9 ans (3 par le Président, 3 par le président de l'Assemblée nationale, 3 par le président du Sénat).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-032",
+    "level": "F",
+    "q": "Parmi ces autorités, lesquelles nomment chacune 3 des 9 membres du Conseil constitutionnel ?",
+    "choices": ["Le Président de la République", "Le président de l'Assemblée nationale", "Le président du Sénat", "Le Premier ministre"],
+    "correct": [0, 1, 2],
+    "expl": "Les 9 membres du Conseil constitutionnel sont nommés à raison de 3 par le Président, 3 par le président de l'AN, 3 par le président du Sénat. Le Premier ministre ne nomme aucun membre.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-033",
+    "level": "M",
+    "q": "Parmi ces juridictions, lesquelles relèvent d'un statut particulier (à côté des deux ordres classiques) ?",
+    "choices": ["Le Conseil constitutionnel", "La Cour des comptes", "Les chambres régionales des comptes (CRC)", "La cour d'appel"],
+    "correct": [0, 1, 2],
+    "expl": "À côté des deux ordres classiques se trouvent : le Conseil constitutionnel (contrôle de constitutionnalité), la Cour des comptes (juridiction financière) et les chambres régionales des comptes (CRC, contrôle des collectivités). La cour d'appel est, elle, le 2e degré de l'ordre judiciaire.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-034",
+    "level": "TF",
+    "q": "La décentralisation se définit comme :",
+    "choices": ["Le transfert de décisions au sein de l'Administration de l'État vers ses agents en région", "Le transfert de compétences et de pouvoir de décision de l'État vers des collectivités territoriales dirigées par des élus", "L'autonomie financière des établissements publics nationaux", "L'organisation des ministères en directions régionales"],
+    "correct": [1],
+    "expl": "Décentralisation = transfert de compétences et de pouvoir de décision de l'État vers des collectivités territoriales dirigées par des élus (communes, départements, régions). À ne pas confondre avec la déconcentration.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-035",
+    "level": "TF",
+    "q": "La déconcentration se définit comme :",
+    "choices": ["Un transfert de compétences vers des élus locaux", "Un transfert de décisions au sein de l'Administration de l'État, vers ses agents en territoire (préfets…)", "La fusion de plusieurs collectivités", "La privatisation de services publics locaux"],
+    "correct": [1],
+    "expl": "Déconcentration = transfert de décisions au sein même de l'administration de l'État, de l'échelon central vers des agents présents dans les territoires (préfets, directions départementales). L'État reste seul maître ; seul l'échelon de prise de décision est modifié.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-036",
+    "level": "TF",
+    "q": "Quels sont les trois échelons principaux de collectivités territoriales en France ?",
+    "choices": ["État, région, département", "Commune, département, région", "Commune, intercommunalité, région", "Département, région, métropole"],
+    "correct": [1],
+    "expl": "L'art. 72 Constitution énumère les collectivités territoriales : communes, départements, régions, collectivités à statut particulier et collectivités d'outre-mer. Les trois échelons « principaux » sont : commune, département, région.",
+    "source": "Art. 72 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-037",
+    "level": "F",
+    "q": "Combien de régions métropolitaines compte la France depuis la loi du 16 janvier 2015 ?",
+    "choices": ["18", "13", "22", "26"],
+    "correct": [1],
+    "expl": "La loi du 16 janvier 2015 relative à la délimitation des régions a fait passer le nombre de régions métropolitaines de 22 à 13 à compter du 1er janvier 2016. En ajoutant les 5 régions d'outre-mer, on obtient 18 régions au total.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-038",
+    "level": "F",
+    "q": "Combien de départements compte la France (métropole et outre-mer) ?",
+    "choices": ["96", "100", "101", "104"],
+    "correct": [2],
+    "expl": "La France compte 101 départements, dont 5 d'outre-mer (Guadeloupe, Martinique, Guyane, La Réunion, Mayotte).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-039",
+    "level": "F",
+    "q": "Parmi ces compétences, lesquelles relèvent du département ?",
+    "choices": ["Action sociale (RSA, APA, enfance)", "Collèges", "Financement principal des SIS (Services d'incendie et de secours)", "Lycées"],
+    "correct": [0, 1, 2],
+    "expl": "Le département gère l'action sociale (RSA, APA, aide à l'enfance), les collèges, les routes départementales et le financement principal des SIS. Les lycées relèvent, eux, de la région.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-040",
+    "level": "M",
+    "q": "Parmi ces affirmations sur la distinction décentralisation / déconcentration, lesquelles sont exactes ?",
+    "choices": ["La décentralisation transfère du pouvoir aux élus locaux", "La déconcentration transfère des décisions à des agents de l'État en région", "Le préfet est la figure emblématique de la déconcentration", "Le maire est la figure emblématique de la déconcentration"],
+    "correct": [0, 1, 2],
+    "expl": "Décentralisation = vers les élus locaux. Déconcentration = au sein de l'État, vers ses agents (préfets) en territoire. Le préfet est la figure emblématique de la déconcentration. Le maire, lui, est principalement un élu local (donc relevant de la décentralisation), même s'il a aussi des fonctions d'agent de l'État.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-041",
+    "level": "TF",
+    "q": "Comment le maire est-il désigné ?",
+    "choices": ["Au suffrage universel direct par les habitants de la commune", "Élu par le conseil municipal parmi ses membres", "Nommé par décret du Président de la République", "Désigné par le préfet du département"],
+    "correct": [1],
+    "expl": "Le maire est élu par le conseil municipal parmi ses membres, lui-même élu au suffrage universel direct par les habitants de la commune pour un mandat de 6 ans. Le mandat de maire n'est pas limité en nombre.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-042",
+    "level": "F",
+    "q": "Quelle est la durée du mandat des conseillers municipaux et donc indirectement du maire ?",
+    "choices": ["3 ans", "5 ans", "6 ans", "7 ans"],
+    "correct": [2],
+    "expl": "Le mandat de conseiller municipal est de 6 ans. Le maire, élu par le conseil municipal parmi ses membres, est donc lui aussi en fonction pour 6 ans (renouvelable sans limite).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-043",
+    "level": "F",
+    "q": "Parmi ces fonctions, lesquelles relèvent de la « double casquette » du maire (élu local + agent de l'État) ?",
+    "choices": ["Préparer et exécuter le budget municipal", "Officier d'état civil", "Officier de police judiciaire", "Voter les lois au Parlement"],
+    "correct": [0, 1, 2],
+    "expl": "Le maire prépare/exécute le budget municipal en tant qu'élu local. Au titre d'agent de l'État (art. L.2122-27 CGCT), il est officier d'état civil et officier de police judiciaire, et organise les élections. Voter les lois est une mission parlementaire, sans rapport avec le maire.",
+    "source": "Art. L.2122-27 CGCT"
+  },
+  {
+    "id": "fp-pouvoirs-044",
+    "level": "M",
+    "q": "Que couvrent les pouvoirs de police générale du maire sur le territoire de sa commune ?",
+    "choices": ["Le bon ordre, la sûreté, la sécurité et la salubrité publiques", "La défense nationale et l'ordre public régional", "La police judiciaire des crimes et délits graves", "La surveillance des frontières et le contrôle des étrangers"],
+    "correct": [0],
+    "expl": "L'art. L.2212-2 CGCT confère au maire ses pouvoirs de police générale : « le bon ordre, la sûreté, la sécurité et la salubrité publiques ». À ce titre, il est directeur des opérations de secours (DOS) tant que l'opération reste dans les limites de sa commune et qu'aucun plan ORSEC n'est déclenché.",
+    "source": "Art. L.2212-2 CGCT"
+  },
+  {
+    "id": "fp-pouvoirs-045",
+    "level": "TF",
+    "q": "Comment le préfet est-il nommé ?",
+    "choices": ["Élu par les conseillers départementaux", "Nommé par décret du Président de la République pris en Conseil des ministres (art. 13 Constitution)", "Élu par le conseil régional", "Désigné par le ministre de l'Intérieur seul"],
+    "correct": [1],
+    "expl": "Le préfet est nommé par décret du Président de la République pris en Conseil des ministres (art. 13 Constitution). Le corps préfectoral est un corps d'encadrement supérieur de l'État.",
+    "source": "Art. 13 Constitution"
+  },
+  {
+    "id": "fp-pouvoirs-046",
+    "level": "F",
+    "q": "Quelle loi a créé la fonction préfectorale ?",
+    "choices": ["La loi du 5 avril 1884", "La loi du 28 pluviôse an VIII (17 février 1800)", "La loi Defferre du 2 mars 1982", "La Constitution du 4 octobre 1958"],
+    "correct": [1],
+    "expl": "La fonction préfectorale a été créée par la loi du 28 pluviôse an VIII (17 février 1800) sous Napoléon Bonaparte. Elle a traversé tous les régimes politiques sans disparaître.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-047",
+    "level": "F",
+    "q": "Parmi ces missions, lesquelles relèvent du préfet de département ?",
+    "choices": ["Direction de la police et de la gendarmerie dans le département", "Direction des opérations de secours en cas de crise", "Contrôle de légalité des actes des collectivités", "Nomination des magistrats du département"],
+    "correct": [0, 1, 2],
+    "expl": "Le préfet de département dirige la police et la gendarmerie, la sécurité civile (DOS), et exerce le contrôle de légalité (il peut déférer les actes au tribunal administratif). La nomination des magistrats relève d'autres autorités (Conseil supérieur de la magistrature, Président, ministre de la Justice selon les cas).",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-048",
+    "level": "M",
+    "q": "Dans quelles circonstances le préfet prend-il la direction des opérations de secours (DOS) à la place du maire ?",
+    "choices": ["À chaque intervention de SPP, quel que soit son ampleur", "Lorsque les conséquences d'un sinistre dépassent le territoire d'une commune, ou lors du déclenchement d'un plan ORSEC", "Uniquement sur autorisation préalable du ministre de l'Intérieur", "Pour toutes les interventions impliquant plus de cinq véhicules de secours"],
+    "correct": [1],
+    "expl": "L'art. L.742-2 CSI dispose que le préfet prend la direction des opérations de secours en cas d'accident, sinistre ou catastrophe dont les conséquences dépassent le territoire d'une commune, ou lors du déclenchement d'un plan ORSEC. En deçà, le DOS est le maire (art. L.2212-2 CGCT).",
+    "source": "Art. L.742-2 CSI"
+  },
+  {
+    "id": "fp-pouvoirs-049",
+    "level": "TF",
+    "q": "Quelle est la durée du mandat d'un conseiller régional ?",
+    "choices": ["3 ans", "5 ans", "6 ans", "7 ans"],
+    "correct": [2],
+    "expl": "Le conseiller régional est élu pour 6 ans, au suffrage universel direct, scrutin de liste proportionnel à 2 tours.",
+    "source": ""
+  },
+  {
+    "id": "fp-pouvoirs-050",
+    "level": "TF",
+    "q": "Parmi ces fonctions, lesquelles requièrent d'avoir 18 ans pour être éligible ?",
+    "choices": ["Président de la République", "Député", "Conseiller municipal", "Sénateur"],
+    "correct": [0, 1, 2],
+    "expl": "Le Président, le député et le conseiller municipal sont éligibles à 18 ans. Le sénateur, lui, doit avoir 24 ans pour être éligible — c'est la seule fonction listée à requérir un âge plus élevé.",
+    "source": ""
+  }
+]
