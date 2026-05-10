@@ -1,0 +1,11 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "functions": {
+    "api/oral-jury.js": {
+      "maxDuration": 30
+    },
+    "api/oral-session.js": {
+      "maxDuration": 10
+    }
+  }
+}

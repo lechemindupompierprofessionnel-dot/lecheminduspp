@@ -1,0 +1,14 @@
+{
+  "name": "lecheminduspp-vercel-functions",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Fonctions serverless Vercel pour le simulateur d'oral SPP (proxy Anthropic + Supabase service_role)",
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "0.95.1",
+    "@supabase/supabase-js": "2.105.4"
+  }
+}
