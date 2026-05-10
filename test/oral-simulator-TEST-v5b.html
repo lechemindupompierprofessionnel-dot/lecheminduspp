@@ -476,7 +476,7 @@
   <div id="test-config-proxy" style="display:none;">
     <label>
       URL de ta fonction Vercel
-      <input type="text" id="test-proxy-url" placeholder="https://[À-REMPLIR-APRÈS-DÉPLOIEMENT].vercel.app">
+      <input type="text" id="test-proxy-url" placeholder="https://lecheminduspp-p8d4.vercel.app" value="https://lecheminduspp-p8d4.vercel.app">
       <small style="display:block;margin-top:4px;color:#6B6B6B;">URL de base du déploiement Vercel — les endpoints /api/oral-jury et /api/oral-session en sont dérivés.</small>
     </label>
   </div>
@@ -710,7 +710,7 @@
 let TEST_CONFIG = {
   mode: 'mock',
   apiKey: '',
-  proxyUrl: '',
+  proxyUrl: 'https://lecheminduspp-p8d4.vercel.app',
   tier: '2b',
   exposeDuration: 300
 };
@@ -2865,6 +2865,10 @@ Selon le type :
 
   return { init, startSession, endExpose, sendAnswer, toggleQRMic, abandonSession, backToHome, restart, endQR, enterRoom, toggleMute, _getCurrentWeekIso, getMemberEmail: () => state.memberEmail };
 })();
+
+// Exposition explicite pour proxySupabase (qui lit window.OralSimulator.getMemberEmail() à chaque requête).
+// Sans ça, le `const` top-level reste invisible depuis window.* — fix du bug détecté à l'étape 4b.7.
+window.OralSimulator = OralSimulator;
 
 console.log('%c[SIMULATEUR ORAL — MODE TEST]', 'background:#1A1A1A;color:#FBBF24;padding:8px 16px;font-size:14px;font-weight:bold;');
 console.log('Configure le mode et clique "Appliquer et démarrer"');
