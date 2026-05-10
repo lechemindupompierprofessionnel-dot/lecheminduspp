@@ -447,6 +447,31 @@
     font-weight: 600;
   }
 
+  /* === Étape 6.5a — Indicateur de mode (proxy/mock) visible permanent === */
+  .oral-mode-indicator {
+    position: fixed;
+    bottom: 16px;
+    right: 16px;
+    background: #1A1A1A;
+    color: #FBBF24;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 600;
+    z-index: 100;
+    opacity: 0.85;
+    pointer-events: none;
+  }
+  .oral-mode-indicator.proxy {
+    background: #1A1A1A;
+    color: #4ADE80;
+  }
+  .oral-mode-indicator.mock {
+    background: #CC2229;
+    color: white;
+  }
+
   /* === Étape 5B — Bandeau MODE DEV (fallback Memberstack absent) === */
   .oral-dev-fallback-banner {
     position: fixed;
@@ -600,20 +625,12 @@
   <label>
     Mode d'appel à Claude
     <select id="test-mode">
+      <option value="proxy" selected>✅ PROXY — Via ton URL Vercel (recommandé en prod)</option>
       <option value="mock">🤖 MOCK — Réponses simulées (sans appel API, pour tester l'UI)</option>
-      <option value="direct">🔴 DIRECT — Appel direct à l'API avec ta clé (RISQUE : clé visible côté client)</option>
-      <option value="proxy">✅ PROXY — Via ton URL Vercel (recommandé en prod)</option>
     </select>
   </label>
 
-  <div id="test-config-direct" style="display:none;">
-    <label>
-      Ta clé API Anthropic (sk-ant-...) — RESTE EN LOCAL, NE COMMITE JAMAIS
-      <input type="password" id="test-api-key" placeholder="sk-ant-api03-...">
-    </label>
-  </div>
-
-  <div id="test-config-proxy" style="display:none;">
+  <div id="test-config-proxy">
     <label>
       URL de ta fonction Vercel
       <input type="text" id="test-proxy-url" placeholder="https://lecheminduspp-p8d4.vercel.app" value="https://lecheminduspp-p8d4.vercel.app">
@@ -647,6 +664,9 @@
 
 <!-- Conteneur du simulateur -->
 <div id="oral-simulator-root" style="display:none;">
+
+  <!-- Étape 6.5a — indicateur de mode actif (proxy/mock), visible sur tous les écrans -->
+  <div class="oral-mode-indicator" id="oral-mode-indicator"></div>
 
   <!-- ÉCRAN ACCUEIL -->
   <div id="oral-screen-accueil" class="oral-screen active">
@@ -846,24 +866,22 @@
 // SCRIPT TEST — Mocks pour Memberstack et Supabase
 // ============================================================
 
-// Configuration globale
+// Configuration globale — mode 'proxy' par défaut (mode 'direct' supprimé Étape 6.5a)
 let TEST_CONFIG = {
-  mode: 'mock',
-  apiKey: '',
+  mode: 'proxy',
   proxyUrl: 'https://lecheminduspp-p8d4.vercel.app',
   tier: '2b',
   exposeDuration: 300
 };
 
-// Affichage dynamique des champs de config
+// Affichage dynamique du panneau proxy (toujours visible en pratique, mais on garde la mécanique)
 document.getElementById('test-mode').addEventListener('change', (e) => {
-  document.getElementById('test-config-direct').style.display = e.target.value === 'direct' ? 'block' : 'none';
-  document.getElementById('test-config-proxy').style.display = e.target.value === 'proxy' ? 'block' : 'none';
+  const proxyBlock = document.getElementById('test-config-proxy');
+  if (proxyBlock) proxyBlock.style.display = e.target.value === 'proxy' ? 'block' : 'none';
 });
 
 function applyTestConfig() {
   TEST_CONFIG.mode = document.getElementById('test-mode').value;
-  TEST_CONFIG.apiKey = document.getElementById('test-api-key').value;
   TEST_CONFIG.proxyUrl = document.getElementById('test-proxy-url').value;
   TEST_CONFIG.tier = document.getElementById('test-tier').value;
   TEST_CONFIG.exposeDuration = parseInt(document.getElementById('test-expose-duration').value);
@@ -871,11 +889,6 @@ function applyTestConfig() {
   const status = document.getElementById('test-status');
   status.style.display = 'block';
 
-  if (TEST_CONFIG.mode === 'direct' && !TEST_CONFIG.apiKey.startsWith('sk-ant-')) {
-    status.className = 'status error';
-    status.textContent = '❌ Clé API invalide — doit commencer par sk-ant-';
-    return;
-  }
   if (TEST_CONFIG.mode === 'proxy' && !TEST_CONFIG.proxyUrl.startsWith('http')) {
     status.className = 'status error';
     status.textContent = '❌ URL proxy invalide';
@@ -1477,6 +1490,22 @@ const OralSimulator = (function() {
     if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
       console.warn('[INFO] Web Speech API non supportée — utilise Chrome ou Edge');
     }
+
+    // Étape 6.5a — log visible du mode actif (badge en console)
+    console.log(
+      '%c[MODE]%c ' + TEST_CONFIG.mode + ' %c| URL: ' + (TEST_CONFIG.proxyUrl || 'N/A'),
+      'background:#CC2229;color:white;padding:4px 8px;border-radius:3px;font-weight:bold;',
+      'font-weight:bold;color:#1A1A1A;',
+      'color:#6B6B6B;'
+    );
+
+    // Étape 6.5a — bandeau visuel "Mode actif" en bas à droite
+    const indicator = document.getElementById('oral-mode-indicator');
+    if (indicator) {
+      indicator.textContent = '● ' + (TEST_CONFIG.mode === 'proxy' ? 'PROXY (Vercel)' : 'MOCK (localStorage)');
+      indicator.className = 'oral-mode-indicator ' + TEST_CONFIG.mode;
+    }
+
     console.log('[INIT] Simulateur prêt. Tier:', state.memberTier, 'Mode:', TEST_CONFIG.mode);
     console.log('[INIT] Questions types chargées :', state.juryQuestions ? state.juryQuestions.length : 0);
   }
@@ -1887,6 +1916,12 @@ const OralSimulator = (function() {
     const a = input.value.trim();
     if (!a) return;
     addMessage('candidat', a);
+
+    // Étape 6.5a — fix race condition : on RESET d'abord les buffers SpeechRecognition,
+    // puis on vide l'input. Sinon un `onresult` peut survenir entre les deux et
+    // réinjecter le texte précédent (`allFinalSegments` n'étant pas encore vidé).
+    state.seenSegments = new Set();
+    state.allFinalSegments = [];
     input.value = '';
 
     // V5b : enregistrer la durée et l'analyse de cette réponse pour le débrief
@@ -1899,10 +1934,6 @@ const OralSimulator = (function() {
         timestamp: new Date().toISOString()
       });
     }
-
-    // Réinitialiser le buffer de transcription pour la prochaine réponse
-    state.seenSegments = new Set();
-    state.allFinalSegments = [];
 
     state.questionsCount++;
 
@@ -2030,38 +2061,13 @@ const OralSimulator = (function() {
     // Étape 4a : buildSystemPrompt retourne maintenant { stable, variable } (cf. prompt caching côté proxy)
     const systemParts = buildSystemPrompt(opts.requestDebrief, ctx);
 
+    // Étape 6.5a — log du mode actif à chaque appel
+    console.log('[CALL]', TEST_CONFIG.mode === 'proxy' ? 'proxy → ' + TEST_CONFIG.proxyUrl : 'mock');
+
     if (TEST_CONFIG.mode === 'mock') {
       // Mock attend une string : on joint stable + variable
       const r = await mockClaudeAPI({ messages, system: joinSystemPrompt(systemParts), max_tokens: opts.requestDebrief ? 2000 : 600 });
       return r.text;
-    }
-
-    if (TEST_CONFIG.mode === 'direct') {
-      // ⚠️ Appel direct — clé exposée
-      console.warn('[DIRECT] Appel API direct — clé visible côté client !');
-      try {
-        const res = await fetch('https://api.anthropic.com/v1/messages', {
-          method: 'POST',
-          headers: {
-            'content-type': 'application/json',
-            'x-api-key': TEST_CONFIG.apiKey,
-            'anthropic-version': '2023-06-01',
-            'anthropic-dangerous-direct-browser-access': 'true'
-          },
-          body: JSON.stringify({
-            model: 'claude-sonnet-4-6',
-            max_tokens: opts.requestDebrief ? 2000 : 600,
-            system: joinSystemPrompt(systemParts),
-            messages
-          })
-        });
-        const data = await res.json();
-        if (data.error) throw new Error(data.error.message);
-        return data.content.filter(b => b.type === 'text').map(b => b.text).join('\n');
-      } catch (e) {
-        console.error('[DIRECT] Erreur API:', e);
-        return opts.requestDebrief ? '{"error":"' + e.message + '"}' : 'Erreur API : ' + e.message;
-      }
     }
 
     if (TEST_CONFIG.mode === 'proxy') {
