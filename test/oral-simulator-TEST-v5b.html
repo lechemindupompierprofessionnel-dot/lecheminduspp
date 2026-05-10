@@ -7,6 +7,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Étape 5B : SDK Memberstack DOM v2 (mêmes app_id que index.html — Test Mode) -->
+<script src="https://static.memberstack.com/scripts/v2/memberstack.js" data-memberstack-app="app_cmnwwalte000o0sv26iasaw3s" type="text/javascript"></script>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: 'DM Sans', sans-serif; background: #F5EFE6; color: #1A1A1A; min-height: 100vh; line-height: 1.6; }
@@ -443,6 +445,144 @@
   .oral-browser-warning strong {
     color: #CC2229;
     font-weight: 600;
+  }
+
+  /* === Étape 5B — Bandeau MODE DEV (fallback Memberstack absent) === */
+  .oral-dev-fallback-banner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #CC2229;
+    color: white;
+    padding: 12px 24px;
+    text-align: center;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 14px;
+    z-index: 9999;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  }
+  .oral-dev-fallback-banner .badge {
+    display: inline-block;
+    background: white;
+    color: #CC2229;
+    padding: 2px 8px;
+    border-radius: 3px;
+    margin-right: 8px;
+    font-weight: 700;
+  }
+
+  /* === Étape 5B — Écran d'accès refusé promotionnel === */
+  .oral-access-denied-wrap {
+    position: relative;
+    min-height: 100vh;
+    background: #FAF5EE;
+    padding: 80px 24px 48px;
+    overflow: hidden;
+  }
+  .oral-access-denied-jury-bg {
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    display: flex;
+    justify-content: center;
+    gap: 32px;
+    padding-top: 60px;
+    filter: blur(8px) opacity(0.45);
+    pointer-events: none;
+    z-index: 1;
+  }
+  .oral-access-jury-card {
+    background: white;
+    border: 2px solid #1A1A1A;
+    border-radius: 8px;
+    padding: 16px;
+    width: 200px;
+    text-align: center;
+  }
+  .oral-access-jury-avatar svg { width: 80px; height: 80px; }
+  .oral-access-jury-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    margin-top: 8px;
+    color: #1A1A1A;
+  }
+  .oral-access-jury-role {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    color: #6B6B6B;
+    margin-top: 2px;
+  }
+  .oral-access-denied-content {
+    position: relative;
+    z-index: 2;
+    max-width: 900px;
+    margin: 200px auto 0;
+    background: white;
+    border: 2px solid #1A1A1A;
+    border-radius: 8px;
+    padding: 48px 40px;
+    text-align: center;
+  }
+  .oral-access-denied-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    color: #1A1A1A;
+    margin-bottom: 40px;
+    line-height: 1.2;
+  }
+  .oral-access-denied-blocks {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin: 40px 0;
+  }
+  .oral-access-denied-block {
+    text-align: left;
+    padding: 16px;
+  }
+  .oral-access-denied-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+  }
+  .oral-access-denied-block h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    margin-bottom: 8px;
+    color: #1A1A1A;
+  }
+  .oral-access-denied-block p {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 14px;
+    color: #6B6B6B;
+    line-height: 1.5;
+  }
+  .oral-access-denied-cta {
+    display: inline-block;
+    background: #CC2229;
+    color: white;
+    text-decoration: none;
+    padding: 16px 40px;
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 4px;
+    transition: background 0.2s;
+  }
+  .oral-access-denied-cta:hover {
+    background: #A11B20;
+  }
+  @media (max-width: 768px) {
+    .oral-access-denied-blocks {
+      grid-template-columns: 1fr;
+    }
+    .oral-access-denied-jury-bg {
+      gap: 12px;
+    }
+    .oral-access-jury-card {
+      width: 120px;
+      padding: 8px;
+    }
   }
 </style>
 </head>
@@ -1168,17 +1308,155 @@ Rupture conventionnelle : loi 6 août 2019, pérennisée par loi de finances 202
 
 Militaires : statut spécifique (Code défense), pas FP. BSPP/BMPM = militaires. SPP = FPT.`;
 
+// ============================================================
+// Helpers Memberstack — mini-portage local (Étape 5B)
+// ============================================================
+// Subset de l'index.html principal limité aux tiers donnant accès
+// au simulateur d'oral : 2b (Performance) et 3 (Excellence), plus
+// legacy_pack (acheteurs historiques) qui mappe vers 2b.
+// À retirer le jour de la fusion dans index.html (les helpers globaux
+// y existent déjà : getMemberstack(), getMemberTier(), hasTierAccess()).
+// ============================================================
+
+const PLAN_CATALOG_ORAL = {
+  '2b': {
+    label: 'Performance',
+    ids: [
+      'prc_performance-mensuel-qwjb03gp',
+      'prc_performance-annuel-dqb40e0f'
+    ]
+  },
+  '3': {
+    label: 'Excellence',
+    ids: ['prc_-excellence-mensuel-ih3u0avo']
+  },
+  'legacy_pack': {
+    label: 'Pack Complet (legacy)',
+    ids: ['prc_pack-complet-acc-s-plateforme-3-entretiens-n7o0ktj']
+  }
+};
+
+// Hiérarchie des tiers (du plus haut au plus bas)
+const TIER_HIERARCHY = ['3', '2b', 'legacy_pack'];
+
+/**
+ * Attend la disponibilité du SDK Memberstack avec timeout strict.
+ * Résout avec window.$memberstackDom ou null si timeout.
+ */
+function waitForMemberstack(timeoutMs = 3000) {
+  return new Promise(resolve => {
+    const start = Date.now();
+    const check = () => {
+      if (window.$memberstackDom) return resolve(window.$memberstackDom);
+      if (Date.now() - start >= timeoutMs) return resolve(null);
+      setTimeout(check, 100);
+    };
+    check();
+  });
+}
+
+/**
+ * Récupère le tier le plus haut du membre via planConnections.
+ * Compat double format (planConnections vs plans, status vs status absent).
+ * Retourne '3' | '2b' | null. Le tier 'legacy_pack' est mappé vers '2b'.
+ */
+function getMemberTierForOral(member) {
+  if (!member) return null;
+  const connections = member.planConnections || member.plans || [];
+  if (!Array.isArray(connections) || !connections.length) return null;
+
+  const ACTIVE_STATUSES = ['ACTIVE', 'TRIALING', 'COMPLETED', 'PAID'];
+
+  // Récupère les priceIds actifs du membre
+  const activeIds = new Set();
+  for (const c of connections) {
+    const status = (c.status || '').toUpperCase();
+    const isActive = status === '' || ACTIVE_STATUSES.includes(status);
+    if (!isActive) continue;
+    // Champs candidats (compat versions Memberstack)
+    const candidates = [
+      c.planId, c.priceId, c.id,
+      c.plan && c.plan.id, c.price && c.price.id,
+      c.payment && c.payment.priceId
+    ].filter(Boolean);
+    candidates.forEach(id => activeIds.add(id));
+  }
+
+  if (!activeIds.size) return null;
+
+  // Cherche le tier le plus haut dans la hiérarchie
+  for (const tier of TIER_HIERARCHY) {
+    const ids = PLAN_CATALOG_ORAL[tier].ids;
+    if (ids.some(id => activeIds.has(id))) {
+      return tier === 'legacy_pack' ? '2b' : tier;
+    }
+  }
+  return null;
+}
+
+/**
+ * Détermine si un tier donne accès au simulateur (2b ou 3).
+ */
+function hasOralAccess(tier) {
+  return tier === '2b' || tier === '3';
+}
+
 const OralSimulator = (function() {
   const CONFIG = { EXPOSE_DURATION: 300, QR_DURATION: 600, PREP_DURATION: 5, MAX_SESSIONS_PER_WEEK: 2 };
   let state = { sessionId: null, memberEmail: null, memberTier: null, weekIso: null, sessionsThisWeek: 0, exposeText: '', conversation: [], recognition: null, isRecording: false, timers: {}, startedAt: null, questionsCount: 0 };
 
   async function init() {
-    // Câblage Memberstack à venir étape 5 — fallback dev forcé pour l'instant
-    if (!state.memberEmail) {
-      console.warn('[TODO_MEMBERSTACK] Auth non câblée — étape 5 du plan. Mode test forcé.');
-      state.memberEmail = 'test-dev@local.test';
+    // V6 — Reset des guards d'idempotence (cf. endExpose / startQR)
+    state.exposeEnded = false;
+    state.qrStarted = false;
+
+    // === Étape 5B — Auth Memberstack ===
+    const ms = await waitForMemberstack(3000);
+    let member = null;
+    const memberstackAvailable = !!ms;
+
+    if (ms) {
+      try {
+        const res = await ms.getCurrentMember();
+        if (res && res.data) {
+          member = res.data.member || res.data; // compat 2 formats
+        }
+      } catch (e) {
+        console.error('[MEMBERSTACK] Erreur getCurrentMember', e);
+      }
+    } else {
+      console.error('[MEMBERSTACK] SDK indisponible après 3s (CDN bloqué ? AdBlock ?)');
     }
-    state.memberTier = TEST_CONFIG.tier || state.memberTier || '2b';
+
+    if (member && member.id) {
+      // === Cas 1 : membre connecté ===
+      const tier = getMemberTierForOral(member);
+      state.memberEmail = (member.auth && member.auth.email) || member.email || null;
+      state.memberTier = tier;
+      if (!hasOralAccess(tier)) {
+        showAccessDenied({ reason: 'tier-insufficient', currentTier: tier });
+        return;
+      }
+    } else {
+      // === Cas 2 : pas de membre connecté ===
+      // Fallback BRUYANT en mode mock local (dev only). Toute autre situation → accès refusé strict.
+      if (TEST_CONFIG.mode === 'mock' && !memberstackAvailable) {
+        console.error('═════════════════════════════════════════════════════════');
+        console.error('║  ⚠️  MODE DEV — AUTH MEMBERSTACK CONTOURNÉE  ⚠️              ║');
+        console.error('║  Fallback test-dev@local.test activé.                       ║');
+        console.error('║  Pour une vraie auth : recharge avec mode "proxy" ou        ║');
+        console.error('║  utilise le site sur lecheminduspp.fr (Memberstack chargé). ║');
+        console.error('═════════════════════════════════════════════════════════');
+        state.memberEmail = 'test-dev@local.test';
+        state.memberTier = TEST_CONFIG.tier || '2b';
+        showDevFallbackBanner();
+      } else {
+        showAccessDenied({ reason: 'not-connected' });
+        return;
+      }
+    }
+
+    // Suite de l'init existante
     CONFIG.EXPOSE_DURATION = TEST_CONFIG.exposeDuration;
     state.weekIso = _getCurrentWeekIso();
     // Masquer l'avertissement compatibilité si Chrome ou Edge (UA sniff simple)
@@ -1188,7 +1466,11 @@ const OralSimulator = (function() {
       const w = document.getElementById('oral-browser-warning');
       if (w) w.style.display = 'none';
     }
-    if (!['2b', '3'].includes(state.memberTier)) { showAccessDenied(); return; }
+    if (!['2b', '3'].includes(state.memberTier)) {
+      // Sécurité : double check (ne devrait pas arriver vu les checks ci-dessus)
+      showAccessDenied({ reason: 'tier-insufficient', currentTier: state.memberTier });
+      return;
+    }
     await loadQuota();
     await loadJuryQuestions();
     initSpeechSynthesis(); // V5b
@@ -2888,8 +3170,76 @@ Selon le type :
     setTimeout(() => startSession(), 300);
   }
 
-  function showAccessDenied() {
-    document.getElementById('oral-simulator-root').innerHTML = `<div style="max-width:600px;margin:80px auto;padding:48px;text-align:center;background:white;border:2px solid #1A1A1A;"><h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;">Le simulateur est réservé aux membres <em style="color:#CC2229;">Performance et Excellence</em>.</h2><p style="color:#6B6B6B;">Tier ${state.memberTier} non éligible.</p></div>`;
+  // Étape 5B — bandeau MODE DEV affiché quand le fallback est activé
+  function showDevFallbackBanner() {
+    const existing = document.getElementById('oral-dev-fallback');
+    if (existing) return; // évite les doublons
+    const banner = document.createElement('div');
+    banner.id = 'oral-dev-fallback';
+    banner.className = 'oral-dev-fallback-banner';
+    banner.innerHTML = '<span class="badge">MODE DEV</span> Auth Memberstack contournée — fallback test-dev@local.test (mode mock uniquement)';
+    document.body.appendChild(banner);
+  }
+
+  // Étape 5B — écran promotionnel : 3 cartes de jurés floutées + 3 blocs explicatifs + CTA
+  function showAccessDenied(opts) {
+    opts = opts || {};
+    const reason = opts.reason || 'tier-insufficient';
+
+    // 3 jurés tirés au sort pour le fond visuel (réutilise generateJury existant)
+    let juryFromState = null;
+    try { juryFromState = generateJury(); } catch (e) {}
+
+    const titleByReason = {
+      'not-connected': 'Le simulateur d\'oral est réservé aux membres Performance et Excellence',
+      'tier-insufficient': 'Le simulateur d\'oral est réservé aux membres Performance et Excellence'
+    };
+
+    document.getElementById('oral-simulator-root').innerHTML = `
+      <div class="oral-access-denied-wrap">
+        <div class="oral-access-denied-jury-bg" id="oral-access-jury-bg"></div>
+        <div class="oral-access-denied-content">
+          <h1 class="oral-access-denied-title">${titleByReason[reason] || titleByReason['tier-insufficient']}</h1>
+          <div class="oral-access-denied-blocks">
+            <div class="oral-access-denied-block">
+              <div class="oral-access-denied-icon">🎯</div>
+              <h3>Conditions réelles</h3>
+              <p>5 minutes d'exposé, 10 minutes de questions du jury. Comme le jour J.</p>
+            </div>
+            <div class="oral-access-denied-block">
+              <div class="oral-access-denied-icon">🧑‍⚖️</div>
+              <h3>3 jurés intelligents</h3>
+              <p>Un président officier, un sous-officier, un élu — chacun creuse ses sujets de prédilection.</p>
+            </div>
+            <div class="oral-access-denied-block">
+              <div class="oral-access-denied-icon">📊</div>
+              <h3>Débrief honnête</h3>
+              <p>Verdict détaillé sur 5 axes : motivation, métier, déontologie, expression, cohérence.</p>
+            </div>
+          </div>
+          <a href="https://lecheminduspp.fr/#formation" class="oral-access-denied-cta">Voir les formules</a>
+        </div>
+      </div>
+    `;
+
+    // Insère les 3 cartes de jurés floutées en fond si generateJury OK
+    if (juryFromState) {
+      const bg = document.getElementById('oral-access-jury-bg');
+      if (bg) {
+        ['officier', 'sousoff', 'elu'].forEach(role => {
+          const j = juryFromState[role];
+          if (!j) return;
+          const card = document.createElement('div');
+          card.className = 'oral-access-jury-card';
+          card.innerHTML = `
+            <div class="oral-access-jury-avatar">${getAvatarSvg(j, 80)}</div>
+            <div class="oral-access-jury-name">${j.prenom} ${j.nom}</div>
+            <div class="oral-access-jury-role">${j.grade}</div>
+          `;
+          bg.appendChild(card);
+        });
+      }
+    }
   }
 
   function escapeHtml(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#039;'); }
