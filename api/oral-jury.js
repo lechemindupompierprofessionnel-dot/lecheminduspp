@@ -115,7 +115,7 @@ export default async function handler(req, res) {
     }
     if (status >= 400 && status < 500) {
       logError('oral-jury:upstream-4xx', err, meta);
-      return res.status(status).json({ error: 'Requête refusée par Claude', details: err.message });
+      return res.status(status).json({ error: 'Requête refusée par Claude' });
     }
     logError('oral-jury:unknown', err, meta);
     return res.status(500).json({ error: 'Erreur interne proxy' });
