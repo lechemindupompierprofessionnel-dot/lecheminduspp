@@ -1237,6 +1237,10 @@ const OralSimulator = (function() {
   }
 
   async function startSession() {
+    // V6 — Reset des guards d'idempotence (cf. endExpose / startQR)
+    state.exposeEnded = false;
+    state.qrStarted = false;
+
     if (state.memberTier === '2b' && state.sessionsThisWeek >= CONFIG.MAX_SESSIONS_PER_WEEK) {
       alert('Quota atteint'); return;
     }
@@ -1509,6 +1513,16 @@ const OralSimulator = (function() {
   }
 
   function endExpose() {
+    // V6 — Garde d'idempotence : empêche les double-déclenchements
+    // (timer parasite enterRoom, double-clic candidat sur "Terminer", etc.)
+    // Sans ce guard, un 2e endExpose() relance startQR() qui reset
+    // state.relanceCount et casse la rotation des jurés.
+    if (state.exposeEnded) {
+      console.log('[GUARD] endExpose() ignoré — déjà exécuté');
+      return;
+    }
+    state.exposeEnded = true;
+
     clearInterval(state.timers.expose);
     stopSpeechRecognition();
     stopTakingNotesAnimation(); // V5b
@@ -1525,6 +1539,15 @@ const OralSimulator = (function() {
   }
 
   async function startQR() {
+    // V6 — Garde d'idempotence : double sécurité au cas où endExpose()
+    // est appelé deux fois malgré son propre guard. Empêche le reset
+    // accidentel de relanceCount / lastJurySpeaker / previousJurySpeaker.
+    if (state.qrStarted) {
+      console.log('[GUARD] startQR() ignoré — déjà exécuté');
+      return;
+    }
+    state.qrStarted = true;
+
     showScreen('qr');
 
     let elapsed = 0;
@@ -2826,6 +2849,10 @@ Selon le type :
   }
 
   function abandonSession() {
+    // V6 — Reset des guards d'idempotence (cf. endExpose / startQR)
+    state.exposeEnded = false;
+    state.qrStarted = false;
+
     if (!confirm('Quitter ?')) return;
     Object.values(state.timers).forEach(clearInterval);
     stopSpeechRecognition();
@@ -2834,6 +2861,10 @@ Selon le type :
   }
 
   function backToHome() {
+    // V6 — Reset des guards d'idempotence (cf. endExpose / startQR)
+    state.exposeEnded = false;
+    state.qrStarted = false;
+
     state.sessionId = null;
     state.conversation = [];
     state.exposeText = '';
@@ -2848,7 +2879,14 @@ Selon le type :
     showScreen('accueil');
   }
 
-  function restart() { backToHome(); setTimeout(() => startSession(), 300); }
+  function restart() {
+    // V6 — Reset des guards d'idempotence (cf. endExpose / startQR)
+    state.exposeEnded = false;
+    state.qrStarted = false;
+
+    backToHome();
+    setTimeout(() => startSession(), 300);
+  }
 
   function showAccessDenied() {
     document.getElementById('oral-simulator-root').innerHTML = `<div style="max-width:600px;margin:80px auto;padding:48px;text-align:center;background:white;border:2px solid #1A1A1A;"><h2 style="font-family:'Playfair Display',serif;font-size:32px;margin-bottom:16px;">Le simulateur est réservé aux membres <em style="color:#CC2229;">Performance et Excellence</em>.</h2><p style="color:#6B6B6B;">Tier ${state.memberTier} non éligible.</p></div>`;
