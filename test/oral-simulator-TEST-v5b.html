@@ -1843,7 +1843,9 @@ Le verdict général doit être HONNÊTE — n'enrobe pas, ne console pas. Cite 
 
 FORMAT DE RÉPONSE OBLIGATOIRE :
 
-Tu peux écrire un court paragraphe d'introduction si tu veux (1-2 phrases), puis tu DOIS produire un bloc JSON encadré exactement par les balises [DEBRIEF_JSON] et [/DEBRIEF_JSON]. Aucune virgule traînante, pas de commentaires JS, strings entre guillemets doubles uniquement.
+RÈGLE STRICTE : Tu commences DIRECTEMENT par [DEBRIEF_JSON]. AUCUN préambule, AUCUNE phrase d'introduction, AUCUN texte avant la balise. Tu peux ajouter un mot de conclusion APRÈS [/DEBRIEF_JSON] si tu veux, mais c'est optionnel et limité à 2 phrases maximum. Le préambule narratif coûte des tokens inutiles et tronque le débrief.
+
+Aucune virgule traînante, pas de commentaires JS, strings entre guillemets doubles uniquement.
 
 [DEBRIEF_JSON]
 {

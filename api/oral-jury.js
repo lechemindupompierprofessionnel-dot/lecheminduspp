@@ -85,8 +85,10 @@ export default async function handler(req, res) {
 
   // ---- max_tokens selon le type d'appel ----
   // Question jury : 600 suffit largement (1-3 phrases).
-  // Débrief        : 2000 (JSON structuré + 5 axes).
-  const maxTokens = requestType === 'debrief' ? 2000 : 600;
+  // Débrief        : 4000 — observé qu'avec 2000 le JSON peut être tronqué
+  //                  (préambule + verdict_texte + 5 axes complets ≈ 3000 tokens optimum).
+  //                  Marge de 1000 tokens en sécurité, Claude n'utilise que ce qu'il faut.
+  const maxTokens = requestType === 'debrief' ? 4000 : 600;
   const model = process.env.ANTHROPIC_MODEL || DEFAULT_MODEL;
 
   // ---- Appel Anthropic ----
