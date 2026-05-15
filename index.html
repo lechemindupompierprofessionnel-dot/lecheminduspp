@@ -9976,28 +9976,26 @@ function fetchStreakFromSupabase(cb) {
   if (!mid) { cb(null); return; }
 
   window.supabaseClient
-    .from('profiles')
-    .select('current_streak, longest_streak, last_activity_date')
-    .eq('memberstack_id', mid)
-    .maybeSingle()
+    .rpc('get_my_profile', { p_memberstack_id: mid })
     .then(function(res) {
-      if (res.error || !res.data) {
+      if (res.error || !res.data || !res.data.ok || !res.data.profile) {
         cb(null);
         return;
       }
+      var profile = res.data.profile;
       // Vérifie que la streak est encore "vivante" (last_activity = aujourd'hui ou hier)
       var today = todayISO();
       var yesterday = (function(){
         var d = new Date(); d.setDate(d.getDate()-1);
         return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
       })();
-      var lastActive = res.data.last_activity_date;
+      var lastActive = profile.last_activity_date;
       var streakValid = (lastActive === today || lastActive === yesterday);
 
       // Met à jour le cache local avec les valeurs canoniques
       var canonical = {
-        current: streakValid ? (res.data.current_streak || 0) : 0,
-        longest: res.data.longest_streak || 0,
+        current: streakValid ? (profile.current_streak || 0) : 0,
+        longest: profile.longest_streak || 0,
         lastDate: lastActive,
         had_break: false, // n'a plus de sens en mode serveur ; le serveur tranche
         syncedAt: Date.now()
