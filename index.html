@@ -10652,29 +10652,18 @@ function renderProfile() {
     return;
   }
 
-  // 1. Charger le profil par pseudo_lower
+  // Charge profil + badges en un seul appel (RPC consolidée)
   window.supabaseClient
-    .from('profiles')
-    .select('memberstack_id, pseudo, showcase_badge_id, created_at, is_banned, current_streak, longest_streak, last_activity_date')
-    .eq('pseudo_lower', pseudo.toLowerCase())
-    .maybeSingle()
+    .rpc('get_public_profile', { p_pseudo_lower: pseudo.toLowerCase() })
     .then(function(res) {
-      if (res.error || !res.data || res.data.is_banned) {
+      if (res.error || !res.data || !res.data.ok || !res.data.profile) {
         loader.style.display = 'none';
         notFound.style.display = 'block';
         return;
       }
-      var profile = res.data;
-      // 2. Charger ses badges
-      return window.supabaseClient
-        .from('badges_earned')
-        .select('badge_id, earned_at')
-        .eq('memberstack_id', profile.memberstack_id)
-        .then(function(badgesRes) {
-          renderProfileContent(profile, badgesRes.data || []);
-          loader.style.display = 'none';
-          content.style.display = 'block';
-        });
+      renderProfileContent(res.data.profile, res.data.badges || []);
+      loader.style.display = 'none';
+      content.style.display = 'block';
     })
     .catch(function(e){
       console.warn('[profile] error', e);
@@ -10711,26 +10700,10 @@ function renderProfileContent(profile, earnedBadges) {
   // Stats
   document.getElementById('prof-stat-count').textContent = ownedSet.size;
 
-  // Streak : on la lit depuis le profil Supabase. Si last_activity_date < hier,
-  // on considère que la streak est cassée et on affiche 0.
-  // (La streak sera officiellement remise à 1 dès que la personne redevient active.)
-  var streakVal = 0;
-  try {
-    var lastActivity = profile.last_activity_date; // format 'YYYY-MM-DD'
-    var rawStreak = profile.current_streak || 0;
-    if (lastActivity) {
-      var today = new Date();
-      var y = today.getFullYear(), m = today.getMonth(), d = today.getDate();
-      var todayDate = new Date(y, m, d);
-      var yesterdayDate = new Date(y, m, d - 1);
-      var lastParts = lastActivity.split('-');
-      var lastDate = new Date(parseInt(lastParts[0],10), parseInt(lastParts[1],10)-1, parseInt(lastParts[2],10));
-      // Streak valide uniquement si activité = aujourd'hui ou hier
-      if (lastDate.getTime() === todayDate.getTime() || lastDate.getTime() === yesterdayDate.getTime()) {
-        streakVal = rawStreak;
-      }
-    }
-  } catch(e) { streakVal = 0; }
+  // Streak : la RPC get_public_profile renvoie is_streak_alive (booléen
+  // calculé côté serveur à partir de last_activity_date — qui n'est plus
+  // exposé au client pour les profils d'autrui).
+  var streakVal = profile.is_streak_alive ? (profile.current_streak || 0) : 0;
 
   var streakEl = document.getElementById('prof-stat-streak');
   var streakLblEl = document.getElementById('prof-stat-streak-lbl');
