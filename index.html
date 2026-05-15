@@ -8497,17 +8497,17 @@ function checkPseudoAvailable(pseudo) {
   if (!window.supabaseClient) {
     return Promise.resolve({ available: true, error: null }); // fallback si Supabase pas chargé
   }
-  var lower = (pseudo || '').trim().toLowerCase();
   return window.supabaseClient
-    .from('profiles')
-    .select('id', { count: 'exact', head: true })
-    .eq('pseudo_lower', lower)
+    .rpc('is_pseudo_available', { p_pseudo: pseudo })
     .then(function(res) {
       if (res.error) {
         console.warn('[pseudo] check availability error', res.error);
         return { available: true, error: null }; // en cas d'erreur réseau, on laisse passer — RPC tranchera
       }
-      return { available: (res.count === 0), error: null };
+      if (!res.data || !res.data.ok) {
+        return { available: true, error: null }; // RPC malformée → on laisse passer, create_profile tranchera
+      }
+      return { available: res.data.available === true, error: null };
     })
     .catch(function(e) {
       console.warn('[pseudo] check availability exception', e);
