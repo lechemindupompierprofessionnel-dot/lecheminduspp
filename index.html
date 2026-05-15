@@ -8520,16 +8520,14 @@ function checkPseudoAvailable(pseudo) {
 function getProfileForMember(memberstackId) {
   if (!window.supabaseClient || !memberstackId) return Promise.resolve(null);
   return window.supabaseClient
-    .from('profiles')
-    .select('id, pseudo, showcase_badge_id, pseudo_changed_at, created_at, birthdate')
-    .eq('memberstack_id', memberstackId)
-    .maybeSingle()
+    .rpc('get_my_profile', { p_memberstack_id: memberstackId })
     .then(function(res) {
       if (res.error) {
         console.warn('[pseudo] getProfileForMember error', res.error);
         return null;
       }
-      return res.data || null;
+      if (!res.data || !res.data.ok) return null;
+      return res.data.profile || null;
     })
     .catch(function(e) {
       console.warn('[pseudo] getProfileForMember exception', e);
