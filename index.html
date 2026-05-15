@@ -10528,9 +10528,8 @@ function loadCandidatesList() {
   // On récupère les profils publics (non bannis, non masqués) avec un showcase_badge_id non null
   // (le showcase est auto-défini sur le 1er badge, donc ça exclut naturellement les "sans badge")
   return window.supabaseClient
-    .from('profiles')
-    .select('memberstack_id, pseudo, showcase_badge_id, created_at')
-    .eq('is_banned', false)
+    .from('profiles_public')
+    .select('pseudo, showcase_badge_id, created_at')
     .not('showcase_badge_id', 'is', null)
     .order('created_at', { ascending: false })
     .limit(500)
